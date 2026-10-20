@@ -50,3 +50,13 @@ def test_bins():
     k = levels.bin_index([-27.04, -27.0, -26.95], width=0.1, origin=-30.0)
     assert list(k) == [29, 30, 30]
     assert levels.bin_center(30, 0.1, -30.0) == pytest.approx(-26.95)
+
+
+def test_empirical_sigma_recovers_white_noise():
+    # Unbiased on average over replicates (one replicate's NMAD has ~5% sampling error).
+    days = np.arange(0, 3650, 10)
+    t = pd.Timestamp("2000-01-01") + pd.to_timedelta(days, unit="D")
+    signal = 0.3 * np.sin(2 * np.pi * days / 365.25) - 0.0002 * days
+    est = [levels.empirical_sigma(t, signal + np.random.default_rng(k).normal(0, 0.05, days.size))
+           for k in range(20)]
+    assert np.mean(est) == pytest.approx(0.05, rel=0.04)

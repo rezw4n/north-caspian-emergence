@@ -1,0 +1,84 @@
+{
+ "dahiti_noise_floor_m": 0.0613,
+ "hydroweb_noise_floor_m": 0.0281,
+ "q_dahiti_m2_per_day": 0.00017815642037174095,
+ "q_hydroweb_m2_per_day": 0.00017815642037174095,
+ "hydroweb_offset_m": 0.11402966768490685,
+ "hydroweb_offset_nmad_m": 0.07392010028885783,
+ "max_gap_days": 60.0,
+ "epoch_E1_end": "1995-07-06 17:31:11",
+ "n_scenes": 75603,
+ "by_sensor_source": {
+  "ETM_L7": {
+   "dahiti": 7206,
+   "hydroweb_shifted": 348,
+   "none": 0
+  },
+  "MSI_S2": {
+   "dahiti": 41771,
+   "hydroweb_shifted": 10454,
+   "none": 110
+  },
+  "OLI_L8": {
+   "dahiti": 5592,
+   "hydroweb_shifted": 778,
+   "none": 0
+  },
+  "OLI_L9": {
+   "dahiti": 1556,
+   "hydroweb_shifted": 734,
+   "none": 0
+  },
+  "TM_L5": {
+   "dahiti": 4885,
+   "hydroweb_shifted": 49,
+   "none": 2120
+  }
+ },
+ "by_sensor_epoch": {
+  "ETM_L7": {
+   "E1": 0,
+   "E2": 2726,
+   "E3": 4828,
+   "no_level": 0,
+   "pre_altimetry": 0
+  },
+  "MSI_S2": {
+   "E1": 0,
+   "E2": 0,
+   "E3": 52225,
+   "no_level": 110,
+   "pre_altimetry": 0
+  },
+  "OLI_L8": {
+   "E1": 0,
+   "E2": 0,
+   "E3": 6370,
+   "no_level": 0,
+   "pre_altimetry": 0
+  },
+  "OLI_L9": {
+   "E1": 0,
+   "E2": 0,
+   "E3": 2290,
+   "no_level": 0,
+   "pre_altimetry": 0
+  },
+  "TM_L5": {
+   "E1": 860,
+   "E2": 3838,
+   "E3": 236,
+   "no_level": 0,
+   "pre_altimetry": 2120
+  }
+ },
+ "sigma_m_percentiles_p50_p90_p99": [
+  0.057695249589957885,
+  0.06634458740045049,
+  0.08338226973892879
+ ],
+ "level_range_m": [
+  -28.905256348703286,
+  -25.68521264204145
+ ]
+}

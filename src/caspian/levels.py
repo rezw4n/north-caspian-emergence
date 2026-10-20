@@ -87,3 +87,27 @@ def bin_index(levels, width: float, origin: float = 0.0) -> np.ndarray:
 
 def bin_center(k, width: float, origin: float = 0.0):
     return origin + (np.asarray(k) + 0.5) * width
+
+
+def empirical_sigma(times, levels, max_gap_days: float = 30.0) -> float:
+    """Robust measurement-noise estimate of a level series (D-018).
+
+    Each record is predicted by linear interpolation from its two neighbours; with
+    w = (t_i - t_{i-1}) / (t_{i+1} - t_{i-1}) and i.i.d. noise sigma, the residual
+    has variance sigma^2 (1 + w^2 + (1 - w)^2). sigma is the NMAD of the scaled
+    residuals over triplets whose gaps are both <= ``max_gap_days``. Real
+    variability on time scales shorter than the gaps (e.g. wind setup) is included,
+    so the estimate is conservative."""
+    d = _days(times)
+    h = np.asarray(levels, float)
+    order = np.argsort(d)
+    d, h = d[order], h[order]
+    g1, g2 = d[1:-1] - d[:-2], d[2:] - d[1:-1]
+    keep = (g1 > 0) & (g2 > 0) & (g1 <= max_gap_days) & (g2 <= max_gap_days)
+    w = g1 / (g1 + g2)
+    pred = h[:-2] + (h[2:] - h[:-2]) * w
+    e = (h[1:-1] - pred) / np.sqrt(1 + w ** 2 + (1 - w) ** 2)
+    e = e[keep]
+    if e.size < 10:
+        raise ValueError("too few neighbour triplets")
+    return float(1.4826 * np.median(np.abs(e - np.median(e))))
