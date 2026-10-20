@@ -493,3 +493,17 @@ def test_eigen_geoid_used_for_both_products(tmp_path):
                       "sc_orient": 1})
     kept, _ = validation.prepare_icesat2(d, "ATL08", None, geoid=g)    # no ATL06 needed
     assert len(kept) == 1 and np.allclose(kept["h_orth"], -40.0 + 20.0)
+
+
+def test_block_size_check_sector_detrend_removes_offsets():
+    rng = np.random.default_rng(5)
+    n = 4000
+    x, y = rng.uniform(0, 200_000, n), rng.uniform(0, 100_000, n)
+    sector = np.where(x < 100_000, "a", "b")
+    r = np.where(sector == "a", 0.0, 2.0) + rng.normal(0, 0.2, n)     # a sector offset, white noise inside
+    pts = pd.DataFrame({"x": x, "y": y, "dem_h": r, "h_orth": 0.0, "split": "train", "sector": sector,
+                        "block": (x // 25_000).astype(int)})
+    raw, _ = validation.block_size_check(pts, max_lag=150_000)
+    det, _ = validation.block_size_check(pts, max_lag=150_000, detrend="sector")
+    assert raw["structure_test"]["detected"]                 # the offset looks like long-range structure
+    assert not det["structure_test"]["detected"] and det["final_block_size_m"] == 25_000.0

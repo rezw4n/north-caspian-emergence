@@ -152,6 +152,7 @@ def test_driver_stages(tmp_path, monkeypatch, drv):
     assert drv.main(["syn", "prepare", "--emergence", em, "--geoid", "atl06"]) == 0
 
     out = tmp_path / "results" / "validation" / "syn"
+    res = tmp_path / "results" / "validation" / "syn_all"   # the all population (D-084)
     meta = json.loads((out / "prepare.json").read_text())
     for product in ("ATL06", "ATL08"):
         g = meta["sources"][product]["granules"]
@@ -169,9 +170,9 @@ def test_driver_stages(tmp_path, monkeypatch, drv):
         assert {"dem_h", "interp_dist", "slope", "contour_density", "prod:etopo_2022", "prod:gebco_2026"} <= set(pts)
 
     with pytest.raises(SystemExit, match="blocksize"):
-        drv.main(["syn", "evaluate"])
-    assert drv.main(["syn", "blocksize"]) == 0
-    chk_path = out / "block_size_check.json"
+        drv.main(["syn", "evaluate", "--population", "all"])
+    assert drv.main(["syn", "blocksize", "--population", "all"]) == 0
+    chk_path = res / "block_size_check.json"
     chk = json.loads(chk_path.read_text())
     final = chk["final_block_size_m"]
     assert chk["status"] == "resolved"
@@ -180,23 +181,23 @@ def test_driver_stages(tmp_path, monkeypatch, drv):
     # an unresolved check (range beyond the largest lag) blocks the evaluation
     chk_path.write_text(json.dumps({**chk, "status": "unresolved", "final_block_size_m": None}))
     with pytest.raises(SystemExit, match="unresolved"):
-        drv.main(["syn", "evaluate"])
+        drv.main(["syn", "evaluate", "--population", "all"])
     chk_path.write_text(json.dumps(chk))
     # the enlarged size needs its block table, made by scripts/a6_blocks.py
     with pytest.raises(SystemExit, match="a6_blocks.py"):
-        drv.main(["syn", "evaluate"])
+        drv.main(["syn", "evaluate", "--population", "all"])
     _blocks(10_000).to_csv(tmp_path / "results" / "study_area" / "blocks_10km.csv", index=False)
-    assert drv.main(["syn", "evaluate"]) == 0
-    assert drv.main(["syn", "evaluate", "--block-size", "5000", "--sources", "ATL06"]) == 0   # sensitivity
-    assert (out / "sensitivity_5000m" / "ATL06_accuracy.csv").exists()
+    assert drv.main(["syn", "evaluate", "--population", "all"]) == 0
+    assert drv.main(["syn", "evaluate", "--population", "all", "--block-size", "5000", "--sources", "ATL06"]) == 0   # sensitivity
+    assert (res / "sensitivity_5000m" / "ATL06_accuracy.csv").exists()
     for product in ("ATL06", "ATL08"):
-        c = json.loads((out / f"{product}_datum_constant.json").read_text())["constant"]
+        c = json.loads((res / f"{product}_datum_constant.json").read_text())["constant"]
         assert c["constant_m"] == pytest.approx(C_TRUE, abs=0.03) and c["split"] == "train"
-        acc = pd.read_csv(out / f"{product}_accuracy.csv")
+        acc = pd.read_csv(res / f"{product}_accuracy.csv")
         assert {"dem", "etopo_2022|total", "gebco_2026|matched"} <= set(acc["model"])
-        boot = pd.read_csv(out / f"{product}_paired_bootstrap.csv")
+        boot = pd.read_csv(res / f"{product}_paired_bootstrap.csv")
         assert set(boot["variant"]) == {"total", "matched"} and (boot["n_boot"] == design.BOOTSTRAP_N).all()
-        cov = pd.read_csv(out / f"{product}_coverage.csv")
+        cov = pd.read_csv(res / f"{product}_coverage.csv")
         assert set(cov["scope"]) >= {"overall", "west", "volga"}
-        cal = json.loads((out / f"{product}_calibration.json").read_text())["calibration"]
+        cal = json.loads((res / f"{product}_calibration.json").read_text())["calibration"]
         assert set(cal["groups"]) >= set(caspian.geography.SECTOR_ORDER)

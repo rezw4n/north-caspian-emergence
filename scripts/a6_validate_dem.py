@@ -61,7 +61,7 @@ import numpy as np
 import pandas as pd
 import pyproj
 
-from caspian import design, validation
+from caspian import design, frequency, validation
 from caspian.config import CRS_EQUAL_AREA, INTERIM, PROCESSED, RESULTS
 
 SOURCES = ("ATL06", "ATL08")
@@ -239,13 +239,81 @@ def prepare(a) -> int:
     return 0
 
 
-def _load_points(tag: str, source: str) -> pd.DataFrame:
+POPULATIONS = ("bare", "vegetated", "all")
+VEG_CELL_SHARE = 0.5      # D-071: a cell is vegetated at an E3 emergent-vegetation share of at least 0.5
+
+
+def _annotations(tag: str, source: str, d: pd.DataFrame) -> pd.DataFrame:
+    """Per point (D-084): ``in_band``, inside the emerged band (water in the 1995-96 and
+    not water in the 2025-26 zone-v6 extent, the D-071 band); ``veg_share``, the E3
+    emergent-vegetation share (o - v) / o of the point's 60 m stage-2 cell (NaN with
+    fewer than design.MIN_VALID_OBS classified acquisitions). Cached next to the point
+    table and checked against its row count."""
+    import re
+    path = INTERIM / "validation" / tag / f"{source}_annotations.npz"
+    if path.exists():
+        z = np.load(path)
+        if len(z["in_band"]) == len(d):
+            return pd.DataFrame({"in_band": z["in_band"], "veg_share": z["veg_share"]})
+    ex = np.load(RESULTS / "study_area" / "extents_v6_250m.npz")
+    band = (ex["high"] == 1) & (ex["low"] == 0)
+    et = ex["transform"]
+    x, y = d["x"].to_numpy(float), d["y"].to_numpy(float)
+    er, ec = np.floor((y - et[5]) / et[4]).astype(int), np.floor((x - et[2]) / et[0]).astype(int)
+    ok = (er >= 0) & (er < band.shape[0]) & (ec >= 0) & (ec < band.shape[1])
+    in_band = np.zeros(len(d), bool)
+    in_band[ok] = band[er[ok], ec[ok]]
+    veg = np.full(len(d), np.nan)
+    pat = re.compile(r"([ov])_E3_b\d{3}_p[01]$")
+    for f in sorted((INTERIM / "stage2" / tag).glob("tile_*.npz")):
+        z = np.load(f)
+        o = v = None
+        for k in z.files:
+            m = pat.match(k)
+            if m:
+                arr = z[k].astype(np.int32)
+                if m.group(1) == "o":
+                    o = arr if o is None else o + arr
+                else:
+                    v = arr if v is None else v + arr
+        if o is None:
+            continue
+        share = frequency.vegetation_share(o, v, design.MIN_VALID_OBS)
+        t = z["transform"]
+        r, c = np.floor((y - t[5]) / t[4]).astype(int), np.floor((x - t[2]) / t[0]).astype(int)
+        hit = (r >= 0) & (r < share.shape[0]) & (c >= 0) & (c < share.shape[1]) & np.isnan(veg)
+        veg[hit] = share[r[hit], c[hit]]
+    np.savez_compressed(path, in_band=in_band, veg_share=veg.astype(np.float32))
+    return pd.DataFrame({"in_band": in_band, "veg_share": veg})
+
+
+def _load_points(tag: str, source: str, population: str = "bare") -> pd.DataFrame:
+    """The prepared points of one source, restricted to a reference population (D-084):
+    ``bare``, emerged seabed that is not vegetated (the H2 population); ``vegetated``,
+    emerged seabed in vegetated cells (brief section 10, check 9); ``all``, no
+    restriction (as prepared)."""
     p = _cache(tag, source)
     if not p.exists():
         raise SystemExit(f"no point table {p}: run the prepare stage first")
     d = pd.read_csv(p)
     d["time"] = pd.to_datetime(d["time"], format="ISO8601").to_numpy().astype("datetime64[ns]")
-    return d
+    if population == "all":
+        return d.reset_index(drop=True)
+    ann = _annotations(tag, source, d)
+    d["in_band"], d["veg_share"] = ann["in_band"].to_numpy(), ann["veg_share"].to_numpy()
+    if population == "bare":
+        d = d[d["in_band"] & (d["veg_share"] < VEG_CELL_SHARE)]
+    elif population == "vegetated":
+        d = d[d["in_band"] & (d["veg_share"] >= VEG_CELL_SHARE)]
+    else:
+        raise ValueError(f"unknown population {population!r}")
+    return d.reset_index(drop=True)
+
+
+def _res_dir(a) -> Path:
+    """Results folder of a stage: results/validation/<tag> for the H2 population, with a
+    suffix for the others (D-084)."""
+    return _out(a.tag) if a.population == "bare" else RESULTS / "validation" / f"{a.tag}_{a.population}"
 
 
 def _blocks(size_m: float) -> pd.DataFrame:
@@ -259,20 +327,32 @@ def _blocks(size_m: float) -> pd.DataFrame:
 def blocksize(a) -> int:
     base = float(design.BLOCK_SIZE_M)
     blocks = _blocks(base)
-    _out(a.tag).mkdir(parents=True, exist_ok=True)
+    _res_dir(a).mkdir(parents=True, exist_ok=True)
     recs = {}
     for source in a.sources:
-        pts = validation.attach_blocks(_load_points(a.tag, source), blocks, base)
+        pts = validation.attach_blocks(_load_points(a.tag, source, a.population), blocks, base)
         rec, vario = validation.block_size_check(pts, base=base)
-        vario.to_csv(_out(a.tag) / f"{source}_semivariogram.csv", index=False)
+        vario.to_csv(_res_dir(a) / f"{source}_semivariogram.csv", index=False)
+        if not rec["range_within_max_lag"]:
+            # D-084: no sill within the largest lag means a regional trend, not a stationary
+            # range; refit on residuals less each sector's training median
+            raw = rec
+            rec, vario = validation.block_size_check(pts, base=base, detrend="sector")
+            vario.to_csv(_res_dir(a) / f"{source}_semivariogram_detrended.csv", index=False)
+            rec["raw"] = raw
+            if not rec["range_within_max_lag"]:
+                rec["final_block_size_m"] = validation.BLOCK_SIZE_CAP_M
+                rec["capped"] = True
+                rec["range_within_max_lag"] = True     # resolved by the D-084 cap
         recs[source] = rec
         print(source, "practical range", round(rec["fit"]["practical_range"]), "m ->",
               rec["final_block_size_m"], "m", "" if rec["range_within_max_lag"] else "(beyond the largest lag)",
               flush=True)
     resolved = all(r["range_within_max_lag"] for r in recs.values())
     final = max(r["final_block_size_m"] for r in recs.values()) if resolved else None
-    _write(_out(a.tag) / "block_size_check.json",
-           {"created": _now(), "dem_tag": a.tag, "rule": "PREREG section 6; largest size over the sources",
+    _write(_res_dir(a) / "block_size_check.json",
+           {"created": _now(), "dem_tag": a.tag, "population": a.population,
+            "rule": "PREREG section 6; largest size over the sources",
             "status": "resolved" if resolved else "unresolved: a fitted range lies beyond the largest lag",
             "base_block_size_m": base, "final_block_size_m": final, "sources": recs})
     if not resolved:
@@ -285,7 +365,7 @@ def blocksize(a) -> int:
 
 
 def evaluate(a) -> int:
-    chk_path = _out(a.tag) / "block_size_check.json"
+    chk_path = _res_dir(a) / "block_size_check.json"
     if not chk_path.exists():
         raise SystemExit("PREREG section 6: the block size is checked before any test-block evaluation; "
                          "run the blocksize stage first")
@@ -297,11 +377,11 @@ def evaluate(a) -> int:
         raise SystemExit(f"block size check {chk['status']}; a decision is needed before any test-block evaluation")
     final = float(chk["final_block_size_m"])
     size = final if a.block_size is None else float(a.block_size)
-    out = _out(a.tag) if size == final else _out(a.tag) / f"sensitivity_{int(size)}m"
+    out = _res_dir(a) if size == final else _res_dir(a) / f"sensitivity_{int(size)}m"
     blocks = _blocks(size)
     out.mkdir(parents=True, exist_ok=True)
     for source in a.sources:
-        pts = validation.attach_blocks(_load_points(a.tag, source), blocks, size)
+        pts = validation.attach_blocks(_load_points(a.tag, source, a.population), blocks, size)
         products = {c.split(":", 1)[1]: c for c in pts.columns if c.startswith("prod:")}
         r = validation.run(pts, products)
         head = {"created": _now(), "dem_tag": a.tag, "source": source, "block_size_m": size,
@@ -325,6 +405,8 @@ def main(argv) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("tag")
     ap.add_argument("stage", choices=["prepare", "blocksize", "evaluate"])
+    ap.add_argument("--population", choices=POPULATIONS, default="bare",
+                    help="reference population (D-084): bare emerged seabed (H2), vegetated (check 9), all")
     ap.add_argument("--sources", default=",".join(SOURCES))
     ap.add_argument("--emergence", default=None)
     ap.add_argument("--products", default=None)

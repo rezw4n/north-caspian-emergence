@@ -437,9 +437,12 @@ def percentile_interval(boot, conf: float = 0.95) -> tuple[float, float]:
 
 # --- fitted on training blocks --------------------------------------------------------
 
+BLOCK_SIZE_CAP_M = 50_000.0     # D-084: the largest size of the PREREG section 6 sensitivity set
+
+
 def block_size_check(points: pd.DataFrame, base: float = design.BLOCK_SIZE_M, bin_width: float = VARIO_BIN_M,
                      max_lag: float = VARIO_MAX_LAG_M, max_pairs: int = VARIO_MAX_PAIRS,
-                     seed: int = design.SEED) -> tuple[dict, pd.DataFrame]:
+                     seed: int = design.SEED, detrend: str | None = None) -> tuple[dict, pd.DataFrame]:
     """PREREG section 6: exponential semivariogram of DEM - H_EGM2008 in training blocks
     (the datum constant cancels in a semivariogram) and the block size it implies
     (caspian.blocking). Returns (record, empirical semivariogram).
@@ -451,6 +454,11 @@ def block_size_check(points: pd.DataFrame, base: float = design.BLOCK_SIZE_M, bi
     recorded to inform it."""
     tr = split_rows(points, "train")
     r = (tr["dem_h"] - tr["h_orth"]).to_numpy(float)
+    if detrend == "sector":       # D-084: residuals less each sector's training median
+        med = pd.Series(r).groupby(tr["sector"].to_numpy()).transform("median").to_numpy()
+        r = r - med
+    elif detrend is not None:
+        raise ValueError(f"unknown detrend {detrend!r}")
     ok = np.isfinite(r)
     vario = blocking.empirical_semivariogram(tr["x"].to_numpy()[ok], tr["y"].to_numpy()[ok], r[ok],
                                              bin_width, max_lag, max_pairs, seed)
@@ -464,7 +472,8 @@ def block_size_check(points: pd.DataFrame, base: float = design.BLOCK_SIZE_M, bi
              "bin_width_m": bin_width, "max_lag_m": max_lag, "max_pairs": max_pairs, "seed": seed,
              "fit": fit, "partial_sill_share": float(fit["partial_sill"] / sill) if sill > 0 else float("nan"),
              "range_within_max_lag": bool(fit["practical_range"] <= vario["lag"].max()),
-             "structure_test": test, "base_block_size_m": float(base), "final_block_size_m": final}, vario)
+             "structure_test": test, "detrend": detrend, "base_block_size_m": float(base),
+             "final_block_size_m": final}, vario)
 
 
 def fit_datum_constant(points: pd.DataFrame, n_boot: int = design.BOOTSTRAP_N, seed: int = design.SEED) -> dict:
