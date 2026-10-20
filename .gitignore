@@ -1,0 +1,49 @@
+# --- secrets (never commit) ---
+.env
+.env.*
+*.env
+.netrc
+_netrc
+*.pem
+*.key
+credentials
+credentials.json
+*credentials*.json
+*service-account*.json
+*token*.txt
+.config/earthengine/
+.earthdata*
+
+# --- data (large; kept locally or in Drive) ---
+data/
+*.tif
+*.tiff
+# 600 dpi TIFF figures are rebuilt by make; vector PDFs are committed
+*.nc
+*.h5
+*.zip
+
+# --- generated outputs that are rebuilt by make ---
+outputs/cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# --- LaTeX build ---
+manuscript/*.aux
+manuscript/*.log
+manuscript/*.out
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.fls
+manuscript/*.fdb_latexmk
+manuscript/*.synctex.gz
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
