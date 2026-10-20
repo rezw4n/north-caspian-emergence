@@ -1,0 +1,39 @@
+# Top-level spec for the North Caspian pipeline (conda-forge only).
+# Exact versions are pinned after the first solve; the full explicit lock
+# (every package, URL and md5) is in requirements.lock (win-64).
+name: caspian
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11.17
+  - earthengine-api=1.7.49
+  - earthaccess=0.17.0
+  - numpy=2.4.6
+  - pandas=3.0.6
+  - xarray=2026.9.0
+  - rioxarray=0.19.0
+  - rasterio=1.4.4
+  - geopandas=1.2.0
+  - pyogrio=0.12.1
+  - shapely=2.2.0
+  - pyproj=3.7.2
+  - scikit-image=0.26.0
+  - scipy=1.17.1
+  - scikit-learn=1.9.1
+  - statsmodels=0.15.0
+  - matplotlib=3.11.2
+  - cartopy=0.26.0
+  - cmocean=4.0.3
+  - cmcrameri=1.10
+  - matplotlib-scalebar=0.9.0
+  - h5py=3.16.0
+  - netcdf4=1.7.4
+  - pykrige=1.7.3
+  - requests=2.34.2
+  - pyyaml=6.0.3
+  - tqdm=4.70.1
+  - pytest=9.1.1
+  - pypdf=6.21.1
+  - make=4.4.1
+  - gh=2.102.0
