@@ -1,0 +1,22 @@
+{
+ "domain_km2": 224136.6,
+ "sectors_km2": {
+  "west": 19823.7,
+  "volga": 54186.8,
+  "interfluve": 11298.0,
+  "ural": 6479.9,
+  "northeast": 34278.5,
+  "komsomolets": 25491.3,
+  "open_shelf": 69759.5
+ },
+ "names": {
+  "west": "Kizlyar Bay - Dagestan - Kalmyk coast",
+  "volga": "Volga delta",
+  "interfluve": "Volga-Ural interfluve coast",
+  "ural": "Ural delta",
+  "northeast": "NE Kazakh coast (Tengiz-Kashagan)",
+  "komsomolets": "Komsomolets Bay (Mertvyi Kultuk) and Kaidak",
+  "open_shelf": "Open shelf"
+ },
+ "geojson_sha256": "ac47d38c377bd3f62d20e91b00b8780a1d54cc4e5b4ccbbac411df452db05e3f"
+}
