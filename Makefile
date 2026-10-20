@@ -6,7 +6,7 @@ PYTHON  ?= python
 MAMBA   ?= micromamba
 ENVNAME ?= caspian
 
-.PHONY: help env lock test dahiti-qc study-area verify-0 verify-A verify-B all
+.PHONY: help env lock test dahiti-download dahiti-qc study-area verify-0 verify-A verify-B all
 
 help:
 	@echo "targets: env lock test dahiti-qc verify-0 verify-A verify-B all"
@@ -34,6 +34,9 @@ verify-B:
 	$(PYTHON) tools/verify.py B
 
 ## Phase 0 -----------------------------------------------------------------
+dahiti-download:
+	$(PYTHON) scripts/p0_dahiti_download.py
+
 dahiti-qc:
 	$(PYTHON) scripts/p0_dahiti_qc.py
 
