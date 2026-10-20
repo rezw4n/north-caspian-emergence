@@ -22,6 +22,7 @@ from .geography import DOMAIN
 
 LOWSTAND = ("2025-05-01", "2026-09-30")
 ZONE_DILATE_M = 2000
+OCC_LO, OCC_HI = 2, 98   # GSW occurrence (%) band that marks a changing water status (D-023)
 ZONE_SCALE = 250   # zone mask grid (m)
 HIST_SCALE = 60    # per-scene MNDWI histogram sampling for Otsu (m)
 
@@ -49,8 +50,8 @@ def active_zone(region=None, scale: float = 250):
     gsw = ee.Image("JRC/GSW1_4/GlobalSurfaceWater")
     occ = gsw.select("occurrence").unmask(0).reproject(proj)
     low = lowstand_water(region).reproject(proj)
-    changed = occ.gt(0).And(occ.lt(100))
-    lost_since = occ.gte(99).And(low.Not())
+    changed = occ.gt(OCC_LO).And(occ.lt(OCC_HI))
+    lost_since = occ.gte(OCC_HI).And(low.Not())
     radius_px = max(int(round(ZONE_DILATE_M / scale)), 1)
     zone = changed.Or(lost_since).focalMax(radius_px, "circle", "pixels").reproject(proj)
     return zone.selfMask().clip(region).rename("zone")
