@@ -218,8 +218,7 @@
    ]
   },
   "-3_-1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm3_m1",
-   "task": "TDS37LTBTC3F6FQZJIG5UTRI",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -232,7 +231,7 @@
     1167,
     1667
    ],
-   "area_km2": 4357.0,
+   "area_km2": 4350.0,
    "groups": [
     "E1_b034_p0",
     "E1_b034_p1",
@@ -325,7 +324,8 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 38329.1
   },
   "-3_0": {
    "mode": "interactive",
@@ -438,8 +438,7 @@
    "eecu_s": 24742.2
   },
   "-3_1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm3_1",
-   "task": "JKJP7VHXWN52BE3F5S4NQTCM",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -545,11 +544,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 4518.9
   },
   "-3_2": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm3_2",
-   "task": "QVX4EINPTNZF3VIT7OOPEDP4",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -655,11 +654,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 2268.5
   },
   "-2_-2": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm2_m2",
-   "task": "4HSRRBT4IVN6PMCMUBUORQZQ",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -765,11 +764,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 27501.2
   },
   "-2_-1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm2_m1",
-   "task": "7FOWXJU7IU2VITTD7FPQ3TAK",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -875,11 +874,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 47547.7
   },
   "-2_0": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm2_0",
-   "task": "CM4PJGREM7BQKFSEVRF35L7A",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -985,11 +984,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 46156.4
   },
   "-2_1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm2_1",
-   "task": "K2BMYSASDNFB327BSJKVSPTT",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -1095,11 +1094,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 55755.3
   },
   "-2_2": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm2_2",
-   "task": "SGTR6XXB3YNTAMGOYNIEQQ3J",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -1205,7 +1204,8 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 704.8
   },
   "-1_-2": {
    "mode": "interactive",
@@ -1318,8 +1318,7 @@
    "eecu_s": 11633.6
   },
   "-1_-1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm1_m1",
-   "task": "42SRGO3FJQ5AOWWPCPYY5SYF",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -1425,11 +1424,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 21709.8
   },
   "-1_0": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm1_0",
-   "task": "VNXN3MYKD566SFRWMFPLZXJU",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -1535,11 +1534,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 42720.2
   },
   "-1_1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_tm1_1",
-   "task": "PQD5SKN3AAPY45GMLPDSACUC",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -1645,11 +1644,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 23165.2
   },
   "0_-2": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t0_m2",
-   "task": "RX7REIKRSX6RH4AWTYPF4ZVT",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -1755,11 +1754,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 3921.1
   },
   "0_-1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t0_m1",
-   "task": "4M2ZKZWB4ARRTSO6CHEWKUA3",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -1865,11 +1864,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 54939.3
   },
   "0_0": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t0_0",
-   "task": "PUWEEDI4O56LDLVB5FWKHQCW",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -1975,11 +1974,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 1260.6
   },
   "0_1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t0_1",
-   "task": "USJXXV37PJ6K6TDC4DKSTWXZ",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -2085,11 +2084,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 49738.7
   },
   "1_-2": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t1_m2",
-   "task": "OTCSXNQQUNEEZJCL43AVCHQG",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -2195,11 +2194,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 1882.9
   },
   "1_-1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t1_m1",
-   "task": "XBADB2NW2FX3TAU6YHACL4BL",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -2305,7 +2304,8 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 59160.7
   },
   "1_0": {
    "mode": "interactive",
@@ -2418,8 +2418,7 @@
    "eecu_s": 31816.7
   },
   "1_1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t1_1",
-   "task": "QUGQGNC2B446ALZJTLNQWIRC",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -2525,11 +2524,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 53036.0
   },
   "1_2": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t1_2",
-   "task": "RCPD2QRGCUE2FV2UO7PG2BLQ",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -2635,11 +2634,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 903.0
   },
   "2_-2": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t2_m2",
-   "task": "UYDAWLJLZNR7RMCXC2FNZNBP",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -2745,11 +2744,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 6916.7
   },
   "2_-1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t2_m1",
-   "task": "4APHPAOXRUU4JHBZEJMXXWBK",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -2855,11 +2854,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 59467.8
   },
   "2_0": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t2_0",
-   "task": "WFWQKPLXD4TN5NN6OXYAIHGH",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -2965,11 +2964,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 45194.9
   },
   "2_1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t2_1",
-   "task": "JG4F3MHLCSJT4HOJYHC6AEPJ",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -3075,11 +3074,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 30103.2
   },
   "3_-1": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t3_m1",
-   "task": "AYV5RZCVAYUXORMAS2MR7HWB",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -3185,11 +3184,11 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 23178.1
   },
   "3_0": {
-   "asset": "projects/ee-rezwanahmed/assets/caspian/stage2_mainL_t3_0",
-   "task": "KT4M7AYSM4Q4LEEPW7VSIMAU",
+   "mode": "interactive",
    "transform": [
     60,
     0,
@@ -3295,7 +3294,8 @@
     "w",
     "v",
     "o"
-   ]
+   ],
+   "eecu_s": 12174.9
   }
  }
 }
