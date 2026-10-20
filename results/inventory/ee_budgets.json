@@ -13,5 +13,9 @@
  "active_zone_v5_tiles": 600,
  "extents_v6": 6000,
  "active_zone_v6": 3000,
- "active_zone_v6_tiles": 600
+ "active_zone_v6_tiles": 600,
+ "stage2_test_": 8000,
+ "stage2_main_": 120000,
+ "stage2_sens_": 120000,
+ "stage2_testL_": 3000
 }
