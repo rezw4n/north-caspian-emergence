@@ -32,3 +32,25 @@ def interpolation_distance(points_xy, gx, gy):
     tree = cKDTree(np.asarray(points_xy, float))
     d, _ = tree.query(np.column_stack([gx.ravel(), gy.ravel()]))
     return d.reshape(gx.shape)
+
+
+def emergence_days(z, t_days, level):
+    """Emergence date of seabed at height ``z`` (PREREG section 2; D-069): the first
+    date of the level series after the last date on which the level was at or above
+    z, so the pixel stayed dry from then on. ``t_days`` (ascending, days since
+    1970-01-01) and ``level`` are the basin-level series on the DEM's reference.
+    NaN where z is above every level of the series (never sea in the record) or at or
+    below its last level (not yet emerged), and where z is NaN."""
+    t = np.asarray(t_days, float)
+    lv = np.asarray(level, float)
+    if t.ndim != 1 or t.shape != lv.shape or not np.all(np.diff(t) > 0):
+        raise ValueError("t_days must be strictly ascending and match level")
+    if not np.isfinite(lv).all():
+        raise ValueError("the level series must be finite")
+    z = np.asarray(z, float)
+    m = np.maximum.accumulate(lv[::-1])[::-1]          # max of the level from each date on
+    k = np.searchsorted(-m, -np.where(np.isfinite(z), z, np.inf), side="right") - 1
+    out = np.full(z.shape, np.nan)
+    ok = np.isfinite(z) & (k >= 0) & (z > lv[-1])
+    out[ok] = t[k[ok] + 1]
+    return out

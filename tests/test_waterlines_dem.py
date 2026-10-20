@@ -52,3 +52,22 @@ def test_contour_points_spacing():
 
     pts = waterlines.contour_points([LineString([(0, 0), (10, 0)])], spacing=1.0)
     assert len(pts) == 11 and pts[-1, 0] == pytest.approx(10)
+
+
+def test_emergence_days_last_crossing_and_edges():
+    from caspian import dem
+    t = np.arange(10.0)
+    lv = np.array([-26.0, -26.5, -26.2, -27.0, -27.5, -27.2, -27.8, -28.0, -28.1, -28.2])
+    z = np.array([-26.1, -26.6, -27.1, -27.3, -27.9, -25.0, -28.2, -28.5, np.nan])
+    e = dem.emergence_days(z, t, lv)
+    # last day with level >= z, plus one sample
+    assert e[0] == 1          # only day 0 (-26.0) reaches -26.1
+    assert e[1] == 3          # days 0-2 reach -26.6
+    assert e[2] == 4          # day 3 (-27.0) is the last to reach -27.1
+    assert e[3] == 6          # the level fell below -27.3 on day 4 but rose back to -27.2 on day 5
+    assert e[4] == 7          # day 6 (-27.8) is the last to reach -27.9
+    assert np.isnan(e[5])     # above every level: never sea in the record
+    assert np.isnan(e[6])     # at the last level: not yet emerged
+    assert np.isnan(e[7]) and np.isnan(e[8])
+    with pytest.raises(ValueError):
+        dem.emergence_days(z, t[::-1], lv)
