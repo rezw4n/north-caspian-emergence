@@ -395,3 +395,9 @@ No level-binned water frequency, waterline, contour, DEM or metric existed. Stag
 8. **§3 water classification (D-068):** normalized differences take negative reflectance as 0, so Earth Engine's masking of negative inputs no longer drops clear-water observations. Stage 1 was rerun under this definition, and run-2 thresholds are not used.
 
 **Reason.** Each item either fixes a rule that the text left open, or corrects a defect found by tests or diagnostics before any outcome existed (items 1 and 8). None was chosen with sight of an outcome; the decision log holds the details and alternatives.
+
+## Amendment 12 — 2026-10-21 02:40 (data, §3–§4; before any main stage-2 output, water frequency, waterline, DEM or metric existed)
+
+**Change.** The main stage-2 water frequencies, and therefore the waterlines, the DEM, the hindcast observed extents and the emergence analysis, use **Landsat 5/7/8/9 only**. Sentinel-2 MSI is used in stage 1 (thresholds and snow diagnostics) and in a robustness check, run on test blocks only if the quota allows.
+
+**Reason (D-079).** Measured costs: Sentinel-2 costs about 4.5 times Landsat per km² (about 700 EECU-hours interactive), which exceeds the 70% monthly Earth Engine cap set by the project rules. Batch execution runs at 0.5–2.5 EECU-s per second per task with two tasks at a time, so it would take several days. Landsat alone provides 4,103 acquisitions in 43 level bins over 1984–2026. **Acquisition halves:** parities were assigned over all sensors in time order. Within Landsat they remain disjoint and independent, with a median parity-0 share per bin of 0.502.
