@@ -126,6 +126,10 @@ def main() -> int:
             put(m, r["key"], v, r["unit"], f"doi:{r['doi']} ({r['location']})")
             m[r["key"]]["decimals"] = dp  # keep the precision written in the source
 
+    # Analysis parameters exported from the code constants (tools/export_params.py).
+    for k, rec in load("params.json").items():
+        put(m, k, rec["value"], rec["unit"], rec["source"])
+
     out = RES / "metrics.json"
     out.write_text(json.dumps(dict(sorted(m.items())), indent=1, ensure_ascii=False), encoding="utf-8")
     print(f"wrote {len(m)} metrics to {out.relative_to(ROOT)}")

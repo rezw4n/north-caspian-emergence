@@ -51,6 +51,7 @@ scene-levels:
 	$(PYTHON) scripts/a4_scene_levels.py
 
 metrics:
+	$(PYTHON) tools/export_params.py
 	$(PYTHON) tools/build_metrics.py
 	$(PYTHON) tools/make_macros.py
 
