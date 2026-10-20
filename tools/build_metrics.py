@@ -61,6 +61,9 @@ def main() -> int:
     put(m, "levels.dahiti.max_m", dq.get("level_max_m"), "m (DAHITI reference)", src)
     put(m, "levels.dahiti.date_of_min", (dq.get("time_of_min") or "")[:10] or None, "date", src)
     put(m, "levels.dahiti.date_of_max", (dq.get("time_of_max") or "")[:10] or None, "date", src)
+    if dq.get("level_max_m") is not None and dq.get("level_min_m") is not None:
+        put(m, "levels.dahiti.range_m", round(dq["level_max_m"] - dq["level_min_m"], 3), "m", src,
+            "record maximum minus minimum")
 
     put(m, "levels.dahiti.sigma_formal_max_m", dq.get("sigma_max_m"), "m", src, "formal wse_u")
     rpy = {int(k): v for k, v in (dq.get("records_per_year") or {}).items()}
@@ -110,6 +113,18 @@ def main() -> int:
         put(m, "levels.scene_sigma_p50_m", p50, "m", src)
         put(m, "levels.scene_sigma_p90_m", p90, "m", src)
         put(m, "levels.scene_sigma_p99_m", p99, "m", src)
+
+    # Values quoted from the literature (refs/literature_values.csv: value, unit, DOI,
+    # location, verbatim quote); they enter the text through the same macros.
+    import csv
+    lit = ROOT / "refs" / "literature_values.csv"
+    if lit.exists():
+        for r in csv.DictReader(lit.open(encoding="utf-8")):
+            raw = r["value"].strip()
+            dp = len(raw.split(".")[1]) if "." in raw else 0
+            v = float(raw) if dp else int(raw)
+            put(m, r["key"], v, r["unit"], f"doi:{r['doi']} ({r['location']})")
+            m[r["key"]]["decimals"] = dp  # keep the precision written in the source
 
     out = RES / "metrics.json"
     out.write_text(json.dumps(dict(sorted(m.items())), indent=1, ensure_ascii=False), encoding="utf-8")

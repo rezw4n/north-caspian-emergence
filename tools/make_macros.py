@@ -31,14 +31,21 @@ MONTHS = ["January", "February", "March", "April", "May", "June", "July", "Augus
           "October", "November", "December"]
 
 
-def fmt(key: str, v) -> str:
+def _signed(v, body: str) -> str:
+    return ("\\textminus{}" + body) if v < 0 else body
+
+
+def fmt(key: str, v, decimals: int | None = None) -> str:
     if isinstance(v, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", v):
         y, mo, d = (int(x) for x in v.split("-"))
         return f"{d} {MONTHS[mo - 1]} {y}"
     if isinstance(v, bool):
         return str(v)
+    if decimals is not None and isinstance(v, (int, float)):
+        # literature values keep the precision written in the source
+        return _signed(v, f"{abs(v):,.{decimals}f}".replace(",", "\\,"))
     if isinstance(v, int):
-        return f"{v:,}".replace(",", "\\,")
+        return _signed(v, f"{abs(v):,}".replace(",", "\\,"))
     if isinstance(v, float):
         dp = 2
         for pat, d in FORMATS:
@@ -63,7 +70,7 @@ def main() -> int:
              "{\\PackageError{metrics}{Unknown metric #1}{Add it to results/metrics.json}}"
              "{\\csname metric@#1\\endcsname}}"]
     for k, rec in metrics.items():
-        lines.append(f"\\@namedef{{metric@{k}}}{{{fmt(k, rec['value'])}}}")
+        lines.append(f"\\@namedef{{metric@{k}}}{{{fmt(k, rec['value'], rec.get('decimals'))}}}")
     lines.append("\\makeatother")
     out = ROOT / "manuscript" / "numbers.tex"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")

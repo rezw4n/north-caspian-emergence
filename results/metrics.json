@@ -180,6 +180,12 @@
   "unit": "records",
   "source": "results/qc/dahiti_summary.json"
  },
+ "levels.dahiti.range_m": {
+  "value": 3.237,
+  "unit": "m",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "record maximum minus minimum"
+ },
  "levels.dahiti.records_per_year_1993_2021_median": {
   "value": 27,
   "unit": "records per year",
@@ -291,6 +297,108 @@
   "value": 0.08338226973892879,
   "unit": "m",
   "source": "results/levels/scene_levels_summary.json"
+ },
+ "lit.akbari2020.nc_area_per_m_km2": {
+  "value": 7103,
+  "unit": "km2 per m",
+  "source": "doi:10.1088/1748-9326/abaad8 (Table 1 p. 10)",
+  "decimals": 0
+ },
+ "lit.akbari2020.nc_depth_hi_m": {
+  "value": 6,
+  "unit": "m",
+  "source": "doi:10.1088/1748-9326/abaad8 (§2.1 p. 4)",
+  "decimals": 0
+ },
+ "lit.akbari2020.nc_depth_lo_m": {
+  "value": 5,
+  "unit": "m",
+  "source": "doi:10.1088/1748-9326/abaad8 (§2.1 p. 4)",
+  "decimals": 0
+ },
+ "lit.akbari2020.nc_volume_share_pct": {
+  "value": 1,
+  "unit": "% of sea volume (upper bound)",
+  "source": "doi:10.1088/1748-9326/abaad8 (§2.1 p. 4)",
+  "decimals": 0
+ },
+ "lit.bocharov2026.max_area_diff_pct": {
+  "value": 5.75,
+  "unit": "%",
+  "source": "doi:10.21046/2070-7401-2026-23-3-291-303 (Results p. 9 (Russian; translated))",
+  "decimals": 2
+ },
+ "lit.court2025.max_decline_2100_m": {
+  "value": 21,
+  "unit": "m",
+  "source": "doi:10.1038/s43247-025-02212-5 (Abstract)",
+  "decimals": 0
+ },
+ "lit.court2025.mpa_loss_max_pct": {
+  "value": 94,
+  "unit": "%",
+  "source": "doi:10.1038/s43247-025-02212-5 (Abstract)",
+  "decimals": 0
+ },
+ "lit.ginzburg2025.level_end2024_bhs_m": {
+  "value": -29.34,
+  "unit": "m BHS",
+  "source": "doi:10.21046/2070-7401-2025-22-6-312-325 (English abstract p. 12)",
+  "decimals": 2
+ },
+ "lit.ginzburg2025.min1977_bhs_m": {
+  "value": -29.0,
+  "unit": "m BHS",
+  "source": "doi:10.21046/2070-7401-2025-22-6-312-325 (English abstract p. 12)",
+  "decimals": 1
+ },
+ "lit.ginzburg2025.rate_2020_2024_cm_per_yr": {
+  "value": -22.7,
+  "unit": "cm per year",
+  "source": "doi:10.21046/2070-7401-2025-22-6-312-325 (English abstract p. 12)",
+  "decimals": 1
+ },
+ "lit.samant2023.ssp245_hi_m": {
+  "value": 15,
+  "unit": "m",
+  "source": "doi:10.1038/s43247-023-01017-8 (Abstract)",
+  "decimals": 0
+ },
+ "lit.samant2023.ssp245_lo_m": {
+  "value": 2,
+  "unit": "m",
+  "source": "doi:10.1038/s43247-023-01017-8 (Abstract)",
+  "decimals": 0
+ },
+ "lit.samant2023.ssp245_m": {
+  "value": 8,
+  "unit": "m",
+  "source": "doi:10.1038/s43247-023-01017-8 (Abstract)",
+  "decimals": 0
+ },
+ "lit.samant2023.ssp585_hi_m": {
+  "value": 21,
+  "unit": "m",
+  "source": "doi:10.1038/s43247-023-01017-8 (Abstract)",
+  "decimals": 0
+ },
+ "lit.samant2023.ssp585_lo_m": {
+  "value": 11,
+  "unit": "m",
+  "source": "doi:10.1038/s43247-023-01017-8 (Abstract)",
+  "decimals": 0
+ },
+ "lit.samant2023.ssp585_m": {
+  "value": 14,
+  "unit": "m",
+  "source": "doi:10.1038/s43247-023-01017-8 (Abstract)",
+  "decimals": 0
+ },
+ "lit.weatherall2015.control_share_pct": {
+  "value": 18,
+  "unit": "% of non-land cells",
+  "source": "doi:10.1002/2015ea000107 (Abstract)",
+  "decimals": 0
  },
  "study_area.domain_km2": {
   "value": 224136.6,
