@@ -1,0 +1,40 @@
+{
+ "source": "OpenStreetMap via Overpass API",
+ "endpoint": "https://overpass-api.de/api/interpreter",
+ "licence": "ODbL 1.0",
+ "attribution": "(c) OpenStreetMap contributors",
+ "bbox_swne": "43.9677,46.4,47.35,54.6",
+ "queried_utc": "2026-10-20T11:41:07+00:00",
+ "layers": {
+  "ports": {
+   "n_features_in_domain": 587,
+   "osm_timestamp": "2026-10-20T11:40:41Z",
+   "sha256": "f67a0094ed440e6b1a527ffe1ad64160f7211d33b2b172463f3c05b3a87fb035"
+  },
+  "settlements": {
+   "n_features_in_domain": 521,
+   "osm_timestamp": "2026-10-20T11:43:49Z",
+   "sha256": "aca31cce27294699523a4f232a830cddf87b969d3f8fb15758116dc8fd133812"
+  },
+  "pipelines": {
+   "n_features_in_domain": 693,
+   "osm_timestamp": "2026-10-20T11:44:50Z",
+   "sha256": "44cc2ad58d779327cf8407fb617b446d543f10ea7279db35460c8e1c85717876"
+  },
+  "platforms": {
+   "n_features_in_domain": 70,
+   "osm_timestamp": "2026-10-20T11:45:51Z",
+   "sha256": "a52e6d1bb806487ddaa484c701d0c1df0cec65f287fc8e7dc1c110a0594a3c90"
+  },
+  "channels": {
+   "n_features_in_domain": 905,
+   "osm_timestamp": "2026-10-20T11:46:51Z",
+   "sha256": "aaf05a2ce5271a1a05f542cda22fb7d37cbc398bc1d4115dd942d50300f3a1e2"
+  },
+  "roads": {
+   "n_features_in_domain": 1694,
+   "osm_timestamp": "2026-10-20T11:47:51Z",
+   "sha256": "d9d0a544b3e4fda31de0fa36990a328db72d08198972a06d4fc3202617a52e30"
+  }
+ }
+}

@@ -18,7 +18,8 @@
   },
   {
    "name": "era5_sector_winds_2024_2027",
-   "task": "WPY5BD66ZT3YH7N4BAEPV53C"
+   "task": "MJJ3FI5A6IPGVQ5B7AMQESKL",
+   "task_cancelled_for_reorder": "WPY5BD66ZT3YH7N4BAEPV53C"
   }
  ]
 }

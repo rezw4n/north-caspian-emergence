@@ -37,3 +37,5 @@ dependencies:
   - pypdf=6.21.1
   - make=4.4.1
   - gh=2.102.0
+  - tectonic=0.17.0
+  - pymupdf=1.28.0
