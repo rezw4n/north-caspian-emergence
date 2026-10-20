@@ -402,7 +402,7 @@ No level-binned water frequency, waterline, contour, DEM or metric existed. Stag
 
 **Reason (D-079).** Measured costs: Sentinel-2 costs about 4.5 times Landsat per km² (about 700 EECU-hours interactive), which exceeds the 70% monthly Earth Engine cap set by the project rules. Batch execution runs at 0.5–2.5 EECU-s per second per task with two tasks at a time, so it would take several days. Landsat alone provides 4,103 acquisitions in 43 level bins over 1984–2026. **Acquisition halves:** parities were assigned over all sensors in time order. Within Landsat they remain disjoint and independent, with a median parity-0 share per bin of 0.502.
 
-## Amendment 13 — 2026-10-21 04:10 (change to §9 observed extents; before any hindcast or emergence metric; the DEM was being built, and no residual or hindcast quantity had been computed)
+## Amendment 13 — 2026-10-21 04:00 (change to §9 observed extents; before any hindcast or emergence metric; the DEM was being built, and no residual or hindcast quantity had been computed)
 
 **Change.** A cell that is water in the observed extent at the record low (the three lowest E3 level bins, counts pooled) is water in every observed extent at higher levels: an observed dry state there is set to water. This applies to the observed extents of §9 (and §10), to the noise-floor halves, and to E1 against E2/E3. The number of cells changed is reported per unit, and the hindcast without this rule is a sensitivity analysis.
 
