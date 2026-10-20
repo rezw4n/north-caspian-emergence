@@ -126,7 +126,8 @@ def classify_with_threshold(img, threshold, ndvi_veg: float = water.NDVI_VEG):
 def group_counts(classified, zone, name: str):
     """Water and valid (water or dry) counts of a classified collection; zero where
     no scene observed the pixel. Returns two uint8 bands (capped at 255)."""
-    zero = ee.ImageCollection([ee.Image.constant(0).uint8()])
+    # same band name as the classified images, or the merged collection is not homogeneous
+    zero = ee.ImageCollection([ee.Image.constant(0).uint8().rename("class")])
     w = zero.merge(classified.map(lambda im: im.eq(water.WATER).uint8())).sum()
     v = zero.merge(classified.map(lambda im: im.lte(water.WATER).uint8())).sum()
     return (ee.Image.cat([w.min(255).uint8().rename(f"w_{name}"), v.min(255).uint8().rename(f"v_{name}")])

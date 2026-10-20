@@ -148,3 +148,38 @@ GEBCO_2026, ETOPO 2022 and SRTM15+ V2.7 remain the current-product audit.
 The products are therefore treated as one partly shared lineage (as §2 already required). Results are presented per product, with no claim of independent replication.
 
 **Reason.** Brief §8 A7 asks for an audit of "the bathymetry products behind emergence projections". Testing the exact versions those projections used is the direct test. Adding products cannot be tuned toward a result, because no hindcast metric exists yet.
+
+---
+
+## Amendment 2 — 2026-10-20 (before any hindcast, DEM-accuracy or projection metric was computed; no waterline, contour or DEM exists yet)
+
+**Change.** GEDI L2A footprint ground elevations are added as a third set of independent heights (§2), and as the pre-specified substitute for ICESat-2 if ICESat-2 cannot be retrieved.
+
+**Data.** GEDI L2A Elevation and Height Metrics, Version 2 (Dubayah et al. 2021, doi:10.5067/GEDI/GEDI02_A.002). Earth Engine collection `LARSE/GEDI/GEDI02_A_002_MONTHLY` (25 m rasterised footprints).
+- 189 monthly images intersect the domain, from 2019-04 to 2025-07.
+- No acquisitions from 2023-03-17 to 2024-04-24 (instrument in storage).
+- Ground height: `elev_lowestmode`, "relative to reference ellipsoid"; the datum is WGS84 (GEDI02 User Guide v2.1, Table 1).
+
+**Shot selection, fixed now.** Every rule follows the product documentation or mirrors the ICESat-2 rules in §2.
+- `quality_flag` = 1. Per the User Guide, this already includes the energy, amplitude, surface-tracking and DEM-difference criteria and a 0.9 land sensitivity threshold.
+- `degrade_flag` = 0.
+- BEAM0000 and BEAM0001 shots before 2020-02-06 are excluded (known ranging issue, User Guide §8).
+- Gross-error screen, as the User Guide recommends: |`elev_lowestmode` − `digital_elevation_model`| ≤ 50 m. The 50 m bound removes only cloud and noise returns; on this terrain, real ground lies within a few metres of the reference.
+- **Dry at acquisition:** acquisition date later than the emergence date (A6) plus 30 days, for every 30 m DEM pixel within one pixel of the shot. The neighbourhood covers the 25 m footprint and its geolocation error.
+- **Sensitivity check, not a filter:** night shots only (`solar_elevation` < 0), reported in the robustness checks.
+
+**Role.**
+1. **In every case** GEDI is reported as an additional independent check, with the same blocks, metrics and sectors as GLO-30 (§7). It is never pooled with ICESat-2.
+2. **Substitution rule.** Suppose that when the waterline DEM is frozen (A6 complete, before any test-block evaluation) ICESat-2 ATL06/ATL08 granules for the domain still cannot be retrieved through NASA Earthdata. GEDI then takes ICESat-2's place in four places:
+   - §5: the constant from co-located heights in training blocks;
+   - §6: the semivariogram block-size check;
+   - §7: the H2 decision rule, paired on the same GEDI shots;
+   - §8: conformal coverage on test blocks.
+
+   The switch and its date are logged in `docs/DECISIONS.md`, and the paper states that ICESat-2 was unavailable.
+3. **If ICESat-2 becomes retrievable** after GEDI-based test results have been computed, the ICESat-2 results are reported as well, labelled as a check made after the decision. The GEDI-based decision stands.
+
+**Reason.** Since 2026-10-20, NASA's Common Metadata Repository has returned HTTP 500 for every ICESat-2 granule search. Every ICESat-2 access route depends on it (earthaccess, NSIDC, SlideRule, OpenAltimetry). The AWS copy of the archive can be read only from inside AWS us-west-2.
+- Fixing the substitute now, before any DEM exists, keeps the validation source from being chosen after the results are seen.
+- GEDI is lidar, independent of the optical imagery and of the bathymetry products, and covers 2019–2025, when most of the emergence occurred.
+- Its known weaknesses are a larger footprint and lower ground precision than ICESat-2. They are reported, not hidden.
