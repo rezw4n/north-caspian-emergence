@@ -45,4 +45,9 @@ dahiti-qc:
 study-area:
 	$(PYTHON) scripts/a0_study_area.py
 
-all: dahiti-qc study-area
+scene-levels:
+	$(PYTHON) scripts/a4_level_crosscheck.py
+	$(PYTHON) scripts/a4_level_crosscheck.py 20
+	$(PYTHON) scripts/a4_scene_levels.py
+
+all: dahiti-qc study-area scene-levels
