@@ -1,0 +1,82 @@
+{
+ "rule": {
+  "min_n": 2000,
+  "min_share": 0.05,
+  "min_eta": 0.7,
+  "max_valley": 0.5,
+  "threshold_range": [
+   0.0,
+   0.5
+  ],
+  "ice_months_excluded": [
+   11,
+   12,
+   1,
+   2,
+   3
+  ],
+  "fallback": "median of valid thresholds, same sensor and calendar month"
+ },
+ "n_acquisitions": 6507,
+ "n_open_water_months": 6507,
+ "share_valid_open_water": 0.741,
+ "by_sensor": {
+  "ETM_L7": {
+   "n": 1642,
+   "valid": 1295
+  },
+  "MSI_S2": {
+   "n": 2253,
+   "valid": 1485
+  },
+  "OLI_L8": {
+   "n": 1126,
+   "valid": 852
+  },
+  "OLI_L9": {
+   "n": 408,
+   "valid": 308
+  },
+  "TM_L5": {
+   "n": 1078,
+   "valid": 882
+  }
+ },
+ "fallback_table": {
+  "ETM_L7_04": 0.2578,
+  "ETM_L7_05": 0.2422,
+  "ETM_L7_06": 0.2266,
+  "ETM_L7_07": 0.2344,
+  "ETM_L7_08": 0.2617,
+  "ETM_L7_09": 0.25,
+  "ETM_L7_10": 0.2734,
+  "MSI_S2_04": 0.1875,
+  "MSI_S2_05": 0.207,
+  "MSI_S2_06": 0.25,
+  "MSI_S2_07": 0.2266,
+  "MSI_S2_08": 0.2266,
+  "MSI_S2_09": 0.2031,
+  "MSI_S2_10": 0.2148,
+  "OLI_L8_04": 0.2422,
+  "OLI_L8_05": 0.2539,
+  "OLI_L8_06": 0.25,
+  "OLI_L8_07": 0.2422,
+  "OLI_L8_08": 0.2578,
+  "OLI_L8_09": 0.2617,
+  "OLI_L8_10": 0.2656,
+  "OLI_L9_04": 0.1953,
+  "OLI_L9_05": 0.2578,
+  "OLI_L9_06": 0.2422,
+  "OLI_L9_07": 0.2344,
+  "OLI_L9_08": 0.25,
+  "OLI_L9_09": 0.2578,
+  "OLI_L9_10": 0.2656,
+  "TM_L5_04": 0.2812,
+  "TM_L5_05": 0.2422,
+  "TM_L5_06": 0.2344,
+  "TM_L5_07": 0.2578,
+  "TM_L5_08": 0.2617,
+  "TM_L5_09": 0.2734,
+  "TM_L5_10": 0.3125
+ }
+}
