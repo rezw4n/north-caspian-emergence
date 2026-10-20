@@ -67,6 +67,9 @@ def main(cmd: str) -> int:
         out = INTERIM / "era5"
         out.mkdir(parents=True, exist_ok=True)
         for t in json.loads(STATE.read_text(encoding="utf-8"))["tasks"]:
+            op = ee.data.getOperation(f"projects/{EE_PROJECT}/operations/{t['task']}")
+            if op["metadata"].get("state") != "SUCCEEDED" or (out / f"{t['name']}.csv").exists():
+                continue
             fc = ee.FeatureCollection(f"{ROOT}/{t['name']}")
             url = fc.getDownloadURL("CSV", ["t", "sector"] + BANDS, t["name"])
             r = requests.get(url, timeout=3600)

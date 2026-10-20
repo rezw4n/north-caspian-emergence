@@ -50,4 +50,8 @@ scene-levels:
 	$(PYTHON) scripts/a4_level_crosscheck.py 20
 	$(PYTHON) scripts/a4_scene_levels.py
 
-all: dahiti-qc study-area scene-levels
+metrics:
+	$(PYTHON) tools/build_metrics.py
+	$(PYTHON) tools/make_macros.py
+
+all: dahiti-qc study-area scene-levels metrics

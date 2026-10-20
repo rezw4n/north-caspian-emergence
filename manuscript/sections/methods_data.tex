@@ -1,0 +1,61 @@
+% Methods: study area, imagery, water levels, bathymetry products.
+% Every number comes from \metric{...}; every citation key is in refs/cite_list.csv.
+
+\subsection*{Study domain and reporting sectors}
+The study domain is the North Caspian Sea north of the conventional boundary between Chechen Island and Cape Tyub-Karagan on the Mangyshlak Peninsula. Both anchor points were taken from OpenStreetMap. The domain is extended landward to contain the largest water extent of the study period, and covers \metric{study_area.domain_km2}~\kmsq{} (land included). East of the cape its southern edge runs over the Mangyshlak Peninsula, so that Mangyshlak Bay, the Buzachi coast, Komsomolets Bay and the Kaidak flats lie inside it. Results are reported for seven sectors, defined and frozen before any evaluation:
+\begin{itemize}
+  \item the Kizlyar Bay--Dagestan--Kalmyk coast;
+  \item the Volga delta;
+  \item the Volga--Ural interfluve coast;
+  \item the Ural delta;
+  \item the northeastern Kazakh coast (Tengiz--Kashagan);
+  \item Komsomolets Bay (Mertvyi Kultuk) with the Kaidak flats;
+  \item the open shelf.
+\end{itemize}
+The coastal sectors extend 25--60~km offshore of the present coast, beyond the band of water-status change in the Global Surface Water record\citep{pekel2016}. The open shelf is the remainder. The sector polygons, their equal-area extents and the code that defines them are part of the data release. All areas and grids use a Lambert azimuthal equal-area projection centred at 45.5\textdegree{}N, 50\textdegree{}E on the WGS84 ellipsoid.
+
+\subsection*{Satellite imagery}
+We used every Landsat Collection~2 Level-2 Tier~1 surface-reflectance scene and every Sentinel-2 Level-2A scene that intersects the domain\citep{usgs_l45tm_c2l2,usgs_l7etm_c2l2,usgs_l89oli_c2l2}. This is \metric{inventory.n_scenes_total} scenes from \metric{inventory.first.TM_L5} to \metric{inventory.last.MSI_S2}, accessed through Google Earth Engine:
+\begin{itemize}
+  \item \metric{inventory.n_scenes.TM_L5} Thematic Mapper;
+  \item \metric{inventory.n_scenes.ETM_L7} Enhanced Thematic Mapper Plus;
+  \item \metric{inventory.n_scenes.OLI_L8} Operational Land Imager;
+  \item \metric{inventory.n_scenes.OLI_L9} Operational Land Imager-2;
+  \item \metric{inventory.n_scenes.MSI_S2} Sentinel-2 granules.
+\end{itemize}
+The scenes come from \metric{inventory.n_landsat_path_rows} Landsat path/rows and \metric{inventory.n_s2_tiles} Sentinel-2 tiles. Reflectance bands were harmonised to common names (blue, green, red, near-infrared, and the two shortwave-infrared bands) using the product scale factors.
+
+\emph{Landsat masking.} We masked pixels flagged in the quality band as any of: fill, cloud, dilated cloud, cloud shadow, snow or ice, or cirrus (OLI only). We also masked pixels saturated in any band used.
+
+\emph{Sentinel-2 masking.} We masked pixels with a Cloud Score+ cumulative clear score below 0.60\citep{pasquarella2023}.
+
+\subsection*{Water levels}
+Each image is attributed with the water level at its acquisition time.
+
+\emph{Primary series.} The primary series is the multi-mission altimetry series of the Database for Hydrological Time Series of Inland Waters (DAHITI) for the Caspian Sea\citep{schwatke2015}: \metric{levels.dahiti.n_records} records from \metric{levels.dahiti.first} to \metric{levels.dahiti.last}. DAHITI heights are normal heights, that is, ellipsoidal altimeter heights minus a high-resolution quasi-geoid model\citep{schwatke2015}. The record maximum is \metric{levels.dahiti.max_m}~m, on \metric{levels.dahiti.date_of_max}; the minimum is \metric{levels.dahiti.min_m}~m, on \metric{levels.dahiti.date_of_min}. Both are on the DAHITI reference.
+
+\emph{Record uncertainty.} The formal uncertainties distributed with the series are at most \metric{levels.dahiti.sigma_formal_max_m}~m. They are much smaller than the series' own short-term scatter. We therefore estimated each record's noise empirically: every record was predicted by linear interpolation from its two neighbours, and the residual scaled by its known variance factor, $\sqrt{1+w^2+(1-w)^2}$, where $w$ is the record's relative position in the gap. Taking the normalised median absolute deviation of these scaled residuals gives \metric{levels.dahiti_noise_floor_m}~m. This bound is conservative, because it also contains real level variability shorter than the sampling interval. Each record's 1$\sigma$ combines this floor with the formal value.
+
+\emph{Gap filling.} Sampling falls from a median of \metric{levels.dahiti.records_per_year_1993_2021_median} records per year (1993--2021) to \metric{levels.dahiti.records_per_year_2022_2025_min}--\metric{levels.dahiti.records_per_year_2022_2025_max} per year in 2022--2025. For scenes whose bracketing DAHITI records are more than \metric{levels.max_gap_days}~days apart, the level is taken from the Hydroweb operational series for the Caspian\citep{cretaux2011,hydrowebwl}: \metric{levels.hydroweb.n_records} records to \metric{levels.hydroweb.last}. That series was shifted by the median DAHITI~$-$~Hydroweb difference, \metric{levels.crosscheck.offset_median_m}~m, computed over \metric{levels.crosscheck.n_pairs} pairs within $\pm$\metric{levels.crosscheck.window_days}~days. The robust scatter of the differences is \metric{levels.crosscheck.nmad_m}~m and their drift \metric{levels.crosscheck.drift_m_per_decade}~m per decade. The 1$\sigma$ of Hydroweb records includes the scatter of the offset.
+
+\emph{Levels between records.} Between records, the level is modelled as a Brownian bridge with measurement error. For an acquisition at fraction $u$ of a gap of $\Delta t$ days between records $i$ and $j$,
+\begin{equation}
+  h = (1-u)\,h_i + u\,h_j, \qquad
+  \sigma_h^2 = (1-u)^2\sigma_i^2 + u^2\sigma_j^2 + q\,\Delta t\,u(1-u),
+\end{equation}
+with $q = \metric{levels.q_m2_per_day}$~m\textsuperscript{2}\,d\textsuperscript{$-1$}, estimated by least squares from the DAHITI increments after removing the noise variance and the mean trend.
+
+\emph{Coverage of the scene record.} Levels were assigned to \metric{levels.n_scenes_by_source.dahiti} scenes from DAHITI and \metric{levels.n_scenes_by_source.hydroweb_shifted} from Hydroweb; the median 1$\sigma$ is \metric{levels.scene_sigma_p50_m}~m (99th percentile \metric{levels.scene_sigma_p99_m}~m). The \metric{levels.n_scenes_by_epoch.pre_altimetry} Landsat scenes acquired before the altimetry record have no level, so they do not enter the level-binned topography.
+
+\emph{Epochs.} The rising limb (epoch~E1) ends at the record maximum on \metric{levels.epoch_E1_end}. Epoch~E2 runs from then to the end of 2010, and epoch~E3 after that. E1 contains \metric{levels.n_scenes_by_epoch.E1} scenes, E2 \metric{levels.n_scenes_by_epoch.E2} and E3 \metric{levels.n_scenes_by_epoch.E3}.
+
+\subsection*{Bathymetry products audited}
+We audited five global relief grids: the two that published Caspian emergence and exposure estimates used, and three current ones.
+\begin{itemize}
+  \item \textbf{GEBCO\_2022}\citep{gebco2022}, used by ref.~\citenum{court2025};
+  \item \textbf{ETOPO1}\citep{amante2009}, used by ref.~\citenum{akbari2020};
+  \item \textbf{GEBCO\_2026}\citep{gebco2026};
+  \item \textbf{ETOPO~2022}\citep{etopo2022,macferrin2025};
+  \item \textbf{SRTM15+ V2.7}\citep{tozer2019}.
+\end{itemize}
+The grids are not independent. ETOPO~2022 takes GEBCO~2022 as its base layer for seas and large lakes\citep{macferrin2025}, and in the GEBCO Type Identifier grid the North Caspian sea area is coded as a pre-generated grid of mixed sources. GEBCO describes its source data as assimilated assuming a mean-sea-level reference; ETOPO1 is documented as referenced to sea level\citep{amante2009}. Because the effective vertical reference of each grid within the Caspian is not documented, every hindcast error is reported twice: as the total error, and as the shape error left after removing the single constant offset that best aligns the product with the observed extents.

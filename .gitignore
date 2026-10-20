@@ -47,3 +47,8 @@ manuscript/*.synctex.gz
 Thumbs.db
 .vscode/
 .idea/
+# LaTeX / tectonic outputs (rebuilt)
+manuscript/*.pdf
+manuscript/*.xdv
+manuscript/*.bbl
+manuscript/*.blg

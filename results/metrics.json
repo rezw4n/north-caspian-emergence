@@ -1,0 +1,335 @@
+{
+ "inventory.first.ETM_L7": {
+  "value": "1999-06-30",
+  "unit": "date",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.first.MSI_S2": {
+  "value": "2015-08-12",
+  "unit": "date",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.first.OLI_L8": {
+  "value": "2013-03-28",
+  "unit": "date",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.first.OLI_L9": {
+  "value": "2021-11-09",
+  "unit": "date",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.first.TM_L5": {
+  "value": "1984-03-21",
+  "unit": "date",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.last.ETM_L7": {
+  "value": "2023-11-01",
+  "unit": "date",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.last.MSI_S2": {
+  "value": "2026-10-19",
+  "unit": "date",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.last.OLI_L8": {
+  "value": "2026-10-11",
+  "unit": "date",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.last.OLI_L9": {
+  "value": "2026-10-10",
+  "unit": "date",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.last.TM_L5": {
+  "value": "2011-10-29",
+  "unit": "date",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_landsat_path_rows": {
+  "value": 30,
+  "unit": "path/rows",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_s2_tiles": {
+  "value": 42,
+  "unit": "tiles",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes.ETM_L7": {
+  "value": 7554,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes.MSI_S2": {
+  "value": 52335,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes.OLI_L8": {
+  "value": 6370,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes.OLI_L9": {
+  "value": 2290,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes.TM_L5": {
+  "value": 7054,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes_cc_lt60.ETM_L7": {
+  "value": 6146,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes_cc_lt60.MSI_S2": {
+  "value": 30777,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes_cc_lt60.OLI_L8": {
+  "value": 4776,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes_cc_lt60.OLI_L9": {
+  "value": 1716,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes_cc_lt60.TM_L5": {
+  "value": 5367,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "inventory.n_scenes_total": {
+  "value": 75603,
+  "unit": "scenes",
+  "source": "results/inventory/inventory_meta.json"
+ },
+ "levels.crosscheck.drift_m_per_decade": {
+  "value": -0.01610136572179193,
+  "unit": "m per decade",
+  "source": "results/qc/level_crosscheck_w20d.json"
+ },
+ "levels.crosscheck.n_pairs": {
+  "value": 505,
+  "unit": "pairs",
+  "source": "results/qc/level_crosscheck_w20d.json"
+ },
+ "levels.crosscheck.nmad_m": {
+  "value": 0.07392010028885783,
+  "unit": "m",
+  "source": "results/qc/level_crosscheck_w20d.json"
+ },
+ "levels.crosscheck.offset_median_m": {
+  "value": 0.11402966768490685,
+  "unit": "m",
+  "source": "results/qc/level_crosscheck_w20d.json",
+  "note": "DAHITI minus Hydroweb"
+ },
+ "levels.crosscheck.window_days": {
+  "value": 20.0,
+  "unit": "days",
+  "source": "results/qc/level_crosscheck_w20d.json"
+ },
+ "levels.dahiti.date_of_max": {
+  "value": "1995-07-06",
+  "unit": "date",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.date_of_min": {
+  "value": "2026-01-29",
+  "unit": "date",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.first": {
+  "value": "1992-09-28",
+  "unit": "date",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.last": {
+  "value": "2026-09-14",
+  "unit": "date",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.max_gap_days": {
+  "value": 128.0,
+  "unit": "days",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.max_m": {
+  "value": -25.672,
+  "unit": "m (DAHITI reference)",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.min_m": {
+  "value": -28.909,
+  "unit": "m (DAHITI reference)",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.n_records": {
+  "value": 862,
+  "unit": "records",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.records_per_year_1993_2021_median": {
+  "value": 27,
+  "unit": "records per year",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.records_per_year_2022_2025_max": {
+  "value": 15,
+  "unit": "records per year",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.records_per_year_2022_2025_min": {
+  "value": 8,
+  "unit": "records per year",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.sigma_formal_max_m": {
+  "value": 0.031,
+  "unit": "m",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "formal wse_u"
+ },
+ "levels.dahiti_noise_floor_m": {
+  "value": 0.0613,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.epoch_E1_end": {
+  "value": "1995-07-06",
+  "unit": "date",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.hydroweb.last": {
+  "value": "2026-10-15",
+  "unit": "date",
+  "source": "results/qc/level_crosscheck_w20d.json"
+ },
+ "levels.hydroweb.n_records": {
+  "value": 3078,
+  "unit": "records",
+  "source": "results/qc/level_crosscheck_w20d.json"
+ },
+ "levels.hydroweb_noise_floor_m": {
+  "value": 0.0281,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.max_gap_days": {
+  "value": 60.0,
+  "unit": "days",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "PREREG section 4 gap rule"
+ },
+ "levels.n_scenes_by_epoch.E1": {
+  "value": 860,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.n_scenes_by_epoch.E2": {
+  "value": 6564,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.n_scenes_by_epoch.E3": {
+  "value": 65949,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.n_scenes_by_epoch.no_level": {
+  "value": 110,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.n_scenes_by_epoch.pre_altimetry": {
+  "value": 2120,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.n_scenes_by_source.dahiti": {
+  "value": 61010,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.n_scenes_by_source.hydroweb_shifted": {
+  "value": 12363,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.n_scenes_by_source.none": {
+  "value": 2230,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.q_m2_per_day": {
+  "value": 0.00017815642037174095,
+  "unit": "m2 per day",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.scene_sigma_p50_m": {
+  "value": 0.057695249589957885,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.scene_sigma_p90_m": {
+  "value": 0.06634458740045049,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.scene_sigma_p99_m": {
+  "value": 0.08338226973892879,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "study_area.domain_km2": {
+  "value": 224136.6,
+  "unit": "km2",
+  "source": "results/study_area/sector_areas.json"
+ },
+ "study_area.sector_km2.interfluve": {
+  "value": 11298.0,
+  "unit": "km2",
+  "source": "results/study_area/sector_areas.json"
+ },
+ "study_area.sector_km2.komsomolets": {
+  "value": 25491.3,
+  "unit": "km2",
+  "source": "results/study_area/sector_areas.json"
+ },
+ "study_area.sector_km2.northeast": {
+  "value": 34278.5,
+  "unit": "km2",
+  "source": "results/study_area/sector_areas.json"
+ },
+ "study_area.sector_km2.open_shelf": {
+  "value": 69759.5,
+  "unit": "km2",
+  "source": "results/study_area/sector_areas.json"
+ },
+ "study_area.sector_km2.ural": {
+  "value": 6479.9,
+  "unit": "km2",
+  "source": "results/study_area/sector_areas.json"
+ },
+ "study_area.sector_km2.volga": {
+  "value": 54186.8,
+  "unit": "km2",
+  "source": "results/study_area/sector_areas.json"
+ },
+ "study_area.sector_km2.west": {
+  "value": 19823.7,
+  "unit": "km2",
+  "source": "results/study_area/sector_areas.json"
+ }
+}

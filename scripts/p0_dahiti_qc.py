@@ -45,6 +45,8 @@ def main() -> int:
         "time_of_min": d.loc[d["level_m"].idxmin(), "time"].isoformat(),
         "time_of_max": d.loc[d["level_m"].idxmax(), "time"].isoformat(),
         "sigma_median_m": float(d["sigma_m"].median()) if d["sigma_m"].notna().any() else None,
+        "sigma_max_m": float(d["sigma_m"].max()) if d["sigma_m"].notna().any() else None,
+        "records_per_year": {int(k): int(v) for k, v in d.groupby(d["time"].dt.year).size().items()},
         "extra_columns": [c for c in d.columns if c not in ("time", "level_m", "sigma_m")],
     }
     out_json = RESULTS / "qc" / "dahiti_summary.json"

@@ -37,7 +37,7 @@ H_model ──(+ δ_model→BHS, estimated empirically with uncertainty)──�
   - Columns: `datetime;wse;wse_u` (water-surface elevation and its uncertainty, m).
   - Records: 862, from 1992-09-28 to 2026-09-14. Range −28.909 m (2026-01-29) to −25.672 m (1995-07-06) on the DAHITI reference (`results/qc/dahiti_summary.json`).
   - Software version: the target page lists 8.0 for the water-level series. The product page's processing table describes v6.0 (geoid EIGEN-6C4). The geoid model used by v8.0 is not stated on the pages read, so it is treated as an EIGEN-6C-family quasi-geoid, and the DAHITI→BHS offset is estimated empirically either way.
-- **Uncertainty column:** `wse_u` is 0.000–0.003 m for every record (550 of 862 are exactly 0.000). That is a formal filter uncertainty, not a realistic level error. Phase A estimates the level uncertainty empirically: from the series' own short-term scatter and from cross-checks against independent altimetry (D-018).
+- **Uncertainty column:** `wse_u` is 0.000 m for 550 of 862 records and at most 0.003 m for 819 of them (95th percentile 0.003 m, 99th 0.008 m, maximum 0.031 m). *(Corrected 2026-10-20: an earlier version said "0.000–0.003 m for every record", which was wrong.)* That is a formal filter uncertainty, not a realistic level error. Phase A estimates the level uncertainty empirically: from the series' own short-term scatter and from cross-checks against independent altimetry (D-018).
 - **Sampling:** about 10-day sampling (Jason/Sentinel-6 repeat) until 2021. In **2022–2025 it thins to 8–15 records per year, with gaps of up to 129 days** (`scripts/p0_dahiti_qc.py`; gap table in STATUS). Scenes in those years need a supplementary level source (D-018).
 
 ## GEBCO (2026 and 2022 grids)
