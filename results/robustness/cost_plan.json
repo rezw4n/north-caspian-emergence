@@ -1,0 +1,564 @@
+{
+ "inputs": {
+  "main_landsat_h": 110.0,
+  "main_s2_h": {
+   "low": 124.0,
+   "central": 186.0,
+   "high": 248.0
+  },
+  "cap_h": 700.0,
+  "used_before_main_h": 140.0,
+  "scene_km2": {
+   "LANDSAT": 59606473,
+   "S2": 31674144
+  },
+  "n_scenes": {
+   "S2": 15180,
+   "LANDSAT": 10039
+  },
+  "effective_rate_eecu_s_per_scene_km2": {
+   "LANDSAT": 0.006643573801205095,
+   "S2": {
+    "low": 0.014093514260463952,
+    "central": 0.02114027139069593,
+    "high": 0.028187028520927904
+   }
+  },
+  "micropilot_rate_landsat_60m": 0.003404199615599465,
+  "implied_overhead_landsat": 1.9515817376752713
+ },
+ "remaining_after_main_h": {
+  "low": 326.0,
+  "central": 264.0,
+  "high": 202.0
+ },
+ "interactive_block_rate_eecu_s_per_km2": {
+  "LANDSAT_measured": 5.79575815618206,
+  "S2_scaled": 9.800100154998757,
+  "n_blocks": 38,
+  "km2": 14305.1
+ },
+ "areas_km2": {
+  "cover": 97083.45944241919,
+  "test_blocks": 19209.018975499992,
+  "R_sample": 6429.023279849719,
+  "R_blocks": [
+   "-9_-3",
+   "-8_-2",
+   "-7_-1",
+   "-1_5",
+   "2_5",
+   "2_6",
+   "4_7",
+   "4_6",
+   "7_5",
+   "8_2",
+   "10_-3",
+   "12_-2",
+   "-4_-3",
+   "4_0"
+  ],
+  "R_by_sector": {
+   "interfluve": 853.0,
+   "komsomolets": 850.0,
+   "northeast": 1134.0,
+   "open_shelf": 725.0,
+   "ural": 900.0,
+   "volga": 800.0,
+   "west": 1167.0
+  }
+ },
+ "stage1_eecu_s_per_scene": {
+  "LANDSAT": 3.248454980842912,
+  "S2": 1.062957740386695
+ },
+ "groups_by_split": {
+  "main": {
+   "LANDSAT": 85,
+   "S2": 36
+  },
+  "sensor": {
+   "LANDSAT": 159,
+   "S2": 36
+  },
+  "sensor+half": {
+   "LANDSAT": 297,
+   "S2": 69
+  },
+  "sensor+half+season": {
+   "LANDSAT": 538,
+   "S2": 137
+  },
+  "sensor+half+season+threshold": {
+   "LANDSAT": 900,
+   "S2": 263
+  }
+ },
+ "cross_sensor_pairs": {
+  "ETM_L7|TM_L5": {
+   "within_24h": 561,
+   "within_12h": 0,
+   "dlevel_le_1cm": 447
+  },
+  "ETM_L7|OLI_L8": {
+   "within_24h": 902,
+   "within_12h": 51,
+   "dlevel_le_1cm": 761
+  },
+  "MSI_S2|OLI_L8": {
+   "within_24h": 1450,
+   "within_12h": 745,
+   "dlevel_le_1cm": 1311
+  },
+  "ETM_L7|MSI_S2": {
+   "within_24h": 1044,
+   "within_12h": 538,
+   "dlevel_le_1cm": 971
+  },
+  "ETM_L7|OLI_L9": {
+   "within_24h": 129,
+   "within_12h": 69,
+   "dlevel_le_1cm": 118
+  },
+  "MSI_S2|OLI_L9": {
+   "within_24h": 746,
+   "within_12h": 382,
+   "dlevel_le_1cm": 651
+  },
+  "OLI_L8|OLI_L9": {
+   "within_24h": 519,
+   "within_12h": 0,
+   "dlevel_le_1cm": 386
+  }
+ },
+ "november": {
+  "LANDSAT": {
+   "n": 816,
+   "km2": 4845086.691911764
+  },
+  "S2": {
+   "n": 863,
+   "km2": 2114423.272058824
+  }
+ },
+ "screening_deltas": {
+  "LANDSAT|maininf|alt0.3|sub": {
+   "upper_h": 27.26,
+   "per_sector_h": 4.99,
+   "n_scenes": 2439,
+   "mixed_acq_sector": 2
+  },
+  "LANDSAT|main0.3|alt0.2|sub": {
+   "upper_h": 42.0,
+   "per_sector_h": 6.95,
+   "n_scenes": 3758,
+   "mixed_acq_sector": 2
+  },
+  "LANDSAT|main0.2|alt0.15|sub": {
+   "upper_h": 45.78,
+   "per_sector_h": 7.95,
+   "n_scenes": 4144,
+   "mixed_acq_sector": 2
+  },
+  "LANDSAT|main0.15|alt0.1|sub": {
+   "upper_h": 68.75,
+   "per_sector_h": 14.59,
+   "n_scenes": 6272,
+   "mixed_acq_sector": 3
+  },
+  "LANDSAT|main0.1|alt0.05|sub": {
+   "upper_h": 92.72,
+   "per_sector_h": 27.55,
+   "n_scenes": 8471,
+   "mixed_acq_sector": 4
+  },
+  "LANDSAT|main0.3|altinf|add": {
+   "upper_h": 27.26,
+   "per_sector_h": 4.99,
+   "n_scenes": 2439,
+   "mixed_acq_sector": 2
+  },
+  "LANDSAT|main0.2|alt0.3|add": {
+   "upper_h": 42.0,
+   "per_sector_h": 6.95,
+   "n_scenes": 3758,
+   "mixed_acq_sector": 2
+  },
+  "LANDSAT|main0.15|alt0.2|add": {
+   "upper_h": 45.78,
+   "per_sector_h": 7.95,
+   "n_scenes": 4144,
+   "mixed_acq_sector": 2
+  },
+  "LANDSAT|main0.1|alt0.15|add": {
+   "upper_h": 68.75,
+   "per_sector_h": 14.59,
+   "n_scenes": 6272,
+   "mixed_acq_sector": 3
+  },
+  "LANDSAT|main0.05|alt0.1|add": {
+   "upper_h": 92.72,
+   "per_sector_h": 27.55,
+   "n_scenes": 8471,
+   "mixed_acq_sector": 4
+  },
+  "LANDSAT|komsomolets_unscreened|tau0.3|add": {
+   "upper_h": 9.34,
+   "per_sector_h": 1.3,
+   "n_scenes": 817
+  },
+  "LANDSAT|komsomolets_unscreened|tau0.2|add": {
+   "upper_h": 22.42,
+   "per_sector_h": 3.11,
+   "n_scenes": 1973
+  },
+  "LANDSAT|komsomolets_unscreened|tau0.15|add": {
+   "upper_h": 33.37,
+   "per_sector_h": 4.64,
+   "n_scenes": 2963
+  },
+  "LANDSAT|komsomolets_unscreened|tau0.1|add": {
+   "upper_h": 51.56,
+   "per_sector_h": 7.16,
+   "n_scenes": 4609
+  },
+  "LANDSAT|komsomolets_unscreened|tau0.05|add": {
+   "upper_h": 76.76,
+   "per_sector_h": 10.66,
+   "n_scenes": 6962
+  },
+  "S2|maininf|alt0.3|sub": {
+   "upper_h": 48.05,
+   "per_sector_h": 8.77,
+   "n_scenes": 3943,
+   "mixed_acq_sector": 0
+  },
+  "S2|main0.3|alt0.2|sub": {
+   "upper_h": 70.3,
+   "per_sector_h": 11.12,
+   "n_scenes": 5790,
+   "mixed_acq_sector": 0
+  },
+  "S2|main0.2|alt0.15|sub": {
+   "upper_h": 78.16,
+   "per_sector_h": 13.69,
+   "n_scenes": 6392,
+   "mixed_acq_sector": 0
+  },
+  "S2|main0.15|alt0.1|sub": {
+   "upper_h": 121.3,
+   "per_sector_h": 25.87,
+   "n_scenes": 9872,
+   "mixed_acq_sector": 0
+  },
+  "S2|main0.1|alt0.05|sub": {
+   "upper_h": 155.2,
+   "per_sector_h": 47.08,
+   "n_scenes": 12650,
+   "mixed_acq_sector": 0
+  },
+  "S2|main0.3|altinf|add": {
+   "upper_h": 48.05,
+   "per_sector_h": 8.77,
+   "n_scenes": 3943,
+   "mixed_acq_sector": 0
+  },
+  "S2|main0.2|alt0.3|add": {
+   "upper_h": 70.3,
+   "per_sector_h": 11.12,
+   "n_scenes": 5790,
+   "mixed_acq_sector": 0
+  },
+  "S2|main0.15|alt0.2|add": {
+   "upper_h": 78.16,
+   "per_sector_h": 13.69,
+   "n_scenes": 6392,
+   "mixed_acq_sector": 0
+  },
+  "S2|main0.1|alt0.15|add": {
+   "upper_h": 121.3,
+   "per_sector_h": 25.87,
+   "n_scenes": 9872,
+   "mixed_acq_sector": 0
+  },
+  "S2|main0.05|alt0.1|add": {
+   "upper_h": 155.2,
+   "per_sector_h": 47.08,
+   "n_scenes": 12650,
+   "mixed_acq_sector": 0
+  },
+  "S2|komsomolets_unscreened|tau0.3|add": {
+   "upper_h": 16.7,
+   "per_sector_h": 2.32,
+   "n_scenes": 1394
+  },
+  "S2|komsomolets_unscreened|tau0.2|add": {
+   "upper_h": 39.16,
+   "per_sector_h": 5.44,
+   "n_scenes": 3290
+  },
+  "S2|komsomolets_unscreened|tau0.15|add": {
+   "upper_h": 57.6,
+   "per_sector_h": 8.0,
+   "n_scenes": 4778
+  },
+  "S2|komsomolets_unscreened|tau0.1|add": {
+   "upper_h": 88.2,
+   "per_sector_h": 12.25,
+   "n_scenes": 7267
+  },
+  "S2|komsomolets_unscreened|tau0.05|add": {
+   "upper_h": 130.63,
+   "per_sector_h": 18.15,
+   "n_scenes": 10682
+  }
+ },
+ "sector_cover_share": {
+  "west": 0.10354359836558753,
+  "volga": 0.27938668752709117,
+  "interfluve": 0.03953940992581528,
+  "ural": 0.03820085096717803,
+  "northeast": 0.13838434994724402,
+  "komsomolets": 0.13891986827899666,
+  "open_shelf": 0.2620252349880872
+ },
+ "screening_by_tau_main_landsat": {
+  "0.3": {
+   "looser_add_h": 4.99,
+   "stricter_sub_h": 6.95,
+   "komsomolets_add_h": 1.3,
+   "setup_form_placeholder_h": 6.95
+  },
+  "0.2": {
+   "looser_add_h": 6.95,
+   "stricter_sub_h": 7.95,
+   "komsomolets_add_h": 3.11,
+   "setup_form_placeholder_h": 7.95
+  },
+  "0.15": {
+   "looser_add_h": 7.95,
+   "stricter_sub_h": 14.59,
+   "komsomolets_add_h": 4.64,
+   "setup_form_placeholder_h": 14.59
+  },
+  "0.1": {
+   "looser_add_h": 14.59,
+   "stricter_sub_h": 27.55,
+   "komsomolets_add_h": 7.16,
+   "setup_form_placeholder_h": 27.55
+  },
+  "0.05": {
+   "looser_add_h": 27.55,
+   "stricter_sub_h": 0.0,
+   "komsomolets_add_h": 10.66,
+   "setup_form_placeholder_h": 27.55
+  }
+ },
+ "generality": {
+  "great_salt_lake": {
+   "low": 6.4,
+   "high": 9.5,
+   "arithmetic": "3400 km2 x 13.8-25.4 scenes per location-year (the Caspian plan per path/row, and per location with its path overlap) x 43 years x 0.00664 EECU-s; + stage 1 (4 path/rows, assumed, x 13.8 x 43 scenes x 3.25 EECU-s) + 0.5 h zone (assumed)"
+  },
+  "lake_urmia": {
+   "low": 6.5,
+   "high": 10.3,
+   "arithmetic": "5200 km2 x 13.8-25.4 scenes per location-year (the Caspian plan per path/row, and per location with its path overlap) x 35 years x 0.00664 EECU-s; + stage 1 (3 path/rows, assumed, x 13.8 x 35 scenes x 3.25 EECU-s) + 0.5 h zone (assumed)"
+  }
+ },
+ "landsat_scene_density_per_location_year": {
+  "low": 13.843524933423396,
+  "high": 25.414328004929754
+ },
+ "rows": {
+  "pilot_main_design": {
+   "check": "design",
+   "design": "5 x 5 km box, all Landsat scenes, unsplit / split / split + extra bands",
+   "eecu_h": 0.12,
+   "arithmetic": "5.80 EECU-s/km2 x 25 km2 x 3",
+   "tier": "core"
+  },
+  "fixed_mndwi0_R": {
+   "check": "1",
+   "design": "R blocks, Landsat, MNDWI > 0 (or extra bands of the main export)",
+   "eecu_h": 10.35,
+   "arithmetic": "5.80 x 6429 km2",
+   "tier": "core"
+  },
+  "awei_R": {
+   "check": "1",
+   "design": "R blocks, Landsat, AWEI_sh > 0 (two more bands read: x1.5, assumed)",
+   "eecu_h": 15.52,
+   "arithmetic": "5.80 x 6429 x 1.5",
+   "tier": "core"
+  },
+  "snow_all_months_R": {
+   "check": "3 (Amendment 9)",
+   "design": "R blocks, Landsat, both snow tests in every month (or extra bands)",
+   "eecu_h": 10.35,
+   "arithmetic": "5.80 x 6429",
+   "tier": "core"
+  },
+  "ndvi_020_040_R": {
+   "check": "9",
+   "design": "R blocks, Landsat, NDVI 0.20 and 0.40 (or extra bands)",
+   "eecu_h": 20.7,
+   "arithmetic": "2 x 5.80 x 6429",
+   "tier": "optional"
+  },
+  "resolution_30m": {
+   "check": "1 (G2)",
+   "design": "3 R blocks, OLI scenes, 30 m",
+   "eecu_h": 4.84,
+   "arithmetic": "5.80 x 1378 km2 x 5.86 (30/60 m) x 0.372 (OLI share)",
+   "tier": "core"
+  },
+  "slcoff_R": {
+   "check": "2",
+   "design": "R blocks, SUB export of ETM+ SLC-off scenes (free with a sensor-split main)",
+   "eecu_h": 3.61,
+   "arithmetic": "5.80 x 6429 x 0.349 (SLC-off share)",
+   "tier": "if_unsplit"
+  },
+  "slcoff_full": {
+   "check": "2",
+   "design": "whole cover, SUB export of SLC-off scenes",
+   "eecu_h": 38.37,
+   "arithmetic": "20790021 scene-km2 x 0.00664",
+   "tier": "not_recommended"
+  },
+  "a3_edge_pass_240m": {
+   "check": "1 (Amendment 3)",
+   "design": "edge-guided Otsu at 240 m on the sample (x2 for the Canny pass, assumed)",
+   "eecu_h": 0.8,
+   "arithmetic": "{'LANDSAT': 406, 'S2': 107} scenes x stage-1 rate per scene x 2",
+   "tier": "core"
+  },
+  "a3_edge_60m_subsample": {
+   "check": "1 (Amendment 3)",
+   "design": "50 Landsat sample scenes at 60 m (scale check of the edge threshold)",
+   "eecu_h": 1.44,
+   "arithmetic": "50 x 3.25 x 16 x 2",
+   "tier": "core"
+  },
+  "a3_add_export": {
+   "check": "1 (Amendment 3)",
+   "design": "stage-2 export of the sample at the edge-guided thresholds",
+   "eecu_h": 5.72,
+   "arithmetic": "sample scene-km2 x effective rate, per family",
+   "tier": "core"
+  },
+  "a3_sub_export": {
+   "check": "1 (Amendment 3)",
+   "design": "same, at the main thresholds (free if the main plan tags the sample)",
+   "eecu_h": 5.72,
+   "arithmetic": "as a3_add_export",
+   "tier": "if_untagged"
+  },
+  "d028_threshold_60m": {
+   "check": "1 (D-028)",
+   "design": "60 m histograms of one Landsat acquisition per (epoch, bin)",
+   "eecu_h": 1.52,
+   "arithmetic": "43 units x 2.45 scenes x 3.25 x 16",
+   "tier": "core"
+  },
+  "e1_end_delta": {
+   "check": "Amendment 4",
+   "design": "SUB from E1 and ADD to E2 of the E1-end window scenes, whole cover",
+   "eecu_h": 1.01,
+   "arithmetic": "2 x 46 window scenes x 39.4 EECU-s per Landsat scene",
+   "tier": "if_unsplit"
+  },
+  "fallback_sub_R": {
+   "check": "1 (D-061)",
+   "design": "R blocks, SUB export of the fallback-threshold acquisitions",
+   "eecu_h": 1.06,
+   "arithmetic": "5.80 x 6429 x 0.102 (fallback share)",
+   "tier": "if_unsplit"
+  },
+  "season_sub_R": {
+   "check": "3",
+   "design": "R blocks, SUB export of the April-June scenes (JASO-only variant)",
+   "eecu_h": 4.07,
+   "arithmetic": "5.80 x 6429 x 0.393 (AMJ share)",
+   "tier": "if_unsplit"
+  },
+  "binwidth005_R": {
+   "check": "7 (PREREG section 4)",
+   "design": "R blocks, Landsat, groups by 0.05 m bins",
+   "eecu_h": 10.35,
+   "arithmetic": "5.80 x 6429",
+   "tier": "if_unsplit"
+  },
+  "sensor_pairs": {
+   "check": "2",
+   "design": "20 pairs per Landsat-Landsat combination (4), 10 per Landsat-MSI combination (3), each export clipped to the pair's overlap in the cover",
+   "eecu_h": 4.88,
+   "arithmetic": "4 x 20 x 2 x 14528 km2 x 0.00664 x 0.35 (WRS-2 sidelap at 46 N) + 3 x 10 x 14528 x (0.00664 + 0.02114)",
+   "tier": "core"
+  },
+  "november_stage1": {
+   "check": "3 (D-062)",
+   "design": "stage 1 for the November scenes (both families)",
+   "eecu_h": 0.99,
+   "arithmetic": "816 x 3.25 + 863 x 1.06",
+   "tier": "core"
+  },
+  "november_add_landsat": {
+   "check": "3 (D-062)",
+   "design": "ADD export of the November Landsat scenes, whole cover",
+   "eecu_h": 8.94,
+   "arithmetic": "4845087 scene-km2 x 0.00664 (upper bound)",
+   "tier": "core"
+  },
+  "november_add_s2": {
+   "check": "3 (D-062)",
+   "design": "ADD export of the November Sentinel-2 scenes, whole cover",
+   "eecu_h": 12.42,
+   "arithmetic": "2114423 x 0.02114 (upper bound)",
+   "tier": "optional"
+  }
+ },
+ "totals": {
+  "0.3": {
+   "core_h": 85.7,
+   "optional_h": 33.1,
+   "generality_h": [
+    12.9,
+    19.8
+   ]
+  },
+  "0.2": {
+   "core_h": 91.4,
+   "optional_h": 33.1,
+   "generality_h": [
+    12.9,
+    19.8
+   ]
+  },
+  "0.15": {
+   "core_h": 107.2,
+   "optional_h": 33.1,
+   "generality_h": [
+    12.9,
+    19.8
+   ]
+  },
+  "0.1": {
+   "core_h": 142.3,
+   "optional_h": 33.1,
+   "generality_h": [
+    12.9,
+    19.8
+   ]
+  },
+  "0.05": {
+   "core_h": 131.2,
+   "optional_h": 33.1,
+   "generality_h": [
+    12.9,
+    19.8
+   ]
+  }
+ }
+}

@@ -92,8 +92,9 @@ def clean_part(part, min_area_m2: float = 1e4):
 
 
 def cover_laea():
+    import shapely
     g = json.loads(COVER.read_text(encoding="utf-8"))["features"][0]["geometry"]
-    return transform(FWD, shape(g))
+    return shapely.make_valid(transform(FWD, shape(g)))     # the committed cover is invalid (D-080)
 
 
 def block_tiles(n_per_sector: int):
