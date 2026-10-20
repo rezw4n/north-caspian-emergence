@@ -11,7 +11,13 @@
    "scale": 30,
    "n_scenes": 20,
    "image_task": "2YCGIH5ATF6HZO4LCQQA656L",
-   "table_task": "YFCLBB6LHSIC7HN2YSC7UPUM"
+   "table_task": "YFCLBB6LHSIC7HN2YSC7UPUM",
+   "image_task_state": "RUNNING",
+   "image_task_eecu_s": null,
+   "image_task_error": null,
+   "table_task_state": "FAILED",
+   "table_task_eecu_s": 1.873302936,
+   "table_task_error": "Unable to export features with null geometry."
   },
   {
    "name": "pilot_S2_39TXM_2020JJA",
@@ -22,7 +28,44 @@
    "scale": 20,
    "n_scenes": 39,
    "image_task": "22YKFPOAIB4ZF3P6RYTYP2RV",
-   "table_task": "LQ47SZP566OO2BTQZMHFILKZ"
+   "table_task": "LQ47SZP566OO2BTQZMHFILKZ",
+   "image_task_state": "FAILED",
+   "image_task_eecu_s": null,
+   "image_task_error": "Image.unmask: If one image has no bands, the other must also have no bands. Got 0 and 1.",
+   "table_task_state": "RUNNING",
+   "table_task_eecu_s": 0.021470863,
+   "table_task_error": null
+  },
+  {
+   "name": "pilot_L8_165028_2020_v2",
+   "sensor": "OLI_L8",
+   "path": 165,
+   "row": 28,
+   "start": "2020-01-01",
+   "end": "2021-01-01",
+   "scale": 30,
+   "n_scenes": 20,
+   "table_task": "TGPXVNIYZ3JV3V6EU27YEI33",
+   "table_task_state": "PENDING",
+   "table_task_eecu_s": null,
+   "table_task_error": null
+  },
+  {
+   "name": "pilot_S2_39TXM_2020JJA_v2",
+   "sensor": "MSI_S2",
+   "tile": "39TXM",
+   "start": "2020-06-01",
+   "end": "2020-09-01",
+   "scale": 20,
+   "n_scenes": 39,
+   "image_task": "ORBVYBHFZ3TBCUT7JL5DMX2Q",
+   "table_task": "VGPU5HW3JHYBKXFZQ7DBT3WW",
+   "image_task_state": "PENDING",
+   "image_task_eecu_s": null,
+   "image_task_error": null,
+   "table_task_state": "PENDING",
+   "table_task_eecu_s": null,
+   "table_task_error": null
   }
  ]
 }

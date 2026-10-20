@@ -1,0 +1,73 @@
+{
+ "product": "ETOPO 2022 v1 15 arc-second",
+ "doi": "10.25921/fd45-gt74",
+ "urls": {
+  "elevation": [
+   "https://www.ngdc.noaa.gov/thredds/dodsC/global/ETOPO2022/15s/15s_surface_elev_netcdf/ETOPO_2022_v1_15s_N45E045_surface.nc",
+   "https://www.ngdc.noaa.gov/thredds/dodsC/global/ETOPO2022/15s/15s_surface_elev_netcdf/ETOPO_2022_v1_15s_N60E045_surface.nc"
+  ],
+  "source_id": [
+   "https://www.ngdc.noaa.gov/thredds/dodsC/global/ETOPO2022/15s/15s_surface_sid_netcdf/ETOPO_2022_v1_15s_N45E045_surface_sid.nc",
+   "https://www.ngdc.noaa.gov/thredds/dodsC/global/ETOPO2022/15s/15s_surface_sid_netcdf/ETOPO_2022_v1_15s_N60E045_surface_sid.nc"
+  ],
+  "geoid_height": [
+   "https://www.ngdc.noaa.gov/thredds/dodsC/global/ETOPO2022/15s/15s_geoid_netcdf/ETOPO_2022_v1_15s_N45E045_geoid.nc",
+   "https://www.ngdc.noaa.gov/thredds/dodsC/global/ETOPO2022/15s/15s_geoid_netcdf/ETOPO_2022_v1_15s_N60E045_geoid.nc"
+  ]
+ },
+ "attrs": {
+  "elevation": {
+   "long_name": "z",
+   "grid_mapping": "crs",
+   "units": "meters",
+   "positive": "up",
+   "standard_name": "height",
+   "vert_crs_name": "EGM2008",
+   "vert_crs_epsg": "EPSG:3855",
+   "_ChunkSizes": "[1800 1800]",
+   "_var": "z"
+  },
+  "source_id": {
+   "long_name": "z",
+   "valid_range": "[  0 255]",
+   "grid_mapping": "crs",
+   "units": "meters",
+   "positive": "up",
+   "standard_name": "height",
+   "vert_crs_name": "EGM2008",
+   "vert_crs_epsg": "EPSG:3855",
+   "_ChunkSizes": "[3600 3600]",
+   "_var": "z"
+  },
+  "geoid_height": {
+   "long_name": "z",
+   "grid_mapping": "crs",
+   "units": "meters",
+   "positive": "up",
+   "standard_name": "height",
+   "vert_crs_name": "EGM2008",
+   "vert_crs_epsg": "EPSG:3855",
+   "_ChunkSizes": "[1800 1800]",
+   "_var": "z"
+  }
+ },
+ "shape": [
+  860,
+  2016
+ ],
+ "elevation_range_m": [
+  -107.0,
+  502.1087646484375
+ ],
+ "geoid_height_range_m": [
+  -19.880109786987305,
+  -2.032925605773926
+ ],
+ "source_ids_present": [
+  1,
+  9,
+  10,
+  11
+ ],
+ "subset_sha256": "b05a2ca2b0c7ffdf5ef342eaf042333355581dbb3028bdf39d27a661e55b8e5c"
+}

@@ -18,7 +18,9 @@ H_model ──(+ δ_model→BHS, estimated empirically with uncertainty)──�
 | G-REALM level (cross-check) | — | — | To verify in Phase A |
 | ICESat-2 ATL06 / ATL08 / ATL24 | — | — | To verify in Phase A from the product ATBDs and data dictionaries |
 | Copernicus DEM GLO-30 | — | — | To verify in Phase A from the product handbook |
-| GEBCO grid, other global grids | — | — | To verify in Phase A from the product documentation |
+| GEBCO_2026 | GEBCO states that source data are assimilated "assuming all of them to be referred to mean sea level", and that some shallow-water sources use other datums. Nothing specific to inland seas is stated. File attribute `long_name`: "Elevation relative to sea level" | gebco.net gridded-bathymetry page and CEDA file metadata (read 2026-10-20); `results/provenance/gebco_2026.json` | Reference **unresolved for the Caspian**: estimated empirically (PREREG §5, total vs shape error) |
+| ETOPO 2022 v1 (15") | File attributes: `vert_crs_name = EGM2008`, `vert_crs_epsg = EPSG:3855`, for the surface elevation, source-ID and geoid-height layers | NCEI THREDDS file attributes (read 2026-10-20); `results/provenance/etopo_2022.json` | Documented as EGM2008. Inside the Caspian, the base layer is GEBCO 2022 (MacFerrin et al. 2025), so the effective reference of the bathymetry is checked empirically |
+| SRTM15+ V2.7 | Not stated in `README_V2.7.txt` or the file attributes | Scripps distribution (read 2026-10-20); `results/provenance/srtm15p_v2.7.json` | Unresolved: check Tozer et al. 2019 (doi:10.1029/2019ea000658) and estimate empirically |
 | SWOT L2 HR | — | — | To verify in Phase A from the product description document |
 
 ## DAHITI

@@ -49,38 +49,52 @@ def build(p: dict):
     zone = gsw_zone()
     classified = col.map(lambda im: water.ee_classify(im, footprint, zone, scale=p["scale"]))
     bands = []
+    zero = ee.ImageCollection([ee.Image.constant(0).uint8()])  # keeps empty groups well-defined
     for m in range(1, 13):
         sub = classified.filter(ee.Filter.calendarRange(m, m, "month")).select("class")
-        w = sub.map(lambda im: im.eq(water.WATER)).sum().unmask(0).uint8().rename(f"w{m:02d}")
-        v = sub.map(lambda im: im.lte(water.WATER)).sum().unmask(0).uint8().rename(f"v{m:02d}")
+        w = zero.merge(sub.map(lambda im: im.eq(water.WATER).uint8())).sum().uint8().rename(f"w{m:02d}")
+        v = zero.merge(sub.map(lambda im: im.lte(water.WATER).uint8())).sum().uint8().rename(f"v{m:02d}")
         bands += [w, v]
     img = ee.Image.cat(bands).clip(footprint)
-    thresholds = classified.map(lambda im: ee.Feature(None, {
+    thresholds = classified.map(lambda im: ee.Feature(im.geometry().centroid(100), {
         "id": im.get("system:index"), "time": im.get("system:time_start"),
         "otsu_threshold": im.get("otsu_threshold"), "otsu_n": im.get("otsu_n"),
         "threshold_source": im.get("threshold_source")}))
     return img, ee.FeatureCollection(thresholds), footprint, col.size()
 
 
-def submit() -> None:
+def submit(only: set | None = None, suffix: str = "") -> None:
+    """Submit pilot exports. ``only`` limits to {(name, "image"|"table")}; re-submissions
+    get ``suffix`` and are appended to the state file."""
     ee.Initialize(project=EE_PROJECT)
     try:
         ee.data.getAsset(ASSET_ROOT)
     except ee.EEException:
         ee.data.createAsset({"type": "FOLDER"}, ASSET_ROOT)
-    state = {"submitted": time.strftime("%Y-%m-%dT%H:%M:%S"), "tasks": []}
+    state = (json.loads(STATE.read_text(encoding="utf-8")) if only and STATE.exists()
+             else {"submitted": time.strftime("%Y-%m-%dT%H:%M:%S"), "tasks": []})
     for p in PILOTS:
+        want_img = only is None or (p["name"], "image") in only
+        want_tab = only is None or (p["name"], "table") in only
+        if not (want_img or want_tab):
+            continue
         img, table, footprint, n = build(p)
         n = n.getInfo()
-        t1 = ee.batch.Export.image.toAsset(image=img, description=p["name"],
-                                           assetId=f"{ASSET_ROOT}/{p['name']}", region=footprint,
-                                           scale=p["scale"], crs="EPSG:4326", maxPixels=1e11)
-        t2 = ee.batch.Export.table.toAsset(collection=table, description=p["name"] + "_thr",
-                                           assetId=f"{ASSET_ROOT}/{p['name']}_thr")
-        t1.start()
-        t2.start()
-        state["tasks"].append({**p, "n_scenes": n, "image_task": t1.id, "table_task": t2.id})
-        print(f"submitted {p['name']}: {n} scenes; tasks {t1.id}, {t2.id}")
+        rec = {**p, "name": p["name"] + suffix, "n_scenes": n}
+        if want_img:
+            t1 = ee.batch.Export.image.toAsset(image=img, description=p["name"] + suffix,
+                                               assetId=f"{ASSET_ROOT}/{p['name']}{suffix}",
+                                               region=footprint, scale=p["scale"], crs="EPSG:4326",
+                                               maxPixels=1e11)
+            t1.start()
+            rec["image_task"] = t1.id
+        if want_tab:
+            t2 = ee.batch.Export.table.toAsset(collection=table, description=p["name"] + suffix + "_thr",
+                                               assetId=f"{ASSET_ROOT}/{p['name']}{suffix}_thr")
+            t2.start()
+            rec["table_task"] = t2.id
+        state["tasks"].append(rec)
+        print(f"submitted {rec['name']}: {n} scenes; {rec}")
     STATE.parent.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps(state, indent=1), encoding="utf-8")
 
@@ -92,6 +106,8 @@ def status(wait: bool = False) -> int:
         done = True
         for t in state["tasks"]:
             for key in ("image_task", "table_task"):
+                if key not in t:
+                    continue
                 op = ee.data.getOperation(f"projects/{EE_PROJECT}/operations/{t[key]}")
                 md = op.get("metadata", {})
                 t[key + "_state"] = md.get("state")
@@ -115,5 +131,8 @@ if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "status"
     if cmd == "submit":
         submit()
+    elif cmd == "resubmit-v2":
+        submit(only={("pilot_S2_39TXM_2020JJA", "image"), ("pilot_S2_39TXM_2020JJA", "table"),
+                     ("pilot_L8_165028_2020", "table")}, suffix="_v2")
     else:
         sys.exit(status(wait=(cmd == "wait")))
