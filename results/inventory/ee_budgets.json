@@ -1,5 +1,7 @@
 {
  "era5_sector_winds": 3600,
  "active_zone": 1800,
- "pilot2_": 1800
+ "pilot2_": 3600,
+ "active_zone_v2": 4000,
+ "active_zone_v3": 4000
 }

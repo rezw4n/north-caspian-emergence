@@ -22,7 +22,7 @@ NAME = "pilot2_L8_165028_2020_stage2"
 
 def build():
     dom = pipeline_ee.domain_geometry()
-    zone = ee.Image(f"{ROOT}/active_zone_v2").eq(1)
+    zone = ee.Image(f"{ROOT}/active_zone_v3").eq(1)
     thr = ee.FeatureCollection(f"{ROOT}/pilot_L8_165028_2020_v2_thr").filter(
         ee.Filter.eq("threshold_source", "otsu"))
     col = (masks.landsat("OLI_L8", dom, "2020-01-01", "2021-01-01")

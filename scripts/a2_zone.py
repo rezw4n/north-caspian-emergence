@@ -13,8 +13,8 @@ import ee
 from caspian import pipeline_ee
 from caspian.config import EE_PROJECT, RESULTS
 
-ASSET = f"projects/{EE_PROJECT}/assets/caspian/active_zone_v2"
-PILOT_ASSET = f"projects/{EE_PROJECT}/assets/caspian/active_zone_v2_pilot"
+ASSET = f"projects/{EE_PROJECT}/assets/caspian/active_zone_v3"
+PILOT_ASSET = f"projects/{EE_PROJECT}/assets/caspian/active_zone_v3_pilot"
 STATE = RESULTS / "inventory" / "zone_task.json"
 
 
@@ -25,7 +25,7 @@ def main(cmd: str) -> int:
         if cmd == "pilot":  # 1 x 1 degree box on the NE coast, to measure cost first
             dom = ee.Geometry.Rectangle([52.4, 45.8, 53.4, 46.8])
         zone = pipeline_ee.active_zone(dom).unmask(0).uint8()
-        name = "active_zone_v2_pilot" if cmd == "pilot" else "active_zone_v2"
+        name = "active_zone_v3_pilot" if cmd == "pilot" else "active_zone_v3"
         t = ee.batch.Export.image.toAsset(image=zone, description=name,
                                           assetId=PILOT_ASSET if cmd == "pilot" else ASSET,
                                           region=dom, scale=pipeline_ee.ZONE_SCALE, crs="EPSG:4326",
