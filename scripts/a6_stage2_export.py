@@ -93,7 +93,7 @@ def block_tiles(n_per_sector: int):
     for sec in sorted(b["sector"].unique()):
         g = b[b["sector"] == sec].sort_values(["i", "j"])
         pick = g.iloc[rng.permutation(len(g))[:n_per_sector]]
-        out += [(int(r.i), int(r.j), r.part) for r in pick.itertuples()]
+        out += [(int(r.i), int(r.j), r.part, SECTOR_ORDER.index(sec) + 1) for r in pick.itertuples()]
     return out
 
 
@@ -134,13 +134,15 @@ def upload(plan_csv: str, tag: str) -> int:
     return 0
 
 
-def build_image(tag: str, groups, region_ll):
+def build_image(tag: str, groups, region_ll, sector_code=None):
     st = json.loads((STATE / f"stage2_{tag}.json").read_text(encoding="utf-8"))
     plan = ee.FeatureCollection([ee.FeatureCollection(c["asset"]) for c in st["chunks"]]).flatten()
     sec = sector_image()
     bands = []
     for g in groups:
         pg = plan.filter(ee.Filter.eq("group", g))
+        if sector_code is not None:   # D-064: a block lies in one sector; only rows that include it
+            pg = pg.filter(ee.Filter.stringContains("sectors", str(sector_code)))
         thr = ee.Dictionary.fromLists(pg.aggregate_array("scene"), pg.aggregate_array("threshold"))
         exc = ee.Dictionary.fromLists(pg.aggregate_array("scene"), pg.aggregate_array("sectors"))
         mode = ee.String(ee.Feature(pg.first()).get("mask_mode"))
@@ -180,7 +182,10 @@ def submit(tag: str, only=None, blocks: int = 0) -> int:
     st = json.loads((STATE / f"stage2_{tag}.json").read_text(encoding="utf-8"))
     ee.Initialize(project=EE_PROJECT)
     st.setdefault("tiles", {})
-    for i, j, part in (block_tiles(blocks) if blocks else tiles()):
+    plan_df = pd.read_csv(st["plan"]) if blocks else None
+    for item in (block_tiles(blocks) if blocks else tiles()):
+        i, j, part = item[:3]
+        code = item[3] if blocks else None
         key = f"{i}_{j}"
         if only and key not in only:
             continue
@@ -189,13 +194,18 @@ def submit(tag: str, only=None, blocks: int = 0) -> int:
         x0, y1 = math.floor(x0 / RES) * RES, math.ceil(y1 / RES) * RES
         dims = (int(math.ceil((part.bounds[2] - x0) / RES)), int(math.ceil((y1 - part.bounds[1]) / RES)))
         tr = [RES, 0, x0, 0, -RES, y1]
-        img = build_image(tag, st["groups"], region_ll)
+        if blocks:
+            has = plan_df["sectors"].fillna("").astype(str).str.contains(str(code), regex=False)
+            groups = sorted(plan_df.loc[has, "group"].unique())
+        else:
+            groups = st["groups"]
+        img = build_image(tag, groups, region_ll, code)
         name = f"stage2_{tag}_t{i}_{j}".replace("-", "m")
         t = ee.batch.Export.image.toAsset(image=img, description=name, assetId=f"{ROOT}/{name}", region=region_ll,
                                           crs=pipeline_ee.LAEA_WKT, crsTransform=tr, maxPixels=1e11)
         t.start()
         st["tiles"][key] = {"asset": f"{ROOT}/{name}", "task": t.id, "transform": tr, "dims": dims,
-                            "area_km2": round(part.area / 1e6, 1)}
+                            "area_km2": round(part.area / 1e6, 1), "groups": groups, "sector_code": code}
         print("submitted", name, t.id, st["tiles"][key]["area_km2"], "km2", flush=True)
         (STATE / f"stage2_{tag}.json").write_text(json.dumps(st, indent=1), encoding="utf-8")
     return 0
@@ -220,8 +230,8 @@ def fetch(tag: str) -> int:
     st = json.loads((STATE / f"stage2_{tag}.json").read_text(encoding="utf-8"))
     out = INTERIM / "stage2" / tag
     out.mkdir(parents=True, exist_ok=True)
-    bands = [f"{p}_{g}" for g in st["groups"] for p in ("w", "v")]
     for k, t in st["tiles"].items():
+        bands = [f"{p}_{g}" for g in t.get("groups", st["groups"]) for p in ("w", "v")]
         f = out / f"tile_{k}.npz"
         if f.exists():
             continue

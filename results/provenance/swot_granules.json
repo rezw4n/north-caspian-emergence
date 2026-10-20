@@ -12899,6 +12899,306 @@
 "crid": "PGD0",
 "size": 16514761,
 "checksum": "d50110ec552cef87c482008be37d1246ccd02c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_502_012_036F_20230426T031336_20230426T031347_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8765442,
+"checksum": "d501104532509276d67f102f70f962b73740d2"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_503_012_036F_20230427T030414_20230427T030424_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8772311,
+"checksum": "d501108250eda7be7b63970e7ee2a8b0e1000b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_502_012_038F_20230426T031405_20230426T031424_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14523570,
+"checksum": "d501103b091814b78ee945280fde9a7763fec4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_505_012_036F_20230429T024529_20230429T024540_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8207836,
+"checksum": "d50110e091b0bd068519a33ea1ef534a3a98c2"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_502_012_037F_20230426T031345_20230426T031406_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16648988,
+"checksum": "d5011059614c61fd19df78493abfc4b681d338"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_503_012_038F_20230427T030443_20230427T030502_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15923239,
+"checksum": "d501109f061b55ecb8f1124abf27a3aeed95ff"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_503_012_037F_20230427T030423_20230427T030444_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16461601,
+"checksum": "d501108f390aab6cb72247247ff4488d998566"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_504_012_038F_20230428T025521_20230428T025539_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14749841,
+"checksum": "d501104eb918cd187f495ad2f05e840cd28e6f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_505_012_038F_20230429T024559_20230429T024617_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14593092,
+"checksum": "d50110fe32913061226d675e229abc7650a21b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_507_012_036F_20230501T022645_20230501T022656_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8197744,
+"checksum": "d50110fa97fcf957ccd74ab6a1652d6db67694"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_507_012_039F_20230501T022733_20230501T022755_PGD0_01.nc",
+"crid": "PGD0",
+"size": 413910,
+"checksum": "d50110854aedc1a162871fd4e481cfe2735a8a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_504_012_037F_20230428T025501_20230428T025522_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16531440,
+"checksum": "d50110cfb2d29d64abe16f45089cc51d0be91f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_505_012_037F_20230429T024539_20230429T024600_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16280136,
+"checksum": "d50110c47eeaf15cf10ca3eb30b3b45e8487aa"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_506_012_038F_20230430T023637_20230430T023655_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14115144,
+"checksum": "d50110ea6f7fca2f56eab09467ec3ff1070696"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_508_012_036F_20230502T021722_20230502T021733_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8636371,
+"checksum": "d501103168229155318aa0d84a554d457eb404"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_506_012_037F_20230430T023617_20230430T023638_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16278854,
+"checksum": "d50110a808b9a791f2c083f1fb0d36aa88bc64"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_507_012_037F_20230501T022655_20230501T022716_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16544369,
+"checksum": "d50110647a881581d0c70de3b9c1eeb175f979"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_507_012_038F_20230501T022714_20230501T022733_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14440959,
+"checksum": "d50110e9bbcdf5c60cbcaa4ed8895cb67bf683"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_508_012_038F_20230502T021752_20230502T021811_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14490787,
+"checksum": "d501102a3bf979a3cca68b0907061e41a636f0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_509_012_036F_20230503T020800_20230503T020811_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8703385,
+"checksum": "d5011099d0b309c81ee99a7ef6e2f7471f9efa"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_510_012_036F_20230504T015838_20230504T015849_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8558463,
+"checksum": "d501104ef255dfdb4767eb765017d8d0141449"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_508_012_037F_20230502T021732_20230502T021753_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16569615,
+"checksum": "d50110cab92276ef85dd1b30a87944dfbab0ac"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_511_012_036F_20230505T014916_20230505T014926_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8969700,
+"checksum": "d5011032afe42ab7db040b20036825fa6b817f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_509_012_037F_20230503T020810_20230503T020831_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16602725,
+"checksum": "d5011088afa2046b09c8894604e61ac9334e37"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_510_012_037F_20230504T015848_20230504T015909_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16578031,
+"checksum": "d50110324c450ee69b428d8afd4fc3de02608b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_512_012_036F_20230506T013953_20230506T014004_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8794874,
+"checksum": "d50110376538a1af8b448dfd04c7f2ba38784f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_510_012_038F_20230504T015908_20230504T015926_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15953425,
+"checksum": "d501102292004576185a7e9b07db511b1fd99b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_511_012_037F_20230505T014925_20230505T014946_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16600865,
+"checksum": "d5011011ce1c4eda1ceea05ab019c4a64d6123"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_513_012_036F_20230507T013031_20230507T013042_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8300409,
+"checksum": "d501106b0b26f14192bd61f1d2cc0d770e79da"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_511_012_038F_20230505T014945_20230505T015004_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15577940,
+"checksum": "d50110e4d6e579f67efc23e23a51d25527da61"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_512_012_038F_20230506T014023_20230506T014041_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15140079,
+"checksum": "d5011026a373c92abf109a6fc1756ea18118ed"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_513_012_038F_20230507T013101_20230507T013119_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14884769,
+"checksum": "d501102884378ed3b795a765f8d3b00f3244a3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_514_012_036F_20230508T012109_20230508T012120_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8489997,
+"checksum": "d50110e067f8085abbf7ea794daed33d8dce57"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_515_012_036F_20230509T011147_20230509T011158_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8329514,
+"checksum": "d501100a274d63b9ea41cbaa8727db24b4170c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_512_012_037F_20230506T014003_20230506T014024_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16448119,
+"checksum": "d50110cfab6444663bf90abb27dc287814ed1b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_513_012_037F_20230507T013041_20230507T013102_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16284620,
+"checksum": "d50110f91305994ce443bef8a24a30906a13a0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_514_012_037F_20230508T012119_20230508T012140_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16419986,
+"checksum": "d501102d74cd3bd1449e599cbd4e2c033ead27"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_516_012_036F_20230510T010224_20230510T010235_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8675163,
+"checksum": "d50110a556d9e7bde6c08c1d3911552fbe60f0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_514_012_038F_20230508T012139_20230508T012157_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14453345,
+"checksum": "d50110fd873314ca8e3f0889fae8c68963115b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_515_012_037F_20230509T011157_20230509T011217_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16262767,
+"checksum": "d50110f785125fc57096af07123f56953c582e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_517_012_036F_20230511T005302_20230511T005313_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8383614,
+"checksum": "d501100a6b54c60a3cba5c3b9a11fee5c0a4ad"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_516_012_038F_20230510T010254_20230510T010313_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14509677,
+"checksum": "d50110f9862d0f2469506492f6550365522d22"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_515_012_038F_20230509T011216_20230509T011235_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14458472,
+"checksum": "d50110ba67956139722449961a0f5b19be2d01"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_516_012_037F_20230510T010234_20230510T010255_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16207816,
+"checksum": "d50110df828796b81522b4feb50d1928ec61a2"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_518_012_036F_20230512T004340_20230512T004351_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8433417,
+"checksum": "d501102cca8034a1d2d562f741ade4fa4001b0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_519_012_039F_20230513T003506_20230513T003528_PGD0_01.nc",
+"crid": "PGD0",
+"size": 408503,
+"checksum": "d501106449dc2e9b762412e60e23677d6bce3b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_517_012_038F_20230511T005332_20230511T005350_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14204848,
+"checksum": "d50110dfa218c2fb874f2bca16b751f15aa469"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_518_012_038F_20230512T004410_20230512T004428_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14317799,
+"checksum": "d501105fe3693cf130a3691c953d6d8f35e190"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_519_012_036F_20230513T003418_20230513T003429_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8253915,
+"checksum": "d50110352d6855a457f45e7c7e2bb997376954"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_518_012_037F_20230512T004350_20230512T004411_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16400152,
+"checksum": "d5011078655e9779f9fe80860b3f48384f8dd3"
 }
 ]
 }
