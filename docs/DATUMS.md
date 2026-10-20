@@ -30,7 +30,14 @@ H_model ──(+ δ_model→BHS, estimated empirically with uncertainty)──�
 - **Vertical reference:** normal heights. Schwatke et al. (2015, §2): "We compute normal heights by subtracting a (quasi-)geoid model (N) from the ellipsoidal heights. For this purpose, the EIGEN-6c3stat (Förste et al., 2012) model is used, which supplements the EGM2008 geoid model with additional GOCE gravity data." The current product page (data version v6.0) lists the geoid model as EIGEN-6C4 (Förste et al., 2014). Because the geoid model is subtracted from the ellipsoidal height on the same ellipsoid, the resulting normal heights do not depend on which ellipsoid the altimetry was processed on.
 - **Relation to BHS-77:** DAHITI heights are physical heights, but they are not tied to the Kronstadt zero. The offset δ_DAHITI→BHS is unknown a priori and is estimated in Phase A from overlapping published BHS levels and the co-located ICESat-2/waterline comparison, with its uncertainty.
 - **Caveat stated by the producers:** for large lakes a uniform surface is assumed and wind-driven level differences are neglected (Schwatke et al. 2015, §4.3.4). On the North Caspian this matters (wind setup); see brief §8 A5.
-- **File in use:** *none yet: the PI is to place the DAHITI Caspian Sea series in `data/raw/dahiti/`.* When it arrives, this line records the file name, DAHITI target ID, software version and download date from its header, and the parsed time span (from `results/qc/dahiti_summary.json`).
+- **File in use:** `dahiti_39_caspian_sea_water_level.csv`.
+  - Target: DAHITI 39 "Caspian Sea", type Lake; target coordinate 50.4493 E, 41.8041 N, which is in the **Middle/South Caspian**, not the North Caspian.
+  - Download: API v2 `download-water-level`, format csv, 2026-10-20T10:54:16Z; sha256 `85b041135a9c4ffd4d46a14df32694d9a2b4d70ba2a5ff5d4d9d7d462f2ad4b3` (`results/provenance/dahiti_39.json`).
+  - Columns: `datetime;wse;wse_u` (water-surface elevation and its uncertainty, m).
+  - Records: 862, from 1992-09-28 to 2026-09-14. Range −28.909 m (2026-01-29) to −25.672 m (1995-07-06) on the DAHITI reference (`results/qc/dahiti_summary.json`).
+  - Software version: the target page lists 8.0 for the water-level series. The product page's processing table describes v6.0 (geoid EIGEN-6C4). The geoid model used by v8.0 is not stated on the pages read, so it is treated as an EIGEN-6C-family quasi-geoid, and the DAHITI→BHS offset is estimated empirically either way.
+- **Uncertainty column:** `wse_u` is 0.000–0.003 m for every record (550 of 862 are exactly 0.000). That is a formal filter uncertainty, not a realistic level error. Phase A estimates the level uncertainty empirically: from the series' own short-term scatter and from cross-checks against independent altimetry (D-018).
+- **Sampling:** about 10-day sampling (Jason/Sentinel-6 repeat) until 2021. In **2022–2025 it thins to 8–15 records per year, with gaps of up to 129 days** (`scripts/p0_dahiti_qc.py`; gap table in STATUS). Scenes in those years need a supplementary level source (D-018).
 
 ## GEBCO (2026 and 2022 grids)
 
