@@ -438,3 +438,29 @@ def test_block_test_groups_and_exclusions():
     with pytest.raises(ValueError, match="missing"):
         h1.block_test(pd.DataFrame(rows), labels.assign(vegetated=[False, None, True, False]), n_perm=10)
     assert design.PERMUTATIONS_N == 10_000 and h1.MIN_BLOCK_N == 20
+
+
+def test_record_low_envelope_sets_dark_water_back_to_water(tmp_path, monkeypatch):
+    # one 4 x 4 tile; E3 bins 10-12 (record low) water everywhere; bin 20 has a noise-dry cell
+    tr = np.array([60.0, 0, 0, 0, -60.0, 240.0])
+    full = np.full((4, 4), 6, np.uint16)
+    dry = full.copy()
+    dry[1, 1] = 0                                     # observed dry six times out of six: noise
+    bands = {}
+    for b in (10, 11, 12):
+        for par in (0, 1):
+            bands[f"w_E3_b{b:03d}_p{par}"] = full
+            bands[f"v_E3_b{b:03d}_p{par}"] = full
+    for par in (0, 1):
+        bands[f"w_E3_b020_p{par}"] = dry
+        bands[f"v_E3_b020_p{par}"] = full
+    np.savez(tmp_path / "tile_0_0.npz", transform=tr, **bands)
+    units = a7.stage2_index(tmp_path)
+    env = a7.record_low_water(units, list(tr), (4, 4))
+    assert env.all()
+    monkeypatch.setattr(a7, "ENVELOPE", None)
+    raw, _ = a7.observed_raw(a7.groups_for(units, 20, ["E3"]), list(tr), (4, 4))
+    assert raw[1, 1] == 0                              # without the envelope: the noise cell is dry
+    monkeypatch.setattr(a7, "ENVELOPE", env)
+    raw, info = a7.observed_raw(a7.groups_for(units, 20, ["E3"]), list(tr), (4, 4))
+    assert raw[1, 1] == 1 and info["envelope_cells"] == 1

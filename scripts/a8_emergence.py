@@ -705,6 +705,8 @@ def main(argv) -> int:
     if [float(v) for v in transform[:6]] != hrun["grid"]["transform"][:6] or list(shape) != hrun["grid"]["shape"]:
         raise SystemExit("the hindcast grid differs from this one")
     static = a7.production_static(transform, shape, a.tile)
+    # the record-low water envelope of the hindcast's observed extents (D-082)
+    a7.ENVELOPE = a7.record_low_water(a7.stage2_index(INTERIM / "stage2" / a.tag), transform, shape)
     corr, corr_rec = None, None
     hcorr = hrun.get("vertical_correction")
     if a.vertical_correction:
