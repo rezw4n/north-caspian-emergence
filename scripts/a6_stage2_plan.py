@@ -77,9 +77,10 @@ def main(argv) -> int:
     if mode == "main":
         tau = float(argv[1])
         ex = []
+        # unknown setup (no ERA5 forcing yet) counts as exceeding tau (D-066)
         for _, r in d[setup_cols].iterrows():
             ex.append(",".join(str(SECTOR_CODE[c[6:-2]]) for c in setup_cols
-                               if np.isfinite(r[c]) and abs(r[c]) > tau))
+                               if not np.isfinite(r[c]) or abs(r[c]) > tau))
         d["excluded_sectors"] = ex
         d["group"], d["sectors"], d["mask_mode"] = base, ex, "exclude"
         name = f"plan_main_tau{int(round(tau * 100)):03d}cm.csv"

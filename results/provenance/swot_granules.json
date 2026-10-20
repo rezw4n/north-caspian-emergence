@@ -13199,6 +13199,4468 @@
 "crid": "PGD0",
 "size": 16400152,
 "checksum": "d5011078655e9779f9fe80860b3f48384f8dd3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_521_012_036F_20230515T001533_20230515T001544_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8184635,
+"checksum": "d5011049961931661aa79ce8db1a1653a880e3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_517_012_037F_20230511T005312_20230511T005333_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16204197,
+"checksum": "d501101d149ab2222a20a62de77c7d9805c84d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_519_012_038F_20230513T003447_20230513T003506_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14150455,
+"checksum": "d501106b96bbfee55114ec1ef9bba7ac7f696f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_522_012_036F_20230516T000611_20230516T000621_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8471685,
+"checksum": "d50110bf0263c79f177316b34ff593a93ff914"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_519_012_037F_20230513T003427_20230513T003448_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16306053,
+"checksum": "d50110b6054ba4ae7125ccefd88c40fe6a0977"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_521_012_038F_20230515T001603_20230515T001621_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15511639,
+"checksum": "d5011021d6f24897ba7a85fecba76914749f2b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_521_012_037F_20230515T001543_20230515T001604_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16548338,
+"checksum": "d501102dc73ddc7125e25f7b6c9abe6dd1b26f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_524_012_039F_20230517T234814_20230517T234836_PGD0_01.nc",
+"crid": "PGD0",
+"size": 447739,
+"checksum": "d501102360ad4e873fb1afa07704c603bc721c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_522_012_037F_20230516T000620_20230516T000641_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16496309,
+"checksum": "d50110377ebe0ad1d0c66a5f09416ff99cd365"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_522_012_038F_20230516T000640_20230516T000659_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15297852,
+"checksum": "d50110b2f4d6f479056b7a1d298e4879a5ee98"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_524_012_036F_20230517T234726_20230517T234737_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8467318,
+"checksum": "d5011030130b2534012f7dc58993a053d0bb0e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_525_012_039F_20230518T233852_20230518T233914_PGD0_01.nc",
+"crid": "PGD0",
+"size": 442654,
+"checksum": "d501109c8ddc7e9aae75f068f0417e15904471"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_523_012_038F_20230516T235718_20230516T235736_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14146167,
+"checksum": "d50110d50d346ad9e8928026dcf241da94fd66"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_523_012_037F_20230516T235658_20230516T235719_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16086578,
+"checksum": "d50110b48ddd6f4636b4dd0f8b7798e2822c09"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_525_012_036F_20230518T233804_20230518T233815_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8007332,
+"checksum": "d50110e19ca259d020265cfb5afd81101a289a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_524_012_037F_20230517T234735_20230517T234756_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15730347,
+"checksum": "d501103bae04ce86eb9552830460d642989069"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_524_012_038F_20230517T234755_20230517T234814_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15420248,
+"checksum": "d50110c258cfb767d5501f206c87ad6d03e1a1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_529_012_036F_20230522T230036_20230522T230047_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8694046,
+"checksum": "d50110cd088538a10e7f401d50b062e2c8c0df"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_525_012_038F_20230518T233833_20230518T233852_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14646219,
+"checksum": "d501100400720b158a9081da2f4a3e63ad7cae"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_530_012_039F_20230523T225202_20230523T225224_PGD0_01.nc",
+"crid": "PGD0",
+"size": 420528,
+"checksum": "d50110f8773eadf5afd513e8f7d8566fc323d6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_530_012_036F_20230523T225114_20230523T225125_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8219233,
+"checksum": "d50110a257f6f1d1c23357b5bbd68c722dea87"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_525_012_037F_20230518T233814_20230518T233834_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15506669,
+"checksum": "d5011026c6dec8310d2d59828abc58bdbb44a3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_531_012_039F_20230524T224240_20230524T224302_PGD0_01.nc",
+"crid": "PGD0",
+"size": 409659,
+"checksum": "d5011064c902eae04611ec4de2277be5d01f09"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_529_012_037F_20230522T230046_20230522T230107_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16343617,
+"checksum": "d501108afdf897b3ee1a6d53eb77320993dedf"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_531_012_036F_20230524T224152_20230524T224203_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8247003,
+"checksum": "d501100a0ebaa7eff2351bdf84137a29d10db8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_529_012_038F_20230522T230105_20230522T230124_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14352813,
+"checksum": "d50110e9209bb0706699c11886051e9b671601"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_530_012_038F_20230523T225143_20230523T225202_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14233426,
+"checksum": "d501107e26ba473f0d0941299fb3e4cfbdbc37"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_530_012_037F_20230523T225124_20230523T225144_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16210540,
+"checksum": "d50110bb1e774375b8d750722a665a071a4829"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_532_012_039F_20230525T223318_20230525T223340_PGD0_01.nc",
+"crid": "PGD0",
+"size": 413353,
+"checksum": "d50110416c2820ec104ffe4bb6bbbfa29baf12"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_531_012_037F_20230524T224201_20230524T224222_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16278278,
+"checksum": "d501101242d1fa9a67fb4d17398fd22568791b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_532_012_036F_20230525T223230_20230525T223240_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8531935,
+"checksum": "d50110f49a9c57a2682684c0ce92b6969f8a28"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_531_012_038F_20230524T224221_20230524T224240_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14067282,
+"checksum": "d501103df0ee9aba4dc3ef770b31ef885f549f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_533_012_036F_20230526T222307_20230526T222318_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8466955,
+"checksum": "d501101bf1dc185e249598ddcb9977deb6870b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_533_012_037F_20230526T222317_20230526T222338_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16591566,
+"checksum": "d501108a345663492af3be2fda2e9422faf917"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_534_012_036F_20230527T221345_20230527T221356_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8474418,
+"checksum": "d501109216e2ab74fff60b6944d33e7367042b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_532_012_038F_20230525T223259_20230525T223318_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14129082,
+"checksum": "d501102d89742e9ec717d13e03f241401b2448"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_532_012_037F_20230525T223239_20230525T223300_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16293545,
+"checksum": "d5011080531cc32a2e4cf5749c7b8bb3aaaa4e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_534_012_038F_20230527T221415_20230527T221433_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13941266,
+"checksum": "d5011014a00c734a1704b6a327c60a67721ced"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_533_012_038F_20230526T222337_20230526T222355_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13682155,
+"checksum": "d50110106b328ddee040594cf1cde1a785ed53"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_535_012_036F_20230528T220423_20230528T220434_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8281560,
+"checksum": "d50110986bff6253065aa1794d415dd923f058"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_536_012_036F_20230529T215501_20230529T215512_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7746220,
+"checksum": "d50110391b82378fa29dac152b26b60e13ea6b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_534_012_037F_20230527T221355_20230527T221416_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16693324,
+"checksum": "d501101be01050f0db728304ae793e2b50508d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_535_012_038F_20230528T220453_20230528T220511_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14227397,
+"checksum": "d50110f7f25a8edf9f59b3721015c91f31d1b4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_536_012_036F_20230529T215501_20230529T215510_PGC0_02.nc",
+"crid": "PGC0",
+"size": 6609642,
+"checksum": "d5011037d8db62f9402dbdcd55fe61593b876b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_537_012_036F_20230530T214539_20230530T214549_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8240684,
+"checksum": "d5011046d26aa7d2f37689cb0a18f7a3508abd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_537_012_039F_20230530T214627_20230530T214649_PGD0_01.nc",
+"crid": "PGD0",
+"size": 399348,
+"checksum": "d50110df870dfa08d614b6017381b1d5dd92ef"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_535_012_037F_20230528T220433_20230528T220454_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16512225,
+"checksum": "d501108be9b560396e8154042f1d3ca5edc8b0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_536_012_037F_20230529T215511_20230529T215532_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16757664,
+"checksum": "d50110c9300e67a263df32789df1dbd7f7004b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_536_012_038F_20230529T215531_20230529T215549_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14111376,
+"checksum": "d50110a78fc1037313a0cef597e2b94095931f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_538_012_036F_20230531T213616_20230531T213625_PGC0_02.nc",
+"crid": "PGC0",
+"size": 6582230,
+"checksum": "d5011041bea87aba33448133cf591555d69b33"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_538_012_036F_20230531T213616_20230531T213627_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7719837,
+"checksum": "d5011076a1813b617bdc1459b635fefef0b6a5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_537_012_038F_20230530T214608_20230530T214627_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13744421,
+"checksum": "d501109ece6f2e84375aea55b535c21528bb10"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_537_012_037F_20230530T214548_20230530T214609_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16515639,
+"checksum": "d5011024c97ffe2409430cec1683c2e1db135f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_539_012_036F_20230601T212654_20230601T212705_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8325707,
+"checksum": "d50110ed7e8cebfb7dace5b17bc7a2b301aee7"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_540_012_036F_20230602T211732_20230602T211743_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8156726,
+"checksum": "d50110e9267a630c95ec1c116ed9a896bb6f17"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_538_012_038F_20230531T213646_20230531T213704_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13928799,
+"checksum": "d5011044a97221201296168c929d74f00e2012"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_540_012_037F_20230602T211742_20230602T211803_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16205255,
+"checksum": "d501106553b5c784fa3850fa166cb31e83d8b7"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_539_012_037F_20230601T212704_20230601T212725_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16225850,
+"checksum": "d501109ebdd9d7e28120fa83643139a050c173"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_540_012_038F_20230602T211802_20230602T211820_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13712627,
+"checksum": "d501104f4c3d690d2eb3d886b5526b10e5d014"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_539_012_038F_20230601T212724_20230601T212742_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14077150,
+"checksum": "d501105a4d259daae8b4124907c73fb59fd996"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_542_012_036F_20230604T205848_20230604T205859_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7459317,
+"checksum": "d501101a1470589d7893c39107eb126e30c6ad"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_541_012_037F_20230603T210820_20230603T210841_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16222732,
+"checksum": "d5011077d2ec544a391ab0a089ba4829173ae8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_543_012_039F_20230605T205014_20230605T205036_PGD0_01.nc",
+"crid": "PGD0",
+"size": 431902,
+"checksum": "d50110bca2e9b2975e0dcd5a9f1cdc69bf7498"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_541_012_038F_20230603T210840_20230603T210858_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13717772,
+"checksum": "d50110a91aba8ca84b8fb07b91669eaa0164ce"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_542_012_036F_20230604T205848_20230604T205857_PGC0_02.nc",
+"crid": "PGC0",
+"size": 6373937,
+"checksum": "d50110856fab1ef396e1a8f1fd1779e4ee56f5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_543_012_036F_20230605T204926_20230605T204937_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8159903,
+"checksum": "d50110f897b34e7f332dcbd7867e5c52b39c63"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_544_012_039F_20230606T204052_20230606T204114_PGD0_01.nc",
+"crid": "PGD0",
+"size": 408912,
+"checksum": "d5011035b5f4a4bf657fec35ec7a6ed5a47213"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_542_012_037F_20230604T205858_20230604T205919_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16310939,
+"checksum": "d501104b637a60591ac9d69baf688bcdbd8244"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_542_012_038F_20230604T205917_20230604T205936_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13635904,
+"checksum": "d50110a54c6646fccae9905ea3331d58dde46c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_544_012_036F_20230606T204004_20230606T204014_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8453508,
+"checksum": "d50110d3145587cb76569fb749a793e8817d2f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_545_012_036F_20230607T203041_20230607T203050_PGC0_02.nc",
+"crid": "PGC0",
+"size": 6552758,
+"checksum": "d501102e50dabbbb9bf7b56caa1dc21767141d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_543_012_037F_20230605T204936_20230605T204956_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16250861,
+"checksum": "d50110a5dbc5959d6b823df5fa5c5ce2619af5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_543_012_038F_20230605T204955_20230605T205014_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13865058,
+"checksum": "d5011013cf4b5616bd8fadb01373dfb8ed5318"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_544_012_037F_20230606T204013_20230606T204034_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16330711,
+"checksum": "d50110d43b7773ed8fd247a2690c7f009b00b7"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_545_012_036F_20230607T203041_20230607T203052_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7613136,
+"checksum": "d501108f2a14f6a6738bfbd434629d72ce046c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_545_012_038F_20230607T203111_20230607T203130_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13909486,
+"checksum": "d50110fbc44ee112a604788d8f463c5e3b583e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_546_012_036F_20230608T202119_20230608T202130_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8369197,
+"checksum": "d501100d302741a2ebb4e959d56c1ee7d9cd3a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_544_012_038F_20230606T204033_20230606T204052_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13926799,
+"checksum": "d50110f349a148664e9750a1b1b3854eb5e43c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_547_012_036F_20230609T201157_20230609T201208_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7900887,
+"checksum": "d501101871aa61df033d95159f0994bd799d69"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_546_012_038F_20230608T202149_20230608T202207_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13630044,
+"checksum": "d501105d05d409c879aae55d2f2a2fabb6b879"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_548_012_036F_20230610T200235_20230610T200246_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8070626,
+"checksum": "d501102f6e2bc80fcb017a7091e3cdc0a9d080"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_546_012_037F_20230608T202129_20230608T202150_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16333969,
+"checksum": "d5011072bc74d8686fb3f8fc6388f65871d3ac"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_547_012_038F_20230609T201227_20230609T201245_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13611634,
+"checksum": "d50110a404ab6eb27b8e4cb20b843dc77bcb85"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_549_012_036F_20230611T195313_20230611T195323_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8393347,
+"checksum": "d50110a0faea2c426585f3119eb71788aef8ec"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_548_012_038F_20230610T200304_20230610T200323_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13702959,
+"checksum": "d501106a01bae33412542459efec3516af8a45"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_550_012_036F_20230612T194350_20230612T194401_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8204812,
+"checksum": "d50110f0ee49c2d12442437d0b5711ce48e181"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_548_012_037F_20230610T200245_20230610T200306_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16363335,
+"checksum": "d50110dc724aa1065612c5829da71a174706f4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_549_012_038F_20230611T195342_20230611T195401_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13920997,
+"checksum": "d5011046b7165e54c74e4ca30820ebdc0e2eb3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_549_012_037F_20230611T195322_20230611T195343_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16599916,
+"checksum": "d50110739bab454513749362194eb2d7f03993"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_551_012_036F_20230613T193428_20230613T193439_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7880651,
+"checksum": "d50110fbe30efbc6b8714c40d854c67bf30ba5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_552_012_036F_20230614T192506_20230614T192516_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8282369,
+"checksum": "d50110c0d28ca6b865587fdfea9786dcee2dc9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_551_012_038F_20230613T193458_20230613T193516_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13539143,
+"checksum": "d50110fe64eed744ecf3989febd1e5eb7feade"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_550_012_038F_20230612T194420_20230612T194438_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13779888,
+"checksum": "d50110ff06942d65d3919c4faffb88a47ec4e8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_550_012_037F_20230612T194400_20230612T194421_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16312501,
+"checksum": "d50110d7df15b0710dfcac32c26e7cde40ecc4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_551_012_037F_20230613T193438_20230613T193459_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16274517,
+"checksum": "d50110a7ae33e1eec2f9e5070fb7ed1eadfbca"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_554_012_039F_20230616T190709_20230616T190731_PGD0_01.nc",
+"crid": "PGD0",
+"size": 412018,
+"checksum": "d50110f04a9cd2b0fd4f0763bfba75f0ca66cd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_553_012_036F_20230615T191543_20230615T191554_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8204017,
+"checksum": "d50110266485f5861c39f8fe24c212caf1aea0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_552_012_037F_20230614T192515_20230614T192536_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16302060,
+"checksum": "d501105f0c8a64e19f89bb11b308af2dd54156"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_552_012_038F_20230614T192535_20230614T192554_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13476562,
+"checksum": "d50110d9ee540999363f74070b6114e2d4d453"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_553_012_038F_20230615T191613_20230615T191631_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13690599,
+"checksum": "d5011011452b3e3833dfe6689b2e18c85ae2b7"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_554_012_038F_20230616T190650_20230616T190709_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13645099,
+"checksum": "d50110020a32ac5f67fad75c8e330f0ff4aed9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_554_012_037F_20230616T190631_20230616T190652_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16251136,
+"checksum": "d501101cdf44d14a684be837d25f8768b6f4b8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_555_012_036F_20230617T185659_20230617T185710_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8080744,
+"checksum": "d5011024f81c292d6ed2b6e2b15a9d895fab09"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_553_012_037F_20230615T191553_20230615T191614_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16371446,
+"checksum": "d50110f3edc811a8cec1208055c238b14b5db4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_555_012_038F_20230617T185729_20230617T185747_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13564871,
+"checksum": "d50110af381ad8897ff2a20a4f710ffde6b302"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_556_012_036F_20230618T184737_20230618T184748_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8784647,
+"checksum": "d501108563c78b6df4e1846b658a28fef49355"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_555_012_037F_20230617T185709_20230617T185730_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16363688,
+"checksum": "d50110b90829305ebdf893cb14b23d0b75cfef"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_557_012_036F_20230619T183815_20230619T183826_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8594183,
+"checksum": "d50110f6be64c87973ee3abacd235927bf0bf6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_558_012_036F_20230620T182853_20230620T182904_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8606607,
+"checksum": "d50110a9af26e0c924dccc86d52637fbe7c47b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_556_012_038F_20230618T184807_20230618T184825_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13830909,
+"checksum": "d50110a7d1398bf11392a7367e33e2b6889024"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_556_012_037F_20230618T184747_20230618T184808_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16484058,
+"checksum": "d50110c5409828ae87d9bcb0018261ffb183db"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_557_012_038F_20230619T183845_20230619T183903_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13599925,
+"checksum": "d5011082fcabe1f327c298fe4aeb048e167ac9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_557_012_037F_20230619T183825_20230619T183846_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16381697,
+"checksum": "d50110421ffa1995d35b8f9f7de24271b3a77a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_558_012_038F_20230620T182923_20230620T182941_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13578003,
+"checksum": "d501104707d1087c0e3f706697a72bf407903e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_559_012_036F_20230621T181931_20230621T181942_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8564406,
+"checksum": "d50110fa2f7ecbeda1d9155b1d2e33adeb08f9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_560_012_036F_20230622T181009_20230622T181020_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8532937,
+"checksum": "d50110b52c9ffe4cb9f15b5b95889b22600d37"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_559_012_038F_20230621T182001_20230621T182019_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13514566,
+"checksum": "d501105d0228f55b5357e90733fed6dba352a8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_558_012_037F_20230620T182903_20230620T182924_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16486878,
+"checksum": "d50110e115b59b834701d509ba8bbe67745d64"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_561_012_036F_20230623T180047_20230623T180058_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8600721,
+"checksum": "d501101820514b9473ad6d3f1c0b30638061a0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_560_012_038F_20230622T181039_20230622T181057_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14577653,
+"checksum": "d50110a0917231b8d90a6c61c2b837f925c726"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_560_012_037F_20230622T181019_20230622T181040_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16442780,
+"checksum": "d50110f7de4d4db49a4474e5d7cfcaf932a0a9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_559_012_037F_20230621T181941_20230621T182002_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16394243,
+"checksum": "d50110295892374523c58782ce6d417b07aed6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_562_012_036F_20230624T175125_20230624T175136_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8692165,
+"checksum": "d5011066003b92954bfa0d156be328d1737d4b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_561_012_037F_20230623T180057_20230623T180118_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16387166,
+"checksum": "d501105ffc7120c598843e4ece1fb2795cfee9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_561_012_038F_20230623T180117_20230623T180135_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13893645,
+"checksum": "d501100698eaaad9b336eae47af73d02d177bd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_562_012_038F_20230624T175155_20230624T175213_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13879586,
+"checksum": "d5011072cba3f9067dde5fccb3f1c201bbd171"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_563_012_036F_20230625T174203_20230625T174214_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8907050,
+"checksum": "d5011051667c08277cc2b8e91f9f1b7262fb2f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_563_012_038F_20230625T174233_20230625T174251_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14035889,
+"checksum": "d5011082eacdb6d49a7880f7389c031896d5c4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_562_012_037F_20230624T175135_20230624T175156_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16412419,
+"checksum": "d501109860ff574a94f003deaaf262d499f573"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_564_012_036F_20230626T173241_20230626T173252_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8131752,
+"checksum": "d50110dfa9784846e1cf72e01f00e217490daa"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_566_012_036F_20230628T171357_20230628T171408_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8455082,
+"checksum": "d501109220e113ec82f3fc433cec3037970b41"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_563_012_037F_20230625T174213_20230625T174234_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16684885,
+"checksum": "d5011028d58e1ebcd0b80e6c9cf7834292c31a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_564_012_038F_20230626T173311_20230626T173329_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13761858,
+"checksum": "d50110c7fdae0ab9182a25e187aa5950c15988"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_566_012_039F_20230628T171445_20230628T171507_PGD0_01.nc",
+"crid": "PGD0",
+"size": 411296,
+"checksum": "d50110fd9ee11186bf3f049a336cad0c22b194"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_564_012_037F_20230626T173251_20230626T173312_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16436745,
+"checksum": "d501105fab386797ab03b744d783d90ebdb40c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_565_012_036F_20230627T172319_20230627T172330_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8046866,
+"checksum": "d50110de21d7d477834325b24bb1e1676100d6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_565_012_038F_20230627T172348_20230627T172407_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13765098,
+"checksum": "d50110a005154018f39be862392a0c5848e130"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_565_012_037F_20230627T172329_20230627T172350_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16431146,
+"checksum": "d501105fd31b7b287735c4b24c6bc6b32257db"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_566_012_037F_20230628T171406_20230628T171427_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16293122,
+"checksum": "d50110a165a25f110510c8fd54e51e4e05212c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_567_012_036F_20230629T170434_20230629T170445_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8410491,
+"checksum": "d50110e0e456aee1567443c1ce470cf7a1bea5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_568_012_036F_20230630T165512_20230630T165523_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8494538,
+"checksum": "d501107e295eac21213e02528811409de16b44"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_567_012_038F_20230629T170504_20230629T170523_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13635154,
+"checksum": "d5011008bc7f3c96397f7c8378944b18401d8b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_566_012_038F_20230628T171426_20230628T171445_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13713021,
+"checksum": "d5011095e56e983cb348de5e1834ed2676db74"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_567_012_037F_20230629T170444_20230629T170505_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16379854,
+"checksum": "d501107d5d4db25d74026b8ffb6c75e7df76e2"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_569_012_036F_20230701T164550_20230701T164601_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9031989,
+"checksum": "d50110dfb20a9e1ae557e76a9c66db40cbabfc"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_568_012_037F_20230630T165522_20230630T165543_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16332829,
+"checksum": "d50110eadbb432cd2e533d1dc06ca7efa4fe5b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_570_012_036F_20230702T163628_20230702T163639_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8742009,
+"checksum": "d50110030c7ec4953566b82cffebddbb9b7b17"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_568_012_038F_20230630T165542_20230630T165600_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13661546,
+"checksum": "d50110553e155386ce7a636219b11f5ddfdad6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_569_012_038F_20230701T164620_20230701T164638_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14063223,
+"checksum": "d50110738694bceef753ed9ad8253010f3470b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_571_012_036F_20230703T162706_20230703T162717_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8668796,
+"checksum": "d501103dcc9e34c4ce0352948bec938f3197cd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_569_012_037F_20230701T164600_20230701T164621_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16391749,
+"checksum": "d50110780e155091e5ee1ef2657b15d6484b65"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_570_012_038F_20230702T163658_20230702T163716_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14005471,
+"checksum": "d50110e9f68d36c462f0aee8a30aaf1b7a29ea"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_570_012_037F_20230702T163638_20230702T163659_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16540752,
+"checksum": "d501102befaeab0b818caa7f3f7bacd0ba8919"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_572_012_036F_20230704T161744_20230704T161755_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8528808,
+"checksum": "d50110430e610fba8b3341ca7041312bd34ec7"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_571_012_038F_20230703T162736_20230703T162754_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13782989,
+"checksum": "d50110db15e7d295a8ce4925485669033fb62b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_573_012_036F_20230705T160822_20230705T160833_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8653996,
+"checksum": "d501105a5e28b90ed3269e31fe2ecb1318e367"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_571_012_037F_20230703T162716_20230703T162737_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16448283,
+"checksum": "d5011083f7bca0c68759cef057dc15d350721a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_574_012_036F_20230706T155900_20230706T155911_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8588793,
+"checksum": "d5011031afa16d45e38516dfc0ca491bddcc79"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_572_012_038F_20230704T161814_20230704T161832_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13786984,
+"checksum": "d50110aa1bbe03511079b8ed0d153da4f03fe3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_575_012_036F_20230707T154938_20230707T154949_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8160145,
+"checksum": "d5011054feaa1644631fbb0364507ee643630e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_576_012_036F_20230708T154016_20230708T154027_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8270475,
+"checksum": "d5011050f9bb01250287726931892921c2baaa"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_573_012_037F_20230705T160832_20230705T160853_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16404955,
+"checksum": "d50110b0f03363e764ab2f6ec067240f6e0026"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_574_012_038F_20230706T155930_20230706T155948_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14011834,
+"checksum": "d5011073fdd0331b171fba4bc0ae54d13ed91c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_574_012_037F_20230706T155910_20230706T155931_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16444221,
+"checksum": "d50110f278270c305128c148caf4378b9bbb04"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_575_012_038F_20230707T155008_20230707T155026_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13815940,
+"checksum": "d50110e5c5c038678887532c9876baab4eec2b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_575_012_037F_20230707T154948_20230707T155009_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16682409,
+"checksum": "d501107c4cab325769ca73b3ea3285644e9f5f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_577_012_036F_20230709T153054_20230709T153105_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8186270,
+"checksum": "d501101b3f65c507d8157f3933c5383e0de859"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_576_012_037F_20230708T154026_20230708T154047_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16737783,
+"checksum": "d50110d08a6c9b4ef2336809b2a27fdf254577"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_578_012_039F_20230710T152220_20230710T152242_PGD0_01.nc",
+"crid": "PGD0",
+"size": 393998,
+"checksum": "d50110fc51dc3bc024475ef4db9bae1137d8e5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_578_012_036F_20230710T152132_20230710T152143_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8407163,
+"checksum": "d50110a5561cee1a6a3ae313297d57b3adb4bd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_577_012_038F_20230709T153123_20230709T153142_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13822085,
+"checksum": "d50110cb4134f95f2d3d3834f0eaefdcdda40b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_576_012_038F_20230708T154046_20230708T154104_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13841919,
+"checksum": "d50110697a91dd5a939d41280a659f4f7a310d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_578_012_037F_20230710T152141_20230710T152202_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16628180,
+"checksum": "d50110ee08d081f6defff268d951c528ab50a5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_001_288_036F_20230731T115047_20230731T115108_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11709774,
+"checksum": "d5011001893a7a1dbecd159ce427a11bd60924"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_577_012_037F_20230709T153104_20230709T153125_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16588572,
+"checksum": "d50110395b77a333793922e9713d7618e0cdf9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_001_288_037F_20230731T115107_20230731T115128_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13894318,
+"checksum": "d50110f40b3ad24279311c3afefa66d03cbeec"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_578_012_038F_20230710T152201_20230710T152220_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13953297,
+"checksum": "d501105748aa902a2c0c62fff2eec0cf2b99eb"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_002_010_039F_20230811T101435_20230811T101456_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9170382,
+"checksum": "d50110de5ec345777949aec667abfd22258297"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_001_359_117F_20230803T011035_20230803T011056_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13759691,
+"checksum": "d501104966b0b8daf8726ad8aaba0c2ee9eff5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_002_010_038F_20230811T101415_20230811T101436_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13629399,
+"checksum": "d501100dcd4467c10aed17670389cac6a3b2da"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_004_359_116F_20231004T152527_20231004T152549_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9574947,
+"checksum": "d50110ab3ee839618fd518fe5cbfc97dacf648"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_005_010_039F_20231013T002949_20231013T003009_PGC0_01.nc",
+"crid": "PGC0",
+"size": 3539516,
+"checksum": "d50110c6980cfca2f04feebb32813b5451325d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_001_359_118F_20230803T011055_20230803T011116_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13128671,
+"checksum": "d50110ca761aaa83aa8127eca769ebde679800"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_004_359_117F_20231004T152547_20231004T152609_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15044754,
+"checksum": "d501100eb2c303804b1c81227b55a241e90712"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_004_359_118F_20231004T152607_20231004T152629_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15476291,
+"checksum": "d50110259e3e58e747f9b82bd4b0e03269cf8c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_004_288_037F_20231002T020620_20231002T020642_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16951486,
+"checksum": "d50110b225d351e28512c4ec8f4bb8c16a611e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_005_081_119F_20231015T134916_20231015T134937_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15259213,
+"checksum": "d50110c00a11f9d7818d632ff5ce4dc35df33f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_005_359_116F_20231025T121032_20231025T121054_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9535468,
+"checksum": "d50110f883ac7b7afc2a9221b697fedb155946"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_005_081_118F_20231015T134856_20231015T134917_PGD0_01.nc",
+"crid": "PGD0",
+"size": 18069665,
+"checksum": "d501100522c47a54a44569b7e8d6251a190e6e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_005_288_036F_20231022T225105_20231022T225126_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15927178,
+"checksum": "d501102c5b9761eec5191a0ce45f0e37ac87e9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_005_288_037F_20231022T225125_20231022T225146_PGD0_01.nc",
+"crid": "PGD0",
+"size": 18589373,
+"checksum": "d5011061dc864abc7ddbe0033d35cf3eff2a6a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_005_359_117F_20231025T121052_20231025T121114_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15718721,
+"checksum": "d50110fbd84b80f0f8e8ecf8503882f153ce6f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_006_010_038F_20231102T211433_20231102T211454_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15072261,
+"checksum": "d50110af601c0090a2282313ae9cd9828d3d29"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_006_010_039F_20231102T211453_20231102T211514_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9373767,
+"checksum": "d501105b6925ff69b61fa8c56548d5905497d3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_006_288_036F_20231112T193610_20231112T193631_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16303112,
+"checksum": "d50110ceafddc43b203cc84e66e13ad61d458f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_005_359_118F_20231025T121112_20231025T121134_PGD0_01.nc",
+"crid": "PGD0",
+"size": 18236489,
+"checksum": "d50110dab3c8fd06cf00168650de02cba5e890"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_006_359_116F_20231115T085538_20231115T085559_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9536447,
+"checksum": "d501108c8733d034a353a7c0b98d66c73a6ffa"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_006_081_119F_20231105T103421_20231105T103442_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16150797,
+"checksum": "d5011010ab82369826fa318f2b1eca0648634f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_006_081_118F_20231105T103401_20231105T103422_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17600035,
+"checksum": "d50110e2a95044cbfd383f4b03aac0832dd803"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_006_288_037F_20231112T193630_20231112T193651_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17734780,
+"checksum": "d501101fb82aa398dce62b78a34b6031d6c7bd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_006_359_117F_20231115T085558_20231115T085619_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15118975,
+"checksum": "d501105658f1cadc49127a210fadd8749a8403"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_006_359_118F_20231115T085618_20231115T085639_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15053147,
+"checksum": "d50110107049ff2ac2cb605081f8b30a6ec2b4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_007_010_039F_20231123T175959_20231123T180020_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12469485,
+"checksum": "d5011099df8ac0bfed594f460ab2b5dce9b31c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_007_359_116F_20231206T054043_20231206T054104_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9608671,
+"checksum": "d50110ba0032c6f5b82d4e0e253630707dd380"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_007_010_038F_20231123T175939_20231123T180000_PGD0_01.nc",
+"crid": "PGD0",
+"size": 18471897,
+"checksum": "d50110b6080f2b50aa4de8483674d7195bbed3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_007_288_036F_20231203T162116_20231203T162137_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17526477,
+"checksum": "d501101d630de56bb5b8a1f5d538f0af1db32a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_007_081_118F_20231126T071907_20231126T071928_PGD0_01.nc",
+"crid": "PGD0",
+"size": 18440629,
+"checksum": "d501108519a179f20bde3b7eb26c8867bd44f3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_007_081_119F_20231126T071927_20231126T071948_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17514011,
+"checksum": "d50110a19c2dca30f7995a3eda54d439b12234"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_007_288_037F_20231203T162136_20231203T162157_PGD0_01.nc",
+"crid": "PGD0",
+"size": 18764907,
+"checksum": "d501100d2491b4231317ae769b55603184ad4e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_007_359_117F_20231206T054103_20231206T054124_PGD0_02.nc",
+"crid": "PGD0",
+"size": 15458205,
+"checksum": "d501100a1cb4ab92568f0d9e116f60655d2160"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_008_010_039F_20231214T144502_20231214T144523_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10858836,
+"checksum": "d50110af6642f2c91307125b91affd08e50055"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_007_359_118F_20231206T054123_20231206T054144_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14852275,
+"checksum": "d50110132d5b9e8def90523583c2c2e18221f4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_008_081_119F_20231217T040430_20231217T040451_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12816100,
+"checksum": "d50110f0df35857a982c46e324c6f4cf1d9473"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_008_081_118F_20231217T040410_20231217T040431_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15913077,
+"checksum": "d50110265b33ebcfb58e1818e640e2cfc4cfdb"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_008_288_036F_20231224T130621_20231224T130642_PGC0_02.nc",
+"crid": "PGC0",
+"size": 11031923,
+"checksum": "d5011011038f533d8be9b8487e269dc6213000"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_009_010_039F_20240104T113009_20240104T113030_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11095720,
+"checksum": "d50110164fe29aee31555280789616b44dc9fe"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_008_288_037F_20231224T130641_20231224T130702_PGC0_02.nc",
+"crid": "PGC0",
+"size": 17900540,
+"checksum": "d50110becaa7e586767986dfe773302dcaea33"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_008_010_038F_20231214T144442_20231214T144503_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14247457,
+"checksum": "d50110b93a8be709ed89be87771f9f7171ff18"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_009_359_116F_20240116T231054_20240116T231115_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7627755,
+"checksum": "d5011092bd23405d6f6f174936bc39dec54163"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_009_010_038F_20240104T112949_20240104T113010_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17277568,
+"checksum": "d501108e81a3f69c84712ba744fc932395cb28"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_009_081_118F_20240107T004916_20240107T004938_PGD0_01.nc",
+"crid": "PGD0",
+"size": 18109754,
+"checksum": "d50110b456118762c79f1e6e9652cae5eb861e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_009_288_037F_20240114T095145_20240114T095206_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11916072,
+"checksum": "d501107bf4c822786f7212996ae3613da9e502"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_009_288_036F_20240114T095125_20240114T095146_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13107418,
+"checksum": "d501103016aafe68c83a54d7513e3d0189e7c1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_009_081_119F_20240107T004936_20240107T004958_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17616719,
+"checksum": "d5011003bb79543cdc8e15cce4056cfc741927"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_009_359_117F_20240116T231114_20240116T231135_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11875524,
+"checksum": "d5011081ae56c7645a14d0ea2849c8eacf912d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_010_010_039F_20240125T081515_20240125T081536_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7351751,
+"checksum": "d5011018cbd43ab543cca34fbbc00dc5321d5b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_010_010_038F_20240125T081455_20240125T081516_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11319755,
+"checksum": "d50110e01e7b11ff2d42c9ea50f0b8d4e7ab3e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_009_359_118F_20240116T231134_20240116T231155_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11709455,
+"checksum": "d50110334175170f832ff7c3ea3d46ef9a1a9b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_010_288_036F_20240204T063631_20240204T063652_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13210671,
+"checksum": "d50110fd0504b8046942a3a391fb1dd1857936"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_010_081_119F_20240127T213442_20240127T213504_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11248947,
+"checksum": "d50110923d076e367c32a2c72fb58e9ba252fa"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_010_359_116F_20240206T195559_20240206T195620_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9205126,
+"checksum": "d50110b4e5f4f2c7cc5e4233504e198bce3d56"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_010_288_037F_20240204T063651_20240204T063712_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15789985,
+"checksum": "d50110b122fe3f14c985bb51449262e806f047"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_010_081_118F_20240127T213422_20240127T213444_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15048445,
+"checksum": "d50110b80324fe5ac5820b13ffd456d3ac88e4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_010_359_117F_20240206T195619_20240206T195640_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14086805,
+"checksum": "d50110024fd430301becfa55a566c674546b38"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_010_359_118F_20240206T195639_20240206T195700_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13807642,
+"checksum": "d50110bd9fb743afcfe81908de53c08b32ab4d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_011_010_039F_20240215T050019_20240215T050041_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10055048,
+"checksum": "d501100457c99dabeb40a9e5f1edf699b65119"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_011_359_116F_20240227T164104_20240227T164125_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7632202,
+"checksum": "d50110596f8113cef482400b842e32428fe275"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_011_288_037F_20240225T032157_20240225T032218_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12364158,
+"checksum": "d50110d0ae2c9ce40d9e5c7ba6c2ce8d1bcd6f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_011_081_118F_20240217T181927_20240217T181948_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14662554,
+"checksum": "d50110c1f05947fe547788fea2f0a6b9cada3f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_011_288_036F_20240225T032137_20240225T032158_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13235310,
+"checksum": "d5011010fd06585a3ac48a13fbfa599409d529"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_011_359_117F_20240227T164124_20240227T164145_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11614450,
+"checksum": "d5011027e35da2dc1ebe9dda35aae3544829f0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_011_359_118F_20240227T164144_20240227T164205_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11841312,
+"checksum": "d5011061689dd770081e8c704bf96261ffd5e8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_012_010_038F_20240307T014504_20240307T014525_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11749827,
+"checksum": "d50110785379f1b99232e20ce9d201609d9096"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_012_010_039F_20240307T014524_20240307T014545_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7434084,
+"checksum": "d5011075eef60fdae19245a135ec10eb6dedb8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_011_081_119F_20240217T181947_20240217T182008_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14063519,
+"checksum": "d50110c82cf5c7a46c2f937f8f1ba9f7a13d8e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_012_359_116F_20240319T132607_20240319T132628_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10640523,
+"checksum": "d50110617d5dee3ebbb76e8bb016476e01810a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_012_081_118F_20240309T150431_20240309T150452_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15750512,
+"checksum": "d501101d255bf9e00597288dd7495dfbd33a11"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_012_288_037F_20240317T000659_20240317T000720_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13873573,
+"checksum": "d50110d8742e05c1d77519c4aab6afabc94b2f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_012_081_119F_20240309T150451_20240309T150512_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14459784,
+"checksum": "d50110f5520fa79e045d6a029edff5f7bba924"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_012_359_118F_20240319T132647_20240319T132708_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13248872,
+"checksum": "d501109e4ee039252c2635b6d47730b3e21837"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_012_288_036F_20240317T000639_20240317T000700_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13949832,
+"checksum": "d501105a06122c34ade6d3d6ac5608dc30dc12"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_012_359_117F_20240319T132627_20240319T132648_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12978153,
+"checksum": "d501108d8c330cc8b29d6e8c25fdff8440c844"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_013_010_038F_20240327T223007_20240327T223028_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16927295,
+"checksum": "d50110d3fed30fe79720049f9226f5101e5802"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_013_081_119F_20240330T114955_20240330T115016_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14554663,
+"checksum": "d501108e385e6579bf7c72a4937037d95ac441"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_013_359_116F_20240409T101112_20240409T101133_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7929601,
+"checksum": "d5011070dfe40f5db3a0f0f4ff17493f05186e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_013_288_037F_20240406T205203_20240406T205224_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12635830,
+"checksum": "d501102225cb5c8cdbc4df318704ab6511f8c8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_013_010_039F_20240327T223027_20240327T223048_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12372913,
+"checksum": "d50110c5de1f869f6abc09e519a80f33e3ea01"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_013_288_036F_20240406T205143_20240406T205204_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12961420,
+"checksum": "d5011007437eae510dbbb4bafd28d4721c11ec"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_013_081_118F_20240330T114935_20240330T114956_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14947963,
+"checksum": "d50110c9e7e64332b443ec9b32af0994aed6df"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_014_010_039F_20240417T191533_20240417T191554_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7859373,
+"checksum": "d50110b57c9252c644e593de0d393332f598c0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_013_359_118F_20240409T101152_20240409T101213_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10215008,
+"checksum": "d501104ab099447d8abf1dd41ea3a8bbd33422"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_014_010_038F_20240417T191513_20240417T191534_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12110625,
+"checksum": "d50110ee567fb4a538612291f452f0eac34d4d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_014_288_036F_20240427T173649_20240427T173710_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10686482,
+"checksum": "d50110016605d5e4b2b347c156a2f47c975920"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_014_359_116F_20240430T065616_20240430T065637_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7924538,
+"checksum": "d5011062026769db05e83e5e9059fe8dd68f2f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_014_081_119F_20240420T083501_20240420T083522_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11408162,
+"checksum": "d5011036fe3be993674d30cca0a898f5a87d12"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_014_081_118F_20240420T083441_20240420T083502_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13859522,
+"checksum": "d501109cc38b88b1d34fabbd574fd063ecf426"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_014_359_118F_20240430T065656_20240430T065717_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9346133,
+"checksum": "d5011062eea27bd2272457833e70de2ea65363"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_014_288_037F_20240427T173709_20240427T173730_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11639601,
+"checksum": "d501104cd3463e0bfb1a8ee220d343f1c3b0a4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_014_359_117F_20240430T065636_20240430T065657_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11847987,
+"checksum": "d501103f42e2571e794a32001caf1b1a8f61e1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_015_081_119F_20240511T052005_20240511T052026_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11721731,
+"checksum": "d50110a37f9441adcfee2a2b81a01bdfefcce5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_015_010_038F_20240508T160016_20240508T160037_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17178945,
+"checksum": "d50110e4d76a223a7af8bcd3fd708f73f78060"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_015_288_036F_20240518T142153_20240518T142215_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13882750,
+"checksum": "d5011009df89c5d9d64f4555d3b89c645c2549"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_015_010_039F_20240508T160036_20240508T160057_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15194369,
+"checksum": "d50110f5734fa9b7e4a17c405c87bb4e5ec923"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_015_081_118F_20240511T051945_20240511T052006_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17056878,
+"checksum": "d5011076b6e2c8891e4c30f31165f23c7fb83c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_015_359_116F_20240521T034121_20240521T034142_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14985603,
+"checksum": "d501106bf978160dfd4fba72066c6abb617c65"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_015_288_037F_20240518T142213_20240518T142235_PGD0_01.nc",
+"crid": "PGD0",
+"size": 18147956,
+"checksum": "d50110e4fb2f971c3cc661b27ea27a0dbab13f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_016_081_119F_20240601T020510_20240601T020531_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10515128,
+"checksum": "d501100891ad23b951d3c05fe3afbaa8ca79f4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_016_010_038F_20240529T124522_20240529T124543_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12790505,
+"checksum": "d50110e425820b400df4aa15bd6134ecdafae2"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_015_359_118F_20240521T034201_20240521T034222_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15536235,
+"checksum": "d50110e0aea0ef6e952f48cd57d3cd6c9abec9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_016_288_036F_20240608T110659_20240608T110720_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10660677,
+"checksum": "d50110c99e95bcdac16f68b31b27c99cfd444f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_016_359_116F_20240611T002627_20240611T002648_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9439761,
+"checksum": "d50110967810cda8abbc27b23ab2cea50406c7"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_016_081_118F_20240601T020450_20240601T020511_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14779717,
+"checksum": "d501109c396994a69e7654bb09ec9bdb6caf12"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_016_288_037F_20240608T110719_20240608T110740_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11696659,
+"checksum": "d50110afbdb0ea8b65f7ab9723e8623450ccef"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_016_359_117F_20240611T002647_20240611T002708_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12887398,
+"checksum": "d50110c75eb262578e3fab1d9982e26586a59d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_017_010_039F_20240619T093047_20240619T093108_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9364300,
+"checksum": "d501108eddbd20c265b37005d29d6629454e62"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_016_359_118F_20240611T002707_20240611T002728_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10220556,
+"checksum": "d50110820d6b07e84b43eb09a8f149e6928e7c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_017_081_119F_20240621T225014_20240621T225035_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11008516,
+"checksum": "d50110648560937ffc00b6d5e76a4d508fc32d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_017_010_038F_20240619T093027_20240619T093048_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12337096,
+"checksum": "d5011018d3b60ba5b8b2d7c6da2c0ef5bd6ee5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_017_081_118F_20240621T224954_20240621T225015_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14651715,
+"checksum": "d50110dd8a116221c5089ffd1fb473140784a1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_017_288_037F_20240629T075222_20240629T075244_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14917173,
+"checksum": "d501100a7f4ddf72a8bf71767b22a2d54ae2fc"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_017_288_036F_20240629T075202_20240629T075224_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14001321,
+"checksum": "d5011074cbdd36282a9abb069b3e1d2c28aa36"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_017_359_118F_20240701T211210_20240701T211231_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11700881,
+"checksum": "d50110b625cc877caf068a1d38f4b3581cec02"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_017_359_116F_20240701T211130_20240701T211151_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9972799,
+"checksum": "d50110cf0b3ad2d719a90f54220bb373d7e211"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_017_359_117F_20240701T211150_20240701T211211_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13674211,
+"checksum": "d50110aa3ddca63cb22e5a1086cad2c44a8ac1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_018_010_039F_20240710T061550_20240710T061611_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9444768,
+"checksum": "d50110277670f04c6f0c9911c637ccc3f7fd30"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_018_010_038F_20240710T061530_20240710T061551_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12747100,
+"checksum": "d501103452b8b1e190be6f08e424660d801700"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_018_288_036F_20240720T043707_20240720T043729_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11236441,
+"checksum": "d50110f2e174795c85d64fda7a1432621029ac"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_018_359_116F_20240722T175635_20240722T175656_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9311551,
+"checksum": "d501102aa0a8b476fcc4b5ce6f146b2084bbf3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_018_081_118F_20240712T193458_20240712T193519_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15299607,
+"checksum": "d50110dc26387c65c8f0b6445e14dba9f5ae79"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_018_081_119F_20240712T193518_20240712T193539_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12065137,
+"checksum": "d501100ee9c1e85141831f34f6bc121c6cf560"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_018_288_037F_20240720T043727_20240720T043749_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12296252,
+"checksum": "d50110ea90e42b7c49f25e28fddc6fe2b80005"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_018_359_118F_20240722T175715_20240722T175736_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10718383,
+"checksum": "d5011033087f46ae9f539721238efe2c3f23db"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_019_010_039F_20240731T030055_20240731T030116_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9336674,
+"checksum": "d50110f0dc3cda2537c81bd80ddf620d5b6447"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_019_010_038F_20240731T030035_20240731T030056_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12074872,
+"checksum": "d50110e77aa8137294a3fda0b8eecd3f7acc7f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_019_359_116F_20240812T144140_20240812T144201_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9142614,
+"checksum": "d501105b5dfa2dd35f5c6d9f8a372827bf6f2f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_019_081_119F_20240802T162022_20240802T162043_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11203453,
+"checksum": "d5011048b3120c9bce312671c0d8e158358ffc"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_019_288_037F_20240810T012232_20240810T012253_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12586929,
+"checksum": "d501107a86c1ae3008ab1f1e82aae49f0675a9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_019_081_118F_20240802T162002_20240802T162023_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14833563,
+"checksum": "d501106541e309aee005f8e8422b27bc5c2503"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_019_359_118F_20240812T144220_20240812T144241_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10585114,
+"checksum": "d50110bb74fa3a80c3e4791f0502c561ee5f5a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_019_288_036F_20240810T012212_20240810T012233_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13209585,
+"checksum": "d50110f3a1ff334c97c28da7a8b24f71bcc08a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_019_359_117F_20240812T144200_20240812T144221_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12260501,
+"checksum": "d501106f983789c6083712c2e298d912169963"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_020_010_038F_20240820T234539_20240820T234600_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11933574,
+"checksum": "d50110201ec5dc123d58128688e0692f4cbbde"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_020_010_039F_20240820T234559_20240820T234620_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8865108,
+"checksum": "d501100d5e901c65c17dbca5d892c0dd6782f6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_020_288_036F_20240830T220717_20240830T220738_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11510892,
+"checksum": "d501104a5e9e37f57c55b0ba6a6fb14933c763"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_020_359_116F_20240902T112645_20240902T112706_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9120362,
+"checksum": "d50110b5f69d239abe97425bcc0f09e39369fd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_020_288_037F_20240830T220737_20240830T220758_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12641760,
+"checksum": "d501107ee99612c6a3a39ee54df6675d330b0c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_020_081_118F_20240823T130506_20240823T130527_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15425937,
+"checksum": "d501104f65e42aa317da9ea72216eadd254155"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_020_081_119F_20240823T130526_20240823T130547_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11395756,
+"checksum": "d50110d4d89c3aefb0006df3d4d9bc131d99dd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_020_359_118F_20240902T112725_20240902T112746_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11237498,
+"checksum": "d501100a71d793d64018c7adf141451b090205"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_020_359_117F_20240902T112705_20240902T112726_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12010827,
+"checksum": "d501102953d571417711625a816512b6ccd885"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_021_010_039F_20240910T203105_20240910T203126_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9120332,
+"checksum": "d50110f9f5bf5ca1ebcd415efd316ed14e1106"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_021_010_038F_20240910T203045_20240910T203106_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12064752,
+"checksum": "d50110a700b71489cc2d6ebbba592f8ecd4c2b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_021_081_119F_20240913T095032_20240913T095053_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11353892,
+"checksum": "d5011087592944539b0118ef188dbb40a21f0d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_021_288_036F_20240920T185223_20240920T185244_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11138773,
+"checksum": "d501100e033ac9dc5606bb17ce8a52b36bac35"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_021_288_037F_20240920T185243_20240920T185304_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12578656,
+"checksum": "d50110d11cd95195a8c0d83621c4595d51761d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_021_081_118F_20240913T095012_20240913T095033_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15204141,
+"checksum": "d501107b198d50bb66a9a8e1a7a19f5b73035b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_021_359_116F_20240923T081152_20240923T081213_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8847052,
+"checksum": "d50110a3db8be95acc954bbdff58cf859ba3ab"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_021_359_117F_20240923T081212_20240923T081233_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12509606,
+"checksum": "d501101d2f0b5b8c9fc7d957e84246c086fcf1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_021_359_118F_20240923T081232_20240923T081253_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11545795,
+"checksum": "d50110b57c5bbc04842222e5f4ba7e2c7818c9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_022_010_038F_20241001T171553_20241001T171614_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11738458,
+"checksum": "d50110673990a7441c4469fedc45cc89a4faa1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_022_081_119F_20241004T063541_20241004T063602_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11029373,
+"checksum": "d50110158de9ae09474c49a4988aff6d673a3b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_022_359_116F_20241014T045656_20241014T045717_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9131349,
+"checksum": "d501106613f3bde123e3b8deffea6765afc951"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_022_288_036F_20241011T153728_20241011T153749_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11268672,
+"checksum": "d501100e2eea81400cd36c9e8b602af238d040"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_022_081_118F_20241004T063521_20241004T063542_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15099590,
+"checksum": "d5011018911d22e1670ca69864ea6d1a8130e8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_022_288_037F_20241011T153748_20241011T153809_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13480582,
+"checksum": "d50110e60806d22b97e26e1aa8882e6e1a0aee"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_022_359_117F_20241014T045716_20241014T045737_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13029802,
+"checksum": "d50110269f9cbac36cf1d3e278ffe20b63ddb3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_023_010_039F_20241022T140117_20241022T140138_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8651974,
+"checksum": "d5011075ceefccb73905fbc7c578b39541a5ef"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_022_359_118F_20241014T045736_20241014T045757_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11547915,
+"checksum": "d50110e6a0dbbcaefc824aff4b76c3e6953cb8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_023_010_038F_20241022T140057_20241022T140118_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12963642,
+"checksum": "d5011094d649aa4004a7f3cd0394b21ed88388"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_023_081_119F_20241025T032044_20241025T032105_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13937662,
+"checksum": "d501101e416cf9a6498ae4bc16521dd784455d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_023_081_118F_20241025T032024_20241025T032045_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17049079,
+"checksum": "d5011064d9fe8c888a5111d8343cb1cbdd06d0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_023_288_036F_20241101T122232_20241101T122253_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16438934,
+"checksum": "d50110e0f229c3d9e85e16f1d00b2bba1bef99"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_023_359_116F_20241104T014200_20241104T014221_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10507215,
+"checksum": "d50110e8caf894fc91c5e60081f07a67dbaf4d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_023_359_117F_20241104T014220_20241104T014241_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13487508,
+"checksum": "d50110ac8f66f37e009fd64a7fa713e3d4286c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_023_288_037F_20241101T122252_20241101T122313_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16623043,
+"checksum": "d50110b071c7e0e2515d4d9c633564a18d8a47"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_023_359_118F_20241104T014240_20241104T014301_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13543347,
+"checksum": "d5011007bbb93852aea974a29bb029840d435b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_024_010_039F_20241112T104621_20241112T104642_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14424771,
+"checksum": "d50110046244e3d331eadcf4bc383cf20bbf26"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_024_081_119F_20241115T000548_20241115T000609_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12540235,
+"checksum": "d501104d211bea93eb00ac8c65dce82dda007a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_024_010_038F_20241112T104601_20241112T104622_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15143354,
+"checksum": "d50110750b1e7dd04df44d8d69ffa7fdfbe9db"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_024_081_118F_20241115T000528_20241115T000549_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16545266,
+"checksum": "d50110da50b888687263e7d126805e6badb0b8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_024_288_036F_20241122T090738_20241122T090759_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12730346,
+"checksum": "d501106b16a062855158b185af6a33c4f310a0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_024_359_116F_20241124T222706_20241124T222727_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10277377,
+"checksum": "d50110ca5daa90872223a8e3993c8119dd6618"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_024_288_037F_20241122T090758_20241122T090819_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13652865,
+"checksum": "d50110a1d48db12df2bf89bdfb10f1afc10ff5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_024_359_117F_20241124T222726_20241124T222747_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13765885,
+"checksum": "d50110452f42769ce03601267f996584090af1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_024_359_118F_20241124T222746_20241124T222807_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12178993,
+"checksum": "d5011052b992bbbbea6e69915ba956d20e394c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_025_010_039F_20241203T073126_20241203T073147_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9895301,
+"checksum": "d50110dc55f8bd9d4e6c41858d5f748d2666fe"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_025_081_119F_20241205T205053_20241205T205114_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11868665,
+"checksum": "d50110a73e85fe34d774f1d3907d5ae069abee"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_025_010_038F_20241203T073106_20241203T073127_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11496223,
+"checksum": "d50110064dbbf0d1743addba31c1bee8791600"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_025_288_036F_20241213T055242_20241213T055303_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12148755,
+"checksum": "d5011034f41d90bbe8c4ffbe834c4eae6d261a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_025_359_116F_20241215T191210_20241215T191231_PGD0_01.nc",
+"crid": "PGD0",
+"size": 6823073,
+"checksum": "d50110ac2c5c03c497608de8dc2e335530a7cd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_025_081_118F_20241205T205033_20241205T205054_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15958041,
+"checksum": "d501101b5a1808ca62f62195d8340213dd13bb"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_025_288_037F_20241213T055302_20241213T055323_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14924959,
+"checksum": "d5011082e0749181f8c4a1e792ecadfee99e36"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_026_010_039F_20241224T041630_20241224T041651_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8114360,
+"checksum": "d501103c747a659e95bcec6c48ab139e51236e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_025_359_118F_20241215T191250_20241215T191311_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11074467,
+"checksum": "d50110194ab2a72f328fc33bfc5736678576f6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_025_359_117F_20241215T191230_20241215T191251_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11540631,
+"checksum": "d50110e4336ac4252280d3800f9840a4a9f7bf"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_026_010_038F_20241224T041610_20241224T041631_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10834818,
+"checksum": "d5011037fc7f285314ca5c99dd3b84910e197b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_026_081_119F_20241226T173558_20241226T173619_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11229404,
+"checksum": "d50110a5da13e6a3dbc90afc73c4d6731a2c83"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_026_288_036F_20250103T023747_20250103T023808_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14218262,
+"checksum": "d501108b388c1584871fae2e847aec0def0c8a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_026_359_116F_20250105T155714_20250105T155735_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11705313,
+"checksum": "d50110cd1a605d8109ad700a380d961c3de6f2"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_026_081_118F_20241226T173538_20241226T173559_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14990686,
+"checksum": "d501109d6f4bb54d30c35bb3ddf0b034406e98"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_026_288_037F_20250103T023807_20250103T023828_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14960127,
+"checksum": "d50110dc036cee8ca100a500ead966a2b69883"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_026_359_117F_20250105T155734_20250105T155755_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16399835,
+"checksum": "d50110f462e4112352c9479f0e77fc42ad1875"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_027_010_039F_20250114T010134_20250114T010155_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7289693,
+"checksum": "d50110fad4094472c77e4161af7a15e2f50cda"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_027_010_038F_20250114T010114_20250114T010135_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10621885,
+"checksum": "d50110b80c75c727a90100621544be96f5ca1a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_026_359_118F_20250105T155754_20250105T155815_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15066237,
+"checksum": "d50110ba82eaa5c9056a5b4c5d33d7bee9faea"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_027_288_037F_20250123T232311_20250123T232332_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13158794,
+"checksum": "d501103ff1591bd63d61642d6ad960babdc600"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_027_081_118F_20250116T142042_20250116T142103_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15547404,
+"checksum": "d50110d31ad8af35e17bf84ec86147ee008bfc"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_027_359_116F_20250126T124219_20250126T124240_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8798902,
+"checksum": "d50110d48d1fba002baa758c4238f624871a17"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_027_288_036F_20250123T232251_20250123T232312_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16176476,
+"checksum": "d501101ba629d52be7319e62c2b3bf281ba98c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_027_081_119F_20250116T142102_20250116T142123_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14040510,
+"checksum": "d50110362b9986d53110d422d15962b5d0ef2b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_028_010_039F_20250203T214638_20250203T214659_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8283294,
+"checksum": "d501105f96f7dcca4429df4164380b007a8f94"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_027_359_118F_20250126T124259_20250126T124320_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12736426,
+"checksum": "d501103160be1311dc55c7e59eb4a6ffb6ebf3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_027_359_117F_20250126T124239_20250126T124300_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12030509,
+"checksum": "d50110260be87b2d99798cf412b15b7225fb2b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_028_288_036F_20250213T200755_20250213T200816_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13147273,
+"checksum": "d5011025377ea4fb4d64704cb52063d4d90b21"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_028_359_117F_20250216T092743_20250216T092804_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10876226,
+"checksum": "d5011083a4a2dca434c3691785d480de4bc87f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_028_359_116F_20250216T092723_20250216T092744_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8416000,
+"checksum": "d501103f0ab12244157be41360539c8204b965"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_029_010_038F_20250224T183124_20250224T183145_PGD0_02.nc",
+"crid": "PGD0",
+"size": 11928665,
+"checksum": "d50110435264cea154201990ee9c4bd4a6bbf4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_029_010_039F_20250224T183144_20250224T183205_PGD0_02.nc",
+"crid": "PGD0",
+"size": 7281914,
+"checksum": "d50110372fff21c563f7d140b9e6ee1f5e51ec"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_028_288_037F_20250213T200815_20250213T200836_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12789812,
+"checksum": "d50110096a19a6170c47bbc7d36b8a917c67a6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_028_359_118F_20250216T092803_20250216T092824_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11577781,
+"checksum": "d50110ad38774d730acbeaab983daad30b8aa4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_029_081_118F_20250227T075051_20250227T075112_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14897764,
+"checksum": "d5011091ef93a5172af14465eb5852b74476e1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_029_359_116F_20250309T061227_20250309T061248_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13295567,
+"checksum": "d50110ebb9a99360f245ec024d605346640b34"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_029_288_036F_20250306T165259_20250306T165320_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9271263,
+"checksum": "d50110cd0f47c05482dc197ed2ce006e56eab9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_030_010_038F_20250317T151628_20250317T151649_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11927352,
+"checksum": "d50110296736b4248e84e9266a51b896365a7e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_029_081_119F_20250227T075111_20250227T075132_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15081219,
+"checksum": "d501105b2413f971bdcc08ea985b949a08f2db"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_030_010_039F_20250317T151648_20250317T151709_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7328460,
+"checksum": "d501101ac9878f492af98db2ef3c3e0ff99607"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_029_288_037F_20250306T165319_20250306T165340_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12583285,
+"checksum": "d50110bd563b13dfd58dccba3da9847dcddbcd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_029_359_117F_20250309T061247_20250309T061308_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17197549,
+"checksum": "d501100d7e0f03e35cbd201c38224a51d650c8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_029_359_118F_20250309T061307_20250309T061328_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17332273,
+"checksum": "d50110f0d106f32d651f0228c92db5c0ca9c6b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_030_081_118F_20250320T043556_20250320T043617_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15442089,
+"checksum": "d50110476f2a92acede3392fcaa275db5e7829"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_030_359_116F_20250330T025732_20250330T025753_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10149104,
+"checksum": "d50110396a706621f5b7eb26af4d8053c7816d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_030_288_037F_20250327T133824_20250327T133845_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12462159,
+"checksum": "d50110f082a961040869d6c4a9b717f892378f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_030_288_036F_20250327T133804_20250327T133825_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11394886,
+"checksum": "d501104cd1bce53a4b9526190b85ce20ebe4dd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_030_081_119F_20250320T043616_20250320T043637_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14706337,
+"checksum": "d501109e8068e0ea7b1c4990c24271112601b1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_031_010_039F_20250407T120151_20250407T120212_PGD0_01.nc",
+"crid": "PGD0",
+"size": 6571109,
+"checksum": "d50110b75291d2e9fbe8b4ce84da2c9ae423bc"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_031_010_038F_20250407T120131_20250407T120152_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11291538,
+"checksum": "d50110f4618ea2711c125250b0e574b8531150"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_031_288_036F_20250417T102310_20250417T102331_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11437853,
+"checksum": "d501103a9c7e8ce2b51e4aca95efaf12cd22f9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_031_288_037F_20250417T102330_20250417T102351_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12004769,
+"checksum": "d501104a35130be7612296d9b293f6a1f7c73d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_031_359_116F_20250419T234237_20250419T234258_PGD0_01.nc",
+"crid": "PGD0",
+"size": 6738782,
+"checksum": "d50110fedf08de7a9579fe28689df412083e18"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_031_081_119F_20250410T012120_20250410T012141_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14378539,
+"checksum": "d5011058727aa6021dd117af81711c79821627"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_031_359_118F_20250419T234317_20250419T234338_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10673163,
+"checksum": "d50110c2d0710aeaaf29cf01c2650e507b2f43"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_032_010_039F_20250428T084657_20250428T084718_PGD0_01.nc",
+"crid": "PGD0",
+"size": 6381635,
+"checksum": "d50110c3ca02eca236c201bb7a9f52f96c7465"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_032_010_038F_20250428T084637_20250428T084658_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10806487,
+"checksum": "d501108bda4ab54254ad310ae369479b78df3a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_030_359_117F_20250330T025752_20250330T025813_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14159720,
+"checksum": "d50110e7837293c9cff8c1316ab25c3aa2dc96"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_031_081_118F_20250410T012100_20250410T012121_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16175002,
+"checksum": "d5011043e6500324014f700092a9f432418a94"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_031_359_117F_20250419T234257_20250419T234318_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11698848,
+"checksum": "d5011053a3e9bfaa9a0f0505d363c405281747"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_032_081_119F_20250430T220625_20250430T220646_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11938124,
+"checksum": "d50110de1f67e83428cdaecb133f750f4bbb8f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_033_010_039F_20250519T053202_20250519T053223_PID0_01.nc",
+"crid": "PID0",
+"size": 7447765,
+"checksum": "d501103a93b0c5eebaa415d5a6109201d14f13"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_032_288_036F_20250508T070812_20250508T070834_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14065538,
+"checksum": "d501103947fff27972da01461a5924e8e10309"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_032_081_118F_20250430T220605_20250430T220626_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15441333,
+"checksum": "d50110c2117da50719fcc3485efd03c3f130c5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_032_288_037F_20250508T070832_20250508T070854_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12377511,
+"checksum": "d50110a388e6296077b4e2421901c01de39377"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_033_081_119F_20250521T185130_20250521T185151_PID0_01.nc",
+"crid": "PID0",
+"size": 12206514,
+"checksum": "d5011072a19927c931bbaaf76de463983b4e79"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_033_288_036F_20250529T035319_20250529T035341_PID0_01.nc",
+"crid": "PID0",
+"size": 10254124,
+"checksum": "d5011095ed8b7be56545bf546e6b17f673a7f5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_033_081_118F_20250521T185110_20250521T185131_PID0_01.nc",
+"crid": "PID0",
+"size": 17546857,
+"checksum": "d501102417e9fb48bfdcfbb41eaa49945109ed"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_033_010_038F_20250519T053142_20250519T053203_PID0_01.nc",
+"crid": "PID0",
+"size": 12007062,
+"checksum": "d5011022ed7c597b0dd3e9cae3cd0beb3e6f43"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_033_288_037F_20250529T035339_20250529T035401_PID0_01.nc",
+"crid": "PID0",
+"size": 11713522,
+"checksum": "d50110e023f289e95b068b7cc674585684da00"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_033_359_116F_20250531T171247_20250531T171308_PID0_01.nc",
+"crid": "PID0",
+"size": 6917585,
+"checksum": "d501108d30f395fa72b4448cd20b2ffc24f0fd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_033_359_117F_20250531T171307_20250531T171328_PID0_01.nc",
+"crid": "PID0",
+"size": 12113735,
+"checksum": "d50110adfb16cfa256b2c306df7c2290c49faa"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_034_010_039F_20250609T021707_20250609T021728_PID0_01.nc",
+"crid": "PID0",
+"size": 7662677,
+"checksum": "d501100ce8c8ee89030c9f3dbb00462a617e14"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_033_359_118F_20250531T171327_20250531T171348_PID0_01.nc",
+"crid": "PID0",
+"size": 10247420,
+"checksum": "d50110fa1a89418ffcb900053db040c4e34191"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_034_010_038F_20250609T021647_20250609T021708_PID0_01.nc",
+"crid": "PID0",
+"size": 11695896,
+"checksum": "d501100d765ccabc84339cb7bb256a412e91d1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_034_081_118F_20250611T153615_20250611T153636_PID0_01.nc",
+"crid": "PID0",
+"size": 14499426,
+"checksum": "d5011068487d2773f7bbe0d736dbc1cb1aab83"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_034_081_119F_20250611T153635_20250611T153656_PID0_01.nc",
+"crid": "PID0",
+"size": 10811811,
+"checksum": "d5011053f98fb0eb6137f7425e84c101269e8d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_034_288_037F_20250619T003843_20250619T003904_PID0_01.nc",
+"crid": "PID0",
+"size": 12539574,
+"checksum": "d5011008588d752456170803a6aa238a63e133"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_035_010_039F_20250629T230213_20250629T230234_PID0_01.nc",
+"crid": "PID0",
+"size": 6986194,
+"checksum": "d5011062092892e7738f1d6ec073f8dea70315"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_034_288_036F_20250619T003823_20250619T003844_PID0_01.nc",
+"crid": "PID0",
+"size": 13639138,
+"checksum": "d50110f228e358b2a34ddfdfb1b3be87975d9a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_035_010_038F_20250629T230153_20250629T230214_PID0_01.nc",
+"crid": "PID0",
+"size": 11370437,
+"checksum": "d50110b06e2784db0391b2bc49837c2e58ad4e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_035_288_036F_20250709T212330_20250709T212351_PID0_01.nc",
+"crid": "PID0",
+"size": 11384221,
+"checksum": "d50110fab523c33b837aa05d4de76dd9ce62c4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_035_359_118F_20250712T104338_20250712T104359_PID0_01.nc",
+"crid": "PID0",
+"size": 10255025,
+"checksum": "d5011055e84545101c778e232c7819556c4b40"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_036_010_038F_20250720T194658_20250720T194719_PID0_01.nc",
+"crid": "PID0",
+"size": 11137387,
+"checksum": "d5011012568bc60cb7f444c47805086f1678a1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_036_010_039F_20250720T194718_20250720T194739_PID0_01.nc",
+"crid": "PID0",
+"size": 6820641,
+"checksum": "d501100911e3bd3c3e11d27a90265154403060"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_035_359_117F_20250712T104318_20250712T104339_PID0_01.nc",
+"crid": "PID0",
+"size": 11568090,
+"checksum": "d50110c7f36bf9ae2b439e473ed913bd6f3822"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_035_359_116F_20250712T104258_20250712T104319_PID0_01.nc",
+"crid": "PID0",
+"size": 6552077,
+"checksum": "d501106defb1ff2263df0b39ed6f86ae6230a9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_035_288_037F_20250709T212350_20250709T212411_PID0_01.nc",
+"crid": "PID0",
+"size": 11674171,
+"checksum": "d501108d1e43969b0900c49d6b6a8f97aceda5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_035_081_118F_20250702T122121_20250702T122142_PID0_02.nc",
+"crid": "PID0",
+"size": 14449594,
+"checksum": "d50110551213fd42bde089beee2ef1d87e76fe"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_036_359_116F_20250802T072802_20250802T072823_PID0_01.nc",
+"crid": "PID0",
+"size": 6772647,
+"checksum": "d5011043e73013df9dc40d7fe3222f3c815ced"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_036_359_117F_20250802T072822_20250802T072843_PID0_01.nc",
+"crid": "PID0",
+"size": 11473085,
+"checksum": "d50110a2876f5233c52c2c8bd4e1d096c4913f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_036_288_036F_20250730T180834_20250730T180856_PID0_01.nc",
+"crid": "PID0",
+"size": 11982999,
+"checksum": "d50110f03352352051532882e7933b6238ca17"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_036_288_037F_20250730T180855_20250730T180916_PID0_01.nc",
+"crid": "PID0",
+"size": 12158810,
+"checksum": "d501108a2ef9cad616bfd39fe35ab73911c7e2"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_037_081_119F_20250813T055150_20250813T055211_PID0_01.nc",
+"crid": "PID0",
+"size": 11370128,
+"checksum": "d50110844f69e32bca6ec31140226f3fbd44f2"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_036_081_118F_20250723T090626_20250723T090647_PID0_01.nc",
+"crid": "PID0",
+"size": 14060752,
+"checksum": "d501104b667f5a973b490e6d01c0707ff685dd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_037_081_118F_20250813T055130_20250813T055151_PID0_01.nc",
+"crid": "PID0",
+"size": 14171790,
+"checksum": "d5011088c95e16e7d5123dd8c92322f7e5e770"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_037_288_036F_20250820T145339_20250820T145400_PID0_01.nc",
+"crid": "PID0",
+"size": 11433244,
+"checksum": "d50110abb03b1a59496862da46fa2a1c337ae0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_037_359_116F_20250823T041307_20250823T041328_PID0_01.nc",
+"crid": "PID0",
+"size": 7021233,
+"checksum": "d50110c1ba17f856b7aeb80a3039ae0655f316"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_036_359_118F_20250802T072842_20250802T072903_PID0_01.nc",
+"crid": "PID0",
+"size": 10560202,
+"checksum": "d5011076ec90d43e4c7bd715bed1b8328b6469"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_037_288_037F_20250820T145359_20250820T145420_PID0_01.nc",
+"crid": "PID0",
+"size": 11834990,
+"checksum": "d5011055043871dd7c1d734fd23f3757a8eb59"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_038_010_039F_20250831T131727_20250831T131748_PID0_01.nc",
+"crid": "PID0",
+"size": 6611356,
+"checksum": "d501100ba97877c978dddedfc42fbb88585dfe"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_037_359_118F_20250823T041347_20250823T041408_PID0_01.nc",
+"crid": "PID0",
+"size": 10681503,
+"checksum": "d501106f988cc5fe6a6ee52c81416425012bd6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_038_081_119F_20250903T023655_20250903T023716_PID0_01.nc",
+"crid": "PID0",
+"size": 11229257,
+"checksum": "d5011074fa77dda75275ed973db44b6d5b1c80"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_038_288_036F_20250910T113843_20250910T113904_PID0_01.nc",
+"crid": "PID0",
+"size": 10958753,
+"checksum": "d5011079c9830db5e11bb209b94efce0468b2a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_038_010_038F_20250831T131707_20250831T131728_PID0_01.nc",
+"crid": "PID0",
+"size": 10678694,
+"checksum": "d5011030d75b0ef989cb240d369b4624c9eb46"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_038_081_118F_20250903T023635_20250903T023656_PID0_01.nc",
+"crid": "PID0",
+"size": 13956157,
+"checksum": "d5011075a70e8c7e3975ec6a7b1b34a06ae386"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_038_359_116F_20250913T005810_20250913T005831_PID0_01.nc",
+"crid": "PID0",
+"size": 9995274,
+"checksum": "d5011049fa4efab3973f73c6597200c9f9f743"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_038_288_037F_20250910T113903_20250910T113924_PID0_01.nc",
+"crid": "PID0",
+"size": 11617123,
+"checksum": "d501109f8029f510e46ef239eddf8e67825a65"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_038_359_118F_20250913T005850_20250913T005911_PID0_01.nc",
+"crid": "PID0",
+"size": 13550678,
+"checksum": "d50110be36e5704d3fb74cc2e518490f3873c4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_039_288_036F_20251001T082347_20251001T082408_PID0_01.nc",
+"crid": "PID0",
+"size": 10983866,
+"checksum": "d50110f1cfef5ff1c375fe9b481221c9052ee0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_039_288_037F_20251001T082407_20251001T082428_PID0_01.nc",
+"crid": "PID0",
+"size": 11689065,
+"checksum": "d5011027f3d1f536d604978b52085023cd78d6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_040_010_039F_20251012T064735_20251012T064756_PID0_01.nc",
+"crid": "PID0",
+"size": 7030713,
+"checksum": "d50110b9597023709feefb74b09ff1c68cca4a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_039_359_117F_20251003T214335_20251003T214356_PID0_01.nc",
+"crid": "PID0",
+"size": 11305777,
+"checksum": "d501103e240909ffce58fedd8b6d19a6d0f4e3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_039_359_116F_20251003T214315_20251003T214336_PID0_01.nc",
+"crid": "PID0",
+"size": 7266073,
+"checksum": "d50110704217a21d8ade29913b42c073583be1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_038_359_117F_20250913T005830_20250913T005851_PID0_01.nc",
+"crid": "PID0",
+"size": 14586297,
+"checksum": "d5011047f12abf697b7ea93a5a1dca14203805"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_040_010_038F_20251012T064715_20251012T064736_PID0_01.nc",
+"crid": "PID0",
+"size": 10722547,
+"checksum": "d5011083951644d1cff49452fe89a148b38f78"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_040_081_118F_20251014T200643_20251014T200704_PID0_01.nc",
+"crid": "PID0",
+"size": 13844006,
+"checksum": "d501109f5f368f5f4a59b5ca8b035acc4e6e3f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_040_359_118F_20251024T182901_20251024T182922_PID0_02.nc",
+"crid": "PID0",
+"size": 10371995,
+"checksum": "d50110ef92684fbc9b1f2ce1b72ada97fe281a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_040_288_036F_20251022T050853_20251022T050914_PID0_01.nc",
+"crid": "PID0",
+"size": 11636466,
+"checksum": "d501100c23744c9ba7d529dd757a6b06acb1a7"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_040_359_116F_20251024T182821_20251024T182842_PID0_02.nc",
+"crid": "PID0",
+"size": 6843939,
+"checksum": "d501107bad9162eac6c9566d2d9b09cf418e85"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_040_081_119F_20251014T200703_20251014T200724_PID0_01.nc",
+"crid": "PID0",
+"size": 11424154,
+"checksum": "d50110dcd08a1e436f45049b6c47e7375aae6e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_041_010_038F_20251102T033221_20251102T033242_PID0_02.nc",
+"crid": "PID0",
+"size": 13048018,
+"checksum": "d5011015db5efb8a34328edb8d30f9c98e79e3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_040_288_037F_20251022T050913_20251022T050934_PID0_01.nc",
+"crid": "PID0",
+"size": 13788543,
+"checksum": "d501104653b6850ba4f4ed8c82c08089bc18ff"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_040_359_117F_20251024T182841_20251024T182902_PID0_02.nc",
+"crid": "PID0",
+"size": 11138631,
+"checksum": "d5011043cf44908eeeff8e4b3458d567ab8d6e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_041_010_039F_20251102T033241_20251102T033302_PID0_02.nc",
+"crid": "PID0",
+"size": 9462208,
+"checksum": "d50110f2403b8264b4b58c65200026b4d8a4c9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_042_010_039F_20251123T001744_20251123T001805_PID0_02.nc",
+"crid": "PID0",
+"size": 7775935,
+"checksum": "d5011048e722b8d090d86da82993e121209096"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_042_010_038F_20251123T001724_20251123T001745_PID0_02.nc",
+"crid": "PID0",
+"size": 11118824,
+"checksum": "d5011082cf3e16a43dde51796c36a550b75fa0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_041_081_119F_20251104T165208_20251104T165229_PID0_02.nc",
+"crid": "PID0",
+"size": 12776586,
+"checksum": "d5011015202bdf674629074406800fd39b5015"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_041_288_037F_20251112T015416_20251112T015437_PID0_03.nc",
+"crid": "PID0",
+"size": 12753857,
+"checksum": "d50110b8c4d097ccc951eee894e7d66ba711c0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_041_288_036F_20251112T015356_20251112T015417_PID0_03.nc",
+"crid": "PID0",
+"size": 13275004,
+"checksum": "d501105e6980ff5d137ef62d2e60803b36ca56"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_042_288_036F_20251202T223900_20251202T223921_PID0_01.nc",
+"crid": "PID0",
+"size": 12025948,
+"checksum": "d50110962db799bc68bf122cb0d77ebfc94947"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_042_288_037F_20251202T223920_20251202T223941_PID0_01.nc",
+"crid": "PID0",
+"size": 11812657,
+"checksum": "d50110ede13d5d98485db756a15eeb63acdd5a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_042_359_116F_20251205T115828_20251205T115849_PID0_01.nc",
+"crid": "PID0",
+"size": 8519277,
+"checksum": "d50110697a1fd6c1c779403611dc9e8f838f30"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_042_359_118F_20251205T115908_20251205T115929_PID0_01.nc",
+"crid": "PID0",
+"size": 11388728,
+"checksum": "d5011012a26e5db52f66b39f7b631833ae765a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_042_359_117F_20251205T115848_20251205T115909_PID0_01.nc",
+"crid": "PID0",
+"size": 11583534,
+"checksum": "d50110ab0e1ce03d125acd5ac83ac5a63d3562"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_043_081_119F_20251216T102215_20251216T102236_PID0_01.nc",
+"crid": "PID0",
+"size": 12148728,
+"checksum": "d501104e46b6a024f35b634ddc061f215aa7f9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_043_010_039F_20251213T210246_20251213T210307_PID0_01.nc",
+"crid": "PID0",
+"size": 11521146,
+"checksum": "d50110b62451d952bb35a290ec6f5fecff87a8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_043_359_116F_20251226T084333_20251226T084354_PID0_01.nc",
+"crid": "PID0",
+"size": 8738068,
+"checksum": "d50110ae3ca526950ec63c5c01463dc7fa35da"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_043_010_038F_20251213T210226_20251213T210247_PID0_01.nc",
+"crid": "PID0",
+"size": 14493052,
+"checksum": "d50110953c60f0d2a2ed366596b115ac68ef8f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_043_288_037F_20251223T192425_20251223T192446_PID0_01.nc",
+"crid": "PID0",
+"size": 15068254,
+"checksum": "d501101be8a7fa9ec013b6dbf91559e8f1b7a7"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_043_288_036F_20251223T192405_20251223T192426_PID0_01.nc",
+"crid": "PID0",
+"size": 13624623,
+"checksum": "d50110e26143c252bd2b96c3d65ece8bcfe134"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_043_359_117F_20251226T084353_20251226T084414_PID0_01.nc",
+"crid": "PID0",
+"size": 14045616,
+"checksum": "d50110a4a06ba0743896abf55ad97ea46ddd48"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_043_359_118F_20251226T084413_20251226T084434_PID0_01.nc",
+"crid": "PID0",
+"size": 13128183,
+"checksum": "d50110614f9ec1675d4054e678574a8af14722"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_044_010_039F_20260103T174753_20260103T174815_PID0_01.nc",
+"crid": "PID0",
+"size": 10296276,
+"checksum": "d501107a420868bde12ac670693deac6929522"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_044_010_038F_20260103T174733_20260103T174755_PID0_01.nc",
+"crid": "PID0",
+"size": 14992153,
+"checksum": "d50110617629873af4fd022e4918c233722ae8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_044_081_119F_20260106T070721_20260106T070742_PID0_01.nc",
+"crid": "PID0",
+"size": 17431660,
+"checksum": "d50110e8409dbb5018f419755a31e156c79e8a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_044_288_036F_20260113T160909_20260113T160930_PID0_01.nc",
+"crid": "PID0",
+"size": 17477281,
+"checksum": "d50110709988d67e78bb5818277f0d2ee184c9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_044_081_118F_20260106T070701_20260106T070722_PID0_01.nc",
+"crid": "PID0",
+"size": 14529933,
+"checksum": "d50110d4c1731951f45b977b1bf63831e29440"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_044_359_117F_20260116T052857_20260116T052918_PID0_01.nc",
+"crid": "PID0",
+"size": 12059672,
+"checksum": "d5011025a6309fd9ef3fafbaa7e01b26cb55e1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_044_288_037F_20260113T160929_20260113T160950_PID0_01.nc",
+"crid": "PID0",
+"size": 12682021,
+"checksum": "d501104eb0e2477248a971373c55f5e3a87177"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_044_359_118F_20260116T052917_20260116T052938_PID0_01.nc",
+"crid": "PID0",
+"size": 12923446,
+"checksum": "d5011076d0d84f71ca10f1d4c71be462d7795b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_045_010_039F_20260124T143257_20260124T143319_PID0_03.nc",
+"crid": "PID0",
+"size": 8082032,
+"checksum": "d50110d9e6e845206dc6ab045a7b0d98dfa895"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_045_081_119F_20260127T035225_20260127T035246_PID0_01.nc",
+"crid": "PID0",
+"size": 12767627,
+"checksum": "d50110c22de959952fe500b14ca08bc66c1a13"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_045_010_038F_20260124T143237_20260124T143259_PID0_03.nc",
+"crid": "PID0",
+"size": 14721331,
+"checksum": "d501106edeade6aceb5d48a51c9afd684b0251"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_045_081_118F_20260127T035205_20260127T035226_PID0_01.nc",
+"crid": "PID0",
+"size": 13418946,
+"checksum": "d50110344b9259a76119ef02456fb9b37faaf0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_045_359_116F_20260206T021341_20260206T021403_PID0_02.nc",
+"crid": "PID0",
+"size": 7420792,
+"checksum": "d50110b9b7ba97b000b7f2a741c767ee91fbb3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_045_288_036F_20260203T125414_20260203T125435_PID0_01.nc",
+"crid": "PID0",
+"size": 14259680,
+"checksum": "d50110d5d37fb9f41a1bfa0e77432f1b0a7e64"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_045_359_117F_20260206T021401_20260206T021423_PID0_02.nc",
+"crid": "PID0",
+"size": 12585464,
+"checksum": "d50110e330c48e339651254b4e1e5976e0bc90"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_045_288_037F_20260203T125434_20260203T125455_PID0_01.nc",
+"crid": "PID0",
+"size": 14399490,
+"checksum": "d50110b559924ac1440a5529be9be2550750b1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_046_010_039F_20260214T111801_20260214T111822_PID0_01.nc",
+"crid": "PID0",
+"size": 15693506,
+"checksum": "d501102480c312796ab3e2d937e6a3976abac1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_047_010_038F_20260307T080249_20260307T080310_PID0_03.nc",
+"crid": "PID0",
+"size": 13477753,
+"checksum": "d50110ed74a8677fc3b8f52ff80e9f9a90355e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_047_010_039F_20260307T080309_20260307T080330_PID0_03.nc",
+"crid": "PID0",
+"size": 11463365,
+"checksum": "d5011036bc7e59b7666b81dc3d99e028676a6e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_046_081_119F_20260217T003729_20260217T003750_PID0_01.nc",
+"crid": "PID0",
+"size": 12738583,
+"checksum": "d50110a46a86770921a7d44f3e923ebb8277fe"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_046_010_038F_20260214T111741_20260214T111802_PID0_01.nc",
+"crid": "PID0",
+"size": 17289017,
+"checksum": "d50110338bad2bd2c0fab97a4948d9eb6bb32a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_047_081_118F_20260309T212217_20260309T212238_PID0_02.nc",
+"crid": "PID0",
+"size": 12544499,
+"checksum": "d50110c2dee0271032060aad9e8bc05365d24b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_047_359_116F_20260319T194354_20260319T194415_PID0_01.nc",
+"crid": "PID0",
+"size": 6528366,
+"checksum": "d5011030eb5a94b195168fdb3461eefac08934"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_045_359_118F_20260206T021421_20260206T021443_PID0_02.nc",
+"crid": "PID0",
+"size": 13034570,
+"checksum": "d50110b2c54908a26b25f5759aacb6edb7ef35"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_047_359_117F_20260319T194414_20260319T194435_PID0_01.nc",
+"crid": "PID0",
+"size": 11302578,
+"checksum": "d501101c19bced5d79ad34c150051633c1a1de"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_047_081_119F_20260309T212237_20260309T212258_PID0_02.nc",
+"crid": "PID0",
+"size": 11077145,
+"checksum": "d501100033a7c13889044edf7bc550a3195377"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_048_010_039F_20260328T044814_20260328T044835_PID0_01.nc",
+"crid": "PID0",
+"size": 13130256,
+"checksum": "d5011071d50b1095a1e85fca26e8e252f6a980"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_048_010_038F_20260328T044754_20260328T044815_PID0_01.nc",
+"crid": "PID0",
+"size": 15165704,
+"checksum": "d50110fde05f4df686ab5d03687e04efe89a00"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_048_359_116F_20260409T162858_20260409T162919_PID0_01.nc",
+"crid": "PID0",
+"size": 10342456,
+"checksum": "d5011091d74b6846d1bbdfb1eba98f49b122e0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_048_081_119F_20260330T180741_20260330T180802_PID0_01.nc",
+"crid": "PID0",
+"size": 13774316,
+"checksum": "d501101f9f95f7e5c74de0c95fb3c12e349a0a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_048_359_117F_20260409T162918_20260409T162939_PID0_01.nc",
+"crid": "PID0",
+"size": 11691949,
+"checksum": "d501109e93f198151da88e4b047ae5a64e4d0d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_048_359_118F_20260409T162938_20260409T162959_PID0_01.nc",
+"crid": "PID0",
+"size": 11521666,
+"checksum": "d50110576dc40f38a5469057b75e0c8dd681ec"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_048_081_118F_20260330T180721_20260330T180742_PID0_01.nc",
+"crid": "PID0",
+"size": 16678179,
+"checksum": "d501105c4eb0d2ec7b30c7a9dc8f91840838c3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_049_010_038F_20260418T013259_20260418T013320_PID0_01.nc",
+"crid": "PID0",
+"size": 16290910,
+"checksum": "d501100d4defc8b3bc2810842c4a3915cd8322"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_049_010_039F_20260418T013319_20260418T013340_PID0_01.nc",
+"crid": "PID0",
+"size": 16558318,
+"checksum": "d501106f055ba2c35f0bfdf0d9d3760bdf054d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_049_081_119F_20260420T145247_20260420T145308_PID0_01.nc",
+"crid": "PID0",
+"size": 11223416,
+"checksum": "d50110dabb1183ee1e71cdadb4bcff4d0d49f8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_049_288_037F_20260427T235456_20260427T235517_PID0_01.nc",
+"crid": "PID0",
+"size": 13893574,
+"checksum": "d50110320aaa7805401bf19e5e272fbd99b56c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_049_081_118F_20260420T145227_20260420T145248_PID0_01.nc",
+"crid": "PID0",
+"size": 14978669,
+"checksum": "d50110fa5d5d08e7a0e80f2afb247be0a25e64"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_050_010_039F_20260508T221823_20260508T221844_PID0_01.nc",
+"crid": "PID0",
+"size": 11850129,
+"checksum": "d5011094d19666247ba0556974f02333196afb"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_049_288_036F_20260427T235436_20260427T235457_PID0_01.nc",
+"crid": "PID0",
+"size": 13647776,
+"checksum": "d501108329c629d20af9218d32910e3f70e4b5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_050_010_038F_20260508T221803_20260508T221824_PID0_01.nc",
+"crid": "PID0",
+"size": 13362528,
+"checksum": "d50110e82832f47d5627c8c54f36eddcb4dcb3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_050_288_036F_20260518T203939_20260518T204000_PID0_02.nc",
+"crid": "PID0",
+"size": 12436549,
+"checksum": "d50110df54cf1fe48c75a74157225e1b9b3987"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_050_359_116F_20260521T095907_20260521T095928_PID0_01.nc",
+"crid": "PID0",
+"size": 9273691,
+"checksum": "d5011008e55d32e8c967daf9c8f6413c87e625"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_050_359_118F_20260521T095947_20260521T100008_PID0_01.nc",
+"crid": "PID0",
+"size": 10194384,
+"checksum": "d50110532c541d1b03c49d0b237fa6863d0524"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_050_359_117F_20260521T095927_20260521T095948_PID0_01.nc",
+"crid": "PID0",
+"size": 11897771,
+"checksum": "d501101d441e8ad2240dd578e9a2d8a59097db"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_051_010_039F_20260529T190327_20260529T190348_PID0_01.nc",
+"crid": "PID0",
+"size": 9686703,
+"checksum": "d501103cee488dc59d25e71c43826f654fde5e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_050_288_037F_20260518T203959_20260518T204020_PID0_02.nc",
+"crid": "PID0",
+"size": 11989823,
+"checksum": "d5011080ea9fcd4331e84b0c96a9d68a6d616a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_051_010_038F_20260529T190307_20260529T190328_PID0_01.nc",
+"crid": "PID0",
+"size": 12788258,
+"checksum": "d50110cef36fca523ca8e0ecdc796bd2081c50"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_051_081_118F_20260601T082234_20260601T082256_PID0_01.nc",
+"crid": "PID0",
+"size": 16267212,
+"checksum": "d5011071493cdbe50357599cbe18de12307c4d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_051_359_116F_20260611T064412_20260611T064433_PID0_01.nc",
+"crid": "PID0",
+"size": 8587388,
+"checksum": "d5011080f60e85493cadb1758956bcd50d3f6a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_051_081_119F_20260601T082254_20260601T082316_PID0_01.nc",
+"crid": "PID0",
+"size": 13777642,
+"checksum": "d50110039ee05fb25bae19a7f396d3cb6df520"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_018_094_036F_20240713T061623_20240713T061644_PGD0_01.nc",
+"crid": "PGD0",
+"size": 6345068,
+"checksum": "d5011012db6ab92f697a5f8fe701d0ee7af902"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_015_471_119F_20240525T034424_20240525T034445_PGD0_01.nc",
+"crid": "PGD0",
+"size": 5922596,
+"checksum": "d501104450bfb5df303664f2c22620c3183ca5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_014_165_118F_20240423T083614_20240423T083635_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8107670,
+"checksum": "d501104cf54a4250e3f5845b0d7bc8ea1f46c8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_020_094_037F_20240823T234651_20240823T234712_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8464219,
+"checksum": "d501101cffcc0c8922e92ae39eb34039743562"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_005_471_119F_20231029T121337_20231029T121358_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8691970,
+"checksum": "d50110747e7f0e7adcf684f5b8e05e3515e7a6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_012_094_039F_20240310T014658_20240310T014712_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11855736,
+"checksum": "d501101479f2405aab0fb25267e7a5864c6318"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_024_094_036F_20241115T104653_20241115T104715_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10326922,
+"checksum": "d50110c7cc647449a99d3250017d613ba6a37d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_010_471_118F_20240210T195843_20240210T195904_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11664386,
+"checksum": "d501103e02f0e356e1abfdc5a777f89d219d7f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_025_094_038F_20241206T073238_20241206T073251_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8547830,
+"checksum": "d50110a1e9eec6b084260dd674c97184e7eb0a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_029_400_038F_20250310T165543_20250310T165604_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12637953,
+"checksum": "d5011000eeae4773386efea143f2da73ea9ea6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_033_165_118F_20250524T185243_20250524T185304_PID0_01.nc",
+"crid": "PID0",
+"size": 8428213,
+"checksum": "d501101a59dbda10654c3b797e9e1fefaefbc9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_035_165_118F_20250705T122254_20250705T122315_PID0_01.nc",
+"crid": "PID0",
+"size": 8637835,
+"checksum": "d5011069000b465a20e84dfb8e835098b449b6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_031_400_038F_20250421T102554_20250421T102615_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12019419,
+"checksum": "d50110b7c7288e6e89a170ec37d813e894005c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_040_372_036F_20251025T051026_20251025T051047_PID0_01.nc",
+"crid": "PID0",
+"size": 9208118,
+"checksum": "d501103fd1af1ca429a5296bdcec679c4ac5fd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_027_165_117F_20250119T142155_20250119T142216_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15248094,
+"checksum": "d50110c7acc6f01082c639154ab9886d7a58dd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_025_400_038F_20241217T055526_20241217T055547_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15142520,
+"checksum": "d501104901b403ba3ce7af4599820dedc1b5e4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_048_443_117F_20260412T163052_20260412T163109_PID0_02.nc",
+"crid": "PID0",
+"size": 13469656,
+"checksum": "d50110a96af9aa90e7d44544797175ce0bf45f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_051_165_119F_20260604T082427_20260604T082448_PID0_01.nc",
+"crid": "PID0",
+"size": 8364140,
+"checksum": "d50110546c50b340a3c7e02abd02f5ab9d4ba5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_004_415_119F_20231006T152738_20231006T152750_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8188926,
+"checksum": "d5011008d0984572610116bd04fdc21621480f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_055_400_039F_20260904T042807_20260904T042828_PID0_01.nc",
+"crid": "PID0",
+"size": 12267472,
+"checksum": "d5011043c937193c4649cd63bd07fb660f6c32"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_057_372_037F_20261014T215703_20261014T215722_PID0_01.nc",
+"crid": "PID0",
+"size": 13535619,
+"checksum": "d50110b9dfb9baddfc7547ecbafef14331ddf9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_005_344_038F_20231024T225258_20231024T225308_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7831374,
+"checksum": "d50110c5879beef439e126e29eae4aa141f9f5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_006_066_036F_20231104T211456_20231104T211517_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8363319,
+"checksum": "d50110d3fd0c6f037b367cbfae738dc1fa7e7f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM38T_N_x_x_x_054_165_117F_20260805T223902_20260805T223923_PID0_01.nc",
+"crid": "PID0",
+"size": 11867135,
+"checksum": "d501109bae23dfda1cf0d3f4d0195a28d17e1d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_011_066_037F_20240217T050042_20240217T050053_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7954341,
+"checksum": "d50110cfa11efbb2f52bc80ca1906e8cd0ed72"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_010_081_117F_20240127T213402_20240127T213424_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12321345,
+"checksum": "d50110d2793ddf8a1bdc4f7bc95669f4890d7d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_012_038_036F_20240308T014454_20240308T014506_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8395843,
+"checksum": "d50110a7d22dcbf4fa563eb1c2d2de2098ee9d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_012_316_039F_20240318T000810_20240318T000831_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13062156,
+"checksum": "d501103a718cd72b15a1c9518c43d8a0ceeb9d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_007_038_038F_20231124T180010_20231124T180031_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17559764,
+"checksum": "d50110f75465e272bcc65beb42146bc7808db9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_015_137_118F_20240513T052106_20240513T052108_PGD0_01.nc",
+"crid": "PGD0",
+"size": 1787778,
+"checksum": "d50110210e023e6fc8ad0314722179a496371c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_014_081_116F_20240420T083401_20240420T083422_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11542066,
+"checksum": "d5011037c4af484f2fb01e97ede5ef715e83c8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_015_038_036F_20240509T160008_20240509T160019_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7076907,
+"checksum": "d50110644dbc6bada60b6187c74763cd846600"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_013_387_118F_20240410T101223_20240410T101244_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17117161,
+"checksum": "d501105b2459aae3922cb6ab572ab6585d9aac"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_013_316_036F_20240407T205214_20240407T205236_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16729626,
+"checksum": "d5011038f44ecc1840eac115da49d24f421595"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_014_316_038F_20240428T173800_20240428T173821_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12429900,
+"checksum": "d5011032af57d2e0d63be864b8b220f7ff08bc"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_016_109_119F_20240602T020546_20240602T020602_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12793116,
+"checksum": "d501105720ae9c4917ef549a11fabe30306cae"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_018_109_117F_20240713T193509_20240713T193528_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14708458,
+"checksum": "d5011084b2dc97ef8bd960348b29c8f1507efb"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_019_316_036F_20240811T012243_20240811T012258_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11563275,
+"checksum": "d50110688d6019fc69347717a550ba6a4be2f8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_020_081_117F_20240823T130446_20240823T130507_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12355901,
+"checksum": "d50110c662ef57414b067130d379f74e6ff7d4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_022_109_116F_20241005T063523_20241005T063533_PGD0_01.nc",
+"crid": "PGD0",
+"size": 6749345,
+"checksum": "d5011038ffed90325622a9e38b20147a6a2464"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_021_344_039F_20240922T185426_20240922T185447_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12212055,
+"checksum": "d501109647e23851b590a746cc93f82f927fef"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_021_038_039F_20240911T203136_20240911T203157_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13206494,
+"checksum": "d501107d8a6b80a904922570c740dbd77532f0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_022_387_118F_20241015T045808_20241015T045828_PIC0_01.nc",
+"crid": "PIC0",
+"size": 7947592,
+"checksum": "d5011063a96bd6f410107554aa548426c00d5e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_020_344_036F_20240901T220819_20240901T220840_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10116499,
+"checksum": "d50110b4a94abfefd2c6dedfa3267138a20e32"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_024_316_036F_20241123T090809_20241123T090824_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12195506,
+"checksum": "d501109816995dc783fec4597c5d16500bc242"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_023_109_116F_20241026T032027_20241026T032036_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8093798,
+"checksum": "d50110d8d64064a7843fe206fe1269e38d3079"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_024_443_119F_20241127T222939_20241127T223000_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10624171,
+"checksum": "d50110a2c9adcf0d066e535e2e98d7fa1e1bce"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_026_387_118F_20250106T155825_20250106T155846_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7900288,
+"checksum": "d50110e39909210875eef99d8d1abfd57d7f93"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_028_066_036F_20250205T214640_20250205T214701_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7682773,
+"checksum": "d501103064fcf7028064ec45742c0ae1eb02cc"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_028_344_038F_20250215T200948_20250215T200958_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7040268,
+"checksum": "d50110f66db2bf4de35b131b55c2824734f1e1"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_025_081_117F_20241205T205013_20241205T205034_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13204706,
+"checksum": "d50110225f13d94ec7fccfa48bdb72c4fd8719"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_029_344_038F_20250308T165452_20250308T165502_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8215509,
+"checksum": "d501108fbe851faec399b9c42aa4219fedd4e4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_030_038_036F_20250318T151619_20250318T151631_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7168689,
+"checksum": "d50110c401845b87cf297c766f4f793f0bf6e8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_027_316_039F_20250124T232422_20250124T232443_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10034542,
+"checksum": "d5011027a219fb9d70b27cabbeb586fbe7e5b8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_026_081_116F_20241226T173458_20241226T173519_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12236613,
+"checksum": "d5011065883f25abedde1ddeb217c43f863bbd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_031_038_036F_20250408T120123_20250408T120134_PGD0_01.nc",
+"crid": "PGD0",
+"size": 6700793,
+"checksum": "d501108fee82c0a1b2c82682439fe69ad610ea"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_031_443_119F_20250422T234510_20250422T234532_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7001841,
+"checksum": "d501109c716d3ee10a8b0990af35e1acd52cef"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_034_443_119F_20250624T140025_20250624T140046_PID0_01.nc",
+"crid": "PID0",
+"size": 9333871,
+"checksum": "d50110a31f4d40024719d5eba369e38bcd7ae5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_035_316_039F_20250710T212501_20250710T212522_PID0_01.nc",
+"crid": "PID0",
+"size": 10038043,
+"checksum": "d50110e81a738bd543d246133a25a80e2dc162"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_036_316_039F_20250731T181006_20250731T181027_PID0_01.nc",
+"crid": "PID0",
+"size": 9778515,
+"checksum": "d50110c544010b32d2578c5d1290447eafb5df"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_037_443_119F_20250826T041540_20250826T041601_PID0_01.nc",
+"crid": "PID0",
+"size": 8001831,
+"checksum": "d50110cbfc815e36450f6fcc54550fcd757b03"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_033_109_117F_20250522T185121_20250522T185140_PID0_01.nc",
+"crid": "PID0",
+"size": 13946396,
+"checksum": "d501105e6a3300845a13e7735b106afa276034"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_039_137_119F_20250925T232300_20250925T232321_PID0_01.nc",
+"crid": "PID0",
+"size": 9237929,
+"checksum": "d5011047770e587da78cdc40f37d68fa713be9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_037_387_116F_20250824T041338_20250824T041359_PID0_01.nc",
+"crid": "PID0",
+"size": 12928771,
+"checksum": "d50110a2c68d6506e3d0e7b26489018f73b7d4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_035_387_119F_20250713T104429_20250713T104450_PID0_01.nc",
+"crid": "PID0",
+"size": 16763923,
+"checksum": "d50110492cb1d3796de54a21cd421202672585"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_038_387_116F_20250914T005841_20250914T005902_PID0_01.nc",
+"crid": "PID0",
+"size": 15030934,
+"checksum": "d5011029633697ba87904069c1cd0c21d29c91"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_043_137_118F_20251218T102316_20251218T102318_PID0_01.nc",
+"crid": "PID0",
+"size": 1634706,
+"checksum": "d501106b7af992dbc8e7983cd3f61451c1e866"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_045_038_037F_20260125T143240_20260125T143310_PID0_01.nc",
+"crid": "PID0",
+"size": 1052148,
+"checksum": "d50110eef11a8855dfa3116cd70ac3dd27026c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_040_316_039F_20251023T051024_20251023T051045_PID0_01.nc",
+"crid": "PID0",
+"size": 10028135,
+"checksum": "d5011059b5c1d1633244114a9a528bee527bdf"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_040_081_117F_20251014T200623_20251014T200644_PID0_01.nc",
+"crid": "PID0",
+"size": 11465714,
+"checksum": "d5011004a324812b329d4a113face12baeaa42"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_047_443_119F_20260322T194627_20260322T194648_PID0_01.nc",
+"crid": "PID0",
+"size": 8094556,
+"checksum": "d501102f6c67534bfb30cde963500051352ae0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_041_109_116F_20251105T165151_20251105T165200_PID0_01.nc",
+"crid": "PID0",
+"size": 6617168,
+"checksum": "d5011092640ccda2c5c80893cd33a82e2ef069"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_042_109_117F_20251126T133703_20251126T133722_PID0_01.nc",
+"crid": "PID0",
+"size": 13779431,
+"checksum": "d50110ec87f72b66aed9ca3313b4f1bfc59c53"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_044_387_119F_20260117T053008_20260117T053029_PID0_01.nc",
+"crid": "PID0",
+"size": 16899600,
+"checksum": "d501102946e35162ee72ac54b4fe4326463730"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_048_081_116F_20260330T180641_20260330T180702_PID0_01.nc",
+"crid": "PID0",
+"size": 14015097,
+"checksum": "d501108177a32326036a1af56f082fd6290556"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_050_443_119F_20260524T100140_20260524T100201_PID0_02.nc",
+"crid": "PID0",
+"size": 8766882,
+"checksum": "d501100bfa75b0459cd4942d7b825ec8c5c3b4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_049_137_118F_20260422T145333_20260422T145350_PID0_01.nc",
+"crid": "PID0",
+"size": 14680258,
+"checksum": "d501101c0d6636079cdd8d91ab8d58036a7c8f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_049_010_036F_20260418T013219_20260418T013240_PID0_01.nc",
+"crid": "PID0",
+"size": 17111381,
+"checksum": "d501100cb12dc6ea11402a46e6813d97a82873"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_050_010_037F_20260508T221743_20260508T221804_PID0_01.nc",
+"crid": "PID0",
+"size": 16076891,
+"checksum": "d50110efe92a3ba053235bda33ef9058925d54"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_055_344_037F_20260902T042625_20260902T042649_PID0_01.nc",
+"crid": "PID0",
+"size": 4073313,
+"checksum": "d50110562a5f15acea0077c7a3f08a32a41b5b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_054_316_039F_20260811T074129_20260811T074150_PID0_01.nc",
+"crid": "PID0",
+"size": 10786703,
+"checksum": "d50110368cf652068f43347706258c8f52de7b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_052_038_038F_20260620T154843_20260620T154905_PID0_01.nc",
+"crid": "PID0",
+"size": 15619470,
+"checksum": "d5011006148dfb4a8078ebb307681d6fb98408"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_053_344_036F_20260722T105554_20260722T105615_PID0_01.nc",
+"crid": "PID0",
+"size": 9379594,
+"checksum": "d501108fe6295f607b17c32aec5cd8ec1e1366"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_055_344_036F_20260902T042605_20260902T042626_PID0_01.nc",
+"crid": "PID0",
+"size": 8014886,
+"checksum": "d50110d0cdd4f20759e099d8409da4c4325779"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_054_344_039F_20260812T074200_20260812T074221_PID0_01.nc",
+"crid": "PID0",
+"size": 15448018,
+"checksum": "d50110f77f87b4d6944e19d8ea8b5ad333c2bb"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_056_316_039F_20260922T011138_20260922T011159_PID0_01.nc",
+"crid": "PID0",
+"size": 10725936,
+"checksum": "d50110f890f610dffdc55baa69cc97ebf71d5a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_052_010_036F_20260619T154732_20260619T154753_PID0_01.nc",
+"crid": "PID0",
+"size": 17024103,
+"checksum": "d50110d59e8d23ba614ec3acd00a06546144ca"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_486_012_036F_20230410T054329_20230410T054340_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7950188,
+"checksum": "d50110824f8e86e67731e942fcc5b045f310f4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_493_012_036F_20230417T043755_20230417T043804_PGC0_02.nc",
+"crid": "PGC0",
+"size": 6764872,
+"checksum": "d5011057ed061bd7778950fecc53a925443c8e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_515_012_039F_20230509T011235_20230509T011257_PGD0_01.nc",
+"crid": "PGD0",
+"size": 441373,
+"checksum": "d501101474973d761aed533c9988feec99e08e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_504_012_036F_20230428T025451_20230428T025502_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8386967,
+"checksum": "d50110a1a4085b4ab188be478e49259cfd8064"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_506_012_036F_20230430T023607_20230430T023618_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8098890,
+"checksum": "d50110e6a032556541687b2b646b3487d4c37d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_490_012_038F_20230414T050631_20230414T050649_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14563849,
+"checksum": "d50110a5ce2b897f83232d7e4b8b905e1bf14f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_484_012_037F_20230408T060222_20230408T060243_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16417310,
+"checksum": "d5011052413e03ada7098e72850984ebd9348d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_497_012_038F_20230421T040056_20230421T040114_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14519376,
+"checksum": "d501102585b19a7d21bbf67cde4e2850cbfbaf"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_523_012_036F_20230516T235648_20230516T235659_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8325769,
+"checksum": "d501109292bbe7b19798027a03a29c2b820f2d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_509_012_038F_20230503T020830_20230503T020848_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15941796,
+"checksum": "d5011019c469ba7250335732eaafbeaa7cae45"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_541_012_036F_20230603T210810_20230603T210821_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7966725,
+"checksum": "d5011097c761f09d5ef0ddb14de4bd897bb7f8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_554_012_036F_20230616T190621_20230616T190632_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8007052,
+"checksum": "d501104654ffb4288836d699b8afcf5a8ab2c5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_547_012_037F_20230609T201207_20230609T201228_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16366901,
+"checksum": "d50110b726b32dbb673f044ff23ab168302034"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_573_012_038F_20230705T160852_20230705T160910_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13761543,
+"checksum": "d50110635b9536447d3622efabd8333c381006"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_545_012_037F_20230607T203051_20230607T203112_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16476432,
+"checksum": "d50110539539d35189e9d63033f0e0ab051aac"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_572_012_037F_20230704T161754_20230704T161815_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16311823,
+"checksum": "d501101ceeec5bdb310c41e405b2d6505ddfdd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_538_012_037F_20230531T213626_20230531T213647_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16424828,
+"checksum": "d501103452bcfec22f7dacc1534055bc3eff0c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_001_359_116F_20230803T011015_20230803T011036_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10980164,
+"checksum": "d50110491fd758796601e4cf30216e6da9e94e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_004_288_036F_20231002T020600_20231002T020621_PGD0_01.nc",
+"crid": "PGD0",
+"size": 13511503,
+"checksum": "d501107ebffcb7fe6b996a68adad193b1397b8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_013_359_117F_20240409T101132_20240409T101153_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12216668,
+"checksum": "d501106426e710277895d9e81ab55d2919790e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_016_010_039F_20240529T124542_20240529T124603_PGD0_01.nc",
+"crid": "PGD0",
+"size": 9854357,
+"checksum": "d501107521326c99947d160515b43332456e14"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_022_010_039F_20241001T171613_20241001T171634_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8678141,
+"checksum": "d50110d41e03f13e8c4615ea5eaac703275b60"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_011_010_038F_20240215T045959_20240215T050021_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15019377,
+"checksum": "d50110c9dce6411c53b10d0078625c6e77c170"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_028_010_038F_20250203T214618_20250203T214639_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11408785,
+"checksum": "d50110237793145793c2b2fd714fbd8233923b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_015_359_117F_20240521T034141_20240521T034202_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17199526,
+"checksum": "d501106a55e9c5a0280ef774fed0d6a9bc3a75"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_030_359_118F_20250330T025812_20250330T025833_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11190808,
+"checksum": "d50110b078e4baed96e30bb6940f6f7f68139f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_035_081_119F_20250702T122141_20250702T122202_PID0_02.nc",
+"crid": "PID0",
+"size": 11121317,
+"checksum": "d501100168fde8c92d20dcb61a14a4e49e1599"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_036_081_119F_20250723T090646_20250723T090707_PID0_01.nc",
+"crid": "PID0",
+"size": 10957595,
+"checksum": "d5011016ab177d022ea2706970842402ce7b8a"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_018_359_117F_20240722T175655_20240722T175716_PGD0_01.nc",
+"crid": "PGD0",
+"size": 12683508,
+"checksum": "d50110679c40d2fba1eb0a716af218ac7f61e5"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_037_359_117F_20250823T041327_20250823T041348_PID0_01.nc",
+"crid": "PID0",
+"size": 11510473,
+"checksum": "d50110a7bdd6a693c26768b2b74b73f43f9f4c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_039_359_118F_20251003T214355_20251003T214416_PID0_01.nc",
+"crid": "PID0",
+"size": 10769933,
+"checksum": "d501100c563b2286de5a8f39559dcd925f1f70"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_044_359_116F_20260116T052837_20260116T052858_PID0_01.nc",
+"crid": "PID0",
+"size": 6055981,
+"checksum": "d501100a0cd774d61c4beef0aeb989370ccb0d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_047_359_118F_20260319T194434_20260319T194455_PID0_01.nc",
+"crid": "PID0",
+"size": 9698807,
+"checksum": "d50110b23879363e82c32181ff102dee204688"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_043_081_118F_20251216T102155_20251216T102216_PID0_01.nc",
+"crid": "PID0",
+"size": 13667150,
+"checksum": "d501106eb9845fe2e66bac62923b95de44e1cf"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_051_359_117F_20260611T064432_20260611T064453_PID0_01.nc",
+"crid": "PID0",
+"size": 12070576,
+"checksum": "d50110b4e4a262417af5a8f7f4d0549571f4fe"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_051_288_036F_20260608T172443_20260608T172505_PID0_01.nc",
+"crid": "PID0",
+"size": 15176768,
+"checksum": "d50110db6d73125410659c7ea155d5309f7848"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_051_288_037F_20260608T172503_20260608T172525_PID0_01.nc",
+"crid": "PID0",
+"size": 14134720,
+"checksum": "d5011098a70e55f96d31b1653c84bb85094dfb"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_041_081_118F_20251104T165148_20251104T165209_PID0_02.nc",
+"crid": "PID0",
+"size": 14752196,
+"checksum": "d501103db79ce9498d381c4773c538df5b3cef"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_051_359_118F_20260611T064452_20260611T064513_PID0_01.nc",
+"crid": "PID0",
+"size": 10975901,
+"checksum": "d50110f64777c4d88c9cf7d693c544c09d0ccf"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_046_081_118F_20260217T003709_20260217T003730_PID0_01.nc",
+"crid": "PID0",
+"size": 15118413,
+"checksum": "d50110b8f45589bdb854ec9e8dd67ad5bb2125"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_052_010_039F_20260619T154832_20260619T154853_PID0_01.nc",
+"crid": "PID0",
+"size": 8768481,
+"checksum": "d50110b4e2dba991c9595027dfde91c95bcfc6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_052_010_038F_20260619T154812_20260619T154833_PID0_01.nc",
+"crid": "PID0",
+"size": 12458760,
+"checksum": "d5011089882e29f15f347cef6f9979271b8e0b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_052_288_036F_20260629T140949_20260629T141010_PID0_01.nc",
+"crid": "PID0",
+"size": 14725088,
+"checksum": "d50110fcdd6e43f552ee6f3c01775c9aecf7f3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_052_288_037F_20260629T141009_20260629T141030_PID0_01.nc",
+"crid": "PID0",
+"size": 15160436,
+"checksum": "d501109ee7f6e32cfe5d64132fd6b7e6dd3842"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_052_081_118F_20260622T050740_20260622T050801_PID0_01.nc",
+"crid": "PID0",
+"size": 14978807,
+"checksum": "d50110ce35a2885229d6e293f480dba05c0d2e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_052_359_116F_20260702T032917_20260702T032938_PID0_01.nc",
+"crid": "PID0",
+"size": 11186791,
+"checksum": "d50110afaccc14ca8cdae72a2c5a11087b2139"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_052_359_118F_20260702T032957_20260702T033018_PID0_01.nc",
+"crid": "PID0",
+"size": 16566094,
+"checksum": "d50110eae765aff625ac2ec6cc0780e1153998"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_053_010_039F_20260710T123336_20260710T123358_PID0_01.nc",
+"crid": "PID0",
+"size": 8604790,
+"checksum": "d50110ca9fe1d4bef0246ed8794fad804541c3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_052_359_117F_20260702T032937_20260702T032958_PID0_01.nc",
+"crid": "PID0",
+"size": 17129648,
+"checksum": "d5011055ec0443824ce7ddaa51154aa51df80e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_052_081_119F_20260622T050800_20260622T050821_PID0_01.nc",
+"crid": "PID0",
+"size": 12421768,
+"checksum": "d501108c835e5721d41fa1c2e418e9fb68157d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_053_010_038F_20260710T123316_20260710T123338_PID0_01.nc",
+"crid": "PID0",
+"size": 12771760,
+"checksum": "d50110c52c662f8aab81b1abedcb7cd5afa93f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_053_081_118F_20260713T015244_20260713T015305_PID0_01.nc",
+"crid": "PID0",
+"size": 16709585,
+"checksum": "d50110f9ed404c5a3e987924767f0af524c8b7"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_053_081_119F_20260713T015304_20260713T015325_PID0_01.nc",
+"crid": "PID0",
+"size": 12802350,
+"checksum": "d50110584d1b29feb9576bdefe91f341e6d30c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_053_359_116F_20260723T001420_20260723T001441_PID0_01.nc",
+"crid": "PID0",
+"size": 8901405,
+"checksum": "d501107c7a5b5f7daecab2f27368915fd5ff9c"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_053_359_118F_20260723T001500_20260723T001521_PID0_01.nc",
+"crid": "PID0",
+"size": 11922658,
+"checksum": "d50110a5ee311b0c4c1056d940995d98d3e28d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_053_288_037F_20260720T105512_20260720T105533_PID0_01.nc",
+"crid": "PID0",
+"size": 14247871,
+"checksum": "d501102e2a02206c5848ede18f08832e8fae23"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_053_359_117F_20260723T001440_20260723T001501_PID0_01.nc",
+"crid": "PID0",
+"size": 12945371,
+"checksum": "d50110787991024a4fd9fbb56df51665d6490f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_053_288_036F_20260720T105452_20260720T105513_PID0_01.nc",
+"crid": "PID0",
+"size": 12534431,
+"checksum": "d5011078df0536fcd338e4280670a540b75108"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_054_010_038F_20260731T091820_20260731T091841_PID0_01.nc",
+"crid": "PID0",
+"size": 12298690,
+"checksum": "d50110fcd4a88f32535beb71b8f8bf04df0333"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_054_010_039F_20260731T091840_20260731T091901_PID0_01.nc",
+"crid": "PID0",
+"size": 8342711,
+"checksum": "d50110f27cf770bc24a5fef536972149a63c90"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_054_081_119F_20260802T223809_20260802T223830_PID0_01.nc",
+"crid": "PID0",
+"size": 12402383,
+"checksum": "d5011035f34324a1114eded5567cbf95c64930"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_054_359_116F_20260812T205925_20260812T205947_PID0_02.nc",
+"crid": "PID0",
+"size": 8687975,
+"checksum": "d50110f20174893cb5e031d62091374fad4ab6"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_054_288_037F_20260810T074018_20260810T074039_PID0_01.nc",
+"crid": "PID0",
+"size": 13060975,
+"checksum": "d50110fc115a6745299e9b54fd92b80ff22b97"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_054_288_036F_20260810T073958_20260810T074019_PID0_01.nc",
+"crid": "PID0",
+"size": 11892211,
+"checksum": "d5011044fc7d0acab8fc970850bd014b8cf4c7"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_054_081_118F_20260802T223749_20260802T223810_PID0_01.nc",
+"crid": "PID0",
+"size": 16233062,
+"checksum": "d501106132b34faca3eb36d1ed08641572f752"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_055_010_039F_20260821T060345_20260821T060406_PID0_01.nc",
+"crid": "PID0",
+"size": 8146353,
+"checksum": "d50110924e5a6b0d6767d0d8c98d2f864bfc96"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_054_359_117F_20260812T205945_20260812T210007_PID0_02.nc",
+"crid": "PID0",
+"size": 12588437,
+"checksum": "d501102428e871d504d1e969652e083f9367b4"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_055_010_038F_20260821T060325_20260821T060346_PID0_01.nc",
+"crid": "PID0",
+"size": 11992657,
+"checksum": "d50110715974635557dc643285a576bcb79078"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_054_359_118F_20260812T210005_20260812T210027_PID0_02.nc",
+"crid": "PID0",
+"size": 11729617,
+"checksum": "d50110a14506dae51c9068b02c92745c24aced"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_056_010_039F_20260911T024851_20260911T024912_PID0_01.nc",
+"crid": "PID0",
+"size": 8581915,
+"checksum": "d5011005479be52745315ebd2127b9a750ebca"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_055_288_037F_20260831T042523_20260831T042544_PID0_01.nc",
+"crid": "PID0",
+"size": 12909535,
+"checksum": "d501103e331c4fc561695f8760b2d5306de8bd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_055_081_119F_20260823T192313_20260823T192334_PID0_01.nc",
+"crid": "PID0",
+"size": 11914336,
+"checksum": "d50110cf59172f02be0421f1352ccf7f5ebe67"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_055_288_036F_20260831T042503_20260831T042524_PID0_01.nc",
+"crid": "PID0",
+"size": 11321831,
+"checksum": "d50110d6f36bc82d12cc3cd3a854f3322a7c4b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_055_081_118F_20260823T192253_20260823T192314_PID0_01.nc",
+"crid": "PID0",
+"size": 15472190,
+"checksum": "d501101f004dce023841bc2373296deac6dd01"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_056_081_118F_20260913T160758_20260913T160819_PID0_01.nc",
+"crid": "PID0",
+"size": 15349810,
+"checksum": "d50110b79e88203f02ad732a00c068d8e6ce52"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_056_081_119F_20260913T160818_20260913T160839_PID0_01.nc",
+"crid": "PID0",
+"size": 12440295,
+"checksum": "d50110a4d293b98b40f85b5e738909330729d9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_056_010_038F_20260911T024831_20260911T024852_PID0_01.nc",
+"crid": "PID0",
+"size": 12686699,
+"checksum": "d501103fc258550bd14cf209a7b850c9fda003"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_056_359_116F_20260923T142934_20260923T142955_PID0_01.nc",
+"crid": "PID0",
+"size": 8126959,
+"checksum": "d5011008c992413e8f4dbe8b0b4e53b94f900d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_056_288_037F_20260921T011027_20260921T011048_PID0_01.nc",
+"crid": "PID0",
+"size": 12933374,
+"checksum": "d5011056ac633bc7f78429407c0892a5fa5a36"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_056_288_036F_20260921T011007_20260921T011028_PID0_01.nc",
+"crid": "PID0",
+"size": 12150012,
+"checksum": "d50110e72b9cd003c0af0f81ebb02fd56462e0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_056_359_117F_20260923T142954_20260923T143015_PID0_01.nc",
+"crid": "PID0",
+"size": 11738283,
+"checksum": "d50110304f6c20d2e3a006f78b58a072476020"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_056_359_118F_20260923T143014_20260923T143035_PID0_01.nc",
+"crid": "PID0",
+"size": 11497691,
+"checksum": "d50110ad6e8c4a43b00eee3dcbeeacc81ce978"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_057_081_119F_20261004T125321_20261004T125342_PID0_01.nc",
+"crid": "PID0",
+"size": 11931946,
+"checksum": "d5011049585085dd33ae20823653196821525d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_057_010_038F_20261001T233333_20261001T233354_PID0_01.nc",
+"crid": "PID0",
+"size": 11526422,
+"checksum": "d50110bf43144e7997af74e2f24261724654a0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_057_010_039F_20261001T233353_20261001T233414_PID0_01.nc",
+"crid": "PID0",
+"size": 7883908,
+"checksum": "d50110377ba8af930c153d57bef3421784d2b2"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM40T_N_x_x_x_057_081_118F_20261004T125301_20261004T125322_PID0_02.nc",
+"crid": "PID0",
+"size": 14979850,
+"checksum": "d50110269392e823919597660c1de5cbebe843"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_009_109_117F_20240108T004927_20240108T004947_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15209445,
+"checksum": "d50110ac283f39882af7ac4e26c5b597cd0c8d"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_009_387_117F_20240117T231145_20240117T231206_PGD0_01.nc",
+"crid": "PGD0",
+"size": 15061663,
+"checksum": "d50110f90e0ecc29101f5b92e96778747fc887"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_009_387_118F_20240117T231205_20240117T231226_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7862879,
+"checksum": "d50110450f141a7e59c1f20c52a9158f7fe321"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_010_066_037F_20240127T081537_20240127T081548_PGD0_01.nc",
+"crid": "PGD0",
+"size": 7484734,
+"checksum": "d501108ca57739509eb5b54226c9a5512af67b"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_010_137_119F_20240129T213544_20240129T213606_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11071167,
+"checksum": "d5011095ac38617fe345e7a014d65c9fe17723"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_010_344_038F_20240206T063824_20240206T063834_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8274429,
+"checksum": "d50110dbef0a84cc06ae151887060abfce1c4f"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_011_109_117F_20240218T181938_20240218T181958_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14537511,
+"checksum": "d5011026d80e5e9d54551736386fb453322385"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_011_137_118F_20240219T182049_20240219T182051_PGD0_01.nc",
+"crid": "PGD0",
+"size": 1578498,
+"checksum": "d50110160815a04e9ae501dc73534f61161f71"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_011_137_119F_20240219T182049_20240219T182111_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11512473,
+"checksum": "d501105976e54bf595fe638506442826d777b0"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_011_443_118F_20240301T164319_20240301T164338_PGD0_01.nc",
+"crid": "PGD0",
+"size": 14209184,
+"checksum": "d50110138e9f570c4ab6f393f341655aae6b23"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_012_038_037F_20240308T014506_20240308T014536_PGD0_01.nc",
+"crid": "PGD0",
+"size": 1028430,
+"checksum": "d501108cce6ee3b62f80ced351b9e123471abb"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_012_344_036F_20240319T000741_20240319T000801_PGD0_01.nc",
+"crid": "PGD0",
+"size": 11585063,
+"checksum": "d501105a7ac85387cc7e0d8cf980c3b112c92e"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_012_344_038F_20240319T000832_20240319T000842_PGD0_01.nc",
+"crid": "PGD0",
+"size": 6701849,
+"checksum": "d50110a30350f9c5d08c2513a6b8f0411e2847"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_012_415_118F_20240321T132809_20240321T132810_PGD0_01.nc",
+"crid": "PGD0",
+"size": 1203305,
+"checksum": "d50110822105b857141d0957a46d87191a46cd"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_013_038_038F_20240328T223038_20240328T223059_PGD0_01.nc",
+"crid": "PGD0",
+"size": 16072661,
+"checksum": "d5011098a6c8a7110fa5bf058c4e5dcfcb55b3"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_013_066_038F_20240329T223109_20240329T223111_PGD0_01.nc",
+"crid": "PGD0",
+"size": 1229016,
+"checksum": "d501106d4b7bb6f0a8c2a91941c4efe18bacbb"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_013_109_119F_20240331T115026_20240331T115047_PGD0_01.nc",
+"crid": "PGD0",
+"size": 17516459,
+"checksum": "d50110d9c0cc1641a56375603a5945a35c59a8"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_013_137_118F_20240401T115046_20240401T115058_PGD0_01.nc",
+"crid": "PGD0",
+"size": 8926604,
+"checksum": "d50110cd99d9318b4f4b4c69e988721932d444"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_013_137_119F_20240401T115057_20240401T115118_PGD0_01.nc",
+"crid": "PGD0",
+"size": 10733655,
+"checksum": "d50110166122597396c06c007b373c24295db9"
+},
+{
+"granule": "SWOT_L2_HR_Raster_250m_UTM39T_N_x_x_x_014_066_038F_20240419T191615_20240419T191617_PGD0_01.nc",
+"crid": "PGD0",
+"size": 1224793,
+"checksum": "d50110dbc31c03cfb7dc00b0aefba9f2ef7c90"
 }
-]
+],
+"collection": "SWOT_L2_HR_RASTER_250M",
+"min_water_frac": 0.9,
+"min_pixels": 10,
+"selection": "latest processing version per granule (baseline D > C, G > I, counters)"
 }

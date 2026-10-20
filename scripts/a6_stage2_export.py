@@ -80,12 +80,16 @@ def cover_laea():
 
 def block_tiles(n_per_sector: int):
     """D-064: a stratified random sample of training blocks (n_per_sector per sector,
-    seed design.SEED), each clipped to the stage-2 cover, as export regions."""
+    seed design.SEED), each clipped to the stage-2 cover and to its own sector (so one
+    sector's setup classes apply to every pixel), as export regions."""
     from caspian import design
     cov = cover_laea()
+    # sector edges are straight in lon/lat (as painted by sector_image): densify before projecting
+    cov_sec = {k: cov.intersection(transform(FWD, p.segmentize(0.01))) for k, (_, p) in sectors().items()}
     b = pd.read_csv(RESULTS / "study_area" / "blocks_25km.csv")
     b = b[b["split"] == "train"].copy()
-    b["part"] = [cov.intersection(box(x, y, x + 25_000, y + 25_000)) for x, y in zip(b["x0"], b["y0"])]
+    b["part"] = [cov_sec[s].intersection(box(x, y, x + 25_000, y + 25_000))
+                 for x, y, s in zip(b["x0"], b["y0"], b["sector"])]
     b["area"] = [g.area for g in b["part"]]
     b = b[b["area"] > 25e6]   # at least 25 km2 of the block inside the cover
     rng = np.random.default_rng(design.SEED)
@@ -235,7 +239,8 @@ def fetch(tag: str) -> int:
         f = out / f"tile_{k}.npz"
         if f.exists():
             continue
-        arr = ee_io.fetch(t["asset"], bands, t["transform"], t["dims"], pipeline_ee.LAEA_WKT, block=512)
+        arr = ee_io.fetch(t["asset"], bands, t["transform"], t["dims"], pipeline_ee.LAEA_WKT, block=512,
+                          bytes_per_px=2)   # uint16 counts
         np.savez_compressed(f, transform=np.array(t["transform"]), **arr)
         print("fetched", k, f.stat().st_size // 1_000_000, "MB", flush=True)
     return 0
