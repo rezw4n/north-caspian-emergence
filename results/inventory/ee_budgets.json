@@ -4,5 +4,6 @@
  "pilot2_": 3600,
  "active_zone_v2": 4000,
  "active_zone_v3": 4000,
- "active_zone_v4": 4000
+ "active_zone_v4": 4000,
+ "stage1_pilot": 1800
 }
