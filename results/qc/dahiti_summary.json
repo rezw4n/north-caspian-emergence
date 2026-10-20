@@ -1,0 +1,20 @@
+{
+  "file": "dahiti_39_caspian_sea_water_level.csv",
+  "sha256": "85b041135a9c4ffd4d46a14df32694d9a2b4d70ba2a5ff5d4d9d7d462f2ad4b3",
+  "layout": "csv-v2",
+  "header_metadata": {
+    "rows_dropped_nonnumeric_level": "0"
+  },
+  "n_records": 862,
+  "first": "1992-09-28T08:01:43",
+  "last": "2026-09-14T19:19:26",
+  "span_years": 33.96,
+  "median_gap_days": 9.0,
+  "max_gap_days": 128.0,
+  "level_min_m": -28.909,
+  "level_max_m": -25.672,
+  "time_of_min": "2026-01-29T17:53:20",
+  "time_of_max": "1995-07-06T17:31:11",
+  "sigma_median_m": 0.0,
+  "extra_columns": []
+}

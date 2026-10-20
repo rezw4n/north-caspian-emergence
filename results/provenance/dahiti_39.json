@@ -1,0 +1,10 @@
+{
+ "dahiti_id": 39,
+ "endpoint": "https://dahiti.dgfi.tum.de/api/v2/download-water-level/",
+ "format": "csv",
+ "downloaded_utc": "2026-10-20T10:54:16+00:00",
+ "file": "dahiti_39_caspian_sea_water_level.csv",
+ "bytes": 29326,
+ "sha256": "85b041135a9c4ffd4d46a14df32694d9a2b4d70ba2a5ff5d4d9d7d462f2ad4b3",
+ "target_info_http_status": 200
+}
