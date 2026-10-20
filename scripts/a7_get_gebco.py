@@ -1,4 +1,4 @@
-"""Subset GEBCO_2026 (elevation and Type Identifier grids) over the study domain by
+"""Subset a GEBCO grid (default GEBCO_2026; argument "2022" for GEBCO_2022) (elevation and Type Identifier grids) over the study domain by
 HTTP range requests on CEDA's files, without a full download (D-016). Both files
 store the grid contiguously, so each row of the window is one small range request.
 
@@ -24,11 +24,19 @@ from caspian.config import RAW, RESULTS
 from caspian.geography import DOMAIN
 from caspian.remote import contiguous_window
 
-BASE = "https://dap.ceda.ac.uk/bodc/gebco/global/gebco_2026"
-FILES = {"elevation": f"{BASE}/ice_surface_elevation/netcdf/GEBCO_2026.nc",
-         "tid": f"{BASE}/type_identifier_grid/netcdf/gebco_2026_tid.nc"}
-LISTING = "https://data.ceda.ac.uk/bodc/gebco/global/gebco_2026/{}/netcdf?json"
-DOI = "10.5285/4f68d5c7-45eb-f999-e063-7086abc036fa"
+VERSIONS = {
+    "2026": {"elevation": "ice_surface_elevation/netcdf/GEBCO_2026.nc",
+             "tid": "type_identifier_grid/netcdf/gebco_2026_tid.nc",
+             "doi": "10.5285/4f68d5c7-45eb-f999-e063-7086abc036fa"},
+    "2022": {"elevation": "ice_surface_elevation/netcdf/GEBCO_2022_CF.nc",
+             "tid": "type_identifier_grid/netcdf/GEBCO_2022_TID.nc",
+             "doi": "10.5285/e0f0bb80-ab44-2739-e053-6c86abc0289c"},
+}
+VERSION = sys.argv[1] if len(sys.argv) > 1 else "2026"
+BASE = f"https://dap.ceda.ac.uk/bodc/gebco/global/gebco_{VERSION}"
+FILES = {k: f"{BASE}/{VERSIONS[VERSION][k]}" for k in ("elevation", "tid")}
+LISTING = f"https://data.ceda.ac.uk/bodc/gebco/global/gebco_{VERSION}/{{}}/netcdf?json"
+DOI = VERSIONS[VERSION]["doi"]
 MARGIN = 0.1
 
 
@@ -70,13 +78,13 @@ def main() -> int:
     ds = xr.Dataset({"elevation": (("lat", "lon"), elev.astype("int16"), attrs_e),
                      "tid": (("lat", "lon"), tid.astype("int8"), attrs_t)},
                     coords={"lat": lat[i0:i1], "lon": lon[j0:j1]},
-                    attrs={"source": "GEBCO_2026 Grid via CEDA (HTTP range subset)", "doi": DOI})
+                    attrs={"source": f"GEBCO_{VERSION} Grid via CEDA (HTTP range subset)", "doi": DOI})
     out_dir = RAW / "bathymetry"
     out_dir.mkdir(parents=True, exist_ok=True)
-    out = out_dir / "gebco_2026_ncaspian.nc"
+    out = out_dir / f"gebco_{VERSION}_ncaspian.nc"
     ds.to_netcdf(out)
     names = [u.rsplit("/", 1)[1] for u in FILES.values()]
-    prov = {"product": "GEBCO_2026 Grid", "doi": DOI, "urls": FILES,
+    prov = {"product": f"GEBCO_{VERSION} Grid", "doi": DOI, "urls": FILES,
             "ceda_md5_full_files": {nm: items.get(nm, {}).get("md5") for nm in names},
             "ceda_last_modified": {nm: items.get(nm, {}).get("last_modified") for nm in names},
             "window_index": [int(i0), int(i1), int(j0), int(j1)],
@@ -86,7 +94,7 @@ def main() -> int:
             "tid_values_present": sorted(int(x) for x in np.unique(tid)),
             "subset_sha256": hashlib.sha256(out.read_bytes()).hexdigest()}
     (RESULTS / "provenance").mkdir(parents=True, exist_ok=True)
-    (RESULTS / "provenance" / "gebco_2026.json").write_text(json.dumps(prov, indent=1), encoding="utf-8")
+    (RESULTS / "provenance" / f"gebco_{VERSION}.json").write_text(json.dumps(prov, indent=1), encoding="utf-8")
     print(json.dumps(prov, indent=1))
     return 0
 
