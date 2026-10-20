@@ -24,10 +24,30 @@ MNDWI_RANGE = (-1.0, 1.0)
 
 # ----------------------------------------------------------------------------- NumPy reference
 
-def mndwi(green, swir1):
-    green, swir1 = np.asarray(green, float), np.asarray(swir1, float)
+def nd(a, b):
+    """Normalized difference (a - b) / (a + b) with negative reflectance taken as 0,
+    so the index lies in [-1, 1]; NaN where both inputs are at most 0 (D-068).
+    Surface reflectance of clear water is often slightly negative in NIR and SWIR1;
+    Earth Engine's normalizedDifference masks such pixels (documented), which drops
+    water observations. ee_nd is the same definition server side."""
+    a = np.maximum(np.asarray(a, float), 0.0)
+    b = np.maximum(np.asarray(b, float), 0.0)
+    s = a + b
     with np.errstate(invalid="ignore", divide="ignore"):
-        return (green - swir1) / (green + swir1)
+        return np.where(s > 0, (a - b) / np.where(s > 0, s, 1.0), np.nan)
+
+
+def ee_nd(img, a: str, b: str):
+    """Earth Engine version of nd(): band ``a`` name, masked where both inputs are
+    at most 0 or either input is masked."""
+    x = img.select(a).max(0)
+    y = img.select(b).max(0)
+    s = x.add(y)
+    return x.subtract(y).divide(s).updateMask(s.gt(0))
+
+
+def mndwi(green, swir1):
+    return nd(green, swir1)
 
 
 def awei_sh(blue, green, nir, swir1, swir2):
@@ -36,9 +56,7 @@ def awei_sh(blue, green, nir, swir1, swir2):
 
 
 def ndvi(red, nir):
-    red, nir = np.asarray(red, float), np.asarray(nir, float)
-    with np.errstate(invalid="ignore", divide="ignore"):
-        return (nir - red) / (nir + red)
+    return nd(nir, red)
 
 
 def otsu_threshold(values, bins: int = OTSU_BINS, value_range=MNDWI_RANGE) -> float:
@@ -73,12 +91,14 @@ def otsu_from_histogram(counts, centers) -> float:
 
 
 def classify(mndwi_img, ndvi_img, threshold: float, ndvi_veg: float = NDVI_VEG):
-    """Water / dry / emergent-vegetation classes; NaN where unobserved."""
+    """Water / dry / emergent-vegetation classes; NaN where unobserved. Water needs
+    only MNDWI; a pixel that is not water needs NDVI as well, to tell dry from
+    vegetated (D-068)."""
     m = np.asarray(mndwi_img, float)
     n = np.asarray(ndvi_img, float)
     out = np.full(m.shape, np.nan)
-    obs = np.isfinite(m) & np.isfinite(n)
-    water = obs & (m > threshold)
+    water = np.isfinite(m) & (m > threshold)
+    obs = water | (np.isfinite(m) & np.isfinite(n))
     veg = obs & ~water & (n > ndvi_veg)
     out[obs] = DRY
     out[veg] = VEG
@@ -90,8 +110,8 @@ def classify(mndwi_img, ndvi_img, threshold: float, ndvi_veg: float = NDVI_VEG):
 
 def ee_indices(img):
     """Add mndwi, awei_sh and ndvi bands to a harmonised image (caspian.masks)."""
-    m = img.normalizedDifference(["green", "swir1"]).rename("mndwi")
-    n = img.normalizedDifference(["nir", "red"]).rename("ndvi")
+    m = ee_nd(img, "green", "swir1").rename("mndwi")
+    n = ee_nd(img, "nir", "red").rename("ndvi")
     a = img.expression("b + 2.5*g - 1.5*(n + s1) - 0.25*s2", {
         "b": img.select("blue"), "g": img.select("green"), "n": img.select("nir"),
         "s1": img.select("swir1"), "s2": img.select("swir2")}).rename("awei_sh")

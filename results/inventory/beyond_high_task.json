@@ -1,0 +1,23 @@
+{
+ "task": "VK4CAHGLO44OV7AAZAPOZJ4B",
+ "asset": "projects/ee-rezwanahmed/assets/caspian/beyond_high_v1",
+ "transform": [
+  250,
+  0,
+  -297500,
+  0,
+  -250,
+  227250
+ ],
+ "dims": [
+  2701,
+  1608
+ ],
+ "bbox_lonlat": [
+  46.3,
+  43.8677,
+  54.7,
+  47.45
+ ],
+ "ring_km2": 49482.7
+}

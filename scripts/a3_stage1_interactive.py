@@ -35,7 +35,7 @@ import ee
 import pandas as pd
 
 from caspian import masks, pipeline_ee
-from caspian.config import EE_PROJECT, INTERIM, RESULTS
+from caspian.config import EE_PROJECT, INTERIM, RESULTS, STAGE1
 
 ZONE = f"projects/{EE_PROJECT}/assets/caspian/active_zone_v6"
 COVER = RESULTS / "study_area" / "zone_v6_tiles.geojson"
@@ -44,9 +44,9 @@ SENSORS = ["TM_L5", "ETM_L7", "OLI_L8", "OLI_L9", "MSI_S2"]
 FIELDS = ["scene", "sensor", "acq", "time", "otsu_threshold", "otsu_n", "zone_px", "zone_clear",
           "zone_snow", "zone_snow_ndsi", "zone_snow_qa", "cloud_scene", "hist"]
 RUN1 = INTERIM / "stage1"
-OUT = INTERIM / "stage1_v2"
-LOG = RESULTS / "inventory" / "stage1_v2_interactive_log.jsonl"
-MONTHS = range(1, 13)   # all months (run 2; the ice-season rule is evaluated from it)
+OUT = STAGE1
+LOG = RESULTS / "inventory" / "stage1_v3_interactive_log.jsonl"
+MONTHS = range(4, 11)   # open-water months (run 3; ice months Nov-Mar are excluded, D-062, D-068)
 _lock = Lock()
 
 

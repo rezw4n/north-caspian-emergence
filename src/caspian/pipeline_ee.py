@@ -74,7 +74,7 @@ def domain_geometry():
 
 
 def _mndwi_col(col):
-    return col.map(lambda im: im.normalizedDifference(["green", "swir1"]).rename("mndwi"))
+    return col.map(lambda im: water.ee_nd(im, "green", "swir1").rename("mndwi"))
 
 
 def lowstand_water(region=None):
@@ -176,7 +176,7 @@ def zone_water(img):
     MNDWI > 0, or NIR and SWIR1 both below DARK_WATER. Clear deep water in the south
     of the domain has near-zero NIR and SWIR1 and an MNDWI that scatters around 0
     (D-029)."""
-    m = img.normalizedDifference(["green", "swir1"])
+    m = water.ee_nd(img, "green", "swir1")
     dark = img.select("nir").lt(DARK_WATER).And(img.select("swir1").lt(DARK_WATER))
     return m.gt(0).Or(dark).rename("w")
 
@@ -277,7 +277,7 @@ def scene_table(col, zone, scale: float = HIST_SCALE, min_samples: int = 300, cl
                .combine(ee.Reducer.count().setOutputs(["zone_px"]), "", False))
 
     def feat(img):
-        m = img.normalizedDifference(["green", "swir1"]).rename("mndwi").updateMask(z)
+        m = water.ee_nd(img, "green", "swir1").rename("mndwi").updateMask(z)
         layers = ee.Image.cat([m, img.select("qa_snow").And(z).selfMask(),
                                img.select("qa_snow_ndsi").And(z).selfMask(),
                                img.select("qa_snow_qa").And(z).selfMask(), z.selfMask()])
@@ -303,23 +303,27 @@ def scene_table(col, zone, scale: float = HIST_SCALE, min_samples: int = 300, cl
 def classify_with_threshold(img, threshold, ndvi_veg: float = water.NDVI_VEG):
     """Per-pixel classes (0 dry, 1 water, 2 emergent vegetation) using a
     pre-computed scene threshold."""
-    m = img.normalizedDifference(["green", "swir1"])
-    n = img.normalizedDifference(["nir", "red"])
+    m = water.ee_nd(img, "green", "swir1")
+    n = water.ee_nd(img, "nir", "red")
     w = m.gt(ee.Number(threshold))
-    veg = w.Not().And(n.gt(ndvi_veg))
+    veg = w.Not().And(n.gt(ndvi_veg).unmask(0))
+    known = w.Or(n.mask())          # water needs only MNDWI; dry or vegetated needs NDVI (D-068)
     return (ee.Image(water.DRY).where(veg, water.VEG).where(w, water.WATER)
-            .updateMask(m.mask()).uint8().rename("class"))
+            .updateMask(m.mask()).updateMask(known).uint8().rename("class"))
 
 
 def water_valid(img, threshold, ndvi_veg: float = water.NDVI_VEG):
     """Stage-2 per-scene [w, v] pair: w = water, v = water or dry (emergent
     vegetation is not a valid observation, PREREG section 3); masked = unobserved.
-    Same classes as classify_with_threshold, in the form the counts need."""
-    m = img.normalizedDifference(["green", "swir1"])
-    n = img.normalizedDifference(["nir", "red"])
+    Same classes as classify_with_threshold, in the form the counts need. Both bands
+    carry one mask, so w <= v in every image and every per-acquisition mosaic (D-068:
+    a separate NDVI mask on v gave w > v)."""
+    m = water.ee_nd(img, "green", "swir1")
+    n = water.ee_nd(img, "nir", "red")
     w = m.gt(ee.Number(threshold))
-    v = w.Or(n.lte(ndvi_veg))
-    return ee.Image.cat([w, v]).rename(["w", "v"]).uint16().updateMask(m.mask())
+    v = w.Or(n.lte(ndvi_veg).unmask(0))
+    known = w.Or(n.mask())
+    return ee.Image.cat([w, v]).rename(["w", "v"]).uint16().updateMask(m.mask()).updateMask(known)
 
 
 def per_acquisition(col):

@@ -484,3 +484,41 @@ def test_by_region_matches_single_region_calls():
     nf = hindcast.noise_floor_by_region(obs, valid, pred, np.ones_like(valid), labels, ids=[1])
     one = hindcast.noise_floor_displacement(obs, valid, pred, np.ones_like(valid), region=labels == 1)
     assert list(nf) == [1] and nf[1]["median"] == pytest.approx(one["median"])
+
+
+def test_beyond_land_state_land_only_beyond_dilation():
+    high = np.zeros((40, 40), bool)
+    high[:, :10] = True                       # observed near-maximum water in the west
+    obs = np.ones((40, 40), bool)
+    obs[30:, 30:] = False                     # an observation gap in the south-east
+    s = hindcast.beyond_land_state(high, obs, pixel_size=250.0, dilate_m=2000.0)
+    assert np.all(np.isnan(s[:, :10]))        # water is never assigned
+    assert np.all(np.isnan(s[:, 10:18]))      # within 2 km (8 cells) of water: unknown
+    assert np.all(s[:20, 19:30] == 0)         # beyond 2 km: land
+    assert np.all(np.isnan(s[30:, 30:]))      # the gap is unknown
+    assert np.isnan(s[29, 25]) and np.isnan(s[25, 29])   # and so is its 2 km neighbourhood
+    assert set(np.unique(s[np.isfinite(s)])) == {0.0}
+
+
+def test_beyond_land_state_works_with_outside_state_from_zone():
+    # toy northern edge: domain = rows 10+, zone band rows 12-16, sea rows 17+,
+    # 1995-96 water rows 13+; land north of the domain
+    shape = (30, 20)
+    domain = np.zeros(shape, bool)
+    domain[10:, :] = True
+    zone = np.zeros(shape, bool)
+    zone[12:17, :] = True
+    sea = np.zeros(shape, bool)
+    sea[25:, :] = True
+    land = np.zeros(shape, bool)
+    land[11, :] = True
+    high = np.zeros(shape, bool)
+    high[13:, :] = True
+    b = hindcast.beyond_land_state(high, np.ones(shape, bool), pixel_size=1.0, dilate_m=2.0)
+    st = hindcast.outside_state_from_zone(zone, sea, land, domain=domain, beyond_state=b)
+    assert np.all(st[:11] == 0)            # beyond the domain and its rim: land from beyond_state
+    assert np.all(st[11] == 0)             # the seeded hinterland
+    assert np.all(np.isnan(st[12:17]))     # the zone
+    assert np.all(st[17:] == 1)            # the open sea
+    st0 = hindcast.outside_state_from_zone(zone, sea, land, domain=domain)
+    assert np.all(np.isnan(st0[:11]))      # without it, unknown (D-030 behaviour)

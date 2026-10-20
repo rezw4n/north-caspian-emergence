@@ -83,7 +83,10 @@ def ndsi_snow(sr, time_start=None):
     With ``time_start``, the test applies only in NDSI_MONTHS (0 elsewhere)."""
     import ee
 
-    ndsi = sr.normalizedDifference(["green", "swir1"])
+    from .water import ee_nd
+    # not normalizedDifference: it masks negative inputs, and a masked snow flag masks the
+    # pixel itself in landsat()/sentinel2(), in every month (D-068)
+    ndsi = ee_nd(sr, "green", "swir1")
     flag = ndsi.gt(NDSI_SNOW).And(sr.select("red").gt(RED_SNOW))
     if time_start is None:
         return flag

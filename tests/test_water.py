@@ -53,3 +53,22 @@ def test_water_wins_over_vegetation():
     # Floating or submerged vegetation with high MNDWI stays water.
     c = water.classify(np.array([0.5]), np.array([0.5]), threshold=0.0)
     assert c[0] == water.WATER
+
+
+def test_nd_treats_negative_reflectance_as_zero():
+    # clear water: slightly negative SWIR1 and NIR (Earth Engine's normalizedDifference masks these)
+    assert water.mndwi(0.11, -0.006) == pytest.approx(1.0)
+    assert water.ndvi(0.043, -0.006) == pytest.approx(-1.0)
+    assert water.mndwi(-0.01, 0.2) == pytest.approx(-1.0)
+    assert np.isnan(water.mndwi(-0.01, -0.02))           # both at most 0: undefined
+    v = water.nd(np.array([0.3, 0.1, -1.0]), np.array([0.1, 0.3, 0.5]))
+    assert np.all((v >= -1) & (v <= 1))
+
+
+def test_classify_water_needs_only_mndwi():
+    m = np.array([0.6, -0.4, -0.4])
+    n = np.array([np.nan, np.nan, 0.1])
+    c = water.classify(m, n, threshold=0.0)
+    assert c[0] == water.WATER          # water with unknown NDVI stays water
+    assert np.isnan(c[1])               # not water, NDVI unknown: unobserved
+    assert c[2] == water.DRY

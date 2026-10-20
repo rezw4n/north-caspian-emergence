@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
 RAW = DATA / "raw"
 INTERIM = DATA / "interim"
+STAGE1 = INTERIM / "stage1_v3"   # stage-1 scene tables in use (run 3, D-068: corrected normalized differences)
 PROCESSED = DATA / "processed"
 RESULTS = ROOT / "results"
 METRICS = RESULTS / "metrics.json"
