@@ -13,8 +13,8 @@ import ee
 from caspian import pipeline_ee
 from caspian.config import EE_PROJECT, RESULTS
 
-ASSET = f"projects/{EE_PROJECT}/assets/caspian/active_zone_v3"
-PILOT_ASSET = f"projects/{EE_PROJECT}/assets/caspian/active_zone_v3_pilot"
+ASSET = f"projects/{EE_PROJECT}/assets/caspian/active_zone_v4"
+PILOT_ASSET = f"projects/{EE_PROJECT}/assets/caspian/active_zone_v4_pilot"
 STATE = RESULTS / "inventory" / "zone_task.json"
 
 
@@ -24,8 +24,8 @@ def main(cmd: str) -> int:
     if cmd in ("pilot", "submit"):
         if cmd == "pilot":  # 1 x 1 degree box on the NE coast, to measure cost first
             dom = ee.Geometry.Rectangle([52.4, 45.8, 53.4, 46.8])
-        zone = pipeline_ee.active_zone(dom).unmask(0).uint8()
-        name = "active_zone_v3_pilot" if cmd == "pilot" else "active_zone_v3"
+        zone = pipeline_ee.active_zone_v4(dom).unmask(0).uint8()
+        name = "active_zone_v4_pilot" if cmd == "pilot" else "active_zone_v4"
         t = ee.batch.Export.image.toAsset(image=zone, description=name,
                                           assetId=PILOT_ASSET if cmd == "pilot" else ASSET,
                                           region=dom, scale=pipeline_ee.ZONE_SCALE, crs="EPSG:4326",
@@ -37,11 +37,12 @@ def main(cmd: str) -> int:
         z = ee.Image(ASSET)
         a = z.eq(1).multiply(ee.Image.pixelArea()).reduceRegion(
             ee.Reducer.sum(), dom, 120, maxPixels=1e10).getInfo()
-        st = json.loads(STATE.read_text(encoding="utf-8"))
+        st = json.loads(STATE.with_name("zone_task_submit.json").read_text(encoding="utf-8"))
         op = ee.data.getOperation(f"projects/{EE_PROJECT}/operations/{st['task']}")
         st["eecu_s"] = op["metadata"].get("batchEecuUsageSeconds")
         st["zone_area_km2"] = round(list(a.values())[0] / 1e6, 1)
-        STATE.write_text(json.dumps(st, indent=1), encoding="utf-8")
+        st["asset"] = ASSET
+        STATE.with_name("zone_task_submit.json").write_text(json.dumps(st, indent=1), encoding="utf-8")
         print(json.dumps(st, indent=1))
     return 0
 

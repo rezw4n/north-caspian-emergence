@@ -27,6 +27,8 @@ params = {
     "params.occ_lo_pct": (pipeline_ee.OCC_LO, "%", "caspian.pipeline_ee.OCC_LO"),
     "params.occ_hi_pct": (pipeline_ee.OCC_HI, "%", "caspian.pipeline_ee.OCC_HI"),
     "params.max_gap_days": (a4_scene_levels.MAX_GAP_DAYS, "days", "scripts/a4_scene_levels.MAX_GAP_DAYS"),
+    "params.highstand_start": (pipeline_ee.HIGHSTAND[0], "date", "caspian.pipeline_ee.HIGHSTAND"),
+    "params.highstand_end": (pipeline_ee.HIGHSTAND[1], "date", "caspian.pipeline_ee.HIGHSTAND"),
     "params.lowstand_start": (pipeline_ee.LOWSTAND[0], "date", "caspian.pipeline_ee.LOWSTAND"),
     "params.lowstand_end": (pipeline_ee.LOWSTAND[1], "date", "caspian.pipeline_ee.LOWSTAND"),
 }
