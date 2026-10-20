@@ -1,0 +1,18 @@
+key,value,unit,cite_key,doi,location,verbatim_quote
+lit.ginzburg2025.level_end2024_bhs_m,-29.34,m BHS,ginzburg2025,10.21046/2070-7401-2025-22-6-312-325,English abstract p. 12,"By the end of 2024, the levels of the Caspian Sea and the KBG decreased to marks of –29.34 and –31.1 m in the Baltic Height System (BS), respectively"
+lit.ginzburg2025.min1977_bhs_m,-29.0,m BHS,ginzburg2025,10.21046/2070-7401-2025-22-6-312-325,English abstract p. 12,"Meanwhile, the Caspian Sea level exceeded the 1977 minimum (–29.0 m BS)."
+lit.ginzburg2025.rate_2020_2024_cm_per_yr,-22.7,cm per year,ginzburg2025,10.21046/2070-7401-2025-22-6-312-325,English abstract p. 12,"–8.90 cm/year in 1995–2024, –8.16 cm/year in 2005–2019 and –22.7 cm/year in 2020–2024"
+lit.samant2023.ssp245_m,8,m,samant2023,10.1038/s43247-023-01017-8,Abstract,"climate-driven sea level reductions of about 8 (inter-model range from 2 to 15) m and 14 (inter-model range from 11 to 21) m by the end of this century for the SSP245 and SSP585 scenarios, respectively"
+lit.samant2023.ssp245_lo_m,2,m,samant2023,10.1038/s43247-023-01017-8,Abstract,(same quote)
+lit.samant2023.ssp245_hi_m,15,m,samant2023,10.1038/s43247-023-01017-8,Abstract,(same quote)
+lit.samant2023.ssp585_m,14,m,samant2023,10.1038/s43247-023-01017-8,Abstract,(same quote)
+lit.samant2023.ssp585_lo_m,11,m,samant2023,10.1038/s43247-023-01017-8,Abstract,(same quote)
+lit.samant2023.ssp585_hi_m,21,m,samant2023,10.1038/s43247-023-01017-8,Abstract,(same quote)
+lit.akbari2020.nc_area_per_m_km2,7103,km2 per m,akbari2020,10.1088/1748-9326/abaad8,Table 1 p. 10,"Northern Caspian CVA = 7103 × SWL + 208261 0.90"
+lit.akbari2020.nc_volume_share_pct,1,% of sea volume (upper bound),akbari2020,10.1088/1748-9326/abaad8,§2.1 p. 4,"The Northern region has mean depth around 5–6 m and represents less than 1% of the sea’s volume."
+lit.akbari2020.nc_depth_lo_m,5,m,akbari2020,10.1088/1748-9326/abaad8,§2.1 p. 4,(same quote)
+lit.akbari2020.nc_depth_hi_m,6,m,akbari2020,10.1088/1748-9326/abaad8,§2.1 p. 4,(same quote)
+lit.court2025.max_decline_2100_m,21,m,court2025,10.1038/s43247-025-02212-5,Abstract,"Global warming is projected to drive declines in water levels of up to 21 m by 2100."
+lit.court2025.mpa_loss_max_pct,94,%,court2025,10.1038/s43247-025-02212-5,Abstract,"reduce existing marine protected area coverage by up to 94%"
+lit.weatherall2015.control_share_pct,18,% of non-land cells,weatherall2015,10.1002/2015ea000107,Abstract,"Of all nonland grid cells in GEBCO_2014, approximately 18% are based on bathymetric control data"
+lit.bocharov2026.max_area_diff_pct,5.75,%,bocharov2026,10.21046/2070-7401-2026-23-3-291-303,Results p. 9 (Russian; translated),"при этом максимальная разница с другими источниками не превышает 5,75 %"
