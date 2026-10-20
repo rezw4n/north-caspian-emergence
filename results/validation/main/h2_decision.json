@@ -1,0 +1,1317 @@
+{
+ "tag": "main",
+ "rule": "PREREG section 7; D-069 (both sources, never pooled; 'matched' decides)",
+ "decision": {
+  "matched": "not supported",
+  "total": "not supported"
+ },
+ "by_source": {
+  "ATL06": {
+   "matched": {
+    "overall": "not supported",
+    "scopes": {
+     "overall": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "west": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": false,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [
+       "srtm15p_v2.7"
+      ],
+      "partial": true
+     },
+     "volga": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "interfluve": {
+      "status": "supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "etopo_2022",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": false
+     },
+     "ural": {
+      "status": "not evaluable",
+      "products": {
+       "gebco_2026": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "northeast": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": true
+     },
+     "komsomolets": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "open_shelf": {
+      "status": "supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "etopo_2022",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": false
+     }
+    },
+    "sectors_supported": [
+     "interfluve",
+     "open_shelf"
+    ],
+    "pivot_brief_16": true
+   },
+   "total": {
+    "overall": "not supported",
+    "scopes": {
+     "overall": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "west": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": false,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [
+       "etopo_2022",
+       "srtm15p_v2.7"
+      ],
+      "partial": true
+     },
+     "volga": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "interfluve": {
+      "status": "supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "etopo_2022",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": false
+     },
+     "ural": {
+      "status": "not evaluable",
+      "products": {
+       "gebco_2026": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "northeast": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": true
+     },
+     "komsomolets": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "open_shelf": {
+      "status": "supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "etopo_2022",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": false
+     }
+    },
+    "sectors_supported": [
+     "interfluve",
+     "open_shelf"
+    ],
+    "pivot_brief_16": true
+   }
+  },
+  "ATL08": {
+   "matched": {
+    "overall": "not supported",
+    "scopes": {
+     "overall": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "west": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [
+       "srtm15p_v2.7",
+       "gebco_2022"
+      ],
+      "partial": true
+     },
+     "volga": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "interfluve": {
+      "status": "supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "etopo_2022",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": false
+     },
+     "ural": {
+      "status": "not evaluable",
+      "products": {
+       "gebco_2026": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "northeast": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": true
+     },
+     "komsomolets": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "open_shelf": {
+      "status": "supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "etopo_2022",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": false
+     }
+    },
+    "sectors_supported": [
+     "interfluve",
+     "open_shelf"
+    ],
+    "pivot_brief_16": true
+   },
+   "total": {
+    "overall": "not supported",
+    "scopes": {
+     "overall": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "west": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [
+       "srtm15p_v2.7",
+       "gebco_2022"
+      ],
+      "partial": true
+     },
+     "volga": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "interfluve": {
+      "status": "supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "etopo_2022",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": false
+     },
+     "ural": {
+      "status": "not evaluable",
+      "products": {
+       "gebco_2026": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": null,
+        "rmse": null,
+        "evaluable": false,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "northeast": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": true
+     },
+     "komsomolets": {
+      "status": "not supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo_2022": {
+        "nmad": false,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": false,
+        "evaluable": true,
+        "dem_better": false
+       }
+      },
+      "dem_better_than": [],
+      "partial": false
+     },
+     "open_shelf": {
+      "status": "supported",
+      "products": {
+       "gebco_2026": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "srtm15p_v2.7": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "gebco_2022": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       },
+       "etopo1": {
+        "nmad": true,
+        "rmse": true,
+        "evaluable": true,
+        "dem_better": true
+       }
+      },
+      "dem_better_than": [
+       "gebco_2026",
+       "etopo_2022",
+       "srtm15p_v2.7",
+       "gebco_2022",
+       "etopo1"
+      ],
+      "partial": false
+     }
+    },
+    "sectors_supported": [
+     "interfluve",
+     "open_shelf"
+    ],
+    "pivot_brief_16": true
+   }
+  }
+ }
+}
