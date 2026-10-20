@@ -407,3 +407,9 @@ No level-binned water frequency, waterline, contour, DEM or metric existed. Stag
 **Change.** A cell that is water in the observed extent at the record low (the three lowest E3 level bins, counts pooled) is water in every observed extent at higher levels: an observed dry state there is set to water. This applies to the observed extents of §9 (and §10), to the noise-floor halves, and to E1 against E2/E3. The number of cells changed is reported per unit, and the hindcast without this rule is a sensitivity analysis.
 
 **Reason (D-082).** QC of the stage-2 observations, with no product involved, showed that dark, clear deep water is often classified dry: up to 4% of record-low water cells in some bins, and whole blocks of open water with frequencies near 0.5. Under sea-connected flooding, a cell under water at the lowest level of the record is under water at every higher level, so these dry states are observation errors. Left in, they would create spurious observed shorelines far offshore and inflate every product's displacement.
+
+## Amendment 14 — 2026-10-21 04:20 (change to §9 outside states; before any hindcast metric)
+
+**Change.** For the outside states (Amendment 6, Amendment 10 item 3), the zone that separates labelled from observed cells is the stage-2 cover **plus a band of 2 km around the shorelines of the 1995–96 and 2025–26 zone-v6 extents**. The domain rim whose cells take the beyond-domain state is **2 km wide** (it was one cell).
+
+**Reason (D-083).** At steep coasts, and where the cover ends at the domain edge, the sea meets land outside the observed cover. The open sea was then connected to the seeded hinterland, and the registered check stopped the audit. Both changes only turn cells unknown or beyond-domain; they use no product, and no metric existed.

@@ -191,24 +191,49 @@ def train_mask(blocks: pd.DataFrame, transform, shape, block_m: float = design.B
     return lut[(bj - bj.min())[:, None], (bi - bi.min())[None, :]]
 
 
+COAST_BAND_M = 2000     # D-083: shorelines of the zone-v6 extents dilated by the zone dilation
+RIM_M = 2000            # D-083: domain rim whose cells take the beyond-domain state
+
+
+def coast_band(extents: dict, transform, shape, band_m: float = COAST_BAND_M) -> np.ndarray:
+    """Cells within ``band_m`` of a shoreline of the 1995-96 or the 2025-26 zone-v6
+    extent (D-083). Added to the zone for the outside states only: where the sea meets
+    land outside the stage-2 cover (steep coasts whose shoreline barely moved, the
+    cover's ends at the domain edge), the state is unknown rather than leaking sea into
+    the hinterland. ``extents`` = {"high", "low", "transform"} (250 m grid)."""
+    from scipy import ndimage
+    four = ndimage.generate_binary_structure(2, 1)
+
+    def shore(m):
+        return m & ~ndimage.binary_erosion(m, structure=four, border_value=1)
+    hi, lo = np.asarray(extents["high"]) == 1, np.asarray(extents["low"]) == 1
+    res = abs(float(extents["transform"][0]))
+    band = ndimage.binary_dilation(shore(hi) | shore(lo) | shore(~hi) | shore(~lo),
+                                   iterations=max(1, int(round(band_m / res))))
+    return nearest(band.astype(np.int8), extents["transform"], transform, shape, 0) > 0
+
+
 def static_layers(transform, shape, *, domain, sector_polys: dict, cover, sea: dict, beyond: dict,
-                  tile: int = ht.TILE) -> dict:
+                  tile: int = ht.TILE, coast=None, rim_cells: int = 1) -> dict:
     """Static layers on the grid (see the module docstring). Geometries in the equal-area
     CRS; ``sea`` = {"mask", "transform"}, ``beyond`` = {"state" (0 land, -1 unknown),
     "transform"}. Sector codes are 1, 2, ... in the order of ``sector_polys``."""
     dom = burn([(domain, 1)], transform, shape) > 0
     zone = (burn([(cover, 1)], transform, shape) > 0) & dom
+    if coast is not None:                     # D-083: the coastal band joins the zone (outside states only)
+        zone |= np.asarray(coast, bool) & dom
     lab = burn([(g, k + 1) for k, g in enumerate(sector_polys.values())], transform, shape)
     lab[~dom] = 0
     gaps = dom & (lab == 0)                   # cell centres on a shared edge, if any
     if gaps.any():
         lab = np.where(gaps, ht.nearest_region(lab, lab > 0, tile=tile), lab)
     sector = ht.nearest_region(lab, dom, tile=tile)
-    rim_in = ht.eroded(dom, 1, tile=tile)
+    rim_in = ht.eroded(dom, rim_cells, tile=tile)
     sea_seed = (nearest(sea["mask"], sea["transform"], transform, shape, 0) > 0) & ~zone & rim_in
     b = nearest(beyond["state"], beyond["transform"], transform, shape, -1).astype(np.int8)
     land_seed = (b == 0) & ~zone & rim_in
-    outside = ht.outside_state(zone, sea_seed, land_seed, domain=dom, beyond_state=b, tile=tile)
+    outside = ht.outside_state(zone, sea_seed, land_seed, domain=dom, beyond_state=b, tile=tile,
+                               domain_margin=rim_cells)
     del rim_in, b
     return {"domain": dom, "zone": zone, "sector": sector, "sea_seed": sea_seed, "land_seed": land_seed,
             "outside": outside,
@@ -230,7 +255,9 @@ def production_static(transform, shape, tile: int) -> dict:
         sector_polys={k: to_laea(p) for k, (_, p) in sectors().items()},
         cover=to_laea(cover, None),
         sea={"mask": sea_npz["mask"], "transform": sea_npz["transform"]},
-        beyond={"state": beyond_npz["state"], "transform": beyond_npz["transform"]}, tile=tile)
+        beyond={"state": beyond_npz["state"], "transform": beyond_npz["transform"]}, tile=tile,
+        coast=coast_band(np.load(STUDY / "extents_v6_250m.npz"), transform, shape),
+        rim_cells=int(round(RIM_M / RES)))
 
 
 # --- stage-2 counts --------------------------------------------------------------------------
