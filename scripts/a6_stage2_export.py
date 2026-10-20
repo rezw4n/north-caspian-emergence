@@ -50,6 +50,23 @@ FWD = pyproj.Transformer.from_crs("EPSG:4326", CRS_EQUAL_AREA, always_xy=True).t
 INV = pyproj.Transformer.from_crs(CRS_EQUAL_AREA, "EPSG:4326", always_xy=True).transform
 
 
+def ee_planar(geom, max_error: float = 1.0):
+    """A shapely lon/lat (Multi)Polygon as an ee.Geometry with planar edges and an
+    explicit error margin, which Earth Engine needs to reproject planar geometry."""
+    def rings(poly):
+        return [list(map(list, poly.exterior.coords))] + [list(map(list, r.coords)) for r in poly.interiors]
+    def polys(g):  # intersections can return collections with line or point fragments
+        if g.geom_type == "Polygon":
+            return [g]
+        if hasattr(g, "geoms"):
+            return [q for h in g.geoms for q in polys(h)]
+        return []
+    ps = polys(geom)
+    if len(ps) == 1:
+        return ee.Geometry.Polygon(rings(ps[0]), None, False, max_error)
+    return ee.Geometry.MultiPolygon([rings(g) for g in ps], None, False, max_error)
+
+
 def group_of(r, kind):
     if kind == "main":
         return f"{r['epoch']}_b{int(r['bin']):03d}_p{int(r['parity'])}"
@@ -59,6 +76,25 @@ def group_of(r, kind):
 def cover_laea():
     g = json.loads(COVER.read_text(encoding="utf-8"))["features"][0]["geometry"]
     return transform(FWD, shape(g))
+
+
+def block_tiles(n_per_sector: int):
+    """D-064: a stratified random sample of training blocks (n_per_sector per sector,
+    seed design.SEED), each clipped to the stage-2 cover, as export regions."""
+    from caspian import design
+    cov = cover_laea()
+    b = pd.read_csv(RESULTS / "study_area" / "blocks_25km.csv")
+    b = b[b["split"] == "train"].copy()
+    b["part"] = [cov.intersection(box(x, y, x + 25_000, y + 25_000)) for x, y in zip(b["x0"], b["y0"])]
+    b["area"] = [g.area for g in b["part"]]
+    b = b[b["area"] > 25e6]   # at least 25 km2 of the block inside the cover
+    rng = np.random.default_rng(design.SEED)
+    out = []
+    for sec in sorted(b["sector"].unique()):
+        g = b[b["sector"] == sec].sort_values(["i", "j"])
+        pick = g.iloc[rng.permutation(len(g))[:n_per_sector]]
+        out += [(int(r.i), int(r.j), r.part) for r in pick.itertuples()]
+    return out
 
 
 def tiles():
@@ -74,20 +110,20 @@ def tiles():
 
 
 def sector_image():
-    feats = [ee.Feature(ee.Geometry(mapping(poly), None, False), {"code": k + 1})
+    feats = [ee.Feature(ee_planar(poly), {"code": k + 1})
              for k, (name, (_, poly)) in enumerate((n, sectors()[n]) for n in SECTOR_ORDER)]
     return ee.Image(0).paint(ee.FeatureCollection(feats), "code").rename("sector")
 
 
 def upload(plan_csv: str, tag: str) -> int:
     d = pd.read_csv(plan_csv)
-    d["group"] = [group_of(r, "main") for _, r in d.iterrows()]
-    d["excluded_sectors"] = d["excluded_sectors"].fillna("").astype(str)
-    cols = ["scene", "sensor", "acq", "threshold", "group", "excluded_sectors"]
+    d["sectors"] = d["sectors"].fillna("").astype(str)
+    cols = ["scene", "sensor", "acq", "threshold", "group", "sectors", "mask_mode"]
     st = {"tag": tag, "plan": str(plan_csv), "n_rows": len(d), "groups": sorted(d["group"].unique()), "chunks": []}
     for k in range(0, len(d), CHUNK):
         part = d.iloc[k:k + CHUNK]
-        fc = ee.FeatureCollection([ee.Feature(None, {c: (float(v) if c == "threshold" else str(v)) for c, v in zip(cols, row)})
+        # table exports need a geometry; a dummy point carries the plan rows
+        fc = ee.FeatureCollection([ee.Feature(ee.Geometry.Point([0, 0]), {c: (float(v) if c == "threshold" else str(v)) for c, v in zip(cols, row)})
                                    for row in part[cols].itertuples(index=False)])
         aid = f"{ROOT}/stage2_plan_{tag}_{k // CHUNK:02d}"
         t = ee.batch.Export.table.toAsset(collection=fc, description=f"stage2_plan_{tag}_{k // CHUNK:02d}", assetId=aid)
@@ -106,7 +142,8 @@ def build_image(tag: str, groups, region_ll):
     for g in groups:
         pg = plan.filter(ee.Filter.eq("group", g))
         thr = ee.Dictionary.fromLists(pg.aggregate_array("scene"), pg.aggregate_array("threshold"))
-        exc = ee.Dictionary.fromLists(pg.aggregate_array("scene"), pg.aggregate_array("excluded_sectors"))
+        exc = ee.Dictionary.fromLists(pg.aggregate_array("scene"), pg.aggregate_array("sectors"))
+        mode = ee.String(ee.Feature(pg.first()).get("mask_mode"))
         cols = []
         for s in SENSORS:
             ids = pg.filter(ee.Filter.eq("sensor", s)).aggregate_array("scene")
@@ -119,15 +156,19 @@ def build_image(tag: str, groups, region_ll):
         for c in cols[1:]:
             col = col.merge(c)
 
-        def wv(im, thr=thr, exc=exc):
+        def wv(im, thr=thr, exc=exc, mode=mode):
             sid = im.get("system:index")
             # merged collections prefix system:index; the plan holds the original index
             key = ee.String(sid).split("_").slice(-3).join("_")
             key = ee.String(ee.Algorithms.If(thr.contains(sid), sid, key))
             e = ee.String(exc.get(key, ""))
             codes = ee.List(ee.Algorithms.If(e.length().gt(0), e.split(",").map(lambda x: ee.Number.parse(x)), ee.List([])))
-            ok = ee.Image(ee.Algorithms.If(codes.size().gt(0),
-                                           sec.remap(codes, ee.List.repeat(0, codes.size()), 1), ee.Image(1)))
+            # exclude: 0 in the listed sectors; include: 1 only in the listed sectors
+            ok_ex = ee.Image(ee.Algorithms.If(codes.size().gt(0),
+                                              sec.remap(codes, ee.List.repeat(0, codes.size()), 1), ee.Image(1)))
+            ok_in = ee.Image(ee.Algorithms.If(codes.size().gt(0),
+                                              sec.remap(codes, ee.List.repeat(1, codes.size()), 0), ee.Image(0)))
+            ok = ee.Image(ee.Algorithms.If(mode.equals("include"), ok_in, ok_ex))
             return (pipeline_ee.water_valid(im.clip(region_ll), thr.get(key)).updateMask(ok)
                     .copyProperties(im, ["system:time_start", "acq"]))
 
@@ -135,15 +176,15 @@ def build_image(tag: str, groups, region_ll):
     return ee.Image.cat(bands)
 
 
-def submit(tag: str, only=None, budget=None) -> int:
+def submit(tag: str, only=None, blocks: int = 0) -> int:
     st = json.loads((STATE / f"stage2_{tag}.json").read_text(encoding="utf-8"))
     ee.Initialize(project=EE_PROJECT)
     st.setdefault("tiles", {})
-    for i, j, part in tiles():
+    for i, j, part in (block_tiles(blocks) if blocks else tiles()):
         key = f"{i}_{j}"
         if only and key not in only:
             continue
-        region_ll = ee.Geometry(mapping(transform(INV, part)), None, False)
+        region_ll = ee_planar(transform(INV, part))
         x0, y0, x1, y1 = part.bounds
         x0, y1 = math.floor(x0 / RES) * RES, math.ceil(y1 / RES) * RES
         dims = (int(math.ceil((part.bounds[2] - x0) / RES)), int(math.ceil((y1 - part.bounds[1]) / RES)))
@@ -195,12 +236,13 @@ def main(argv) -> int:
     ap.add_argument("cmd")
     ap.add_argument("args", nargs="*")
     ap.add_argument("--tiles", default=None)
+    ap.add_argument("--blocks", type=int, default=0, help="D-064: sample this many training blocks per sector")
     a = ap.parse_args(argv)
     if a.cmd == "upload":
         ee.Initialize(project=EE_PROJECT)
         return upload(a.args[0], a.args[1])
     if a.cmd == "submit":
-        return submit(a.args[0], a.tiles.split(",") if a.tiles else None)
+        return submit(a.args[0], a.tiles.split(",") if a.tiles else None, a.blocks)
     if a.cmd == "status":
         return status(a.args[0])
     if a.cmd == "fetch":

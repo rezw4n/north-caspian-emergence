@@ -36,7 +36,7 @@ from caspian.config import INTERIM
 from caspian.geography import SECTOR_ORDER
 
 ICE_MONTHS = (11, 12, 1, 2, 3)          # D-062
-SETUP_CLASS_EDGES = (0.05, 0.10, 0.20, 0.30)   # |setup| class edges for the sensitivity export (m)
+SETUP_CLASS_EDGES = (0.05, 0.10, 0.15, 0.20, 0.30)   # |setup| class edges, sensitivity export (m; D-064)
 SECTOR_CODE = {s: i + 1 for i, s in enumerate(SECTOR_ORDER)}
 
 
@@ -51,8 +51,12 @@ def build() -> pd.DataFrame:
     lv = pd.read_csv(INTERIM / "levels" / "scene_levels.csv",
                      usecols=["system:index", "level_m", "sigma_m", "sigma_random_m", "sigma_offset_m", "epoch"],
                      low_memory=False).rename(columns={"system:index": "scene"})
-    su = pd.read_csv(INTERIM / "levels" / "scene_setup.csv").drop(columns=["sensor", "time"])
-    d = (s1.merge(thr, on="acq", how="inner").merge(lv, on="scene", how="inner").merge(su, on="scene", how="left"))
+    d = s1.merge(thr, on="acq", how="inner").merge(lv, on="scene", how="inner")
+    setup_file = INTERIM / "levels" / "scene_setup.csv"
+    if setup_file.exists():
+        d = d.merge(pd.read_csv(setup_file).drop(columns=["sensor", "time"]), on="scene", how="left")
+    else:  # only for pipeline tests before the setup model exists: no screening
+        print("WARNING: no scene_setup.csv; plan has no setup screening (test use only)")
     d = d[d["epoch"].isin(["E1", "E2", "E3"]) & np.isfinite(d["level_m"]) & np.isfinite(d["threshold_used"])]
     d = d.rename(columns={"threshold_used": "threshold", "source": "threshold_source"})
     d["bin"] = levels.bin_index(d["level_m"].to_numpy(), design.BIN_WIDTH_M, design.BIN_ORIGIN_M)
@@ -69,6 +73,7 @@ def main(argv) -> int:
     setup_cols = [c for c in d.columns if c.startswith("setup_") and c.endswith("_m")]
     out = INTERIM / "stage2"
     out.mkdir(parents=True, exist_ok=True)
+    base = d["epoch"] + "_b" + d["bin"].astype(int).map("{:03d}".format) + "_p" + d["parity"].astype(str)
     if mode == "main":
         tau = float(argv[1])
         ex = []
@@ -76,10 +81,18 @@ def main(argv) -> int:
             ex.append(",".join(str(SECTOR_CODE[c[6:-2]]) for c in setup_cols
                                if np.isfinite(r[c]) and abs(r[c]) > tau))
         d["excluded_sectors"] = ex
+        d["group"], d["sectors"], d["mask_mode"] = base, ex, "exclude"
         name = f"plan_main_tau{int(round(tau * 100)):03d}cm.csv"
     else:
-        for c in setup_cols:
-            d[f"class_{c[6:-2]}"] = np.digitize(np.abs(d[c].to_numpy()), SETUP_CLASS_EDGES)
+        # one row per scene and setup class: the sectors where the scene falls in that class
+        rows = []
+        cls = {c[6:-2]: np.digitize(np.abs(d[c].to_numpy()), SETUP_CLASS_EDGES) for c in setup_cols}
+        fin = {c[6:-2]: np.isfinite(d[c].to_numpy()) for c in setup_cols}
+        for k in range(len(SETUP_CLASS_EDGES) + 1):
+            sec_str = [",".join(str(SECTOR_CODE[s]) for s in cls if fin[s][i] and cls[s][i] == k) for i in range(len(d))]
+            part = d.assign(group=base + f"_c{k}", sectors=sec_str, mask_mode="include")
+            rows.append(part[part["sectors"] != ""])
+        d = pd.concat(rows, ignore_index=True)
         name = "plan_sensitivity.csv"
     d.to_csv(out / name, index=False)
     print(out / name, len(d), "scenes |", d.groupby("epoch")["bin"].nunique().to_dict(), "bins per epoch |",
