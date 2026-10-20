@@ -1,0 +1,756 @@
+{
+ "product": "geoid_egm2008_minus_eigen6c4",
+ "created_utc": "2026-10-20T19:22:11Z",
+ "output": {
+  "file": "results/study_area/geoid_egm2008_minus_eigen6c4.npz",
+  "sha256": "d43db7769ec48a006c6079e96b416afbd760c8a5a199cddf8a3c74a729bc2338"
+ },
+ "builder_script": "scripts/a7_geoid_difference.py",
+ "fetch_scripts": [
+  "scripts/a7_geoid_icgem_fetch.py",
+  "scripts/a7_geoid_proj_window.py"
+ ],
+ "icgem_service": {
+  "page": "https://icgem.gfz.de/calcgrid (http://icgem.gfz-potsdam.de/calcgrid redirects here)",
+  "submit": "POST https://icgem.gfz.de/calcsrvgrid (multipart form, as the web form sends it)",
+  "result": "GET https://icgem.gfz.de/calc_res_gdf/<calc_id> (same HTTP session)",
+  "model_ids": {
+   "EIGEN-6C4": "7fd8fe44aa1518cd79ca84300aef4b41ddb2364aef9e82b7cdaabdb60a9053f1",
+   "EGM2008": "c50128797a9cb62e936337c890e4425f03f0461d7329b09a8cc8561504465340"
+  },
+  "options_offered": {
+   "tide_system": [
+    "use model's system",
+    "tide free",
+    "zero tide",
+    "mean tide"
+   ],
+   "zero_degree_term": "checkbox (default checked)",
+   "reference_systems": [
+    "WGS84",
+    "GRS80",
+    "GRIM5",
+    "EGM2008",
+    "GRS67",
+    "JGM3",
+    "WGS72",
+    "NIMA96",
+    "user defined"
+   ],
+   "filters": [
+    "none",
+    "half response",
+    "half transfer",
+    "6 sigma"
+   ]
+  },
+  "note_point_count": "The submission page reported 110308 grid points for the 1' request; the delivered files contain 217 x 505 = 109585 nodes exactly on the requested axes (checked)."
+ },
+ "raw_downloads": [
+  {
+   "role": "N_EGM2008 on the 1' grid",
+   "file": "data/raw/geoid/icgem/icgem_EGM2008_geoid_tidefree_zdt_WGS84_1min_E46.3-54.7_N43.85-47.45.gdf",
+   "sha256": "9cd1a7b79384c9f302f590bfcbbe8fec1b2a327cbe0eb785e9906681c3cbd501",
+   "summary_page": "data/raw/geoid/icgem/icgem_EGM2008_geoid_tidefree_zdt_WGS84_1min_E46.3-54.7_N43.85-47.45.gdf.summary.html",
+   "summary_page_sha256": "844415bb75babb6b9d3379569093905335ebdd1f23ae1fe574f87893d9bbc77d",
+   "request": {
+    "service": "https://icgem.gfz.de/calcgrid",
+    "submit_url": "https://icgem.gfz.de/calcsrvgrid",
+    "model_name": "EGM2008",
+    "form_fields": {
+     "sel_type": "longtime",
+     "sel_model": "c50128797a9cb62e936337c890e4425f03f0461d7329b09a8cc8561504465340",
+     "grid_left": "46.3",
+     "grid_right": "54.7",
+     "grid_top": "47.45",
+     "grid_bottom": "43.85",
+     "grid_step": "0.016666666666666666",
+     "sel_func": "geoid",
+     "sel_refsys": "WGS84",
+     "sel_tidesys": "tide_free",
+     "trunc_gentle": "2190",
+     "trunc_max": "2190",
+     "filter": "none",
+     "flength": "1.0",
+     "funit": "degree",
+     "zero_term": "on"
+    },
+    "t_start_utc": "2026-10-20T18:53:19Z",
+    "load_before_submit": "{\"total\": 0, \"user\": 0}",
+    "calc_id": "645669978017f1dba95b28285b35723744b8c1d9bdec3d38c7651d138cd4abe4",
+    "service_reported_points": "110308 gridpoints [ 46.3 .. 54.7 ;\n        43.85 .. 47.45 ]",
+    "calc_status": {
+     "calc_start": 1792522402,
+     "calc_end": 1792522476,
+     "calc_stage": "Done.",
+     "calc_progress": 100
+    },
+    "summary_page_url": "https://icgem.gfz.de/calc_res/645669978017f1dba95b28285b35723744b8c1d9bdec3d38c7651d138cd4abe4",
+    "summary_page_sha256": "844415bb75babb6b9d3379569093905335ebdd1f23ae1fe574f87893d9bbc77d",
+    "result_url": "https://icgem.gfz.de/calc_res_gdf/645669978017f1dba95b28285b35723744b8c1d9bdec3d38c7651d138cd4abe4",
+    "result_http_status": 200,
+    "result_headers": {
+     "Server": "nginx/1.31.0",
+     "Date": "Tue, 20 Oct 2026 18:54:39 GMT",
+     "Content-Type": "application/octet-stream",
+     "Content-Length": "1207357",
+     "Connection": "keep-alive",
+     "Content-Encoding": "gzip",
+     "Last-Modified": "Tue, 20 Oct 2026 18:54:14 GMT",
+     "Content-Disposition": "attachment; filename=\"geoid_EGM2008_645669978017f1dba95b28285b35723744b8c1d9bdec3d38c7651d138cd4abe4.gdf\"",
+     "Accept-Ranges": "bytes"
+    },
+    "t_end_utc": "2026-10-20T18:54:51Z",
+    "bytes": 5919055,
+    "sha256": "9cd1a7b79384c9f302f590bfcbbe8fec1b2a327cbe0eb785e9906681c3cbd501"
+   }
+  },
+  {
+   "role": "N_EIGEN-6C4 on the 1' grid",
+   "file": "data/raw/geoid/icgem/icgem_EIGEN-6C4_geoid_tidefree_zdt_WGS84_1min_E46.3-54.7_N43.85-47.45.gdf",
+   "sha256": "88bd3dd77d9a465a5b68d7332a634b156452a9bb3b0182e02dafc4ab44b5f9cc",
+   "summary_page": "data/raw/geoid/icgem/icgem_EIGEN-6C4_geoid_tidefree_zdt_WGS84_1min_E46.3-54.7_N43.85-47.45.gdf.summary.html",
+   "summary_page_sha256": "78356d516968ac6bdc34700961c239a9e1bf4977ee73e14c52c96f495bdcc1b8",
+   "request": {
+    "service": "https://icgem.gfz.de/calcgrid",
+    "submit_url": "https://icgem.gfz.de/calcsrvgrid",
+    "model_name": "EIGEN-6C4",
+    "form_fields": {
+     "sel_type": "longtime",
+     "sel_model": "7fd8fe44aa1518cd79ca84300aef4b41ddb2364aef9e82b7cdaabdb60a9053f1",
+     "grid_left": "46.3",
+     "grid_right": "54.7",
+     "grid_top": "47.45",
+     "grid_bottom": "43.85",
+     "grid_step": "0.016666666666666666",
+     "sel_func": "geoid",
+     "sel_refsys": "WGS84",
+     "sel_tidesys": "tide_free",
+     "trunc_gentle": "2190",
+     "trunc_max": "2190",
+     "filter": "none",
+     "flength": "1.0",
+     "funit": "degree",
+     "zero_term": "on"
+    },
+    "t_start_utc": "2026-10-20T18:51:46Z",
+    "load_before_submit": "{\"total\": 0, \"user\": 0}",
+    "calc_id": "d067631746e23c696f8eebf98ae00bf8f767a09c6e0e6148299a605a4004cdda",
+    "service_reported_points": "110308 gridpoints [ 46.3 .. 54.7 ;\n        43.85 .. 47.45 ]",
+    "calc_status": {
+     "calc_start": 1792522310,
+     "calc_end": 1792522383,
+     "calc_stage": "Done.",
+     "calc_progress": 100
+    },
+    "summary_page_url": "https://icgem.gfz.de/calc_res/d067631746e23c696f8eebf98ae00bf8f767a09c6e0e6148299a605a4004cdda",
+    "summary_page_sha256": "78356d516968ac6bdc34700961c239a9e1bf4977ee73e14c52c96f495bdcc1b8",
+    "result_url": "https://icgem.gfz.de/calc_res_gdf/d067631746e23c696f8eebf98ae00bf8f767a09c6e0e6148299a605a4004cdda",
+    "result_http_status": 200,
+    "result_headers": {
+     "Server": "nginx/1.31.0",
+     "Date": "Tue, 20 Oct 2026 18:53:06 GMT",
+     "Content-Type": "application/octet-stream",
+     "Content-Length": "1208159",
+     "Connection": "keep-alive",
+     "Content-Encoding": "gzip",
+     "Last-Modified": "Tue, 20 Oct 2026 18:52:41 GMT",
+     "Content-Disposition": "attachment; filename=\"geoid_EIGEN-6C4_d067631746e23c696f8eebf98ae00bf8f767a09c6e0e6148299a605a4004cdda.gdf\"",
+     "Accept-Ranges": "bytes"
+    },
+    "t_end_utc": "2026-10-20T18:53:19Z",
+    "bytes": 5919057,
+    "sha256": "88bd3dd77d9a465a5b68d7332a634b156452a9bb3b0182e02dafc4ab44b5f9cc"
+   }
+  },
+  {
+   "role": "coarse 15' check grid",
+   "file": "data/raw/geoid/icgem/checks/icgem_EGM2008_geoid_mean_tide_zdt_WGS84_15min_E46.3-54.55_N43.85-47.35.gdf",
+   "sha256": "9a79ae99bf8d0ab3ec353e92ef7d924a87b99f8c5e759885e4abd7a372717f56",
+   "request": {
+    "service": "https://icgem.gfz.de/calcgrid",
+    "submit_url": "https://icgem.gfz.de/calcsrvgrid",
+    "model_name": "EGM2008",
+    "form_fields": {
+     "sel_type": "longtime",
+     "sel_model": "c50128797a9cb62e936337c890e4425f03f0461d7329b09a8cc8561504465340",
+     "grid_left": "46.3",
+     "grid_right": "54.55",
+     "grid_top": "47.35",
+     "grid_bottom": "43.85",
+     "grid_step": "0.25",
+     "sel_func": "geoid",
+     "sel_refsys": "WGS84",
+     "sel_tidesys": "mean_tide",
+     "trunc_gentle": "2190",
+     "trunc_max": "2190",
+     "filter": "none",
+     "flength": "1.0",
+     "funit": "degree",
+     "zero_term": "on"
+    },
+    "t_start_utc": "2026-10-20T18:58:48Z",
+    "load_before_submit": "{\"total\": 0, \"user\": 0}",
+    "calc_id": "dc7609c38e696ddcb828c3fd57bfba63b109ed64fd5006cb84267b9330d1c3f3",
+    "service_reported_points": "510 gridpoints [ 46.3 .. 54.55 ;\n        43.85 .. 47.35 ]",
+    "calc_status": {
+     "calc_start": 1792522730,
+     "calc_end": 1792522786,
+     "calc_stage": "Done.",
+     "calc_progress": 100
+    },
+    "summary_page_url": "https://icgem.gfz.de/calc_res/dc7609c38e696ddcb828c3fd57bfba63b109ed64fd5006cb84267b9330d1c3f3",
+    "summary_page_sha256": "6159017337228325f98247cdb1f53fedbd85fba78f3eba63693229f564fabc74",
+    "result_url": "https://icgem.gfz.de/calc_res_gdf/dc7609c38e696ddcb828c3fd57bfba63b109ed64fd5006cb84267b9330d1c3f3",
+    "result_http_status": 200,
+    "result_headers": {
+     "Server": "nginx/1.31.0",
+     "Date": "Tue, 20 Oct 2026 18:59:52 GMT",
+     "Content-Type": "application/octet-stream",
+     "Content-Length": "6713",
+     "Connection": "keep-alive",
+     "Content-Encoding": "gzip",
+     "Last-Modified": "Tue, 20 Oct 2026 18:59:23 GMT",
+     "Content-Disposition": "attachment; filename=\"geoid_EGM2008_dc7609c38e696ddcb828c3fd57bfba63b109ed64fd5006cb84267b9330d1c3f3.gdf\"",
+     "Accept-Ranges": "bytes"
+    },
+    "t_end_utc": "2026-10-20T18:59:53Z",
+    "bytes": 29005,
+    "sha256": "9a79ae99bf8d0ab3ec353e92ef7d924a87b99f8c5e759885e4abd7a372717f56"
+   }
+  },
+  {
+   "role": "coarse 15' check grid",
+   "file": "data/raw/geoid/icgem/checks/icgem_EGM2008_height_anomaly_ell_tide_free_zdt_WGS84_15min_E46.3-54.55_N43.85-47.35.gdf",
+   "sha256": "ae2283bb8c5c249f4b76db2a50a4e7b3e30dc343186f1704189117081335a747",
+   "request": {
+    "service": "https://icgem.gfz.de/calcgrid",
+    "submit_url": "https://icgem.gfz.de/calcsrvgrid",
+    "model_name": "EGM2008",
+    "form_fields": {
+     "sel_type": "longtime",
+     "sel_model": "c50128797a9cb62e936337c890e4425f03f0461d7329b09a8cc8561504465340",
+     "grid_left": "46.3",
+     "grid_right": "54.55",
+     "grid_top": "47.35",
+     "grid_bottom": "43.85",
+     "grid_step": "0.25",
+     "sel_func": "height_anomaly_ell",
+     "sel_refsys": "WGS84",
+     "sel_tidesys": "tide_free",
+     "trunc_gentle": "2190",
+     "trunc_max": "2190",
+     "filter": "none",
+     "flength": "1.0",
+     "funit": "degree",
+     "zero_term": "on"
+    },
+    "t_start_utc": "2026-10-20T19:01:36Z",
+    "load_before_submit": "{\"total\": 0, \"user\": 0}",
+    "calc_id": "ef6968837e357b0bd250dc09a5b85271a58efbb70b5758dd237c01594542ca81",
+    "service_reported_points": "510 gridpoints [ 46.3 .. 54.55 ;\n        43.85 .. 47.35 ]",
+    "calc_status": {
+     "calc_start": 1792522898,
+     "calc_end": 1792522931,
+     "calc_stage": "Done.",
+     "calc_progress": 100
+    },
+    "summary_page_url": "https://icgem.gfz.de/calc_res/ef6968837e357b0bd250dc09a5b85271a58efbb70b5758dd237c01594542ca81",
+    "summary_page_sha256": "950d847374d9a486a7122284bd4baf1e55c0efc3c5e400e274154d0f54108631",
+    "result_url": "https://icgem.gfz.de/calc_res_gdf/ef6968837e357b0bd250dc09a5b85271a58efbb70b5758dd237c01594542ca81",
+    "result_http_status": 200,
+    "result_headers": {
+     "Server": "nginx/1.31.0",
+     "Date": "Tue, 20 Oct 2026 19:02:13 GMT",
+     "Content-Type": "application/octet-stream",
+     "Content-Length": "6719",
+     "Connection": "keep-alive",
+     "Content-Encoding": "gzip",
+     "Last-Modified": "Tue, 20 Oct 2026 19:01:48 GMT",
+     "Content-Disposition": "attachment; filename=\"height_anomaly_ell_EGM2008_ef6968837e357b0bd250dc09a5b85271a58efbb70b5758dd237c01594542ca81.gdf\"",
+     "Accept-Ranges": "bytes"
+    },
+    "t_end_utc": "2026-10-20T19:02:14Z",
+    "bytes": 29030,
+    "sha256": "ae2283bb8c5c249f4b76db2a50a4e7b3e30dc343186f1704189117081335a747"
+   }
+  },
+  {
+   "role": "coarse 15' check grid",
+   "file": "data/raw/geoid/icgem/checks/icgem_EIGEN-6C4_geoid_mean_tide_zdt_WGS84_15min_E46.3-54.55_N43.85-47.35.gdf",
+   "sha256": "ed9164212abb3906a1cc1b5d6881d32cb8579109180118491646c215d0dc0528",
+   "request": {
+    "service": "https://icgem.gfz.de/calcgrid",
+    "submit_url": "https://icgem.gfz.de/calcsrvgrid",
+    "model_name": "EIGEN-6C4",
+    "form_fields": {
+     "sel_type": "longtime",
+     "sel_model": "7fd8fe44aa1518cd79ca84300aef4b41ddb2364aef9e82b7cdaabdb60a9053f1",
+     "grid_left": "46.3",
+     "grid_right": "54.55",
+     "grid_top": "47.35",
+     "grid_bottom": "43.85",
+     "grid_step": "0.25",
+     "sel_func": "geoid",
+     "sel_refsys": "WGS84",
+     "sel_tidesys": "mean_tide",
+     "trunc_gentle": "2190",
+     "trunc_max": "2190",
+     "filter": "none",
+     "flength": "1.0",
+     "funit": "degree",
+     "zero_term": "on"
+    },
+    "t_start_utc": "2026-10-20T18:57:46Z",
+    "load_before_submit": "{\"total\": 0, \"user\": 0}",
+    "calc_id": "8185c873df95636f30efbbc2086809ab7c9301d05d3cff6bcabc9ac1c1512e16",
+    "service_reported_points": "510 gridpoints [ 46.3 .. 54.55 ;\n        43.85 .. 47.35 ]",
+    "calc_status": {
+     "calc_start": 1792522671,
+     "calc_end": 1792522725,
+     "calc_stage": "Done.",
+     "calc_progress": 100
+    },
+    "summary_page_url": "https://icgem.gfz.de/calc_res/8185c873df95636f30efbbc2086809ab7c9301d05d3cff6bcabc9ac1c1512e16",
+    "summary_page_sha256": "f17c3ac1420c96ffcad4bb9c0793824c538ce20e0dc2edcb4732d39df20a4bc1",
+    "result_url": "https://icgem.gfz.de/calc_res_gdf/8185c873df95636f30efbbc2086809ab7c9301d05d3cff6bcabc9ac1c1512e16",
+    "result_http_status": 200,
+    "result_headers": {
+     "Server": "nginx/1.31.0",
+     "Date": "Tue, 20 Oct 2026 18:58:46 GMT",
+     "Content-Type": "application/octet-stream",
+     "Content-Length": "6720",
+     "Connection": "keep-alive",
+     "Content-Encoding": "gzip",
+     "Last-Modified": "Tue, 20 Oct 2026 18:58:22 GMT",
+     "Content-Disposition": "attachment; filename=\"geoid_EIGEN-6C4_8185c873df95636f30efbbc2086809ab7c9301d05d3cff6bcabc9ac1c1512e16.gdf\"",
+     "Accept-Ranges": "bytes"
+    },
+    "t_end_utc": "2026-10-20T18:58:48Z",
+    "bytes": 29007,
+    "sha256": "ed9164212abb3906a1cc1b5d6881d32cb8579109180118491646c215d0dc0528"
+   }
+  },
+  {
+   "role": "coarse 15' check grid",
+   "file": "data/raw/geoid/icgem/checks/icgem_EIGEN-6C4_geoid_zero_tide_zdt_WGS84_15min_E46.3-54.55_N43.85-47.35.gdf",
+   "sha256": "a68a45bc8b7da4c3191286fa8779f71df8cc104c36af631e31becbaa03b72648",
+   "request": {
+    "service": "https://icgem.gfz.de/calcgrid",
+    "submit_url": "https://icgem.gfz.de/calcsrvgrid",
+    "model_name": "EIGEN-6C4",
+    "form_fields": {
+     "sel_type": "longtime",
+     "sel_model": "7fd8fe44aa1518cd79ca84300aef4b41ddb2364aef9e82b7cdaabdb60a9053f1",
+     "grid_left": "46.3",
+     "grid_right": "54.55",
+     "grid_top": "47.35",
+     "grid_bottom": "43.85",
+     "grid_step": "0.25",
+     "sel_func": "geoid",
+     "sel_refsys": "WGS84",
+     "sel_tidesys": "zero_tide",
+     "trunc_gentle": "2190",
+     "trunc_max": "2190",
+     "filter": "none",
+     "flength": "1.0",
+     "funit": "degree",
+     "zero_term": "on"
+    },
+    "t_start_utc": "2026-10-20T18:59:53Z",
+    "load_before_submit": "{\"total\": 0, \"user\": 0}",
+    "calc_id": "e35f9e66f9315f9766b403c6eb9249868b5623324c08b8dc28ca8036ec32368a",
+    "service_reported_points": "510 gridpoints [ 46.3 .. 54.55 ;\n        43.85 .. 47.35 ]",
+    "calc_status": {
+     "calc_start": 1792522795,
+     "calc_end": 1792522850,
+     "calc_stage": "Done.",
+     "calc_progress": 100
+    },
+    "summary_page_url": "https://icgem.gfz.de/calc_res/e35f9e66f9315f9766b403c6eb9249868b5623324c08b8dc28ca8036ec32368a",
+    "summary_page_sha256": "f1417bdd06ad953c5af7eff48d6a95536130962707d06b8d8ecb8ebd08b7cf04",
+    "result_url": "https://icgem.gfz.de/calc_res_gdf/e35f9e66f9315f9766b403c6eb9249868b5623324c08b8dc28ca8036ec32368a",
+    "result_http_status": 200,
+    "result_headers": {
+     "Server": "nginx/1.31.0",
+     "Date": "Tue, 20 Oct 2026 19:00:55 GMT",
+     "Content-Type": "application/octet-stream",
+     "Content-Length": "6737",
+     "Connection": "keep-alive",
+     "Content-Encoding": "gzip",
+     "Last-Modified": "Tue, 20 Oct 2026 19:00:27 GMT",
+     "Content-Disposition": "attachment; filename=\"geoid_EIGEN-6C4_e35f9e66f9315f9766b403c6eb9249868b5623324c08b8dc28ca8036ec32368a.gdf\"",
+     "Accept-Ranges": "bytes"
+    },
+    "t_end_utc": "2026-10-20T19:00:56Z",
+    "bytes": 29007,
+    "sha256": "a68a45bc8b7da4c3191286fa8779f71df8cc104c36af631e31becbaa03b72648"
+   }
+  },
+  {
+   "role": "coarse 15' check grid",
+   "file": "data/raw/geoid/icgem/checks/icgem_EIGEN-6C4_height_anomaly_ell_tide_free_zdt_WGS84_15min_E46.3-54.55_N43.85-47.35.gdf",
+   "sha256": "4fc0371e6fbac0952bbba2f7d96eac0ba5306b1a36ff3d85f8bb6bd00c87f60a",
+   "request": {
+    "service": "https://icgem.gfz.de/calcgrid",
+    "submit_url": "https://icgem.gfz.de/calcsrvgrid",
+    "model_name": "EIGEN-6C4",
+    "form_fields": {
+     "sel_type": "longtime",
+     "sel_model": "7fd8fe44aa1518cd79ca84300aef4b41ddb2364aef9e82b7cdaabdb60a9053f1",
+     "grid_left": "46.3",
+     "grid_right": "54.55",
+     "grid_top": "47.35",
+     "grid_bottom": "43.85",
+     "grid_step": "0.25",
+     "sel_func": "height_anomaly_ell",
+     "sel_refsys": "WGS84",
+     "sel_tidesys": "tide_free",
+     "trunc_gentle": "2190",
+     "trunc_max": "2190",
+     "filter": "none",
+     "flength": "1.0",
+     "funit": "degree",
+     "zero_term": "on"
+    },
+    "t_start_utc": "2026-10-20T19:00:57Z",
+    "load_before_submit": "{\"total\": 0, \"user\": 0}",
+    "calc_id": "d02e791d8a35242fbbdead5889055057628d3f3c2f623cb586c087d4f4de6b21",
+    "service_reported_points": "510 gridpoints [ 46.3 .. 54.55 ;\n        43.85 .. 47.35 ]",
+    "calc_status": {
+     "calc_start": 1792522858,
+     "calc_end": 1792522890,
+     "calc_stage": "Done.",
+     "calc_progress": 100
+    },
+    "summary_page_url": "https://icgem.gfz.de/calc_res/d02e791d8a35242fbbdead5889055057628d3f3c2f623cb586c087d4f4de6b21",
+    "summary_page_sha256": "5c983749037088f8a7fbd7e7a17eab145d143098446846bfea38fbd138c9117e",
+    "result_url": "https://icgem.gfz.de/calc_res_gdf/d02e791d8a35242fbbdead5889055057628d3f3c2f623cb586c087d4f4de6b21",
+    "result_http_status": 200,
+    "result_headers": {
+     "Server": "nginx/1.31.0",
+     "Date": "Tue, 20 Oct 2026 19:01:34 GMT",
+     "Content-Type": "application/octet-stream",
+     "Content-Length": "6740",
+     "Connection": "keep-alive",
+     "Content-Encoding": "gzip",
+     "Last-Modified": "Tue, 20 Oct 2026 19:01:07 GMT",
+     "Content-Disposition": "attachment; filename=\"height_anomaly_ell_EIGEN-6C4_d02e791d8a35242fbbdead5889055057628d3f3c2f623cb586c087d4f4de6b21.gdf\"",
+     "Accept-Ranges": "bytes"
+    },
+    "t_end_utc": "2026-10-20T19:01:35Z",
+    "bytes": 29032,
+    "sha256": "4fc0371e6fbac0952bbba2f7d96eac0ba5306b1a36ff3d85f8bb6bd00c87f60a"
+   }
+  },
+  {
+   "role": "N_EGM2008 (NGA/PROJ realisation), window",
+   "file": "data/raw/geoid/proj/us_nga_egm08_25_window_E46.2-54.8_N43.75-47.55.tif",
+   "sha256": "97ea1b3038361e5fc6a02831cca4d2f5401cb638165c56eabc122611f74a1307",
+   "request": {
+    "url": "https://cdn.proj.org/us_nga_egm08_25.tif",
+    "t_utc": "2026-10-20T18:52:12Z",
+    "http_head": {
+     "Content-Length": "80585622",
+     "Last-Modified": "Tue, 28 Jan 2020 14:45:44 GMT",
+     "ETag": "\"c873f04972c6df1749dc7295028a0882-10\""
+    },
+    "source_profile": {
+     "width": 8640,
+     "height": 4321,
+     "dtype": "float32",
+     "crs": "EPSG:4979",
+     "transform": [
+      0.041666666666666664,
+      0.0,
+      -180.02083333333334,
+      0.0,
+      -0.041666666666666664,
+      90.02083333333333
+     ],
+     "nodata": null
+    },
+    "source_tags": {
+     "TIFFTAG_IMAGEDESCRIPTION": "WGS 84 (EPSG:4979) to EGM2008 height (EPSG:3855). Converted from egm08_25.gtx (last modified at 2018/10/08)",
+     "TIFFTAG_DATETIME": "2019:12:27 00:00:00",
+     "TIFFTAG_COPYRIGHT": "Derived from work by NGA. Public Domain",
+     "area_of_use": "World",
+     "target_crs_epsg_code": "3855",
+     "TYPE": "VERTICAL_OFFSET_GEOGRAPHIC_TO_VERTICAL",
+     "AREA_OR_POINT": "Point"
+    },
+    "source_band_tags": {},
+    "source_image_structure": {
+     "COMPRESSION": "DEFLATE",
+     "INTERLEAVE": "BAND",
+     "PREDICTOR": "3"
+    },
+    "source_band_description": "geoid_undulation",
+    "source_units": "metre",
+    "window": {
+     "col_off": 5429,
+     "row_off": 1019,
+     "width": 207,
+     "height": 92,
+     "transform": [
+      0.041666666666666664,
+      0.0,
+      46.18749999999997,
+      0.0,
+      -0.041666666666666664,
+      47.5625
+     ]
+    },
+    "array_sha256_float32_C": "7fc68f68268da2cec156c97d10482219788c25f1eb1d4c56783eb0cd317f5c0c",
+    "saved_file_sha256": "97ea1b3038361e5fc6a02831cca4d2f5401cb638165c56eabc122611f74a1307",
+    "value_range_m": [
+     -20.025314331054688,
+     -1.8443021774291992
+    ]
+   }
+  }
+ ],
+ "documents_retrieved": [
+  {
+   "file": "data/raw/geoid/docs/crossref_10.1029_2011JB008916.json",
+   "sha256": "2598d687a645d36f813b01148209e1c65d0b28c96cee6ab9068dfe1ed450be40"
+  },
+  {
+   "file": "data/raw/geoid/docs/dahiti_water_level_altimetry_20261021.html",
+   "sha256": "5f4693499ee7e06a1965160957dd5bece24264dcbf2dcb484f6b155cfabe7aac"
+  },
+  {
+   "file": "data/raw/geoid/docs/datacite_10.5880_icgem.2015.1.json",
+   "sha256": "45ace1ee4742f4a0b92e6f294f42e6aaf80ab6453a3069d3e919b827115e092f"
+  },
+  {
+   "file": "data/raw/geoid/docs/epsg_CoordRefSystem_3855.json",
+   "sha256": "3aee6f3c04419f3b7b2996c1bd206771ddcdaf6a174942da9dfee34d6ab37e5c"
+  },
+  {
+   "file": "data/raw/geoid/docs/epsg_Datum_1027.json",
+   "sha256": "014da7e2c2e4e2af92cfe98ff34753dfb9f15a63864cc192daad1e62348d8dda"
+  },
+  {
+   "file": "data/raw/geoid/docs/epsg_Transformation_3858.json",
+   "sha256": "72127fc8df59f2d61c347b7342a2ca820d250e84f4af26733c98e36b4755dc4e"
+  },
+  {
+   "file": "data/raw/geoid/docs/epsg_Transformation_3859.json",
+   "sha256": "2cfab18463dd601f7b991a78f6f3cb72a4e0cc3de2b57f4c53825c6e0f456995"
+  },
+  {
+   "file": "data/raw/geoid/docs/geographiclib_geoid.html",
+   "sha256": "6e8e28296737d1d5175cf83386e5ba2a2373430d58b94e84b349f3cb7a3a443a"
+  },
+  {
+   "file": "data/raw/geoid/docs/geographiclib_gravity.html",
+   "sha256": "4e7a590290c37a42295f92006080d4a8cf98e521a5dbc8be591c3103b0232878"
+  },
+  {
+   "file": "data/raw/geoid/docs/icgem_calcgrid_page_20261021.html",
+   "sha256": "355439abf0d28903ea662f30df2c15b061faa35345bc5ab44c5f365fadb25dea"
+  },
+  {
+   "file": "data/raw/geoid/docs/icgem_EGM2008_gfc_first8KiB.txt",
+   "sha256": "78d0458198d1f936eaa973bc84a0499a4b60dcd61b84ca2ea49da006f2b97f58"
+  },
+  {
+   "file": "data/raw/geoid/docs/icgem_EIGEN-6C4_gfc_first8KiB.txt",
+   "sha256": "21f79eb5f5399a3cabd712aa80c54a4fa122e6a4596065a4771b8ab18153b961"
+  },
+  {
+   "file": "data/raw/geoid/docs/icgem_faq_20261021.html",
+   "sha256": "b593178da2bcfa3e05ec6a744568a7763af1b5745cd2bad29cbbec9c29d109b5"
+  },
+  {
+   "file": "data/raw/geoid/docs/icgem_str-0902-revised.pdf",
+   "sha256": "ad853191112999900cc3adb39e90ea4c71607bdf07cb7f0695eb763a1ff09a83"
+  },
+  {
+   "file": "data/raw/geoid/docs/icgem_theory_20261021.html",
+   "sha256": "4a11ceb27cc4d514255252c212efb7941084a443363bead4f5f57760a45cfe08"
+  },
+  {
+   "file": "data/raw/geoid/docs/iers_conventions2010_icc6.pdf",
+   "sha256": "abb3c0b0b6d2079b19893d6872a9d8e7320516d9a4736acb5eecaa79c4543388"
+  },
+  {
+   "file": "data/raw/geoid/docs/iers_conventions2010_icc7.pdf",
+   "sha256": "ffe8ffb13c8bbc3b07ac298f458fcbb564974377b165fb93921a05bb0d55043d"
+  },
+  {
+   "file": "data/raw/geoid/docs/nga_wgs84_page_20261021.html",
+   "sha256": "a057b27276450e25c18f2fce6f60e396442410411f9c3662cc61e94fb6b6c09c"
+  },
+  {
+   "file": "data/raw/geoid/docs/proj_datumgrid_build_egm08_25_gtx.sh",
+   "sha256": "db51f1aea86cdad6ad585b90678dff249f4119ab7964f8393909725697dc9885"
+  },
+  {
+   "file": "data/raw/geoid/docs/proj_us_nga_README.txt",
+   "sha256": "73bf524a13a3b38b27ab3f1748128445aed1d247ab87e4312b84fa58a085ac12"
+  },
+  {
+   "file": "data/raw/geoid/docs/unpaywall_10.1029_2011JB008916.json",
+   "sha256": "96b20b1add9749a57c22510b3668d1ff673d16021823fd64db1acc38fae6d4d9"
+  }
+ ],
+ "summary": {
+  "dN_m_region": {
+   "n": 108575,
+   "min_m": -0.20681021658500143,
+   "max_m": 0.16342949202300083,
+   "mean_m": 0.0032181223042339283,
+   "sd_m": 0.0746051228779958,
+   "p01_m": -0.18183195331146007,
+   "p99_m": 0.14663520289542054
+  },
+  "dN_m_domain_bounds": {
+   "n": 100079,
+   "min_m": -0.206740401718001,
+   "max_m": 0.16342949202300083,
+   "mean_m": 0.0029755567537275746,
+   "sd_m": 0.07509485964213358,
+   "p01_m": -0.1800812048599799,
+   "p99_m": 0.14791239468269962
+  },
+  "dN_m_full_grid": {
+   "n": 109585,
+   "min_m": -0.20681021658500143,
+   "max_m": 0.16342949202300083,
+   "mean_m": 0.003075947851796551,
+   "sd_m": 0.07478301473024998,
+   "p01_m": -0.18243816046255928,
+   "p99_m": 0.14645921746412094
+  },
+  "dN_ngaEGM2008_m_region": {
+   "n": 108575,
+   "min_m": -0.6135459762714746,
+   "max_m": -0.23928792195953363,
+   "mean_m": -0.4019729628744557,
+   "sd_m": 0.07461878505239804,
+   "p01_m": -0.5866047873981265,
+   "p99_m": -0.25846688513430277
+  },
+  "N_EGM2008_NGA_minus_ICGEM_region": {
+   "n": 108575,
+   "min_m": -0.41592558952521763,
+   "max_m": -0.3963672819848565,
+   "mean_m": -0.4051910851786897,
+   "sd_m": 0.001710170379372126,
+   "p01_m": -0.40931357110616945,
+   "p99_m": -0.4010078300415448
+  },
+  "N_EGM2008_NGA_minus_ICGEM_at_coincident_2.5min_nodes": {
+   "n": 4343,
+   "min_m": -0.41081379550388597,
+   "max_m": -0.3993720302124508,
+   "mean_m": -0.40515225034881647,
+   "sd_m": 0.0012756169608297721,
+   "p01_m": -0.40816061239698764,
+   "p99_m": -0.40209934760435795
+  },
+  "N_ETOPO2022geoid_minus_NGA_region": {
+   "n": 107642,
+   "min_m": -0.007181425094575644,
+   "max_m": 0.010398521423383045,
+   "mean_m": 4.2549260052488314e-05,
+   "sd_m": 0.0011172674213190952,
+   "p01_m": -0.0029948785781671637,
+   "p99_m": 0.002954106903112
+  },
+  "N_ETOPO2022geoid_minus_ICGEM_EGM2008_region": {
+   "n": 107642,
+   "min_m": -0.4120565050382914,
+   "max_m": -0.398164056972508,
+   "mean_m": -0.40515234001954614,
+   "sd_m": 0.0013106616585186063,
+   "p01_m": -0.40834588611824124,
+   "p99_m": -0.4019980433189177
+  },
+  "N_EGM2008_ICGEM_region": {
+   "n": 108575,
+   "min_m": -19.478558690126,
+   "max_m": -1.621612983979,
+   "mean_m": -11.018809689848212,
+   "sd_m": 4.453546558786185,
+   "p01_m": -18.8451245425833,
+   "p99_m": -2.2764598969403202
+  },
+  "N_EIGEN6C4_ICGEM_region": {
+   "n": 108575,
+   "min_m": -19.526915092265,
+   "max_m": -1.521215000709,
+   "mean_m": -11.022027812152444,
+   "sd_m": 4.45600143695914,
+   "p01_m": -18.91465381335652,
+   "p99_m": -2.200416049160108
+  },
+  "coarse_checks_15min": {
+   "dN_mean_tide_minus_dN_tide_free": {
+    "n": 510,
+    "min_m": -2.783979997644792e-07,
+    "max_m": 2.1709200126451833e-07,
+    "mean_m": 6.810019681067029e-10,
+    "sd_m": 1.0607728472847788e-07,
+    "p01_m": -2.5594075873769386e-07,
+    "p99_m": 1.9735746089821707e-07
+   },
+   "EIGEN6C4_N_mean_tide_minus_tide_free": {
+    "n": 510,
+    "min_m": -0.07932958621599973,
+    "max_m": -0.055603106282999804,
+    "mean_m": -0.06746588233067059,
+    "sd_m": 0.0073289421048457915,
+    "p01_m": -0.07932865354457107,
+    "p99_m": -0.05560395564681819
+   },
+   "EGM2008_N_mean_tide_minus_tide_free": {
+    "n": 510,
+    "min_m": -0.0793295908879994,
+    "max_m": -0.05560309342100034,
+    "mean_m": -0.06746588164966862,
+    "sd_m": 0.007328950224730062,
+    "p01_m": -0.07932868701515998,
+    "p99_m": -0.055603960802220166
+   },
+   "EIGEN6C4_N_zero_tide_minus_tide_free": {
+    "n": 510,
+    "min_m": -0.018306827061000064,
+    "max_m": -0.012831486165000072,
+    "mean_m": -0.01556904944344313,
+    "sd_m": 0.001691294096903225,
+    "p01_m": -0.018306611829530136,
+    "p99_m": -0.012831680500398193
+   },
+   "EIGEN6C4_geoid_minus_height_anomaly_ell": {
+    "n": 510,
+    "min_m": -0.013601125238999145,
+    "max_m": 0.00017262005800056102,
+    "mean_m": -0.0005552604259608382,
+    "sd_m": 0.001359050066720905,
+    "p01_m": -0.006572145488340233,
+    "p99_m": 0.00014781920585037674
+   },
+   "EGM2008_geoid_minus_height_anomaly_ell": {
+    "n": 510,
+    "min_m": -0.013596765761999308,
+    "max_m": 0.00017116918600024178,
+    "mean_m": -0.0005547670117823231,
+    "sd_m": 0.0013580167195891705,
+    "p01_m": -0.0065761069005099235,
+    "p99_m": 0.00015230850321921172
+   },
+   "dN_geoid_minus_dzeta_ell": {
+    "n": 510,
+    "min_m": -5.60627470012065e-05,
+    "max_m": 4.412024599886877e-05,
+    "mean_m": 4.934141785151169e-07,
+    "sd_m": 1.941423453879264e-05,
+    "p01_m": -4.956194973036787e-05,
+    "p99_m": 4.02362219011465e-05
+   }
+  }
+ }
+}
