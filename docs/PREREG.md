@@ -363,3 +363,35 @@ No level-binned water frequency, waterline, contour, DEM or metric existed. Stag
 3. **Zone used for the outside states.** The zone that separates labelled from observed cells is the footprint over which water frequencies were computed (the stage-2 tile cover, buffered by one 5 km cell; D-049, D-060), not zone v6 itself, so that waterlines inside that footprint are observed rather than labelled.
 
 **Reason.** Verifier finding (D-050). With every cell beyond the domain unknown, a product that floods land beyond the domain edge was not scored there: its predicted water counted only as unmeasured. The censoring that Amendment 6 removed at the zone edge therefore remained at the domain edge, and it affects three of the audited products at the record-maximum level. Without a beyond-domain state the Amendment 6 rule is unchanged; the amendment only adds known states, and fixes how they may be obtained, without sight of any hindcast result.
+
+## Amendment 11 — 2026-10-21 (changes and clarifications to §2, §5, §6, §7, §9 and §10; before any stage-2 main output, water frequency, waterline, DEM, residual, hindcast or projection metric existed)
+
+**What had been seen:**
+- input-level results only: stage-1 run 3 thresholds; the setup-model fit on SWOT; the counts of one sensitivity block, checked for water ≤ valid and found to be open water at every level;
+- geoid, datum and product-documentation facts;
+- no screening statistic S(τ), no waterline, no DEM, no ICESat-2 residual and no hindcast quantity.
+
+**Changes:**
+1. **§6 block-size check needs evidence of spatial structure (D-069).** The exponential practical range sets the block size only if a permutation test detects spatial autocorrelation of the training-block residuals. The test statistic is the mean semivariance below 7.5 km divided by the mean over all pairs up to 150 km; there are 999 permutations, and structure is detected at p ≤ 0.05. Otherwise the 25 km blocks are kept. Reason: on synthetic white noise the exponential fit returned a 63 km range, which would have enlarged the blocks for no reason.
+2. **§7 H2 (D-069):**
+   - metrics are pooled over test-block points, with the median of per-block metrics reported as a sensitivity;
+   - products enter with one training-block constant offset each ("matched", as the DEM's ICESat-2 constant), and the "total" variant is reported alongside;
+   - ATL06 and ATL08 are never pooled: H2 is supported only if the rule holds on both, and is partially supported if it holds on one.
+3. **§2 dryness test (D-069):**
+   - **emergence date of a DEM pixel:** the first date of the daily DAHITI level series after the last date on which the level was at or above the pixel's height;
+   - **neighbourhood:** 1 pixel for ATL06 and 2 pixels for ATL08;
+   - the ATL08 `segment_watermask` is not used (a static mask);
+   - **robustness check:** emergence + 365 days.
+4. **§2 vegetated sectors (D-071):**
+   - the emerged band is water in the 1995–96 extent and not water in the 2025–26 extent;
+   - a cell is vegetated when its E3 emergent-vegetation share is at least 0.5;
+   - a sector is vegetated when at least 10% of its band cells are vegetated.
+5. **§5 datum chain (D-070, D-073, D-074):**
+   - the working datum is the DAHITI reference; a constant offset to BHS cancels in every hindcast metric and is used only to report levels;
+   - **total error** converts products as EGM2008 heights with N(EGM2008, NGA) − N(EIGEN-6C4); the variant without NGA's −0.41 m constant is a sensitivity;
+   - **shape error** fits its constant on training-block cells only (on a 0.01 m grid over ±5 m), and is refitted without the held-out epoch in the leave-one-epoch-out check.
+6. **§9 H1 decision variant (D-072):** the shape variant decides "mispredicts", and the total variant is reported alongside. **H1 block statistic (D-070):** per block, the median absolute displacement pooled over all its units; blocks with at least 20 distances; 10,000 label permutations.
+7. **§4 static contours (D-034, D-075):** points with rho_level below rho* are excluded from the DEM. rho* is Otsu's split of training-block rho_level if valid (η ≥ 0.70, valley ratio ≤ 0.50, within [0.2, 0.8]); otherwise rho* = 0.5.
+8. **§3 water classification (D-068):** normalized differences take negative reflectance as 0, so Earth Engine's masking of negative inputs no longer drops clear-water observations. Stage 1 was rerun under this definition, and run-2 thresholds are not used.
+
+**Reason.** Each item either fixes a rule that the text left open, or corrects a defect found by tests or diagnostics before any outcome existed (items 1 and 8). None was chosen with sight of an outcome; the decision log holds the details and alternatives.
