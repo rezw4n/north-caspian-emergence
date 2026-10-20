@@ -14,6 +14,7 @@ help:
 ## environment -------------------------------------------------------------
 env:
 	$(MAMBA) create -y -n $(ENVNAME) -f requirements.lock
+	$(MAMBA) run -n $(ENVNAME) python -m pip install --no-deps -r requirements-pip.txt
 	$(MAMBA) run -n $(ENVNAME) python -m pip install --no-deps --no-build-isolation -e .
 
 lock:

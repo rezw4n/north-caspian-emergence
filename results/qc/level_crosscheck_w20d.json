@@ -1,0 +1,179 @@
+{
+ "hydroweb_records": 3078,
+ "hydroweb_first": "1992-09-27 02:35:00",
+ "hydroweb_last": "2026-10-15 07:18:00",
+ "hydroweb_surface_of_reference": "GGMO2C; high resolution global gravity model",
+ "hydroweb_sigma_median_m": 0.03,
+ "n_pairs": 505,
+ "max_half_gap_days": 20.0,
+ "offset_median_m": 0.11402966768490685,
+ "offset_mean_m": 0.11002944334249272,
+ "diff_nmad_m": 0.07392010028885783,
+ "diff_p05_m": -0.014906825762202657,
+ "diff_p95_m": 0.2224678108691208,
+ "drift_m_per_decade": -0.01610136572179193,
+ "by_period": {
+  "1992-2001": {
+   "n": 83,
+   "median_diff_m": 0.125157601311777,
+   "nmad_m": 0.07817392963250046
+  },
+  "2002-2011": {
+   "n": 87,
+   "median_diff_m": 0.14130705986273995,
+   "nmad_m": 0.0723506672379359
+  },
+  "2012-2021": {
+   "n": 266,
+   "median_diff_m": 0.1021848284206559,
+   "nmad_m": 0.06648940856629745
+  },
+  "2022-2026": {
+   "n": 69,
+   "median_diff_m": 0.08000620188194674,
+   "nmad_m": 0.08450577261978794
+  }
+ },
+ "records_per_year": {
+  "1992": {
+   "dahiti": 10,
+   "hydroweb": 4
+  },
+  "1993": {
+   "dahiti": 32,
+   "hydroweb": 12
+  },
+  "1994": {
+   "dahiti": 25,
+   "hydroweb": 12
+  },
+  "1995": {
+   "dahiti": 29,
+   "hydroweb": 12
+  },
+  "1996": {
+   "dahiti": 31,
+   "hydroweb": 12
+  },
+  "1997": {
+   "dahiti": 32,
+   "hydroweb": 12
+  },
+  "1998": {
+   "dahiti": 30,
+   "hydroweb": 12
+  },
+  "1999": {
+   "dahiti": 21,
+   "hydroweb": 12
+  },
+  "2000": {
+   "dahiti": 23,
+   "hydroweb": 12
+  },
+  "2001": {
+   "dahiti": 20,
+   "hydroweb": 12
+  },
+  "2002": {
+   "dahiti": 22,
+   "hydroweb": 12
+  },
+  "2003": {
+   "dahiti": 27,
+   "hydroweb": 12
+  },
+  "2004": {
+   "dahiti": 26,
+   "hydroweb": 12
+  },
+  "2005": {
+   "dahiti": 32,
+   "hydroweb": 12
+  },
+  "2006": {
+   "dahiti": 29,
+   "hydroweb": 12
+  },
+  "2007": {
+   "dahiti": 27,
+   "hydroweb": 11
+  },
+  "2008": {
+   "dahiti": 31,
+   "hydroweb": 12
+  },
+  "2009": {
+   "dahiti": 30,
+   "hydroweb": 12
+  },
+  "2010": {
+   "dahiti": 23,
+   "hydroweb": 12
+  },
+  "2011": {
+   "dahiti": 26,
+   "hydroweb": 16
+  },
+  "2012": {
+   "dahiti": 27,
+   "hydroweb": 36
+  },
+  "2013": {
+   "dahiti": 29,
+   "hydroweb": 35
+  },
+  "2014": {
+   "dahiti": 34,
+   "hydroweb": 62
+  },
+  "2015": {
+   "dahiti": 26,
+   "hydroweb": 147
+  },
+  "2016": {
+   "dahiti": 32,
+   "hydroweb": 175
+  },
+  "2017": {
+   "dahiti": 26,
+   "hydroweb": 240
+  },
+  "2018": {
+   "dahiti": 24,
+   "hydroweb": 224
+  },
+  "2019": {
+   "dahiti": 23,
+   "hydroweb": 243
+  },
+  "2020": {
+   "dahiti": 24,
+   "hydroweb": 176
+  },
+  "2021": {
+   "dahiti": 22,
+   "hydroweb": 238
+  },
+  "2022": {
+   "dahiti": 11,
+   "hydroweb": 251
+  },
+  "2023": {
+   "dahiti": 11,
+   "hydroweb": 266
+  },
+  "2024": {
+   "dahiti": 8,
+   "hydroweb": 289
+  },
+  "2025": {
+   "dahiti": 15,
+   "hydroweb": 264
+  },
+  "2026": {
+   "dahiti": 24,
+   "hydroweb": 197
+  }
+ }
+}

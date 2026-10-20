@@ -161,3 +161,48 @@ def find_dahiti_file(directory: str | Path) -> Path | None:
         if p.is_file() and p.suffix.lower() in {".csv", ".txt", ".asc", ".ascii", ".dat"}
     )
     return cands[0] if cands else None
+
+
+def read_hydroweb(path: str | Path) -> LevelSeries:
+    """Read a Hydroweb (hydroweb.next / LEGOS) lake water-level text file.
+
+    Format (per its header): ``#`` comment lines, one ``key=value;...`` metadata
+    line, then ``;``-separated rows: decimal year; yyyy/mm/dd; hh:mm; height above
+    the surface of reference (m); standard deviation (m); area (km2); volume (km3);
+    mission-trace. 9999.999 marks missing values."""
+    path = Path(path)
+    lines = path.read_text(encoding="utf-8", errors="strict").splitlines()
+    comments = [ln for ln in lines if ln.startswith("#")]
+    meta: dict[str, str] = {}
+    rows = []
+    for ln in lines:
+        if not ln.strip() or ln.startswith("#"):
+            continue
+        if "=" in ln and ";" in ln and not re.match(r"^\s*\d{4}\.\d+", ln):
+            for part in ln.strip().split(";"):
+                if "=" in part:
+                    k, v = part.split("=", 1)
+                    meta[k.strip()] = v.strip()
+            continue
+        f = [x.strip() for x in ln.split(";")]
+        if len(f) >= 5:
+            rows.append(f)
+    df = pd.DataFrame(rows).iloc[:, :8]
+    df.columns = ["decyear", "date", "time", "height", "sd", "area", "volume", "mission"][:df.shape[1]]
+    t = pd.to_datetime(df["date"] + " " + df["time"], format="%Y/%m/%d %H:%M")
+    out = pd.DataFrame({"time": t.values,
+                        "level_m": pd.to_numeric(df["height"], errors="coerce").values,
+                        "sigma_m": pd.to_numeric(df["sd"], errors="coerce").values,
+                        "mission": df["mission"].values if "mission" in df else ""})
+    out.loc[out["level_m"] >= 9999, "level_m"] = float("nan")
+    out.loc[out["sigma_m"] >= 9999, "sigma_m"] = float("nan")
+    n_bad = int(out["level_m"].isna().sum())
+    out = out.dropna(subset=["level_m"]).sort_values("time").reset_index(drop=True)
+    for ln in comments:
+        body = ln.lstrip("#").strip()
+        if body.lower().startswith("surface of reference"):
+            meta["surface_of_reference"] = body.split(":", 1)[1].strip()
+        if body.startswith("https://doi.org/"):
+            meta["doi"] = body
+    meta["rows_dropped_missing_level"] = str(n_bad)
+    return LevelSeries(data=out, meta=meta, source=str(path), layout="hydroweb-txt")

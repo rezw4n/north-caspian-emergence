@@ -94,3 +94,27 @@ def test_find_file(tmp_path):
     assert find_dahiti_file(tmp_path) is None
     _write(tmp_path, "series.csv", LEGACY_CSV)
     assert find_dahiti_file(tmp_path).name == "series.csv"
+
+
+HYDROWEB_TXT = (
+    "#\n# surface of reference: GGMO2C; high resolution global gravity model\n"
+    "# https://doi.org/10.24400/329360/HYDROWEB_WATER_LEVEL\n"
+    "lake=synthetic;country=X;basin=Y;lat=42;lon=50;type=operational;id=1 \n"
+    "1992.73799901 ; 1992/09/27 ; 02:35 ;   -26.48 ;     0.07 ; 9999.999 ; 9999.999 ;                ; \n"
+    "2026.78713470 ; 2026/10/15 ; 07:18 ;    -28.7 ;     0.03 ; 9999.999 ; 9999.999 ; sentinel3A-212 ; \n"
+    "2026.79 ; 2026/10/16 ; 07:18 ;    9999.999 ;     0.03 ; 9999.999 ; 9999.999 ; x ; \n"
+)
+
+
+def test_hydroweb_reader(tmp_path):
+    from caspian.io import read_hydroweb
+
+    s = read_hydroweb(_write(tmp_path, "h.txt", HYDROWEB_TXT))
+    assert s.n == 2
+    assert s.data["level_m"].tolist() == pytest.approx([-26.48, -28.7])
+    assert s.data["sigma_m"].tolist() == pytest.approx([0.07, 0.03])
+    assert s.data["time"].iloc[1] == pd.Timestamp("2026-10-15 07:18")
+    assert s.data["mission"].iloc[1] == "sentinel3A-212"
+    assert s.meta["lake"] == "synthetic"
+    assert s.meta["surface_of_reference"].startswith("GGMO2C")
+    assert s.meta["rows_dropped_missing_level"] == "1"

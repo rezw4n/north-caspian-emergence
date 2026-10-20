@@ -1,0 +1,5 @@
+# Pip-only packages, installed with --no-deps on top of requirements.lock (D-020).
+# py_hydroweb declares requests~=2.32 and tqdm~=4.67, but works with the locked
+# requests 2.34.2 / tqdm 4.70.1 required by google-api-core (earthengine-api).
+py_hydroweb==1.3.3
+retry2==0.9.5

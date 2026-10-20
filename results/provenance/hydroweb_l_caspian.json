@@ -1,0 +1,12 @@
+{
+ "collection": "HYDROWEB_LAKES_OPE",
+ "item_ref": "HYDROWEB_LAKES_OPE.L_caspian",
+ "downloaded_utc": "2026-10-20T11:08:08+00:00",
+ "zip": "d94ad612-621e-4120-8b19-a781c98f60c5.zip",
+ "zip_sha256": "1932d16c9c29825d026c8518587f3b6b1f06a33bd06ba5eb2ba093baa5013b78",
+ "files": [
+  "HYDROWEB_LAKES_OPE/",
+  "HYDROWEB_LAKES_OPE/hydroprd_L_caspian.txt"
+ ],
+ "client": "py_hydroweb "
+}
