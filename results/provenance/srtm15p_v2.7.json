@@ -1,0 +1,27 @@
+{
+ "product": "SRTM15+ V2.7",
+ "citation_doi": "10.1029/2019ea000658",
+ "urls": {
+  "elevation": "https://topex.ucsd.edu/pub/srtm15_plus/SRTM15_V2.7.nc",
+  "source_id": "https://topex.ucsd.edu/pub/srtm15_plus/SID_V2.7.nc",
+  "readme": "https://topex.ucsd.edu/pub/srtm15_plus/README_V2.7.txt"
+ },
+ "shape": [
+  860,
+  2016
+ ],
+ "hdf5_chunks": [
+  129,
+  128
+ ],
+ "elevation_attrs": {
+  "long_name": "z",
+  "actual_range": "[-11058.   8627.]"
+ },
+ "elevation_range_m": [
+  -106.55413818359375,
+  488.0
+ ],
+ "n_source_ids": 2,
+ "subset_sha256": "f28023a18af178b6ad6d4060a2f54b9ddb60fb8547778bbc836d9e1f37266f03"
+}
