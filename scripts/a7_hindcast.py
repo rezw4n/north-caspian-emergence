@@ -249,7 +249,26 @@ def stage2_index(src: Path) -> dict:
     return units
 
 
-def observed_raw(groups_by_tile: dict, transform, shape) -> tuple[np.ndarray, dict]:
+ENVELOPE = None          # record-low water (D-082); set by main unless --no-envelope
+ENVELOPE_LOW_BINS = 3    # the lowest E3 bins pooled for the record-low extent
+
+
+def record_low_water(units: dict, transform, shape) -> np.ndarray:
+    """Cells that are water at the record low (D-082): the observed extent of the
+    ENVELOPE_LOW_BINS lowest E3 level bins, counts pooled over the bins and both halves.
+    A cell under water at the lowest level of the record is under water at every higher
+    level, so such a cell observed dry at a higher bin is an observation error (dark,
+    clear deep water whose MNDWI scatters around the scene threshold)."""
+    e3 = sorted(b for b, eps in units.items() if "E3" in eps)
+    groups: dict = {}
+    for b in e3[:ENVELOPE_LOW_BINS]:
+        for f, g in groups_for(units, b, ["E3"]).items():
+            groups.setdefault(f, []).extend(g)
+    code, _ = observed_raw(groups, transform, shape, envelope=False)
+    return code == 1
+
+
+def observed_raw(groups_by_tile: dict, transform, shape, envelope: bool = True) -> tuple[np.ndarray, dict]:
     """Observed extent of a set of groups, mosaicked on the grid: int8 -2 not valid,
     0 dry, 1 water. Per stage-2 tile the groups' counts are summed (frequency.combine).
     Adjacent tiles can share a column or row of cells; where two tiles both have a
@@ -278,6 +297,10 @@ def observed_raw(groups_by_tile: dict, transform, shape) -> tuple[np.ndarray, di
         new = valid & (dst == -2)
         dst[new] = water[new]
         info["max_valid_count"] = max(info["max_valid_count"], int(v.max()) if v.size else 0)
+    if envelope and ENVELOPE is not None:
+        fix = (code == 0) & ENVELOPE
+        info["envelope_cells"] = int(fix.sum())
+        code[fix] = 1
     return code, info
 
 
@@ -727,6 +750,9 @@ def main(argv) -> int:
                     help="shape variant with the D-070 refit without this epoch")
     ap.add_argument("--resampling", default="bilinear", choices=products.METHODS)
     ap.add_argument("--tile", type=int, default=ht.TILE)
+    ap.add_argument("--no-envelope", action="store_true",
+                    help="sensitivity: no record-low water envelope on the observed extents (D-082)")
+    ap.add_argument("--out-suffix", default="", help="write to results/hindcast/<tag><suffix> (sensitivity runs)")
     a = ap.parse_args(argv)
     w, s, e, n = DOMAIN.bounds
     transform, shape = grid((w - MARGIN_DEG, s - MARGIN_DEG, e + MARGIN_DEG, n + MARGIN_DEG))
@@ -762,12 +788,18 @@ def main(argv) -> int:
         shape_offsets = _offsets(a.shape_offsets)
     else:
         shape_offsets = "fit"
-    meta = {"tag": a.tag, "resampling": a.resampling, "tile": a.tile,
+    global ENVELOPE
+    ENVELOPE = None if a.no_envelope else record_low_water(stage2_index(INTERIM / "stage2" / a.tag), transform, shape)
+    env = ("none (sensitivity)" if ENVELOPE is None else
+           {"rule": f"D-082: cells water at the record low ({ENVELOPE_LOW_BINS} lowest E3 bins) are water at every level",
+            "cells": int(ENVELOPE.sum())})
+    print("envelope", env, flush=True)
+    meta = {"tag": a.tag, "resampling": a.resampling, "tile": a.tile, "envelope": env,
             "references": {p: products.PRODUCTS[p]["reference"] for p in names},
             "vertical_correction": corr_rec or "none: products as distributed (read as heights above EGM2008)",
             "seeds": {"sea": "D-029 open-sea mask outside the zone, inside the domain less its rim (D-070)",
                       "land": "beyond-domain land in the domain's 5 km inner band, outside zone and rim (D-070)"}}
-    run(INTERIM / "stage2" / a.tag, RESULTS / "hindcast" / a.tag, static, heights, transform,
+    run(INTERIM / "stage2" / a.tag, RESULTS / "hindcast" / (a.tag + a.out_suffix), static, heights, transform,
         level_datum_offset=a.level_datum_offset, level_datum_source=a.level_datum_source,
         product_offsets=_offsets(a.product_offsets), shape_offsets=shape_offsets, fit_region=fit_region,
         fit_exclude_epoch=a.fit_exclude_epoch, flood_maps=flood_maps, blocks=blocks, tile=a.tile, meta=meta)
