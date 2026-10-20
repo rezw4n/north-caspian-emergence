@@ -51,3 +51,24 @@ def contour_points(lines, spacing: float):
             p = ln.interpolate(t)
             pts.append((p.x, p.y))
     return np.array(pts).reshape(-1, 2)
+
+
+STATIC_MIN_ETA, STATIC_MAX_VALLEY = 0.70, 0.50   # validity of the split, as for scene thresholds (D-061)
+STATIC_RHO_RANGE = (0.2, 0.8)
+STATIC_RHO_FALLBACK = 0.5
+
+
+def static_threshold(rho) -> dict:
+    """Threshold rho* of the static-contour rule (D-034, D-075) from training-block
+    rho_level values: Otsu's split of their histogram (256 bins on [-1, 1]) when the
+    split is valid (eta >= 0.70, valley ratio <= 0.50) and lies in [0.2, 0.8],
+    otherwise 0.5. Contour points with rho_level < rho* are static."""
+    from . import thresholds
+    r = np.asarray(rho, float)
+    r = r[np.isfinite(r)]
+    hist, _ = np.histogram(np.clip(r, -1, 1), bins=thresholds.EDGES)
+    d = thresholds.diagnostics(hist)
+    ok = (np.isfinite(d["threshold"]) and d["eta"] >= STATIC_MIN_ETA and d["valley_ratio"] <= STATIC_MAX_VALLEY
+          and STATIC_RHO_RANGE[0] <= d["threshold"] <= STATIC_RHO_RANGE[1])
+    return {"rho_star": float(d["threshold"]) if ok else STATIC_RHO_FALLBACK, "source": "otsu" if ok else "fallback",
+            "diagnostics": d, "n_train_points": int(r.size), "hist": hist.tolist()}

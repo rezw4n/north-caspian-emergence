@@ -74,6 +74,23 @@ def group_of(r, kind):
     raise ValueError(kind)
 
 
+def clean_part(part, min_area_m2: float = 1e4):
+    """Polygon parts of an intersection of at least ``min_area_m2`` (1 ha), made
+    valid. Intersections can return zero-area slivers, lines and points; Earth Engine
+    rejects a region holding a zero-area polygon in filterBounds (D-074)."""
+    import shapely
+    from shapely.ops import unary_union
+
+    def polys(g):
+        if g.geom_type == "Polygon":
+            return [g]
+        if hasattr(g, "geoms"):
+            return [q for h in g.geoms for q in polys(h)]
+        return []
+    keep = [q for q in polys(shapely.make_valid(part)) if q.area >= min_area_m2]
+    return unary_union(keep) if keep else box(0, 0, 0, 0).buffer(0)
+
+
 def cover_laea():
     g = json.loads(COVER.read_text(encoding="utf-8"))["features"][0]["geometry"]
     return transform(FWD, shape(g))
@@ -89,7 +106,7 @@ def block_tiles(n_per_sector: int):
     cov_sec = {k: cov.intersection(transform(FWD, p.segmentize(0.01))) for k, (_, p) in sectors().items()}
     b = pd.read_csv(RESULTS / "study_area" / "blocks_25km.csv")
     b = b[b["split"] == "train"].copy()
-    b["part"] = [cov_sec[s].intersection(box(x, y, x + 25_000, y + 25_000))
+    b["part"] = [clean_part(cov_sec[s].intersection(box(x, y, x + 25_000, y + 25_000)))
                  for x, y, s in zip(b["x0"], b["y0"], b["sector"])]
     b["area"] = [g.area for g in b["part"]]
     b = b[b["area"] > 25e6]   # at least 25 km2 of the block inside the cover
@@ -108,7 +125,7 @@ def tiles():
     out = []
     for i in range(math.floor(x0 / TILE_M), math.ceil(x1 / TILE_M)):
         for j in range(math.floor(y0 / TILE_M), math.ceil(y1 / TILE_M)):
-            part = cov.intersection(box(i * TILE_M, j * TILE_M, (i + 1) * TILE_M, (j + 1) * TILE_M))
+            part = clean_part(cov.intersection(box(i * TILE_M, j * TILE_M, (i + 1) * TILE_M, (j + 1) * TILE_M)))
             if not part.is_empty and part.area > 1e6:
                 out.append((i, j, part))
     return out
@@ -202,14 +219,17 @@ def build_image(tag: str, groups, region_ll, sector_code=None, observed: bool = 
             else:                   # exclude: 0 in the listed sectors
                 ok = ee.Image(ee.Algorithms.If(codes.size().gt(0),
                                                sec.remap(codes, ee.List.repeat(0, codes.size()), 1), ee.Image(1)))
-            return (pipeline_ee.water_valid(im.clip(region_ll), thr.get(key), observed=observed).updateMask(ok)
+            return (pipeline_ee.water_valid(im, thr.get(key), observed=observed).updateMask(ok)
                     .copyProperties(im, ["system:time_start", "acq"]))
 
         bands.append(pipeline_ee.group_counts(col.map(wv), g, kinds))
     # flat: ee.Image.cat chains addBands once per image, and the client serializer
     # exceeds Python's recursion limit at about 400 groups
     names = [f"{p}_{g}" for g in groups for p in kinds]
-    return ee.ImageCollection.fromImages(bands).toBands().rename(names)
+    # one clip of the stacked counts, not one per scene: clipping each scene intersects its
+    # footprint with the region, which failed in one sub-block (D-074); the clip still
+    # bounds the computation to the region
+    return ee.ImageCollection.fromImages(bands).toBands().rename(names).clip(region_ll)
 
 
 def targets(st: dict, blocks: int = 0, only=None):
@@ -272,7 +292,7 @@ def interactive(tag: str, budget: float, only=None, blocks: int = 0, workers: in
     requests (one spatial sub-block x one chunk of groups each) in parallel threads,
     metered by ee.profilePrinting against a hard EECU-s ``budget`` for the invocation
     (D-074: batch image tasks ran two at a time). A failed request is retried as two
-    half-size group chunks. A target is written only when all its requests succeed,
+    half-size group chunks (memory or time limits only; other errors fail the target). A target is written only when all its requests succeed,
     in the format of fetch (tile_<key>.npz)."""
     import io
     import threading
@@ -332,9 +352,10 @@ def interactive(tag: str, budget: float, only=None, blocks: int = 0, workers: in
                 try:
                     arr, eecu, secs = fut.result()
                 except Exception as ex:
-                    if len(chunk) > 1:   # retry as two half-size chunks
-                        half = len(chunk) // 2
-                        queue[:0] = [(key, c0, r0, w, h, chunk[:half]), (key, c0, r0, w, h, chunk[half:])]
+                    msg = str(ex).lower()
+                    if len(chunk) > 1 and ("memory" in msg or "timed out" in msg or "deadline" in msg):
+                        half = len(chunk) // 2   # retry as two half-size chunks, at the back of the queue
+                        queue.extend([(key, c0, r0, w, h, chunk[:half]), (key, c0, r0, w, h, chunk[half:])])
                         t["pending"] += 1
                         print("retry split", key, r0, c0, len(chunk), str(ex)[:120], flush=True)
                     else:

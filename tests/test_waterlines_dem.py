@@ -71,3 +71,14 @@ def test_emergence_days_last_crossing_and_edges():
     assert np.isnan(e[7]) and np.isnan(e[8])
     with pytest.raises(ValueError):
         dem.emergence_days(z, t[::-1], lv)
+
+
+def test_static_threshold_bimodal_and_fallback():
+    from caspian import waterlines
+    rng = np.random.default_rng(3)
+    sea = np.clip(rng.normal(0.9, 0.05, 4000), -1, 1)       # shorelines that move with level
+    banks = np.clip(rng.normal(0.0, 0.15, 1000), -1, 1)     # channel banks
+    r = waterlines.static_threshold(np.r_[sea, banks, np.nan])
+    assert r["source"] == "otsu" and 0.3 < r["rho_star"] < 0.7 and r["n_train_points"] == 5000
+    flat = waterlines.static_threshold(rng.uniform(0.5, 1.0, 5000))   # no separate mode
+    assert flat["source"] == "fallback" and flat["rho_star"] == 0.5
