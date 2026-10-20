@@ -1,0 +1,65 @@
+{
+ "product": "GEBCO_2026 Grid",
+ "doi": "10.5285/4f68d5c7-45eb-f999-e063-7086abc036fa",
+ "urls": {
+  "elevation": "https://dap.ceda.ac.uk/bodc/gebco/global/gebco_2026/ice_surface_elevation/netcdf/GEBCO_2026.nc",
+  "tid": "https://dap.ceda.ac.uk/bodc/gebco/global/gebco_2026/type_identifier_grid/netcdf/gebco_2026_tid.nc"
+ },
+ "ceda_md5_full_files": {
+  "GEBCO_2026.nc": "7d24e99113651f5278b50e99bb9e92f9",
+  "gebco_2026_tid.nc": "e519ca06517d0b1fb84d82173ef223fe"
+ },
+ "ceda_last_modified": {
+  "GEBCO_2026.nc": "2026-04-22T15:19:02",
+  "gebco_2026_tid.nc": "2026-04-22T15:25:37"
+ },
+ "window_index": [
+  32128,
+  32988,
+  54312,
+  56328
+ ],
+ "subset_bounds_wsen": [
+  46.30208333333334,
+  43.868750000000006,
+  54.69791666666666,
+  47.44791666666666
+ ],
+ "shape": [
+  860,
+  2016
+ ],
+ "elevation_attrs": {
+  "standard_name": "height_above_mean_sea_level",
+  "long_name": "Elevation relative to sea level",
+  "units": "m",
+  "grid_mapping": "crs",
+  "sdn_parameter_urn": "SDN:P01::BATHHGHT",
+  "sdn_parameter_name": "Sea floor height (above mean sea level) {bathymetric height}",
+  "sdn_uom_urn": "SDN:P06::ULAA",
+  "sdn_uom_name": "Metres"
+ },
+ "tid_attrs": {
+  "long_name": "GEBCO Type Identifier",
+  "valid_range": "[-128, 127]",
+  "flag_meanings": "Land Singlebeam Multibeam Seismic Isolated_sounding ENC_sounding Lidar Optical Combined predicted_altimetry interpolated contour_charts contour_ENC bathymetric_sounding predicted_airborne iceberg_groundinggrounded_Argo_float_derived pre-generated_grid unknown steering_point",
+  "flag_values": "[0, 10, 11, 12, 13, 14, 15, 16, 17, 40, 41, 42, 43, 44, 45, 46, 47, 48, 70, 71, 72]",
+  "grid_mapping": "crs",
+  "sdn_parameter_name": "Source identifer of GEBCO grid cell data",
+  "sdn_parameter_urn": "SDN:P01::GEBCOSRC",
+  "sdn_uom_name": "Dimensionless",
+  "sdn_uom_urn": "SDN:P06:UUUU",
+  "units": "[1]"
+ },
+ "elevation_range_m": [
+  -107,
+  488
+ ],
+ "tid_values_present": [
+  0,
+  40,
+  44,
+  70
+ ],
+ "subset_sha256": "831eecdef1d4b0171baba906a7754f644f930c968c70792d5b39706eb1b4cddb"
+}

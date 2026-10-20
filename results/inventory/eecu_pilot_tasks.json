@@ -12,8 +12,8 @@
    "n_scenes": 20,
    "image_task": "2YCGIH5ATF6HZO4LCQQA656L",
    "table_task": "YFCLBB6LHSIC7HN2YSC7UPUM",
-   "image_task_state": "RUNNING",
-   "image_task_eecu_s": null,
+   "image_task_state": "SUCCEEDED",
+   "image_task_eecu_s": 10993.1767578125,
    "image_task_error": null,
    "table_task_state": "FAILED",
    "table_task_eecu_s": 1.873302936,
@@ -32,9 +32,9 @@
    "image_task_state": "FAILED",
    "image_task_eecu_s": null,
    "image_task_error": "Image.unmask: If one image has no bands, the other must also have no bands. Got 0 and 1.",
-   "table_task_state": "RUNNING",
+   "table_task_state": "CANCELLED",
    "table_task_eecu_s": 0.021470863,
-   "table_task_error": null
+   "table_task_error": "Cancelled."
   },
   {
    "name": "pilot_L8_165028_2020_v2",
@@ -46,8 +46,8 @@
    "scale": 30,
    "n_scenes": 20,
    "table_task": "TGPXVNIYZ3JV3V6EU27YEI33",
-   "table_task_state": "PENDING",
-   "table_task_eecu_s": null,
+   "table_task_state": "SUCCEEDED",
+   "table_task_eecu_s": 0.2773691713809967,
    "table_task_error": null
   },
   {
@@ -60,11 +60,11 @@
    "n_scenes": 39,
    "image_task": "ORBVYBHFZ3TBCUT7JL5DMX2Q",
    "table_task": "VGPU5HW3JHYBKXFZQ7DBT3WW",
-   "image_task_state": "PENDING",
+   "image_task_state": "RUNNING",
    "image_task_eecu_s": null,
    "image_task_error": null,
-   "table_task_state": "PENDING",
-   "table_task_eecu_s": null,
+   "table_task_state": "RUNNING",
+   "table_task_eecu_s": 0.022345965,
    "table_task_error": null
   }
  ]
