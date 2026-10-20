@@ -13,8 +13,8 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 MM = 1 / 25.4  # inches per millimetre
-WIDTH_SINGLE_MM = 89.0
-WIDTH_DOUBLE_MM = 183.0
+WIDTH_SINGLE_MM = 88.0     # Nature Portfolio (docs/journal_specs.md, read 2026-10-21)
+WIDTH_DOUBLE_MM = 180.0
 
 INK = "#1f1f1f"       # primary text
 INK_MUTED = "#6b6b6b"  # secondary text, axes, ticks

@@ -106,7 +106,7 @@ def _recorded_granules(product: str) -> dict[str, int]:
     return {k: int(v) for k, v in json.loads(p.read_text(encoding="utf-8"))["granules"].items() if int(v) > 0}
 
 
-def load_icesat2(product: str) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+def load_icesat2(product: str, geoid_source: str = "eigen6c4") -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Every recorded granule of one product through validation.prepare_icesat2. Returns
     (kept points, summed filter cascade, granule counts)."""
     folder = INTERIM / "icesat2" / product
@@ -116,6 +116,8 @@ def load_icesat2(product: str) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
         atl06 = {validation.granule_key(k): INTERIM / "icesat2" / "ATL06" / f"{k}.csv.gz"
                  for k in _recorded_granules("ATL06")}
     frames, cascades = [], []
+    # N(EIGEN-6C4) for both products (D-078); "atl06" keeps the D-069 chain (ATL06 geoid_h)
+    geoid = validation.EigenGeoid() if geoid_source == "eigen6c4" else None
     counts = {"recorded_with_points": len(rec), "read": 0, "missing_file": 0, "incomplete_file": 0,
               "atl08_without_atl06": 0}
     for name, n in sorted(rec.items()):
@@ -132,7 +134,7 @@ def load_icesat2(product: str) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
             counts["incomplete_file"] += 1
             continue
         ref = None
-        if product == "ATL08":
+        if geoid is None and product == "ATL08":
             p6 = atl06.get(validation.granule_key(name))
             if p6 is not None and p6.exists():
                 ref = pd.read_csv(p6, usecols=["time", "beam", "geoid_h"])
@@ -140,7 +142,7 @@ def load_icesat2(product: str) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
                 ref["beam"] = ref["beam"].astype(str)
             else:
                 counts["atl08_without_atl06"] += 1
-        kept, casc = validation.prepare_icesat2(d, product, ref)
+        kept, casc = validation.prepare_icesat2(d, product, ref, geoid=geoid)
         kept["granule"] = name
         frames.append(kept)
         cascades.append(casc.set_index("step"))
@@ -200,14 +202,14 @@ def prepare(a) -> int:
     epochs = a.epochs.split(",")
     cx, cy = _contour_points(a.tag, epochs)
     fwd = pyproj.Transformer.from_crs("EPSG:4326", CRS_EQUAL_AREA, always_xy=True)
-    meta = {"created": _now(), "dem_tag": a.tag, "dem_dir": str(dem_dir), "emergence_dir": str(a.emergence),
+    meta = {"created": _now(), "geoid": a.geoid, "dem_tag": a.tag, "dem_dir": str(dem_dir), "emergence_dir": str(a.emergence),
             "epochs": epochs, "products": names,
             "product_interpolation": "bilinear, as distributed (caspian.products.sample)" if names else None,
             "emergence_lag_days": design.EMERGENCE_LAG_DAYS,
             "gross_error_m": validation.GROSS_ERROR_M, "geoid_max_gap_s": validation.GEOID_MAX_GAP_S,
             "contour_radius_m": validation.CONTOUR_RADIUS_M, "sources": {}}
     for source in a.sources:
-        d, casc, counts = load_icesat2(source)
+        d, casc, counts = load_icesat2(source, a.geoid)
         x, y = fwd.transform(d["lon"].to_numpy(float), d["lat"].to_numpy(float))
         r = validation.DRY_RADIUS_PX[source]
         t = d["time"].to_numpy()
@@ -328,6 +330,8 @@ def main(argv) -> int:
     ap.add_argument("--products", default=None)
     ap.add_argument("--no-products", action="store_true")
     ap.add_argument("--epochs", default="E2,E3")
+    ap.add_argument("--geoid", choices=["eigen6c4", "atl06"], default="eigen6c4",
+                    help="N for ICESat-2 heights: EIGEN-6C4 grid (D-078) or the ATL06 geoid_h chain (D-069)")
     ap.add_argument("--block-size", type=float, default=None, help="sensitivity run (PREREG section 6)")
     a = ap.parse_args(argv)
     a.sources = a.sources.split(",")

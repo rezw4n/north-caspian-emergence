@@ -1,4 +1,53 @@
 {
+ "blocks.n.calib": {
+  "value": 71,
+  "unit": "blocks",
+  "source": "results/study_area/blocks_25km.csv"
+ },
+ "blocks.n.test": {
+  "value": 68,
+  "unit": "blocks",
+  "source": "results/study_area/blocks_25km.csv"
+ },
+ "blocks.n.train": {
+  "value": 209,
+  "unit": "blocks",
+  "source": "results/study_area/blocks_25km.csv"
+ },
+ "blocks.n_total": {
+  "value": 348,
+  "unit": "blocks",
+  "source": "results/study_area/blocks_25km.csv",
+  "note": "25 km blocks whose centre lies in a sector"
+ },
+ "datum.dN_max_m": {
+  "value": 0.16342949202300083,
+  "unit": "m",
+  "source": "results/provenance/geoid_difference.json",
+  "note": "N(EGM2008) - N(EIGEN-6C4), ICGEM, tide-free, degree 2190, over the domain bounds",
+  "decimals": 2
+ },
+ "datum.dN_min_m": {
+  "value": -0.206740401718001,
+  "unit": "m",
+  "source": "results/provenance/geoid_difference.json",
+  "note": "N(EGM2008) - N(EIGEN-6C4), ICGEM, tide-free, degree 2190, over the domain bounds",
+  "decimals": 2
+ },
+ "datum.dN_sd_m": {
+  "value": 0.07509485964213358,
+  "unit": "m",
+  "source": "results/provenance/geoid_difference.json",
+  "note": "N(EGM2008) - N(EIGEN-6C4), ICGEM, tide-free, degree 2190, over the domain bounds",
+  "decimals": 3
+ },
+ "datum.nga_offset_m": {
+  "value": -0.4051910851786897,
+  "unit": "m",
+  "source": "results/provenance/geoid_difference.json",
+  "note": "NGA/PROJ EGM2008 minus ICGEM EGM2008 (the NGA height offset), mean over the product box",
+  "decimals": 2
+ },
  "inventory.first.ETM_L7": {
   "value": "1999-06-30",
   "unit": "date",
@@ -885,10 +934,21 @@
   "source": "doi:10.1002/2015ea000107 (Abstract)",
   "decimals": 0
  },
+ "params.abs_resid_floor_mm": {
+  "value": 1.0,
+  "unit": "mm",
+  "source": "caspian.validation.ABS_RESID_FLOOR_M",
+  "decimals": 0
+ },
  "params.alpha": {
   "value": 0.05,
   "unit": "",
   "source": "caspian.design.ALPHA"
+ },
+ "params.beyond_inner_km": {
+  "value": 5,
+  "unit": "km",
+  "source": "scripts/a7_beyond_state.INNER_M"
  },
  "params.bin_origin_m": {
   "value": -30.0,
@@ -913,12 +973,30 @@
  "params.block_size_km": {
   "value": 25.0,
   "unit": "km",
-  "source": "caspian.design.BLOCK_SIZE_M"
+  "source": "caspian.design.BLOCK_SIZE_M",
+  "decimals": 0
+ },
+ "params.block_size_sens_hi_km": {
+  "value": 50.0,
+  "unit": "km",
+  "source": "caspian.design.BLOCK_SIZE_SENS_M",
+  "decimals": 0
+ },
+ "params.block_size_sens_lo_km": {
+  "value": 12.5,
+  "unit": "km",
+  "source": "caspian.design.BLOCK_SIZE_SENS_M",
+  "decimals": 1
  },
  "params.bootstrap_n": {
   "value": 2000,
   "unit": "resamples",
   "source": "caspian.design.BOOTSTRAP_N"
+ },
+ "params.ci_pct": {
+  "value": 95,
+  "unit": "%",
+  "source": "caspian.validation.percentile_interval and caspian.conformal.coverage (conf default)"
  },
  "params.conformal_level": {
   "value": 0.9,
@@ -935,20 +1013,47 @@
   "unit": "km",
   "source": "caspian.pipeline_ee.CONN_SCALE"
  },
+ "params.contour_density_radius_m": {
+  "value": 500.0,
+  "unit": "m",
+  "source": "caspian.validation.CONTOUR_RADIUS_M",
+  "decimals": 0
+ },
  "params.contour_level": {
   "value": 0.5,
   "unit": "fraction",
-  "source": "caspian.design.CONTOUR_LEVEL"
+  "source": "caspian.design.CONTOUR_LEVEL",
+  "decimals": 1
  },
  "params.dark_water_reflectance": {
   "value": 0.03,
   "unit": "reflectance",
   "source": "caspian.pipeline_ee.DARK_WATER"
  },
+ "params.dem_overlap_km": {
+  "value": 6,
+  "unit": "km",
+  "source": "scripts/a6_dem.OVERLAP_M"
+ },
  "params.dem_res_m": {
   "value": 30,
   "unit": "m",
   "source": "caspian.design.DEM_RES_M"
+ },
+ "params.dem_tile_km": {
+  "value": 60,
+  "unit": "km",
+  "source": "scripts/a6_dem.TILE_M"
+ },
+ "params.dry_radius_px_atl06": {
+  "value": 1,
+  "unit": "pixels",
+  "source": "caspian.validation.DRY_RADIUS_PX"
+ },
+ "params.dry_radius_px_atl08": {
+  "value": 2,
+  "unit": "pixels",
+  "source": "caspian.validation.DRY_RADIUS_PX"
  },
  "params.e2_end": {
   "value": "2010-12-31",
@@ -964,6 +1069,48 @@
   "value": 30,
   "unit": "days",
   "source": "caspian.design.EMERGENCE_LAG_DAYS"
+ },
+ "params.emergence_lag_sens_days": {
+  "value": 365,
+  "unit": "days",
+  "source": "docs/DECISIONS.md D-069 (robustness check; not yet in code)"
+ },
+ "params.err_pct_hi": {
+  "value": 95,
+  "unit": "percentile",
+  "source": "caspian.validation.error_metrics (p95, run on 0..100)"
+ },
+ "params.err_pct_lo": {
+  "value": 5,
+  "unit": "percentile",
+  "source": "caspian.validation.error_metrics (p05, run on 0..100)"
+ },
+ "params.fig_graticule_deg": {
+  "value": 1,
+  "unit": "degrees",
+  "source": "figures/fig_study_area.GRATICULE_DEG"
+ },
+ "params.fig_scale_bar_km": {
+  "value": 100,
+  "unit": "km",
+  "source": "figures/fig_study_area.SCALE_KM"
+ },
+ "params.geoid_max_gap_s": {
+  "value": 0.1,
+  "unit": "s",
+  "source": "caspian.validation.GEOID_MAX_GAP_S",
+  "decimals": 1
+ },
+ "params.gross_error_m": {
+  "value": 50.0,
+  "unit": "m",
+  "source": "caspian.validation.GROSS_ERROR_M",
+  "decimals": 0
+ },
+ "params.h1_min_block_n": {
+  "value": 20,
+  "unit": "distances",
+  "source": "caspian.h1.MIN_BLOCK_N"
  },
  "params.high_extent_min_water_pct": {
   "value": 10,
@@ -985,10 +1132,26 @@
   "unit": "date",
   "source": "caspian.pipeline_ee.HIGHSTAND"
  },
+ "params.hindcast_margin_deg": {
+  "value": 0.1,
+  "unit": "degrees",
+  "source": "scripts/a7_hindcast.MARGIN_DEG",
+  "decimals": 1
+ },
  "params.hist_scale_m": {
   "value": 240,
   "unit": "m",
   "source": "caspian.pipeline_ee.HIST_SCALE"
+ },
+ "params.ice_first_month": {
+  "value": "November",
+  "unit": "month",
+  "source": "scripts/a3_thresholds.ICE_MONTHS"
+ },
+ "params.ice_last_month": {
+  "value": "March",
+  "unit": "month",
+  "source": "scripts/a3_thresholds.ICE_MONTHS"
  },
  "params.laea_lat0_deg": {
   "value": 45.5,
@@ -1026,6 +1189,11 @@
   "unit": "days",
   "source": "scripts/a4_scene_levels.MAX_GAP_DAYS"
  },
+ "params.max_scene_cloud_pct": {
+  "value": 60,
+  "unit": "%",
+  "source": "scripts/a3_stage1_interactive.MAX_CLOUD (stage-1 scene selection, D-028)"
+ },
  "params.min_obs_high": {
   "value": 3,
   "unit": "observations",
@@ -1061,6 +1229,12 @@
   "unit": "NDVI",
   "source": "caspian.water.NDVI_VEG"
  },
+ "params.nmad_scale": {
+  "value": 1.4826,
+  "unit": "",
+  "source": "caspian.validation.NMAD_SCALE",
+  "decimals": 4
+ },
  "params.occ_hi_pct": {
   "value": 98,
   "unit": "%",
@@ -1086,6 +1260,11 @@
   "unit": "reflectance",
   "source": "caspian.masks.RED_SNOW"
  },
+ "params.rho_min_bins": {
+  "value": 4,
+  "unit": "bins",
+  "source": "scripts/a6_waterlines._rho (run on a test stack)"
+ },
  "params.s2_cloudscore_threshold": {
   "value": 0.6,
   "unit": "cs_cdf",
@@ -1095,6 +1274,11 @@
   "value": 11,
   "unit": "SCL class",
   "source": "caspian.masks.S2_SCL_SNOW"
+ },
+ "params.sea_mask_res_km": {
+  "value": 1,
+  "unit": "km",
+  "source": "scripts/a5_sea_mask.SCALE"
  },
  "params.sea_min_water_pct": {
   "value": 80,
@@ -1111,10 +1295,81 @@
   "unit": "",
   "source": "caspian.design.SEED"
  },
+ "params.setup_cv_folds": {
+  "value": 5,
+  "unit": "folds",
+  "source": "scripts/a5_setup_model.N_FOLDS"
+ },
+ "params.setup_lag_max_h": {
+  "value": 48,
+  "unit": "h",
+  "source": "caspian.surge.WINDOWS_H"
+ },
+ "params.setup_max_block_nmad_m": {
+  "value": 0.5,
+  "unit": "m",
+  "source": "scripts/a5_setup_model.MAX_BLOCK_NMAD",
+  "decimals": 1
+ },
+ "params.setup_max_robust_z": {
+  "value": 5.0,
+  "unit": "",
+  "source": "scripts/a5_setup_model.MAX_ROBUST_Z",
+  "decimals": 0
+ },
+ "params.setup_min_block_passes": {
+  "value": 10,
+  "unit": "passes",
+  "source": "scripts/a5_setup_model.MIN_BLOCK_PASSES"
+ },
+ "params.setup_min_pass_px": {
+  "value": 30,
+  "unit": "pixels",
+  "source": "scripts/a5_setup_model.MIN_PASS_PX"
+ },
+ "params.setup_pass_gap_min": {
+  "value": 10,
+  "unit": "minutes",
+  "source": "scripts/a5_setup_model.PASS_GAP_MIN"
+ },
+ "params.setup_pressure_window_h": {
+  "value": 6,
+  "unit": "h",
+  "source": "caspian.surge.forcing_features (dp feature)"
+ },
+ "params.setup_ridge_max": {
+  "value": 300.0,
+  "unit": "",
+  "source": "scripts/a5_setup_model.RIDGE_GRID",
+  "decimals": 0
+ },
+ "params.setup_ridge_n": {
+  "value": 8,
+  "unit": "values",
+  "source": "scripts/a5_setup_model.RIDGE_GRID"
+ },
+ "params.setup_windows_h": {
+  "value": "0--6, 6--12, 12--24 and 24--48",
+  "unit": "h",
+  "source": "caspian.surge.WINDOWS_H"
+ },
+ "params.shape_max_m": {
+  "value": 5.0,
+  "unit": "m",
+  "source": "scripts/a7_hindcast.C_GRID",
+  "decimals": 0
+ },
+ "params.shape_step_m": {
+  "value": 0.01,
+  "unit": "m",
+  "source": "scripts/a7_hindcast.C_GRID",
+  "decimals": 2
+ },
  "params.snow_rule_max_pct": {
   "value": 1.0,
   "unit": "%",
-  "source": "caspian.design.SNOW_RULE_MAX_PCT"
+  "source": "caspian.design.SNOW_RULE_MAX_PCT",
+  "decimals": 0
  },
  "params.snow_season_first_month": {
   "value": "November",
@@ -1140,6 +1395,134 @@
   "value": 0.6,
   "unit": "fraction",
   "source": "caspian.design.SPLIT"
+ },
+ "params.stage2_res_m": {
+  "value": 60,
+  "unit": "m",
+  "source": "scripts/a6_stage2_export.RES (= scripts/a7_hindcast.RES)"
+ },
+ "params.static_rho_fallback": {
+  "value": 0.5,
+  "unit": "",
+  "source": "caspian.waterlines.STATIC_RHO_FALLBACK",
+  "decimals": 1
+ },
+ "params.static_rho_hi": {
+  "value": 0.8,
+  "unit": "",
+  "source": "caspian.waterlines.STATIC_RHO_RANGE",
+  "decimals": 1
+ },
+ "params.static_rho_lo": {
+  "value": 0.2,
+  "unit": "",
+  "source": "caspian.waterlines.STATIC_RHO_RANGE",
+  "decimals": 1
+ },
+ "params.static_steep_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "scripts/a6_static_rule.STEEP_M",
+  "decimals": 0
+ },
+ "params.structure_perm_n": {
+  "value": 999,
+  "unit": "permutations",
+  "source": "caspian.blocking.spatial_structure_test (n_perm default)"
+ },
+ "params.swot_min_pixels": {
+  "value": 10,
+  "unit": "pixels",
+  "source": "scripts/a5_swot_sector_levels.MIN_PIXELS"
+ },
+ "params.swot_min_water_frac": {
+  "value": 0.9,
+  "unit": "fraction",
+  "source": "scripts/a5_swot_sector_levels.MIN_WATER_FRAC",
+  "decimals": 1
+ },
+ "params.tau_candidates_m": {
+  "value": "0.30, 0.20, 0.15, 0.10 and 0.05",
+  "unit": "m",
+  "source": "scripts/a6_screening.TAUS"
+ },
+ "params.tau_n_candidates": {
+  "value": 5,
+  "unit": "thresholds",
+  "source": "scripts/a6_screening.TAUS (finite values)"
+ },
+ "params.thr_hi": {
+  "value": 0.5,
+  "unit": "MNDWI",
+  "source": "scripts/a3_thresholds.THR_RANGE",
+  "decimals": 1
+ },
+ "params.thr_lo": {
+  "value": 0.0,
+  "unit": "MNDWI",
+  "source": "scripts/a3_thresholds.THR_RANGE",
+  "decimals": 0
+ },
+ "params.thr_max_valley": {
+  "value": 0.5,
+  "unit": "",
+  "source": "scripts/a3_thresholds.MAX_VALLEY",
+  "decimals": 2
+ },
+ "params.thr_min_class_pct": {
+  "value": 5,
+  "unit": "%",
+  "source": "100 * scripts/a3_thresholds.MIN_SHARE"
+ },
+ "params.thr_min_eta": {
+  "value": 0.7,
+  "unit": "",
+  "source": "scripts/a3_thresholds.MIN_ETA",
+  "decimals": 2
+ },
+ "params.thr_min_pixels": {
+  "value": 2000,
+  "unit": "pixels",
+  "source": "scripts/a3_thresholds.MIN_N"
+ },
+ "params.thr_smooth_bins": {
+  "value": 5,
+  "unit": "bins",
+  "source": "caspian.thresholds.SMOOTH"
+ },
+ "params.vario_bin_km": {
+  "value": 2.5,
+  "unit": "km",
+  "source": "caspian.validation.VARIO_BIN_M",
+  "decimals": 1
+ },
+ "params.vario_max_lag_km": {
+  "value": 150.0,
+  "unit": "km",
+  "source": "caspian.validation.VARIO_MAX_LAG_M",
+  "decimals": 0
+ },
+ "params.vario_max_pairs": {
+  "value": 2000000,
+  "unit": "pairs",
+  "source": "caspian.validation.VARIO_MAX_PAIRS"
+ },
+ "params.vario_short_lag_km": {
+  "value": 7.5,
+  "unit": "km",
+  "source": "caspian.validation.VARIO_SHORT_LAG_M",
+  "decimals": 1
+ },
+ "params.veg_cell_share": {
+  "value": 0.5,
+  "unit": "fraction",
+  "source": "scripts/a6_vegetation.VEG_CELL_SHARE",
+  "decimals": 1
+ },
+ "params.veg_sector_pct": {
+  "value": 10,
+  "unit": "%",
+  "source": "100 * caspian.design.VEGETATED_SECTOR_FRACTION (= scripts/a6_vegetation.VEG_SECTOR_FRACTION)"
  },
  "params.zone_dilate_m": {
   "value": 2000,
@@ -1406,5 +1789,177 @@
   "value": 19827.9,
   "unit": "km2",
   "source": "results/study_area/sector_areas.json"
+ },
+ "study_area.stage2_cover_km2": {
+  "value": 97083.4,
+  "unit": "km2",
+  "source": "results/study_area/zone_v6_cover_buffered.geojson",
+  "note": "zone-v6 5 km tile cover extended seaward by one cell, clipped to the domain (D-060)"
+ },
+ "surge.n_block_passes": {
+  "value": 7582,
+  "unit": "block-passes",
+  "source": "results/levels/setup_model.json",
+  "note": "after screening"
+ },
+ "surge.n_calib_passes.interfluve": {
+  "value": 116,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_calib_passes.northeast": {
+  "value": 153,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_calib_passes.open_shelf": {
+  "value": 239,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_calib_passes.ural": {
+  "value": 128,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_calib_passes.volga": {
+  "value": 63,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_calib_passes.west": {
+  "value": 89,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_passes": {
+  "value": 526,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json",
+  "note": "SWOT passes after block-pass screening"
+ },
+ "surge.n_sectors_fitted": {
+  "value": 6,
+  "unit": "sectors",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_sectors_proxy": {
+  "value": 1,
+  "unit": "sectors",
+  "source": "results/levels/setup_model.json",
+  "note": "sectors without SWOT open-sea passes that use a neighbour's model (D-066)"
+ },
+ "surge.n_train_passes.interfluve": {
+  "value": 183,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_train_passes.northeast": {
+  "value": 73,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_train_passes.open_shelf": {
+  "value": 445,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_train_passes.ural": {
+  "value": 136,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_train_passes.volga": {
+  "value": 61,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.n_train_passes.west": {
+  "value": 58,
+  "unit": "passes",
+  "source": "results/levels/setup_model.json"
+ },
+ "surge.r2_calib.interfluve": {
+  "value": 0.577,
+  "unit": "",
+  "source": "results/levels/setup_model.json",
+  "note": "calibration blocks (never used in the fit); fitted sectors only",
+  "decimals": 2
+ },
+ "surge.r2_calib.northeast": {
+  "value": 0.513,
+  "unit": "",
+  "source": "results/levels/setup_model.json",
+  "note": "calibration blocks (never used in the fit); fitted sectors only",
+  "decimals": 2
+ },
+ "surge.r2_calib.open_shelf": {
+  "value": 0.123,
+  "unit": "",
+  "source": "results/levels/setup_model.json",
+  "note": "calibration blocks (never used in the fit); fitted sectors only",
+  "decimals": 2
+ },
+ "surge.r2_calib.ural": {
+  "value": 0.481,
+  "unit": "",
+  "source": "results/levels/setup_model.json",
+  "note": "calibration blocks (never used in the fit); fitted sectors only",
+  "decimals": 2
+ },
+ "surge.r2_calib.volga": {
+  "value": 0.217,
+  "unit": "",
+  "source": "results/levels/setup_model.json",
+  "note": "calibration blocks (never used in the fit); fitted sectors only",
+  "decimals": 2
+ },
+ "surge.r2_calib.west": {
+  "value": 0.774,
+  "unit": "",
+  "source": "results/levels/setup_model.json",
+  "note": "calibration blocks (never used in the fit); fitted sectors only",
+  "decimals": 2
+ },
+ "surge.r2_calib_max": {
+  "value": 0.774,
+  "unit": "",
+  "source": "results/levels/setup_model.json",
+  "note": "calibration blocks (never used in the fit); fitted sectors only",
+  "decimals": 2
+ },
+ "surge.r2_calib_min": {
+  "value": 0.123,
+  "unit": "",
+  "source": "results/levels/setup_model.json",
+  "note": "calibration blocks (never used in the fit); fitted sectors only",
+  "decimals": 2
+ },
+ "surge.resid_sd_calib_max_m": {
+  "value": 0.2756,
+  "unit": "m",
+  "source": "results/levels/setup_model.json",
+  "note": "calibration blocks (never used in the fit); fitted sectors only",
+  "decimals": 2
+ },
+ "surge.resid_sd_calib_min_m": {
+  "value": 0.1074,
+  "unit": "m",
+  "source": "results/levels/setup_model.json",
+  "note": "calibration blocks (never used in the fit); fitted sectors only",
+  "decimals": 2
+ },
+ "thresholds.n_acquisitions": {
+  "value": 6329,
+  "unit": "acquisitions",
+  "source": "results/qc/threshold_rule_summary.json",
+  "note": "open-water-month acquisitions of stage-1 run 3"
+ },
+ "thresholds.valid_pct": {
+  "value": 73.8,
+  "unit": "%",
+  "source": "results/qc/threshold_rule_summary.json",
+  "note": "acquisitions whose pooled Otsu threshold passes the D-061 rule",
+  "decimals": 0
  }
 }

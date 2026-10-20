@@ -13,13 +13,18 @@ they are evaluated separately and never pooled. GEDI L2A shots (Amendment 2) use
 
 Datum chain (docs/DATUMS.md; PREREG section 5)
 ---------------------------------------------
-    h_ell (WGS84 ellipsoid, ITRF2014) - N (EGM2008)  = H_EGM2008       ``orthometric``
-    H_EGM2008 + c                                    = DEM reference   ``apply_datum_constant``
+    h_ell (WGS84 ellipsoid, ITRF2020, tide-free) - N (EIGEN-6C4) = H        ``orthometric``
+    H + c                                                        = DEM reference ``apply_datum_constant``
 
-The DEM is on the DAHITI reference (scripts/a6_dem.py). N is the ATL06 ``dem/geoid_h``.
-ATL08 carries no geoid, so N is interpolated in time along the same beam of the ATL06
-granule of the same orbit (``geoid_along_track``). c is the median of DEM - H_EGM2008
-over training-block points, with a block-bootstrap σ (``fit_datum_constant``). The
+The DEM is on the DAHITI reference (scripts/a6_dem.py), whose geoid is EIGEN-6C4
+(docs/DATUMS.md). N is EIGEN-6C4 at each point (``EigenGeoid``: the ICGEM tide-free grid
+in results/study_area/geoid_egm2008_minus_eigen6c4.npz, bilinear), for ATL06 and ATL08
+alike (D-078). The spatial part of the EGM2008 - EIGEN-6C4 difference (SD 0.075 m) would
+otherwise stay in the residuals; constant parts (zero-degree term, tide system) are
+absorbed by c. Without a geoid function, the ATL06 ``dem/geoid_h`` (EGM2008) is used and
+ATL08 takes it from the ATL06 of the same orbit (``geoid_along_track``), the D-069
+chain. c is the median of DEM - H over training-block points, with a block-bootstrap
+σ (``fit_datum_constant``). The
 DAHITI -> BHS-77 offset is common to the DEM, the products and the reference heights,
 so it cancels in every metric and score computed here.
 
@@ -177,6 +182,20 @@ def geoid_along_track(t, beam, ref_t, ref_beam, ref_geoid, max_gap_s: float = GE
     return out
 
 
+class EigenGeoid:
+    """N(EIGEN-6C4) at lon/lat, bilinear on the ICGEM grid (D-074, D-078)."""
+
+    def __init__(self, path=None):
+        from scipy.interpolate import RegularGridInterpolator
+        from .config import RESULTS
+        z = np.load(path or RESULTS / "study_area" / "geoid_egm2008_minus_eigen6c4.npz")
+        self._f = RegularGridInterpolator((z["lat"], z["lon"]), z["N_eigen6c4_icgem_m"].astype(float),
+                                          method="linear", bounds_error=False, fill_value=np.nan)
+
+    def __call__(self, lon, lat) -> np.ndarray:
+        return self._f(np.column_stack([np.asarray(lat, float), np.asarray(lon, float)]))
+
+
 def orthometric(h_ell, geoid) -> np.ndarray:
     """H = h - N: ellipsoidal height to height above the geoid model."""
     return np.asarray(h_ell, float) - np.asarray(geoid, float)
@@ -246,14 +265,17 @@ def cascade(steps: dict[str, np.ndarray], n: int) -> tuple[np.ndarray, pd.DataFr
     return keep, pd.DataFrame(rows)
 
 
-def prepare_icesat2(d: pd.DataFrame, product: str, ref: pd.DataFrame | None = None):
-    """Quality steps for one granule. For ATL08, ``ref`` is the ATL06 granule of the same
-    orbit (time, beam, geoid_h), or None if there is none (then no geoid, and every
-    point fails the geoid step). Returns (kept points with h_orth, cascade table). The
-    product's own reference DEM ``dem_h`` is renamed ``is2_dem_h``, so that ``dem_h``
-    always means the waterline DEM."""
+def prepare_icesat2(d: pd.DataFrame, product: str, ref: pd.DataFrame | None = None, geoid=None):
+    """Quality steps for one granule. With ``geoid`` (a callable lon, lat -> N, e.g.
+    ``EigenGeoid``), N comes from it for both products (D-078). Without it, for ATL08,
+    ``ref`` is the ATL06 granule of the same orbit (time, beam, geoid_h), or None if
+    there is none (then no geoid, and every point fails the geoid step). Returns (kept
+    points with h_orth, cascade table). The product's own reference DEM ``dem_h`` is
+    renamed ``is2_dem_h``, so that ``dem_h`` always means the waterline DEM."""
     d = d.copy()
-    if product == "ATL08":
+    if geoid is not None:
+        d["geoid_h"] = geoid(d["lon"].to_numpy(float), d["lat"].to_numpy(float))
+    elif product == "ATL08":
         d["geoid_h"] = (np.full(len(d), np.nan) if ref is None or ref.empty else
                         geoid_along_track(d["time"], d["beam"], ref["time"], ref["beam"], ref["geoid_h"]))
     keep, casc = cascade(icesat2_steps(d, product), len(d))

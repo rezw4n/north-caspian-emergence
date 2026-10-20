@@ -149,7 +149,7 @@ def test_driver_stages(tmp_path, monkeypatch, drv):
     monkeypatch.setattr(caspian, "products", fake, raising=False)
     with pytest.raises(SystemExit, match="unknown products"):
         drv.main(["syn", "prepare", "--emergence", em, "--products", "gebco_2026,etopo_2023"])
-    assert drv.main(["syn", "prepare", "--emergence", em]) == 0
+    assert drv.main(["syn", "prepare", "--emergence", em, "--geoid", "atl06"]) == 0
 
     out = tmp_path / "results" / "validation" / "syn"
     meta = json.loads((out / "prepare.json").read_text())

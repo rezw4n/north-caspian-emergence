@@ -100,6 +100,81 @@ def study_area_metrics(m: dict) -> None:
             "grids; " + note)
 
 
+def input_stage_metrics(m: dict) -> None:
+    """Input-level facts quoted in Methods, all fixed before any waterline, DEM or
+    hindcast quantity existed: the setup-model fit on SWOT (scripts/a5_setup_model.py;
+    D-065, D-066), the per-acquisition threshold rule's outcome (scripts/a3_thresholds.py;
+    D-061), the EGM2008 - EIGEN-6C4 geoid difference (scripts/a7_geoid_difference.py;
+    D-074) and the 25 km block assignment (scripts/a6_blocks.py; PREREG section 6)."""
+    def put_dp(key, value, unit, source, note=None, dp=2):
+        put(m, key, value, unit, source, note)
+        if key in m:
+            m[key]["decimals"] = dp
+
+    sm = load("levels/setup_model.json")
+    src = "results/levels/setup_model.json"
+    if sm:
+        inp = sm.get("inputs") or {}
+        put(m, "surge.n_passes", inp.get("n_passes"), "passes", src, "SWOT passes after block-pass screening")
+        put(m, "surge.n_block_passes", inp.get("n_block_passes"), "block-passes", src, "after screening")
+        fitted = {k: v for k, v in (sm.get("sectors") or {}).items() if v.get("fitted")}
+        put(m, "surge.n_sectors_fitted", len(fitted), "sectors", src)
+        put(m, "surge.n_sectors_proxy", sum(1 for v in sm["sectors"].values() if v.get("proxy")), "sectors", src,
+            "sectors without SWOT open-sea passes that use a neighbour's model (D-066)")
+        r2 = [v["r2_calib"] for v in fitted.values() if v.get("r2_calib") is not None]
+        sd = [v["resid_sd_calib_m"] for v in fitted.values() if v.get("resid_sd_calib_m") is not None]
+        cnote = "calibration blocks (never used in the fit); fitted sectors only"
+        if r2:
+            put_dp("surge.r2_calib_min", min(r2), "", src, cnote)
+            put_dp("surge.r2_calib_max", max(r2), "", src, cnote)
+        if sd:
+            put_dp("surge.resid_sd_calib_min_m", min(sd), "m", src, cnote)
+            put_dp("surge.resid_sd_calib_max_m", max(sd), "m", src, cnote)
+        for s, v in fitted.items():
+            put(m, f"surge.n_train_passes.{s}", v.get("n_train_passes"), "passes", src)
+            put(m, f"surge.n_calib_passes.{s}", v.get("n_calib_passes"), "passes", src)
+            if v.get("r2_calib") is not None:
+                put_dp(f"surge.r2_calib.{s}", v["r2_calib"], "", src, cnote)
+
+    tr = load("qc/threshold_rule_summary.json")
+    src = "results/qc/threshold_rule_summary.json"
+    if tr:
+        put(m, "thresholds.n_acquisitions", tr.get("n_acquisitions"), "acquisitions", src,
+            "open-water-month acquisitions of stage-1 run 3")
+        if tr.get("share_valid_open_water") is not None:
+            put_dp("thresholds.valid_pct", round(100 * tr["share_valid_open_water"], 1), "%", src,
+                   "acquisitions whose pooled Otsu threshold passes the D-061 rule", dp=0)
+
+    gd = (load("provenance/geoid_difference.json").get("summary") or {})
+    src = "results/provenance/geoid_difference.json"
+    dn = gd.get("dN_m_domain_bounds") or {}
+    if dn:
+        gnote = "N(EGM2008) - N(EIGEN-6C4), ICGEM, tide-free, degree 2190, over the domain bounds"
+        put_dp("datum.dN_min_m", dn.get("min_m"), "m", src, gnote)
+        put_dp("datum.dN_max_m", dn.get("max_m"), "m", src, gnote)
+        put_dp("datum.dN_sd_m", dn.get("sd_m"), "m", src, gnote, dp=3)
+    off = gd.get("N_EGM2008_NGA_minus_ICGEM_region") or {}
+    if off:
+        put_dp("datum.nga_offset_m", off.get("mean_m"), "m", src,
+               "NGA/PROJ EGM2008 minus ICGEM EGM2008 (the NGA height offset), mean over the product box")
+
+    cov = load("study_area/zone_v6_cover_buffered.geojson")
+    if cov.get("features"):
+        put(m, "study_area.stage2_cover_km2", cov["features"][0]["properties"].get("area_km2"), "km2",
+            "results/study_area/zone_v6_cover_buffered.geojson",
+            "zone-v6 5 km tile cover extended seaward by one cell, clipped to the domain (D-060)")
+
+    import csv
+    from collections import Counter
+    bp = RES / "study_area" / "blocks_25km.csv"
+    if bp.exists():
+        rows = list(csv.DictReader(bp.open(encoding="utf-8")))
+        src = "results/study_area/blocks_25km.csv"
+        put(m, "blocks.n_total", len(rows), "blocks", src, "25 km blocks whose centre lies in a sector")
+        for k, n in Counter(r["split"] for r in rows).items():
+            put(m, f"blocks.n.{k}", n, "blocks", src)
+
+
 def main() -> int:
     m: dict = {}
     inv = load("inventory/inventory_meta.json")
@@ -118,6 +193,7 @@ def main() -> int:
         put(m, f"inventory.last.{k}", v[:10], "date", src)
 
     study_area_metrics(m)
+    input_stage_metrics(m)
 
     dq = load("qc/dahiti_summary.json")
     src = "results/qc/dahiti_summary.json"

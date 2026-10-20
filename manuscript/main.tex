@@ -14,6 +14,10 @@
 \input{numbers.tex}
 
 \newcommand{\kmsq}{km\textsuperscript{2}}
+% Draft marker for a missing citation or an open check; every \todo must be resolved
+% before Phase B (verify-B). It prints in bold brackets so it cannot be missed.
+\newcommand{\todo}[1]{\textbf{[TODO: #1]}}
+\setlength{\emergencystretch}{3em}  % long \todo notes and identifiers in the draft
 
 \title{Four decades of retreating shorelines audit projected seabed emergence in the North Caspian Sea}
 \author{Rezwan Ahmed\\[2pt]
@@ -30,6 +34,20 @@
 \section*{Methods}
 \input{sections/methods_data}
 \input{sections/methods_water}
+\input{sections/methods_frequency}
+\input{sections/methods_surge}
+\input{sections/methods_dem}
+\input{sections/methods_datums}
+\input{sections/methods_validation}
+\input{sections/methods_hindcast}
+\input{sections/methods_stats}
+
+% Display items that need no results (figures/; draft legends). Kept before the
+% references while the draft has no Results section.
+\clearpage
+\section*{Supplementary Figures (draft)}
+\input{sections/figure_captions_draft}
+\clearpage
 
 \bibliographystyle{unsrtnat}
 \bibliography{../refs/references}

@@ -478,3 +478,18 @@ def test_h2_missing_product_is_not_evaluable_never_silently_dropped():
     rows = _all_better()
     rows[0] = ("overall", "a", "nmad", np.nan, np.nan, np.nan)
     assert validation.h2_decision(_comparisons(rows), ["a", "b"])["overall"] == "not evaluable"
+
+
+def test_eigen_geoid_used_for_both_products(tmp_path):
+    lon = np.array([49.0, 50.0, 51.0])
+    lat = np.array([45.0, 46.0])
+    N = np.array([[-20.0, -21.0, -22.0], [-19.0, -20.0, -21.0]])
+    p = tmp_path / "g.npz"
+    np.savez(p, lon=lon, lat=lat, N_eigen6c4_icgem_m=N)
+    g = validation.EigenGeoid(p)
+    assert np.allclose(g([49.5], [45.5]), [-20.0])          # mean of the four corners
+    d = pd.DataFrame({"lat": 45.5, "lon": 49.5, "h": -40.0, "h_sigma": 0.3, "watermask": 0, "landcover": 80,
+                      "cloud": 0, "msw": 0, "night": 1, "dem_h": -41.0, "time": _t(np.zeros(1)), "beam": "gt2r",
+                      "sc_orient": 1})
+    kept, _ = validation.prepare_icesat2(d, "ATL08", None, geoid=g)    # no ATL06 needed
+    assert len(kept) == 1 and np.allclose(kept["h_orth"], -40.0 + 20.0)
