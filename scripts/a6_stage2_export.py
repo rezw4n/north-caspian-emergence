@@ -138,10 +138,11 @@ def upload(plan_csv: str, tag: str) -> int:
     return 0
 
 
-def build_image(tag: str, groups, region_ll, sector_code=None):
+def build_image(tag: str, groups, region_ll, sector_code=None, observed: bool = False):
     st = json.loads((STATE / f"stage2_{tag}.json").read_text(encoding="utf-8"))
     plan = ee.FeatureCollection([ee.FeatureCollection(c["asset"]) for c in st["chunks"]]).flatten()
     sec = sector_image()
+    kinds = ("w", "v", "o") if observed else ("w", "v")
     bands = []
     for g in groups:
         pg = plan.filter(ee.Filter.eq("group", g))
@@ -175,13 +176,13 @@ def build_image(tag: str, groups, region_ll, sector_code=None):
             ok_in = ee.Image(ee.Algorithms.If(codes.size().gt(0),
                                               sec.remap(codes, ee.List.repeat(1, codes.size()), 0), ee.Image(0)))
             ok = ee.Image(ee.Algorithms.If(mode.equals("include"), ok_in, ok_ex))
-            return (pipeline_ee.water_valid(im.clip(region_ll), thr.get(key)).updateMask(ok)
+            return (pipeline_ee.water_valid(im.clip(region_ll), thr.get(key), observed=observed).updateMask(ok)
                     .copyProperties(im, ["system:time_start", "acq"]))
 
-        bands.append(pipeline_ee.group_counts(col.map(wv), g))
+        bands.append(pipeline_ee.group_counts(col.map(wv), g, kinds))
     # flat: ee.Image.cat chains addBands once per image, and the client serializer
     # exceeds Python's recursion limit at about 400 groups
-    names = [f"{p}_{g}" for g in groups for p in ("w", "v")]
+    names = [f"{p}_{g}" for g in groups for p in kinds]
     return ee.ImageCollection.fromImages(bands).toBands().rename(names)
 
 
@@ -206,13 +207,15 @@ def submit(tag: str, only=None, blocks: int = 0) -> int:
             groups = sorted(plan_df.loc[has, "group"].unique())
         else:
             groups = st["groups"]
-        img = build_image(tag, groups, region_ll, code)
+        observed = not blocks    # main export: also the observed count, for the vegetation fraction (D-071)
+        img = build_image(tag, groups, region_ll, code, observed)
         name = f"stage2_{tag}_t{i}_{j}".replace("-", "m")
         t = ee.batch.Export.image.toAsset(image=img, description=name, assetId=f"{ROOT}/{name}", region=region_ll,
                                           crs=pipeline_ee.LAEA_WKT, crsTransform=tr, maxPixels=1e11)
         t.start()
         st["tiles"][key] = {"asset": f"{ROOT}/{name}", "task": t.id, "transform": tr, "dims": dims,
-                            "area_km2": round(part.area / 1e6, 1), "groups": groups, "sector_code": code}
+                            "area_km2": round(part.area / 1e6, 1), "groups": groups, "sector_code": code,
+                            "kinds": ["w", "v", "o"] if observed else ["w", "v"]}
         print("submitted", name, t.id, st["tiles"][key]["area_km2"], "km2", flush=True)
         (STATE / f"stage2_{tag}.json").write_text(json.dumps(st, indent=1), encoding="utf-8")
     return 0
@@ -238,7 +241,7 @@ def fetch(tag: str) -> int:
     out = INTERIM / "stage2" / tag
     out.mkdir(parents=True, exist_ok=True)
     for k, t in st["tiles"].items():
-        bands = [f"{p}_{g}" for g in t.get("groups", st["groups"]) for p in ("w", "v")]
+        bands = [f"{p}_{g}" for g in t.get("groups", st["groups"]) for p in t.get("kinds", ["w", "v"])]
         f = out / f"tile_{k}.npz"
         if f.exists():
             continue

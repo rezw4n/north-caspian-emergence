@@ -312,18 +312,21 @@ def classify_with_threshold(img, threshold, ndvi_veg: float = water.NDVI_VEG):
             .updateMask(m.mask()).updateMask(known).uint8().rename("class"))
 
 
-def water_valid(img, threshold, ndvi_veg: float = water.NDVI_VEG):
+def water_valid(img, threshold, ndvi_veg: float = water.NDVI_VEG, observed: bool = False):
     """Stage-2 per-scene [w, v] pair: w = water, v = water or dry (emergent
     vegetation is not a valid observation, PREREG section 3); masked = unobserved.
-    Same classes as classify_with_threshold, in the form the counts need. Both bands
+    Same classes as classify_with_threshold, in the form the counts need. All bands
     carry one mask, so w <= v in every image and every per-acquisition mosaic (D-068:
-    a separate NDVI mask on v gave w > v)."""
+    a separate NDVI mask on v gave w > v). With ``observed``, a third band o = 1
+    wherever the pixel was classified, so o - v counts emergent vegetation (D-071)."""
     m = water.ee_nd(img, "green", "swir1")
     n = water.ee_nd(img, "nir", "red")
     w = m.gt(ee.Number(threshold))
     v = w.Or(n.lte(ndvi_veg).unmask(0))
     known = w.Or(n.mask())
-    return ee.Image.cat([w, v]).rename(["w", "v"]).uint16().updateMask(m.mask()).updateMask(known)
+    bands = [w, v, w.Or(w.Not())] if observed else [w, v]
+    names = ["w", "v", "o"] if observed else ["w", "v"]
+    return ee.Image.cat(bands).rename(names).uint16().updateMask(m.mask()).updateMask(known)
 
 
 def per_acquisition(col):
@@ -334,10 +337,11 @@ def per_acquisition(col):
         lambda k: ee.ImageCollection(col.filter(ee.Filter.eq("acq", k))).mosaic()))
 
 
-def group_counts(wv, name: str):
-    """Water and valid counts of a collection of water_valid() images, one pass,
-    each acquisition once; zero where no acquisition observed the pixel. Two
-    uint16 bands, w_<name> and v_<name>."""
-    zero = ee.ImageCollection([ee.Image.constant([0, 0]).rename(["w", "v"]).uint16()])
+def group_counts(wv, name: str, kinds=("w", "v")):
+    """Water and valid (and, with kinds w, v, o, observed) counts of a collection of
+    water_valid() images, one pass, each acquisition once; zero where no acquisition
+    observed the pixel. uint16 bands <kind>_<name>."""
+    kinds = list(kinds)
+    zero = ee.ImageCollection([ee.Image.constant([0] * len(kinds)).rename(kinds).uint16()])
     total = zero.merge(per_acquisition(wv)).sum()
-    return total.rename([f"w_{name}", f"v_{name}"]).uint16()
+    return total.rename([f"{k}_{name}" for k in kinds]).uint16()
