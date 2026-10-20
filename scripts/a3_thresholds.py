@@ -36,7 +36,7 @@ import numpy as np
 import pandas as pd
 
 from caspian import thresholds
-from caspian.config import INTERIM, RESULTS
+from caspian.config import INTERIM, RESULTS, STAGE1
 
 # Rule constants, fixed from the run-2 diagnostics before stage 2 (D-061)
 MIN_N = 2000
@@ -48,7 +48,7 @@ ICE_MONTHS = (11, 12, 1, 2, 3)   # ice-affected, excluded from stage 2 (D-062; r
 
 
 def load() -> pd.DataFrame:
-    d = pd.concat([pd.read_csv(p, dtype={"hist": str}) for p in sorted(glob.glob(str(INTERIM / "stage1_v2" / "*.csv")))
+    d = pd.concat([pd.read_csv(p, dtype={"hist": str}) for p in sorted(glob.glob(str(STAGE1 / "*.csv")))
                    if not p.endswith("thresholds_by_acquisition.csv")], ignore_index=True)
     d["t"] = pd.to_datetime(d["time"], unit="ms")
     d["month"] = d["t"].dt.month
@@ -88,7 +88,7 @@ def main(argv) -> int:
     fb = a[valid].groupby(["sensor", "month"])["threshold"].median()
     a["threshold_used"] = np.where(valid, a["threshold"],
                                    [fb.get((s, m), np.nan) for s, m in zip(a["sensor"], a["month"])])
-    out = INTERIM / "stage1_v2" / "thresholds_by_acquisition.csv"
+    out = STAGE1 / "thresholds_by_acquisition.csv"
     a.to_csv(out, index=False)
     ow = ~a["month"].isin(ICE_MONTHS)
     summ = {"rule": {"min_n": MIN_N, "min_share": MIN_SHARE, "min_eta": MIN_ETA, "max_valley": MAX_VALLEY,

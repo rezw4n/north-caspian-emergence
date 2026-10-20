@@ -179,7 +179,10 @@ def build_image(tag: str, groups, region_ll, sector_code=None):
                     .copyProperties(im, ["system:time_start", "acq"]))
 
         bands.append(pipeline_ee.group_counts(col.map(wv), g))
-    return ee.Image.cat(bands)
+    # flat: ee.Image.cat chains addBands once per image, and the client serializer
+    # exceeds Python's recursion limit at about 400 groups
+    names = [f"{p}_{g}" for g in groups for p in ("w", "v")]
+    return ee.ImageCollection.fromImages(bands).toBands().rename(names)
 
 
 def submit(tag: str, only=None, blocks: int = 0) -> int:
@@ -238,6 +241,10 @@ def fetch(tag: str) -> int:
         bands = [f"{p}_{g}" for g in t.get("groups", st["groups"]) for p in ("w", "v")]
         f = out / f"tile_{k}.npz"
         if f.exists():
+            continue
+        state = ee.data.getOperation(f"projects/{EE_PROJECT}/operations/{t['task']}")["metadata"].get("state")
+        if state != "SUCCEEDED":
+            print("not ready", k, state, flush=True)
             continue
         arr = ee_io.fetch(t["asset"], bands, t["transform"], t["dims"], pipeline_ee.LAEA_WKT, block=512,
                           bytes_per_px=2)   # uint16 counts

@@ -32,7 +32,7 @@ import numpy as np
 import pandas as pd
 
 from caspian import design, levels
-from caspian.config import INTERIM
+from caspian.config import INTERIM, STAGE1
 from caspian.geography import SECTOR_ORDER
 
 ICE_MONTHS = (11, 12, 1, 2, 3)          # D-062
@@ -42,11 +42,11 @@ SECTOR_CODE = {s: i + 1 for i, s in enumerate(SECTOR_ORDER)}
 
 def build() -> pd.DataFrame:
     s1 = pd.concat([pd.read_csv(p, usecols=["scene", "sensor", "acq", "time", "zone_px"])
-                    for p in sorted(glob.glob(str(INTERIM / "stage1_v2" / "*.csv"))) if "thresholds" not in p],
+                    for p in sorted(glob.glob(str(STAGE1 / "*.csv"))) if "thresholds" not in p],
                    ignore_index=True)
     s1["t"] = pd.to_datetime(s1["time"], unit="ms")
     s1 = s1[~s1["t"].dt.month.isin(ICE_MONTHS) & (pd.to_numeric(s1["zone_px"], errors="coerce") > 0)]
-    thr = pd.read_csv(INTERIM / "stage1_v2" / "thresholds_by_acquisition.csv",
+    thr = pd.read_csv(STAGE1 / "thresholds_by_acquisition.csv",
                       usecols=["acq", "threshold_used", "source"])
     lv = pd.read_csv(INTERIM / "levels" / "scene_levels.csv",
                      usecols=["system:index", "level_m", "sigma_m", "sigma_random_m", "sigma_offset_m", "epoch"],

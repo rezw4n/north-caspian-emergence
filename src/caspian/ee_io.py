@@ -59,7 +59,9 @@ def fetch(image, bands, transform, dims, crs, block: int = 1024, dtype=None, byt
     img = ee.Image(image)
     for c0, r0, w, h in tiles(dims, block):
         sub = [a, b, c + a * c0 + b * r0, d, e, f + d * c0 + e * r0]
-        for chunk in band_chunks(bands, w, h, bytes_per_px):
+        # Earth Engine counts one mask byte per pixel and band on top of the value
+        # (measured: 62,750,160 bytes for 120 uint16 bands of 417 x 417 pixels)
+        for chunk in band_chunks(bands, w, h, bytes_per_px + 1):
             arr = ee.data.computePixels({"expression": img.select(chunk), "fileFormat": "NUMPY_NDARRAY",
                                          "grid": grid(sub, (w, h), crs)})
             for band in chunk:

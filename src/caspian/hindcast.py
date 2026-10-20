@@ -181,6 +181,22 @@ def outside_state_from_zone(zone, sea_seed, land_seed, *, domain, connectivity: 
     return state
 
 
+def beyond_land_state(high, observed, pixel_size: float, dilate_m: float):
+    """Beyond-domain state supplying land only (D-067): 0 where an observed cell lies
+    farther than ``dilate_m`` from every water cell of ``high`` (the observed
+    near-maximum extent), NaN elsewhere. Unobserved cells count as possible water, so
+    that a gap in the observations never creates land; water is never assigned."""
+    obs = np.asarray(observed, bool)
+    maybe_water = np.asarray(high, bool) | ~obs
+    if not maybe_water.any():
+        dist = np.full(obs.shape, np.inf)
+    else:
+        dist = ndimage.distance_transform_edt(~maybe_water) * pixel_size
+    out = np.full(obs.shape, np.nan)
+    out[obs & (dist > dilate_m)] = 0.0
+    return out
+
+
 def nearest_region(labels, domain):
     """Region labels (e.g. sectors) extended to every cell outside ``domain``: such a
     cell takes the label of the nearest cell inside the domain (Euclidean distance on
