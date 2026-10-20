@@ -408,7 +408,7 @@ No level-binned water frequency, waterline, contour, DEM or metric existed. Stag
 
 **Reason (D-082).** QC of the stage-2 observations, with no product involved, showed that dark, clear deep water is often classified dry: up to 4% of record-low water cells in some bins, and whole blocks of open water with frequencies near 0.5. Under sea-connected flooding, a cell under water at the lowest level of the record is under water at every higher level, so these dry states are observation errors. Left in, they would create spurious observed shorelines far offshore and inflate every product's displacement.
 
-## Amendment 14 — 2026-10-21 04:20 (change to §9 outside states; before any hindcast metric)
+## Amendment 14 — 2026-10-21 04:05 (change to §9 outside states; before any hindcast metric)
 
 **Change.** For the outside states (Amendment 6, Amendment 10 item 3), the zone that separates labelled from observed cells is the stage-2 cover **plus a band of 2 km around the shorelines of the 1995–96 and 2025–26 zone-v6 extents**. The domain rim whose cells take the beyond-domain state is **2 km wide** (it was one cell).
 
