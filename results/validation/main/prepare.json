@@ -1,0 +1,49 @@
+{
+ "created": "2026-10-20T22:04:40Z",
+ "geoid": "eigen6c4",
+ "dem_tag": "main",
+ "dem_dir": "D:\\Caspian\\data\\processed\\dem\\main",
+ "emergence_dir": "data/processed/dem/main/emergence",
+ "epochs": [
+  "E2",
+  "E3"
+ ],
+ "products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7",
+  "gebco_2022",
+  "etopo1"
+ ],
+ "product_interpolation": "bilinear, as distributed (caspian.products.sample)",
+ "emergence_lag_days": 30,
+ "gross_error_m": 50.0,
+ "geoid_max_gap_s": 0.1,
+ "contour_radius_m": 500.0,
+ "sources": {
+  "ATL06": {
+   "granules": {
+    "recorded_with_points": 1714,
+    "read": 1714,
+    "missing_file": 0,
+    "incomplete_file": 0,
+    "atl08_without_atl06": 0
+   },
+   "dry_radius_px": 1,
+   "n_points": 13702061,
+   "n_with_dem": 13702061
+  },
+  "ATL08": {
+   "granules": {
+    "recorded_with_points": 1612,
+    "read": 1612,
+    "missing_file": 0,
+    "incomplete_file": 0,
+    "atl08_without_atl06": 0
+   },
+   "dry_radius_px": 2,
+   "n_points": 1266343,
+   "n_with_dem": 1266343
+  }
+ }
+}

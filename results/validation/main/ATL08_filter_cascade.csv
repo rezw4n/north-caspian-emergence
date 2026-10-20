@@ -1,0 +1,9 @@
+step,n_remaining,n_fail_alone
+input,9119271,0
+height,9119271,0
+strong_beam,4792688,4326583
+no_multiple_scattering,2247179,4702942
+cloud_free,2247179,4692952
+geoid,2247179,0
+gross_error,2247176,41
+dry_at_acquisition,1266343,980833
