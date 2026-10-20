@@ -11,8 +11,11 @@
    (results/study_area/blocks_25km.csv).
 4. Per sector, the training anomalies are regressed on lagged ERA5 forcing
    (caspian.surge: |U|u and |U|v means over 0-6, 6-12, 12-24 and 24-48 h, and the
-   0-6 h pressure anomaly). The fit is evaluated on calibration blocks; test blocks
-   are never used.
+   0-6 h pressure anomaly), standardised on the training data. A ridge penalty is
+   chosen by 5-fold cross-validation over training passes grouped by calendar month
+   (D-065). The fit is evaluated on calibration blocks; test blocks are never used.
+Block-passes are quality-screened before averaging (D-065): within-block wse NMAD at
+most MAX_BLOCK_NMAD, and within MAX_ROBUST_Z robust z of the block's median anomaly.
 5. The fitted model predicts setup for every levelled scene and sector.
 
 Outputs:
@@ -39,7 +42,10 @@ from caspian.config import INTERIM, RESULTS
 MIN_BLOCK_PASSES = 10      # a block needs this many passes for its mean to be removed
 MIN_PASS_PX = 30           # a block-pass needs this many pixels
 PASS_GAP_MIN = 10          # granules within this many minutes form one pass
-RIDGE = 0.0
+MAX_BLOCK_NMAD = 0.5      # m
+MAX_ROBUST_Z = 5.0
+RIDGE_GRID = (0.0, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0)
+N_FOLDS = 5
 
 
 def _a4():
@@ -50,7 +56,7 @@ def _a4():
 
 
 def sector_anomalies(sw: pd.DataFrame, blocks: pd.DataFrame, prep, a4) -> pd.DataFrame:
-    sw = sw[sw["n_px"] >= MIN_PASS_PX].copy()
+    sw = sw[(sw["n_px"] >= MIN_PASS_PX) & (sw["wse_nmad_m"] <= MAX_BLOCK_NMAD)].copy()
     sw["time"] = pd.to_datetime(sw["time_utc"])
     sw = sw.merge(blocks[["i", "j", "sector", "split"]], left_on=["block_i", "block_j"], right_on=["i", "j"])
     # passes: granules of one overpass are minutes apart
@@ -68,6 +74,9 @@ def sector_anomalies(sw: pd.DataFrame, blocks: pd.DataFrame, prep, a4) -> pd.Dat
     bp["anom"] = bp["wm"] / bp["w"] - bp["level_m"]
     n_pass = bp.groupby(["block_i", "block_j"])["pass_id"].transform("nunique")
     bp = bp[n_pass >= MIN_BLOCK_PASSES].copy()
+    med = bp.groupby(["block_i", "block_j"])["anom"].transform("median")
+    nmad = bp.groupby(["block_i", "block_j"])["anom"].transform(lambda x: 1.4826 * np.median(np.abs(x - np.median(x))))
+    bp = bp[np.abs(bp["anom"] - med) <= MAX_ROBUST_Z * np.maximum(nmad, 0.01)].copy()
     bp["anom_dm"] = bp["anom"] - bp.groupby(["block_i", "block_j"])["anom"].transform("mean")
     sec = (bp.groupby(["pass_id", "sector", "split"], as_index=False)
            .agg(anom_m=("anom_dm", "mean"), n_blocks=("anom_dm", "size")))
@@ -82,7 +91,8 @@ def main() -> int:
     blocks = pd.read_csv(RESULTS / "study_area" / "blocks_25km.csv")
     sec, bp = sector_anomalies(sw, blocks, prep, a4)
     era5 = surge.load_era5(sorted(glob.glob(str(INTERIM / "era5" / "era5_sector_winds_*.csv"))))
-    out = {"inputs": {"min_block_passes": MIN_BLOCK_PASSES, "min_pass_px": MIN_PASS_PX, "ridge": RIDGE,
+    out = {"inputs": {"min_block_passes": MIN_BLOCK_PASSES, "min_pass_px": MIN_PASS_PX,
+                      "max_block_nmad_m": MAX_BLOCK_NMAD, "max_robust_z": MAX_ROBUST_Z, "ridge_grid": RIDGE_GRID,
                       "windows_h": surge.WINDOWS_H, "n_passes": int(sec["pass_id"].nunique()),
                       "n_block_passes": int(len(bp))}, "sectors": {}}
     models = {}
@@ -93,8 +103,33 @@ def main() -> int:
             out["sectors"][s] = {"n_train_passes": int(len(tr)), "fitted": False}
             continue
         Xtr = surge.forcing_features(era5, s, tr["time"])
-        m = surge.fit_setup(Xtr, tr["anom_m"], ridge=RIDGE)
-        res = {"n_train_passes": int(m["n"]), "fitted": True, "resid_sd_train_m": round(m["resid_sd"], 4),
+        ok = np.all(np.isfinite(Xtr.to_numpy()), axis=1) & np.isfinite(tr["anom_m"].to_numpy())
+        Xtr, ytr, ttr = Xtr[ok].reset_index(drop=True), tr["anom_m"][ok].reset_index(drop=True), tr["time"][ok]
+        mu, sd = Xtr.mean(), Xtr.std().replace(0, 1)
+        Z = (Xtr - mu) / sd
+        # ridge strength by 5-fold CV over training passes grouped by calendar month
+        month = pd.to_datetime(ttr).dt.to_period("M").astype(str).to_numpy()
+        um = np.unique(month)
+        fold = {mm: k % N_FOLDS for k, mm in enumerate(np.random.default_rng(20261020).permutation(um))}
+        fid = np.array([fold[mm] for mm in month])
+        cv = {}
+        for lam in RIDGE_GRID:
+            err = []
+            for k in range(N_FOLDS):
+                tr_k, te_k = fid != k, fid == k
+                if te_k.sum() == 0 or tr_k.sum() < Z.shape[1] + 2:
+                    continue
+                mk = surge.fit_setup(Z[tr_k], ytr[tr_k], ridge=lam)
+                err.append(((ytr[te_k].to_numpy() - surge.predict_setup(mk, Z[te_k])) ** 2).mean())
+            cv[lam] = float(np.mean(err)) if err else np.inf
+        lam = min(cv, key=cv.get)
+        mz = surge.fit_setup(Z, ytr, ridge=lam)
+        # back to raw feature units, so predict_setup works on unstandardised features
+        coef = {c: mz["coef"][c] / sd[c] for c in Z.columns}
+        m = {"intercept": mz["intercept"] - sum(mz["coef"][c] * mu[c] / sd[c] for c in Z.columns),
+             "coef": coef, "resid_sd": mz["resid_sd"], "n": mz["n"]}
+        res = {"n_train_passes": int(m["n"]), "fitted": True, "ridge": lam, "cv_mse": cv,
+               "resid_sd_train_m": round(m["resid_sd"], 4),
                "anom_sd_train_m": round(float(np.nanstd(tr["anom_m"])), 4),
                "intercept": m["intercept"], "coef": m["coef"]}
         if len(ca):

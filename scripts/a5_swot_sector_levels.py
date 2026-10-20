@@ -161,6 +161,11 @@ def work(g, headers, secs, tmpdir) -> tuple[dict, list[dict]]:
                 with path.open("wb") as f:
                     for chunk in r.iter_content(1 << 20):
                         f.write(chunk)
+            with path.open("rb") as f:   # netCDF-4 is HDF5: check the signature, else retry
+                if f.read(8) != b"HDF
+
+":
+                    raise OSError("downloaded file is not HDF5/netCDF-4")
             break
         except Exception:
             if attempt == 3:
