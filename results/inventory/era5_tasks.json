@@ -1,0 +1,24 @@
+{
+ "tasks": [
+  {
+   "name": "era5_sector_winds_1984_1994",
+   "task": "DT45Q4SMAO3ESHUUK2Z3PTL6"
+  },
+  {
+   "name": "era5_sector_winds_1994_2004",
+   "task": "QSKH7LZIEZ7PMTMLWW6TY6C5"
+  },
+  {
+   "name": "era5_sector_winds_2004_2014",
+   "task": "WDTOHPWPTTZA642O6SBUAVII"
+  },
+  {
+   "name": "era5_sector_winds_2014_2024",
+   "task": "UUJMGQ5CVTYZYPVB6WFLR3WR"
+  },
+  {
+   "name": "era5_sector_winds_2024_2027",
+   "task": "WPY5BD66ZT3YH7N4BAEPV53C"
+  }
+ ]
+}
