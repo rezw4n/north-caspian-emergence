@@ -1,0 +1,33 @@
+{
+ "tag": "main",
+ "veg_cell_share": 0.5,
+ "veg_sector_fraction": 0.1,
+ "min_valid_obs": 5,
+ "n_band_cells": {
+  "west": 748286,
+  "volga": 2248603,
+  "interfluve": 495908,
+  "ural": 363749,
+  "northeast": 2169976,
+  "komsomolets": 2315651,
+  "open_shelf": 1371700
+ },
+ "n_vegetated_cells": {
+  "west": 265577,
+  "volga": 1472081,
+  "interfluve": 16410,
+  "ural": 41165,
+  "northeast": 34874,
+  "komsomolets": 1560,
+  "open_shelf": 7648
+ },
+ "fraction": {
+  "west": 0.3549137629195254,
+  "volga": 0.6546646962580767,
+  "interfluve": 0.03309081523185752,
+  "ural": 0.11316869599641512,
+  "northeast": 0.01607114548732336,
+  "komsomolets": 0.0006736766464376541,
+  "open_shelf": 0.005575563169789312
+ }
+}

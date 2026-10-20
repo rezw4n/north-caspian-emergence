@@ -1,0 +1,184 @@
+{
+ "out": "main",
+ "sources": [
+  "mainL"
+ ],
+ "partial": false,
+ "tiles": {
+  "tile_-1_-1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-1_-2.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-1_0.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-1_1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-2_-1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-2_-2.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-2_0.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-2_1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-2_2.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-3_-1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-3_-2.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-3_0.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-3_1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_-3_2.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_0_-1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_0_-2.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_0_0.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_0_1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_1_-1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_1_-2.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_1_0.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_1_1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_1_2.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_2_-1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_2_-2.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_2_0.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_2_1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_3_-1.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  },
+  "tile_3_0.npz": {
+   "sources": [
+    "mainL"
+   ],
+   "bands": 255
+  }
+ },
+ "tiles_not_combined": []
+}
