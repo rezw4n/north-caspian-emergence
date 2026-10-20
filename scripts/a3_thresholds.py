@@ -7,7 +7,12 @@ is valid when all of:
 - the pooled sample has at least MIN_N pixels (240 m);
 - each class holds at least MIN_SHARE of it;
 - eta (between-class over total variance) is at least MIN_ETA;
-- the valley ratio is at most MAX_VALLEY.
+- the valley ratio is at most MAX_VALLEY;
+- the threshold lies in THR_RANGE. Open water absorbs strongly in the shortwave
+  infrared (SWIR1 below green), so its MNDWI is positive, and a threshold below zero
+  would class pixels with SWIR1 above green as water. Run 2 showed 15.5% of pooled
+  thresholds below zero, many passing the bimodality tests, in overpasses whose
+  in-zone sample is mostly land: Otsu then splits dry from moist land (D-061).
 
 Acquisitions that fail take the median of the valid thresholds of the same sensor
 and calendar month (the fallback); the source of every threshold is recorded.
@@ -36,9 +41,10 @@ from caspian.config import INTERIM, RESULTS
 # Rule constants, fixed from the run-2 diagnostics before stage 2 (D-061)
 MIN_N = 2000
 MIN_SHARE = 0.05
-MIN_ETA = None        # set in D-061
-MAX_VALLEY = None     # set in D-061
-ICE_MONTHS = (11, 12, 1, 2, 3)   # excluded from stage 2 (D-062)
+MIN_ETA = 0.70
+MAX_VALLEY = 0.50
+THR_RANGE = (0.0, 0.5)
+ICE_MONTHS = (11, 12, 1, 2, 3)   # ice-affected, excluded from stage 2 (D-062; results/qc/snow_rules_run2.json)
 
 
 def load() -> pd.DataFrame:
@@ -46,7 +52,7 @@ def load() -> pd.DataFrame:
                    if not p.endswith("thresholds_by_acquisition.csv")], ignore_index=True)
     d["t"] = pd.to_datetime(d["time"], unit="ms")
     d["month"] = d["t"].dt.month
-    return d
+    return d[~d["month"].isin(ICE_MONTHS)]
 
 
 def per_acquisition(d: pd.DataFrame) -> pd.DataFrame:
@@ -76,7 +82,8 @@ def main(argv) -> int:
     if MIN_ETA is None or MAX_VALLEY is None:
         raise SystemExit("rule constants not fixed yet (D-061); run with --diagnose")
     valid = ((a["n"] >= MIN_N) & (a[["share_low", "share_high"]].min(axis=1) >= MIN_SHARE)
-             & (a["eta"] >= MIN_ETA) & (a["valley_ratio"] <= MAX_VALLEY))
+             & (a["eta"] >= MIN_ETA) & (a["valley_ratio"] <= MAX_VALLEY)
+             & a["threshold"].between(*THR_RANGE))
     a["source"] = np.where(valid, "pooled_otsu", "fallback")
     fb = a[valid].groupby(["sensor", "month"])["threshold"].median()
     a["threshold_used"] = np.where(valid, a["threshold"],
@@ -85,6 +92,7 @@ def main(argv) -> int:
     a.to_csv(out, index=False)
     ow = ~a["month"].isin(ICE_MONTHS)
     summ = {"rule": {"min_n": MIN_N, "min_share": MIN_SHARE, "min_eta": MIN_ETA, "max_valley": MAX_VALLEY,
+                     "threshold_range": THR_RANGE, "ice_months_excluded": ICE_MONTHS,
                      "fallback": "median of valid thresholds, same sensor and calendar month"},
             "n_acquisitions": int(len(a)), "n_open_water_months": int(ow.sum()),
             "share_valid_open_water": round(float(valid[ow].mean()), 4),

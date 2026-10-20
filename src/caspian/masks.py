@@ -51,8 +51,9 @@ CLASSIFY_BANDS = ["green", "red", "nir", "swir1"]
 # Theia LIS pass-1 snow test (Gascoin et al. 2019, Table 1: n1, r1)
 NDSI_SNOW = 0.400
 RED_SNOW = 0.200
-# Months in which snow/ice exclusion applies (NDSI test and product QA flag). PREREG
-# Amendment 3 rule for the NDSI test, extended to the QA flags by a later amendment:
+# Months in which snow/ice exclusion applies to the NDSI test (both sensors) and to the
+# Sentinel-2 SCL flag; the Landsat CFMask snow bit applies in every month (D-063). PREREG
+# Amendment 3 rule for the NDSI test, extended to the QA flags by Amendment 9:
 # cloud-masked test batches flag 1.2% (Landsat NDSI), 3.1% (Sentinel-2 NDSI) and 1.9%
 # (Sentinel-2 SCL class 11) of clear in-zone pixels in July; the rule is evaluated on
 # the full stage-1 run 2 (D-030+).
@@ -114,7 +115,10 @@ def landsat(sensor: str, region, start: str, end: str, bands=COMMON, ids=None):
         snow_ndsi = ndsi_snow(sr)                                   # every month (diagnostic)
         snow_qa = qa.bitwiseAnd(1 << 5).neq(0)                       # every month (diagnostic)
         cold = _cold(img.get("system:time_start"))
-        snow = snow_qa.Or(snow_ndsi).And(cold)                       # excluded: NDSI_MONTHS only
+        # PREREG Amendments 3 and 9, evaluated on stage-1 run 2 (results/qc/snow_rules_run2.json,
+        # D-063): the CFMask snow bit flags at most 0.22% of clear in-zone pixels in May-September,
+        # so it applies in every month; the NDSI test (3.69%) only in NDSI_MONTHS.
+        snow = snow_qa.Or(snow_ndsi.And(cold))
         cloud_free = bad.Not()
         acq = (ee.String(sensor).cat("_").cat(ee.Number(img.get("WRS_PATH")).format("%03d")).cat("_")
                .cat(ee.Date(img.get("system:time_start")).format("YYYYMMdd")))
@@ -128,7 +132,7 @@ def landsat(sensor: str, region, start: str, end: str, bands=COMMON, ids=None):
 
     col = ee.ImageCollection(cid).filterBounds(region).filterDate(start, end)
     if ids is not None:
-        col = col.filter(ee.Filter.inList("system:index", list(ids)))
+        col = col.filter(ee.Filter.inList("system:index", ids if isinstance(ids, ee.List) else list(ids)))
     return col.map(prep)
 
 
@@ -143,7 +147,7 @@ def sentinel2(region, start: str, end: str, cs_threshold: float = 0.60, bands=CO
     cs = ee.ImageCollection(S2_CSPLUS)
     col = ee.ImageCollection(cid).filterBounds(region).filterDate(start, end)
     if ids is not None:
-        col = col.filter(ee.Filter.inList("system:index", list(ids)))
+        col = col.filter(ee.Filter.inList("system:index", ids if isinstance(ids, ee.List) else list(ids)))
     col = col.linkCollection(cs, ["cs_cdf"])
 
     def prep(img):

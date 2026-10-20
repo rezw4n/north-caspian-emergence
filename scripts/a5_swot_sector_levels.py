@@ -102,7 +102,7 @@ def list_granules(headers) -> list[dict]:
     best = {}
     for it in items:
         for key, a in it["assets"].items():
-            m = NAME.match(key)
+            m = NAME.fullmatch(key)
             if not m:
                 continue
             base, crid, cnum, prod = m.groups()
