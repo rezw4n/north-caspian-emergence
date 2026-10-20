@@ -34,7 +34,7 @@ def tiles(dims, block: int):
 
 
 MAX_REQUEST_BYTES = 40 * 2**20     # computePixels refuses responses over 48 MiB
-MAX_REQUEST_BANDS = 1000           # and requests of more than 1,024 bands
+MAX_REQUEST_BANDS = 250            # under 1,024 bands, and the client np.load header limit (10 kB; ~30 B per band name)
 
 
 def band_chunks(bands, width: int, height: int, bytes_per_px: int,
