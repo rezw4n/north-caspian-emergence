@@ -1,0 +1,65 @@
+{
+ "product": "GEBCO_2022 Grid",
+ "doi": "10.5285/e0f0bb80-ab44-2739-e053-6c86abc0289c",
+ "urls": {
+  "elevation": "https://dap.ceda.ac.uk/bodc/gebco/global/gebco_2022/ice_surface_elevation/netcdf/GEBCO_2022_CF.nc",
+  "tid": "https://dap.ceda.ac.uk/bodc/gebco/global/gebco_2022/type_identifier_grid/netcdf/GEBCO_2022_TID.nc"
+ },
+ "ceda_md5_full_files": {
+  "GEBCO_2022_CF.nc": "16f3ef3d36007c59bab472aa5aae043d",
+  "GEBCO_2022_TID.nc": "724b0e89c2f09a286de23f2ab102e20b"
+ },
+ "ceda_last_modified": {
+  "GEBCO_2022_CF.nc": "2025-02-07T15:54:58",
+  "GEBCO_2022_TID.nc": "2025-02-07T16:41:14"
+ },
+ "window_index": [
+  32128,
+  32988,
+  54312,
+  56328
+ ],
+ "subset_bounds_wsen": [
+  46.30208333333334,
+  43.868750000000006,
+  54.69791666666666,
+  47.44791666666666
+ ],
+ "shape": [
+  860,
+  2016
+ ],
+ "elevation_attrs": {
+  "standard_name": "height_above_mean_sea_level",
+  "long_name": "Elevation relative to sea level",
+  "units": "m",
+  "grid_mapping": "crs",
+  "sdn_parameter_urn": "SDN:P01::ALATZZ01",
+  "sdn_parameter_name": "Sea floor height (above mean sea level) {bathymetric height}",
+  "sdn_uom_urn": "SDN:P06::ULAA",
+  "sdn_uom_name": "Metres"
+ },
+ "tid_attrs": {
+  "long_name": "GEBCO Type Identifier",
+  "valid_range": "[-128, 127]",
+  "flag_meanings": "Land Singlebeam Multibeam Seismic Isolated_sounding ENC_sounding Lidar Optical Combined predicted_altimetry interpolated contour_charts contour_ENC bathymetric_sounding predicted_airborne iceberg_groundingpre-generated_grid unknown steering_point",
+  "flag_values": "[0, 10, 11, 12, 13, 14, 15, 16, 17, 40, 41, 42, 43, 44, 45, 46, 70, 71, 72]",
+  "grid_mapping": "crs",
+  "sdn_parameter_name": "Source identifer of GEBCO grid cell data",
+  "sdn_parameter_urn": "SDN:P01::GEBCOSRC",
+  "sdn_uom_name": "Dimensionless",
+  "sdn_uom_urn": "SDN:P06:UUUU",
+  "units": "[1]"
+ },
+ "elevation_range_m": [
+  -107,
+  488
+ ],
+ "tid_values_present": [
+  0,
+  40,
+  44,
+  70
+ ],
+ "subset_sha256": "aef14273075dde924db0e7f4bcf0f868df48647b3466937a22e3ddf2b4e187e2"
+}
