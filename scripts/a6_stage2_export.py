@@ -335,6 +335,7 @@ def interactive(tag: str, budget: float, only=None, blocks: int = 0, workers: in
         return arr, _profile_eecu(buf.getvalue()), time.time() - t0
 
     queue = list(jobs)
+    tries = {}
     stop = False
     with ThreadPoolExecutor(workers) as pool:
         running = {}
@@ -353,6 +354,12 @@ def interactive(tag: str, budget: float, only=None, blocks: int = 0, workers: in
                     arr, eecu, secs = fut.result()
                 except Exception as ex:
                     msg = str(ex).lower()
+                    jid = (key, c0, r0, tuple(chunk))
+                    if ("profile" in msg or "429" in msg or "unavailable" in msg) and tries.get(jid, 0) < 3:
+                        tries[jid] = tries.get(jid, 0) + 1   # transient service error: same request again
+                        queue.append(job)
+                        print("retry", key, r0, c0, len(chunk), str(ex)[:80], flush=True)
+                        continue
                     if len(chunk) > 1 and ("memory" in msg or "timed out" in msg or "deadline" in msg):
                         half = len(chunk) // 2   # retry as two half-size chunks, at the back of the queue
                         queue.extend([(key, c0, r0, w, h, chunk[:half]), (key, c0, r0, w, h, chunk[half:])])
