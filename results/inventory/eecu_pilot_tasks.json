@@ -1,0 +1,28 @@
+{
+ "submitted": "2026-10-20T15:41:54",
+ "tasks": [
+  {
+   "name": "pilot_L8_165028_2020",
+   "sensor": "OLI_L8",
+   "path": 165,
+   "row": 28,
+   "start": "2020-01-01",
+   "end": "2021-01-01",
+   "scale": 30,
+   "n_scenes": 20,
+   "image_task": "2YCGIH5ATF6HZO4LCQQA656L",
+   "table_task": "YFCLBB6LHSIC7HN2YSC7UPUM"
+  },
+  {
+   "name": "pilot_S2_39TXM_2020JJA",
+   "sensor": "MSI_S2",
+   "tile": "39TXM",
+   "start": "2020-06-01",
+   "end": "2020-09-01",
+   "scale": 20,
+   "n_scenes": 39,
+   "image_task": "22YKFPOAIB4ZF3P6RYTYP2RV",
+   "table_task": "LQ47SZP566OO2BTQZMHFILKZ"
+  }
+ ]
+}
