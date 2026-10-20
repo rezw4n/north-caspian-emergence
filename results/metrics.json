@@ -115,7 +115,7 @@
   "source": "results/inventory/inventory_meta.json"
  },
  "levels.crosscheck.drift_m_per_decade": {
-  "value": -0.01610136572179193,
+  "value": -0.016101408432936413,
   "unit": "m per decade",
   "source": "results/qc/level_crosscheck_w20d.json"
  },
@@ -125,7 +125,7 @@
   "source": "results/qc/level_crosscheck_w20d.json"
  },
  "levels.crosscheck.nmad_m": {
-  "value": 0.07392010028885783,
+  "value": 0.0739201002888631,
   "unit": "m",
   "source": "results/qc/level_crosscheck_w20d.json"
  },
@@ -150,6 +150,12 @@
   "unit": "date",
   "source": "results/qc/dahiti_summary.json"
  },
+ "levels.dahiti.dense_period": {
+  "value": "1993--2021",
+  "unit": "years",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "years of the records_per_year_1993_2021 metric"
+ },
  "levels.dahiti.first": {
   "value": "1992-09-28",
   "unit": "date",
@@ -161,18 +167,30 @@
   "source": "results/qc/dahiti_summary.json"
  },
  "levels.dahiti.max_gap_days": {
-  "value": 128.0,
+  "value": 128.903,
   "unit": "days",
-  "source": "results/qc/dahiti_summary.json"
+  "source": "results/qc/dahiti_summary.json",
+  "note": "fractional days"
  },
  "levels.dahiti.max_m": {
   "value": -25.672,
   "unit": "m (DAHITI reference)",
   "source": "results/qc/dahiti_summary.json"
  },
+ "levels.dahiti.median_gap_days": {
+  "value": 9.916,
+  "unit": "days",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "fractional days"
+ },
  "levels.dahiti.min_m": {
   "value": -28.909,
   "unit": "m (DAHITI reference)",
+  "source": "results/qc/dahiti_summary.json"
+ },
+ "levels.dahiti.n_gaps_over_60_days": {
+  "value": 7,
+  "unit": "gaps",
   "source": "results/qc/dahiti_summary.json"
  },
  "levels.dahiti.n_records": {
@@ -184,7 +202,7 @@
   "value": 3.237,
   "unit": "m",
   "source": "results/qc/dahiti_summary.json",
-  "note": "record maximum minus minimum"
+  "note": "highest single record minus lowest single record (each one noisy record; use levels.dahiti.smoothed.range_m for the fall of the sea)"
  },
  "levels.dahiti.records_per_year_1993_2021_median": {
   "value": 27,
@@ -207,15 +225,348 @@
   "source": "results/qc/dahiti_summary.json",
   "note": "formal wse_u"
  },
- "levels.dahiti_noise_floor_m": {
-  "value": 0.0613,
-  "unit": "m",
-  "source": "results/levels/scene_levels_summary.json"
+ "levels.dahiti.smoothed.date_of_max": {
+  "value": "1995-07-16",
+  "unit": "date",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "3-point running median of consecutive records (D-021 correction)"
  },
- "levels.epoch_E1_end": {
+ "levels.dahiti.smoothed.date_of_min": {
+  "value": "2025-12-30",
+  "unit": "date",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "3-point running median of consecutive records (D-021 correction)"
+ },
+ "levels.dahiti.smoothed.max_m": {
+  "value": -25.816,
+  "unit": "m (DAHITI reference)",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "3-point running median of consecutive records (D-021 correction)"
+ },
+ "levels.dahiti.smoothed.min_m": {
+  "value": -28.87,
+  "unit": "m (DAHITI reference)",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "3-point running median of consecutive records (D-021 correction)"
+ },
+ "levels.dahiti.smoothed.range_m": {
+  "value": 3.054,
+  "unit": "m",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "maximum minus minimum of the running median; 3-point running median of consecutive records (D-021 correction)"
+ },
+ "levels.dahiti.smoothed.window_records": {
+  "value": 3,
+  "unit": "records",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "3-point running median of consecutive records (D-021 correction)"
+ },
+ "levels.dahiti.sparse_period": {
+  "value": "2022--2025",
+  "unit": "years",
+  "source": "results/qc/dahiti_summary.json",
+  "note": "years of the records_per_year_2022_2025 metrics"
+ },
+ "levels.dahiti_noise_floor_m": {
+  "value": 0.0517,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "joint estimate with q from cross-validated interpolation residuals (D-018 correction)"
+ },
+ "levels.diag.e1_end.k1.date": {
   "value": "1995-07-06",
   "unit": "date",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "E1 end with the single-record maximum (sensitivity; applied k = 3)"
+ },
+ "levels.diag.e1_end.k1.n_E1": {
+  "value": 860,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "levelled E1 scenes with the single-record maximum"
+ },
+ "levels.diag.e1_end.k3.date": {
+  "value": "1995-07-16",
+  "unit": "date",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "E1 end with the maximum of the 3-record running median (sensitivity; applied k = 3)"
+ },
+ "levels.diag.e1_end.k3.n_E1": {
+  "value": 873,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "levelled E1 scenes with the maximum of the 3-record running median"
+ },
+ "levels.diag.e1_end.k5.date": {
+  "value": "1995-07-06",
+  "unit": "date",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "E1 end with the maximum of the 5-record running median (sensitivity; applied k = 3)"
+ },
+ "levels.diag.e1_end.k5.n_E1": {
+  "value": 860,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "levelled E1 scenes with the maximum of the 5-record running median"
+ },
+ "levels.diag.e1_end.k7.date": {
+  "value": "1995-07-06",
+  "unit": "date",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "E1 end with the maximum of the 7-record running median (sensitivity; applied k = 3)"
+ },
+ "levels.diag.e1_end.k7.n_E1": {
+  "value": 860,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "levelled E1 scenes with the maximum of the 7-record running median"
+ },
+ "levels.diag.e1_end.k9.date": {
+  "value": "1995-05-28",
+  "unit": "date",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "E1 end with the maximum of the 9-record running median (sensitivity; applied k = 3)"
+ },
+ "levels.diag.e1_end.k9.n_E1": {
+  "value": 812,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "levelled E1 scenes with the maximum of the 9-record running median"
+ },
+ "levels.diag.e1_end.top_two_margin_m": {
+  "value": 0.002,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "margin between the two highest running-median values, which sets the applied E1 date",
+  "decimals": 3
+ },
+ "levels.diag.hydroweb_free_q_m2_per_day": {
+  "value": 1.1693001116583256e-05,
+  "unit": "m2 per day",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "Hydroweb's own joint (sigma, q) fit; not applied (DAHITI's q is used for the Hydroweb bridge)"
+ },
+ "levels.diag.hydroweb_free_q_sigma_change_max_m": {
+  "value": 0.009439866282952042,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "change in gap-filled scene 1-sigma if Hydroweb's own joint fit (sigma, q) replaced DAHITI's q (not applied)",
+  "decimals": 3
+ },
+ "levels.diag.n_scenes_above_smoothed_max": {
+  "value": 34,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "scenes whose interpolated level exceeds the running-median maximum"
+ },
+ "levels.diag.n_scenes_between_raw_and_smoothed_max": {
+  "value": 13,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "scenes whose epoch (E1 or E2) depends on raw versus running-median maximum"
+ },
+ "levels.diag.neighbour_z_expected": {
+  "value": 9.8,
+  "unit": "records",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "expected count of |z| > 2.5 under the Gaussian model",
+  "decimals": 1
+ },
+ "levels.diag.neighbour_z_n": {
+  "value": 786,
+  "unit": "records",
   "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.diag.neighbour_z_n_gt_2_5": {
+  "value": 12,
+  "unit": "records",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "records with |z| > 2.5 against their neighbours under the fitted noise and diffusion"
+ },
+ "levels.diag.neighbour_z_threshold": {
+  "value": 2.5,
+  "unit": "sigma",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "diagnostic threshold only; no record is removed",
+  "decimals": 1
+ },
+ "levels.diag.raw_max_record_z": {
+  "value": 2.790197102197934,
+  "unit": "sigma",
+  "source": "results/levels/scene_levels_summary.json",
+  "decimals": 1
+ },
+ "levels.epoch_E1_end": {
+  "value": "1995-07-16",
+  "unit": "date",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "maximum of the 3-point running median of DAHITI"
+ },
+ "levels.epoch_level_range.E1.max_m": {
+  "value": -25.68521264204145,
+  "unit": "m (DAHITI reference)",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.epoch_level_range.E1.min_m": {
+  "value": -26.646816934046452,
+  "unit": "m (DAHITI reference)",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.epoch_level_range.E2.max_m": {
+  "value": -25.819691995569094,
+  "unit": "m (DAHITI reference)",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.epoch_level_range.E2.min_m": {
+  "value": -26.98883032359804,
+  "unit": "m (DAHITI reference)",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.epoch_level_range.E3.max_m": {
+  "value": -26.633497679727437,
+  "unit": "m (DAHITI reference)",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.epoch_level_range.E3.min_m": {
+  "value": -28.905256348703286,
+  "unit": "m (DAHITI reference)",
+  "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.gapfill.check5.median_resid_m": {
+  "value": -0.060971926690746664,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "year with the most gap-filled scenes: median DAHITI - shifted Hydroweb at the +/-5-day epochs (in-sample: a subset of the pairs that set the offset)",
+  "decimals": 3
+ },
+ "levels.gapfill.check5.n_filled_scenes": {
+  "value": 5037,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "year with the most gap-filled scenes: median DAHITI - shifted Hydroweb at the +/-5-day epochs (in-sample: a subset of the pairs that set the offset)"
+ },
+ "levels.gapfill.check5.n_pairs": {
+  "value": 7,
+  "unit": "pairs",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "year with the most gap-filled scenes: median DAHITI - shifted Hydroweb at the +/-5-day epochs (in-sample: a subset of the pairs that set the offset)"
+ },
+ "levels.gapfill.check5.offset_sigma_p50_m": {
+  "value": 0.04848816146188349,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "year with the most gap-filled scenes: median DAHITI - shifted Hydroweb at the +/-5-day epochs (in-sample: a subset of the pairs that set the offset)",
+  "decimals": 3
+ },
+ "levels.gapfill.check5.year": {
+  "value": "2024",
+  "unit": "year",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "year with the most gap-filled scenes: median DAHITI - shifted Hydroweb at the +/-5-day epochs (in-sample: a subset of the pairs that set the offset)"
+ },
+ "levels.gapfill.half_window_years": {
+  "value": 2,
+  "unit": "years",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "moving median of the 505 DAHITI - Hydroweb pairs within +/-20 d, window +/-730.5 d around each scene (>= 20 pairs, else the nearest 20)"
+ },
+ "levels.gapfill.max_year_departure.m": {
+  "value": 0.08507200000000001,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "largest |year median - leave-year-out moving median| among years with >= 100 gap-filled scenes",
+  "decimals": 3
+ },
+ "levels.gapfill.max_year_departure.year": {
+  "value": "2023",
+  "unit": "year",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "largest |year median - leave-year-out moving median| among years with >= 100 gap-filled scenes"
+ },
+ "levels.gapfill.n_scenes_other_bin_pooled_offset": {
+  "value": 4544,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "gap-filled scenes whose 0.10 m bin (origin -30 m, DAHITI reference) differs if the pooled 1992-2026 offset is used instead of the moving median"
+ },
+ "levels.gapfill.n_scenes_tau_at_floor": {
+  "value": 1298,
+  "unit": "scenes",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "gap-filled scenes whose local tau is at or below the record-wide floor"
+ },
+ "levels.gapfill.offset_max_m": {
+  "value": 0.15134,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "moving median of the 505 DAHITI - Hydroweb pairs within +/-20 d, window +/-730.5 d around each scene (>= 20 pairs, else the nearest 20)",
+  "decimals": 3
+ },
+ "levels.gapfill.offset_median_m": {
+  "value": 0.078012,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "median over gap-filled scenes of the moving-median offset applied; moving median of the 505 DAHITI - Hydroweb pairs within +/-20 d, window +/-730.5 d around each scene (>= 20 pairs, else the nearest 20)"
+ },
+ "levels.gapfill.offset_min_m": {
+  "value": 0.06801650000000001,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "moving median of the 505 DAHITI - Hydroweb pairs within +/-20 d, window +/-730.5 d around each scene (>= 20 pairs, else the nearest 20)",
+  "decimals": 3
+ },
+ "levels.gapfill.offset_sigma_p50_m": {
+  "value": 0.048035151816696826,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "median over gap-filled scenes of the common offset 1-sigma (SE of the moving median and the window-local tau); tau(t) = max(local, record-wide): local = method-of-moments excess over the years whose middle pair time is within +/-730.5 d of the scene (at least 5 years, else the nearest 5); offset 1-sigma = sqrt(SE_moving_median^2 + tau^2), common to the gap-filled scenes, added after interpolation"
+ },
+ "levels.gapfill.offset_sigma_p50_record_tau_m": {
+  "value": 0.01842367743792271,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "the same with the record-wide tau instead (superseded; first D-020 correction)",
+  "decimals": 3
+ },
+ "levels.gapfill.resid_nmad_m": {
+  "value": 0.0681150918,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "NMAD of the pair differences about the moving median (per-record random term)"
+ },
+ "levels.gapfill.tau_m": {
+  "value": 0.011671270901256877,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "record-wide (all years pooled) year-to-year offset variability beyond sampling noise (method of moments); the floor of the applied tau, not the applied value (see levels.gapfill.tau_p50_m)",
+  "decimals": 3
+ },
+ "levels.gapfill.tau_max_m": {
+  "value": 0.04630128753944927,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "applied tau, maximum",
+  "decimals": 3
+ },
+ "levels.gapfill.tau_min_m": {
+  "value": 0.011671270901256877,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "applied tau, minimum",
+  "decimals": 3
+ },
+ "levels.gapfill.tau_min_years": {
+  "value": 5,
+  "unit": "years",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "minimum number of years in the local tau window"
+ },
+ "levels.gapfill.tau_p50_m": {
+  "value": 0.04630128753944927,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "median over gap-filled scenes of the applied window-local tau; tau(t) = max(local, record-wide): local = method-of-moments excess over the years whose middle pair time is within +/-730.5 d of the scene (at least 5 years, else the nearest 5); offset 1-sigma = sqrt(SE_moving_median^2 + tau^2), common to the gap-filled scenes, added after interpolation",
+  "decimals": 3
  },
  "levels.hydroweb.last": {
   "value": "2026-10-15",
@@ -228,23 +579,24 @@
   "source": "results/qc/level_crosscheck_w20d.json"
  },
  "levels.hydroweb_noise_floor_m": {
-  "value": 0.0281,
+  "value": 0.025,
   "unit": "m",
-  "source": "results/levels/scene_levels_summary.json"
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "Hydroweb record noise with q fixed to the DAHITI estimate"
  },
  "levels.max_gap_days": {
   "value": 60.0,
   "unit": "days",
   "source": "results/levels/scene_levels_summary.json",
-  "note": "PREREG section 4 gap rule"
+  "note": "gap rule: caspian.levels default fixed in commit aabacee before PREREG v1.0 and before the DAHITI data arrived; not in PREREG v1.0; stated for the record in PREREG Amendment 4 item 2 (D-038)"
  },
  "levels.n_scenes_by_epoch.E1": {
-  "value": 860,
+  "value": 873,
   "unit": "scenes",
   "source": "results/levels/scene_levels_summary.json"
  },
  "levels.n_scenes_by_epoch.E2": {
-  "value": 6564,
+  "value": 6551,
   "unit": "scenes",
   "source": "results/levels/scene_levels_summary.json"
  },
@@ -279,24 +631,61 @@
   "source": "results/levels/scene_levels_summary.json"
  },
  "levels.q_m2_per_day": {
-  "value": 0.00017815642037174095,
+  "value": 0.0002002138913266582,
   "unit": "m2 per day",
-  "source": "results/levels/scene_levels_summary.json"
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "effective diffusion of the linear-interpolation error (absorbs sub-sampling variability); joint estimate with q from cross-validated interpolation residuals (D-018 correction)"
+ },
+ "levels.scene_sigma_p50_by_source.dahiti": {
+  "value": 0.04962793520179093,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "decimals": 3
+ },
+ "levels.scene_sigma_p50_by_source.hydroweb_shifted": {
+  "value": 0.07798383978258767,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "decimals": 3
  },
  "levels.scene_sigma_p50_m": {
-  "value": 0.057695249589957885,
+  "value": 0.051026734454182536,
   "unit": "m",
   "source": "results/levels/scene_levels_summary.json"
  },
  "levels.scene_sigma_p90_m": {
-  "value": 0.06634458740045049,
+  "value": 0.07605014668631703,
   "unit": "m",
   "source": "results/levels/scene_levels_summary.json"
  },
  "levels.scene_sigma_p99_m": {
-  "value": 0.08338226973892879,
+  "value": 0.0916649328875291,
   "unit": "m",
   "source": "results/levels/scene_levels_summary.json"
+ },
+ "levels.se.dahiti_noise_floor_m": {
+  "value": 0.0057,
+  "unit": "m",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "moving-block bootstrap SE of levels.dahiti_noise_floor_m"
+ },
+ "levels.se.q_m2_per_day": {
+  "value": 8.253595087247578e-05,
+  "unit": "m2 per day",
+  "source": "results/levels/scene_levels_summary.json",
+  "note": "moving-block bootstrap SE of levels.q_m2_per_day"
+ },
+ "lit.akbari2020.fit_swl_hi_m": {
+  "value": -26,
+  "unit": "m (SWL)",
+  "source": "doi:10.1088/1748-9326/abaad8 (§3.2 p. 10)",
+  "decimals": 0
+ },
+ "lit.akbari2020.fit_swl_lo_m": {
+  "value": -29,
+  "unit": "m (SWL)",
+  "source": "doi:10.1088/1748-9326/abaad8 (§3.2 p. 10)",
+  "decimals": 0
  },
  "lit.akbari2020.nc_area_per_m_km2": {
   "value": 7103,
@@ -322,11 +711,35 @@
   "source": "doi:10.1088/1748-9326/abaad8 (§2.1 p. 4)",
   "decimals": 0
  },
+ "lit.akbari2020.rise_1977_1995_m": {
+  "value": 3,
+  "unit": "m",
+  "source": "doi:10.1088/1748-9326/abaad8 (§3.1 p. 7)",
+  "decimals": 0
+ },
+ "lit.akbari2020.vulnerable_depth_m": {
+  "value": 3,
+  "unit": "m",
+  "source": "doi:10.1088/1748-9326/abaad8 (§3.1 p. 7)",
+  "decimals": 0
+ },
  "lit.bocharov2026.max_area_diff_pct": {
   "value": 5.75,
   "unit": "%",
   "source": "doi:10.21046/2070-7401-2026-23-3-291-303 (Results p. 9 (Russian; translated))",
   "decimals": 2
+ },
+ "lit.court2025.decline_hi_m": {
+  "value": 10,
+  "unit": "m",
+  "source": "doi:10.1038/s43247-025-02212-5 (Abstract)",
+  "decimals": 0
+ },
+ "lit.court2025.decline_lo_m": {
+  "value": 5,
+  "unit": "m",
+  "source": "doi:10.1038/s43247-025-02212-5 (Abstract)",
+  "decimals": 0
  },
  "lit.court2025.max_decline_2100_m": {
   "value": 21,
@@ -340,6 +753,24 @@
   "source": "doi:10.1038/s43247-025-02212-5 (Abstract)",
   "decimals": 0
  },
+ "lit.duan2025.level_2100_m": {
+  "value": -33,
+  "unit": "m",
+  "source": "doi:10.1371/journal.pone.0325546 (PDF p. 14 (Discussion))",
+  "decimals": 0
+ },
+ "lit.ginzburg2025.altimetry_offset_m": {
+  "value": 0.5,
+  "unit": "m (altimetry above instrumental levels)",
+  "source": "doi:10.21046/2070-7401-2025-22-6-312-325 (English abstract p. 12)",
+  "decimals": 1
+ },
+ "lit.ginzburg2025.fall_rate_2020_2024_cm_per_yr": {
+  "value": 22.7,
+  "unit": "cm per year (rate of fall)",
+  "source": "doi:10.21046/2070-7401-2025-22-6-312-325 (PDF p. 7 (Russian text; English abstract p. 12 gives the trend as –22.7 cm/year))",
+  "decimals": 1
+ },
  "lit.ginzburg2025.level_end2024_bhs_m": {
   "value": -29.34,
   "unit": "m BHS",
@@ -352,11 +783,59 @@
   "source": "doi:10.21046/2070-7401-2025-22-6-312-325 (English abstract p. 12)",
   "decimals": 1
  },
- "lit.ginzburg2025.rate_2020_2024_cm_per_yr": {
-  "value": -22.7,
-  "unit": "cm per year",
-  "source": "doi:10.21046/2070-7401-2025-22-6-312-325 (English abstract p. 12)",
+ "lit.hoseini2025.high_median_m": {
+  "value": -4.4,
+  "unit": "m (change 2021-2100, median)",
+  "source": "doi:10.1007/s00382-024-07548-w (Abstract)",
   "decimals": 1
+ },
+ "lit.hoseini2025.high_q25_m": {
+  "value": -11,
+  "unit": "m (25th percentile)",
+  "source": "doi:10.1007/s00382-024-07548-w (Abstract)",
+  "decimals": 0
+ },
+ "lit.hoseini2025.high_q75_m": {
+  "value": 1.6,
+  "unit": "m (75th percentile)",
+  "source": "doi:10.1007/s00382-024-07548-w (Abstract)",
+  "decimals": 1
+ },
+ "lit.hoseini2025.medium_median_m": {
+  "value": -1.8,
+  "unit": "m (change 2021-2100, median)",
+  "source": "doi:10.1007/s00382-024-07548-w (Abstract)",
+  "decimals": 1
+ },
+ "lit.hoseini2025.medium_q25_m": {
+  "value": -6.7,
+  "unit": "m (25th percentile)",
+  "source": "doi:10.1007/s00382-024-07548-w (Abstract)",
+  "decimals": 1
+ },
+ "lit.hoseini2025.medium_q75_m": {
+  "value": 3.1,
+  "unit": "m (75th percentile)",
+  "source": "doi:10.1007/s00382-024-07548-w (Abstract)",
+  "decimals": 1
+ },
+ "lit.hoseini2025.n_gcms": {
+  "value": 22,
+  "unit": "CMIP6 GCMs",
+  "source": "doi:10.1007/s00382-024-07548-w (Abstract)",
+  "decimals": 0
+ },
+ "lit.samant2023.pe_ssp245_m": {
+  "value": 3.79,
+  "unit": "m (additional decline, best-fit P-E trend)",
+  "source": "doi:10.1038/s43247-023-01017-8 (Discussion, para. 3)",
+  "decimals": 2
+ },
+ "lit.samant2023.pe_ssp585_m": {
+  "value": 9.55,
+  "unit": "m (additional decline, best-fit P-E trend)",
+  "source": "doi:10.1038/s43247-023-01017-8 (Discussion, para. 3)",
+  "decimals": 2
  },
  "lit.samant2023.ssp245_hi_m": {
   "value": 15,
@@ -394,20 +873,147 @@
   "source": "doi:10.1038/s43247-023-01017-8 (Abstract)",
   "decimals": 0
  },
+ "lit.samant2023.trend_2100_m": {
+  "value": 4.6,
+  "unit": "m (observed 1996-2021 trend carried to 2100)",
+  "source": "doi:10.1038/s43247-023-01017-8 (Discussion, para. 1)",
+  "decimals": 1
+ },
  "lit.weatherall2015.control_share_pct": {
   "value": 18,
   "unit": "% of non-land cells",
   "source": "doi:10.1002/2015ea000107 (Abstract)",
   "decimals": 0
  },
+ "params.alpha": {
+  "value": 0.05,
+  "unit": "",
+  "source": "caspian.design.ALPHA"
+ },
+ "params.bin_origin_m": {
+  "value": -30.0,
+  "unit": "m",
+  "source": "caspian.design.BIN_ORIGIN_M"
+ },
+ "params.bin_width_m": {
+  "value": 0.1,
+  "unit": "m",
+  "source": "caspian.design.BIN_WIDTH_M"
+ },
+ "params.bin_width_sens_hi_m": {
+  "value": 0.2,
+  "unit": "m",
+  "source": "caspian.design.BIN_WIDTH_SENS_M"
+ },
+ "params.bin_width_sens_lo_m": {
+  "value": 0.05,
+  "unit": "m",
+  "source": "caspian.design.BIN_WIDTH_SENS_M"
+ },
+ "params.block_size_km": {
+  "value": 25.0,
+  "unit": "km",
+  "source": "caspian.design.BLOCK_SIZE_M"
+ },
+ "params.bootstrap_n": {
+  "value": 2000,
+  "unit": "resamples",
+  "source": "caspian.design.BOOTSTRAP_N"
+ },
+ "params.conformal_level": {
+  "value": 0.9,
+  "unit": "",
+  "source": "caspian.design.CONFORMAL_LEVEL"
+ },
+ "params.conn_max_km": {
+  "value": 200,
+  "unit": "km",
+  "source": "caspian.pipeline_ee.CONN_MAX_M"
+ },
+ "params.conn_scale_km": {
+  "value": 1,
+  "unit": "km",
+  "source": "caspian.pipeline_ee.CONN_SCALE"
+ },
+ "params.contour_level": {
+  "value": 0.5,
+  "unit": "fraction",
+  "source": "caspian.design.CONTOUR_LEVEL"
+ },
+ "params.dark_water_reflectance": {
+  "value": 0.03,
+  "unit": "reflectance",
+  "source": "caspian.pipeline_ee.DARK_WATER"
+ },
+ "params.dem_res_m": {
+  "value": 30,
+  "unit": "m",
+  "source": "caspian.design.DEM_RES_M"
+ },
+ "params.e2_end": {
+  "value": "2010-12-31",
+  "unit": "date",
+  "source": "caspian.design.E2_END"
+ },
+ "params.edge_otsu_sample_n": {
+  "value": 500,
+  "unit": "scenes",
+  "source": "caspian.design.EDGE_OTSU_SAMPLE_N"
+ },
+ "params.emergence_lag_days": {
+  "value": 30,
+  "unit": "days",
+  "source": "caspian.design.EMERGENCE_LAG_DAYS"
+ },
+ "params.high_extent_min_water_pct": {
+  "value": 10,
+  "unit": "%",
+  "source": "100 * caspian.pipeline_ee.HIGH_MIN_FRAC"
+ },
+ "params.highstand_end": {
+  "value": "1996-09-30",
+  "unit": "date",
+  "source": "caspian.pipeline_ee.HIGHSTAND"
+ },
+ "params.highstand_label": {
+  "value": "1995--96",
+  "unit": "years",
+  "source": "caspian.pipeline_ee.HIGHSTAND"
+ },
+ "params.highstand_start": {
+  "value": "1995-05-01",
+  "unit": "date",
+  "source": "caspian.pipeline_ee.HIGHSTAND"
+ },
  "params.hist_scale_m": {
-  "value": 60,
+  "value": 240,
   "unit": "m",
   "source": "caspian.pipeline_ee.HIST_SCALE"
+ },
+ "params.laea_lat0_deg": {
+  "value": 45.5,
+  "unit": "degrees N",
+  "source": "caspian.config.CRS_EQUAL_AREA",
+  "decimals": 1
+ },
+ "params.laea_lon0_deg": {
+  "value": 50,
+  "unit": "degrees E",
+  "source": "caspian.config.CRS_EQUAL_AREA"
+ },
+ "params.low_extent_min_water_pct": {
+  "value": 90,
+  "unit": "%",
+  "source": "100 * caspian.pipeline_ee.LOW_MIN_FRAC"
  },
  "params.lowstand_end": {
   "value": "2026-09-30",
   "unit": "date",
+  "source": "caspian.pipeline_ee.LOWSTAND"
+ },
+ "params.lowstand_label": {
+  "value": "2025--26",
+  "unit": "years",
   "source": "caspian.pipeline_ee.LOWSTAND"
  },
  "params.lowstand_start": {
@@ -419,6 +1025,36 @@
   "value": 60.0,
   "unit": "days",
   "source": "scripts/a4_scene_levels.MAX_GAP_DAYS"
+ },
+ "params.min_obs_high": {
+  "value": 3,
+  "unit": "observations",
+  "source": "caspian.pipeline_ee.MIN_OBS_HIGH"
+ },
+ "params.min_valid_obs": {
+  "value": 5,
+  "unit": "observations",
+  "source": "caspian.design.MIN_VALID_OBS"
+ },
+ "params.mndwi_max": {
+  "value": 1,
+  "unit": "MNDWI",
+  "source": "caspian.water.MNDWI_RANGE"
+ },
+ "params.mndwi_min": {
+  "value": -1,
+  "unit": "MNDWI",
+  "source": "caspian.water.MNDWI_RANGE"
+ },
+ "params.mondrian_min_n": {
+  "value": 50,
+  "unit": "points",
+  "source": "caspian.design.MONDRIAN_MIN_N"
+ },
+ "params.ndsi_snow": {
+  "value": 0.4,
+  "unit": "NDSI",
+  "source": "caspian.masks.NDSI_SNOW"
  },
  "params.ndvi_veg": {
   "value": 0.3,
@@ -440,10 +1076,70 @@
   "unit": "bins",
   "source": "caspian.water.OTSU_BINS"
  },
+ "params.permutations_n": {
+  "value": 10000,
+  "unit": "permutations",
+  "source": "caspian.design.PERMUTATIONS_N"
+ },
+ "params.red_snow": {
+  "value": 0.2,
+  "unit": "reflectance",
+  "source": "caspian.masks.RED_SNOW"
+ },
  "params.s2_cloudscore_threshold": {
   "value": 0.6,
   "unit": "cs_cdf",
   "source": "caspian.masks.sentinel2"
+ },
+ "params.s2_scl_snow": {
+  "value": 11,
+  "unit": "SCL class",
+  "source": "caspian.masks.S2_SCL_SNOW"
+ },
+ "params.sea_min_water_pct": {
+  "value": 80,
+  "unit": "%",
+  "source": "100 * caspian.pipeline_ee.SEA_MIN_FRAC"
+ },
+ "params.sea_radius_km": {
+  "value": 20,
+  "unit": "km",
+  "source": "caspian.pipeline_ee.SEA_RADIUS_M"
+ },
+ "params.seed": {
+  "value": "20261020",
+  "unit": "",
+  "source": "caspian.design.SEED"
+ },
+ "params.snow_rule_max_pct": {
+  "value": 1.0,
+  "unit": "%",
+  "source": "caspian.design.SNOW_RULE_MAX_PCT"
+ },
+ "params.snow_season_first_month": {
+  "value": "November",
+  "unit": "month",
+  "source": "caspian.masks.NDSI_MONTHS"
+ },
+ "params.snow_season_last_month": {
+  "value": "April",
+  "unit": "month",
+  "source": "caspian.masks.NDSI_MONTHS"
+ },
+ "params.split_calib": {
+  "value": 0.2,
+  "unit": "fraction",
+  "source": "caspian.design.SPLIT"
+ },
+ "params.split_test": {
+  "value": 0.2,
+  "unit": "fraction",
+  "source": "caspian.design.SPLIT"
+ },
+ "params.split_train": {
+  "value": 0.6,
+  "unit": "fraction",
+  "source": "caspian.design.SPLIT"
  },
  "params.zone_dilate_m": {
   "value": 2000,
@@ -455,43 +1151,259 @@
   "unit": "m",
   "source": "caspian.pipeline_ee.ZONE_SCALE"
  },
+ "params.zone_tile_km": {
+  "value": 5,
+  "unit": "km",
+  "source": "caspian.pipeline_ee.ZONE_TILE_M"
+ },
  "study_area.domain_km2": {
-  "value": 224136.6,
+  "value": 221165.6,
   "unit": "km2",
-  "source": "results/study_area/sector_areas.json"
+  "source": "results/study_area/sector_areas.json",
+  "note": "edges straight in lon/lat, densified before the equal-area projection"
+ },
+ "study_area.geodesic.band_changed_km2_max": {
+  "value": 389.7,
+  "unit": "km2",
+  "source": "results/study_area/sector_edges.json",
+  "note": "largest over the grids; over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.geodesic.band_changed_pct_max": {
+  "value": 1,
+  "unit": "%",
+  "source": "results/study_area/sector_edges.json",
+  "note": "upper bound (rounded up), over the grids, of the share of the seabed between the record-maximum and present shorelines inside the domain that changes domain or sector between the lon/lat and the geodesic edge readings; over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.geodesic.domain_km2": {
+  "value": 224274.6,
+  "unit": "km2",
+  "source": "results/study_area/sector_areas.json",
+  "note": "the same polygons read with geodesic edges, as Earth Engine reads lon/lat GeoJSON"
+ },
+ "study_area.geodesic.north_edge_offset_km": {
+  "value": 8,
+  "unit": "km",
+  "source": "results/study_area/sector_areas.json",
+  "note": "largest distance between the geodesic and the lon/lat reading of the domain's northern edge, rounded; the same polygons read with geodesic edges, as Earth Engine reads lon/lat GeoJSON"
+ },
+ "study_area.geodesic.north_edge_sea_at_max_km2_max": {
+  "value": 321.5,
+  "unit": "km2",
+  "source": "results/study_area/sector_edges.json",
+  "note": "sea at the record-maximum level between the two readings of the northern edge, largest over the grids; over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.geodesic.other_edge_offset_max_km": {
+  "value": 1,
+  "unit": "km",
+  "source": "results/study_area/sector_areas.json",
+  "note": "upper bound (rounded up) over every other edge of the domain and the sectors; the same polygons read with geodesic edges, as Earth Engine reads lon/lat GeoJSON"
+ },
+ "study_area.layout.band_share_coastal_pct_max": {
+  "value": 96,
+  "unit": "%",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.band_share_coastal_pct_min": {
+  "value": 91,
+  "unit": "%",
+  "source": "results/study_area/sector_edges.json",
+  "note": "share of the seabed between the record-maximum and present shorelines inside the coastal sectors; over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.interfluve.max": {
+  "value": 49,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.interfluve.min": {
+  "value": 42,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "median signed distance of the boundary shared with the open shelf from the present shoreline (negative: on land); over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.komsomolets.max": {
+  "value": -42,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.komsomolets.min": {
+  "value": -58,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "median signed distance of the boundary shared with the open shelf from the present shoreline (negative: on land); over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.northeast.max": {
+  "value": 33,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.northeast.min": {
+  "value": 20,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "median signed distance of the boundary shared with the open shelf from the present shoreline (negative: on land); over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.ural.max": {
+  "value": 35,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.ural.min": {
+  "value": 30,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "median signed distance of the boundary shared with the open shelf from the present shoreline (negative: on land); over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.volga.max": {
+  "value": 13,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.volga.min": {
+  "value": 3,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "median signed distance of the boundary shared with the open shelf from the present shoreline (negative: on land); over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.west.max": {
+  "value": 17,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.edge_p50_km.west.min": {
+  "value": 10,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "median signed distance of the boundary shared with the open shelf from the present shoreline (negative: on land); over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.interfluve.max": {
+  "value": 57,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.interfluve.min": {
+  "value": 50,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.komsomolets.max": {
+  "value": 16,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.komsomolets.min": {
+  "value": 11,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.northeast.max": {
+  "value": 49,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.northeast.min": {
+  "value": 31,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.ural.max": {
+  "value": 44,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.ural.min": {
+  "value": 41,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.volga.max": {
+  "value": 21,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.volga.min": {
+  "value": 13,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.west.max": {
+  "value": 36,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km.west.min": {
+  "value": 21,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km_max": {
+  "value": 57,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.max_offshore_km_min": {
+  "value": 11,
+  "unit": "km",
+  "source": "results/study_area/sector_edges.json",
+  "note": "farthest distance of a sector's sea cells from the present shoreline, smallest over sectors and grids; over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
+ },
+ "study_area.layout.n_grids": {
+  "value": 4,
+  "unit": "grids",
+  "source": "results/study_area/sector_edges.json",
+  "note": "over the grids gebco_2022, gebco_2026, etopo_2022, srtm15p_v2.7; shorelines at the DAHITI levels -28.605 m (2026-09-14) and -25.816 m, no offset"
  },
  "study_area.sector_km2.interfluve": {
-  "value": 11298.0,
+  "value": 11300.7,
   "unit": "km2",
   "source": "results/study_area/sector_areas.json"
  },
  "study_area.sector_km2.komsomolets": {
-  "value": 25491.3,
+  "value": 25477.9,
   "unit": "km2",
   "source": "results/study_area/sector_areas.json"
  },
  "study_area.sector_km2.northeast": {
-  "value": 34278.5,
+  "value": 34263.0,
   "unit": "km2",
   "source": "results/study_area/sector_areas.json"
  },
  "study_area.sector_km2.open_shelf": {
-  "value": 69759.5,
+  "value": 69893.5,
   "unit": "km2",
   "source": "results/study_area/sector_areas.json"
  },
  "study_area.sector_km2.ural": {
-  "value": 6479.9,
+  "value": 6480.1,
   "unit": "km2",
   "source": "results/study_area/sector_areas.json"
  },
  "study_area.sector_km2.volga": {
-  "value": 54186.8,
+  "value": 53922.4,
   "unit": "km2",
   "source": "results/study_area/sector_areas.json"
  },
  "study_area.sector_km2.west": {
-  "value": 19823.7,
+  "value": 19827.9,
   "unit": "km2",
   "source": "results/study_area/sector_areas.json"
  }

@@ -1,110 +1,26 @@
 {
- "product": "ETOPO1 (bedrock, ice_surface), 1 arc-minute",
+ "product": "ETOPO1 (bedrock, ice_surface), 1 arc-minute, grid-registered",
  "doi": "10.7289/V5C8276M",
  "source": "Earth Engine catalogue NOAA/NGDC/ETOPO1",
- "asset_properties": {
-  "system:visualization_0_min": "-7000.0",
-  "type_name": "Image",
-  "keywords": [
-   "bathymetry",
-   "bedrock",
-   "dem",
-   "elevation",
-   "etopo1",
-   "geophysical",
-   "ice",
-   "ngdc",
-   "noaa",
-   "topography"
-  ],
-  "thumb": "https://mw1.google.com/ges/dd/images/NOAA_NGDC_ETOPO1_thumb.png",
-  "description": "<p>ETOPO1 is a 1 arc-minute global relief model of Earth&#39;&#39;s\nsurface that integrates land topography and ocean bathymetry. It\nwas built from numerous global and regional data sets. It contains\ntwo elevation bands: ice_surface and bedrock.</p><p><b>Provider: <a href=\"https://www.ngdc.noaa.gov/mgg/global/global.html\">NOAA</a></b><br><p><b>Resolution</b><br>1855 meters\n</p><p><b>Bands</b><table class=\"eecat\"><tr><th scope=\"col\">Name</th><th scope=\"col\">Description</th></tr><tr><td>bedrock</td><td><p>Elevation at ground level and at the base of the Antarctic and Greenland ice sheets</p></td></tr><tr><td>ice_surface</td><td><p>Elevation at ground level and at the top of the Antarctic and Greenland ice sheets</p></td></tr></table><p><b>Terms of Use</b><br><p>It is not necessary to obtain written permission to\nuse ETOPO1 or other NOAA products that are in the public domain,\nnor are there any fees for using them. We ask only that you cite\nNCEI as source.</p><br><b>Dataset's DOI(s)</b><ul><li><p><a href=\"https://doi.org/10.7289/V5C8276M\">https://doi.org/10.7289/V5C8276M</a></li></ul><p><b>Suggested citation(s)</b><ul><li><p>Amante, C. and B. W. Eakins, ETOPO1 1 Arc-Minute Global Relief\nModel: Procedures, Data Sources and Analysis. NOAA Technical Memorandum\nNESDIS NGDC-24, 19 pp, March 2009.</p></li></ul><style>\n  table.eecat {\n  border: 1px solid black;\n  border-collapse: collapse;\n  font-size: 13px;\n  }\n  table.eecat td, tr, th {\n  text-align: left; vertical-align: top;\n  border: 1px solid gray; padding: 3px;\n  }\n  td.nobreak { white-space: nowrap; }\n</style>",
-  "source_tags": [
-   "noaa",
-   "ngdc"
-  ],
-  "visualization_0_max": "3000.0",
-  "title": "ETOPO1: Global 1 Arc-Minute Elevation",
-  "product_tags": [
-   "etopo1",
-   "elevation",
-   "geophysical",
-   "topography",
-   "dem",
-   "ice",
-   "bedrock",
-   "bathymetry"
-  ],
-  "provider": "NOAA",
-  "system:footprint": {
-   "type": "LinearRing",
-   "coordinates": [
-    [
-     -180,
-     -90
-    ],
-    [
-     180,
-     -90
-    ],
-    [
-     180,
-     90
-    ],
-    [
-     -180,
-     90
-    ],
-    [
-     -180,
-     -90
-    ]
-   ]
-  },
-  "visualization_0_min": "-7000.0",
-  "visualization_0_name": "Elevation",
-  "date_range": [
-   1217548800000,
-   1217548800000
-  ],
-  "system:visualization_0_gamma": 1.6,
-  "period": 0,
-  "system:visualization_0_bands": "bedrock",
-  "system:time_end": 1396021494668,
-  "provider_url": "https://www.ngdc.noaa.gov/mgg/global/global.html",
-  "sample": "https://mw1.google.com/ges/dd/images/NOAA_NGDC_ETOPO1_sample.png",
-  "tags": [
-   "bathymetry",
-   "bedrock",
-   "dem",
-   "elevation",
-   "etopo1",
-   "geophysical",
-   "ice",
-   "ngdc",
-   "noaa",
-   "topography"
-  ],
-  "system:time_start": 1396021494668,
-  "system:visualization_0_max": "3000.0",
-  "visualization_0_palette": "011de2,afafaf,3603ff,fff477,b42109",
-  "system:min_zoom_level": 1,
-  "system:visualization_0_palette": "011de2,afafaf,3603ff,fff477,b42109",
-  "system:visualization_0_name": "Elevation",
-  "system:asset_size": 752446550,
-  "visualization_0_bands": "bedrock"
+ "native_affine": {
+  "scaleX": 0.016666666666666666,
+  "translateX": -180.00833333333333,
+  "scaleY": -0.016666666666666663,
+  "translateY": 90.00833333333334
  },
- "projection": {
-  "type": "Projection",
-  "crs": "EPSG:4326",
-  "transform": [
-   0.016666666666666666,
-   0,
-   -180.00833333333333,
-   0,
-   -0.016666666666666663,
-   90.00833333333334
-  ]
- },
- "subset_sha256": "0eba4634c95943bcde45c69959998b1d21a5b1e67fe6a6783b43103620044b9b"
+ "subset_transform": [
+  0.016666666666666666,
+  0,
+  46.29166666666666,
+  0,
+  -0.016666666666666663,
+  47.45833333333335
+ ],
+ "subset_dims": [
+  505,
+  216
+ ],
+ "bedrock_min_m": -120,
+ "bedrock_max_m": 442,
+ "subset_sha256": "84698eff76c4ced3b4c2643e437df813c1be51fdb7c3ddc8c2d3e2a186f831a0"
 }

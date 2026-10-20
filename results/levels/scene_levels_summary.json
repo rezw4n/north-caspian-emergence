@@ -1,12 +1,49 @@
 {
- "dahiti_noise_floor_m": 0.0613,
- "hydroweb_noise_floor_m": 0.0281,
- "q_dahiti_m2_per_day": 0.00017815642037174095,
- "q_hydroweb_m2_per_day": 0.00017815642037174095,
- "hydroweb_offset_m": 0.11402966768490685,
- "hydroweb_offset_nmad_m": 0.07392010028885783,
+ "dahiti_noise_floor_m": 0.0517,
+ "dahiti_noise_floor_se_m": 0.0057,
+ "q_dahiti_m2_per_day": 0.0002002138913266582,
+ "q_dahiti_se_m2_per_day": 8.253595087247578e-05,
+ "hydroweb_noise_floor_m": 0.025,
+ "q_hydroweb_m2_per_day": 0.0002002138913266582,
+ "noise_diffusion_method": "joint IRLS fit of binned NMAD^2 of cross-validated linear-interpolation residuals (span <= 60 d), caspian.levels.estimate_noise_and_diffusion; SE: moving-block bootstrap, 200 reps, seed 0; Hydroweb sigma estimated with q fixed to DAHITI's",
+ "noise_diffusion_n_residuals": 7311,
+ "hydroweb_offset": {
+  "method": "moving median of the 505 DAHITI - Hydroweb pairs within +/-20 d, window +/-730.5 d around each scene (>= 20 pairs, else the nearest 20)",
+  "half_window_days": 730.5,
+  "half_window_years": 2.0,
+  "min_pairs": 20,
+  "pooled_median_m": 0.11402966768490685,
+  "filled_scenes_offset_median_m": 0.078012,
+  "filled_scenes_offset_min_m": 0.06801650000000001,
+  "filled_scenes_offset_max_m": 0.15134,
+  "filled_scenes_offset_sigma_p50_m": 0.048035151816696826,
+  "pair_residual_nmad_m": 0.0681150918,
+  "excess_sd_tau_m": 0.011671270901256877,
+  "excess_sd_n_years": 34,
+  "tau_rule": "tau(t) = max(local, record-wide): local = method-of-moments excess over the years whose middle pair time is within +/-730.5 d of the scene (at least 5 years, else the nearest 5); offset 1-sigma = sqrt(SE_moving_median^2 + tau^2), common to the gap-filled scenes, added after interpolation",
+  "tau_min_years": 5,
+  "filled_scenes_tau_p50_m": 0.04630128753944927,
+  "filled_scenes_tau_min_m": 0.011671270901256877,
+  "filled_scenes_tau_max_m": 0.04630128753944927,
+  "n_filled_scenes_tau_at_record_floor": 1298,
+  "filled_scenes_offset_sigma_p50_with_record_tau_m": 0.01842367743792271
+ },
  "max_gap_days": 60.0,
- "epoch_E1_end": "1995-07-06 17:31:11",
+ "max_gap_rule_provenance": "caspian.levels default (commit aabacee, before PREREG v1.0 and the DAHITI data); logged in D-018/D-020; not stated in PREREG",
+ "epoch_E1_end": "1995-07-16 15:29:42",
+ "epoch_E1_end_rule": "maximum of the 3-point running median of DAHITI",
+ "dahiti_smoothed_extremes": {
+  "k": 3,
+  "max_m": -25.816,
+  "time_of_max": "1995-07-16 15:29:42",
+  "min_m": -28.87,
+  "time_of_min": "2025-12-30 23:57:45",
+  "range_m": 3.054000000000002
+ },
+ "dahiti_raw_max_record": {
+  "time": "1995-07-06 17:31:11",
+  "level_m": -25.672
+ },
  "n_scenes": 75603,
  "by_sensor_source": {
   "ETM_L7": {
@@ -65,20 +102,513 @@
    "pre_altimetry": 0
   },
   "TM_L5": {
-   "E1": 860,
-   "E2": 3838,
+   "E1": 873,
+   "E2": 3825,
    "E3": 236,
    "no_level": 0,
    "pre_altimetry": 2120
   }
  },
  "sigma_m_percentiles_p50_p90_p99": [
-  0.057695249589957885,
-  0.06634458740045049,
-  0.08338226973892879
+  0.051026734454182536,
+  0.07605014668631703,
+  0.0916649328875291
  ],
+ "sigma_m_p50_by_source": {
+  "dahiti": 0.04962793520179093,
+  "hydroweb_shifted": 0.07798383978258767
+ },
  "level_range_m": [
   -28.905256348703286,
   -25.68521264204145
- ]
+ ],
+ "level_range_by_epoch_m": {
+  "E1": [
+   -26.646816934046452,
+   -25.68521264204145
+  ],
+  "E2": [
+   -26.98883032359804,
+   -25.819691995569094
+  ],
+  "E3": [
+   -28.905256348703286,
+   -26.633497679727437
+  ]
+ },
+ "diagnostics": {
+  "n_scenes_above_smoothed_max": 34,
+  "n_scenes_between_raw_and_smoothed_max_dates": 13,
+  "n_hydroweb_scenes_other_bin_with_pooled_offset": 4544,
+  "bins_for_diagnostic": {
+   "width_m": 0.1,
+   "origin_m": -30.0,
+   "reference": "DAHITI (analysis-datum offset not applied)"
+  },
+  "dahiti_neighbour_z": {
+   "z_threshold": 2.5,
+   "n": 786,
+   "n_abs_gt_2_5": 12,
+   "expected_gaussian": 9.8,
+   "z_of_raw_max_record": 2.790197102197934
+  },
+  "superseded_two_step_estimate": {
+   "dahiti_floor_m": 0.0613,
+   "q_m2_per_day": 0.00017815642037174095
+  },
+  "hydroweb_joint_free_q": {
+   "sigma_m": 0.0289,
+   "q_m2_per_day": 1.1693001116583256e-05,
+   "filled_scenes_sigma_change_p50_m": -0.0003132433153271025,
+   "filled_scenes_sigma_change_max_abs_m": 0.009439866282952042,
+   "note": "change in gap-filled scene 1-sigma if Hydroweb's own joint fit (sigma, q) replaced DAHITI's q (not applied)"
+  },
+  "e1_end_sensitivity": {
+   "applied_k": 3,
+   "by_k": [
+    {
+     "k": 1,
+     "time_of_max": "1995-07-06 17:31:11",
+     "max_m": -25.672,
+     "range_m": 3.2369999999999983,
+     "n_E1_scenes": 860
+    },
+    {
+     "k": 3,
+     "time_of_max": "1995-07-16 15:29:42",
+     "max_m": -25.816,
+     "range_m": 3.054000000000002,
+     "n_E1_scenes": 873
+    },
+    {
+     "k": 5,
+     "time_of_max": "1995-07-06 17:31:11",
+     "max_m": -25.818,
+     "range_m": 3.0519999999999996,
+     "n_E1_scenes": 860
+    },
+    {
+     "k": 7,
+     "time_of_max": "1995-07-06 17:31:11",
+     "max_m": -25.868,
+     "range_m": 2.997,
+     "n_E1_scenes": 860
+    },
+    {
+     "k": 9,
+     "time_of_max": "1995-05-28 01:37:03",
+     "max_m": -25.879,
+     "range_m": 2.980999999999998,
+     "n_E1_scenes": 812
+    }
+   ],
+   "running_median_top_two_m": [
+    -25.816,
+    -25.818
+   ],
+   "note": "k = 1 is the single-record maximum; the date of the maximum of a running median is set by the top two values, which may differ by less than the record noise"
+  },
+  "offset_tau_scene_weighted_m": 0.051369053448689556,
+  "offset_fill_year_max_departure": {
+   "year": 2023,
+   "departure_m": 0.08507200000000001,
+   "note": "largest |year median - leave-year-out moving median| among years with >= 100 gap-filled scenes"
+  },
+  "offset_check_5d_main_fill_year": {
+   "year": 2024,
+   "n_filled_scenes": 5037,
+   "n_pairs_5d": 7,
+   "median_resid_m": -0.060971926690746664,
+   "offset_sigma_p50_m": 0.04848816146188349
+  },
+  "offset_check_5d_in_sample": {
+   "rows": [
+    {
+     "year": 2020,
+     "n_filled_scenes": 1295,
+     "n_pairs_5d": 15,
+     "median_resid_m": -0.009536000000000933,
+     "offset_sigma_p50_m": 0.013961274131173883
+    },
+    {
+     "year": 2022,
+     "n_filled_scenes": 1983,
+     "n_pairs_5d": 11,
+     "median_resid_m": 0.011985861641703996,
+     "offset_sigma_p50_m": 0.04443199474276578
+    },
+    {
+     "year": 2023,
+     "n_filled_scenes": 2014,
+     "n_pairs_5d": 9,
+     "median_resid_m": 0.03424856482517476,
+     "offset_sigma_p50_m": 0.04526310195488177
+    },
+    {
+     "year": 2024,
+     "n_filled_scenes": 5037,
+     "n_pairs_5d": 7,
+     "median_resid_m": -0.060971926690746664,
+     "offset_sigma_p50_m": 0.04848816146188349
+    },
+    {
+     "year": 2025,
+     "n_filled_scenes": 1233,
+     "n_pairs_5d": 14,
+     "median_resid_m": 0.006161400459111392,
+     "offset_sigma_p50_m": 0.048344800068041316
+    },
+    {
+     "year": 2026,
+     "n_filled_scenes": 723,
+     "n_pairs_5d": 21,
+     "median_resid_m": 0.027334238206697364,
+     "offset_sigma_p50_m": 0.04850610265752949
+    }
+   ],
+   "note": "median DAHITI - shifted Hydroweb at the +/-5-day epochs (a subset of the +/-20-day pairs that set the offset, so not independent), by gap-fill year with >= 100 filled scenes"
+  },
+  "offset_by_year": [
+   {
+    "year": 1992,
+    "n": 5,
+    "time_mid": "1992-10-28T01:57:15",
+    "median_m": 0.11167,
+    "se_m": 0.049930394524397584,
+    "moving_median_others_m": 0.12546849999999998,
+    "moving_median_others_se_m": 0.02521283406952624,
+    "term_m2": -0.0029383326969294556
+   },
+   {
+    "year": 1993,
+    "n": 11,
+    "time_mid": "1993-08-01T17:15:55",
+    "median_m": 0.123784,
+    "se_m": 0.03066848938550641,
+    "moving_median_others_m": 0.103659,
+    "moving_median_others_se_m": 0.02235628532728415,
+    "term_m2": -0.0010353441098238597
+   },
+   {
+    "year": 1994,
+    "n": 8,
+    "time_mid": "1994-09-02T08:16:50",
+    "median_m": 0.139593,
+    "se_m": 0.046691791009945444,
+    "moving_median_others_m": 0.11474000000000001,
+    "moving_median_others_se_m": 0.015583240579863569,
+    "term_m2": -0.0018052891256863295
+   },
+   {
+    "year": 1995,
+    "n": 10,
+    "time_mid": "1995-07-06T17:31:11",
+    "median_m": 0.084039,
+    "se_m": 0.025185541918789564,
+    "moving_median_others_m": 0.11690149999999999,
+    "moving_median_others_se_m": 0.015891614013477558,
+    "term_m2": 0.00019308898855353656
+   },
+   {
+    "year": 1996,
+    "n": 11,
+    "time_mid": "1996-06-27T16:38:03",
+    "median_m": 0.101022,
+    "se_m": 0.013581199327622594,
+    "moving_median_others_m": 0.133574,
+    "moving_median_others_se_m": 0.013807075826217716,
+    "term_m2": 0.0006845483859524578
+   },
+   {
+    "year": 1997,
+    "n": 9,
+    "time_mid": "1997-05-01T01:52:22",
+    "median_m": 0.14333,
+    "se_m": 0.016932205564180517,
+    "moving_median_others_m": 0.1231955,
+    "moving_median_others_se_m": 0.009836691162988895,
+    "term_m2": 2.1938011946311025e-05
+   },
+   {
+    "year": 1998,
+    "n": 11,
+    "time_mid": "1998-06-01T16:53:24",
+    "median_m": 0.151075,
+    "se_m": 0.014549884350412897,
+    "moving_median_others_m": 0.125158,
+    "moving_median_others_se_m": 0.020028908231354867,
+    "term_m2": 5.8834589449574884e-05
+   },
+   {
+    "year": 2000,
+    "n": 9,
+    "time_mid": "2000-07-04T04:59:42",
+    "median_m": 0.214442,
+    "se_m": 0.0234500238745976,
+    "moving_median_others_m": 0.1463235,
+    "moving_median_others_se_m": 0.012474288671121962,
+    "term_m2": 0.003934618544680321
+   },
+   {
+    "year": 2001,
+    "n": 6,
+    "time_mid": "2001-06-06T08:09:32",
+    "median_m": 0.152639,
+    "se_m": 0.022586320845998195,
+    "moving_median_others_m": 0.1514125,
+    "moving_median_others_se_m": 0.025697096987211076,
+    "term_m2": -0.0011689783806785052
+   },
+   {
+    "year": 2002,
+    "n": 5,
+    "time_mid": "2002-10-05T04:55:58",
+    "median_m": 0.141307,
+    "se_m": 0.016795260110386945,
+    "moving_median_others_m": 0.131109,
+    "moving_median_others_se_m": 0.01600250440634186,
+    "term_m2": -0.00043416170545054587
+   },
+   {
+    "year": 2003,
+    "n": 9,
+    "time_mid": "2003-05-31T04:20:40",
+    "median_m": 0.172558,
+    "se_m": 0.01111181796910409,
+    "moving_median_others_m": 0.153163,
+    "moving_median_others_se_m": 0.016560799068427876,
+    "term_m2": -2.1566539363346293e-05
+   },
+   {
+    "year": 2004,
+    "n": 9,
+    "time_mid": "2004-06-01T01:26:11",
+    "median_m": 0.129715,
+    "se_m": 0.02933916352065341,
+    "moving_median_others_m": 0.161518,
+    "moving_median_others_se_m": 0.014004978600859109,
+    "term_m2": -4.549513270216154e-05
+   },
+   {
+    "year": 2005,
+    "n": 10,
+    "time_mid": "2005-08-01T10:23:00",
+    "median_m": 0.1752915,
+    "se_m": 0.023630744631781022,
+    "moving_median_others_m": 0.129715,
+    "moving_median_others_se_m": 0.017372173607772767,
+    "term_m2": 0.001217012844538955
+   },
+   {
+    "year": 2006,
+    "n": 7,
+    "time_mid": "2006-07-04T13:32:58",
+    "median_m": 0.085018,
+    "se_m": 0.027974802399269867,
+    "moving_median_others_m": 0.15717,
+    "moving_median_others_se_m": 0.014986457536032977,
+    "term_m2": 0.0041987276252424864
+   },
+   {
+    "year": 2007,
+    "n": 9,
+    "time_mid": "2007-09-03T22:29:46",
+    "median_m": 0.13774,
+    "se_m": 0.03626701658556029,
+    "moving_median_others_m": 0.1408025,
+    "moving_median_others_se_m": 0.02155355776951794,
+    "term_m2": -0.0017704734382912523
+   },
+   {
+    "year": 2008,
+    "n": 9,
+    "time_mid": "2008-08-06T01:40:09",
+    "median_m": 0.148641,
+    "se_m": 0.023728129017748522,
+    "moving_median_others_m": 0.13638050000000002,
+    "moving_median_others_se_m": 0.020550685345044173,
+    "term_m2": -0.0008350349145839332
+   },
+   {
+    "year": 2009,
+    "n": 9,
+    "time_mid": "2009-05-30T12:56:26",
+    "median_m": 0.135021,
+    "se_m": 0.04356650235846394,
+    "moving_median_others_m": 0.143683,
+    "moving_median_others_se_m": 0.022301678806887496,
+    "term_m2": -0.002320374761355619
+   },
+   {
+    "year": 2010,
+    "n": 7,
+    "time_mid": "2010-06-01T10:01:52",
+    "median_m": 0.083673,
+    "se_m": 0.06435286124328929,
+    "moving_median_others_m": 0.135021,
+    "moving_median_others_se_m": 0.016348995049709096,
+    "term_m2": -0.001771963285333457
+   },
+   {
+    "year": 2011,
+    "n": 13,
+    "time_mid": "2011-08-31T12:53:59",
+    "median_m": 0.113959,
+    "se_m": 0.025731501315542943,
+    "moving_median_others_m": 0.126234,
+    "moving_median_others_se_m": 0.012094276364244351,
+    "term_m2": -0.0006577060557265076
+   },
+   {
+    "year": 2012,
+    "n": 27,
+    "time_mid": "2012-07-03T22:08:18",
+    "median_m": 0.116621,
+    "se_m": 0.01382388777728421,
+    "moving_median_others_m": 0.13729449999999999,
+    "moving_median_others_se_m": 0.012075716066640067,
+    "term_m2": 9.047081044894249e-05
+   },
+   {
+    "year": 2013,
+    "n": 28,
+    "time_mid": "2013-07-05T19:13:45",
+    "median_m": 0.1439125,
+    "se_m": 0.014122773341693057,
+    "moving_median_others_m": 0.124002,
+    "moving_median_others_se_m": 0.009888348427653309,
+    "term_m2": 9.919584876249016e-05
+   },
+   {
+    "year": 2014,
+    "n": 34,
+    "time_mid": "2014-07-07T16:19:13",
+    "median_m": 0.1195135,
+    "se_m": 0.01673046128491789,
+    "moving_median_others_m": 0.13164,
+    "moving_median_others_se_m": 0.008772295469959633,
+    "term_m2": -0.00020980950036841037
+   },
+   {
+    "year": 2015,
+    "n": 26,
+    "time_mid": "2015-06-19T17:27:38",
+    "median_m": 0.132522,
+    "se_m": 0.013483022105052693,
+    "moving_median_others_m": 0.1217995,
+    "moving_median_others_se_m": 0.0102344005598017,
+    "term_m2": -0.00017156283365380896
+   },
+   {
+    "year": 2016,
+    "n": 32,
+    "time_mid": "2016-06-20T14:34:36",
+    "median_m": 0.1040015,
+    "se_m": 0.01396007194155033,
+    "moving_median_others_m": 0.102903,
+    "moving_median_others_se_m": 0.007914374262125805,
+    "term_m2": -0.0002563142263242602
+   },
+   {
+    "year": 2017,
+    "n": 26,
+    "time_mid": "2017-07-12T07:37:09",
+    "median_m": 0.0905335,
+    "se_m": 0.012489260076876833,
+    "moving_median_others_m": 0.08821,
+    "moving_median_others_se_m": 0.009421265289086489,
+    "term_m2": -0.0002393432046652154
+   },
+   {
+    "year": 2018,
+    "n": 24,
+    "time_mid": "2018-08-03T00:39:41",
+    "median_m": 0.0805015,
+    "se_m": 0.01213709412156741,
+    "moving_median_others_m": 0.085408,
+    "moving_median_others_se_m": 0.008782679518542674,
+    "term_m2": -0.00020037077099121521
+   },
+   {
+    "year": 2019,
+    "n": 23,
+    "time_mid": "2019-07-25T23:46:36",
+    "median_m": 0.078012,
+    "se_m": 0.014721310237546253,
+    "moving_median_others_m": 0.084003,
+    "moving_median_others_se_m": 0.0074215593405730735,
+    "term_m2": -0.0002359044371557316
+   },
+   {
+    "year": 2020,
+    "n": 24,
+    "time_mid": "2020-08-05T18:50:31",
+    "median_m": 0.063001,
+    "se_m": 0.017999493782273866,
+    "moving_median_others_m": 0.08,
+    "moving_median_others_se_m": 0.008753509680769569,
+    "term_m2": -0.00011163970714944208
+   },
+   {
+    "year": 2021,
+    "n": 22,
+    "time_mid": "2021-06-19T02:03:36",
+    "median_m": 0.08100850000000001,
+    "se_m": 0.017739332983252216,
+    "moving_median_others_m": 0.088482,
+    "moving_median_others_se_m": 0.009876995425596294,
+    "term_m2": -0.00035638577107795016
+   },
+   {
+    "year": 2022,
+    "n": 11,
+    "time_mid": "2022-03-23T17:22:02",
+    "median_m": 0.087964,
+    "se_m": 0.010079590656460458,
+    "moving_median_others_m": 0.07953,
+    "moving_median_others_se_m": 0.012046764829772266,
+    "term_m2": -0.00017559033466564306
+   },
+   {
+    "year": 2023,
+    "n": 11,
+    "time_mid": "2023-07-22T14:10:18",
+    "median_m": 0.156069,
+    "se_m": 0.03525755764558464,
+    "moving_median_others_m": 0.070997,
+    "moving_median_others_se_m": 0.017567110930471582,
+    "term_m2": 0.005685546426424784
+   },
+   {
+    "year": 2024,
+    "n": 8,
+    "time_mid": "2024-10-20T17:02:35",
+    "median_m": 0.0270165,
+    "se_m": 0.015091685575721506,
+    "moving_median_others_m": 0.095351,
+    "moving_median_others_se_m": 0.01699801502664374,
+    "term_m2": 0.0041529124018875535
+   },
+   {
+    "year": 2025,
+    "n": 15,
+    "time_mid": "2025-09-22T20:12:29",
+    "median_m": 0.080006,
+    "se_m": 0.021069832407579214,
+    "moving_median_others_m": 0.061518500000000004,
+    "moving_median_others_se_m": 0.017640475566837725,
+    "term_m2": -0.0004133365596576744
+   },
+   {
+    "year": 2026,
+    "n": 24,
+    "time_mid": "2026-05-18T19:37:07",
+    "median_m": 0.0976755,
+    "se_m": 0.024500438333559988,
+    "moving_median_others_m": 0.049032,
+    "moving_median_others_se_m": 0.01721639941011601,
+    "term_m2": 0.0014695142050647815
+   }
+  ]
+ }
 }

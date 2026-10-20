@@ -25,7 +25,7 @@
   "source": "caspian.pipeline_ee.ZONE_SCALE"
  },
  "params.hist_scale_m": {
-  "value": 60,
+  "value": 240,
   "unit": "m",
   "source": "caspian.pipeline_ee.HIST_SCALE"
  },
@@ -44,6 +44,16 @@
   "unit": "days",
   "source": "scripts/a4_scene_levels.MAX_GAP_DAYS"
  },
+ "params.highstand_start": {
+  "value": "1995-05-01",
+  "unit": "date",
+  "source": "caspian.pipeline_ee.HIGHSTAND"
+ },
+ "params.highstand_end": {
+  "value": "1996-09-30",
+  "unit": "date",
+  "source": "caspian.pipeline_ee.HIGHSTAND"
+ },
  "params.lowstand_start": {
   "value": "2025-05-01",
   "unit": "date",
@@ -53,5 +63,211 @@
   "value": "2026-09-30",
   "unit": "date",
   "source": "caspian.pipeline_ee.LOWSTAND"
+ },
+ "params.high_extent_min_water_pct": {
+  "value": 10,
+  "unit": "%",
+  "source": "100 * caspian.pipeline_ee.HIGH_MIN_FRAC"
+ },
+ "params.low_extent_min_water_pct": {
+  "value": 90,
+  "unit": "%",
+  "source": "100 * caspian.pipeline_ee.LOW_MIN_FRAC"
+ },
+ "params.dark_water_reflectance": {
+  "value": 0.03,
+  "unit": "reflectance",
+  "source": "caspian.pipeline_ee.DARK_WATER"
+ },
+ "params.conn_scale_km": {
+  "value": 1,
+  "unit": "km",
+  "source": "caspian.pipeline_ee.CONN_SCALE"
+ },
+ "params.sea_radius_km": {
+  "value": 20,
+  "unit": "km",
+  "source": "caspian.pipeline_ee.SEA_RADIUS_M"
+ },
+ "params.sea_min_water_pct": {
+  "value": 80,
+  "unit": "%",
+  "source": "100 * caspian.pipeline_ee.SEA_MIN_FRAC"
+ },
+ "params.conn_max_km": {
+  "value": 200,
+  "unit": "km",
+  "source": "caspian.pipeline_ee.CONN_MAX_M"
+ },
+ "params.highstand_label": {
+  "value": "1995--96",
+  "unit": "years",
+  "source": "caspian.pipeline_ee.HIGHSTAND"
+ },
+ "params.lowstand_label": {
+  "value": "2025--26",
+  "unit": "years",
+  "source": "caspian.pipeline_ee.LOWSTAND"
+ },
+ "params.min_obs_high": {
+  "value": 3,
+  "unit": "observations",
+  "source": "caspian.pipeline_ee.MIN_OBS_HIGH"
+ },
+ "params.zone_tile_km": {
+  "value": 5,
+  "unit": "km",
+  "source": "caspian.pipeline_ee.ZONE_TILE_M"
+ },
+ "params.mndwi_min": {
+  "value": -1,
+  "unit": "MNDWI",
+  "source": "caspian.water.MNDWI_RANGE"
+ },
+ "params.mndwi_max": {
+  "value": 1,
+  "unit": "MNDWI",
+  "source": "caspian.water.MNDWI_RANGE"
+ },
+ "params.ndsi_snow": {
+  "value": 0.4,
+  "unit": "NDSI",
+  "source": "caspian.masks.NDSI_SNOW"
+ },
+ "params.red_snow": {
+  "value": 0.2,
+  "unit": "reflectance",
+  "source": "caspian.masks.RED_SNOW"
+ },
+ "params.s2_scl_snow": {
+  "value": 11,
+  "unit": "SCL class",
+  "source": "caspian.masks.S2_SCL_SNOW"
+ },
+ "params.snow_season_first_month": {
+  "value": "November",
+  "unit": "month",
+  "source": "caspian.masks.NDSI_MONTHS"
+ },
+ "params.snow_season_last_month": {
+  "value": "April",
+  "unit": "month",
+  "source": "caspian.masks.NDSI_MONTHS"
+ },
+ "params.snow_rule_max_pct": {
+  "value": 1.0,
+  "unit": "%",
+  "source": "caspian.design.SNOW_RULE_MAX_PCT"
+ },
+ "params.laea_lat0_deg": {
+  "value": 45.5,
+  "unit": "degrees N",
+  "source": "caspian.config.CRS_EQUAL_AREA",
+  "decimals": 1
+ },
+ "params.laea_lon0_deg": {
+  "value": 50,
+  "unit": "degrees E",
+  "source": "caspian.config.CRS_EQUAL_AREA"
+ },
+ "params.bin_width_m": {
+  "value": 0.1,
+  "unit": "m",
+  "source": "caspian.design.BIN_WIDTH_M"
+ },
+ "params.bin_width_sens_lo_m": {
+  "value": 0.05,
+  "unit": "m",
+  "source": "caspian.design.BIN_WIDTH_SENS_M"
+ },
+ "params.bin_width_sens_hi_m": {
+  "value": 0.2,
+  "unit": "m",
+  "source": "caspian.design.BIN_WIDTH_SENS_M"
+ },
+ "params.bin_origin_m": {
+  "value": -30.0,
+  "unit": "m",
+  "source": "caspian.design.BIN_ORIGIN_M"
+ },
+ "params.contour_level": {
+  "value": 0.5,
+  "unit": "fraction",
+  "source": "caspian.design.CONTOUR_LEVEL"
+ },
+ "params.min_valid_obs": {
+  "value": 5,
+  "unit": "observations",
+  "source": "caspian.design.MIN_VALID_OBS"
+ },
+ "params.dem_res_m": {
+  "value": 30,
+  "unit": "m",
+  "source": "caspian.design.DEM_RES_M"
+ },
+ "params.e2_end": {
+  "value": "2010-12-31",
+  "unit": "date",
+  "source": "caspian.design.E2_END"
+ },
+ "params.emergence_lag_days": {
+  "value": 30,
+  "unit": "days",
+  "source": "caspian.design.EMERGENCE_LAG_DAYS"
+ },
+ "params.block_size_km": {
+  "value": 25.0,
+  "unit": "km",
+  "source": "caspian.design.BLOCK_SIZE_M"
+ },
+ "params.split_train": {
+  "value": 0.6,
+  "unit": "fraction",
+  "source": "caspian.design.SPLIT"
+ },
+ "params.split_calib": {
+  "value": 0.2,
+  "unit": "fraction",
+  "source": "caspian.design.SPLIT"
+ },
+ "params.split_test": {
+  "value": 0.2,
+  "unit": "fraction",
+  "source": "caspian.design.SPLIT"
+ },
+ "params.seed": {
+  "value": 20261020,
+  "unit": "",
+  "source": "caspian.design.SEED"
+ },
+ "params.bootstrap_n": {
+  "value": 2000,
+  "unit": "resamples",
+  "source": "caspian.design.BOOTSTRAP_N"
+ },
+ "params.conformal_level": {
+  "value": 0.9,
+  "unit": "",
+  "source": "caspian.design.CONFORMAL_LEVEL"
+ },
+ "params.mondrian_min_n": {
+  "value": 50,
+  "unit": "points",
+  "source": "caspian.design.MONDRIAN_MIN_N"
+ },
+ "params.permutations_n": {
+  "value": 10000,
+  "unit": "permutations",
+  "source": "caspian.design.PERMUTATIONS_N"
+ },
+ "params.alpha": {
+  "value": 0.05,
+  "unit": "",
+  "source": "caspian.design.ALPHA"
+ },
+ "params.edge_otsu_sample_n": {
+  "value": 500,
+  "unit": "scenes",
+  "source": "caspian.design.EDGE_OTSU_SAMPLE_N"
  }
 }

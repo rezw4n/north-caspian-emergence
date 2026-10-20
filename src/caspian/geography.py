@@ -30,8 +30,18 @@ DOMAIN = Polygon([
     (54.60, 44.20), (54.60, 47.35), (46.40, 47.35),
 ])
 
-# Coastal sectors (lon, lat). Offshore edges sit roughly 25-60 km seaward of the
-# present coast, beyond the 1985-2026 emerged band seen in JRC GSW transitions.
+# Coastal sectors (lon, lat), drawn by eye on the JRC Global Surface Water
+# transitions layer and frozen before any evaluation (D-014). Their offshore edges
+# (the parts shared with the open shelf) are not at a set distance from the coast.
+# scripts/a0_sector_edges.py measures them against the present shoreline traced in
+# each relief grid (results/study_area/sector_edges.json; study_area.layout.* in
+# results/metrics.json). The reach differs by sector and grid: the west edge starts
+# at Chechen Island, on the coast; the Volga delta and Komsomolets sectors reach
+# least far; and most of the Komsomolets edge runs over land. Part of the emerged
+# band therefore falls in the open shelf, which also holds the Buzachi coast and
+# Mangyshlak Bay. (Corrected 2026-10-20, review finding 18: this comment said the
+# edges sit roughly 25-60 km seaward, beyond the emerged band; that was never
+# measured, and it is not true of every sector.)
 _COASTAL = {
     "west": ("Kizlyar Bay - Dagestan - Kalmyk coast", [
         (46.40, 43.9750), CHECHEN_ISLAND, (47.75, 44.50), (47.85, 45.30), (47.70, 45.62),

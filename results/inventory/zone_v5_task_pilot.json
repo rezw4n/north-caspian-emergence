@@ -1,0 +1,9 @@
+{
+ "task": "6KFSMF6AIWEDW4EM6OL2CP4K",
+ "name": "active_zone_v5_pilot",
+ "eecu_s": 100.2518081665039,
+ "zone_area_km2": 6337.4,
+ "gsw_filled_km2": 0.1,
+ "region_km2": 8563.4,
+ "asset": "projects/ee-rezwanahmed/assets/caspian/active_zone_v5_pilot"
+}

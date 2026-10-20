@@ -1,0 +1,92 @@
+{
+ "a30": {
+  "task": "XWZMQARKKS43FBWGEPBRX5KP",
+  "res_m": 30,
+  "dims": [
+   811,
+   1141
+  ],
+  "n_scenes": 18,
+  "box": [
+   52.8,
+   46.2,
+   53.1,
+   46.5
+  ],
+  "state": "SUCCEEDED",
+  "eecu_s": 299.1997375488281,
+  "error": null
+ },
+ "b60": {
+  "task": "OJ2DG3QGHSE6DHGNHIINSK5M",
+  "res_m": 60,
+  "dims": [
+   406,
+   571
+  ],
+  "n_scenes": 18,
+  "box": [
+   52.8,
+   46.2,
+   53.1,
+   46.5
+  ],
+  "state": "SUCCEEDED",
+  "eecu_s": 51.13899230957031,
+  "error": null
+ },
+ "d90": {
+  "task": "FEZJEKQBUS7A5VBCGASQ2ON3",
+  "res_m": 90,
+  "dims": [
+   271,
+   381
+  ],
+  "n_scenes": 18,
+  "box": [
+   52.8,
+   46.2,
+   53.1,
+   46.5
+  ],
+  "state": "SUCCEEDED",
+  "eecu_s": 33.878421783447266,
+  "error": null
+ },
+ "c30q": {
+  "task": "O6GWUZIPMGFXFTKZA4QNYWGK",
+  "res_m": 30,
+  "dims": [
+   811,
+   1141
+  ],
+  "n_scenes": 18,
+  "box": [
+   52.8,
+   46.2,
+   53.1,
+   46.5
+  ],
+  "state": "SUCCEEDED",
+  "eecu_s": 184.52474975585938,
+  "error": null
+ },
+ "s60": {
+  "task": "LLZEOVGJU6DYJF7MQV7KTPXC",
+  "res_m": 60,
+  "dims": [
+   406,
+   571
+  ],
+  "n_scenes": 20,
+  "box": [
+   52.8,
+   46.2,
+   53.1,
+   46.5
+  ],
+  "state": "SUCCEEDED",
+  "eecu_s": 172.25328063964844,
+  "error": null
+ }
+}
