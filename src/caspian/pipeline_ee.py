@@ -22,7 +22,8 @@ from .geography import DOMAIN
 
 LOWSTAND = ("2025-05-01", "2026-09-30")
 ZONE_DILATE_M = 2000
-ZONE_SCALE = 60
+ZONE_SCALE = 250   # zone mask grid (m)
+HIST_SCALE = 60    # per-scene MNDWI histogram sampling for Otsu (m)
 
 
 def domain_geometry():
@@ -38,17 +39,24 @@ def lowstand_water(region=None):
     return m.gt(0).rename("low_water")
 
 
-def active_zone(region=None):
+def active_zone(region=None, scale: float = 250):
+    """Zone mask computed on a coarse grid (D-019): GSW occurrence and the low-stand
+    composite are evaluated at ``scale`` metres (Earth Engine reads pyramid levels),
+    then dilated by ZONE_DILATE_M with a pixel kernel. A 2 km dilation at 60 m cost
+    17.7 EECU-h for the domain (D-019); at 250 m the kernel is 8 px."""
     region = region or domain_geometry()
+    proj = ee.Projection("EPSG:4326").atScale(scale)
     gsw = ee.Image("JRC/GSW1_4/GlobalSurfaceWater")
-    occ = gsw.select("occurrence").unmask(0)
+    occ = gsw.select("occurrence").unmask(0).reproject(proj)
+    low = lowstand_water(region).reproject(proj)
     changed = occ.gt(0).And(occ.lt(100))
-    lost_since = occ.eq(100).And(lowstand_water(region).Not())
-    zone = changed.Or(lost_since).focalMax(ZONE_DILATE_M, "circle", "meters")
+    lost_since = occ.gte(99).And(low.Not())
+    radius_px = max(int(round(ZONE_DILATE_M / scale)), 1)
+    zone = changed.Or(lost_since).focalMax(radius_px, "circle", "pixels").reproject(proj)
     return zone.selfMask().clip(region).rename("zone")
 
 
-def scene_table(col, zone, scale: float = ZONE_SCALE, min_samples: int = 300):
+def scene_table(col, zone, scale: float = HIST_SCALE, min_samples: int = 300):
     """Stage-1 table: one feature per scene with the Otsu threshold and in-zone
     observation fractions."""
     z = zone.unmask(0).gt(0)
