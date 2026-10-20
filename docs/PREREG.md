@@ -413,3 +413,11 @@ No level-binned water frequency, waterline, contour, DEM or metric existed. Stag
 **Change.** For the outside states (Amendment 6, Amendment 10 item 3), the zone that separates labelled from observed cells is the stage-2 cover **plus a band of 2 km around the shorelines of the 1995–96 and 2025–26 zone-v6 extents**. The domain rim whose cells take the beyond-domain state is **2 km wide** (it was one cell).
 
 **Reason (D-083).** At steep coasts, and where the cover ends at the domain edge, the sea meets land outside the observed cover. The open sea was then connected to the seeded hinterland, and the registered check stopped the audit. Both changes only turn cells unknown or beyond-domain; they use no product, and no metric existed.
+
+## Amendment 15 — 2026-10-21 04:47 (§2, §6 and §7; training blocks only seen; before any calibration- or test-block evaluation)
+
+**Changes:**
+1. **H2 reference population (D-084):** ICESat-2 points inside the emerged band (water in the 1995–96, not water in the 2025–26 zone-v6 extent) and in cells that are not vegetated (E3 emergent-vegetation share below 0.5, the D-071 rule). Vegetated cells are reported as brief §10 check 9, and all points as a sensitivity.
+2. **Block size when the fitted practical range lies beyond the largest lag (D-084):** the check is refitted on residuals less each sector's training median, and the size follows the detrended range. If that is still beyond the largest lag, the size is capped at 50 km. The 12.5, 25 and 50 km sensitivities are always reported.
+
+**Reason.** On training blocks, the residuals of all prepared points had a median of +0.34 m, an NMAD of 1.45 m and an RMSE of 8.2 m. The cause was points on land above the record shoreline and on reed canopies, neither of which is the "seabed that was dry at acquisition" of §2. The semivariogram reached no sill within 150 km, which is a trend and not a range: read literally, §6 would have required 250 km blocks and left too few blocks for any split.
