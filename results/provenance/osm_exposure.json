@@ -35,6 +35,18 @@
    "n_features_in_domain": 1694,
    "osm_timestamp": "2026-10-20T11:47:51Z",
    "sha256": "d9d0a544b3e4fda31de0fa36990a328db72d08198972a06d4fc3202617a52e30"
+  },
+  "protected_areas": {
+   "n_features_in_domain": 4,
+   "osm_timestamp": "2026-10-20T20:02:41Z",
+   "queried_utc": "2026-10-20T20:03:22+00:00",
+   "sha256": "63c0a640ce8a3d6d5962de8257893aac6517a9e38318314efb5cd7132c110257"
+  },
+  "wetlands": {
+   "n_features_in_domain": 1034,
+   "osm_timestamp": "2026-10-20T20:03:42Z",
+   "queried_utc": "2026-10-20T20:03:22+00:00",
+   "sha256": "0ca6dbaa9a685209c69ea6769145f8b4436215509e699907442b43285650d7fb"
   }
  }
 }

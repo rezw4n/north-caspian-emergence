@@ -1,0 +1,307 @@
+{
+ "note": "Habitat rasters for H3 exposure (scripts/a8_emergence.py HABITAT_RASTERS); open licences (CC BY 4.0) with no click-through, retrieved 2026-10-21. 'retrieval_record' is the folder's provenance.json verbatim; 'files' are sha256 recomputed when this record was written.",
+ "products": {
+  "esa_worldcover_2021_v200": {
+   "retrieval_record": {
+    "product": "ESA WorldCover 10 m 2021 v200",
+    "doi": "10.5281/zenodo.7254221",
+    "licence": "CC BY 4.0",
+    "domain_wsen_deg": [
+     46.4,
+     44.0,
+     54.6,
+     47.35
+    ],
+    "method": "GDAL /vsicurl/ windowed read of public COG tiles; values unchanged",
+    "tiles": [
+     {
+      "tile": "N42E045",
+      "source_url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N42E045_Map.tif",
+      "source_content_length": "55836521",
+      "source_etag": "\"ab690ac70b813aa8aa1dbd4bdbad5726-7\"",
+      "source_last_modified": "Wed, 26 Oct 2022 12:54:04 GMT",
+      "window": [
+       16800,
+       0,
+       19200,
+       12000
+      ],
+      "file": "ESA_WorldCover_10m_2021_v200_N42E045_Map_NCaspian_subset.tif",
+      "bytes": 3778016,
+      "sha256": "8600b3024f14fc6c38e8755bf5c502505136c4b486d07f88a7b1c15dffa0cd33"
+     },
+     {
+      "tile": "N42E048",
+      "source_url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N42E048_Map.tif",
+      "source_content_length": "5454070",
+      "source_etag": "\"4042a659a4c66553306da283bf66ff55\"",
+      "source_last_modified": "Wed, 26 Oct 2022 12:51:05 GMT",
+      "window": [
+       0,
+       0,
+       36000,
+       12000
+      ],
+      "file": "ESA_WorldCover_10m_2021_v200_N42E048_Map_NCaspian_subset.tif",
+      "bytes": 2016378,
+      "sha256": "4250eacb9cb624653e0ecc4500493d8265fe97940fef4bd092716962558d9553"
+     },
+     {
+      "tile": "N42E051",
+      "source_url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N42E051_Map.tif",
+      "source_content_length": "65990550",
+      "source_etag": "\"c36e82cef1d3c0ec58c30b6b130ad190-8\"",
+      "source_last_modified": "Wed, 26 Oct 2022 12:54:10 GMT",
+      "window": [
+       0,
+       0,
+       36000,
+       12000
+      ],
+      "file": "ESA_WorldCover_10m_2021_v200_N42E051_Map_NCaspian_subset.tif",
+      "bytes": 13018540,
+      "sha256": "580d61ebe33b2b99d9a8cda11d3fbe1318f1327d525a3662ffe795745d9d9b4b"
+     },
+     {
+      "tile": "N42E054",
+      "source_url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N42E054_Map.tif",
+      "source_content_length": "81611093",
+      "source_etag": "\"2ea39a07585ba92c1008d62e789bcfc4-10\"",
+      "source_last_modified": "Wed, 26 Oct 2022 12:56:30 GMT",
+      "window": [
+       0,
+       0,
+       7200,
+       12000
+      ],
+      "file": "ESA_WorldCover_10m_2021_v200_N42E054_Map_NCaspian_subset.tif",
+      "bytes": 4177616,
+      "sha256": "020178ed0c032691157b5726c8ef62f0b853f2bbbfc34c43190ea65c71ec6dc4"
+     },
+     {
+      "tile": "N45E045",
+      "source_url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N45E045_Map.tif",
+      "source_content_length": "26358182",
+      "source_etag": "\"035ba7f7347cc0bcfae89af72a400ba6-4\"",
+      "source_last_modified": "Wed, 26 Oct 2022 12:50:14 GMT",
+      "window": [
+       16800,
+       7800,
+       19200,
+       28200
+      ],
+      "file": "ESA_WorldCover_10m_2021_v200_N45E045_Map_NCaspian_subset.tif",
+      "bytes": 9641412,
+      "sha256": "ac7d3bc536f46cec8d423a34176f15eaee562bc1985871ad6cfb7c2cd7ce0761"
+     },
+     {
+      "tile": "N45E048",
+      "source_url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N45E048_Map.tif",
+      "source_content_length": "21055119",
+      "source_etag": "\"19116ff8fa813175752e89df0ecccc6b-3\"",
+      "source_last_modified": "Wed, 26 Oct 2022 12:50:32 GMT",
+      "window": [
+       0,
+       7800,
+       36000,
+       28200
+      ],
+      "file": "ESA_WorldCover_10m_2021_v200_N45E048_Map_NCaspian_subset.tif",
+      "bytes": 11356656,
+      "sha256": "09928236c002ff897bd61dea793c61c3c852b78e166e21946af2791e818c647a"
+     },
+     {
+      "tile": "N45E051",
+      "source_url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N45E051_Map.tif",
+      "source_content_length": "34920339",
+      "source_etag": "\"68f65ed144fe3e54b40ee67e10587824-5\"",
+      "source_last_modified": "Wed, 26 Oct 2022 12:53:58 GMT",
+      "window": [
+       0,
+       7800,
+       36000,
+       28200
+      ],
+      "file": "ESA_WorldCover_10m_2021_v200_N45E051_Map_NCaspian_subset.tif",
+      "bytes": 18239828,
+      "sha256": "3bbf3cbcaa9489472b14a990ec08420617afb110647db2d67e343bfae81d4a91"
+     },
+     {
+      "tile": "N45E054",
+      "source_url": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N45E054_Map.tif",
+      "source_content_length": "39559702",
+      "source_etag": "\"97ede6737012278dd817ebec52a6766a-5\"",
+      "source_last_modified": "Wed, 26 Oct 2022 12:52:32 GMT",
+      "window": [
+       0,
+       7800,
+       7200,
+       28200
+      ],
+      "file": "ESA_WorldCover_10m_2021_v200_N45E054_Map_NCaspian_subset.tif",
+      "bytes": 2971472,
+      "sha256": "5e7bea708911e34d31a79979e17b51523cf4478301dae016e03c84072b9b3934"
+     }
+    ]
+   },
+   "files": {
+    "ESA_WorldCover_10m_2021_v200_N42E045_Map_NCaspian_subset.tif": {
+     "bytes": 3778016,
+     "sha256": "8600b3024f14fc6c38e8755bf5c502505136c4b486d07f88a7b1c15dffa0cd33"
+    },
+    "ESA_WorldCover_10m_2021_v200_N42E048_Map_NCaspian_subset.tif": {
+     "bytes": 2016378,
+     "sha256": "4250eacb9cb624653e0ecc4500493d8265fe97940fef4bd092716962558d9553"
+    },
+    "ESA_WorldCover_10m_2021_v200_N42E051_Map_NCaspian_subset.tif": {
+     "bytes": 13018540,
+     "sha256": "580d61ebe33b2b99d9a8cda11d3fbe1318f1327d525a3662ffe795745d9d9b4b"
+    },
+    "ESA_WorldCover_10m_2021_v200_N42E054_Map_NCaspian_subset.tif": {
+     "bytes": 4177616,
+     "sha256": "020178ed0c032691157b5726c8ef62f0b853f2bbbfc34c43190ea65c71ec6dc4"
+    },
+    "ESA_WorldCover_10m_2021_v200_N45E045_Map_NCaspian_subset.tif": {
+     "bytes": 9641412,
+     "sha256": "ac7d3bc536f46cec8d423a34176f15eaee562bc1985871ad6cfb7c2cd7ce0761"
+    },
+    "ESA_WorldCover_10m_2021_v200_N45E048_Map_NCaspian_subset.tif": {
+     "bytes": 11356656,
+     "sha256": "09928236c002ff897bd61dea793c61c3c852b78e166e21946af2791e818c647a"
+    },
+    "ESA_WorldCover_10m_2021_v200_N45E051_Map_NCaspian_subset.tif": {
+     "bytes": 18239828,
+     "sha256": "3bbf3cbcaa9489472b14a990ec08420617afb110647db2d67e343bfae81d4a91"
+    },
+    "ESA_WorldCover_10m_2021_v200_N45E054_Map_NCaspian_subset.tif": {
+     "bytes": 2971472,
+     "sha256": "5e7bea708911e34d31a79979e17b51523cf4478301dae016e03c84072b9b3934"
+    }
+   }
+  },
+  "glwd_v2": {
+   "retrieval_record": {
+    "product": "Global Lakes and Wetlands Database (GLWD) version 2.0",
+    "data_doi": "10.6084/m9.figshare.28519994 (v1)",
+    "paper_doi": "10.5194/essd-17-2277-2025",
+    "licence": "CC BY 4.0 (figshare record; ESSD data-availability section; hydrosheds.org/products/glwd)",
+    "retrieved": "2026-10-21",
+    "method": "Only the listed members were fetched, by HTTP range requests (curl -r) on figshare file 54001814 (GLWD_v2_0_combined_classes_tif.zip, 925,253,756 bytes, figshare md5 aea80ff46211b349ffbaa871442fd0ed, which cannot be checked because the whole zip was not downloaded); each member was inflated locally and its CRC32 and size checked against the zip central directory. GLWD_TechDoc_v2_0.pdf is the separate figshare file 54001697 (whole file; md5 3fbf94b5b6c175dc0cd795eecb4b9ee5 matched). The raster is global (not clipped).",
+    "source_urls": {
+     "zip": "https://ndownloader.figshare.com/files/54001814",
+     "techdoc": "https://ndownloader.figshare.com/files/54001697"
+    },
+    "files": [
+     {
+      "file": "GLWD_Legend_v2_0.csv",
+      "bytes": 1156,
+      "sha256": "527bd786ca28fff6b6daa33e91c922cf9900586f63d5a15b24be7ca3a33618e7"
+     },
+     {
+      "file": "GLWD_TechDoc_v2_0.pdf",
+      "bytes": 2495028,
+      "sha256": "55c0b22ef0b619da2f6a25239d05df51ac467cf5c959666ababa2d966a30efe8"
+     },
+     {
+      "file": "GLWD_v2_0_main_class.tfw",
+      "bytes": 83,
+      "sha256": "0d0b13ebcc5343b639cd475cb24a80bfd40cb4e4181c9f851673aa55d681f0c0"
+     },
+     {
+      "file": "GLWD_v2_0_main_class.tif",
+      "bytes": 142108728,
+      "sha256": "9a1fc396c56f1db2da1442470886a9738647c0a968286956b69d8ccf7d348075"
+     },
+     {
+      "file": "GLWD_v2_0_main_class.tif.vat.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+     },
+     {
+      "file": "GLWD_v2_0_main_class.tif.vat.dbf",
+      "bytes": 1118,
+      "sha256": "176a34816bdd44a1843b6b6c3944bbb1f7b3929db37f7aa124ec35c697cd2fbc"
+     }
+    ]
+   },
+   "files": {
+    "GLWD_Legend_v2_0.csv": {
+     "bytes": 1156,
+     "sha256": "527bd786ca28fff6b6daa33e91c922cf9900586f63d5a15b24be7ca3a33618e7"
+    },
+    "GLWD_TechDoc_v2_0.pdf": {
+     "bytes": 2495028,
+     "sha256": "55c0b22ef0b619da2f6a25239d05df51ac467cf5c959666ababa2d966a30efe8"
+    },
+    "GLWD_v2_0_main_class.tfw": {
+     "bytes": 83,
+     "sha256": "0d0b13ebcc5343b639cd475cb24a80bfd40cb4e4181c9f851673aa55d681f0c0"
+    },
+    "GLWD_v2_0_main_class.tif": {
+     "bytes": 142108728,
+     "sha256": "9a1fc396c56f1db2da1442470886a9738647c0a968286956b69d8ccf7d348075"
+    },
+    "GLWD_v2_0_main_class.tif.vat.cpg": {
+     "bytes": 5,
+     "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824"
+    },
+    "GLWD_v2_0_main_class.tif.vat.dbf": {
+     "bytes": 1118,
+     "sha256": "176a34816bdd44a1843b6b6c3944bbb1f7b3929db37f7aa124ec35c697cd2fbc"
+    }
+   }
+  },
+  "gwl_fcs30_2020": {
+   "retrieval_record": {
+    "product": "GWL_FCS30: global 30 m wetland map with fine classification system, 2020",
+    "data_doi": "10.5281/zenodo.7340516",
+    "paper_doi": "10.5194/essd-15-265-2023",
+    "licence": "CC BY 4.0 (Zenodo record metadata)",
+    "retrieved": "2026-10-21",
+    "classes": "0 non-wetland, 180 permanent water, 181 swamp, 182 marsh, 183 flooded flat, 184 saline, 185 mangrove forest, 186 salt marsh, 187 tidal flat (ESSD paper, Sect. 7)",
+    "method": "Members of GWL_FCS30_2020_E35_E60.zip (174,267,195 bytes) fetched by HTTP range requests (curl -r), inflated locally, CRC32 and size checked against the zip central directory. Tile names give the upper-left corner (E45N50 covers 45-50 E, 45-50 N; checked from the GeoTIFF bounds). Tiles E45N40 and E50N40 were fetched and then deleted because they do not intersect the domain.",
+    "source_url": "https://zenodo.org/records/7340516/files/GWL_FCS30_2020_E35_E60.zip?download=1",
+    "files": [
+     {
+      "file": "GWL_FCS30_2020_E45N45.tif",
+      "bytes": 3375646,
+      "sha256": "77c3ad95c94a9dccada6276f0b2f2eb1346792c0af8679853131f48145e5d5e7"
+     },
+     {
+      "file": "GWL_FCS30_2020_E45N50.tif",
+      "bytes": 6767206,
+      "sha256": "e4a4fd9b3f6b15d267987e1ecaadbb30a009e6048c8c57dd9cfc8a42bafabddf"
+     },
+     {
+      "file": "GWL_FCS30_2020_E50N45.tif",
+      "bytes": 2538841,
+      "sha256": "1c2561307678cb02d182d3f51ace7986fd32748be0ef3af04e3af2acaa34dfef"
+     },
+     {
+      "file": "GWL_FCS30_2020_E50N50.tif",
+      "bytes": 3652796,
+      "sha256": "e233f3fad9832fd9ff4a4c92c7bccb73bb47865f05cb34feab257922a284ff4a"
+     }
+    ]
+   },
+   "files": {
+    "GWL_FCS30_2020_E45N45.tif": {
+     "bytes": 3375646,
+     "sha256": "77c3ad95c94a9dccada6276f0b2f2eb1346792c0af8679853131f48145e5d5e7"
+    },
+    "GWL_FCS30_2020_E45N50.tif": {
+     "bytes": 6767206,
+     "sha256": "e4a4fd9b3f6b15d267987e1ecaadbb30a009e6048c8c57dd9cfc8a42bafabddf"
+    },
+    "GWL_FCS30_2020_E50N45.tif": {
+     "bytes": 2538841,
+     "sha256": "1c2561307678cb02d182d3f51ace7986fd32748be0ef3af04e3af2acaa34dfef"
+    },
+    "GWL_FCS30_2020_E50N50.tif": {
+     "bytes": 3652796,
+     "sha256": "e233f3fad9832fd9ff4a4c92c7bccb73bb47865f05cb34feab257922a284ff4a"
+    }
+   }
+  }
+ }
+}
