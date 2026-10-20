@@ -34,8 +34,8 @@ from shapely.ops import transform as shp_transform
 from caspian import dem, design
 from caspian.config import CRS_EQUAL_AREA, DATA, INTERIM, RESULTS
 
-TILE_M = 50_000
-OVERLAP_M = 5_000
+TILE_M = 60_000      # a whole number of 30 m pixels and of 60 m stage-2 cells (D-069)
+OVERLAP_M = 6_000
 
 
 def main(argv) -> int:

@@ -129,6 +129,47 @@ def fit_exponential(vario: pd.DataFrame) -> dict:
     return {"nugget": float(c0), "partial_sill": float(c1), "a": float(a), "practical_range": float(3 * a)}
 
 
+def spatial_structure_test(x, y, r, short_lag: float, max_lag: float, n_perm: int = 999,
+                           max_pairs: int = 2_000_000, alpha: float = 0.05, seed: int = design.SEED) -> dict:
+    """Permutation test for spatial autocorrelation of residuals ``r`` (D-069).
+
+    T = mean semivariance of pairs closer than ``short_lag`` divided by the mean
+    semivariance of all pairs up to ``max_lag``. Without spatial structure T is near
+    1; positive autocorrelation makes it smaller. The residuals are permuted across
+    the locations ``n_perm`` times (same pairs); p = (1 + #{T_perm <= T}) / (n_perm + 1).
+    Structure is detected when p <= alpha. A fitted practical range is used for the
+    block size only when structure is detected: on white noise an exponential fit can
+    return a long range (63 km on a synthetic test), which would enlarge the blocks for
+    no reason."""
+    x, y, r = (np.asarray(v, float) for v in (x, y, r))
+    ok = np.isfinite(x) & np.isfinite(y) & np.isfinite(r)
+    x, y, r = x[ok], y[ok], r[ok]
+    n = len(r)
+    rng = np.random.default_rng(seed)
+    if n * (n - 1) // 2 <= max_pairs:
+        a, b = np.triu_indices(n, k=1)
+    else:
+        a, b = rng.integers(0, n, max_pairs), rng.integers(0, n, max_pairs)
+        keep = a != b
+        a, b = a[keep], b[keep]
+    h = np.hypot(x[a] - x[b], y[a] - y[b])
+    use = h <= max_lag
+    a, b, short = a[use], b[use], h[use] < short_lag
+    if short.sum() == 0 or (~short).sum() == 0:
+        return {"T": float("nan"), "p": float("nan"), "detected": False, "n_short_pairs": int(short.sum()),
+                "n_pairs": int(use.sum()), "n_perm": n_perm}
+
+    def stat(v):
+        g = (v[a] - v[b]) ** 2
+        return g[short].mean() / g.mean()
+
+    t = stat(r)
+    perm = np.array([stat(rng.permutation(r)) for _ in range(n_perm)])
+    p = (1 + np.sum(perm <= t)) / (n_perm + 1)
+    return {"T": float(t), "p": float(p), "detected": bool(p <= alpha), "n_short_pairs": int(short.sum()),
+            "n_pairs": int(use.sum()), "n_perm": n_perm, "short_lag_m": short_lag, "alpha": alpha}
+
+
 def block_size_for_range(practical_range: float, base: float = design.BLOCK_SIZE_M) -> float:
     """PREREG section 6: keep the base size if the practical range does not exceed
     it, otherwise the next multiple of the base at or above the range."""

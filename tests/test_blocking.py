@@ -78,3 +78,14 @@ def test_semivariogram_recovers_exponential_range():
     fit = blocking.fit_exponential(v)
     assert fit["practical_range"] == pytest.approx(12_000, rel=0.35)
     assert fit["nugget"] < 0.2
+
+
+def test_spatial_structure_test_white_noise_and_smooth_field():
+    rng = np.random.default_rng(1)
+    x, y = rng.uniform(0, 200_000, 3000), rng.uniform(0, 200_000, 3000)
+    noise = rng.normal(0, 0.3, x.size)
+    t0 = blocking.spatial_structure_test(x, y, noise, short_lag=7_500, max_lag=150_000, n_perm=199)
+    assert not t0["detected"] and t0["p"] > 0.05
+    field = np.sin(x / 15_000) + np.cos(y / 20_000)          # structure at tens of km
+    t1 = blocking.spatial_structure_test(x, y, field + noise, short_lag=7_500, max_lag=150_000, n_perm=199)
+    assert t1["detected"] and t1["T"] < t0["T"]
