@@ -1,4 +1,7 @@
 {
  "task": "5DQOUH3GQKQOEEYEWHFICKPB",
- "name": "active_zone_v3"
+ "name": "active_zone_v3",
+ "eecu_s": 2349.19384765625,
+ "zone_area_km2": 116745.3,
+ "asset": "projects/ee-rezwanahmed/assets/caspian/active_zone_v3"
 }

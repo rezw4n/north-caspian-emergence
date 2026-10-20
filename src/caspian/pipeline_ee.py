@@ -21,6 +21,7 @@ from . import masks, water
 from .geography import DOMAIN
 
 LOWSTAND = ("2025-05-01", "2026-09-30")
+HIGHSTAND = ("1995-05-01", "1996-09-30")   # around the record maximum, 1995-07-06 (D-024)
 ZONE_DILATE_M = 2000
 OCC_LO, OCC_HI = 2, 98   # GSW occurrence (%) band that marks a changing water status (D-023)
 ZONE_SCALE = 250   # zone mask grid (m)
@@ -54,6 +55,31 @@ def active_zone(region=None, scale: float = 250):
     lost_since = occ.gte(OCC_HI).And(low.Not())
     radius_px = max(int(round(ZONE_DILATE_M / scale)), 1)
     zone = changed.Or(lost_since).focalMax(radius_px, "circle", "pixels").reproject(proj)
+    return zone.selfMask().clip(region).rename("zone")
+
+
+def highstand_water(region=None):
+    """Median-MNDWI water mask from Landsat 5 TM May-September scenes of 1995-1996."""
+    region = region or domain_geometry()
+    col = masks.landsat("TM_L5", region, *HIGHSTAND).filter(ee.Filter.calendarRange(5, 9, "month"))
+    m = col.map(lambda im: im.normalizedDifference(["green", "swir1"]).rename("mndwi")).median()
+    return m.gt(0).rename("high_water")
+
+
+def active_zone_v4(region=None, scale: float = 250):
+    """Zone v4 (D-024): the band that was water at the 1995-96 high stand but dry at
+    the 2025-26 low stand, plus both composite shorelines, dilated by ZONE_DILATE_M.
+    Every 1992-2026 waterline lies between these two shorelines (levels between the
+    record maximum and minimum)."""
+    region = region or domain_geometry()
+    proj = ee.Projection("EPSG:4326").atScale(scale)
+    hi = highstand_water(region).unmask(0).reproject(proj)
+    lo = lowstand_water(region).unmask(0).reproject(proj)
+    band = hi.And(lo.Not())
+    edge_hi = hi.focalMax(1, "square", "pixels").neq(hi.focalMin(1, "square", "pixels"))
+    edge_lo = lo.focalMax(1, "square", "pixels").neq(lo.focalMin(1, "square", "pixels"))
+    radius_px = max(int(round(ZONE_DILATE_M / scale)), 1)
+    zone = band.Or(edge_hi).Or(edge_lo).focalMax(radius_px, "circle", "pixels").reproject(proj)
     return zone.selfMask().clip(region).rename("zone")
 
 
