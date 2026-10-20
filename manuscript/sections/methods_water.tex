@@ -1,0 +1,13 @@
+% Methods: water classification and the active zone (A3). Revise if the stage-1/2 pilots change the design.
+
+\subsection*{Water classification}
+\emph{Active zone.} Every scene was classified only within an active zone: the part of the domain where a waterline can lie between 1984 and 2026. A pixel belongs to the zone if either
+\begin{itemize}
+  \item its Global Surface Water occurrence\citep{pekel2016} lies between \metric{params.occ_lo_pct}\% and \metric{params.occ_hi_pct}\%; or
+  \item it was permanently wet in that record but dry in a median composite of Landsat~8--9 scenes acquired between \metric{params.lowstand_start} and \metric{params.lowstand_end}.
+\end{itemize}
+The resulting mask was dilated by \metric{params.zone_dilate_m}~m on a \metric{params.zone_scale_m}~m grid. The zone deliberately includes salt flats and lowland that flood during surges. Only water connected to the open sea enters the topography.
+
+\emph{Threshold.} For each scene we computed the modified normalised difference water index (MNDWI) from the green and first shortwave-infrared bands\citep{xu2006}. Its water threshold was set by Otsu's method\citep{otsu1979}: the value that maximises the between-class variance of the scene's MNDWI histogram (\metric{params.otsu_bins} bins) sampled at \metric{params.hist_scale_m}~m inside the zone. Computing one threshold per scene in a separate pass, and storing it, keeps the per-pixel classification a simple comparison. This also cut the computing cost of the archive by more than two orders of magnitude.
+
+\emph{Classes.} Pixels above the threshold are water. Pixels below it with a normalised difference vegetation index above \metric{params.ndvi_veg} are emergent vegetation; these reed beds hide the water's edge, so they are treated as unobserved. All remaining pixels are dry. The automated water extraction index AWEI\textsubscript{sh}\citep{feyisa2014} and a fixed MNDWI threshold are the alternatives tested in the robustness checks.
