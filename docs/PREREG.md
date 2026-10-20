@@ -129,3 +129,22 @@ Every robustness check listed in brief §10 is run as specified there. The headl
 
 - Any change to these rules after registration is an amendment (date, reason, and whether results had been seen).
 - Choices the plan leaves open are made on training data only and logged in `docs/DECISIONS.md`.
+
+---
+
+## Amendment 1 — 2026-10-20 (before any hindcast, DEM-accuracy or projection metric was computed)
+
+**Change.** Two products are added to the audit (§2), because they are the grids that published Caspian emergence and exposure estimates actually used:
+- **GEBCO_2022**, used by Court et al. (2025, doi:10.1038/s43247-025-02212-5) and shown by Samant & Prange (2023);
+- **ETOPO1**, used by Akbari et al. (2020, doi:10.1088/1748-9326/abaad8).
+
+GEBCO_2026, ETOPO 2022 and SRTM15+ V2.7 remain the current-product audit.
+
+**Provenance finding recorded before analysis.** Products were compared only with each other; nothing observed was used.
+- GEBCO_2026 and SRTM15+ V2.7 are identical in 60% of domain cells (mean difference −0.35 m).
+- ETOPO 2022 differs from GEBCO_2026 by a median of −0.36 m (5th–95th percentile −3.9 to +1.0 m).
+- In the GEBCO_2026 Type Identifier grid, the North Caspian sea area is coded **70 (pre-generated grid)**. Code 40 ("predicted, satellite gravity") occurs on the sub-sea-level land of the Caspian Depression, not on the seabed, which suggests a labelling convention for land below 0 m.
+
+The products are therefore treated as one partly shared lineage (as §2 already required). Results are presented per product, with no claim of independent replication.
+
+**Reason.** Brief §8 A7 asks for an audit of "the bathymetry products behind emergence projections". Testing the exact versions those projections used is the direct test. Adding products cannot be tuned toward a result, because no hindcast metric exists yet.

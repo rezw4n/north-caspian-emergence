@@ -118,8 +118,12 @@ def status(wait: bool = False) -> int:
         if done or not wait:
             break
         time.sleep(60)
-    STATE.write_text(json.dumps(state, indent=1), encoding="utf-8")
-    for t in state["tasks"]:
+    # Merge into the current file: another process may have appended tasks meanwhile.
+    current = json.loads(STATE.read_text(encoding="utf-8"))
+    by_name = {t["name"]: t for t in state["tasks"]}
+    current["tasks"] = [by_name.get(t["name"], t) for t in current["tasks"]]
+    STATE.write_text(json.dumps(current, indent=1), encoding="utf-8")
+    for t in current["tasks"]:
         print(t["name"], t["n_scenes"], "scenes |",
               "image:", t.get("image_task_state"), t.get("image_task_eecu_s"), "EECU-s |",
               "table:", t.get("table_task_state"), t.get("table_task_eecu_s"), "EECU-s",
