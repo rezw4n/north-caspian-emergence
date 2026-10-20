@@ -307,7 +307,7 @@ class TileSet:
     pixel that contains it, read through the tile's own transform; NaN where no tile or
     pixel holds it (including any strip a tile does not reach)."""
 
-    def __init__(self, directory, prefix: str = "dem", tile_m: float = 50_000,
+    def __init__(self, directory, prefix: str = "dem", tile_m: float = design.DEM_TILE_M,
                  res: float = design.DEM_RES_M):
         self.directory, self.prefix, self.tile_m, self.res = Path(directory), prefix, tile_m, res
 

@@ -26,6 +26,7 @@ import numpy as np
 import pandas as pd
 import pyproj
 import rasterio
+import shapely
 from rasterio.features import geometry_mask
 from rasterio.transform import Affine
 from shapely.geometry import box, mapping, shape
@@ -34,7 +35,7 @@ from shapely.ops import transform as shp_transform
 from caspian import dem, design
 from caspian.config import CRS_EQUAL_AREA, DATA, INTERIM, RESULTS
 
-TILE_M = 60_000      # a whole number of 30 m pixels and of 60 m stage-2 cells (D-069)
+TILE_M = design.DEM_TILE_M      # a whole number of 30 m pixels and of 60 m stage-2 cells (D-069)
 OVERLAP_M = 6_000
 
 
@@ -49,8 +50,9 @@ def main(argv) -> int:
     if "static" in p.columns:
         p = p[~p["static"].astype(bool)]
     fwd = pyproj.Transformer.from_crs("EPSG:4326", CRS_EQUAL_AREA, always_xy=True).transform
-    cov = shp_transform(fwd, shape(json.loads((RESULTS / "study_area" / "zone_v6_cover_buffered.geojson")
-                                              .read_text(encoding="utf-8"))["features"][0]["geometry"]))
+    # the committed cover is an invalid MultiPolygon (self-touching parts): make it valid (D-080)
+    cov = shapely.make_valid(shp_transform(fwd, shape(json.loads((RESULTS / "study_area" / "zone_v6_cover_buffered.geojson")
+                                                              .read_text(encoding="utf-8"))["features"][0]["geometry"])))
     out = DATA / "processed" / "dem" / a.tag
     out.mkdir(parents=True, exist_ok=True)
     xy = p[["x", "y"]].to_numpy()

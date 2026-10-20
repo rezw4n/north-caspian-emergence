@@ -219,7 +219,8 @@ def static_layers(transform, shape, *, domain, sector_polys: dict, cover, sea: d
 
 
 def production_static(transform, shape, tile: int) -> dict:
-    cover = shapely.union_all([as_shape(f["geometry"]) for f in
+    # the committed cover is an invalid MultiPolygon: make each part valid first (D-080)
+    cover = shapely.union_all([shapely.make_valid(as_shape(f["geometry"])) for f in
                                json.loads(COVER.read_text(encoding="utf-8"))["features"]])
     sea_npz, beyond_npz = np.load(SEA), np.load(BEYOND)
     check_crs(sea_npz["crs"], SEA.name)
