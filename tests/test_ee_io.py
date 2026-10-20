@@ -22,3 +22,13 @@ def test_grid_crs_code_or_wkt():
     assert ee_io.grid([1, 0, 0, 0, -1, 0], (1, 1), None)["crsCode"] == "EPSG:4326"
     assert ee_io.grid([1, 0, 0, 0, -1, 0], (1, 1), "EPSG:32639")["crsCode"] == "EPSG:32639"
     assert "crsWkt" in ee_io.grid([1, 0, 0, 0, -1, 0], (1, 1), 'PROJCS["x"]')
+
+
+def test_band_chunks_respect_byte_and_band_limits():
+    bands = [f"b{k}" for k in range(1200)]
+    ch = ee_io.band_chunks(bands, 512, 512, 2, max_bytes=40 * 2**20, max_bands=1000)
+    assert [b for c in ch for b in c] == bands                 # order kept, nothing lost
+    assert all(len(c) * 512 * 512 * 2 <= 40 * 2**20 for c in ch)
+    assert max(len(c) for c in ch) == 80
+    assert len(ee_io.band_chunks(bands, 1, 1, 2, max_bands=1000)[0]) == 1000
+    assert ee_io.band_chunks(["a"], 10_000, 10_000, 8) == [["a"]]   # one oversized band still goes alone

@@ -162,9 +162,7 @@ def work(g, headers, secs, tmpdir) -> tuple[dict, list[dict]]:
                     for chunk in r.iter_content(1 << 20):
                         f.write(chunk)
             with path.open("rb") as f:   # netCDF-4 is HDF5: check the signature, else retry
-                if f.read(8) != b"HDF
-
-":
+                if f.read(8) != b"\x89HDF\r\n\x1a\n":
                     raise OSError("downloaded file is not HDF5/netCDF-4")
             break
         except Exception:
@@ -200,7 +198,7 @@ def main() -> int:
     OUT.parent.mkdir(parents=True, exist_ok=True)
     new = not OUT.exists()
     t0, n_done = time.time(), 0
-    with tempfile.TemporaryDirectory() as tmpdir, OUT.open("a", newline="", encoding="utf-8") as f, \
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmpdir, OUT.open("a", newline="", encoding="utf-8") as f, \
             ThreadPoolExecutor(a.workers) as pool:
         w = csv.DictWriter(f, fieldnames=FIELDS)
         if new:

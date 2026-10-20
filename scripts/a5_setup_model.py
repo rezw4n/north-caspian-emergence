@@ -16,7 +16,8 @@
    (D-065). The fit is evaluated on calibration blocks; test blocks are never used.
 Block-passes are quality-screened before averaging (D-065): within-block wse NMAD at
 most MAX_BLOCK_NMAD, and within MAX_ROBUST_Z robust z of the block's median anomaly.
-5. The fitted model predicts setup for every levelled scene and sector.
+5. The fitted model predicts setup for every levelled scene and sector. A sector with
+   no SWOT open-sea pixels uses the model of the neighbour in PROXY (D-066).
 
 Outputs:
 - results/levels/setup_model.json (coefficients, fit and calibration statistics; committed);
@@ -46,6 +47,8 @@ MAX_BLOCK_NMAD = 0.5      # m
 MAX_ROBUST_Z = 5.0
 RIDGE_GRID = (0.0, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0)
 N_FOLDS = 5
+# sectors with no SWOT open-sea pixels take a neighbour's model (D-066)
+PROXY = {"komsomolets": "northeast"}
 
 
 def _a4():
@@ -143,6 +146,11 @@ def main() -> int:
                        r2_calib=round(float(1 - np.var(r) / np.var(y[ok])), 3) if ok.sum() > 2 else None)
         out["sectors"][s] = res
         models[s] = m
+    for s, src in PROXY.items():
+        if s not in models and src in models:
+            out["sectors"].setdefault(s, {"n_train_passes": 0, "fitted": False})
+            out["sectors"][s]["proxy"] = src
+            models[s] = models[src]
     (RESULTS / "levels").mkdir(parents=True, exist_ok=True)
     (RESULTS / "levels" / "setup_model.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
     # predicted setup (wind and pressure part, intercept removed) for every levelled scene
