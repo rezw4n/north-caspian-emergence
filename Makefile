@@ -58,7 +58,7 @@ need_step = $(if $(STEP),,$(error `make $@` needs STEP=$(1)))
         fetch dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs \
         ee-inputs ee-scene-inventory ee-etopo1 ee-zone ee-stage1 ee-era5-winds \
         check-inputs dahiti-qc study-area scene-levels qc-figures params metrics macros check-refs \
-        check-quotes manuscript all
+        check-quotes manuscript figures all
 
 help:
 	@echo Targets
@@ -68,6 +68,7 @@ help:
 	@echo   ee-zone ee-stage1 ee-era5-winds   Earth Engine batch stages, with EE_OK=1 and STEP=...
 	@echo   check-inputs   check raw inputs against their acquisition records: checksums, inventory numbers
 	@echo   qc-figures     QC figures in outputs/qc, also built by all
+	@echo   figures        display items that need no results, in figures/out, also built by all
 	@echo   check-quotes   verbatim quotes in refs/notes against the texts in data/raw/lit, not run by all
 	@echo   env lock test verify-0 verify-A verify-B check-refs
 
@@ -219,14 +220,40 @@ QC_FIGS := outputs/qc/gebco_2026_tid.pdf
 outputs/qc/gebco_2026_tid.pdf: figures/qc_gebco_tid.py $(BATHY)/gebco_2026_ncaspian.nc $(PKG) | $(VERIFIED)
 	$(PYTHON) figures/qc_gebco_tid.py $(BATHY)/gebco_2026_ncaspian.nc
 
-results/params.json: tools/export_params.py scripts/a4_scene_levels.py $(PKG)
+# export_params.py imports or parses the scripts whose constants the Methods quote.
+PARAM_SCRIPTS := $(addprefix scripts/,a4_scene_levels.py a3_stage1_interactive.py a3_thresholds.py a5_setup_model.py a5_swot_sector_levels.py \
+                 a5_sea_mask.py a6_screening.py a6_stage2_plan.py a6_stage2_export.py a6_static_rule.py \
+                 a6_waterlines.py a6_vegetation.py a6_dem.py a7_beyond_state.py a7_hindcast.py)
+results/params.json: tools/export_params.py $(PARAM_SCRIPTS) figures/fig_study_area.py $(PKG)
 	$(PYTHON) tools/export_params.py
+
+# Display items that need no results (figures/; vector PDF, 600 dpi TIFF and a PNG
+# preview in figures/out/). The level figure reads the raw level series through the
+# scene-level code path (scripts/a4_scene_levels.py) and data/interim/levels/scene_levels.csv,
+# which the scene-levels target writes with its summary.
+FIG_OUT := figures/out
+FIGS := $(FIG_OUT)/fig1_levels.pdf $(FIG_OUT)/fig_study_area.pdf $(FIG_OUT)/supp_setup_model.pdf
+$(FIG_OUT)/fig1_levels.pdf: figures/fig1_levels.py figures/_common.py scripts/a4_scene_levels.py \
+        scripts/a3_thresholds.py scripts/a6_emergence.py $(DAHITI) $(HYDROWEB) \
+        results/qc/level_crosscheck_w20d.json results/qc/level_crosscheck_pairs_w20d.csv \
+        results/levels/scene_levels_summary.json results/metrics.json $(PKG) | $(VERIFIED)
+	$(PYTHON) figures/fig1_levels.py
+
+$(FIG_OUT)/fig_study_area.pdf: figures/fig_study_area.py figures/_common.py results/study_area/sector_areas.json \
+        results/study_area/zone_v6_cover_buffered.geojson results/study_area/blocks_25km.csv \
+        results/study_area/sea_mask_1km.npz $(PKG)
+	$(PYTHON) figures/fig_study_area.py
+
+$(FIG_OUT)/supp_setup_model.pdf: figures/supp_setup_model.py figures/_common.py results/levels/setup_model.json $(PKG)
+	$(PYTHON) figures/supp_setup_model.py
 
 # Every file tools/build_metrics.py reads (tests/test_makefile.py checks this list).
 METRIC_INPUTS := $(INV_META) results/study_area/sector_areas.json results/study_area/sector_edges.json \
                  results/qc/dahiti_summary.json \
                  results/qc/level_crosscheck_w20d.json results/levels/scene_levels_summary.json \
-                 results/params.json refs/literature_values.csv
+                 results/params.json refs/literature_values.csv results/levels/setup_model.json \
+                 results/qc/threshold_rule_summary.json results/provenance/geoid_difference.json \
+                 results/study_area/blocks_25km.csv results/study_area/zone_v6_cover_buffered.geojson
 
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
@@ -248,7 +275,7 @@ check-quotes:
 	$(PYTHON) scripts/check_quotes.py
 
 manuscript/main.pdf: manuscript/main.tex manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) \
-        refs/references.bib | check-refs
+        refs/references.bib $(FIGS) | check-refs
 	$(TECTONIC) -X compile manuscript/main.tex
 
 ## named steps -------------------------------------------------------------
@@ -259,6 +286,7 @@ scene-levels: results/qc/level_crosscheck.json results/qc/level_crosscheck_pairs
               results/qc/level_crosscheck_w20d.json results/qc/level_crosscheck_pairs_w20d.csv \
               results/levels/scene_levels_summary.json
 qc-figures: $(QC_FIGS)
+figures: $(FIGS)
 params: results/params.json
 metrics: results/metrics.json manuscript/numbers.tex
 macros: manuscript/numbers.tex
@@ -270,4 +298,4 @@ RESULTS_ALL := results/qc/dahiti_summary.json results/study_area/sector_areas.js
                results/qc/level_crosscheck_w20d.json results/qc/level_crosscheck_pairs_w20d.csv \
                results/levels/scene_levels_summary.json results/params.json results/metrics.json
 
-all: $(VERIFIED) $(RESULTS_ALL) $(QC_FIGS) manuscript/numbers.tex manuscript/main.pdf
+all: $(VERIFIED) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) manuscript/numbers.tex manuscript/main.pdf

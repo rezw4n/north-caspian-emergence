@@ -18,7 +18,7 @@ RESULTS = ROOT / "results"
 METRICS = RESULTS / "metrics.json"
 DOCS = ROOT / "docs"
 OUTPUTS = ROOT / "outputs"
-FIG_OUT = OUTPUTS / "figures"
+FIG_OUT = ROOT / "figures" / "out"   # manuscript figures (figures/README.md)
 
 EE_PROJECT = "ee-rezwanahmed"
 

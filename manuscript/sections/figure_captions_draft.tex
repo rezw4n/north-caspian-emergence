@@ -1,0 +1,35 @@
+% Draft legends for the display items that need no results (figures/ scripts; outputs in
+% figures/out/). Numbered as Supplementary Figures in this draft: neither candidate journal
+% uses Extended Data (docs/journal_specs.md). The level figure becomes the inset of Fig. 1
+% once the emergence map exists. Every number comes from \metric{...}. Legends describe
+% what is shown, not results, and stay under 350 words.
+
+\renewcommand{\figurename}{Supplementary Figure}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/out/fig1_levels.pdf}
+  \caption{\textbf{Basin water level, scene record and epochs.}
+  \textbf{a}, Daily basin water level on the DAHITI reference (normal heights; not the Baltic Height System), interpolated between the \metric{levels.dahiti.n_records} DAHITI altimetry records (points)\citep{schwatke2015} as described in Methods, with Hydroweb levels shifted onto the DAHITI reference where bracketing DAHITI records are more than \metric{params.max_gap_days}~days apart (orange)\citep{cretaux2011,hydrowebwl}. Level uncertainties are not drawn; the median 1$\sigma$ of a scene level is \metric{levels.scene_sigma_p50_m}~m. Shading and dashed lines mark the epochs: E1, the rising limb, to \metric{levels.epoch_E1_end}; E2, to \metric{params.e2_end}; E3, after it.
+  \textbf{b}, \textbf{c}, Levelled scenes per calendar month: Landsat 5, 7, 8 and 9 scenes (\textbf{b})\citep{usgs_l45tm_c2l2,usgs_l7etm_c2l2,usgs_l89oli_c2l2} and Sentinel-2 granules (\textbf{c}; modified Copernicus Sentinel data), each on its own axis. In total $n = \metric{levels.n_scenes_by_epoch.E1}$ (E1), \metric{levels.n_scenes_by_epoch.E2} (E2) and \metric{levels.n_scenes_by_epoch.E3} (E3) scenes, counted before the cloud, zone, threshold and setup screening. Blue, open-water months, whose scenes can enter the water frequencies; grey, the ice season (\metric{params.ice_first_month} to \metric{params.ice_last_month}), which is excluded. Granules of one Sentinel-2 datatake count as one acquisition in the water frequencies.}
+  \label{fig:levels}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/out/fig_study_area.pdf}
+  \caption{\textbf{Study domain, reporting sectors, computation cover and validation blocks.}
+  \textbf{a}, The study domain (thick line; \metric{study_area.domain_km2}~\kmsq{}, land included), north of the line from Chechen Island to Cape Tyub-Karagan, and its seven reporting sectors (thin lines; numbered as in the key), frozen before any evaluation. Grey: the cover over which water frequencies are computed (\metric{study_area.stage2_cover_km2}~\kmsq{}), the \metric{params.zone_tile_km}~km cells that contain the active zone, extended seaward by one cell. Light blue, for orientation only: open sea at the \metric{params.lowstand_label} low stand, water whose surroundings within \metric{params.sea_radius_km}~km are at least \metric{params.sea_min_water_pct}\% water in Landsat observations.
+  \textbf{b}, The $n = \metric{blocks.n_total}$ blocks of \metric{params.block_size_km}~km, coloured by their random split, stratified by sector (seed \metric{params.seed}): training ($n = \metric{blocks.n.train}$), calibration ($n = \metric{blocks.n.calib}$) and test ($n = \metric{blocks.n.test}$). A block belongs to the sector that contains its centre, so some blocks extend beyond the domain.
+  Both maps use the Lambert azimuthal equal-area projection centred at \metric{params.laea_lat0_deg}\textdegree{}N, \metric{params.laea_lon0_deg}\textdegree{}E, with a graticule every \metric{params.fig_graticule_deg}\textdegree{}; scale bars, \metric{params.fig_scale_bar_km}~km, true at the projection centre.}
+  \label{fig:studyarea}
+\end{figure}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/out/supp_setup_model.pdf}
+  \caption{\textbf{Calibration of the wind-setup model.}
+  \textbf{a}, Coefficient of determination ($R^2$) of the setup model per sector, on calibration blocks, which the fit never used. Labels give $R^2$ and $n$, the numbers of SWOT passes with calibration-block and training-block data in the sector.
+  \textbf{b}, Standard deviation of the de-meaned sector departures of SWOT water-surface elevation from the basin level (grey, no model) and of the residuals after the model (blue), for calibration blocks (filled symbols, upper of each pair) and training blocks (open symbols, lower). Komsomolets Bay has no SWOT open-sea pass and uses the model of the northeastern Kazakh coast. The model regresses the departures on ERA5 wind-stress and pressure features\citep{hersbach2020} (Methods); in all, \metric{surge.n_passes} SWOT passes and \metric{surge.n_block_passes} block-passes remained after screening. The sector values come from one fit each; no uncertainty is shown.}
+  \label{fig:setup}
+\end{figure}

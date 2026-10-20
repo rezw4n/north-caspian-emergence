@@ -157,7 +157,8 @@
  "params.snow_rule_max_pct": {
   "value": 1.0,
   "unit": "%",
-  "source": "caspian.design.SNOW_RULE_MAX_PCT"
+  "source": "caspian.design.SNOW_RULE_MAX_PCT",
+  "decimals": 0
  },
  "params.laea_lat0_deg": {
   "value": 45.5,
@@ -193,7 +194,8 @@
  "params.contour_level": {
   "value": 0.5,
   "unit": "fraction",
-  "source": "caspian.design.CONTOUR_LEVEL"
+  "source": "caspian.design.CONTOUR_LEVEL",
+  "decimals": 1
  },
  "params.min_valid_obs": {
   "value": 5,
@@ -218,7 +220,8 @@
  "params.block_size_km": {
   "value": 25.0,
   "unit": "km",
-  "source": "caspian.design.BLOCK_SIZE_M"
+  "source": "caspian.design.BLOCK_SIZE_M",
+  "decimals": 0
  },
  "params.split_train": {
   "value": 0.6,
@@ -269,5 +272,336 @@
   "value": 500,
   "unit": "scenes",
   "source": "caspian.design.EDGE_OTSU_SAMPLE_N"
+ },
+ "params.block_size_sens_lo_km": {
+  "value": 12.5,
+  "unit": "km",
+  "source": "caspian.design.BLOCK_SIZE_SENS_M",
+  "decimals": 1
+ },
+ "params.block_size_sens_hi_km": {
+  "value": 50.0,
+  "unit": "km",
+  "source": "caspian.design.BLOCK_SIZE_SENS_M",
+  "decimals": 0
+ },
+ "params.thr_min_pixels": {
+  "value": 2000,
+  "unit": "pixels",
+  "source": "scripts/a3_thresholds.MIN_N"
+ },
+ "params.thr_min_class_pct": {
+  "value": 5,
+  "unit": "%",
+  "source": "100 * scripts/a3_thresholds.MIN_SHARE"
+ },
+ "params.thr_min_eta": {
+  "value": 0.7,
+  "unit": "",
+  "source": "scripts/a3_thresholds.MIN_ETA",
+  "decimals": 2
+ },
+ "params.thr_max_valley": {
+  "value": 0.5,
+  "unit": "",
+  "source": "scripts/a3_thresholds.MAX_VALLEY",
+  "decimals": 2
+ },
+ "params.thr_lo": {
+  "value": 0.0,
+  "unit": "MNDWI",
+  "source": "scripts/a3_thresholds.THR_RANGE",
+  "decimals": 0
+ },
+ "params.thr_hi": {
+  "value": 0.5,
+  "unit": "MNDWI",
+  "source": "scripts/a3_thresholds.THR_RANGE",
+  "decimals": 1
+ },
+ "params.thr_smooth_bins": {
+  "value": 5,
+  "unit": "bins",
+  "source": "caspian.thresholds.SMOOTH"
+ },
+ "params.ice_first_month": {
+  "value": "November",
+  "unit": "month",
+  "source": "scripts/a3_thresholds.ICE_MONTHS"
+ },
+ "params.ice_last_month": {
+  "value": "March",
+  "unit": "month",
+  "source": "scripts/a3_thresholds.ICE_MONTHS"
+ },
+ "params.setup_windows_h": {
+  "value": "0--6, 6--12, 12--24 and 24--48",
+  "unit": "h",
+  "source": "caspian.surge.WINDOWS_H"
+ },
+ "params.setup_lag_max_h": {
+  "value": 48,
+  "unit": "h",
+  "source": "caspian.surge.WINDOWS_H"
+ },
+ "params.setup_pressure_window_h": {
+  "value": 6,
+  "unit": "h",
+  "source": "caspian.surge.forcing_features (dp feature)"
+ },
+ "params.setup_pass_gap_min": {
+  "value": 10,
+  "unit": "minutes",
+  "source": "scripts/a5_setup_model.PASS_GAP_MIN"
+ },
+ "params.setup_min_pass_px": {
+  "value": 30,
+  "unit": "pixels",
+  "source": "scripts/a5_setup_model.MIN_PASS_PX"
+ },
+ "params.setup_min_block_passes": {
+  "value": 10,
+  "unit": "passes",
+  "source": "scripts/a5_setup_model.MIN_BLOCK_PASSES"
+ },
+ "params.setup_max_block_nmad_m": {
+  "value": 0.5,
+  "unit": "m",
+  "source": "scripts/a5_setup_model.MAX_BLOCK_NMAD",
+  "decimals": 1
+ },
+ "params.setup_max_robust_z": {
+  "value": 5.0,
+  "unit": "",
+  "source": "scripts/a5_setup_model.MAX_ROBUST_Z",
+  "decimals": 0
+ },
+ "params.setup_ridge_n": {
+  "value": 8,
+  "unit": "values",
+  "source": "scripts/a5_setup_model.RIDGE_GRID"
+ },
+ "params.setup_ridge_max": {
+  "value": 300.0,
+  "unit": "",
+  "source": "scripts/a5_setup_model.RIDGE_GRID",
+  "decimals": 0
+ },
+ "params.setup_cv_folds": {
+  "value": 5,
+  "unit": "folds",
+  "source": "scripts/a5_setup_model.N_FOLDS"
+ },
+ "params.swot_min_water_frac": {
+  "value": 0.9,
+  "unit": "fraction",
+  "source": "scripts/a5_swot_sector_levels.MIN_WATER_FRAC",
+  "decimals": 1
+ },
+ "params.swot_min_pixels": {
+  "value": 10,
+  "unit": "pixels",
+  "source": "scripts/a5_swot_sector_levels.MIN_PIXELS"
+ },
+ "params.sea_mask_res_km": {
+  "value": 1,
+  "unit": "km",
+  "source": "scripts/a5_sea_mask.SCALE"
+ },
+ "params.tau_candidates_m": {
+  "value": "0.30, 0.20, 0.15, 0.10 and 0.05",
+  "unit": "m",
+  "source": "scripts/a6_screening.TAUS"
+ },
+ "params.tau_n_candidates": {
+  "value": 5,
+  "unit": "thresholds",
+  "source": "scripts/a6_screening.TAUS (finite values)"
+ },
+ "params.max_scene_cloud_pct": {
+  "value": 60,
+  "unit": "%",
+  "source": "scripts/a3_stage1_interactive.MAX_CLOUD (stage-1 scene selection, D-028)"
+ },
+ "params.stage2_res_m": {
+  "value": 60,
+  "unit": "m",
+  "source": "scripts/a6_stage2_export.RES (= scripts/a7_hindcast.RES)"
+ },
+ "params.rho_min_bins": {
+  "value": 4,
+  "unit": "bins",
+  "source": "scripts/a6_waterlines._rho (run on a test stack)"
+ },
+ "params.static_rho_lo": {
+  "value": 0.2,
+  "unit": "",
+  "source": "caspian.waterlines.STATIC_RHO_RANGE",
+  "decimals": 1
+ },
+ "params.static_rho_hi": {
+  "value": 0.8,
+  "unit": "",
+  "source": "caspian.waterlines.STATIC_RHO_RANGE",
+  "decimals": 1
+ },
+ "params.static_rho_fallback": {
+  "value": 0.5,
+  "unit": "",
+  "source": "caspian.waterlines.STATIC_RHO_FALLBACK",
+  "decimals": 1
+ },
+ "params.static_steep_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "scripts/a6_static_rule.STEEP_M",
+  "decimals": 0
+ },
+ "params.veg_cell_share": {
+  "value": 0.5,
+  "unit": "fraction",
+  "source": "scripts/a6_vegetation.VEG_CELL_SHARE",
+  "decimals": 1
+ },
+ "params.veg_sector_pct": {
+  "value": 10,
+  "unit": "%",
+  "source": "100 * caspian.design.VEGETATED_SECTOR_FRACTION (= scripts/a6_vegetation.VEG_SECTOR_FRACTION)"
+ },
+ "params.dem_tile_km": {
+  "value": 60,
+  "unit": "km",
+  "source": "scripts/a6_dem.TILE_M"
+ },
+ "params.dem_overlap_km": {
+  "value": 6,
+  "unit": "km",
+  "source": "scripts/a6_dem.OVERLAP_M"
+ },
+ "params.gross_error_m": {
+  "value": 50.0,
+  "unit": "m",
+  "source": "caspian.validation.GROSS_ERROR_M",
+  "decimals": 0
+ },
+ "params.dry_radius_px_atl06": {
+  "value": 1,
+  "unit": "pixels",
+  "source": "caspian.validation.DRY_RADIUS_PX"
+ },
+ "params.dry_radius_px_atl08": {
+  "value": 2,
+  "unit": "pixels",
+  "source": "caspian.validation.DRY_RADIUS_PX"
+ },
+ "params.geoid_max_gap_s": {
+  "value": 0.1,
+  "unit": "s",
+  "source": "caspian.validation.GEOID_MAX_GAP_S",
+  "decimals": 1
+ },
+ "params.contour_density_radius_m": {
+  "value": 500.0,
+  "unit": "m",
+  "source": "caspian.validation.CONTOUR_RADIUS_M",
+  "decimals": 0
+ },
+ "params.abs_resid_floor_mm": {
+  "value": 1.0,
+  "unit": "mm",
+  "source": "caspian.validation.ABS_RESID_FLOOR_M",
+  "decimals": 0
+ },
+ "params.vario_bin_km": {
+  "value": 2.5,
+  "unit": "km",
+  "source": "caspian.validation.VARIO_BIN_M",
+  "decimals": 1
+ },
+ "params.vario_max_lag_km": {
+  "value": 150.0,
+  "unit": "km",
+  "source": "caspian.validation.VARIO_MAX_LAG_M",
+  "decimals": 0
+ },
+ "params.vario_short_lag_km": {
+  "value": 7.5,
+  "unit": "km",
+  "source": "caspian.validation.VARIO_SHORT_LAG_M",
+  "decimals": 1
+ },
+ "params.vario_max_pairs": {
+  "value": 2000000,
+  "unit": "pairs",
+  "source": "caspian.validation.VARIO_MAX_PAIRS"
+ },
+ "params.nmad_scale": {
+  "value": 1.4826,
+  "unit": "",
+  "source": "caspian.validation.NMAD_SCALE",
+  "decimals": 4
+ },
+ "params.err_pct_lo": {
+  "value": 5,
+  "unit": "percentile",
+  "source": "caspian.validation.error_metrics (p05, run on 0..100)"
+ },
+ "params.err_pct_hi": {
+  "value": 95,
+  "unit": "percentile",
+  "source": "caspian.validation.error_metrics (p95, run on 0..100)"
+ },
+ "params.ci_pct": {
+  "value": 95,
+  "unit": "%",
+  "source": "caspian.validation.percentile_interval and caspian.conformal.coverage (conf default)"
+ },
+ "params.structure_perm_n": {
+  "value": 999,
+  "unit": "permutations",
+  "source": "caspian.blocking.spatial_structure_test (n_perm default)"
+ },
+ "params.emergence_lag_sens_days": {
+  "value": 365,
+  "unit": "days",
+  "source": "docs/DECISIONS.md D-069 (robustness check; not yet in code)"
+ },
+ "params.hindcast_margin_deg": {
+  "value": 0.1,
+  "unit": "degrees",
+  "source": "scripts/a7_hindcast.MARGIN_DEG",
+  "decimals": 1
+ },
+ "params.shape_step_m": {
+  "value": 0.01,
+  "unit": "m",
+  "source": "scripts/a7_hindcast.C_GRID",
+  "decimals": 2
+ },
+ "params.shape_max_m": {
+  "value": 5.0,
+  "unit": "m",
+  "source": "scripts/a7_hindcast.C_GRID",
+  "decimals": 0
+ },
+ "params.h1_min_block_n": {
+  "value": 20,
+  "unit": "distances",
+  "source": "caspian.h1.MIN_BLOCK_N"
+ },
+ "params.beyond_inner_km": {
+  "value": 5,
+  "unit": "km",
+  "source": "scripts/a7_beyond_state.INNER_M"
+ },
+ "params.fig_scale_bar_km": {
+  "value": 100,
+  "unit": "km",
+  "source": "figures/fig_study_area.SCALE_KM"
+ },
+ "params.fig_graticule_deg": {
+  "value": 1,
+  "unit": "degrees",
+  "source": "figures/fig_study_area.GRATICULE_DEG"
  }
 }
