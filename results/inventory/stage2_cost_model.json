@@ -1,0 +1,569 @@
+{
+ "inputs": {
+  "max_cloud_pct": 60,
+  "overhead": [
+   1.0,
+   1.5,
+   2.0
+  ],
+  "query_eecu_s": 28.0,
+  "community_budget_eecu_h_per_month": 105.0,
+  "contributor_budget_eecu_h_per_month": 700.0
+ },
+ "units": [
+  {
+   "family": "LANDSAT",
+   "fp_km2": 35539.44436274509,
+   "unit": "163028",
+   "zone_km2": 1.6936274509803924,
+   "n_scenes": 10
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 35504.68921568629,
+   "unit": "163029",
+   "zone_km2": 0,
+   "n_scenes": 14
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34168.66887254902,
+   "unit": "164027",
+   "zone_km2": 0,
+   "n_scenes": 702
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34055.20906862746,
+   "unit": "164028",
+   "zone_km2": 1792.4696078431386,
+   "n_scenes": 746
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34139.86029411765,
+   "unit": "164029",
+   "zone_km2": 3448.155637254901,
+   "n_scenes": 751
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 36602.21225490196,
+   "unit": "164030",
+   "zone_km2": 0,
+   "n_scenes": 294
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34162.740196078434,
+   "unit": "165027",
+   "zone_km2": 723.6811274509803,
+   "n_scenes": 690
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34153.64730392157,
+   "unit": "165028",
+   "zone_km2": 15602.215196078429,
+   "n_scenes": 736
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34051.38382352941,
+   "unit": "165029",
+   "zone_km2": 7741.75343137255,
+   "n_scenes": 759
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 36608.20441176471,
+   "unit": "165030",
+   "zone_km2": 0,
+   "n_scenes": 285
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34082.171078431384,
+   "unit": "166027",
+   "zone_km2": 6338.4433823529425,
+   "n_scenes": 677
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34145.9862745098,
+   "unit": "166028",
+   "zone_km2": 12827.820833333331,
+   "n_scenes": 716
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34151.34509803922,
+   "unit": "166029",
+   "zone_km2": 3810.8274509803923,
+   "n_scenes": 716
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34085.76666666669,
+   "unit": "167027",
+   "zone_km2": 4972.125245098041,
+   "n_scenes": 680
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34157.81666666667,
+   "unit": "167028",
+   "zone_km2": 4009.397549019608,
+   "n_scenes": 683
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34147.8737745098,
+   "unit": "167029",
+   "zone_km2": 6604.6735294117625,
+   "n_scenes": 655
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 35531.434558823516,
+   "unit": "167030",
+   "zone_km2": 16.49019607843137,
+   "n_scenes": 3
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34155.92034313725,
+   "unit": "168027",
+   "zone_km2": 1457.2715686274505,
+   "n_scenes": 665
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34069.039215686265,
+   "unit": "168028",
+   "zone_km2": 15840.710784313726,
+   "n_scenes": 667
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34144.45441176469,
+   "unit": "168029",
+   "zone_km2": 7988.738480392156,
+   "n_scenes": 640
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34052.159803921575,
+   "unit": "168030",
+   "zone_km2": 162.23529411764704,
+   "n_scenes": 648
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34174.52965686275,
+   "unit": "169027",
+   "zone_km2": 3789.5936274509804,
+   "n_scenes": 659
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34066.23014705883,
+   "unit": "169028",
+   "zone_km2": 16851.601715686265,
+   "n_scenes": 713
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34135.08235294117,
+   "unit": "169029",
+   "zone_km2": 6365.05661764706,
+   "n_scenes": 653
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34000.635294117645,
+   "unit": "169030",
+   "zone_km2": 0,
+   "n_scenes": 724
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34073.42916666666,
+   "unit": "170027",
+   "zone_km2": 1610.219607843137,
+   "n_scenes": 636
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34153.26715686275,
+   "unit": "170028",
+   "zone_km2": 918.4205882352945,
+   "n_scenes": 643
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 34137.952696078435,
+   "unit": "170029",
+   "zone_km2": 147.24558823529412,
+   "n_scenes": 595
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 35530.29215686275,
+   "unit": "171027",
+   "zone_km2": 0,
+   "n_scenes": 17
+  },
+  {
+   "family": "LANDSAT",
+   "fp_km2": 35567.34436274509,
+   "unit": "171028",
+   "zone_km2": 0,
+   "n_scenes": 1
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 11915.021568627393,
+   "unit": "T38TNR",
+   "zone_km2": 0,
+   "n_scenes": 700
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12065.792647058815,
+   "unit": "T38TNS",
+   "zone_km2": 0,
+   "n_scenes": 714
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12065.792401960784,
+   "unit": "T38TNT",
+   "zone_km2": 0,
+   "n_scenes": 698
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12060.165441176468,
+   "unit": "T38TPP",
+   "zone_km2": 201.42671568627452,
+   "n_scenes": 662
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 3423.666666666668,
+   "unit": "T38TPQ",
+   "zone_km2": 640.1561274509804,
+   "n_scenes": 699
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 1583.3490196078426,
+   "unit": "T38TPR",
+   "zone_km2": 0,
+   "n_scenes": 1076
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 4737.625980392162,
+   "unit": "T38TPS",
+   "zone_km2": 0,
+   "n_scenes": 717
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 7714.02377450981,
+   "unit": "T38TPT",
+   "zone_km2": 494.496568627451,
+   "n_scenes": 700
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12045.643137254901,
+   "unit": "T38TQP",
+   "zone_km2": 223.26985294117645,
+   "n_scenes": 670
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 9496.634803921574,
+   "unit": "T38TQQ",
+   "zone_km2": 1458.912009803922,
+   "n_scenes": 712
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 11726.42058823528,
+   "unit": "T38TQR",
+   "zone_km2": 7457.274509803922,
+   "n_scenes": 735
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12047.851470588243,
+   "unit": "T38TQS",
+   "zone_km2": 8626.729901960798,
+   "n_scenes": 736
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12047.85220588236,
+   "unit": "T38TQT",
+   "zone_km2": 595.9299019607847,
+   "n_scenes": 731
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12058.84852941177,
+   "unit": "T39TUJ",
+   "zone_km2": 30.12426470588234,
+   "n_scenes": 338
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 1203.2504901960797,
+   "unit": "T39TUK",
+   "zone_km2": 210.86323529411766,
+   "n_scenes": 1092
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 4801.434068627452,
+   "unit": "T39TUL",
+   "zone_km2": 2208.0448529411765,
+   "n_scenes": 752
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 8323.054901960782,
+   "unit": "T39TUM",
+   "zone_km2": 4595.625490196077,
+   "n_scenes": 741
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 11437.494852941183,
+   "unit": "T39TUN",
+   "zone_km2": 0,
+   "n_scenes": 742
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 11488.111274509807,
+   "unit": "T39TVK",
+   "zone_km2": 2663.1965686274525,
+   "n_scenes": 764
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12066.577450980401,
+   "unit": "T39TVL",
+   "zone_km2": 176.30269607843147,
+   "n_scenes": 746
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12066.57965686275,
+   "unit": "T39TVM",
+   "zone_km2": 2888.504901960785,
+   "n_scenes": 779
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 1010.09068627451,
+   "unit": "T39TVN",
+   "zone_km2": 0,
+   "n_scenes": 1121
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 3034.088480392159,
+   "unit": "T39TWJ",
+   "zone_km2": 0,
+   "n_scenes": 776
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 754.2960784313726,
+   "unit": "T39TWK",
+   "zone_km2": 0,
+   "n_scenes": 1114
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12064.337745098044,
+   "unit": "T39TWL",
+   "zone_km2": 1489.5946078431375,
+   "n_scenes": 708
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12066.527205882363,
+   "unit": "T39TWM",
+   "zone_km2": 2311.142401960784,
+   "n_scenes": 766
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12066.516176470597,
+   "unit": "T39TWN",
+   "zone_km2": 3076.681127450984,
+   "n_scenes": 767
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12057.96691176471,
+   "unit": "T39TXJ",
+   "zone_km2": 0,
+   "n_scenes": 778
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 11475.822794117652,
+   "unit": "T39TXK",
+   "zone_km2": 2362.1889705882354,
+   "n_scenes": 768
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 9218.091911764714,
+   "unit": "T39TXL",
+   "zone_km2": 6548.888480392159,
+   "n_scenes": 704
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 6949.42156862745,
+   "unit": "T39TXM",
+   "zone_km2": 3528.4012254901954,
+   "n_scenes": 759
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 4723.508823529412,
+   "unit": "T39TXN",
+   "zone_km2": 0,
+   "n_scenes": 756
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12045.830637254905,
+   "unit": "T39TYJ",
+   "zone_km2": 0,
+   "n_scenes": 411
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12045.8330882353,
+   "unit": "T39TYK",
+   "zone_km2": 1456.088970588235,
+   "n_scenes": 756
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12048.031617647062,
+   "unit": "T39TYL",
+   "zone_km2": 5140.800000000003,
+   "n_scenes": 676
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12048.034068627452,
+   "unit": "T39TYM",
+   "zone_km2": 0,
+   "n_scenes": 776
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 6046.1051470588245,
+   "unit": "T39TYN",
+   "zone_km2": 0,
+   "n_scenes": 795
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 11280.730147058832,
+   "unit": "T40TCP",
+   "zone_km2": 0,
+   "n_scenes": 417
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12058.839460784311,
+   "unit": "T40TCQ",
+   "zone_km2": 170.4468137254902,
+   "n_scenes": 403
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12061.042156862748,
+   "unit": "T40TCR",
+   "zone_km2": 476.0502450980394,
+   "n_scenes": 395
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 12061.042401960789,
+   "unit": "T40TCS",
+   "zone_km2": 0,
+   "n_scenes": 788
+  },
+  {
+   "family": "MSI_S2",
+   "fp_km2": 3031.4529411764697,
+   "unit": "T40TCT",
+   "zone_km2": 0,
+   "n_scenes": 786
+  }
+ ],
+ "rates": {
+  "LANDSAT": {
+   "30m": 0.01995904213836643,
+   "60m": 0.003404199615599465,
+   "90m": 0.002250460424829351
+  },
+  "MSI_S2": {
+   "30m": 0.06050587425250617,
+   "60m": 0.010319837617655796,
+   "90m": 0.006822275063652477
+  }
+ },
+ "totals": {
+  "LANDSAT": {
+   "30m": {
+    "low": 474.4,
+    "central": 711.5,
+    "high": 948.7
+   },
+   "60m": {
+    "low": 80.9,
+    "central": 121.4,
+    "high": 161.8
+   },
+   "90m": {
+    "low": 53.5,
+    "central": 80.2,
+    "high": 107.0
+   },
+   "zone_scene_km2": 85559230
+  },
+  "MSI_S2": {
+   "30m": {
+    "low": 726.5,
+    "central": 1089.7,
+    "high": 1452.9
+   },
+   "60m": {
+    "low": 123.9,
+    "central": 185.9,
+    "high": 247.8
+   },
+   "90m": {
+    "low": 81.9,
+    "central": 122.9,
+    "high": 163.8
+   },
+   "zone_scene_km2": 43224026
+  }
+ }
+}

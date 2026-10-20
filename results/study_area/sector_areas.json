@@ -1,14 +1,17 @@
 {
- "domain_km2": 224136.6,
+ "domain_km2": 221165.6,
  "sectors_km2": {
-  "west": 19823.7,
-  "volga": 54186.8,
-  "interfluve": 11298.0,
-  "ural": 6479.9,
-  "northeast": 34278.5,
-  "komsomolets": 25491.3,
-  "open_shelf": 69759.5
+  "west": 19827.9,
+  "volga": 53922.4,
+  "interfluve": 11300.7,
+  "ural": 6480.1,
+  "northeast": 34263.0,
+  "komsomolets": 25477.9,
+  "open_shelf": 69893.5
  },
+ "sectors_sum_km2": 221165.5,
+ "edge_convention": "straight in lon/lat (box sides along parallels and meridians); edges densified to 0.01 deg before projection",
+ "crs_equal_area": "+proj=laea +lat_0=45.5 +lon_0=50 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +type=crs",
  "names": {
   "west": "Kizlyar Bay - Dagestan - Kalmyk coast",
   "volga": "Volga delta",
@@ -17,6 +20,803 @@
   "northeast": "NE Kazakh coast (Tengiz-Kashagan)",
   "komsomolets": "Komsomolets Bay (Mertvyi Kultuk) and Kaidak",
   "open_shelf": "Open shelf"
+ },
+ "geodesic_reading": {
+  "reading": "edges are geodesics between the vertices (Earth Engine default for EPSG:4326)",
+  "domain_km2": 224274.6,
+  "sectors_sum_km2": 221341.7,
+  "north_edge": {
+   "from": [
+    54.6,
+    47.35
+   ],
+   "to": [
+    46.4,
+    47.35
+   ],
+   "length_km": 619.3,
+   "offset_km": 8.157
+  },
+  "north_edge_offset_km": 8.157,
+  "other_edges_max_offset_km": 0.998,
+  "polygons": {
+   "domain": {
+    "area_km2": 224274.6,
+    "area_km2_lonlat_reading": 221165.6,
+    "max_edge_offset_km": 8.157,
+    "edges": [
+     {
+      "from": [
+       46.4,
+       43.975
+      ],
+      "to": [
+       47.6805,
+       43.9677
+      ],
+      "length_km": 102.8,
+      "offset_km": 0.199
+     },
+     {
+      "from": [
+       47.6805,
+       43.9677
+      ],
+      "to": [
+       50.3131,
+       44.6443
+      ],
+      "length_km": 223.1,
+      "offset_km": 0.998
+     },
+     {
+      "from": [
+       50.3131,
+       44.6443
+      ],
+      "to": [
+       51.0,
+       44.3
+      ],
+      "length_km": 66.7,
+      "offset_km": 0.093
+     },
+     {
+      "from": [
+       51.0,
+       44.3
+      ],
+      "to": [
+       52.3,
+       44.2
+      ],
+      "length_km": 104.4,
+      "offset_km": 0.209
+     },
+     {
+      "from": [
+       52.3,
+       44.2
+      ],
+      "to": [
+       54.6,
+       44.2
+      ],
+      "length_km": 183.8,
+      "offset_km": 0.643
+     },
+     {
+      "from": [
+       54.6,
+       44.2
+      ],
+      "to": [
+       54.6,
+       47.35
+      ],
+      "length_km": 350.1,
+      "offset_km": 0.0
+     },
+     {
+      "from": [
+       54.6,
+       47.35
+      ],
+      "to": [
+       46.4,
+       47.35
+      ],
+      "length_km": 619.3,
+      "offset_km": 8.157
+     },
+     {
+      "from": [
+       46.4,
+       47.35
+      ],
+      "to": [
+       46.4,
+       43.975
+      ],
+      "length_km": 375.1,
+      "offset_km": 0.0
+     }
+    ]
+   },
+   "west": {
+    "area_km2": 19826.4,
+    "area_km2_lonlat_reading": 19827.9,
+    "max_edge_offset_km": 0.206,
+    "edges": [
+     {
+      "from": [
+       46.4,
+       43.975
+      ],
+      "to": [
+       46.4,
+       45.62
+      ],
+      "length_km": 182.8,
+      "offset_km": 0.0
+     },
+     {
+      "from": [
+       46.4,
+       45.62
+      ],
+      "to": [
+       47.7,
+       45.62
+      ],
+      "length_km": 101.4,
+      "offset_km": 0.206
+     },
+     {
+      "from": [
+       47.7,
+       45.62
+      ],
+      "to": [
+       47.85,
+       45.3
+      ],
+      "length_km": 37.5,
+      "offset_km": 0.017
+     },
+     {
+      "from": [
+       47.85,
+       45.3
+      ],
+      "to": [
+       47.75,
+       44.5
+      ],
+      "length_km": 89.3,
+      "offset_km": 0.028
+     },
+     {
+      "from": [
+       47.75,
+       44.5
+      ],
+      "to": [
+       47.6805,
+       43.9677
+      ],
+      "length_km": 59.4,
+      "offset_km": 0.013
+     },
+     {
+      "from": [
+       47.6805,
+       43.9677
+      ],
+      "to": [
+       46.4,
+       43.975
+      ],
+      "length_km": 102.8,
+      "offset_km": 0.199
+     }
+    ]
+   },
+   "volga": {
+    "area_km2": 54197.3,
+    "area_km2_lonlat_reading": 53922.4,
+    "max_edge_offset_km": 1.615,
+    "edges": [
+     {
+      "from": [
+       50.05,
+       46.2
+      ],
+      "to": [
+       49.6,
+       45.9
+      ],
+      "length_km": 48.2,
+      "offset_km": 0.051
+     },
+     {
+      "from": [
+       49.6,
+       45.9
+      ],
+      "to": [
+       49.0,
+       45.6
+      ],
+      "length_km": 57.4,
+      "offset_km": 0.072
+     },
+     {
+      "from": [
+       49.0,
+       45.6
+      ],
+      "to": [
+       48.4,
+       45.35
+      ],
+      "length_km": 54.5,
+      "offset_km": 0.064
+     },
+     {
+      "from": [
+       48.4,
+       45.35
+      ],
+      "to": [
+       47.85,
+       45.3
+      ],
+      "length_km": 43.5,
+      "offset_km": 0.038
+     },
+     {
+      "from": [
+       47.85,
+       45.3
+      ],
+      "to": [
+       47.7,
+       45.62
+      ],
+      "length_km": 37.5,
+      "offset_km": 0.017
+     },
+     {
+      "from": [
+       47.7,
+       45.62
+      ],
+      "to": [
+       46.4,
+       45.62
+      ],
+      "length_km": 101.4,
+      "offset_km": 0.206
+     },
+     {
+      "from": [
+       46.4,
+       45.62
+      ],
+      "to": [
+       46.4,
+       47.35
+      ],
+      "length_km": 192.3,
+      "offset_km": 0.0
+     },
+     {
+      "from": [
+       46.4,
+       47.35
+      ],
+      "to": [
+       50.05,
+       47.35
+      ],
+      "length_km": 275.8,
+      "offset_km": 1.615
+     },
+     {
+      "from": [
+       50.05,
+       47.35
+      ],
+      "to": [
+       50.05,
+       46.2
+      ],
+      "length_km": 127.8,
+      "offset_km": 0.0
+     }
+    ]
+   },
+   "interfluve": {
+    "area_km2": 11298.3,
+    "area_km2_lonlat_reading": 11300.7,
+    "max_edge_offset_km": 0.229,
+    "edges": [
+     {
+      "from": [
+       51.35,
+       46.45
+      ],
+      "to": [
+       50.05,
+       46.2
+      ],
+      "length_km": 103.9,
+      "offset_km": 0.229
+     },
+     {
+      "from": [
+       50.05,
+       46.2
+      ],
+      "to": [
+       50.05,
+       47.35
+      ],
+      "length_km": 127.8,
+      "offset_km": 0.0
+     },
+     {
+      "from": [
+       50.05,
+       47.35
+      ],
+      "to": [
+       51.35,
+       47.35
+      ],
+      "length_km": 98.2,
+      "offset_km": 0.205
+     },
+     {
+      "from": [
+       51.35,
+       47.35
+      ],
+      "to": [
+       51.35,
+       46.45
+      ],
+      "length_km": 100.1,
+      "offset_km": 0.0
+     }
+    ]
+   },
+   "ural": {
+    "area_km2": 6480.0,
+    "area_km2_lonlat_reading": 6480.1,
+    "max_edge_offset_km": 0.088,
+    "edges": [
+     {
+      "from": [
+       52.2,
+       46.45
+      ],
+      "to": [
+       51.35,
+       46.45
+      ],
+      "length_km": 65.3,
+      "offset_km": 0.088
+     },
+     {
+      "from": [
+       51.35,
+       46.45
+      ],
+      "to": [
+       51.35,
+       47.35
+      ],
+      "length_km": 100.1,
+      "offset_km": 0.0
+     },
+     {
+      "from": [
+       51.35,
+       47.35
+      ],
+      "to": [
+       52.2,
+       47.35
+      ],
+      "length_km": 64.2,
+      "offset_km": 0.088
+     },
+     {
+      "from": [
+       52.2,
+       47.35
+      ],
+      "to": [
+       52.2,
+       46.45
+      ],
+      "length_km": 100.1,
+      "offset_km": 0.0
+     }
+    ]
+   },
+   "northeast": {
+    "area_km2": 34283.7,
+    "area_km2_lonlat_reading": 34263.0,
+    "max_edge_offset_km": 0.698,
+    "edges": [
+     {
+      "from": [
+       52.45,
+       45.65
+      ],
+      "to": [
+       52.25,
+       46.0
+      ],
+      "length_km": 41.9,
+      "offset_km": 0.025
+     },
+     {
+      "from": [
+       52.25,
+       46.0
+      ],
+      "to": [
+       52.2,
+       46.45
+      ],
+      "length_km": 50.2,
+      "offset_km": 0.008
+     },
+     {
+      "from": [
+       52.2,
+       46.45
+      ],
+      "to": [
+       52.2,
+       47.35
+      ],
+      "length_km": 100.1,
+      "offset_km": 0.0
+     },
+     {
+      "from": [
+       52.2,
+       47.35
+      ],
+      "to": [
+       54.6,
+       47.35
+      ],
+      "length_km": 181.3,
+      "offset_km": 0.698
+     },
+     {
+      "from": [
+       54.6,
+       47.35
+      ],
+      "to": [
+       54.6,
+       45.65
+      ],
+      "length_km": 189.0,
+      "offset_km": 0.0
+     },
+     {
+      "from": [
+       54.6,
+       45.65
+      ],
+      "to": [
+       52.45,
+       45.65
+      ],
+      "length_km": 167.6,
+      "offset_km": 0.562
+     }
+    ]
+   },
+   "komsomolets": {
+    "area_km2": 25494.0,
+    "area_km2_lonlat_reading": 25477.9,
+    "max_edge_offset_km": 0.562,
+    "edges": [
+     {
+      "from": [
+       52.55,
+       45.25
+      ],
+      "to": [
+       52.45,
+       45.3
+      ],
+      "length_km": 9.6,
+      "offset_km": 0.002
+     },
+     {
+      "from": [
+       52.45,
+       45.3
+      ],
+      "to": [
+       52.45,
+       45.65
+      ],
+      "length_km": 38.9,
+      "offset_km": 0.0
+     },
+     {
+      "from": [
+       52.45,
+       45.65
+      ],
+      "to": [
+       54.6,
+       45.65
+      ],
+      "length_km": 167.6,
+      "offset_km": 0.562
+     },
+     {
+      "from": [
+       54.6,
+       45.65
+      ],
+      "to": [
+       54.6,
+       44.2
+      ],
+      "length_km": 161.1,
+      "offset_km": 0.0
+     },
+     {
+      "from": [
+       54.6,
+       44.2
+      ],
+      "to": [
+       52.75,
+       44.2
+      ],
+      "length_km": 147.9,
+      "offset_km": 0.416
+     },
+     {
+      "from": [
+       52.75,
+       44.2
+      ],
+      "to": [
+       52.55,
+       45.25
+      ],
+      "length_km": 117.8,
+      "offset_km": 0.072
+     }
+    ]
+   },
+   "open_shelf": {
+    "area_km2": 69762.0,
+    "area_km2_lonlat_reading": 69893.5,
+    "max_edge_offset_km": 0.998,
+    "edges": [
+     {
+      "from": [
+       52.3,
+       44.2
+      ],
+      "to": [
+       51.0,
+       44.3
+      ],
+      "length_km": 104.4,
+      "offset_km": 0.209
+     },
+     {
+      "from": [
+       51.0,
+       44.3
+      ],
+      "to": [
+       50.3131,
+       44.6443
+      ],
+      "length_km": 66.7,
+      "offset_km": 0.093
+     },
+     {
+      "from": [
+       50.3131,
+       44.6443
+      ],
+      "to": [
+       47.6805,
+       43.9677
+      ],
+      "length_km": 223.1,
+      "offset_km": 0.998
+     },
+     {
+      "from": [
+       47.6805,
+       43.9677
+      ],
+      "to": [
+       47.75,
+       44.5
+      ],
+      "length_km": 59.4,
+      "offset_km": 0.013
+     },
+     {
+      "from": [
+       47.75,
+       44.5
+      ],
+      "to": [
+       47.85,
+       45.3
+      ],
+      "length_km": 89.3,
+      "offset_km": 0.028
+     },
+     {
+      "from": [
+       47.85,
+       45.3
+      ],
+      "to": [
+       48.4,
+       45.35
+      ],
+      "length_km": 43.5,
+      "offset_km": 0.038
+     },
+     {
+      "from": [
+       48.4,
+       45.35
+      ],
+      "to": [
+       49.0,
+       45.6
+      ],
+      "length_km": 54.5,
+      "offset_km": 0.064
+     },
+     {
+      "from": [
+       49.0,
+       45.6
+      ],
+      "to": [
+       49.6,
+       45.9
+      ],
+      "length_km": 57.4,
+      "offset_km": 0.072
+     },
+     {
+      "from": [
+       49.6,
+       45.9
+      ],
+      "to": [
+       50.05,
+       46.2
+      ],
+      "length_km": 48.2,
+      "offset_km": 0.051
+     },
+     {
+      "from": [
+       50.05,
+       46.2
+      ],
+      "to": [
+       51.35,
+       46.45
+      ],
+      "length_km": 103.9,
+      "offset_km": 0.229
+     },
+     {
+      "from": [
+       51.35,
+       46.45
+      ],
+      "to": [
+       52.2,
+       46.45
+      ],
+      "length_km": 65.3,
+      "offset_km": 0.088
+     },
+     {
+      "from": [
+       52.2,
+       46.45
+      ],
+      "to": [
+       52.25,
+       46.0
+      ],
+      "length_km": 50.2,
+      "offset_km": 0.008
+     },
+     {
+      "from": [
+       52.25,
+       46.0
+      ],
+      "to": [
+       52.45,
+       45.65
+      ],
+      "length_km": 41.9,
+      "offset_km": 0.025
+     },
+     {
+      "from": [
+       52.45,
+       45.65
+      ],
+      "to": [
+       52.45,
+       45.3
+      ],
+      "length_km": 38.9,
+      "offset_km": 0.0
+     },
+     {
+      "from": [
+       52.45,
+       45.3
+      ],
+      "to": [
+       52.55,
+       45.25
+      ],
+      "length_km": 9.6,
+      "offset_km": 0.002
+     },
+     {
+      "from": [
+       52.55,
+       45.25
+      ],
+      "to": [
+       52.75,
+       44.2
+      ],
+      "length_km": 117.8,
+      "offset_km": 0.072
+     },
+     {
+      "from": [
+       52.75,
+       44.2
+      ],
+      "to": [
+       52.3,
+       44.2
+      ],
+      "length_km": 36.0,
+      "offset_km": 0.025
+     }
+    ]
+   }
+  }
  },
  "geojson_sha256": "ac47d38c377bd3f62d20e91b00b8780a1d54cc4e5b4ccbbac411df452db05e3f"
 }

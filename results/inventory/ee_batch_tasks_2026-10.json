@@ -1,0 +1,219 @@
+[
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "pilot_L8_165028_2020",
+  "state": "SUCCEEDED",
+  "eecu_s": 10993.1767578125,
+  "created": "2026-10-20T09:41:56.303285Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "pilot_L8_165028_2020_thr",
+  "state": "FAILED",
+  "eecu_s": 1.873302936,
+  "created": "2026-10-20T09:41:57.917076Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "pilot_S2_39TXM_2020JJA",
+  "state": "FAILED",
+  "eecu_s": 0.0,
+  "created": "2026-10-20T09:42:00.246985Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "pilot_S2_39TXM_2020JJA_thr",
+  "state": "CANCELLED",
+  "eecu_s": 0.021470863,
+  "created": "2026-10-20T09:42:03.401608Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "pilot_L8_165028_2020_v2_thr",
+  "state": "SUCCEEDED",
+  "eecu_s": 0.2773691713809967,
+  "created": "2026-10-20T10:05:50.517690Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "pilot_S2_39TXM_2020JJA_v2",
+  "state": "CANCELLED",
+  "eecu_s": 0.0,
+  "created": "2026-10-20T10:05:52.778805Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "pilot_S2_39TXM_2020JJA_v2_thr",
+  "state": "SUCCEEDED",
+  "eecu_s": 0.026800487190485,
+  "created": "2026-10-20T10:05:54.550528Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "active_zone_v1",
+  "state": "CANCELLED",
+  "eecu_s": 63688.389,
+  "created": "2026-10-20T10:24:01.412626Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "era5_sector_winds_1984_1994",
+  "state": "SUCCEEDED",
+  "eecu_s": 0.003877582959830761,
+  "created": "2026-10-20T10:36:49.626032Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "era5_sector_winds_1994_2004",
+  "state": "SUCCEEDED",
+  "eecu_s": 0.0037058331072330475,
+  "created": "2026-10-20T10:36:50.245397Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "era5_sector_winds_2004_2014",
+  "state": "SUCCEEDED",
+  "eecu_s": 0.008221226744353771,
+  "created": "2026-10-20T10:36:51.788275Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "era5_sector_winds_2014_2024",
+  "state": "SUCCEEDED",
+  "eecu_s": 0.0028244389686733484,
+  "created": "2026-10-20T10:36:52.278135Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "era5_sector_winds_2024_2027",
+  "state": "CANCELLED",
+  "eecu_s": 0.0,
+  "created": "2026-10-20T10:36:52.973988Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "active_zone_v2_pilot",
+  "state": "SUCCEEDED",
+  "eecu_s": 69.51972961425781,
+  "created": "2026-10-20T11:02:33.871787Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "era5_sector_winds_2024_2027",
+  "state": "SUCCEEDED",
+  "eecu_s": 0.004712235182523727,
+  "created": "2026-10-20T11:42:57.813864Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "active_zone_v3_pilot",
+  "state": "SUCCEEDED",
+  "eecu_s": 62.890987396240234,
+  "created": "2026-10-20T12:02:53.785002Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "active_zone_v3",
+  "state": "SUCCEEDED",
+  "eecu_s": 2349.19384765625,
+  "created": "2026-10-20T12:04:45.444424Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "active_zone_v4_pilot",
+  "state": "SUCCEEDED",
+  "eecu_s": 106.97917938232422,
+  "created": "2026-10-20T12:16:57.958760Z"
+ },
+ {
+  "type": "EXPORT_FEATURES",
+  "desc": "stage1_pilot_L8_165028_2020",
+  "state": "SUCCEEDED",
+  "eecu_s": 0.009804509580135345,
+  "created": "2026-10-20T12:20:35.034273Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "pilot2_L8_165028_2020_stage2",
+  "state": "FAILED",
+  "eecu_s": 0.0,
+  "created": "2026-10-20T12:20:41.872161Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "pilot2_L8_165028_2020_stage2",
+  "state": "CANCELLED",
+  "eecu_s": 0.0,
+  "created": "2026-10-20T12:33:44.282364Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "pilot2_L8_165028_2020_stage2_q",
+  "state": "CANCELLED",
+  "eecu_s": 7313.585,
+  "created": "2026-10-20T12:33:54.604372Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "s2pilot_a30",
+  "state": "SUCCEEDED",
+  "eecu_s": 299.1997375488281,
+  "created": "2026-10-20T12:56:46.800937Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "s2pilot_b60",
+  "state": "SUCCEEDED",
+  "eecu_s": 51.13899230957031,
+  "created": "2026-10-20T12:56:55.185011Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "s2pilot_d90",
+  "state": "SUCCEEDED",
+  "eecu_s": 33.878421783447266,
+  "created": "2026-10-20T12:57:00.259226Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "s2pilot_c30q",
+  "state": "SUCCEEDED",
+  "eecu_s": 184.52474975585938,
+  "created": "2026-10-20T12:57:07.455429Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "active_zone_v5_pilot",
+  "state": "SUCCEEDED",
+  "eecu_s": 100.2518081665039,
+  "created": "2026-10-20T12:57:15.478195Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "active_zone_v5",
+  "state": "SUCCEEDED",
+  "eecu_s": 2649.0546875,
+  "created": "2026-10-20T13:05:17.334818Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "s2pilot_s60",
+  "state": "SUCCEEDED",
+  "eecu_s": 172.25328063964844,
+  "created": "2026-10-20T13:15:03.048331Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "extents_v6",
+  "state": "SUCCEEDED",
+  "eecu_s": 3242.86474609375,
+  "created": "2026-10-20T13:38:40.184074Z"
+ },
+ {
+  "type": "EXPORT_IMAGE",
+  "desc": "active_zone_v6",
+  "state": "SUCCEEDED",
+  "eecu_s": 1153.639892578125,
+  "created": "2026-10-20T13:59:13.181024Z"
+ }
+]

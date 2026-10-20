@@ -1,5 +1,9 @@
 """Phase 0: parse the DAHITI Caspian series, summarise it and plot it for QC.
 
+Gaps are in fractional days. Extremes are given twice: the single raw records and
+the extremes of a 3-point running median (caspian.levels.smoothed_extremes), which a
+single noisy record cannot set (D-021 correction).
+
 Inputs : the single series file in data/raw/dahiti/
 Outputs: results/qc/dahiti_summary.json (committed)
          outputs/qc/dahiti_level_series.{pdf,png}
@@ -14,10 +18,13 @@ import sys
 import caspian  # noqa: F401  (Windows DLL-path fix before rasterio-dependent imports)
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
-from caspian import plotting
+from caspian import levels, plotting
 from caspian.config import OUTPUTS, RAW, RESULTS
 from caspian.io import find_dahiti_file, read_dahiti
+
+SMOOTH_K = 3  # running-median length for the robust extremes (D-021 correction)
 
 
 def main() -> int:
@@ -27,8 +34,10 @@ def main() -> int:
         return 1
     series = read_dahiti(path)
     d = series.data
-    years = (d["time"].iloc[-1] - d["time"].iloc[0]).days / 365.25
-    gaps = d["time"].diff().dt.days.dropna()
+    years = (d["time"].iloc[-1] - d["time"].iloc[0]) / pd.Timedelta(days=1) / 365.25
+    # Fractional days (``.dt.days`` would floor each gap to whole days). d is time-sorted.
+    gaps = pd.Series(levels.gap_days(d["time"]))
+    sm = levels.smoothed_extremes(d["time"], d["level_m"], k=SMOOTH_K)
     summary = {
         "file": path.name,
         "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
@@ -38,12 +47,20 @@ def main() -> int:
         "first": d["time"].iloc[0].isoformat(),
         "last": d["time"].iloc[-1].isoformat(),
         "span_years": round(years, 2),
-        "median_gap_days": float(np.median(gaps)) if len(gaps) else None,
-        "max_gap_days": float(gaps.max()) if len(gaps) else None,
+        "median_gap_days": round(float(np.median(gaps)), 3) if len(gaps) else None,
+        "max_gap_days": round(float(gaps.max()), 3) if len(gaps) else None,
+        "time_of_max_gap_start": d["time"].iloc[int(np.argmax(gaps.to_numpy()))].isoformat() if len(gaps) else None,
+        "n_gaps_over_60_days": int((gaps > 60).sum()),
+        # single-record extremes (raw records)
         "level_min_m": float(d["level_m"].min()),
         "level_max_m": float(d["level_m"].max()),
         "time_of_min": d.loc[d["level_m"].idxmin(), "time"].isoformat(),
         "time_of_max": d.loc[d["level_m"].idxmax(), "time"].isoformat(),
+        # extremes of the k-point running median (D-021 correction): robust to one noisy record
+        "smoothed": {"rule": f"{SMOOTH_K}-point running median of consecutive records",
+                     "k": sm["k"], "level_max_m": round(sm["max_m"], 4),
+                     "time_of_max": sm["time_of_max"].isoformat(), "level_min_m": round(sm["min_m"], 4),
+                     "time_of_min": sm["time_of_min"].isoformat(), "range_m": round(sm["range_m"], 4)},
         "sigma_median_m": float(d["sigma_m"].median()) if d["sigma_m"].notna().any() else None,
         "sigma_max_m": float(d["sigma_m"].max()) if d["sigma_m"].notna().any() else None,
         "records_per_year": {int(k): int(v) for k, v in d.groupby(d["time"].dt.year).size().items()},

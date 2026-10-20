@@ -3,9 +3,14 @@
 For each DAHITI epoch, Hydroweb is linearly interpolated between its two nearest
 records if both lie within +/-5 days. Differences (DAHITI - Hydroweb) give the
 reference-surface offset, its drift and the robust scatter, overall and by period.
-Also tabulates records per year in each series.
+Also tabulates records per year in each series and the median difference per year.
+Pairing is caspian.levels.pair_series. With a window argument (e.g. 20) the outputs
+carry a _w<N>d suffix; the +/-20-day pair table is the input of the moving-median
+gap-fill offset in a4_scene_levels.py (D-020 correction).
 
-Outputs (committed): results/qc/level_crosscheck.json; outputs/qc/level_crosscheck.{pdf,png}
+Outputs (committed): results/qc/level_crosscheck[_w<N>d].json,
+                     results/qc/level_crosscheck_pairs[_w<N>d].csv,
+                     outputs/qc/level_crosscheck[_w<N>d].{pdf,png}
 """
 
 from __future__ import annotations
@@ -18,7 +23,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from caspian import plotting
+from caspian import levels, plotting
 from caspian.config import OUTPUTS, RAW, RESULTS
 from caspian.io import read_dahiti, read_hydroweb
 
@@ -31,22 +36,10 @@ def nmad(x):
     return float(1.4826 * np.median(np.abs(x - np.median(x))))
 
 
-def pair(d: pd.DataFrame, h: pd.DataFrame) -> pd.DataFrame:
-    th = h["time"].to_numpy()
-    out = []
-    for t, lev in zip(d["time"].to_numpy(), d["level_m"].to_numpy()):
-        j = np.searchsorted(th, t)
-        if j == 0 or j >= len(th):
-            continue
-        t0, t1 = th[j - 1], th[j]
-        if (t - t0) > np.timedelta64(int(MAX_HALF_GAP_DAYS * 86400), "s") or \
-           (t1 - t) > np.timedelta64(int(MAX_HALF_GAP_DAYS * 86400), "s"):
-            continue
-        u = (t - t0) / (t1 - t0) if t1 > t0 else 0.0
-        hv = (1 - u) * h["level_m"].iloc[j - 1] + u * h["level_m"].iloc[j]
-        out.append((t, lev, hv))
-    return pd.DataFrame(out, columns=["time", "dahiti", "hydroweb"]).assign(
-        diff=lambda x: x["dahiti"] - x["hydroweb"])
+def pair(d: pd.DataFrame, h: pd.DataFrame, max_half_gap_days: float | None = None) -> pd.DataFrame:
+    w = MAX_HALF_GAP_DAYS if max_half_gap_days is None else max_half_gap_days
+    p = levels.pair_series(d["time"], d["level_m"], h["time"], h["level_m"], w)
+    return p.rename(columns={"ref": "dahiti", "other": "hydroweb"})
 
 
 def main() -> int:
@@ -54,13 +47,15 @@ def main() -> int:
     hs = read_hydroweb(RAW / "hydroweb" / "extracted" / "HYDROWEB_LAKES_OPE" / "hydroprd_L_caspian.txt")
     h = hs.data
     p = pair(d, h)
-    years = (p["time"] - pd.Timestamp("1992-01-01")).dt.days / 365.25
+    years = (p["time"] - pd.Timestamp("1992-01-01")) / pd.Timedelta(days=1) / 365.25  # fractional days
     slope, intercept = np.polyfit(years, p["diff"], 1)
     by_period = {}
     for a, b in PERIODS:
         q = p[(p["time"].dt.year >= a) & (p["time"].dt.year < b)]
         by_period[f"{a}-{b - 1}"] = {"n": int(len(q)), "median_diff_m": float(q["diff"].median()),
                                      "nmad_m": nmad(q["diff"])} if len(q) else {"n": 0}
+    by_year = {int(y): {"n": int(len(g)), "median_diff_m": float(g["diff"].median())}
+               for y, g in p.groupby(p["time"].dt.year)}
     per_year = pd.DataFrame({"dahiti": d.groupby(d["time"].dt.year).size(),
                              "hydroweb": h.groupby(h["time"].dt.year).size()}).fillna(0).astype(int)
     res = {
@@ -71,11 +66,14 @@ def main() -> int:
         "offset_median_m": float(p["diff"].median()), "offset_mean_m": float(p["diff"].mean()),
         "diff_nmad_m": nmad(p["diff"]), "diff_p05_m": float(p["diff"].quantile(0.05)),
         "diff_p95_m": float(p["diff"].quantile(0.95)),
-        "drift_m_per_decade": float(slope * 10), "by_period": by_period,
+        "drift_m_per_decade": float(slope * 10), "by_period": by_period, "by_year": by_year,
         "records_per_year": {int(k): v for k, v in per_year.to_dict(orient="index").items()},
     }
+    sfx = "" if MAX_HALF_GAP_DAYS == 5.0 else f"_w{int(MAX_HALF_GAP_DAYS)}d"
     (RESULTS / "qc").mkdir(parents=True, exist_ok=True)
-    (RESULTS / "qc" / ("level_crosscheck.json" if MAX_HALF_GAP_DAYS == 5.0 else f"level_crosscheck_w{int(MAX_HALF_GAP_DAYS)}d.json")).write_text(json.dumps(res, indent=1), encoding="utf-8")
+    (RESULTS / "qc" / f"level_crosscheck{sfx}.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
+    p[["time", "dahiti", "hydroweb", "diff"]].to_csv(RESULTS / "qc" / f"level_crosscheck_pairs{sfx}.csv",
+                                                      index=False, float_format="%.6f")
 
     plotting.use_style()
     fig, axs = plt.subplots(2, 1, figsize=(plotting.WIDTH_DOUBLE_MM * plotting.MM, 95 * plotting.MM),
@@ -92,9 +90,10 @@ def main() -> int:
     axs[1].grid(axis="y")
     plotting.panel_label(axs[0], "a")
     plotting.panel_label(axs[1], "b")
-    plotting.save(fig, OUTPUTS / "qc" / ("level_crosscheck" if MAX_HALF_GAP_DAYS == 5.0 else f"level_crosscheck_w{int(MAX_HALF_GAP_DAYS)}d"), tiff=False)
-    print(json.dumps({k: v for k, v in res.items() if k != "records_per_year"}, indent=1))
-    print("records per year 2018-2026:", {y: res["records_per_year"].get(y) for y in range(2018, 2027)})
+    plotting.save(fig, OUTPUTS / "qc" / f"level_crosscheck{sfx}", tiff=False)
+    print(json.dumps({k: v for k, v in res.items() if k not in ("records_per_year", "by_year")}, indent=1))
+    print("records per year (dahiti, hydroweb), all years:",
+          {y: (v["dahiti"], v["hydroweb"]) for y, v in res["records_per_year"].items()})
     return 0
 
 

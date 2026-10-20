@@ -1,0 +1,10 @@
+{
+ "file": "data/interim/inventory/scenes.csv",
+ "bytes": 8792760,
+ "sha256": "3303e3630f074f7ba90b330d70890768322cc0c116260dd042f421a89f6d3ae6",
+ "n_rows": 75603,
+ "inventory_meta_generated": "2026-10-20T09:38:29.198443+00:00",
+ "recorded_utc": "2026-10-20T13:33:54+00:00",
+ "written_by": "tools/check_inputs.py --record-scenes",
+ "basis": "the summary recomputed from this file equals results/inventory/inventory_meta.json, summary_sensor_year.csv and summary_sensor_month.csv"
+}

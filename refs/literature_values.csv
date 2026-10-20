@@ -1,18 +1,36 @@
 key,value,unit,cite_key,doi,location,verbatim_quote
 lit.ginzburg2025.level_end2024_bhs_m,-29.34,m BHS,ginzburg2025,10.21046/2070-7401-2025-22-6-312-325,English abstract p. 12,"By the end of 2024, the levels of the Caspian Sea and the KBG decreased to marks of –29.34 and –31.1 m in the Baltic Height System (BS), respectively"
 lit.ginzburg2025.min1977_bhs_m,-29.0,m BHS,ginzburg2025,10.21046/2070-7401-2025-22-6-312-325,English abstract p. 12,"Meanwhile, the Caspian Sea level exceeded the 1977 minimum (–29.0 m BS)."
-lit.ginzburg2025.rate_2020_2024_cm_per_yr,-22.7,cm per year,ginzburg2025,10.21046/2070-7401-2025-22-6-312-325,English abstract p. 12,"–8.90 cm/year in 1995–2024, –8.16 cm/year in 2005–2019 and –22.7 cm/year in 2020–2024"
+lit.ginzburg2025.fall_rate_2020_2024_cm_per_yr,22.7,cm per year (rate of fall),ginzburg2025,10.21046/2070-7401-2025-22-6-312-325,PDF p. 7 (Russian text; English abstract p. 12 gives the trend as –22.7 cm/year),"При этом в периоды 2005–2019 и 2020–2024 гг. уровень снижался со средней скоростью 8,16 и 22,7 см/год соответственно."
+lit.ginzburg2025.altimetry_offset_m,0.5,m (altimetry above instrumental levels),ginzburg2025,10.21046/2070-7401-2025-22-6-312-325,English abstract p. 12,both values are given taking into account an overestimation of altimeter data relative to instrumental measurements by approximately 0.5 m
 lit.samant2023.ssp245_m,8,m,samant2023,10.1038/s43247-023-01017-8,Abstract,"climate-driven sea level reductions of about 8 (inter-model range from 2 to 15) m and 14 (inter-model range from 11 to 21) m by the end of this century for the SSP245 and SSP585 scenarios, respectively"
 lit.samant2023.ssp245_lo_m,2,m,samant2023,10.1038/s43247-023-01017-8,Abstract,(same quote)
 lit.samant2023.ssp245_hi_m,15,m,samant2023,10.1038/s43247-023-01017-8,Abstract,(same quote)
 lit.samant2023.ssp585_m,14,m,samant2023,10.1038/s43247-023-01017-8,Abstract,(same quote)
 lit.samant2023.ssp585_lo_m,11,m,samant2023,10.1038/s43247-023-01017-8,Abstract,(same quote)
 lit.samant2023.ssp585_hi_m,21,m,samant2023,10.1038/s43247-023-01017-8,Abstract,(same quote)
-lit.akbari2020.nc_area_per_m_km2,7103,km2 per m,akbari2020,10.1088/1748-9326/abaad8,Table 1 p. 10,"Northern Caspian CVA = 7103 × SWL + 208261 0.90"
-lit.akbari2020.nc_volume_share_pct,1,% of sea volume (upper bound),akbari2020,10.1088/1748-9326/abaad8,§2.1 p. 4,"The Northern region has mean depth around 5–6 m and represents less than 1% of the sea’s volume."
+lit.samant2023.trend_2100_m,4.6,m (observed 1996-2021 trend carried to 2100),samant2023,10.1038/s43247-023-01017-8,"Discussion, para. 1","The more robust long-term trend over 26 years however still suggests a ~4.6 m drop by the year 2100, if the current water budget remains constant."
+lit.samant2023.pe_ssp245_m,3.79,"m (additional decline, best-fit P-E trend)",samant2023,10.1038/s43247-023-01017-8,"Discussion, para. 3","On the basis of the best-fit model ensemble, linear trend analysis of P–E suggests 3.79 ± 3.80 m and 9.55 ± 3.75 m of such additional CSL decline by the year 2100 for the SSP245 and SSP585 scenarios, respectively."
+lit.samant2023.pe_ssp585_m,9.55,"m (additional decline, best-fit P-E trend)",samant2023,10.1038/s43247-023-01017-8,"Discussion, para. 3",(same quote)
+lit.hoseini2025.n_gcms,22,CMIP6 GCMs,hoseini2025,10.1007/s00382-024-07548-w,Abstract,Climate-induced changes in the CSL during the 21st century are studied by projecting the CS water budget components using 22 Global Climate Models (GCMs) from the Coupled Model Intercomparison Project Phase 6 (CMIP6).
+lit.hoseini2025.medium_median_m,-1.8,"m (change 2021-2100, median)",hoseini2025,10.1007/s00382-024-07548-w,Abstract,"This study provides the following median estimates (25th to 75th percentile) of CSL changes in 2100 relative to 2021: 0.3 m (-12.2 to 10.2) for the low emission scenario, -1.8 m (-6.7 to 3.1) for the medium emission scenario, -3.3 m (-9.3 to 2) for the medium-to-high emission scenario, and − 4.4 m (-11 to 1.6) for the high emission scenario."
+lit.hoseini2025.medium_q25_m,-6.7,m (25th percentile),hoseini2025,10.1007/s00382-024-07548-w,Abstract,(same quote)
+lit.hoseini2025.medium_q75_m,3.1,m (75th percentile),hoseini2025,10.1007/s00382-024-07548-w,Abstract,(same quote)
+lit.hoseini2025.high_median_m,-4.4,"m (change 2021-2100, median)",hoseini2025,10.1007/s00382-024-07548-w,Abstract,(same quote)
+lit.hoseini2025.high_q25_m,-11,m (25th percentile),hoseini2025,10.1007/s00382-024-07548-w,Abstract,(same quote)
+lit.hoseini2025.high_q75_m,1.6,m (75th percentile),hoseini2025,10.1007/s00382-024-07548-w,Abstract,(same quote)
+lit.akbari2020.nc_area_per_m_km2,7103,km2 per m,akbari2020,10.1088/1748-9326/abaad8,Table 1 p. 10,Northern Caspian CVA = 7103 × SWL + 208261 0.90
+lit.akbari2020.fit_swl_lo_m,-29,m (SWL),akbari2020,10.1088/1748-9326/abaad8,§3.2 p. 10,"Linear approximations in table 1 are restricted to a period from 1977 to 2018 ( −29 < SWL < −26) so, based on assumptions in regression models, any extrapolation of a fitted regression equation beyond the range of SWL can lead to biased estimates."
+lit.akbari2020.fit_swl_hi_m,-26,m (SWL),akbari2020,10.1088/1748-9326/abaad8,§3.2 p. 10,(same quote)
+lit.akbari2020.rise_1977_1995_m,3,m,akbari2020,10.1088/1748-9326/abaad8,§3.1 p. 7,"In 1977–1995, SWL has increased about 3 m and determined potential vulnerable area is consistent with depth less than 3 m (figures 4(a) and (b))"
+lit.akbari2020.vulnerable_depth_m,3,m,akbari2020,10.1088/1748-9326/abaad8,§3.1 p. 7,(same quote)
+lit.akbari2020.nc_volume_share_pct,1,% of sea volume (upper bound),akbari2020,10.1088/1748-9326/abaad8,§2.1 p. 4,The Northern region has mean depth around 5–6 m and represents less than 1% of the sea’s volume.
 lit.akbari2020.nc_depth_lo_m,5,m,akbari2020,10.1088/1748-9326/abaad8,§2.1 p. 4,(same quote)
 lit.akbari2020.nc_depth_hi_m,6,m,akbari2020,10.1088/1748-9326/abaad8,§2.1 p. 4,(same quote)
-lit.court2025.max_decline_2100_m,21,m,court2025,10.1038/s43247-025-02212-5,Abstract,"Global warming is projected to drive declines in water levels of up to 21 m by 2100."
-lit.court2025.mpa_loss_max_pct,94,%,court2025,10.1038/s43247-025-02212-5,Abstract,"reduce existing marine protected area coverage by up to 94%"
-lit.weatherall2015.control_share_pct,18,% of non-land cells,weatherall2015,10.1002/2015ea000107,Abstract,"Of all nonland grid cells in GEBCO_2014, approximately 18% are based on bathymetric control data"
+lit.court2025.max_decline_2100_m,21,m,court2025,10.1038/s43247-025-02212-5,Abstract,Global warming is projected to drive declines in water levels of up to 21 m by 2100.
+lit.court2025.decline_lo_m,5,m,court2025,10.1038/s43247-025-02212-5,Abstract,"We show that a water level decline of just 5–10 m will critically disrupt key ecosystems (including habitats for endemic Caspian seals and sturgeon), reduce existing marine protected area coverage by up to 94%"
+lit.court2025.decline_hi_m,10,m,court2025,10.1038/s43247-025-02212-5,Abstract,(same quote)
+lit.court2025.mpa_loss_max_pct,94,%,court2025,10.1038/s43247-025-02212-5,Abstract,"We show that a water level decline of just 5–10 m will critically disrupt key ecosystems (including habitats for endemic Caspian seals and sturgeon), reduce existing marine protected area coverage by up to 94%"
+lit.duan2025.level_2100_m,-33,m,duan2025,10.1371/journal.pone.0325546,PDF p. 14 (Discussion),"Based on the observed rate of decline in water level from 1995 to 2023, the water level is projected to reach −33 m by the year 2100. If the water level drops to −33 m, then the water surface area would decrease by 0.9 × 10⁵ km2 compared to that observed in 2023. As a result, the northern CS would disappear"
+lit.weatherall2015.control_share_pct,18,% of non-land cells,weatherall2015,10.1002/2015ea000107,Abstract,"Of all nonland grid cells in GEBCO_2014, approximately 18% are based on bathymetric control data, i.e., primarily multibeam and single‐beam soundings or preprepared grids which may contain some interpolated values."
 lit.bocharov2026.max_area_diff_pct,5.75,%,bocharov2026,10.21046/2070-7401-2026-23-3-291-303,Results p. 9 (Russian; translated),"при этом максимальная разница с другими источниками не превышает 5,75 %"

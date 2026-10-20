@@ -1,0 +1,447 @@
+{
+ "definition": "(all fixed here, before any hindcast metric is computed):\n  * levels are read from the SMOOTH_K-point running median of the DAHITI series\n    (caspian.levels.running_median; the D-021 correction, so that one noisy record\n    cannot set a level). No datum offset is applied: the product-to-DAHITI offset is\n    unknown and is what PREREG section 5 estimates.\n  * present level  L_now: the running median at the most recent DAHITI record.\n  * record maximum L_max: the maximum of the running median (mid-July 1995).\n  * sea at level L: grid cells with elevation < L that are 4-connected to the deepest\n    cell of the grid (the Middle Caspian at the southern edge). Cells below L that are\n    not connected (closed depressions such as sub-sea-level salt flats) count as land.\n  * present coast: land cells with a 4-neighbour in the sea at L_now.\n  * offshore edge of a coastal sector: the part of its boundary shared with the open\n    shelf, sampled every EDGE_STEP_KM in the equal-area projection. Each sample gets a\n    signed distance to the present coast: positive in the sea, negative on land.\n  * emerged band of a grid: cells that are sea at L_max but not at L_now.\n  * two readings of the polygon edges: straight in lon/lat (our code and every area in\n    the paper) and geodesic (Earth Engine's default for lon/lat GeoJSON; see\n    scripts/a0_study_area.py). Per grid, the band cells whose domain or sector\n    membership differs between the readings, and the cells that are sea at L_max\n    between the two readings of the domain's northern edge.",
+ "present_level_m": -28.605,
+ "present_level_time": "2026-09-14 19:19:26",
+ "record_max_level_m": -25.816,
+ "record_max_time": "1995-07-16 15:29:42",
+ "level_reference": "DAHITI (normal heights), 3-point running median; no offset applied to the grids",
+ "edge_step_km": 1.0,
+ "grids": {
+  "gebco_2022": {
+   "present_coast_cells": 5358,
+   "band_km2_total": 52573.0,
+   "sectors": {
+    "west": {
+     "band_km2": 6315.0,
+     "band_share": 0.12,
+     "offshore_edge": {
+      "n": 150,
+      "min_km": -3.1,
+      "p05_km": 0.1,
+      "p50_km": 15.4,
+      "p95_km": 22.7,
+      "max_km": 24.3,
+      "share_on_land": 0.053
+     },
+     "max_offshore_km": 24.9
+    },
+    "volga": {
+     "band_km2": 17201.0,
+     "band_share": 0.327,
+     "offshore_edge": {
+      "n": 206,
+      "min_km": -0.5,
+      "p05_km": 0.9,
+      "p50_km": 9.3,
+      "p95_km": 16.3,
+      "max_km": 18.6,
+      "share_on_land": 0.029
+     },
+     "max_offshore_km": 18.7
+    },
+    "interfluve": {
+     "band_km2": 3577.0,
+     "band_share": 0.068,
+     "offshore_edge": {
+      "n": 104,
+      "min_km": 12.3,
+      "p05_km": 16.5,
+      "p50_km": 42.6,
+      "p95_km": 50.4,
+      "max_km": 51.2,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 51.1
+    },
+    "ural": {
+     "band_km2": 2850.0,
+     "band_share": 0.054,
+     "offshore_edge": {
+      "n": 66,
+      "min_km": 29.1,
+      "p05_km": 29.6,
+      "p50_km": 32.8,
+      "p95_km": 37.3,
+      "max_km": 38.1,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 41.4
+    },
+    "northeast": {
+     "band_km2": 8837.0,
+     "band_share": 0.168,
+     "offshore_edge": {
+      "n": 93,
+      "min_km": 15.9,
+      "p05_km": 20.5,
+      "p50_km": 26.9,
+      "p95_km": 39.5,
+      "max_km": 41.5,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 41.6
+    },
+    "komsomolets": {
+     "band_km2": 10413.0,
+     "band_share": 0.198,
+     "offshore_edge": {
+      "n": 167,
+      "min_km": -101.9,
+      "p05_km": -98.1,
+      "p50_km": -57.8,
+      "p95_km": 8.8,
+      "max_km": 15.9,
+      "share_on_land": 0.886
+     },
+     "max_offshore_km": 15.7
+    },
+    "open_shelf": {
+     "band_km2": 3380.0,
+     "band_share": 0.064
+    }
+   },
+   "band_share_coastal_sectors": 0.936,
+   "edge_readings": {
+    "band_changed_km2": 385.8,
+    "band_changed_domain_km2": 329.1,
+    "band_changed_sector_km2": 381.3,
+    "sea_at_max_between_readings_km2": 481.3,
+    "north_edge_between_km2": 3371.1,
+    "north_edge_sea_at_max_km2": 321.5
+   }
+  },
+  "gebco_2026": {
+   "present_coast_cells": 5444,
+   "band_km2_total": 55076.0,
+   "sectors": {
+    "west": {
+     "band_km2": 6321.0,
+     "band_share": 0.115,
+     "offshore_edge": {
+      "n": 150,
+      "min_km": -2.7,
+      "p05_km": 0.1,
+      "p50_km": 15.4,
+      "p95_km": 22.7,
+      "max_km": 24.3,
+      "share_on_land": 0.053
+     },
+     "max_offshore_km": 24.9
+    },
+    "volga": {
+     "band_km2": 17979.0,
+     "band_share": 0.326,
+     "offshore_edge": {
+      "n": 206,
+      "min_km": -0.5,
+      "p05_km": 0.8,
+      "p50_km": 9.4,
+      "p95_km": 16.4,
+      "max_km": 18.6,
+      "share_on_land": 0.029
+     },
+     "max_offshore_km": 18.7
+    },
+    "interfluve": {
+     "band_km2": 3573.0,
+     "band_share": 0.065,
+     "offshore_edge": {
+      "n": 104,
+      "min_km": 12.4,
+      "p05_km": 16.7,
+      "p50_km": 42.6,
+      "p95_km": 50.4,
+      "max_km": 51.2,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 51.1
+    },
+    "ural": {
+     "band_km2": 2859.0,
+     "band_share": 0.052,
+     "offshore_edge": {
+      "n": 66,
+      "min_km": 29.1,
+      "p05_km": 29.5,
+      "p50_km": 32.8,
+      "p95_km": 37.3,
+      "max_km": 38.1,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 41.3
+    },
+    "northeast": {
+     "band_km2": 9678.0,
+     "band_share": 0.176,
+     "offshore_edge": {
+      "n": 93,
+      "min_km": 15.9,
+      "p05_km": 20.5,
+      "p50_km": 26.8,
+      "p95_km": 39.5,
+      "max_km": 41.5,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 41.6
+    },
+    "komsomolets": {
+     "band_km2": 11223.0,
+     "band_share": 0.204,
+     "offshore_edge": {
+      "n": 167,
+      "min_km": -101.9,
+      "p05_km": -98.1,
+      "p50_km": -57.8,
+      "p95_km": 8.8,
+      "max_km": 15.9,
+      "share_on_land": 0.886
+     },
+     "max_offshore_km": 15.7
+    },
+    "open_shelf": {
+     "band_km2": 3444.0,
+     "band_share": 0.063
+    }
+   },
+   "band_share_coastal_sectors": 0.937,
+   "edge_readings": {
+    "band_changed_km2": 389.7,
+    "band_changed_domain_km2": 329.1,
+    "band_changed_sector_km2": 385.3,
+    "sea_at_max_between_readings_km2": 481.3,
+    "north_edge_between_km2": 3371.1,
+    "north_edge_sea_at_max_km2": 321.5
+   }
+  },
+  "etopo_2022": {
+   "present_coast_cells": 13067,
+   "band_km2_total": 21021.0,
+   "sectors": {
+    "west": {
+     "band_km2": 2486.0,
+     "band_share": 0.118,
+     "offshore_edge": {
+      "n": 150,
+      "min_km": -2.3,
+      "p05_km": 1.3,
+      "p50_km": 16.5,
+      "p95_km": 34.5,
+      "max_km": 36.4,
+      "share_on_land": 0.033
+     },
+     "max_offshore_km": 36.3
+    },
+    "volga": {
+     "band_km2": 4322.0,
+     "band_share": 0.206,
+     "offshore_edge": {
+      "n": 206,
+      "min_km": -0.3,
+      "p05_km": 1.3,
+      "p50_km": 12.5,
+      "p95_km": 18.3,
+      "max_km": 20.6,
+      "share_on_land": 0.015
+     },
+     "max_offshore_km": 20.5
+    },
+    "interfluve": {
+     "band_km2": 629.0,
+     "band_share": 0.03,
+     "offshore_edge": {
+      "n": 104,
+      "min_km": 16.2,
+      "p05_km": 20.5,
+      "p50_km": 49.2,
+      "p95_km": 55.7,
+      "max_km": 57.3,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 57.2
+    },
+    "ural": {
+     "band_km2": 1050.0,
+     "band_share": 0.05,
+     "offshore_edge": {
+      "n": 66,
+      "min_km": 32.6,
+      "p05_km": 32.7,
+      "p50_km": 34.5,
+      "p95_km": 42.9,
+      "max_km": 44.5,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 44.2
+    },
+    "northeast": {
+     "band_km2": 3406.0,
+     "band_share": 0.162,
+     "offshore_edge": {
+      "n": 93,
+      "min_km": 16.3,
+      "p05_km": 20.9,
+      "p50_km": 33.2,
+      "p95_km": 46.7,
+      "max_km": 48.5,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 48.6
+    },
+    "komsomolets": {
+     "band_km2": 8225.0,
+     "band_share": 0.391,
+     "offshore_edge": {
+      "n": 167,
+      "min_km": -98.7,
+      "p05_km": -94.9,
+      "p50_km": -42.2,
+      "p95_km": 10.7,
+      "max_km": 16.3,
+      "share_on_land": 0.826
+     },
+     "max_offshore_km": 16.0
+    },
+    "open_shelf": {
+     "band_km2": 904.0,
+     "band_share": 0.043
+    }
+   },
+   "band_share_coastal_sectors": 0.957,
+   "edge_readings": {
+    "band_changed_km2": 53.9,
+    "band_changed_domain_km2": 6.9,
+    "band_changed_sector_km2": 49.5,
+    "sea_at_max_between_readings_km2": 159.3,
+    "north_edge_between_km2": 3371.1,
+    "north_edge_sea_at_max_km2": 0.0
+   }
+  },
+  "srtm15p_v2.7": {
+   "present_coast_cells": 10960,
+   "band_km2_total": 57793.0,
+   "sectors": {
+    "west": {
+     "band_km2": 4905.0,
+     "band_share": 0.085,
+     "offshore_edge": {
+      "n": 150,
+      "min_km": -17.5,
+      "p05_km": -10.5,
+      "p50_km": 10.0,
+      "p95_km": 19.4,
+      "max_km": 21.4,
+      "share_on_land": 0.193
+     },
+     "max_offshore_km": 21.2
+    },
+    "volga": {
+     "band_km2": 19930.0,
+     "band_share": 0.345,
+     "offshore_edge": {
+      "n": 206,
+      "min_km": -17.8,
+      "p05_km": -11.4,
+      "p50_km": 2.7,
+      "p95_km": 11.7,
+      "max_km": 12.8,
+      "share_on_land": 0.286
+     },
+     "max_offshore_km": 12.8
+    },
+    "interfluve": {
+     "band_km2": 3892.0,
+     "band_share": 0.067,
+     "offshore_edge": {
+      "n": 104,
+      "min_km": 12.8,
+      "p05_km": 15.7,
+      "p50_km": 42.1,
+      "p95_km": 49.0,
+      "max_km": 50.0,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 50.1
+    },
+    "ural": {
+     "band_km2": 3383.0,
+     "band_share": 0.059,
+     "offshore_edge": {
+      "n": 66,
+      "min_km": 20.3,
+      "p05_km": 21.0,
+      "p50_km": 29.6,
+      "p95_km": 39.2,
+      "max_km": 40.8,
+      "share_on_land": 0.0
+     },
+     "max_offshore_km": 40.6
+    },
+    "northeast": {
+     "band_km2": 10788.0,
+     "band_share": 0.187,
+     "offshore_edge": {
+      "n": 93,
+      "min_km": -1.9,
+      "p05_km": -0.2,
+      "p50_km": 19.9,
+      "p95_km": 29.3,
+      "max_km": 31.3,
+      "share_on_land": 0.086
+     },
+     "max_offshore_km": 31.3
+    },
+    "komsomolets": {
+     "band_km2": 9847.0,
+     "band_share": 0.17,
+     "offshore_edge": {
+      "n": 167,
+      "min_km": -106.8,
+      "p05_km": -103.1,
+      "p50_km": -42.1,
+      "p95_km": -2.5,
+      "max_km": 0.7,
+      "share_on_land": 0.994
+     },
+     "max_offshore_km": 10.6
+    },
+    "open_shelf": {
+     "band_km2": 5048.0,
+     "band_share": 0.087
+    }
+   },
+   "band_share_coastal_sectors": 0.913,
+   "edge_readings": {
+    "band_changed_km2": 380.9,
+    "band_changed_domain_km2": 329.4,
+    "band_changed_sector_km2": 376.4,
+    "sea_at_max_between_readings_km2": 481.3,
+    "north_edge_between_km2": 3371.1,
+    "north_edge_sea_at_max_km2": 321.5
+   }
+  }
+ },
+ "etopo1_skipped": "local subset has 1-degree pixels (9 x 5); a 1-arc-minute grid is needed",
+ "summary": {
+  "offshore_edge_p50_km_min_over_grids": {
+   "west": 10.0,
+   "volga": 2.7,
+   "interfluve": 42.1,
+   "ural": 29.6,
+   "northeast": 19.9,
+   "komsomolets": -57.8
+  },
+  "offshore_edge_p50_km_max_over_grids": {
+   "west": 16.5,
+   "volga": 12.5,
+   "interfluve": 49.2,
+   "ural": 34.5,
+   "northeast": 33.2,
+   "komsomolets": -42.1
+  },
+  "band_share_coastal_min": 0.913,
+  "band_share_coastal_max": 0.957,
+  "n_grids": 4,
+  "edge_readings_band_changed_km2_max": 389.7,
+  "edge_readings_north_edge_sea_at_max_km2_max": 321.5
+ }
+}

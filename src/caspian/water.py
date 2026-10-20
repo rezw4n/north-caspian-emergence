@@ -127,6 +127,27 @@ def ee_otsu(histogram):
     return ee.Number(means.get([j])).add(ee.Number(means.get([j.add(1)]))).divide(2)
 
 
+def ee_histogram_reducer():
+    """Fixed-bin MNDWI histogram with exactly the binning of otsu_threshold():
+    OTSU_BINS equal buckets over MNDWI_RANGE."""
+    import ee
+
+    return ee.Reducer.fixedHistogram(MNDWI_RANGE[0], MNDWI_RANGE[1], OTSU_BINS)
+
+
+def ee_otsu_fixed(hist_array):
+    """Otsu threshold from an ee_histogram_reducer() output, an N x 2 array of
+    [bucket lower edge, count] (server side). Matches otsu_threshold() on the same
+    sample, because the buckets are the same."""
+    import ee
+
+    a = ee.Array(hist_array)
+    width = (MNDWI_RANGE[1] - MNDWI_RANGE[0]) / OTSU_BINS
+    centers = a.slice(1, 0, 1).project([0]).add(width / 2)
+    counts = a.slice(1, 1, 2).project([0])
+    return ee_otsu(ee.Dictionary({"histogram": counts, "bucketMeans": centers}))
+
+
 def ee_edge_zone(mndwi, gsw_zone, canny_threshold: float = 0.5, sigma: float = 1.0,
                  dilate_m: float = 90):
     """Pixels near MNDWI edges and inside the GSW transition zone."""
@@ -150,11 +171,11 @@ def ee_classify(img, region, gsw_zone, scale: float = 30, ndvi_veg: float = NDVI
     m = img.select("mndwi")
     zone = ee_edge_zone(m, gsw_zone)
     hist = m.updateMask(zone).reduceRegion(
-        reducer=ee.Reducer.histogram(OTSU_BINS, 0.01).combine(ee.Reducer.count(), "", True),
+        reducer=ee_histogram_reducer().combine(ee.Reducer.count(), "", True),
         geometry=region, scale=scale, maxPixels=1e9, bestEffort=True, tileScale=4)
     n = ee.Number(ee.Algorithms.If(hist.get("mndwi_count"), hist.get("mndwi_count"), 0))
     ok = n.gte(min_samples)
-    thr = ee.Number(ee.Algorithms.If(ok, ee_otsu(hist.get("mndwi_histogram")), fallback_threshold))
+    thr = ee.Number(ee.Algorithms.If(ok, ee_otsu_fixed(hist.get("mndwi_histogram")), fallback_threshold))
     water = m.gt(thr)
     veg = water.Not().And(img.select("ndvi").gt(ndvi_veg))
     cls = ee.Image(DRY).where(veg, VEG).where(water, WATER).updateMask(m.mask()).uint8().rename("class")

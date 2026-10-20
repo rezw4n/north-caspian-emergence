@@ -3,7 +3,10 @@
 In the text, a number is written as \\metric{levels.dahiti.n_records}. An unknown
 key stops LaTeX with an error, so no number can enter the manuscript except
 through metrics.json (CLAUDE.md integrity rule 2). Formatting: integers with thin
-thousands separators; floats to the precision given in FORMATS (default 2 dp).
+thousands separators; floats to the precision given in FORMATS by key, else in
+UNIT_FORMATS by the metric's unit, else 2 dp; separators on every numeric path.
+Negative numbers take \\textminus{} on every path (never an ASCII hyphen), and a
+value that rounds to zero is printed unsigned (no "-0.000").
 """
 
 from __future__ import annotations
@@ -17,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # Decimal places per key pattern (first match wins).
 FORMATS = [
-    (r"_km2$", 0),
+    (r"_km2(\.|$)", 0),  # domain_km2 and sector_km2.<name>
     (r"_days$", 0),
     (r"sigma_formal_max_m$", 3),
     (r"noise_floor_m$|sigma_p\d+_m$|nmad_m$|offset_median_m$", 3),
@@ -26,16 +29,31 @@ FORMATS = [
     (r"q_m2_per_day$", "sci"),
 ]
 
+# Decimal places by unit, for keys that match no FORMATS pattern.
+UNIT_FORMATS = {"km2": 0, "days": 0}
+
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
           "October", "November", "December"]
 
 
 def _signed(v, body: str) -> str:
-    return ("\\textminus{}" + body) if v < 0 else body
+    """Prefix a minus sign to the formatted magnitude ``body`` when v < 0, unless the
+    magnitude rounds to zero."""
+    return ("\\textminus{}" + body) if v < 0 and re.search(r"[1-9]", body) else body
 
 
-def fmt(key: str, v, decimals: int | None = None) -> str:
+def _number(v, dp: int) -> str:
+    """|v| to ``dp`` places with thin-space thousands separators, signed. Integers are
+    formatted exactly (never through float, which loses digits above 2**53)."""
+    if isinstance(v, int):
+        body = f"{abs(v):,}" + ("." + "0" * dp if dp > 0 else "")
+    else:
+        body = f"{abs(v):,.{dp}f}"
+    return _signed(v, body.replace(",", "\\,"))
+
+
+def fmt(key: str, v, decimals: int | None = None, unit: str | None = None) -> str:
     if isinstance(v, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}", v):
         y, mo, d = (int(x) for x in v.split("-"))
         return f"{d} {MONTHS[mo - 1]} {y}"
@@ -43,22 +61,17 @@ def fmt(key: str, v, decimals: int | None = None) -> str:
         return str(v)
     if decimals is not None and isinstance(v, (int, float)):
         # literature values keep the precision written in the source
-        return _signed(v, f"{abs(v):,.{decimals}f}".replace(",", "\\,"))
+        return _number(v, decimals)
     if isinstance(v, int):
-        return _signed(v, f"{abs(v):,}".replace(",", "\\,"))
+        return _number(v, 0)
     if isinstance(v, float):
-        dp = 2
-        for pat, d in FORMATS:
-            if re.search(pat, key):
-                dp = d
-                break
+        dp = next((d for pat, d in FORMATS if re.search(pat, key)), UNIT_FORMATS.get(unit or "", 2))
         if dp == "sci":
+            if v == 0:
+                return "0"
             mant, exp = f"{v:.2e}".split("e")
             return f"\\ensuremath{{{mant}\\times10^{{{int(exp)}}}}}"
-        if dp == 0:
-            return f"{round(v):,}".replace(",", "\\,")
-        s = f"{v:.{dp}f}"
-        return s.replace("-", "\\textminus{}", 1) if s.startswith("-") else s
+        return _number(v, dp)
     return str(v).replace("_", "\\_")
 
 
@@ -70,7 +83,7 @@ def main() -> int:
              "{\\PackageError{metrics}{Unknown metric #1}{Add it to results/metrics.json}}"
              "{\\csname metric@#1\\endcsname}}"]
     for k, rec in metrics.items():
-        lines.append(f"\\@namedef{{metric@{k}}}{{{fmt(k, rec['value'], rec.get('decimals'))}}}")
+        lines.append(f"\\@namedef{{metric@{k}}}{{{fmt(k, rec['value'], rec.get('decimals'), rec.get('unit'))}}}")
     lines.append("\\makeatother")
     out = ROOT / "manuscript" / "numbers.tex"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
