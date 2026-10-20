@@ -18,5 +18,7 @@
  "stage2_main_": 120000,
  "stage2_sens_": 15000,
  "stage2_testL_": 3000,
- "beyond_high_v1": 3000
+ "beyond_high_v1": 3000,
+ "stage2_mainL_": 80000,
+ "stage2_mainS_": 150000
 }

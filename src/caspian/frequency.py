@@ -39,3 +39,16 @@ def water_frequency(w, v, min_valid: int = design.MIN_VALID_OBS) -> np.ndarray:
     ok = v >= min_valid
     f[ok] = w[ok] / v[ok]
     return f
+
+
+def vegetation_share(o, v, min_valid: int = design.MIN_VALID_OBS) -> np.ndarray:
+    """Emergent-vegetation share (o - v) / o of the classified acquisitions (D-071),
+    where o >= min_valid; NaN elsewhere. ``o`` counts every classified acquisition
+    (water, dry or vegetated), ``v`` the water-or-dry ones."""
+    o, v = np.asarray(o, float), np.asarray(v, float)
+    if np.any(v > o):
+        raise ValueError("valid count exceeds observed count")
+    out = np.full(o.shape, np.nan)
+    ok = o >= min_valid
+    out[ok] = (o[ok] - v[ok]) / o[ok]
+    return out
