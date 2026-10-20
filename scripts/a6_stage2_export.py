@@ -17,6 +17,7 @@ Usage:
   python scripts/a6_stage2_export.py submit <tag> [--tiles i,j,...] [--groups-from <plan.csv>]
   python scripts/a6_stage2_export.py status <tag>
   python scripts/a6_stage2_export.py fetch <tag>
+  python scripts/a6_stage2_export.py interactive <tag> --budget EECU_S [--blocks N] [--tiles=...]
 """
 
 from __future__ import annotations
@@ -138,27 +139,52 @@ def upload(plan_csv: str, tag: str) -> int:
     return 0
 
 
+_PLANS = {}
+
+
+def plan_table(tag: str) -> pd.DataFrame:
+    """The uploaded plan of ``tag`` (the CSV the table assets were made from), cached."""
+    if tag not in _PLANS:
+        st = json.loads((STATE / f"stage2_{tag}.json").read_text(encoding="utf-8"))
+        _PLANS[tag] = pd.read_csv(st["plan"])
+    return _PLANS[tag]
+
+
 def build_image(tag: str, groups, region_ll, sector_code=None, observed: bool = False):
-    st = json.loads((STATE / f"stage2_{tag}.json").read_text(encoding="utf-8"))
-    plan = ee.FeatureCollection([ee.FeatureCollection(c["asset"]) for c in st["chunks"]]).flatten()
+    """Counts of the given groups over ``region_ll``, one collection per group. The
+    scene lists, thresholds and sector masks come from the plan on the client (the CSV
+    behind the uploaded plan tables) as literals, instead of server-side scans of the
+    plan tables (D-074). Routing scenes of one shared collection to groups by a
+    computed property is not used: Earth Engine then evaluates every scene once per
+    group (it exceeded the memory limit in a pilot)."""
+    plan = plan_table(tag)
+    rows = plan[plan["group"].isin(set(groups))]
+    if sector_code is not None:   # D-064: a block lies in one sector; only rows that include it
+        rows = rows[rows["sectors"].fillna("").astype(str).str.contains(str(sector_code), regex=False)]
     sec = sector_image()
     kinds = ("w", "v", "o") if observed else ("w", "v")
+    by_group = dict(tuple(rows.groupby("group")))
     bands = []
     for g in groups:
-        pg = plan.filter(ee.Filter.eq("group", g))
-        if sector_code is not None:   # D-064: a block lies in one sector; only rows that include it
-            pg = pg.filter(ee.Filter.stringContains("sectors", str(sector_code)))
-        thr = ee.Dictionary.fromLists(pg.aggregate_array("scene"), pg.aggregate_array("threshold"))
-        exc = ee.Dictionary.fromLists(pg.aggregate_array("scene"), pg.aggregate_array("sectors"))
-        mode = ee.String(ee.Feature(pg.first()).get("mask_mode"))
+        pg = by_group.get(g)
+        if pg is None or pg.empty:
+            bands.append(ee.Image.constant([0] * len(kinds)).rename([f"{k}_{g}" for k in kinds]).uint16())
+            continue
+        modes = set(pg["mask_mode"])
+        if len(modes) > 1:
+            raise ValueError(f"group {g}: mixed mask modes {modes}")
+        mode = modes.pop()
+        thr = ee.Dictionary(dict(zip(pg["scene"], pg["threshold"].astype(float))))
+        exc = ee.Dictionary(dict(zip(pg["scene"], pg["sectors"].fillna("").astype(str))))
         cols = []
-        for s in SENSORS:
-            ids = pg.filter(ee.Filter.eq("sensor", s)).aggregate_array("scene")
-            if s == "MSI_S2":
-                c = masks.sentinel2(region_ll, "2015-06-01", "2027-01-01", bands=masks.CLASSIFY_BANDS, ids=ids)
+        for s_ in SENSORS:
+            ids = pg.loc[pg["sensor"] == s_, "scene"].tolist()
+            if not ids:
+                continue
+            if s_ == "MSI_S2":
+                cols.append(masks.sentinel2(region_ll, "2015-06-01", "2027-01-01", bands=masks.CLASSIFY_BANDS, ids=ids))
             else:
-                c = masks.landsat(s, region_ll, "1984-01-01", "2027-01-01", bands=masks.CLASSIFY_BANDS, ids=ids)
-            cols.append(c)
+                cols.append(masks.landsat(s_, region_ll, "1984-01-01", "2027-01-01", bands=masks.CLASSIFY_BANDS, ids=ids))
         col = cols[0]
         for c in cols[1:]:
             col = col.merge(c)
@@ -170,12 +196,12 @@ def build_image(tag: str, groups, region_ll, sector_code=None, observed: bool = 
             key = ee.String(ee.Algorithms.If(thr.contains(sid), sid, key))
             e = ee.String(exc.get(key, ""))
             codes = ee.List(ee.Algorithms.If(e.length().gt(0), e.split(",").map(lambda x: ee.Number.parse(x)), ee.List([])))
-            # exclude: 0 in the listed sectors; include: 1 only in the listed sectors
-            ok_ex = ee.Image(ee.Algorithms.If(codes.size().gt(0),
-                                              sec.remap(codes, ee.List.repeat(0, codes.size()), 1), ee.Image(1)))
-            ok_in = ee.Image(ee.Algorithms.If(codes.size().gt(0),
-                                              sec.remap(codes, ee.List.repeat(1, codes.size()), 0), ee.Image(0)))
-            ok = ee.Image(ee.Algorithms.If(mode.equals("include"), ok_in, ok_ex))
+            if mode == "include":   # 1 only in the listed sectors
+                ok = ee.Image(ee.Algorithms.If(codes.size().gt(0),
+                                               sec.remap(codes, ee.List.repeat(1, codes.size()), 0), ee.Image(0)))
+            else:                   # exclude: 0 in the listed sectors
+                ok = ee.Image(ee.Algorithms.If(codes.size().gt(0),
+                                               sec.remap(codes, ee.List.repeat(0, codes.size()), 1), ee.Image(1)))
             return (pipeline_ee.water_valid(im.clip(region_ll), thr.get(key), observed=observed).updateMask(ok)
                     .copyProperties(im, ["system:time_start", "acq"]))
 
@@ -186,10 +212,9 @@ def build_image(tag: str, groups, region_ll, sector_code=None, observed: bool = 
     return ee.ImageCollection.fromImages(bands).toBands().rename(names)
 
 
-def submit(tag: str, only=None, blocks: int = 0) -> int:
-    st = json.loads((STATE / f"stage2_{tag}.json").read_text(encoding="utf-8"))
-    ee.Initialize(project=EE_PROJECT)
-    st.setdefault("tiles", {})
+def targets(st: dict, blocks: int = 0, only=None):
+    """Export targets: (key, part, region_ll, transform, dims, groups, sector_code, observed)
+    for the main tiles, or for the D-064 sample of training blocks."""
     plan_df = pd.read_csv(st["plan"]) if blocks else None
     for item in (block_tiles(blocks) if blocks else tiles()):
         i, j, part = item[:3]
@@ -208,6 +233,15 @@ def submit(tag: str, only=None, blocks: int = 0) -> int:
         else:
             groups = st["groups"]
         observed = not blocks    # main export: also the observed count, for the vegetation fraction (D-071)
+        yield key, part, region_ll, tr, dims, groups, code, observed
+
+
+def submit(tag: str, only=None, blocks: int = 0) -> int:
+    st = json.loads((STATE / f"stage2_{tag}.json").read_text(encoding="utf-8"))
+    ee.Initialize(project=EE_PROJECT)
+    st.setdefault("tiles", {})
+    for key, part, region_ll, tr, dims, groups, code, observed in targets(st, blocks, only):
+        i, j = key.split("_")
         img = build_image(tag, groups, region_ll, code, observed)
         name = f"stage2_{tag}_t{i}_{j}".replace("-", "m")
         t = ee.batch.Export.image.toAsset(image=img, description=name, assetId=f"{ROOT}/{name}", region=region_ll,
@@ -218,6 +252,124 @@ def submit(tag: str, only=None, blocks: int = 0) -> int:
                             "kinds": ["w", "v", "o"] if observed else ["w", "v"]}
         print("submitted", name, t.id, st["tiles"][key]["area_km2"], "km2", flush=True)
         (STATE / f"stage2_{tag}.json").write_text(json.dumps(st, indent=1), encoding="utf-8")
+    return 0
+
+
+def _profile_eecu(text: str) -> float:
+    """Total EECU-seconds of an ee.profilePrinting table (first column summed)."""
+    import re
+    tot = 0.0
+    for line in text.splitlines()[1:]:
+        m = re.match(r"\s*([\d.]+)\s", line)
+        if m:
+            tot += float(m.group(1))
+    return tot
+
+
+def interactive(tag: str, budget: float, only=None, blocks: int = 0, workers: int = 8, px: int = 256,
+                groups_per_req: int = 40) -> int:
+    """The same counts as submit + fetch, computed with interactive computePixels
+    requests (one spatial sub-block x one chunk of groups each) in parallel threads,
+    metered by ee.profilePrinting against a hard EECU-s ``budget`` for the invocation
+    (D-074: batch image tasks ran two at a time). A failed request is retried as two
+    half-size group chunks. A target is written only when all its requests succeed,
+    in the format of fetch (tile_<key>.npz)."""
+    import io
+    import threading
+    import time
+    from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
+
+    st = json.loads((STATE / f"stage2_{tag}.json").read_text(encoding="utf-8"))
+    ee.Initialize(project=EE_PROJECT)
+    st.setdefault("tiles", {})
+    out = INTERIM / "stage2" / tag
+    out.mkdir(parents=True, exist_ok=True)
+    log = STATE / f"stage2_{tag}_interactive_log.jsonl"
+    lock = threading.Lock()
+    spent = 0.0
+    tgts, jobs = {}, []
+    for key, part, region_ll, tr, dims, groups, code, observed in targets(st, blocks, only):
+        if (out / f"tile_{key}.npz").exists():
+            continue
+        kinds = ["w", "v", "o"] if observed else ["w", "v"]
+        tgts[key] = {"region": region_ll, "tr": tr, "dims": dims, "groups": groups, "code": code,
+                     "observed": observed, "kinds": kinds, "pending": 0, "failed": False, "eecu": 0.0,
+                     "arr": {}, "area_km2": round(part.area / 1e6, 1)}
+        for c0, r0, w, h in ee_io.tiles(dims, px):
+            for k in range(0, len(groups), groups_per_req):
+                jobs.append((key, c0, r0, w, h, groups[k:k + groups_per_req]))
+                tgts[key]["pending"] += 1
+    print(f"{len(tgts)} targets, {len(jobs)} requests", flush=True)
+
+    def run(job):
+        key, c0, r0, w, h, chunk = job
+        t = tgts[key]
+        a, b_, c, d, e, f = t["tr"]
+        sub = [a, b_, c + a * c0, d, e, f + e * r0]
+        img = build_image(tag, chunk, t["region"], t["code"], t["observed"])
+        buf = io.StringIO()
+        t0 = time.time()
+        with ee.profilePrinting(destination=buf):
+            arr = ee.data.computePixels({"expression": img, "fileFormat": "NUMPY_NDARRAY",
+                                         "grid": ee_io.grid(sub, (w, h), pipeline_ee.LAEA_WKT)})
+        return arr, _profile_eecu(buf.getvalue()), time.time() - t0
+
+    queue = list(jobs)
+    stop = False
+    with ThreadPoolExecutor(workers) as pool:
+        running = {}
+        while queue or running:
+            while queue and len(running) < workers and not stop:
+                job = queue.pop(0)
+                running[pool.submit(run, job)] = job
+            if not running:
+                break
+            done, _ = wait(running, return_when=FIRST_COMPLETED)
+            for fut in done:
+                job = running.pop(fut)
+                key, c0, r0, w, h, chunk = job
+                t = tgts[key]
+                try:
+                    arr, eecu, secs = fut.result()
+                except Exception as ex:
+                    if len(chunk) > 1:   # retry as two half-size chunks
+                        half = len(chunk) // 2
+                        queue[:0] = [(key, c0, r0, w, h, chunk[:half]), (key, c0, r0, w, h, chunk[half:])]
+                        t["pending"] += 1
+                        print("retry split", key, r0, c0, len(chunk), str(ex)[:120], flush=True)
+                    else:
+                        t["failed"] = True
+                        t["pending"] -= 1
+                        print("FAILED", key, r0, c0, chunk[0], str(ex)[:160], flush=True)
+                    continue
+                with lock:
+                    spent += eecu
+                    t["eecu"] += eecu
+                    for g in chunk:
+                        for kind in t["kinds"]:
+                            band = f"{kind}_{g}"
+                            if band not in t["arr"]:
+                                t["arr"][band] = np.zeros((t["dims"][1], t["dims"][0]), np.uint16)
+                            t["arr"][band][r0:r0 + h, c0:c0 + w] = arr[band]
+                    t["pending"] -= 1
+                    with log.open("a", encoding="utf-8") as fh:
+                        fh.write(json.dumps({"key": key, "r0": r0, "c0": c0, "n_groups": len(chunk),
+                                             "eecu_s": round(eecu, 2), "seconds": round(secs, 1),
+                                             "cum_eecu_s": round(spent, 1)}) + "\n")
+                    if t["pending"] == 0 and not t["failed"]:
+                        np.savez_compressed(out / f"tile_{key}.npz", transform=np.array(t["tr"]), **t["arr"])
+                        st["tiles"][key] = {"mode": "interactive", "transform": t["tr"], "dims": t["dims"],
+                                            "area_km2": t["area_km2"], "groups": t["groups"],
+                                            "sector_code": t["code"], "kinds": t["kinds"],
+                                            "eecu_s": round(t["eecu"], 1)}
+                        (STATE / f"stage2_{tag}.json").write_text(json.dumps(st, indent=1), encoding="utf-8")
+                        print(f"wrote {key}: {t['eecu']:.0f} EECU-s | cumulative {spent:.0f}", flush=True)
+                        t["arr"] = {}
+                    if spent >= budget and not stop:
+                        stop = True
+                        queue.clear()
+                        print(f"budget reached: {spent:.0f} EECU-s; finishing running requests", flush=True)
+    print(f"total EECU-s this invocation: {spent:.1f}")
     return 0
 
 
@@ -262,7 +414,16 @@ def main(argv) -> int:
     ap.add_argument("args", nargs="*")
     ap.add_argument("--tiles", default=None)
     ap.add_argument("--blocks", type=int, default=0, help="D-064: sample this many training blocks per sector")
+    ap.add_argument("--budget", type=float, default=0.0, help="interactive: hard EECU-s budget")
+    ap.add_argument("--workers", type=int, default=8)
+    ap.add_argument("--px", type=int, default=256)
+    ap.add_argument("--groups-per-req", type=int, default=40)
     a = ap.parse_args(argv)
+    if a.cmd == "interactive":
+        if a.budget <= 0:
+            raise SystemExit("interactive needs --budget (EECU-s)")
+        return interactive(a.args[0], a.budget, a.tiles.split(",") if a.tiles else None, a.blocks, a.workers,
+                           a.px, a.groups_per_req)
     if a.cmd == "upload":
         ee.Initialize(project=EE_PROJECT)
         return upload(a.args[0], a.args[1])
