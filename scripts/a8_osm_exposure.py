@@ -26,7 +26,7 @@ from caspian.config import RAW, RESULTS
 from caspian.geography import DOMAIN
 
 ENDPOINT = "https://overpass-api.de/api/interpreter"
-UA = {"User-Agent": "caspian-research/0.1 (rezwan.ahmed@du.ac.bd)"}
+UA = {"User-Agent": "caspian-research/0.1 (rezwan490@gmail.com)"}
 W, S, E, N = DOMAIN.bounds
 BBOX = f"{S},{W},{N},{E}"
 LAYERS = {
