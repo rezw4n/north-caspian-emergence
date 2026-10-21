@@ -1,0 +1,91 @@
+{
+ "rule": "Amendment 16 item 9 (descriptive): band = near-maximum and not near-minimum water, per arm, 250 m",
+ "arms": {
+  "north": {
+   "band_cells_250m": 13299,
+   "band_km2": 831.2,
+   "etopo_2022_source_id_shares": {
+    "10": 1.0
+   },
+   "gebco_2026_tid_shares": {
+    "0": 1.0
+   },
+   "srtm15p_v2.7_source_id_shares": {
+    "0": 1.0
+   },
+   "gebco_2026_heights": {
+    "modal_m": 1282.0,
+    "modal_share": 0.5655,
+    "p05_m": 1281.0,
+    "p95_m": 1287.0,
+    "whole_metre_share": 1.0
+   },
+   "gebco_2022_heights": {
+    "modal_m": 1282.0,
+    "modal_share": 0.6451,
+    "p05_m": 1282.0,
+    "p95_m": 1287.0,
+    "whole_metre_share": 1.0
+   },
+   "etopo_2022_heights": {
+    "modal_m": 1276.0,
+    "modal_share": 0.2776,
+    "p05_m": 1276.0,
+    "p95_m": 1283.73,
+    "whole_metre_share": 0.2962
+   },
+   "srtm15p_v2.7_heights": {
+    "modal_m": 1282.0,
+    "modal_share": 0.5917,
+    "p05_m": 1282.0,
+    "p95_m": 1287.0,
+    "whole_metre_share": 0.8967
+   }
+  },
+  "south": {
+   "band_cells_250m": 23857,
+   "band_km2": 1491.1,
+   "etopo_2022_source_id_shares": {
+    "10": 1.0
+   },
+   "gebco_2026_tid_shares": {
+    "0": 1.0
+   },
+   "srtm15p_v2.7_source_id_shares": {
+    "0": 1.0
+   },
+   "gebco_2026_heights": {
+    "modal_m": 1282.0,
+    "modal_share": 0.429,
+    "p05_m": 1281.0,
+    "p95_m": 1293.0,
+    "whole_metre_share": 1.0
+   },
+   "gebco_2022_heights": {
+    "modal_m": 1282.0,
+    "modal_share": 0.5257,
+    "p05_m": 1282.0,
+    "p95_m": 1294.0,
+    "whole_metre_share": 1.0
+   },
+   "etopo_2022_heights": {
+    "modal_m": 1278.0,
+    "modal_share": 0.2823,
+    "p05_m": 1278.0,
+    "p95_m": 1289.48,
+    "whole_metre_share": 0.3194
+   },
+   "srtm15p_v2.7_heights": {
+    "modal_m": 1282.0,
+    "modal_share": 0.4849,
+    "p05_m": 1282.0,
+    "p95_m": 1294.0,
+    "whole_metre_share": 0.9252
+   }
+  }
+ },
+ "etopo_source_names": {
+  "10": "FABDEM (land topography)",
+  "11": "GEBCO Lake Depths"
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "basin": "great_salt_lake",
+ "date": "2026-10-21",
+ "rule": "Amendment 16 item 10: a 0.3 deg pilot first; STOP memo if the projection exceeds the 30 EECU-h cap",
+ "box": [
+  -112.4,
+  40.6,
+  -112.1,
+  40.9
+ ],
+ "stage1_pilot": {
+  "n_scenes": 80,
+  "eecu_s": 109.9,
+  "eecu_s_per_scene": 1.37,
+  "projection_eecu_s": 3981,
+  "actual_full_stage1_eecu_s": 4464.1
+ },
+ "stage2_pilot_1_5km_tiles": {
+  "n_targets": 44,
+  "n_done": 3,
+  "area_done_km2": 17.9,
+  "eecu_s": 6568.3,
+  "eecu_s_per_km2": 366.331,
+  "requests_logged": 41,
+  "eecu_s_logged": 7436.3,
+  "thresholds": "placeholder 0.2 (cost only)",
+  "projection_cover_eecu_h": 911.7
+ },
+ "stage2_pilot_2_512px_block": {
+  "target": "south_02_03",
+  "area_km2": 810.4,
+  "requests_needed": 12,
+  "requests_logged": 6,
+  "eecu_s_logged": 5068.2,
+  "eecu_s_per_request": [
+   107,
+   760,
+   1033,
+   159,
+   911,
+   2098
+  ],
+  "mean_eecu_s_per_request": 844.7,
+  "completed": false,
+  "why_not_completed": "the pilot's own 4,000 EECU-s budget stopped it after 6 of 12 requests; a target is written only when complete, so its counts were lost"
+ },
+ "projection_stage2": {
+  "n_targets": 19,
+  "n_requests": 228,
+  "cover_km2": 8959.6,
+  "per_km2_eecu_h": 31.1,
+  "per_request_eecu_h": 53.5,
+  "zone_only_two_point_model_eecu_h": 23.6,
+  "model": "request cost = 176 + 0.825 x area_km2 EECU-s (16 groups)"
+ },
+ "spent_eecu_s_by_step": {
+  "dep3": 525.4,
+  "extents": 494.2,
+  "scenes": 0.2,
+  "stage1": 4464.1,
+  "stage1_pilot": 109.9,
+  "stage2_pilot": 7436.3,
+  "stage2_pilot_block": 5068.2
+ },
+ "spent_eecu_h": 5.03,
+ "projected_total_eecu_h_gsl": [
+  36.2,
+  58.5
+ ],
+ "cap_eecu_h": 30.0,
+ "decision": "STOP (docs/gates/STOP-2026-10-21-generality.md): the projection exceeds the cap"
+}

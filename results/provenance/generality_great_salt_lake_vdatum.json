@@ -1,0 +1,23 @@
+{
+ "method": "pyproj: EPSG:4326+3855 -> EPSG:4979 (EGM2008 grid); EPSG:7912 -> EPSG:6319 (ITRF2014 to NAD83(2011), epoch 2010.0); EPSG:6319 -> EPSG:6318+5703 (GEOID18)",
+ "steps": [
+  "unavailable until proj_trans is called",
+  "axis order change (2D) + Conversion from ITRF2014 (geog3D) to ITRF2014 (geocentric) + ITRF2014 to NAD83(2011) (1) + Conversion from NAD83(2011) (geocentric) to NAD83(2011) (geog3D) + axis order change (2D)",
+  "unavailable until proj_trans is called"
+ ],
+ "proj_version": "9.7.1",
+ "epoch": 2010.0,
+ "grid_step_deg": 0.05,
+ "file": "vdatum_navd88_minus_egm2008.npz",
+ "sha256": "8629121f4976abaed92becd4aeff1b7d860a2c8b598d954647354f86fddd68a5",
+ "dN_range_m": [
+  0.5638397336006165,
+  0.8783019781112671
+ ],
+ "dN_mean_m": 0.7692294716835022,
+ "itrf_to_nad83_dh_m_range": [
+  0.6550689190719368,
+  0.7176793109811115
+ ],
+ "retrieved_utc": "2026-10-21T03:13:28+00:00"
+}

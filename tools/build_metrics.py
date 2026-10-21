@@ -615,6 +615,61 @@ def display_input_metrics(m: dict) -> None:
             m[k]["decimals"] = 0  # metres on a 60 m grid
 
 
+GENERALITY_BASINS = ("great_salt_lake", "lake_urmia")
+
+
+def generality_metrics(m: dict) -> None:
+    """A9 generality test (brief section 11; PREREG Amendment 16; D-094). From
+    results/generality/<basin>/h1_decision.json when the basin was run (scripts/g1_decide.py),
+    else from its status.json (why it was not run, the pilot cost and the inputs prepared)."""
+    for basin in GENERALITY_BASINS:
+        key = f"generality.{basin}"
+        dec = load(f"generality/{basin}/h1_decision.json")
+        if dec:
+            src = f"results/generality/{basin}/h1_decision.json"
+            v = dec["verdict"]
+            put(m, f"{key}.verdict", v["verdict"], "category", src, "PREREG Amendment 16 item 9; shape variant decides")
+            put(m, f"{key}.n_products_mispredict", v["n_mispredict"], "products", src)
+            put(m, f"{key}.positive_control", v["positive_control"], "category", src)
+            put(m, f"{key}.verdict_total_variant", dec["verdict_total_variant"]["verdict"], "category", src)
+            for prod, vv in dec["products"].items():
+                for var, e in vv.items():
+                    k = f"{key}.{prod}.{var}"
+                    put(m, f"{k}.n_sectors_mispredict", e["n_sectors_mispredict"], "sectors", src)
+                    put(m, f"{k}.n_sectors_evaluable", e["n_sectors_evaluable"], "sectors", src)
+                    for arm, x in e.get("arms", {}).items():
+                        put(m, f"{k}.{arm}.median_displacement_m", x.get("median_displacement_m"), "m", src,
+                            "median over evaluable levels of the per-level median absolute displacement")
+                        put(m, f"{k}.{arm}.median_noise_p95_m", x.get("median_noise_p95_m"), "m", src)
+                        put(m, f"{k}.{arm}.n_evaluable_levels", x.get("n_evaluable"), "levels", src)
+                        put(m, f"{k}.{arm}.n_exceeding_levels", x.get("n_exceeding"), "levels", src)
+            for arm, x in dec.get("arms", {}).items():
+                put(m, f"{key}.{arm}.noise_floor_p95_median_m", x.get("noise_floor_p95_median_m"), "m", src)
+                put(m, f"{key}.{arm}.n_noise_levels", x.get("n_noise_levels"), "levels", src)
+            for arm, x in dec.get("control_arms", {}).items():
+                put(m, f"{key}.control.{arm}.median_displacement_m", x.get("median_displacement_m"), "m", src)
+                put(m, f"{key}.control.{arm}.n_evaluable_levels", x.get("n_evaluable"), "levels", src)
+            continue
+        st = load(f"generality/{basin}/status.json")
+        src = f"results/generality/{basin}/status.json"
+        put(m, f"{key}.verdict", st.get("verdict", "not run: no record"), "category", src,
+            "PREREG Amendment 16 item 9; docs/gates/STOP-2026-10-21-generality.md")
+        put(m, f"{key}.positive_control", st.get("positive_control"), "category", src)
+        for k in ("eecu_h_spent", "eecu_h_cap", "eecu_h_projected_stage2_area_scaled", "eecu_h_projected_stage2_request_scaled",
+                  "eecu_h_projected_total_low", "eecu_h_projected_total_high"):
+            put(m, f"{key}.{k}", st.get(k), "EECU-h", src)
+        put(m, f"{key}.n_scenes", st.get("n_scenes"), "scenes", src)
+        put(m, f"{key}.n_acquisitions", st.get("n_acquisitions"), "acquisitions", src)
+        for arm, x in st.get("arms", {}).items():
+            put(m, f"{key}.{arm}.ngvd29_to_navd88_m", x.get("ngvd29_to_navd88_m"), "m", src, "VERTCON 3.0 at the gauge")
+            if f"{key}.{arm}.ngvd29_to_navd88_m" in m:
+                m[f"{key}.{arm}.ngvd29_to_navd88_m"]["decimals"] = 3
+            put(m, f"{key}.{arm}.e1_end", x.get("e1_end"), "date", src)
+            put(m, f"{key}.{arm}.n_scenes_with_level", x.get("n_scenes_with_level"), "scenes", src)
+            put(m, f"{key}.{arm}.n_groups_planned", x.get("n_groups_planned"), "groups", src)
+            put(m, f"{key}.{arm}.n_bins_planned", x.get("n_bins_planned"), "bins", src)
+
+
 def main() -> int:
     m: dict = {}
     inv = load("inventory/inventory_meta.json")
@@ -842,6 +897,8 @@ def main() -> int:
             m[k]["decimals"] = rec["decimals"]
 
     results_metrics(m)
+
+    generality_metrics(m)
 
     out = RES / "metrics.json"
     out.write_text(json.dumps(dict(sorted(m.items())), indent=1, ensure_ascii=False), encoding="utf-8")

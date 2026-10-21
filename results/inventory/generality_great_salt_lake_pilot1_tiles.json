@@ -1,0 +1,22 @@
+{
+ "box": [
+  -112.4,
+  40.6,
+  -112.1,
+  40.9
+ ],
+ "tag": "pilot",
+ "n_targets": 44,
+ "n_done": 3,
+ "area_km2": 770.5,
+ "area_done_km2": 17.9,
+ "eecu_s": 6568.3,
+ "eecu_s_per_km2": 366.331,
+ "seconds": 202.0,
+ "px": 512,
+ "groups_per_request": 16,
+ "n_groups": {
+  "north": 183,
+  "south": 186
+ }
+}

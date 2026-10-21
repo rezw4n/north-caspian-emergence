@@ -1,0 +1,35 @@
+{
+ "rule": "Amendment 16 items 2 and 5",
+ "arms": {
+  "north": {
+   "e1_end": "1987-03-15",
+   "max_m": 1284.473,
+   "n_scenes_with_level": 2893,
+   "n_scenes": 2952,
+   "level_range_m": [
+    1277.615,
+    1284.49
+   ],
+   "n_by_epoch": {
+    "E3": 1445,
+    "E2": 1378,
+    "E1": 70
+   }
+  },
+  "south": {
+   "e1_end": "1986-06-01",
+   "max_m": 1284.642,
+   "n_scenes_with_level": 2897,
+   "n_scenes": 2952,
+   "level_range_m": [
+    1277.693,
+    1284.642
+   ],
+   "n_by_epoch": {
+    "E3": 1445,
+    "E2": 1399,
+    "E1": 53
+   }
+  }
+ }
+}

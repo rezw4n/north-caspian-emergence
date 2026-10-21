@@ -1,0 +1,16 @@
+{
+ "source": "OpenStreetMap via Overpass API (data (c) OpenStreetMap contributors, ODbL 1.0)",
+ "endpoint": "https://overpass-api.de/api/interpreter",
+ "query": "[out:json][timeout:180];\n(way[\"railway\"=\"rail\"][\"name\"=\"UP Lakeside Subdivision\"](40.56,-113.17,41.8,-111.82);\n way[\"highway\"][\"name\"=\"West Davis County Causeway\"](40.56,-113.17,41.8,-111.82);\n way[\"landuse\"=\"salt_pond\"](40.56,-113.17,41.8,-111.82);\n relation[\"landuse\"=\"salt_pond\"](40.56,-113.17,41.8,-111.82);\n);\nout geom;",
+ "retrieved_utc": "2026-10-21T03:11:45+00:00",
+ "file": "osm_gsl.json",
+ "bytes": 276493,
+ "sha256": "ae3f0f8d2be89f3c26ddc4bc7bfe7ccc38f5b4f285c1863f1adc52f6c54713d3",
+ "osm_base": "2026-10-21T03:10:36Z",
+ "elements": {
+  "UP Lakeside Subdivision": 46,
+  "West Davis County Causeway": 8,
+  "way:salt_pond": 156,
+  "relation:salt_pond": 1
+ }
+}
