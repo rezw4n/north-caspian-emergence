@@ -1,0 +1,112 @@
+% Draft tables (main text or Methods per the journal's limits; venue decided at G3).
+% Every number is a \metric{...} macro from results/metrics.json (manuscript/numbers.tex).
+% Identifiers (product versions, release numbers, DOIs) are not results and are typed;
+% each DOI is copied from refs/verification.csv, and only references already verified
+% there are cited. Rows without a verified reference say so and are listed for the PI.
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{\textbf{Data sources.} Products, the version used, their role, their vertical reference as documented (docs/DATUMS.md), and the reference cited. ``Not yet verified'': no reference for the dataset has passed the citation audit (refs/verification.csv) yet; these are listed for the PI and are not cited.}
+\label{tab:data}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{2.3cm}p{2.4cm}p{2.6cm}p{2.9cm}p{4.6cm}}
+\hline
+Dataset & Version or product & Use & Vertical reference & Reference (DOI) \\
+\hline
+Landsat 4--5 TM & Collection 2 Level-2 surface reflectance & Water frequencies and waterlines & -- & \citet{usgs_l45tm_c2l2}; \url{10.5066/P9IAXOVV} \\
+Landsat 7 ETM+ & Collection 2 Level-2 & As above & -- & \citet{usgs_l7etm_c2l2}; \url{10.5066/P9C7I13B} \\
+Landsat 8--9 OLI/TIRS & Collection 2 Level-2 & As above & -- & \citet{usgs_l89oli_c2l2}; \url{10.5066/P9OGBGM6} \\
+Sentinel-2 MSI & L2A, harmonized, with Cloud Score+ & Stage 1 only (thresholds, snow and ice diagnostics) & -- & Cloud Score+: \citet{pasquarella2023}; \url{10.1109/cvprw59228.2023.00206}. Sentinel-2 product: not yet verified \\
+JRC Global Surface Water & Occurrence & Active zone & -- & \citet{pekel2016}; \url{10.1038/nature20584} \\
+DAHITI, Caspian Sea (target 39) & Water level from altimetry & Basin level; working datum & Normal heights, EIGEN-6C4 quasi-geoid & \citet{schwatke2015}; \url{10.5194/hess-19-4345-2015} \\
+Hydroweb, L\_caspian & Operational lake water level & Gap filling and cross-check & Geoid GGM02C & \citet{hydrowebwl}; \url{10.24400/329360/HYDROWEB_WATER_LEVEL}; \citet{cretaux2011}; \url{10.1016/j.asr.2011.01.004} \\
+ERA5 & Hourly single levels (10~m wind, pressure) & Wind-setup model & -- & \citet{hersbach2020}; \url{10.1002/qj.3803} \\
+SWOT & L2 HR Raster, 250~m & Setup-model calibration & Geoid-relative; model not yet read & Not yet verified \\
+ICESat-2 ATL06 and ATL08 & Release 007 & Independent heights (H2) & WGS84 ellipsoid (ITRF2020); converted with EIGEN-6C4 & Not yet verified \\
+EIGEN-6C4 and EGM2008 grids & ICGEM, tide-free; NGA & Datum chain & -- & Not yet verified \\
+GEBCO\_2026 Grid & 15 arc-second & Audited product & Mean sea level as stated; unresolved in the Caspian & \citet{gebco2026}; \url{10.5285/4f68d5c7-45eb-f999-e063-7086abc036fa} \\
+GEBCO\_2022 Grid & 15 arc-second & Audited product & As GEBCO\_2026 & \citet{gebco2022}; \url{10.5285/e0f0bb80-ab44-2739-e053-6c86abc0289c} \\
+ETOPO 2022 & 15 arc-second & Audited product & EGM2008 (file attributes) & \citet{etopo2022}; \url{10.25921/fd45-gt74}; \citet{macferrin2025}; \url{10.5194/essd-17-1835-2025} \\
+SRTM15+ & V2.7 & Audited product & Not stated by the distribution & \citet{tozer2019}; \url{10.1029/2019ea000658} \\
+ETOPO1 & 1 arc-minute & Audited product & Not recorded & \citet{amante2009}; \url{10.7289/V5C8276M} \\
+OpenStreetMap & Overpass extract (ODbL 1.0) & Fig.~1; exposure (H3) & -- & Not yet verified (licence attribution) \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{\textbf{Accuracy and coverage on held-out ICESat-2 test blocks (H2).} H2 population: emerged seabed with an E3 emergent-vegetation share below \metric{params.veg_cell_share}. Errors are model minus ICESat-2 (m); products in the matched variant (product plus its training-block offset). \textbf{a}, Primary analysis, \metric{h2.block_size_km}~km blocks. $\Delta$, DEM minus product, with the paired test-block bootstrap \metric{params.ci_pct}\% interval (\metric{params.bootstrap_n} resamples); a negative value favours the DEM. Decision (matched variant, both sources): \metric{h2.decision.matched}. \textbf{b}, Empirical coverage of the \metric{params.conformal_level} conformal intervals, with the test-block bootstrap \metric{params.ci_pct}\% interval; Ural has no test block. \textbf{c}, Block-size sensitivity: NMAD and RMSE (m) and overall coverage at \metric{params.block_size_sens_lo_km}, \metric{params.block_size_km} and \metric{h2.block_size_km}~km blocks (sensitivities reported, not used to change the primary verdict).}
+\label{tab:h2}
+\begin{tabular}{lrrrll}
+\hline
+\multicolumn{6}{l}{\textbf{a} \quad Primary analysis} \\
+Model & Bias & NMAD & RMSE & $\Delta$NMAD [95\% interval] & $\Delta$RMSE [95\% interval] \\
+\hline
+\multicolumn{6}{l}{ATL06: $n = \metric{h2.atl06.n_test_points}$ points in \metric{h2.atl06.n_test_blocks} test blocks} \\
+Waterline DEM & \metric{h2.atl06.dem.bias_m} & \metric{h2.atl06.dem.nmad_m} & \metric{h2.atl06.dem.rmse_m} & -- & -- \\
+GEBCO\_2026 & \metric{h2.atl06.gebco2026.bias_m} & \metric{h2.atl06.gebco2026.nmad_m} & \metric{h2.atl06.gebco2026.rmse_m} & \metric{h2.atl06.diff.nmad.gebco2026_m} [\metric{h2.atl06.diff.nmad.gebco2026_ci_low_m}, \metric{h2.atl06.diff.nmad.gebco2026_ci_high_m}] & \metric{h2.atl06.diff.rmse.gebco2026_m} [\metric{h2.atl06.diff.rmse.gebco2026_ci_low_m}, \metric{h2.atl06.diff.rmse.gebco2026_ci_high_m}] \\
+GEBCO\_2022 & \metric{h2.atl06.gebco2022.bias_m} & \metric{h2.atl06.gebco2022.nmad_m} & \metric{h2.atl06.gebco2022.rmse_m} & \metric{h2.atl06.diff.nmad.gebco2022_m} [\metric{h2.atl06.diff.nmad.gebco2022_ci_low_m}, \metric{h2.atl06.diff.nmad.gebco2022_ci_high_m}] & \metric{h2.atl06.diff.rmse.gebco2022_m} [\metric{h2.atl06.diff.rmse.gebco2022_ci_low_m}, \metric{h2.atl06.diff.rmse.gebco2022_ci_high_m}] \\
+ETOPO 2022 & \metric{h2.atl06.etopo2022.bias_m} & \metric{h2.atl06.etopo2022.nmad_m} & \metric{h2.atl06.etopo2022.rmse_m} & \metric{h2.atl06.diff.nmad.etopo2022_m} [\metric{h2.atl06.diff.nmad.etopo2022_ci_low_m}, \metric{h2.atl06.diff.nmad.etopo2022_ci_high_m}] & \metric{h2.atl06.diff.rmse.etopo2022_m} [\metric{h2.atl06.diff.rmse.etopo2022_ci_low_m}, \metric{h2.atl06.diff.rmse.etopo2022_ci_high_m}] \\
+SRTM15+ V2.7 & \metric{h2.atl06.srtm15p.bias_m} & \metric{h2.atl06.srtm15p.nmad_m} & \metric{h2.atl06.srtm15p.rmse_m} & \metric{h2.atl06.diff.nmad.srtm15p_m} [\metric{h2.atl06.diff.nmad.srtm15p_ci_low_m}, \metric{h2.atl06.diff.nmad.srtm15p_ci_high_m}] & \metric{h2.atl06.diff.rmse.srtm15p_m} [\metric{h2.atl06.diff.rmse.srtm15p_ci_low_m}, \metric{h2.atl06.diff.rmse.srtm15p_ci_high_m}] \\
+ETOPO1 & \metric{h2.atl06.etopo1.bias_m} & \metric{h2.atl06.etopo1.nmad_m} & \metric{h2.atl06.etopo1.rmse_m} & \metric{h2.atl06.diff.nmad.etopo1_m} [\metric{h2.atl06.diff.nmad.etopo1_ci_low_m}, \metric{h2.atl06.diff.nmad.etopo1_ci_high_m}] & \metric{h2.atl06.diff.rmse.etopo1_m} [\metric{h2.atl06.diff.rmse.etopo1_ci_low_m}, \metric{h2.atl06.diff.rmse.etopo1_ci_high_m}] \\
+\multicolumn{6}{l}{ATL08: $n = \metric{h2.atl08.n_test_points}$ points in \metric{h2.atl08.n_test_blocks} test blocks} \\
+Waterline DEM & \metric{h2.atl08.dem.bias_m} & \metric{h2.atl08.dem.nmad_m} & \metric{h2.atl08.dem.rmse_m} & -- & -- \\
+GEBCO\_2026 & \metric{h2.atl08.gebco2026.bias_m} & \metric{h2.atl08.gebco2026.nmad_m} & \metric{h2.atl08.gebco2026.rmse_m} & \metric{h2.atl08.diff.nmad.gebco2026_m} [\metric{h2.atl08.diff.nmad.gebco2026_ci_low_m}, \metric{h2.atl08.diff.nmad.gebco2026_ci_high_m}] & \metric{h2.atl08.diff.rmse.gebco2026_m} [\metric{h2.atl08.diff.rmse.gebco2026_ci_low_m}, \metric{h2.atl08.diff.rmse.gebco2026_ci_high_m}] \\
+GEBCO\_2022 & \metric{h2.atl08.gebco2022.bias_m} & \metric{h2.atl08.gebco2022.nmad_m} & \metric{h2.atl08.gebco2022.rmse_m} & \metric{h2.atl08.diff.nmad.gebco2022_m} [\metric{h2.atl08.diff.nmad.gebco2022_ci_low_m}, \metric{h2.atl08.diff.nmad.gebco2022_ci_high_m}] & \metric{h2.atl08.diff.rmse.gebco2022_m} [\metric{h2.atl08.diff.rmse.gebco2022_ci_low_m}, \metric{h2.atl08.diff.rmse.gebco2022_ci_high_m}] \\
+ETOPO 2022 & \metric{h2.atl08.etopo2022.bias_m} & \metric{h2.atl08.etopo2022.nmad_m} & \metric{h2.atl08.etopo2022.rmse_m} & \metric{h2.atl08.diff.nmad.etopo2022_m} [\metric{h2.atl08.diff.nmad.etopo2022_ci_low_m}, \metric{h2.atl08.diff.nmad.etopo2022_ci_high_m}] & \metric{h2.atl08.diff.rmse.etopo2022_m} [\metric{h2.atl08.diff.rmse.etopo2022_ci_low_m}, \metric{h2.atl08.diff.rmse.etopo2022_ci_high_m}] \\
+SRTM15+ V2.7 & \metric{h2.atl08.srtm15p.bias_m} & \metric{h2.atl08.srtm15p.nmad_m} & \metric{h2.atl08.srtm15p.rmse_m} & \metric{h2.atl08.diff.nmad.srtm15p_m} [\metric{h2.atl08.diff.nmad.srtm15p_ci_low_m}, \metric{h2.atl08.diff.nmad.srtm15p_ci_high_m}] & \metric{h2.atl08.diff.rmse.srtm15p_m} [\metric{h2.atl08.diff.rmse.srtm15p_ci_low_m}, \metric{h2.atl08.diff.rmse.srtm15p_ci_high_m}] \\
+ETOPO1 & \metric{h2.atl08.etopo1.bias_m} & \metric{h2.atl08.etopo1.nmad_m} & \metric{h2.atl08.etopo1.rmse_m} & \metric{h2.atl08.diff.nmad.etopo1_m} [\metric{h2.atl08.diff.nmad.etopo1_ci_low_m}, \metric{h2.atl08.diff.nmad.etopo1_ci_high_m}] & \metric{h2.atl08.diff.rmse.etopo1_m} [\metric{h2.atl08.diff.rmse.etopo1_ci_low_m}, \metric{h2.atl08.diff.rmse.etopo1_ci_high_m}] \\
+\hline
+\end{tabular}
+
+\medskip
+\begin{tabular}{lrll}
+\hline
+\multicolumn{4}{l}{\textbf{b} \quad Conformal coverage (nominal \metric{params.conformal_level})} \\
+Sector & Test blocks & ATL06 [95\% interval] & ATL08 [95\% interval] \\
+\hline
+All test blocks & \metric{h2.atl06.coverage.overall_n_blocks} & \metric{h2.atl06.coverage.overall} [\metric{h2.atl06.coverage.overall_boot_low}, \metric{h2.atl06.coverage.overall_boot_high}] & \metric{h2.atl08.coverage.overall} [\metric{h2.atl08.coverage.overall_boot_low}, \metric{h2.atl08.coverage.overall_boot_high}] \\
+Kizlyar Bay--Dagestan--Kalmyk coast & \metric{h2.atl06.coverage.west_n_blocks} & \metric{h2.atl06.coverage.west} [\metric{h2.atl06.coverage.west_boot_low}, \metric{h2.atl06.coverage.west_boot_high}] & \metric{h2.atl08.coverage.west} [\metric{h2.atl08.coverage.west_boot_low}, \metric{h2.atl08.coverage.west_boot_high}] \\
+Volga delta & \metric{h2.atl06.coverage.volga_n_blocks} & \metric{h2.atl06.coverage.volga} [\metric{h2.atl06.coverage.volga_boot_low}, \metric{h2.atl06.coverage.volga_boot_high}] & \metric{h2.atl08.coverage.volga} [\metric{h2.atl08.coverage.volga_boot_low}, \metric{h2.atl08.coverage.volga_boot_high}] \\
+Volga--Ural interfluve & \metric{h2.atl06.coverage.interfluve_n_blocks} & \metric{h2.atl06.coverage.interfluve} [\metric{h2.atl06.coverage.interfluve_boot_low}, \metric{h2.atl06.coverage.interfluve_boot_high}] & \metric{h2.atl08.coverage.interfluve} [\metric{h2.atl08.coverage.interfluve_boot_low}, \metric{h2.atl08.coverage.interfluve_boot_high}] \\
+Ural delta & none & -- & -- \\
+NE Kazakh coast & \metric{h2.atl06.coverage.northeast_n_blocks} & \metric{h2.atl06.coverage.northeast} [\metric{h2.atl06.coverage.northeast_boot_low}, \metric{h2.atl06.coverage.northeast_boot_high}] & \metric{h2.atl08.coverage.northeast} [\metric{h2.atl08.coverage.northeast_boot_low}, \metric{h2.atl08.coverage.northeast_boot_high}] \\
+Komsomolets Bay and Kaidak & \metric{h2.atl06.coverage.komsomolets_n_blocks} & \metric{h2.atl06.coverage.komsomolets} [\metric{h2.atl06.coverage.komsomolets_boot_low}, \metric{h2.atl06.coverage.komsomolets_boot_high}] & \metric{h2.atl08.coverage.komsomolets} [\metric{h2.atl08.coverage.komsomolets_boot_low}, \metric{h2.atl08.coverage.komsomolets_boot_high}] \\
+Open shelf & \metric{h2.atl06.coverage.open_shelf_n_blocks} & \metric{h2.atl06.coverage.open_shelf} [\metric{h2.atl06.coverage.open_shelf_boot_low}, \metric{h2.atl06.coverage.open_shelf_boot_high}] & \metric{h2.atl08.coverage.open_shelf} [\metric{h2.atl08.coverage.open_shelf_boot_low}, \metric{h2.atl08.coverage.open_shelf_boot_high}] \\
+\hline
+\end{tabular}
+
+\medskip
+\begin{tabular}{lrrrrrr}
+\hline
+\multicolumn{7}{l}{\textbf{c} \quad Block-size sensitivity} \\
+ & \multicolumn{3}{c}{NMAD (m)} & \multicolumn{3}{c}{RMSE (m)} \\
+Block size (km) & \metric{params.block_size_sens_lo_km} & \metric{params.block_size_km} & \metric{h2.block_size_km} & \metric{params.block_size_sens_lo_km} & \metric{params.block_size_km} & \metric{h2.block_size_km} \\
+\hline
+\multicolumn{7}{l}{ATL06: test blocks \metric{h2.sens12km.atl06.n_test_blocks}, \metric{h2.sens25km.atl06.n_test_blocks} and \metric{h2.atl06.n_test_blocks}; coverage \metric{h2.sens12km.atl06.coverage.overall}, \metric{h2.sens25km.atl06.coverage.overall} and \metric{h2.atl06.coverage.overall}} \\
+Waterline DEM & \metric{h2.sens12km.atl06.dem.nmad_m} & \metric{h2.sens25km.atl06.dem.nmad_m} & \metric{h2.atl06.dem.nmad_m} & \metric{h2.sens12km.atl06.dem.rmse_m} & \metric{h2.sens25km.atl06.dem.rmse_m} & \metric{h2.atl06.dem.rmse_m} \\
+GEBCO\_2026 & \metric{h2.sens12km.atl06.gebco2026.nmad_m} & \metric{h2.sens25km.atl06.gebco2026.nmad_m} & \metric{h2.atl06.gebco2026.nmad_m} & \metric{h2.sens12km.atl06.gebco2026.rmse_m} & \metric{h2.sens25km.atl06.gebco2026.rmse_m} & \metric{h2.atl06.gebco2026.rmse_m} \\
+GEBCO\_2022 & \metric{h2.sens12km.atl06.gebco2022.nmad_m} & \metric{h2.sens25km.atl06.gebco2022.nmad_m} & \metric{h2.atl06.gebco2022.nmad_m} & \metric{h2.sens12km.atl06.gebco2022.rmse_m} & \metric{h2.sens25km.atl06.gebco2022.rmse_m} & \metric{h2.atl06.gebco2022.rmse_m} \\
+ETOPO 2022 & \metric{h2.sens12km.atl06.etopo2022.nmad_m} & \metric{h2.sens25km.atl06.etopo2022.nmad_m} & \metric{h2.atl06.etopo2022.nmad_m} & \metric{h2.sens12km.atl06.etopo2022.rmse_m} & \metric{h2.sens25km.atl06.etopo2022.rmse_m} & \metric{h2.atl06.etopo2022.rmse_m} \\
+SRTM15+ V2.7 & \metric{h2.sens12km.atl06.srtm15p.nmad_m} & \metric{h2.sens25km.atl06.srtm15p.nmad_m} & \metric{h2.atl06.srtm15p.nmad_m} & \metric{h2.sens12km.atl06.srtm15p.rmse_m} & \metric{h2.sens25km.atl06.srtm15p.rmse_m} & \metric{h2.atl06.srtm15p.rmse_m} \\
+ETOPO1 & \metric{h2.sens12km.atl06.etopo1.nmad_m} & \metric{h2.sens25km.atl06.etopo1.nmad_m} & \metric{h2.atl06.etopo1.nmad_m} & \metric{h2.sens12km.atl06.etopo1.rmse_m} & \metric{h2.sens25km.atl06.etopo1.rmse_m} & \metric{h2.atl06.etopo1.rmse_m} \\
+\multicolumn{7}{l}{ATL08: test blocks \metric{h2.sens12km.atl08.n_test_blocks}, \metric{h2.sens25km.atl08.n_test_blocks} and \metric{h2.atl08.n_test_blocks}; coverage \metric{h2.sens12km.atl08.coverage.overall}, \metric{h2.sens25km.atl08.coverage.overall} and \metric{h2.atl08.coverage.overall}} \\
+Waterline DEM & \metric{h2.sens12km.atl08.dem.nmad_m} & \metric{h2.sens25km.atl08.dem.nmad_m} & \metric{h2.atl08.dem.nmad_m} & \metric{h2.sens12km.atl08.dem.rmse_m} & \metric{h2.sens25km.atl08.dem.rmse_m} & \metric{h2.atl08.dem.rmse_m} \\
+GEBCO\_2026 & \metric{h2.sens12km.atl08.gebco2026.nmad_m} & \metric{h2.sens25km.atl08.gebco2026.nmad_m} & \metric{h2.atl08.gebco2026.nmad_m} & \metric{h2.sens12km.atl08.gebco2026.rmse_m} & \metric{h2.sens25km.atl08.gebco2026.rmse_m} & \metric{h2.atl08.gebco2026.rmse_m} \\
+GEBCO\_2022 & \metric{h2.sens12km.atl08.gebco2022.nmad_m} & \metric{h2.sens25km.atl08.gebco2022.nmad_m} & \metric{h2.atl08.gebco2022.nmad_m} & \metric{h2.sens12km.atl08.gebco2022.rmse_m} & \metric{h2.sens25km.atl08.gebco2022.rmse_m} & \metric{h2.atl08.gebco2022.rmse_m} \\
+ETOPO 2022 & \metric{h2.sens12km.atl08.etopo2022.nmad_m} & \metric{h2.sens25km.atl08.etopo2022.nmad_m} & \metric{h2.atl08.etopo2022.nmad_m} & \metric{h2.sens12km.atl08.etopo2022.rmse_m} & \metric{h2.sens25km.atl08.etopo2022.rmse_m} & \metric{h2.atl08.etopo2022.rmse_m} \\
+SRTM15+ V2.7 & \metric{h2.sens12km.atl08.srtm15p.nmad_m} & \metric{h2.sens25km.atl08.srtm15p.nmad_m} & \metric{h2.atl08.srtm15p.nmad_m} & \metric{h2.sens12km.atl08.srtm15p.rmse_m} & \metric{h2.sens25km.atl08.srtm15p.rmse_m} & \metric{h2.atl08.srtm15p.rmse_m} \\
+ETOPO1 & \metric{h2.sens12km.atl08.etopo1.nmad_m} & \metric{h2.sens25km.atl08.etopo1.nmad_m} & \metric{h2.atl08.etopo1.nmad_m} & \metric{h2.sens12km.atl08.etopo1.rmse_m} & \metric{h2.sens25km.atl08.etopo1.rmse_m} & \metric{h2.atl08.etopo1.rmse_m} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Emerged area and exposure by scenario (H3).} \todo{Pending: the H3 run (scripts/a8\_emergence.py) is in progress. The table will give, per scenario of decline below the 2026 level, the emerged area from each product as distributed and corrected by the hindcast error model, with the leave-one-epoch-out conformal \metric{params.conformal_level} intervals, and the exposure counts at the levels equivalent to the interval bounds (D-081). It is filled only from committed results/emergence/main tables through \textbackslash metric macros, after the H3 outputs are checked.}}
+\label{tab:h3}
+\end{table}

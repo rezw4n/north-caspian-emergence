@@ -247,13 +247,53 @@ $(FIG_OUT)/fig_study_area.pdf: figures/fig_study_area.py figures/_common.py resu
 $(FIG_OUT)/supp_setup_model.pdf: figures/supp_setup_model.py figures/_common.py results/levels/setup_model.json $(PKG)
 	$(PYTHON) figures/supp_setup_model.py
 
+# Results display items (figures/fig1_emergence.py ... fig4_audit.py, figures/ed_*.py).
+# They read the frozen result tables in results/ and the git-ignored products of the
+# pipeline (DEM and emergence tiles, waterline and ICESat-2 point tables, the stage-2
+# plan, OSM layers); figures/_data.py caches the decimated and selected reads in
+# data/interim/figures/ and rebuilds a cache when an input changes. Nothing is recomputed.
+FIG_DEPS := figures/_common.py figures/_data.py results/metrics.json $(PKG)
+STUDY_MAP := results/study_area/sectors.geojson results/study_area/sea_mask_1km.npz \
+             results/study_area/extents_v6_250m.npz
+RESULT_FIGS := $(FIG_OUT)/fig1_emergence.pdf $(FIG_OUT)/fig2_method.pdf $(FIG_OUT)/fig3_dem_accuracy.pdf \
+               $(FIG_OUT)/fig4_audit.pdf $(FIG_OUT)/ed_block_size.pdf $(FIG_OUT)/ed_vegetation.pdf \
+               $(FIG_OUT)/ed_screening.pdf $(FIG_OUT)/ed_h1_blocks_shape.pdf $(FIG_OUT)/ed_h2_hexbins.pdf
+$(FIG_OUT)/fig1_emergence.pdf: figures/fig1_emergence.py $(FIG_DEPS) $(STUDY_MAP)
+	$(PYTHON) figures/fig1_emergence.py
+$(FIG_OUT)/fig2_method.pdf: figures/fig2_method.py $(FIG_DEPS) results/levels/screening_sensitivity.json \
+        results/hindcast/main/noise_floor.csv results/study_area/blocks_25km.csv results/study_area/blocks_50km.csv \
+        results/levels/sector_labels.csv
+	$(PYTHON) figures/fig2_method.py
+$(FIG_OUT)/fig3_dem_accuracy.pdf: figures/fig3_dem_accuracy.py $(FIG_DEPS) $(STUDY_MAP) \
+        results/study_area/blocks_50km.csv $(wildcard results/validation/main/*.csv results/validation/main/*.json)
+	$(PYTHON) figures/fig3_dem_accuracy.py
+$(FIG_OUT)/fig4_audit.pdf: figures/fig4_audit.py $(FIG_DEPS) $(STUDY_MAP) $(wildcard results/hindcast/main/*.csv)
+	$(PYTHON) figures/fig4_audit.py
+$(FIG_OUT)/ed_block_size.pdf: figures/ed_block_size.py $(FIG_DEPS) \
+        $(wildcard results/validation/main/*.csv results/validation/main/sensitivity_*/*.csv)
+	$(PYTHON) figures/ed_block_size.py
+$(FIG_OUT)/ed_vegetation.pdf: figures/ed_vegetation.py $(FIG_DEPS) \
+        $(wildcard results/validation/main/*_accuracy.csv results/validation/main_vegetated/*_accuracy.csv)
+	$(PYTHON) figures/ed_vegetation.py
+$(FIG_OUT)/ed_screening.pdf: figures/ed_screening.py $(FIG_DEPS) results/levels/screening_sensitivity.json
+	$(PYTHON) figures/ed_screening.py
+$(FIG_OUT)/ed_h1_blocks_shape.pdf: figures/ed_h1_blocks.py $(FIG_DEPS) $(STUDY_MAP) results/hindcast/main/block_h1.csv
+	$(PYTHON) figures/ed_h1_blocks.py
+$(FIG_OUT)/ed_h2_hexbins.pdf: figures/ed_h2_hexbins.py $(FIG_DEPS) $(wildcard results/validation/main/*.csv \
+        results/validation/main/*.json)
+	$(PYTHON) figures/ed_h2_hexbins.py
+manuscript/sections/ed_tables_draft.tex: figures/ed_sector_tables.py figures/_common.py results/metrics.json \
+        results/hindcast/main/h1_mispredicts.csv
+	$(PYTHON) figures/ed_sector_tables.py
+
 # Every file tools/build_metrics.py reads (tests/test_makefile.py checks this list).
 METRIC_INPUTS := $(INV_META) results/study_area/sector_areas.json results/study_area/sector_edges.json \
                  results/qc/dahiti_summary.json \
                  results/qc/level_crosscheck_w20d.json results/levels/scene_levels_summary.json \
                  results/params.json refs/literature_values.csv results/levels/setup_model.json \
                  results/qc/threshold_rule_summary.json results/provenance/geoid_difference.json \
-                 results/study_area/blocks_25km.csv results/study_area/zone_v6_cover_buffered.geojson
+                 results/study_area/blocks_25km.csv results/study_area/zone_v6_cover_buffered.geojson \
+                 results/levels/screening_sensitivity.json
 
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
@@ -275,7 +315,7 @@ check-quotes:
 	$(PYTHON) scripts/check_quotes.py
 
 manuscript/main.pdf: manuscript/main.tex manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) \
-        refs/references.bib $(FIGS) | check-refs
+        refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
 	$(TECTONIC) -X compile manuscript/main.tex
 
 ## named steps -------------------------------------------------------------
@@ -286,7 +326,7 @@ scene-levels: results/qc/level_crosscheck.json results/qc/level_crosscheck_pairs
               results/qc/level_crosscheck_w20d.json results/qc/level_crosscheck_pairs_w20d.csv \
               results/levels/scene_levels_summary.json
 qc-figures: $(QC_FIGS)
-figures: $(FIGS)
+figures: $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex
 params: results/params.json
 metrics: results/metrics.json manuscript/numbers.tex
 macros: manuscript/numbers.tex
@@ -298,4 +338,5 @@ RESULTS_ALL := results/qc/dahiti_summary.json results/study_area/sector_areas.js
                results/qc/level_crosscheck_w20d.json results/qc/level_crosscheck_pairs_w20d.csv \
                results/levels/scene_levels_summary.json results/params.json results/metrics.json
 
-all: $(VERIFIED) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) manuscript/numbers.tex manuscript/main.pdf
+all: $(VERIFIED) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex \
+     manuscript/numbers.tex manuscript/main.pdf

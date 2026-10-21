@@ -464,3 +464,15 @@ def test_record_low_envelope_sets_dark_water_back_to_water(tmp_path, monkeypatch
     monkeypatch.setattr(a7, "ENVELOPE", env)
     raw, info = a7.observed_raw(a7.groups_for(units, 20, ["E3"]), list(tr), (4, 4))
     assert raw[1, 1] == 1 and info["envelope_cells"] == 1
+
+
+def test_encode_refuses_nan_and_block_path_drops_it():
+    with pytest.raises(ValueError):
+        a7.encode(np.array([60.0, np.nan]))
+    cells = {"pred": {"rows": np.array([0, 1]), "cols": np.array([0, 1]), "known": np.array([True, True])},
+             "obs": {"rows": np.array([2]), "cols": np.array([2]), "known": np.array([True])},
+             "signed_p": np.array([120.0, np.nan]), "signed_o": np.array([-np.inf])}
+    bi, bj, d = a7._measured(cells, [60, 0, 0, 0, -60, 600], 25_000)
+    assert len(d) == 2 and np.isinf(d).sum() == 1 and not np.isnan(d).any()
+    k = np.abs(a7.encode(d)).astype(np.int64)
+    assert (k >= 0).all()                       # no INT32_MIN sentinel
