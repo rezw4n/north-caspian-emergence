@@ -1247,6 +1247,10 @@ def erl_text_metrics(m: dict) -> None:
         elif k.startswith("robustness.check11.") and k.endswith("_km2_per_m"):
             add(f"{T}.k0.{k}", x, "km2 per m", f"{k} to the square kilometre", 0)
 
+    cl = val("params.conformal_level")
+    if num(cl):
+        add(f"{T}.conformal_pct", int(round(100 * cl)), "%", "params.conformal_level as a percentage")
+
     # -- inputs --------------------------------------------------------------------------------
     ls = [val(f"inventory.n_scenes.{s}") for s in ("TM_L5", "ETM_L7", "OLI_L8", "OLI_L9")]
     if all(num(x) for x in ls):
@@ -1373,6 +1377,9 @@ def erl_text_metrics(m: dict) -> None:
     # ETOPO 2022 source of the Great Salt Lake emerged band (source ID 10 = FABDEM, MacFerrin et al.
     # 2025, Table 1; the same ID as in results/hindcast/main/etopo2022_sources_emerged_band.json)
     lin = load("generality/great_salt_lake/lineage.json")
+    if lin.get("arms"):
+        add(f"{T}.gsl.n_arms", len(lin["arms"]), "arms", "arms of Great Salt Lake audited (lineage.json)",
+            source="results/generality/great_salt_lake/lineage.json")
     for arm, r in (lin.get("arms") or {}).items():
         sh_ = (r.get("etopo_2022_source_id_shares") or {}).get("10")
         if num(sh_):

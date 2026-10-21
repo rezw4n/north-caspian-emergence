@@ -22,6 +22,7 @@
 \usepackage[numbers,sort&compress]{natbib}  % numbered (Vancouver) references, one system throughout
 \usepackage{microtype}
 \usepackage{xurl}  % break long DOIs and URLs in the reference list at any character
+\usepackage[font=small,labelfont=bf]{caption}  % legends smaller than the 12 pt body, as journal templates set them
 \usepackage[hidelinks]{hyperref}
 \usepackage[switch]{lineno}
 \input{numbers.tex}
@@ -35,11 +36,11 @@
 % Shared numbering of the Supplementary sections (also read by supplementary_erl.tex).
 \input{sections/erl_si_numbers}
 
-% Figures: at most half the text height, so that figure and legend fit one page; a figure
+% Figures: at most 0.62 of the text height, so that figure and legend fit one page; a figure
 % file that has not been built yet prints a placeholder box instead of
 % stopping the build (figures/out is rebuilt by make).
 \let\erlincludegraphics\includegraphics
-\renewcommand{\includegraphics}[2][]{\IfFileExists{#2}{\erlincludegraphics[#1,height=0.5\textheight,keepaspectratio]{#2}}%
+\renewcommand{\includegraphics}[2][]{\IfFileExists{#2}{\erlincludegraphics[#1,height=0.62\textheight,keepaspectratio]{#2}}%
   {\fbox{\parbox[c][4cm][c]{0.9\linewidth}{\centering Figure file not built yet:\\\texttt{\detokenize{#2}}}}}}
 
 % The audit-summary figure (D-100 display item 3) is, for now, the Phase A audit figure

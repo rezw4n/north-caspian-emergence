@@ -12,11 +12,50 @@ The domain was tiled with \metric{params.block_size_km}~km squares aligned to th
 \subsection*{Accuracy of the topography}
 \emph{Reference heights.} The primary reference is ICESat-2 ATL06 and ATL08 (Release~007)\citep{atl06_v7,atl08_v7,markus2017}. Segments were kept if their height and geoid height were finite, they came from a strong beam and their height lay within \metric{params.gross_error_m}~m of the product's own reference elevation; ATL06 segments also needed a zero quality summary, and ATL08 segments no multiple scattering and no cloud. The ATL08 water mask was not used: it is static, and would remove the very seabed under test. A point was used only if the seabed was dry when measured, that is, more than \metric{params.emergence_lag_days}~days after the emergence date of every topography cell within \metric{params.dry_radius_px_atl06} cell (ATL06) or \metric{params.dry_radius_px_atl08} cells (ATL08) of it, and the test is repeated with \metric{params.emergence_lag_sens_days}~days as a robustness check. ATL06 and ATL08 largely share photons, so they are evaluated separately and never pooled. GEDI L2A footprints\citep{gedi_l2a_v2} are an additional reference, and the substitute for ICESat-2, under the rules of pre-registration Amendment~2; GLO-30 heights over cells dry throughout its acquisition period (December 2010 to January 2015) are a further check. Both were run after the ICESat-2 decision and are reported beside it; the decision is not re-made on them. The reference population of every source is bare emerged seabed: points inside the band that was water in \metric{params.highstand_label} and not in \metric{params.lowstand_label}, in a cell whose E3 emergent-vegetation share is below \metric{params.veg_cell_share} (pre-registration Amendment~15). Land above the old shoreline, where the topography is only a triangulated extrapolation, and reed canopy are not seabed; the vegetated population is robustness check~9. The population applies to the topography and the grids alike, on the same points.
 
-\emph{Metrics and decision rule.} Errors are model minus reference. For the topography and each grid we report the bias, the root-mean-square error (RMSE), the normalised median absolute deviation (NMAD; \metric{params.nmad_scale} times the median absolute deviation from the median) and the \metric{params.err_pct_lo}th and \metric{params.err_pct_hi}th percentiles, pooled over test-block points where the reference and every model have a value, overall and per sector; the median of per-block values is a sensitivity. Each grid enters with one constant offset estimated on training blocks, as for the lidar constant, so that no grid is penalised for an undocumented datum; the grids as distributed are reported beside them. H2 is supported if the topography's test-block NMAD and RMSE are both lower than every grid's, with \metric{params.ci_pct}\% block-bootstrap intervals of the differences (\metric{params.bootstrap_n} resamples of test blocks, points pooled) that exclude zero, for both ATL06 and ATL08; it is partially supported if this holds for one. Per-sector intervals in sectors with few test blocks are descriptive.
+\emph{Metrics and decision rule.} Errors are $e_j = \hat{z}_j - y_j$, model minus reference, at points $j$. For the topography and each grid we report the bias (the mean of $e$), the root-mean-square error (RMSE), the normalised median absolute deviation
+% src/caspian/validation.py: nmad (NMAD_SCALE = 1.4826, params.nmad_scale), rmse, bias, error_metrics
+\begin{equation}
+  \mathrm{NMAD} = k_{\mathrm{N}} \, \operatorname*{median}_{j} \left\lvert e_j - \operatorname*{median}_{l} e_l \right\rvert ,
+  \qquad k_{\mathrm{N}} = \metric{params.nmad_scale} ,
+  \label{eq:si_nmad}
+\end{equation}
+and the \metric{params.err_pct_lo}th and \metric{params.err_pct_hi}th percentiles of $e$, pooled over test-block points where the reference and every model have a value, overall and per sector; the median of per-block values is a sensitivity. Each grid enters with one constant offset estimated on training blocks, as for the lidar constant, so that no grid is penalised for an undocumented datum; the grids as distributed are reported beside them. For a metric $M$ (NMAD or RMSE) and grid $p$, the paired difference on the same test-block points $\mathcal{P}$ and its interval are
+% src/caspian/validation.py: paired_block_bootstrap (one draw of blocks serves every grid and metric),
+% block_bootstrap (blocks drawn with replacement, a block drawn twice enters twice), percentile_interval
+\begin{equation}
+  \Delta_M = M\!\left(e^{\mathrm{DEM}}_{\mathcal{P}}\right) - M\!\left(e^{p}_{\mathcal{P}}\right) , \qquad
+  \Delta_M^{(r)} = M\!\left(e^{\mathrm{DEM}}_{\mathcal{P}^{(r)}}\right) - M\!\left(e^{p}_{\mathcal{P}^{(r)}}\right), \quad r = 1, \dots, R ,
+  \label{eq:si_bootstrap}
+\end{equation}
+where $\mathcal{P}^{(r)}$ pools the points of $B$ test blocks drawn with replacement from the $B$ test blocks, $R = \metric{params.bootstrap_n}$, and the interval is the central \metric{params.ci_pct}\% percentile range of the $\Delta_M^{(r)}$. H2 is supported if the topography's NMAD and RMSE are both lower than every grid's with intervals of $\Delta_M$ that exclude zero, for both ATL06 and ATL08; it is partially supported if this holds for one. Per-sector intervals in sectors with few test blocks are descriptive.
 
 \subsection*{Conformal intervals}
-Height intervals come from split conformal prediction with locally normalised scores\citep{lei2018}. The score of a point is $|y - \hat{y}|/s(x)$, with $y$ the reference height on the DAHITI reference, $\hat{y}$ the topography and
+Height intervals come from split conformal prediction with locally normalised scores\citep{lei2018}. With $y$ the reference height on the DAHITI reference, $\hat{y}$ the topography at the same point and $x$ the point's covariates, the score and the scale are
+% src/caspian/conformal.py: scores; src/caspian/validation.py: scale_design ([1, log(1 + d), kappa, g]),
+% fit_scale_model (least squares of log max(|y - yhat|, floor) on training-block points), scale_values
 \begin{equation}
+  r = \frac{\lvert y - \hat{y} \rvert}{s(x)} , \qquad
   s(x) = \exp\!\left(\beta_0 + \beta_1 \log(1 + d) + \beta_2\,\kappa + \beta_3\,g\right),
+  \label{eq:si_score}
 \end{equation}
-where $d$ is the interpolation distance, $\kappa$ the density of contour points (per \kmsq{} within \metric{params.contour_density_radius_m}~m) and $g$ the slope by central differences on the \metric{params.dem_res_m}~m grid. $\beta$ was fitted by least squares of $\log|y - \hat{y}|$ (residuals floored at \metric{params.abs_resid_floor_mm}~mm) on training blocks. On calibration blocks, $\hat{q}$ is the $\lceil (n+1)(1-\alpha) \rceil$-th smallest of the $n$ scores for nominal coverage $1-\alpha = \metric{params.conformal_level}$, and the interval is $\hat{y} \pm \hat{q}\,s(x)$. Coverage holds if calibration and test points are exchangeable; we assume exchangeability between blocks, which the disjoint calibration blocks are meant to make plausible. To check conditional coverage, $\hat{q}$ was computed per sector (Mondrian calibration)\citep{vovk2013,vovk2022,angelopoulos2023} where a sector has at least \metric{params.mondrian_min_n} usable calibration points; other sectors use the pooled $\hat{q}$, and the value, count and fallback are reported for every sector. A point is usable if its reference, prediction and scale are all present; points outside the triangulation are excluded from calibration and coverage alike, and counted. Coverage on test blocks is reported overall and per sector with its Clopper--Pearson \metric{params.ci_pct}\% interval\todo{cite: Clopper \& Pearson 1934, Biometrika}, and counts as consistent with the nominal level if \metric{params.conformal_level} lies inside it. Points within a block are correlated, which makes that interval optimistic, so a block-bootstrap interval is also reported.
+where $d$ is the interpolation distance, $\kappa$ the density of contour points (per \kmsq{} within \metric{params.contour_density_radius_m}~m) and $g$ the slope by central differences on the \metric{params.dem_res_m}~m grid. $\beta$ was fitted by least squares of $\log \max(|y - \hat{y}|, \epsilon)$, with $\epsilon = \metric{params.abs_resid_floor_mm}$~mm, on training blocks. With $r_{(1)} \le \dots \le r_{(n)}$ the sorted scores of the $n$ usable calibration-block points and nominal coverage $1-\alpha = \metric{params.conformal_level}$, the quantile and the interval are
+% src/caspian/conformal.py: conformal_quantile (k = ceil((n + 1)(1 - alpha)); inf if k > n), intervals;
+% src/caspian/validation.py: calibrate, coverage_on_test
+\begin{equation}
+  \hat{q} = r_{(k)} , \quad k = \left\lceil (n+1)(1-\alpha) \right\rceil \quad (\hat{q} = \infty \text{ if } k > n) , \qquad
+  C(x) = \left[ \hat{y} - \hat{q}\,s(x) ,\; \hat{y} + \hat{q}\,s(x) \right] .
+  \label{eq:si_conformal}
+\end{equation}
+Coverage holds if calibration and test points are exchangeable; we assume exchangeability between blocks, which the disjoint calibration blocks are meant to make plausible. To check conditional coverage, $\hat{q}$ was computed per sector (Mondrian calibration)\citep{vovk2013,vovk2022,angelopoulos2023}: with $n_g$ the usable calibration points of sector $g$,
+% src/caspian/conformal.py: mondrian_calibration (own q-hat when n_g >= min_n, else the pooled one), mondrian_q;
+% min_n = design.MONDRIAN_MIN_N (params.mondrian_min_n)
+\begin{equation}
+  \hat{q}_g =
+  \begin{cases}
+    \hat{q}\ \text{from the scores of sector } g & \text{if } n_g \ge n_{\mathrm{M}} , \\
+    \hat{q}\ \text{from all calibration scores} & \text{otherwise,}
+  \end{cases}
+  \qquad n_{\mathrm{M}} = \metric{params.mondrian_min_n} ,
+  \label{eq:si_mondrian}
+\end{equation}
+and a test point of sector $g$ takes $C(x)$ with $\hat{q}_g$. The value, count and fallback are reported for every sector. A point is usable if its reference, prediction and scale are all present; points outside the triangulation are excluded from calibration and coverage alike, and counted. Coverage on test blocks is reported overall and per sector with its Clopper--Pearson \metric{params.ci_pct}\% interval\todo{cite: Clopper \& Pearson 1934, Biometrika}, and counts as consistent with the nominal level if \metric{params.conformal_level} lies inside it. Points within a block are correlated, which makes that interval optimistic, so a block-bootstrap interval is also reported.
