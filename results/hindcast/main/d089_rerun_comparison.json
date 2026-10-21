@@ -1,0 +1,145 @@
+{
+ "created": "2026-10-21T04:17:19+00:00",
+ "decision": "D-089 (follow-up)",
+ "first_run": "results/hindcast/main (commit 4f9ee9d)",
+ "rerun": "scripts/a7_hindcast.py main --vertical-correction results/study_area/geoid_correction_primary.npz --out-suffix _fix",
+ "table_comparison": {
+  "block_h1.csv": "shape differs",
+  "blocks.csv.gz": "shape differs",
+  "displacement.csv": "identical",
+  "extent.csv": "identical",
+  "noise_floor.csv": "identical",
+  "observed.csv": "identical",
+  "run.json": "differs",
+  "shape_offsets.json": "identical"
+ },
+ "block_h1": {
+  "rows_first_run": 1967,
+  "rows_rerun": 1963,
+  "rows_dropped_int32_min": 4,
+  "rows_changed_n_or_median": 461
+ },
+ "block_test": [
+  {
+   "product": "etopo1",
+   "variant": "shape",
+   "n_blocks_first_run": 191,
+   "n_blocks_rerun": 189,
+   "statistic_first_run": 4525.89888372596,
+   "statistic_rerun": 4621.687301408234,
+   "p_value_first_run": 0.0090990900909909,
+   "p_value_rerun": 0.0166983301669833,
+   "significant_first_run": true,
+   "significant_rerun": true
+  },
+  {
+   "product": "etopo1",
+   "variant": "total",
+   "n_blocks_first_run": 203,
+   "n_blocks_rerun": 203,
+   "statistic_first_run": 8727.95880517513,
+   "statistic_rerun": 9648.55378689788,
+   "p_value_first_run": 0.0057994200579942,
+   "p_value_rerun": 0.0034996500349965,
+   "significant_first_run": true,
+   "significant_rerun": true
+  },
+  {
+   "product": "etopo_2022",
+   "variant": "shape",
+   "n_blocks_first_run": 163,
+   "n_blocks_rerun": 163,
+   "statistic_first_run": -1812.935287911408,
+   "statistic_rerun": -1812.935287911408,
+   "p_value_first_run": 1.0,
+   "p_value_rerun": 1.0,
+   "significant_first_run": false,
+   "significant_rerun": false
+  },
+  {
+   "product": "etopo_2022",
+   "variant": "total",
+   "n_blocks_first_run": 173,
+   "n_blocks_rerun": 173,
+   "statistic_first_run": -2508.052579471572,
+   "statistic_rerun": -2777.80785271073,
+   "p_value_first_run": 0.9868013198680132,
+   "p_value_rerun": 0.992100789921008,
+   "significant_first_run": false,
+   "significant_rerun": false
+  },
+  {
+   "product": "gebco_2022",
+   "variant": "shape",
+   "n_blocks_first_run": 187,
+   "n_blocks_rerun": 187,
+   "statistic_first_run": 3779.7948577902334,
+   "statistic_rerun": 3799.914475768837,
+   "p_value_first_run": 0.004999500049995,
+   "p_value_rerun": 0.0097990200979902,
+   "significant_first_run": true,
+   "significant_rerun": true
+  },
+  {
+   "product": "gebco_2022",
+   "variant": "total",
+   "n_blocks_first_run": 214,
+   "n_blocks_rerun": 214,
+   "statistic_first_run": 9320.64053351479,
+   "statistic_rerun": 8362.402766246392,
+   "p_value_first_run": 0.0047995200479952,
+   "p_value_rerun": 0.0167983201679832,
+   "significant_first_run": true,
+   "significant_rerun": true
+  },
+  {
+   "product": "gebco_2026",
+   "variant": "shape",
+   "n_blocks_first_run": 190,
+   "n_blocks_rerun": 190,
+   "statistic_first_run": 4491.554281967965,
+   "statistic_rerun": 4253.503739916909,
+   "p_value_first_run": 0.0030996900309969,
+   "p_value_rerun": 0.0062993700629937,
+   "significant_first_run": true,
+   "significant_rerun": true
+  },
+  {
+   "product": "gebco_2026",
+   "variant": "total",
+   "n_blocks_first_run": 215,
+   "n_blocks_rerun": 215,
+   "statistic_first_run": 8752.598627539362,
+   "statistic_rerun": 8465.01386319436,
+   "p_value_first_run": 0.0124987501249875,
+   "p_value_rerun": 0.0187981201879812,
+   "significant_first_run": true,
+   "significant_rerun": true
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "variant": "shape",
+   "n_blocks_first_run": 217,
+   "n_blocks_rerun": 215,
+   "statistic_first_run": 1887.1457535110455,
+   "statistic_rerun": 1925.9621253192072,
+   "p_value_first_run": 0.1352864713528647,
+   "p_value_rerun": 0.1397860213978602,
+   "significant_first_run": false,
+   "significant_rerun": false
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "variant": "total",
+   "n_blocks_first_run": 214,
+   "n_blocks_rerun": 214,
+   "statistic_first_run": 11890.410713037452,
+   "statistic_rerun": 13251.268397922724,
+   "p_value_first_run": 0.0011998800119988,
+   "p_value_rerun": 0.0006999300069993,
+   "significant_first_run": true,
+   "significant_rerun": true
+  }
+ ],
+ "conclusion": "every table except block_h1.csv and blocks.csv.gz is identical; the mispredicts tables are identical; no block-test significance changes"
+}
