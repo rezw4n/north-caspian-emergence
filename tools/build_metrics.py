@@ -338,6 +338,17 @@ def results_metrics(m: dict, tag: str = "main") -> None:
         for name, share in es.get("share", {}).items():
             key = "fabdem" if "FABDEM" in name else "gebco_lake" if "GEBCO" in name else "other"
             put(m, f"h1.etopo2022.source_share.{key}", round(100 * share, 1), "%", f"hindcast/{tag}/etopo2022_sources_emerged_band.json")
+        bsrc = hc / "etopo2022_sources_by_level_band.csv"      # per level band of the observed seabed height
+        if bsrc.exists():
+            names = {"(-29.0, -28.3]": "below_m28p3", "(-28.3, -27.7]": "m28p3_m27p7", "(-27.7, -27.0]": "m27p7_m27p0",
+                     "(-27.0, -26.3]": "m27p0_m26p3", "(-26.3, -25.5]": "above_m26p3"}
+            col = next(c for c in pd.read_csv(bsrc, nrows=0).columns if c.startswith("share FABDEM"))
+            for rec in pd.read_csv(bsrc).to_dict("records"):
+                if rec["band"] in names:
+                    k = f"h1.etopo2022.fabdem_share_band.{names[rec['band']]}"
+                    put(m, k, round(100 * float(rec[col]), 1), "%", f"hindcast/{tag}/etopo2022_sources_by_level_band.csv",
+                        "share of ETOPO 2022 emerged-band cells filled from FABDEM, by the band of the observed seabed height")
+                    m[k]["decimals"] = 0
         nz = pd.read_csv(hc / "noise_floor.csv")
         nz = nz[(nz.kind == "pooled_level") & (nz.sector != "all") & (nz.n > 0)]
         for sec, g in nz.groupby("sector"):

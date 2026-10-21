@@ -47,6 +47,21 @@ def main(tag: str) -> int:
         json.dumps({"cells_250m": int(n.sum()), "share": share, "source": "MacFerrin et al. 2025, Table 1"}, indent=1),
         encoding="utf-8")
     print(share)
+    # By level band (G3 review): each emerged-band cell takes the band of its observed seabed
+    # height (waterline DEM, DAHITI reference, sampled at the 250 m cell centre); the ETOPO 2022
+    # source shares are tabulated per band. Cells without a DEM height are counted apart.
+    from caspian import validation
+    from caspian.config import DATA
+    xs, ys = tr[2] + (c + 0.5) * tr[0], tr[5] + (r + 0.5) * tr[4]
+    z = validation.TileSet(DATA / "processed" / "dem" / tag).sample(xs, ys)
+    lab = pd.cut(pd.Series(z), BANDS).astype(str).where(np.isfinite(z), "no DEM height")
+    tab = (pd.DataFrame({"band": lab.to_numpy(), "source": [ETOPO_SOURCES.get(int(k), "other") for k in v]})
+           .groupby(["band", "source"]).size().unstack(fill_value=0))
+    tab["n_cells_250m"] = tab.sum(axis=1)
+    for col in [k for k in tab.columns if k != "n_cells_250m"]:
+        tab[f"share {col}"] = (tab[col] / tab["n_cells_250m"]).round(4)
+    tab.reset_index().to_csv(RESULTS / "hindcast" / tag / "etopo2022_sources_by_level_band.csv", index=False)
+    print(tab.to_string())
     return 0
 
 

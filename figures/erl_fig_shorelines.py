@@ -7,8 +7,9 @@
     SRTM15+ predict for the same level (dashed, dash-dot and dotted): each product's flood
     fill from the open sea at the level plus its D-070 constant (the shape variant).
 (b-d) Zooms at 60 m on the Volga delta front, the NE Kazakh coast and Komsomolets Bay, same
-    unit; (e-g) the same zooms at the E3 unit nearest -27.0 m, above the -27.7 m edge where
-    ETOPO 2022's emerged band switches from GEBCO lake depths to FABDEM (D-087). Arrows: per
+    unit; (e-g) the same zooms at the E3 unit nearest -27.0 m, above the -27.7 m edge below
+    which ETOPO 2022 errs by kilometres (D-087); each row states ETOPO 2022's FABDEM share in
+    its level band (D-108). Arrows: per
     product, from the observed waterline cell of the zoom's sector whose distance to the
     product's nearest predicted waterline cell is closest to that sector's median
     displacement at the unit, to that cell; labels give the arrow's length.
@@ -160,8 +161,13 @@ def main() -> int:
     for r, u in enumerate(UNITS):
         lv = E.num(m, f"{ukey(u)}.level_m")
         yrs = f"{m[ukey(u) + '.first_year']['value']}–{m[ukey(u) + '.last_year']['value']}"
-        note = ("below the −27.7 m edge: ETOPO 2022 from GEBCO lake depths" if r == 0 else
-                "above the −27.7 m edge: ETOPO 2022 from FABDEM land heights")
+        # ETOPO 2022's FABDEM share in this level's band (D-108), from metrics
+        bands = [(-29.0, -28.3, "below_m28p3"), (-28.3, -27.7, "m28p3_m27p7"), (-27.7, -27.0, "m27p7_m27p0"),
+                 (-27.0, -26.3, "m27p0_m26p3"), (-26.3, -25.5, "above_m26p3")]
+        bk = next(k for lo, hi, k in bands if lo < float(m[f"{ukey(u)}.level_m"]["value"]) <= hi)
+        fab = m[f"h1.etopo2022.fabdem_share_band.{bk}"]["value"]
+        side = "below" if float(m[f"{ukey(u)}.level_m"]["value"]) <= -27.7 else "above"
+        note = f"{side} −27.7 m; ETOPO 2022 here {fab:.0f}% FABDEM"
         fig.text(L / W, 1 - (y_row + H_HEAD - 1.2) / H, f"Sea level {lv} m (observed {yrs}); {note}",
                  ha="left", va="bottom", fontsize=E.FS, color=E.INK)
         yt = y_row + H_HEAD
