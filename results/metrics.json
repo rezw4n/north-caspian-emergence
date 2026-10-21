@@ -1019,6 +1019,3007 @@
   "unit": "year",
   "source": "results/provenance/erl_landsat.json"
  },
+ "erl.text.d089.shape.etopo1.p_first_run": {
+  "value": 0.0090990900909909,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, first_run",
+  "decimals": 4
+ },
+ "erl.text.d089.shape.etopo1.p_rerun": {
+  "value": 0.0166983301669833,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, rerun",
+  "decimals": 4
+ },
+ "erl.text.d089.shape.etopo2022.p_first_run": {
+  "value": 1.0,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, first_run",
+  "decimals": 4
+ },
+ "erl.text.d089.shape.etopo2022.p_rerun": {
+  "value": 1.0,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, rerun",
+  "decimals": 4
+ },
+ "erl.text.d089.shape.gebco2022.p_first_run": {
+  "value": 0.004999500049995,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, first_run",
+  "decimals": 4
+ },
+ "erl.text.d089.shape.gebco2022.p_rerun": {
+  "value": 0.0097990200979902,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, rerun",
+  "decimals": 4
+ },
+ "erl.text.d089.shape.gebco2026.p_first_run": {
+  "value": 0.0030996900309969,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, first_run",
+  "decimals": 4
+ },
+ "erl.text.d089.shape.gebco2026.p_rerun": {
+  "value": 0.0062993700629937,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, rerun",
+  "decimals": 4
+ },
+ "erl.text.d089.shape.srtm15p.p_first_run": {
+  "value": 0.1352864713528647,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, first_run",
+  "decimals": 4
+ },
+ "erl.text.d089.shape.srtm15p.p_rerun": {
+  "value": 0.1397860213978602,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, rerun",
+  "decimals": 4
+ },
+ "erl.text.d089.total.etopo1.p_first_run": {
+  "value": 0.0057994200579942,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, first_run",
+  "decimals": 4
+ },
+ "erl.text.d089.total.etopo1.p_rerun": {
+  "value": 0.0034996500349965,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, rerun",
+  "decimals": 4
+ },
+ "erl.text.d089.total.etopo2022.p_first_run": {
+  "value": 0.9868013198680132,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, first_run",
+  "decimals": 4
+ },
+ "erl.text.d089.total.etopo2022.p_rerun": {
+  "value": 0.992100789921008,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, rerun",
+  "decimals": 4
+ },
+ "erl.text.d089.total.gebco2022.p_first_run": {
+  "value": 0.0047995200479952,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, first_run",
+  "decimals": 4
+ },
+ "erl.text.d089.total.gebco2022.p_rerun": {
+  "value": 0.0167983201679832,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, rerun",
+  "decimals": 4
+ },
+ "erl.text.d089.total.gebco2026.p_first_run": {
+  "value": 0.0124987501249875,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, first_run",
+  "decimals": 4
+ },
+ "erl.text.d089.total.gebco2026.p_rerun": {
+  "value": 0.0187981201879812,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, rerun",
+  "decimals": 4
+ },
+ "erl.text.d089.total.srtm15p.p_first_run": {
+  "value": 0.0011998800119988,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, first_run",
+  "decimals": 4
+ },
+ "erl.text.d089.total.srtm15p.p_rerun": {
+  "value": 0.0006999300069993,
+  "unit": "p-value",
+  "source": "results/hindcast/main/d089_rerun_comparison.json",
+  "note": "results/hindcast/main/d089_rerun_comparison.json: block-test p, rerun",
+  "decimals": 4
+ },
+ "erl.text.gsl.disp_max_m": {
+  "value": 2043.5263639111683,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of generality.great_salt_lake.<p>.shape.<arm>.median_displacement_m over products and arms",
+  "decimals": 0
+ },
+ "erl.text.gsl.disp_min_m": {
+  "value": 454.627034993008,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of generality.great_salt_lake.<p>.shape.<arm>.median_displacement_m over products and arms",
+  "decimals": 0
+ },
+ "erl.text.gsl.n_arms_mispredicted_max": {
+  "value": 2,
+  "unit": "arms",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of generality.great_salt_lake.<p>.shape.n_sectors_mispredict over products"
+ },
+ "erl.text.gsl.n_arms_mispredicted_min": {
+  "value": 2,
+  "unit": "arms",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of generality.great_salt_lake.<p>.shape.n_sectors_mispredict over products"
+ },
+ "erl.text.gsl.north.etopo2022_fabdem_pct": {
+  "value": 100.0,
+  "unit": "%",
+  "source": "results/generality/great_salt_lake/lineage.json",
+  "note": "results/generality/great_salt_lake/lineage.json: share of the arm's emerged band (250 m cells) whose ETOPO 2022 source ID is 10 (FABDEM)",
+  "decimals": 0
+ },
+ "erl.text.gsl.south.etopo2022_fabdem_pct": {
+  "value": 100.0,
+  "unit": "%",
+  "source": "results/generality/great_salt_lake/lineage.json",
+  "note": "results/generality/great_salt_lake/lineage.json: share of the arm's emerged band (250 m cells) whose ETOPO 2022 source ID is 10 (FABDEM)",
+  "decimals": 0
+ },
+ "erl.text.h1.area_bias_shape_absmax_pct": {
+  "value": 6.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of |h1.domain_area_bias.shape.<p>.median_pct| over products",
+  "decimals": 1
+ },
+ "erl.text.h1.area_bias_shape_absmin_pct": {
+  "value": 2.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of |h1.domain_area_bias.shape.<p>.median_pct| over products",
+  "decimals": 1
+ },
+ "erl.text.h1.area_bias_shape_levelmax_max_pct": {
+  "value": 162.2,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.domain_area_bias.shape.<p>.max_abs_pct (largest absolute bias at a single unit) over products",
+  "decimals": 1
+ },
+ "erl.text.h1.area_bias_shape_levelmax_min_pct": {
+  "value": 32.2,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.domain_area_bias.shape.<p>.max_abs_pct (largest absolute bias at a single unit) over products",
+  "decimals": 1
+ },
+ "erl.text.h1.area_bias_total_max_pct": {
+  "value": 44.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.domain_area_bias.total.<p>.median_pct over products",
+  "decimals": 1
+ },
+ "erl.text.h1.area_bias_total_min_pct": {
+  "value": 25.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.domain_area_bias.total.<p>.median_pct over products",
+  "decimals": 1
+ },
+ "erl.text.h1.band_lower.etopo2022_max_km": {
+  "value": 4.12,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.disp_band.<band>.etopo2022_km over the bands below h1.disp_band.edge_2_m",
+  "decimals": 2
+ },
+ "erl.text.h1.band_lower.etopo2022_min_km": {
+  "value": 3.48,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.disp_band.<band>.etopo2022_km over the bands below h1.disp_band.edge_2_m",
+  "decimals": 2
+ },
+ "erl.text.h1.band_lower.others_max_km": {
+  "value": 13.84,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.disp_band.<band>.<p>_km over the bands below h1.disp_band.edge_2_m and the other four products",
+  "decimals": 2
+ },
+ "erl.text.h1.band_lower.others_min_km": {
+  "value": 3.57,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.disp_band.<band>.<p>_km over the bands below h1.disp_band.edge_2_m and the other four products",
+  "decimals": 2
+ },
+ "erl.text.h1.band_upper.etopo2022_max_km": {
+  "value": 0.55,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.disp_band.<band>.etopo2022_km over the bands above h1.disp_band.edge_2_m",
+  "decimals": 2
+ },
+ "erl.text.h1.band_upper.etopo2022_min_km": {
+  "value": 0.3,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.disp_band.<band>.etopo2022_km over the bands above h1.disp_band.edge_2_m",
+  "decimals": 2
+ },
+ "erl.text.h1.block.shape.n_significant": {
+  "value": 3,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose h1.block_test.shape.<p>.p <= params.alpha"
+ },
+ "erl.text.h1.block.shape.significant_products": {
+  "value": "GEBCO_2026, GEBCO_2022 and ETOPO1",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "those products"
+ },
+ "erl.text.h1.block.total.n_significant": {
+  "value": 4,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose h1.block_test.total.<p>.p <= params.alpha"
+ },
+ "erl.text.h1.block.total.significant_products": {
+  "value": "GEBCO_2026, GEBCO_2022, ETOPO1 and SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "those products"
+ },
+ "erl.text.h1.iou_shape_max": {
+  "value": 0.89,
+  "unit": "IoU",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.domain_area_bias.shape.<p>.median_iou over products",
+  "decimals": 2
+ },
+ "erl.text.h1.iou_shape_min": {
+  "value": 0.624,
+  "unit": "IoU",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.domain_area_bias.shape.<p>.median_iou over products",
+  "decimals": 2
+ },
+ "erl.text.h1.majority.disp_max_km": {
+  "value": 13.13,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.disp_median.shape.<p>.<sector>_km over the majority products and the seven sectors",
+  "decimals": 2
+ },
+ "erl.text.h1.majority.disp_min_km": {
+  "value": 0.59,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.disp_median.shape.<p>.<sector>_km over the majority products and the seven sectors",
+  "decimals": 2
+ },
+ "erl.text.h1.majority.n_sectors_max": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.mispredicts.shape.<p>.n_sectors over the majority products"
+ },
+ "erl.text.h1.majority.n_sectors_min": {
+  "value": 6,
+  "unit": "sectors",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.mispredicts.shape.<p>.n_sectors over the majority products"
+ },
+ "erl.text.h1.majority_products": {
+  "value": "GEBCO_2026, GEBCO_2022, ETOPO1 and SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "those products"
+ },
+ "erl.text.h1.n_products": {
+  "value": 5,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products audited"
+ },
+ "erl.text.h1.n_products_majority": {
+  "value": 4,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products that mispredict in a majority of the seven sectors (h1.mispredicts.shape.*.n_sectors)"
+ },
+ "erl.text.h1.noise_p95_max_km": {
+  "value": 3.73,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.noise_p95.<sector>_km",
+  "decimals": 2
+ },
+ "erl.text.h1.noise_p95_min_km": {
+  "value": 0.49,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.noise_p95.<sector>_km",
+  "decimals": 2
+ },
+ "erl.text.h1.other_products": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the remaining products"
+ },
+ "erl.text.h1.shape_offset_max_m": {
+  "value": -1.28,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.shape_offset.<p>_m over products",
+  "decimals": 2
+ },
+ "erl.text.h1.shape_offset_min_m": {
+  "value": -1.49,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.shape_offset.<p>_m over products",
+  "decimals": 2
+ },
+ "erl.text.h1.total.n_sectors_max": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h1.mispredicts.total.<p>.n_sectors over all products"
+ },
+ "erl.text.h1.total.n_sectors_min": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h1.mispredicts.total.<p>.n_sectors over all products"
+ },
+ "erl.text.h2.atl06.diff_nmad.n_ci_include_zero": {
+  "value": 5,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose block-bootstrap interval of the DEM - product nmad difference includes zero (h2.atl06.diff.nmad.<p>_ci_low_m, _ci_high_m)"
+ },
+ "erl.text.h2.atl06.diff_rmse.n_ci_include_zero": {
+  "value": 5,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose block-bootstrap interval of the DEM - product rmse difference includes zero (h2.atl06.diff.rmse.<p>_ci_low_m, _ci_high_m)"
+ },
+ "erl.text.h2.atl06.product_nmad_max_m": {
+  "value": 1.136,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h2.atl06.<p>.nmad_m over products",
+  "decimals": 3
+ },
+ "erl.text.h2.atl06.product_nmad_min_m": {
+  "value": 0.838,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h2.atl06.<p>.nmad_m over products",
+  "decimals": 3
+ },
+ "erl.text.h2.atl06.product_rmse_max_m": {
+  "value": 1.17,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h2.atl06.<p>.rmse_m over products",
+  "decimals": 2
+ },
+ "erl.text.h2.atl06.product_rmse_min_m": {
+  "value": 1.023,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h2.atl06.<p>.rmse_m over products",
+  "decimals": 2
+ },
+ "erl.text.h2.atl08.diff_nmad.n_ci_include_zero": {
+  "value": 5,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose block-bootstrap interval of the DEM - product nmad difference includes zero (h2.atl08.diff.nmad.<p>_ci_low_m, _ci_high_m)"
+ },
+ "erl.text.h2.atl08.diff_rmse.n_ci_include_zero": {
+  "value": 5,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose block-bootstrap interval of the DEM - product rmse difference includes zero (h2.atl08.diff.rmse.<p>_ci_low_m, _ci_high_m)"
+ },
+ "erl.text.h2.atl08.product_nmad_max_m": {
+  "value": 1.112,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h2.atl08.<p>.nmad_m over products",
+  "decimals": 3
+ },
+ "erl.text.h2.atl08.product_nmad_min_m": {
+  "value": 0.855,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h2.atl08.<p>.nmad_m over products",
+  "decimals": 3
+ },
+ "erl.text.h2.atl08.product_rmse_max_m": {
+  "value": 1.168,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of h2.atl08.<p>.rmse_m over products",
+  "decimals": 2
+ },
+ "erl.text.h2.atl08.product_rmse_min_m": {
+  "value": 1.022,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of h2.atl08.<p>.rmse_m over products",
+  "decimals": 2
+ },
+ "erl.text.h3.constant.e3_n_corrected_worse": {
+  "value": 5,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose corrected E3 hold-out emergence error exceeds the uncorrected one (h3sens.constant.transfer)"
+ },
+ "erl.text.h3.constant.n_relevant_at_1m": {
+  "value": 1,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose h3sens.constant.relevant_scenarios.<p> includes 1 m"
+ },
+ "erl.text.h3.constant.not_relevant_1m.max_reldiff_pct": {
+  "value": 8.06651053864169,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "largest |constant-form fused - uncorrected| / uncorrected at 1 m over those products",
+  "decimals": 0
+ },
+ "erl.text.h3.constant.not_relevant_1m.n_products": {
+  "value": 4,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose constant-form correction is not decision-relevant at 1 m"
+ },
+ "erl.text.h3.constant.relevant_at_1m_products": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "those products"
+ },
+ "erl.text.h3.exposure.channels.1.max_amount": {
+  "value": 296.5,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.channels.srtm15p.uncorrected.1.amount (max over products)",
+  "decimals": 1
+ },
+ "erl.text.h3.exposure.channels.1.max_hi": {
+  "value": 296.9,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.channels.srtm15p.uncorrected.1.hi (max over products)",
+  "decimals": 1
+ },
+ "erl.text.h3.exposure.channels.1.max_lo": {
+  "value": 259.8,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.channels.srtm15p.uncorrected.1.lo (max over products)",
+  "decimals": 1
+ },
+ "erl.text.h3.exposure.channels.1.max_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.exposure.channels.1.min_amount": {
+  "value": 55.4,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.channels.gebco2022.uncorrected.1.amount (min over products)",
+  "decimals": 1
+ },
+ "erl.text.h3.exposure.channels.1.min_hi": {
+  "value": 60.4,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.channels.gebco2022.uncorrected.1.hi (min over products)",
+  "decimals": 1
+ },
+ "erl.text.h3.exposure.channels.1.min_lo": {
+  "value": 15.5,
+  "unit": "km",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.channels.gebco2022.uncorrected.1.lo (min over products)",
+  "decimals": 1
+ },
+ "erl.text.h3.exposure.channels.1.min_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.exposure.ports.1.max_amount": {
+  "value": 48,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ports.srtm15p.uncorrected.1.amount (max over products)"
+ },
+ "erl.text.h3.exposure.ports.1.max_hi": {
+  "value": 48,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ports.srtm15p.uncorrected.1.hi (max over products)"
+ },
+ "erl.text.h3.exposure.ports.1.max_lo": {
+  "value": 48,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ports.srtm15p.uncorrected.1.lo (max over products)"
+ },
+ "erl.text.h3.exposure.ports.1.max_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.exposure.ports.1.min_amount": {
+  "value": 0,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ports.gebco2026.uncorrected.1.amount (min over products)"
+ },
+ "erl.text.h3.exposure.ports.1.min_hi": {
+  "value": 1,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ports.gebco2026.uncorrected.1.hi (min over products)"
+ },
+ "erl.text.h3.exposure.ports.1.min_lo": {
+  "value": 0,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ports.gebco2026.uncorrected.1.lo (min over products)"
+ },
+ "erl.text.h3.exposure.ports.1.min_product": {
+  "value": "GEBCO_2026",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.exposure.settlements.1.max_amount": {
+  "value": 42,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.settlements.srtm15p.uncorrected.1.amount (max over products)"
+ },
+ "erl.text.h3.exposure.settlements.1.max_hi": {
+  "value": 46,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.settlements.srtm15p.uncorrected.1.hi (max over products)"
+ },
+ "erl.text.h3.exposure.settlements.1.max_lo": {
+  "value": 42,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.settlements.srtm15p.uncorrected.1.lo (max over products)"
+ },
+ "erl.text.h3.exposure.settlements.1.max_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.exposure.settlements.1.min_amount": {
+  "value": 0,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.settlements.gebco2026.uncorrected.1.amount (min over products)"
+ },
+ "erl.text.h3.exposure.settlements.1.min_hi": {
+  "value": 3,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.settlements.gebco2026.uncorrected.1.hi (min over products)"
+ },
+ "erl.text.h3.exposure.settlements.1.min_lo": {
+  "value": 0,
+  "unit": "features",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.settlements.gebco2026.uncorrected.1.lo (min over products)"
+ },
+ "erl.text.h3.exposure.settlements.1.min_product": {
+  "value": "GEBCO_2026",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.exposure.worldcover.1.max_amount": {
+  "value": 2569.4,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.worldcover.srtm15p.uncorrected.1.amount (max over products)"
+ },
+ "erl.text.h3.exposure.worldcover.1.max_hi": {
+  "value": 2570.9,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.worldcover.srtm15p.uncorrected.1.hi (max over products)"
+ },
+ "erl.text.h3.exposure.worldcover.1.max_lo": {
+  "value": 2536.9,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.worldcover.srtm15p.uncorrected.1.lo (max over products)"
+ },
+ "erl.text.h3.exposure.worldcover.1.max_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.exposure.worldcover.1.min_amount": {
+  "value": 478.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.worldcover.gebco2022.uncorrected.1.amount (min over products)"
+ },
+ "erl.text.h3.exposure.worldcover.1.min_hi": {
+  "value": 486.2,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.worldcover.gebco2022.uncorrected.1.hi (min over products)"
+ },
+ "erl.text.h3.exposure.worldcover.1.min_lo": {
+  "value": 353.6,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.worldcover.gebco2022.uncorrected.1.lo (min over products)"
+ },
+ "erl.text.h3.exposure.worldcover.1.min_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.level_2026_bhs_m": {
+  "value": -29.19235404534682,
+  "unit": "m (BHS-77)",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.level_2026_m + datum.bhs.delta_m: the 2026 reference level in the Baltic Height System",
+  "decimals": 2
+ },
+ "erl.text.h3.paths.1m.first_year": {
+  "value": "2031",
+  "unit": "year",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "earliest such year (h3.date.<id>.1)"
+ },
+ "erl.text.h3.paths.1m.last_year": {
+  "value": "2069",
+  "unit": "year",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "latest such year (h3.date.<id>.1)"
+ },
+ "erl.text.h3.paths.1m.n_reached": {
+  "value": 6,
+  "unit": "pathways",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "primary pathways reaching 1 m below the 2026 level by 2100"
+ },
+ "erl.text.h3.paths.2m.first_year": {
+  "value": "2037",
+  "unit": "year",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "earliest such year (h3.date.<id>.2)"
+ },
+ "erl.text.h3.paths.2m.last_year": {
+  "value": "2073",
+  "unit": "year",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "latest such year (h3.date.<id>.2)"
+ },
+ "erl.text.h3.paths.2m.n_reached": {
+  "value": 5,
+  "unit": "pathways",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "primary pathways reaching 2 m below the 2026 level by 2100"
+ },
+ "erl.text.h3.paths.n_primary": {
+  "value": 7,
+  "unit": "pathways",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "primary pathways (h3.date.<id> notes)"
+ },
+ "erl.text.h3.registered.0p5.unc_over_fused_max": {
+  "value": 0.4693431435274046,
+  "unit": "ratio",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum over products of uncorrected over fused (registered) emergence at 0p5 m",
+  "decimals": 1
+ },
+ "erl.text.h3.registered.0p5.unc_over_fused_min": {
+  "value": 0.12147405422537241,
+  "unit": "ratio",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum over products of uncorrected over fused (registered) emergence at 0p5 m",
+  "decimals": 1
+ },
+ "erl.text.h3.registered.1.unc_over_fused_max": {
+  "value": 2.830049212010121,
+  "unit": "ratio",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum over products of uncorrected over fused (registered) emergence at 1 m",
+  "decimals": 1
+ },
+ "erl.text.h3.registered.1.unc_over_fused_min": {
+  "value": 2.2731204090086994,
+  "unit": "ratio",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum over products of uncorrected over fused (registered) emergence at 1 m",
+  "decimals": 1
+ },
+ "erl.text.h3.registered.2.unc_over_fused_max": {
+  "value": 3.368292801202628,
+  "unit": "ratio",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum over products of uncorrected over fused (registered) emergence at 2 m",
+  "decimals": 1
+ },
+ "erl.text.h3.registered.2.unc_over_fused_min": {
+  "value": 1.5461679146638068,
+  "unit": "ratio",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum over products of uncorrected over fused (registered) emergence at 2 m",
+  "decimals": 1
+ },
+ "erl.text.h3.registered.e3_n_corrected_worse": {
+  "value": 5,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose corrected E3 hold-out emergence error exceeds the uncorrected one (h3.transfer)"
+ },
+ "erl.text.h3.registered.n_relevant_at_1m": {
+  "value": 5,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "products whose h3.relevant_scenarios.<p> includes 1 m"
+ },
+ "erl.text.h3.registered.relevant_at_1m_products": {
+  "value": "GEBCO_2026, GEBCO_2022, ETOPO 2022, ETOPO1 and SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "those products"
+ },
+ "erl.text.h3.uncorrected.0p5.max_hi_km2": {
+  "value": 5063.2,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, upper bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.0p5.max_km2": {
+  "value": 1760.6,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.emergence.etopo1.uncorrected.0p5.estimate_km2 (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.0p5.max_lo_km2": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, lower bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.0p5.max_product": {
+  "value": "ETOPO1",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.uncorrected.0p5.min_hi_km2": {
+  "value": 3961.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, upper bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.0p5.min_km2": {
+  "value": 426.7,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.emergence.gebco2022.uncorrected.0p5.estimate_km2 (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.0p5.min_lo_km2": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, lower bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.0p5.min_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.uncorrected.0p5.ratio": {
+  "value": 4.126083899695336,
+  "unit": "ratio",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "largest over smallest h3.emergence.<p>.uncorrected.0p5.estimate_km2",
+  "decimals": 1
+ },
+ "erl.text.h3.uncorrected.1.max_hi_km2": {
+  "value": 23126.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, upper bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.1.max_km2": {
+  "value": 22497.3,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.emergence.etopo2022.uncorrected.1.estimate_km2 (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.1.max_lo_km2": {
+  "value": 21868.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, lower bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.1.max_product": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.uncorrected.1.min_hi_km2": {
+  "value": 14156.1,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, upper bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.1.min_km2": {
+  "value": 10621.3,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.emergence.gebco2022.uncorrected.1.estimate_km2 (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.1.min_lo_km2": {
+  "value": 7086.6,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, lower bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.1.min_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.uncorrected.1.ratio": {
+  "value": 2.118130548991178,
+  "unit": "ratio",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "largest over smallest h3.emergence.<p>.uncorrected.1.estimate_km2",
+  "decimals": 1
+ },
+ "erl.text.h3.uncorrected.2.max_hi_km2": {
+  "value": 32923.8,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, upper bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.2.max_km2": {
+  "value": 32294.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.emergence.etopo2022.uncorrected.2.estimate_km2 (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.2.max_lo_km2": {
+  "value": 31665.3,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, lower bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.2.max_product": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.uncorrected.2.min_hi_km2": {
+  "value": 23968.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, upper bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.2.min_km2": {
+  "value": 20433.8,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.emergence.gebco2022.uncorrected.2.estimate_km2 (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.2.min_lo_km2": {
+  "value": 16899.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "its 90% interval, lower bound",
+  "decimals": 0
+ },
+ "erl.text.h3.uncorrected.2.min_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.uncorrected.2.ratio": {
+  "value": 1.5804451448090908,
+  "unit": "ratio",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "largest over smallest h3.emergence.<p>.uncorrected.2.estimate_km2",
+  "decimals": 1
+ },
+ "erl.text.inventory.n_landsat": {
+  "value": 23268,
+  "unit": "scenes",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "Landsat scenes in the inventory: inventory.n_scenes.TM_L5 + ETM_L7 + OLI_L8 + OLI_L9"
+ },
+ "erl.text.k0.robustness.check11.akbari2020_area_slope.dem_band_range_-28.5_-25.5_km2_per_m": {
+  "value": 10611.074999999999,
+  "unit": "km2 per m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check11.akbari2020_area_slope.dem_band_range_-28.5_-25.5_km2_per_m to the square kilometre",
+  "decimals": 0
+ },
+ "erl.text.k0.robustness.check11.akbari2020_area_slope.dem_band_range_-29.0_-26.0_km2_per_m": {
+  "value": 11334.291600000002,
+  "unit": "km2 per m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check11.akbari2020_area_slope.dem_band_range_-29.0_-26.0_km2_per_m to the square kilometre",
+  "decimals": 0
+ },
+ "erl.text.k0.robustness.check11.akbari2020_area_slope.dem_band_range_-29.5_-26.5_km2_per_m": {
+  "value": 7224.675899999999,
+  "unit": "km2 per m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check11.akbari2020_area_slope.dem_band_range_-29.5_-26.5_km2_per_m to the square kilometre",
+  "decimals": 0
+ },
+ "erl.text.k0.robustness.check11.akbari2020_area_slope.published_km2_per_m": {
+  "value": 7103.0,
+  "unit": "km2 per m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check11.akbari2020_area_slope.published_km2_per_m to the square kilometre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.control.north.median_displacement_m": {
+  "value": 84.8528137423857,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.control.north.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.control.north.median_noise_p95_m": {
+  "value": 323.10988842807024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.control.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.control.south.median_displacement_m": {
+  "value": 60.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.control.south.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.control.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.control.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo1.shape.north.median_displacement_m": {
+  "value": 1615.8521813797086,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo1.shape.north.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo1.shape.north.median_noise_p95_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo1.shape.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo1.shape.south.median_displacement_m": {
+  "value": 1591.411953027609,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo1.shape.south.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo1.shape.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo1.shape.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo1.total.north.median_noise_p95_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo1.total.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo1.total.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo1.total.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.shape.north.median_displacement_above_2013_m": {
+  "value": 254.5584412271571,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.shape.north.median_displacement_above_2013_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.shape.north.median_displacement_below_2013_m": {
+  "value": 1824.828759089466,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.shape.north.median_displacement_below_2013_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.shape.north.median_displacement_m": {
+  "value": 454.627034993008,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.shape.north.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.shape.north.median_noise_p95_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.shape.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.shape.south.median_displacement_above_2013_m": {
+  "value": 596.98484809835,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.shape.south.median_displacement_above_2013_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.shape.south.median_displacement_below_2013_m": {
+  "value": 900.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.shape.south.median_displacement_below_2013_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.shape.south.median_displacement_m": {
+  "value": 780.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.shape.south.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.shape.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.shape.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.total.north.median_displacement_m": {
+  "value": 392.48287590894654,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.total.north.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.total.north.median_noise_p95_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.total.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.total.south.median_displacement_m": {
+  "value": 300.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.total.south.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.etopo_2022.total.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.etopo_2022.total.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2022.shape.north.median_displacement_m": {
+  "value": 1961.4557291149717,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2022.shape.north.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2022.shape.north.median_noise_p95_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2022.shape.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2022.shape.south.median_displacement_m": {
+  "value": 2043.5263639111683,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2022.shape.south.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2022.shape.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2022.shape.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2022.total.north.median_noise_p95_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2022.total.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2022.total.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2022.total.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2026.shape.north.median_displacement_m": {
+  "value": 1100.7541803886238,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2026.shape.north.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2026.shape.north.median_noise_p95_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2026.shape.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2026.shape.south.median_displacement_m": {
+  "value": 1138.4199576606163,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2026.shape.south.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2026.shape.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2026.shape.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2026.total.north.median_noise_p95_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2026.total.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.gebco_2026.total.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.gebco_2026.total.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.north.noise_floor_p95_median_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.north.noise_floor_p95_median_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.south.noise_floor_p95_median_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.south.noise_floor_p95_median_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.srtm15p_v2.7.shape.north.median_displacement_m": {
+  "value": 1967.3736873829953,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.srtm15p_v2.7.shape.north.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.srtm15p_v2.7.shape.north.median_noise_p95_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.srtm15p_v2.7.shape.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.srtm15p_v2.7.shape.south.median_displacement_m": {
+  "value": 1953.4584715319647,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.srtm15p_v2.7.shape.south.median_displacement_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.srtm15p_v2.7.shape.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.srtm15p_v2.7.shape.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.srtm15p_v2.7.total.north.median_noise_p95_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.srtm15p_v2.7.total.north.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m0.generality.great_salt_lake.srtm15p_v2.7.total.south.median_noise_p95_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "generality.great_salt_lake.srtm15p_v2.7.total.south.median_noise_p95_m to the metre",
+  "decimals": 0
+ },
+ "erl.text.m3.robustness.check01.awei_sh_R.atl06.dem_nmad_m_primary": {
+  "value": 0.28751391884511207,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check01.awei_sh_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check01.awei_sh_R.atl08.dem_nmad_m_primary": {
+  "value": 0.2854090665214392,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check01.awei_sh_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check01.fixed_mndwi0_R.atl06.dem_nmad_m_primary": {
+  "value": 0.28741313384355616,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check01.fixed_mndwi0_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check01.fixed_mndwi0_R.atl08.dem_nmad_m_primary": {
+  "value": 0.2853892227565723,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check01.fixed_mndwi0_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check02.s2_add_R.atl06.dem_nmad_m_primary": {
+  "value": 0.28741313384355616,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check02.s2_add_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check02.s2_add_R.atl08.dem_nmad_m_primary": {
+  "value": 0.2853892227565723,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check02.s2_add_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check02.sub_etm_R.atl06.dem_nmad_m_primary": {
+  "value": 0.2875078866068534,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check02.sub_etm_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check02.sub_etm_R.atl08.dem_nmad_m_primary": {
+  "value": 0.2854067840015481,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check02.sub_etm_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check02.sub_oli_R.atl06.dem_nmad_m_primary": {
+  "value": 0.28865660713194397,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check02.sub_oli_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check02.sub_oli_R.atl08.dem_nmad_m_primary": {
+  "value": 0.28692818378109625,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check02.sub_oli_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check02.sub_slcoff_R.atl06.dem_nmad_m_primary": {
+  "value": 0.2875078866068534,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check02.sub_slcoff_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check02.sub_slcoff_R.atl08.dem_nmad_m_primary": {
+  "value": 0.2854067840015481,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check02.sub_slcoff_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check02.sub_tm_R.atl06.dem_nmad_m_primary": {
+  "value": 0.2875134443660599,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check02.sub_tm_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check02.sub_tm_R.atl08.dem_nmad_m_primary": {
+  "value": 0.2854323115068036,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check02.sub_tm_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check03.snow_all_months_R.atl06.dem_nmad_m_primary": {
+  "value": 0.28741313384355616,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check03.snow_all_months_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check03.snow_all_months_R.atl08.dem_nmad_m_primary": {
+  "value": 0.2853892227565723,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check03.snow_all_months_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check04.setup_correction.atl08.dem_nmad_m_primary": {
+  "value": 0.3700959523799987,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check04.setup_correction.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check04.tau015_R.atl06.dem_nmad_m_primary": {
+  "value": 0.2875591884398585,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check04.tau015_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check04.tau015_R.atl08.dem_nmad_m_primary": {
+  "value": 0.28541453590739935,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check04.tau015_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check05.hydroweb_const.atl08.dem_nmad_m_primary": {
+  "value": 0.3700959523799987,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check05.hydroweb_const.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check07.bins005_R.atl06.dem_nmad_m_primary": {
+  "value": 0.28740574299568283,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check07.bins005_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check07.bins005_R.atl08.dem_nmad_m_primary": {
+  "value": 0.2853958335925139,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check07.bins005_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check07.no_static_exclusion.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check07.no_static_exclusion.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check07.no_static_exclusion.atl08.dem_nmad_m_primary": {
+  "value": 0.3700959523799987,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check07.no_static_exclusion.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check08.block_12_5km.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check08.block_12_5km.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check08.block_12_5km.atl08.dem_nmad_m_primary": {
+  "value": 0.3700959523799987,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check08.block_12_5km.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check08.block_25km.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check08.block_25km.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check08.block_25km.atl08.dem_nmad_m_primary": {
+  "value": 0.3700959523799987,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check08.block_25km.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check09.ndvi020_R.atl06.dem_nmad_m_primary": {
+  "value": 0.28752099693895167,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check09.ndvi020_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check09.ndvi020_R.atl08.dem_nmad_m_primary": {
+  "value": 0.28541134904133025,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check09.ndvi020_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check09.ndvi040_R.atl06.dem_nmad_m_primary": {
+  "value": 0.2874496610028955,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check09.ndvi040_R.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check09.ndvi040_R.atl08.dem_nmad_m_primary": {
+  "value": 0.2854090665214392,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check09.ndvi040_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.named.emergence_lag_365d.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.named.emergence_lag_365d.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.named.emergence_lag_365d.atl08.dem_nmad_m_primary": {
+  "value": 0.3700959523799987,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.named.emergence_lag_365d.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.named.products_nearest.atl08.dem_nmad_m_primary": {
+  "value": 0.3700959523799987,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.named.products_nearest.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.p4.h1.block_test.shape.etopo1.p": {
+  "value": 0.0167,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h1.block_test.shape.etopo1.p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.h1.block_test.shape.etopo2022.p": {
+  "value": 1.0,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h1.block_test.shape.etopo2022.p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.h1.block_test.shape.gebco2022.p": {
+  "value": 0.0098,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h1.block_test.shape.gebco2022.p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.h1.block_test.shape.gebco2026.p": {
+  "value": 0.0063,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h1.block_test.shape.gebco2026.p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.h1.block_test.shape.srtm15p.p": {
+  "value": 0.1398,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h1.block_test.shape.srtm15p.p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.h1.block_test.total.etopo1.p": {
+  "value": 0.0035,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h1.block_test.total.etopo1.p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.h1.block_test.total.etopo2022.p": {
+  "value": 0.9921,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h1.block_test.total.etopo2022.p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.h1.block_test.total.gebco2022.p": {
+  "value": 0.0168,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h1.block_test.total.gebco2022.p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.h1.block_test.total.gebco2026.p": {
+  "value": 0.0188,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h1.block_test.total.gebco2026.p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.h1.block_test.total.srtm15p.p": {
+  "value": 0.0007,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h1.block_test.total.srtm15p.p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.noenv.shape.etopo1.block_p": {
+  "value": 0.1546,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.noenv.shape.etopo1.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.noenv.shape.etopo2022.block_p": {
+  "value": 1.0,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.noenv.shape.etopo2022.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.noenv.shape.gebco2022.block_p": {
+  "value": 0.0664,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.noenv.shape.gebco2022.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.noenv.shape.gebco2026.block_p": {
+  "value": 0.0599,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.noenv.shape.gebco2026.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.noenv.shape.srtm15p.block_p": {
+  "value": 0.2944,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.noenv.shape.srtm15p.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.noenv.total.etopo1.block_p": {
+  "value": 0.0722,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.noenv.total.etopo1.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.noenv.total.etopo2022.block_p": {
+  "value": 0.9983,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.noenv.total.etopo2022.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.noenv.total.gebco2022.block_p": {
+  "value": 0.2009,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.noenv.total.gebco2022.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.noenv.total.gebco2026.block_p": {
+  "value": 0.1819,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.noenv.total.gebco2026.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.noenv.total.srtm15p.block_p": {
+  "value": 0.0041,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.noenv.total.srtm15p.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.primary.shape.etopo1.block_p": {
+  "value": 0.0167,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.primary.shape.etopo1.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.primary.shape.etopo2022.block_p": {
+  "value": 1.0,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.primary.shape.etopo2022.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.primary.shape.gebco2022.block_p": {
+  "value": 0.0098,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.primary.shape.gebco2022.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.primary.shape.gebco2026.block_p": {
+  "value": 0.0063,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.primary.shape.gebco2026.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.primary.shape.srtm15p.block_p": {
+  "value": 0.1398,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.primary.shape.srtm15p.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.primary.total.etopo1.block_p": {
+  "value": 0.0035,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.primary.total.etopo1.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.primary.total.etopo2022.block_p": {
+  "value": 0.9921,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.primary.total.etopo2022.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.primary.total.gebco2022.block_p": {
+  "value": 0.0168,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.primary.total.gebco2022.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.primary.total.gebco2026.block_p": {
+  "value": 0.0188,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.primary.total.gebco2026.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.primary.total.srtm15p.block_p": {
+  "value": 0.0007,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.primary.total.srtm15p.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.sector_shape.sector_shape.etopo1.block_p": {
+  "value": 0.0001,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.sector_shape.sector_shape.etopo1.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.sector_shape.sector_shape.etopo2022.block_p": {
+  "value": 0.9972,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.sector_shape.sector_shape.etopo2022.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.sector_shape.sector_shape.gebco2022.block_p": {
+  "value": 0.0001,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.sector_shape.sector_shape.gebco2022.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.sector_shape.sector_shape.gebco2026.block_p": {
+  "value": 0.0001,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.sector_shape.sector_shape.gebco2026.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.redteam.sector_shape.sector_shape.srtm15p.block_p": {
+  "value": 0.0003,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "redteam.sector_shape.sector_shape.srtm15p.block_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.robustness.check06.sector_shape_constants.etopo1.block_test_p": {
+  "value": 9.999000099990002e-05,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.sector_shape_constants.etopo1.block_test_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.robustness.check06.sector_shape_constants.etopo1.block_test_p_primary_fix": {
+  "value": 0.0166983301669833,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.sector_shape_constants.etopo1.block_test_p_primary_fix to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.robustness.check06.sector_shape_constants.etopo_2022.block_test_p": {
+  "value": 0.9972002799720028,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.sector_shape_constants.etopo_2022.block_test_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.robustness.check06.sector_shape_constants.etopo_2022.block_test_p_primary_fix": {
+  "value": 1.0,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.sector_shape_constants.etopo_2022.block_test_p_primary_fix to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.robustness.check06.sector_shape_constants.gebco_2022.block_test_p": {
+  "value": 9.999000099990002e-05,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.sector_shape_constants.gebco_2022.block_test_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.robustness.check06.sector_shape_constants.gebco_2022.block_test_p_primary_fix": {
+  "value": 0.0097990200979902,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.sector_shape_constants.gebco_2022.block_test_p_primary_fix to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.robustness.check06.sector_shape_constants.gebco_2026.block_test_p": {
+  "value": 9.999000099990002e-05,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.sector_shape_constants.gebco_2026.block_test_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.robustness.check06.sector_shape_constants.gebco_2026.block_test_p_primary_fix": {
+  "value": 0.0062993700629937,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.sector_shape_constants.gebco_2026.block_test_p_primary_fix to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.robustness.check06.sector_shape_constants.srtm15p_v2.7.block_test_p": {
+  "value": 0.0002999700029997,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.sector_shape_constants.srtm15p_v2.7.block_test_p to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.p4.robustness.check06.sector_shape_constants.srtm15p_v2.7.block_test_p_primary_fix": {
+  "value": 0.1397860213978602,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.sector_shape_constants.srtm15p_v2.7.block_test_p_primary_fix to 4 decimals",
+  "decimals": 4
+ },
+ "erl.text.pct.h2.atl06.coverage.interfluve": {
+  "value": 98.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.interfluve as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.interfluve_boot_high": {
+  "value": 98.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.interfluve_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.interfluve_boot_low": {
+  "value": 98.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.interfluve_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.interfluve_ci_high": {
+  "value": 98.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.interfluve_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.interfluve_ci_low": {
+  "value": 98.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.interfluve_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.komsomolets": {
+  "value": 8.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.komsomolets as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.komsomolets_boot_high": {
+  "value": 9.2,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.komsomolets_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.komsomolets_boot_low": {
+  "value": 7.3999999999999995,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.komsomolets_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.komsomolets_ci_high": {
+  "value": 8.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.komsomolets_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.komsomolets_ci_low": {
+  "value": 8.4,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.komsomolets_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.northeast": {
+  "value": 85.39999999999999,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.northeast as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.northeast_boot_high": {
+  "value": 86.9,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.northeast_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.northeast_boot_low": {
+  "value": 83.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.northeast_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.northeast_ci_high": {
+  "value": 85.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.northeast_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.northeast_ci_low": {
+  "value": 85.39999999999999,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.northeast_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.open_shelf": {
+  "value": 84.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.open_shelf as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.open_shelf_boot_high": {
+  "value": 93.10000000000001,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.open_shelf_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.open_shelf_boot_low": {
+  "value": 82.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.open_shelf_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.open_shelf_ci_high": {
+  "value": 84.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.open_shelf_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.open_shelf_ci_low": {
+  "value": 84.39999999999999,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.open_shelf_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.overall": {
+  "value": 75.2,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.overall_boot_high": {
+  "value": 88.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.overall_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.overall_boot_low": {
+  "value": 49.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.overall_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.overall_ci_high": {
+  "value": 75.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.overall_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.overall_ci_low": {
+  "value": 75.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.overall_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.volga": {
+  "value": 94.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.volga as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.volga_boot_high": {
+  "value": 99.9,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.volga_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.volga_boot_low": {
+  "value": 86.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.volga_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.volga_ci_high": {
+  "value": 94.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.volga_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.volga_ci_low": {
+  "value": 94.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.volga_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.west": {
+  "value": 83.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.west as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.west_boot_high": {
+  "value": 83.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.west_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.west_boot_low": {
+  "value": 83.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.west_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.west_ci_high": {
+  "value": 84.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.west_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl06.coverage.west_ci_low": {
+  "value": 82.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl06.coverage.west_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.interfluve": {
+  "value": 98.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.interfluve as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.interfluve_boot_high": {
+  "value": 98.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.interfluve_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.interfluve_boot_low": {
+  "value": 98.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.interfluve_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.interfluve_ci_high": {
+  "value": 99.2,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.interfluve_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.interfluve_ci_low": {
+  "value": 98.4,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.interfluve_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.komsomolets": {
+  "value": 8.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.komsomolets as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.komsomolets_boot_high": {
+  "value": 9.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.komsomolets_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.komsomolets_boot_low": {
+  "value": 6.800000000000001,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.komsomolets_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.komsomolets_ci_high": {
+  "value": 9.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.komsomolets_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.komsomolets_ci_low": {
+  "value": 8.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.komsomolets_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.northeast": {
+  "value": 87.4,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.northeast as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.northeast_boot_high": {
+  "value": 87.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.northeast_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.northeast_boot_low": {
+  "value": 86.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.northeast_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.northeast_ci_high": {
+  "value": 87.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.northeast_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.northeast_ci_low": {
+  "value": 87.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.northeast_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.open_shelf": {
+  "value": 82.19999999999999,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.open_shelf as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.open_shelf_boot_high": {
+  "value": 91.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.open_shelf_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.open_shelf_boot_low": {
+  "value": 80.60000000000001,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.open_shelf_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.open_shelf_ci_high": {
+  "value": 82.89999999999999,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.open_shelf_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.open_shelf_ci_low": {
+  "value": 81.39999999999999,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.open_shelf_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.overall": {
+  "value": 75.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.overall_boot_high": {
+  "value": 89.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.overall_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.overall_boot_low": {
+  "value": 47.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.overall_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.overall_ci_high": {
+  "value": 75.9,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.overall_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.overall_ci_low": {
+  "value": 75.4,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.overall_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.volga": {
+  "value": 93.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.volga as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.volga_boot_high": {
+  "value": 100.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.volga_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.volga_boot_low": {
+  "value": 84.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.volga_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.volga_ci_high": {
+  "value": 94.19999999999999,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.volga_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.volga_ci_low": {
+  "value": 93.2,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.volga_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.west": {
+  "value": 86.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.west as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.west_boot_high": {
+  "value": 86.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.west_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.west_boot_low": {
+  "value": 86.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.west_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.west_ci_high": {
+  "value": 89.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.west_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.atl08.coverage.west_ci_low": {
+  "value": 82.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.atl08.coverage.west_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.interfluve": {
+  "value": 95.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.interfluve as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.interfluve_boot_high": {
+  "value": 95.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.interfluve_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.interfluve_boot_low": {
+  "value": 95.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.interfluve_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.interfluve_ci_high": {
+  "value": 95.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.interfluve_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.interfluve_ci_low": {
+  "value": 95.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.interfluve_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.komsomolets": {
+  "value": 17.299999999999997,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.komsomolets as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.komsomolets_boot_high": {
+  "value": 18.6,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.komsomolets_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.komsomolets_boot_low": {
+  "value": 15.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.komsomolets_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.komsomolets_ci_high": {
+  "value": 17.599999999999998,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.komsomolets_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.komsomolets_ci_low": {
+  "value": 17.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.komsomolets_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.northeast": {
+  "value": 95.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.northeast as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.northeast_boot_high": {
+  "value": 95.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.northeast_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.northeast_boot_low": {
+  "value": 94.69999999999999,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.northeast_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.northeast_ci_high": {
+  "value": 95.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.northeast_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.northeast_ci_low": {
+  "value": 95.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.northeast_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.open_shelf": {
+  "value": 79.9,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.open_shelf as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.open_shelf_boot_high": {
+  "value": 81.10000000000001,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.open_shelf_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.open_shelf_boot_low": {
+  "value": 59.4,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.open_shelf_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.open_shelf_ci_high": {
+  "value": 80.4,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.open_shelf_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.open_shelf_ci_low": {
+  "value": 79.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.open_shelf_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.overall": {
+  "value": 79.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.overall_boot_high": {
+  "value": 94.39999999999999,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.overall_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.overall_boot_low": {
+  "value": 48.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.overall_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.overall_ci_high": {
+  "value": 79.80000000000001,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.overall_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.overall_ci_low": {
+  "value": 79.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.overall_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.volga": {
+  "value": 93.10000000000001,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.volga as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.volga_boot_high": {
+  "value": 99.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.volga_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.volga_boot_low": {
+  "value": 86.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.volga_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.volga_ci_high": {
+  "value": 93.4,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.volga_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.volga_ci_low": {
+  "value": 92.80000000000001,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.volga_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.west": {
+  "value": 76.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.west as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.west_boot_high": {
+  "value": 76.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.west_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.west_boot_low": {
+  "value": 76.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.west_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.west_ci_high": {
+  "value": 80.10000000000001,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.west_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi.coverage.west_ci_low": {
+  "value": 72.2,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi.coverage.west_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi_night.coverage.overall": {
+  "value": 78.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi_night.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi_night.coverage.overall_boot_high": {
+  "value": 95.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi_night.coverage.overall_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi_night.coverage.overall_boot_low": {
+  "value": 46.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi_night.coverage.overall_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi_night.coverage.overall_ci_high": {
+  "value": 78.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi_night.coverage.overall_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.gedi_night.coverage.overall_ci_low": {
+  "value": 78.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.gedi_night.coverage.overall_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.interfluve": {
+  "value": 98.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.interfluve as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.interfluve_boot_high": {
+  "value": 98.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.interfluve_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.interfluve_boot_low": {
+  "value": 98.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.interfluve_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.interfluve_ci_high": {
+  "value": 98.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.interfluve_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.interfluve_ci_low": {
+  "value": 98.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.interfluve_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.komsomolets": {
+  "value": 63.800000000000004,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.komsomolets as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.komsomolets_boot_high": {
+  "value": 70.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.komsomolets_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.komsomolets_boot_low": {
+  "value": 55.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.komsomolets_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.komsomolets_ci_high": {
+  "value": 65.60000000000001,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.komsomolets_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.komsomolets_ci_low": {
+  "value": 61.9,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.komsomolets_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.northeast": {
+  "value": 87.9,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.northeast as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.northeast_boot_high": {
+  "value": 97.39999999999999,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.northeast_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.northeast_boot_low": {
+  "value": 81.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.northeast_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.northeast_ci_high": {
+  "value": 88.1,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.northeast_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.northeast_ci_low": {
+  "value": 87.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.northeast_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.open_shelf": {
+  "value": 86.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.open_shelf as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.open_shelf_boot_high": {
+  "value": 97.2,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.open_shelf_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.open_shelf_boot_low": {
+  "value": 85.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.open_shelf_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.open_shelf_ci_high": {
+  "value": 87.4,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.open_shelf_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.open_shelf_ci_low": {
+  "value": 86.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.open_shelf_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.overall": {
+  "value": 88.2,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.overall_boot_high": {
+  "value": 96.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.overall_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.overall_boot_low": {
+  "value": 82.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.overall_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.overall_ci_high": {
+  "value": 88.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.overall_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.overall_ci_low": {
+  "value": 88.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.overall_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.volga": {
+  "value": 92.30000000000001,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.volga as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.volga_boot_high": {
+  "value": 100.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.volga_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.volga_boot_low": {
+  "value": 88.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.volga_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.volga_ci_high": {
+  "value": 92.9,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.volga_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.volga_ci_low": {
+  "value": 91.8,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.volga_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.west": {
+  "value": 99.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.west as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.west_boot_high": {
+  "value": 99.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.west_boot_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.west_boot_low": {
+  "value": 99.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.west_boot_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.west_ci_high": {
+  "value": 99.9,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.west_ci_high as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.glo30.coverage.west_ci_low": {
+  "value": 97.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.glo30.coverage.west_ci_low as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.sens12km.atl06.coverage.overall": {
+  "value": 82.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.sens12km.atl06.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.sens12km.atl08.coverage.overall": {
+  "value": 82.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.sens12km.atl08.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.sens25km.atl06.coverage.overall": {
+  "value": 89.3,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.sens25km.atl06.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.sens25km.atl08.coverage.overall": {
+  "value": 89.0,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.sens25km.atl08.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.veg.atl06.coverage.overall": {
+  "value": 99.5,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.veg.atl06.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.pct.h2.veg.atl08.coverage.overall": {
+  "value": 99.7,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h2.veg.atl08.coverage.overall as a percentage",
+  "decimals": 1
+ },
+ "erl.text.redteam.noenv.block_p_max": {
+  "value": 0.1546,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of redteam.noenv.shape.<p>.block_p over the products significant in the primary shape run",
+  "decimals": 2
+ },
+ "erl.text.redteam.noenv.block_p_min": {
+  "value": 0.0599,
+  "unit": "p-value",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of redteam.noenv.shape.<p>.block_p over the products significant in the primary shape run",
+  "decimals": 2
+ },
+ "erl.text.redteam.noenv.majority.n_sectors_max": {
+  "value": 6,
+  "unit": "sectors",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of redteam.noenv.shape.<p>.n_sectors over the majority products"
+ },
+ "erl.text.redteam.noenv.majority.n_sectors_min": {
+  "value": 5,
+  "unit": "sectors",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of redteam.noenv.shape.<p>.n_sectors over the majority products"
+ },
+ "erl.text.redteam.noenv.n_still_significant": {
+  "value": 0,
+  "unit": "products",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "of those products, the number still significant without the envelope"
+ },
+ "erl.text.redteam.sector_shape.majority.n_sectors_max": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of redteam.sector_shape.sector_shape.<p>.n_sectors over the majority products"
+ },
+ "erl.text.redteam.sector_shape.majority.n_sectors_min": {
+  "value": 6,
+  "unit": "sectors",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of redteam.sector_shape.sector_shape.<p>.n_sectors over the majority products"
+ },
+ "erl.text.robust.e2e3.majority.n_sectors_max": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "maximum of robustness.check10.h1_e2e3_only.<p>.n_sectors_mispredict over the majority products"
+ },
+ "erl.text.robust.e2e3.majority.n_sectors_min": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "minimum of robustness.check10.h1_e2e3_only.<p>.n_sectors_mispredict over the majority products"
+ },
+ "erl.text.robust.morph_share_e1_better_pct": {
+  "value": 34.61538461538461,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check10.morphology_table.share_levels_e1_better as a percentage",
+  "decimals": 0
+ },
  "generality.great_salt_lake.control.north.median_displacement_m": {
   "value": 84.8528137423857,
   "unit": "m",
