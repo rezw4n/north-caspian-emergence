@@ -28,7 +28,7 @@ def raw_inputs(tmp: Path, grids: bool = True) -> dict[str, str]:
     """Stand-in files for every raw input `make all` reads (contents irrelevant to make -n)."""
     tmp.mkdir(parents=True, exist_ok=True)
     over = {}
-    for name in ("DAHITI", "HYDROWEB", "SCENES"):
+    for name in ("DAHITI", "HYDROWEB", "SCENES", "CASPCOM"):
         f = tmp / f"{name.lower()}.txt"
         f.write_text("x", encoding="utf-8")
         over[name] = f.as_posix()

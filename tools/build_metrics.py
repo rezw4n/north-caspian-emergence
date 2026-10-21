@@ -175,6 +175,51 @@ def input_stage_metrics(m: dict) -> None:
             put(m, f"blocks.n.{k}", n, "blocks", src)
 
 
+def datum_metrics(m: dict) -> None:
+    """DAHITI -> BHS-77 offset from the CASPCOM post levels (scripts/a7_dahiti_bhs_offset.py;
+    PREREG section 5; D-093). Used only to report levels in BHS-77; it cancels in every
+    hindcast and validation metric (D-070, D-074)."""
+    r = load("levels/dahiti_bhs_offset.json")
+    src = "results/levels/dahiti_bhs_offset.json"
+    if not r:
+        return
+
+    def put_dp(key, value, unit, note=None, dp=2):
+        put(m, key, value, unit, src, note)
+        if key in m:
+            m[key]["decimals"] = dp
+
+    p, tw = r.get("primary") or {}, r.get("posts_and_years_bootstrap") or {}
+    note = "delta = H_BHS-77 - H_DAHITI; mean over the CASPCOM century posts of the per-post mean annual difference"
+    put_dp("datum.bhs.delta_m", p.get("delta_m"), "m", note)
+    put_dp("datum.bhs.sigma_years_m", p.get("sigma_m"), "m",
+           f"moving-block bootstrap over years ({p.get('block_years')}-year blocks)", dp=3)
+    put_dp("datum.bhs.sigma_posts_years_m", tw.get("sigma_m"), "m", "bootstrap over posts and year blocks", dp=2)
+    put_dp("datum.bhs.between_post_sd_m", r.get("between_post_sd_m"), "m", "SD of the per-post offsets", dp=2)
+    rng = r.get("between_post_range_m") or [None, None]
+    put_dp("datum.bhs.post_min_m", rng[0], "m", "most negative per-post offset")
+    put_dp("datum.bhs.post_max_m", rng[1], "m", "least negative per-post offset")
+    put(m, "datum.bhs.n_posts", p.get("n_posts"), "posts", src)
+    put(m, "datum.bhs.n_years", p.get("n_years"), "years", src, "calendar years with a difference at any post")
+    put(m, "datum.bhs.n_post_years", p.get("n_post_years"), "post-years", src)
+    put(m, "datum.bhs.first_year", str(p["first_year"]) if p.get("first_year") else None, "year", src)
+    put(m, "datum.bhs.last_year", str(p["last_year"]) if p.get("last_year") else None, "year", src)
+    dr = r.get("common_drift") or {}
+    put_dp("datum.bhs.drift_m_per_decade", dr.get("trend_m_per_decade"), "m per decade",
+           "OLS trend of the year-mean difference after removing post effects", dp=3)
+    sens = r.get("sensitivities") or {}
+    vals = [s["delta_m"] for s in sens.values() if s.get("delta_m") is not None]
+    if vals:
+        put_dp("datum.bhs.sens_min_m", min(vals), "m", "range over the D-093 sensitivities")
+        put_dp("datum.bhs.sens_max_m", max(vals), "m", "range over the D-093 sensitivities")
+    nc = sens.get("north_caspian_posts") or {}
+    put_dp("datum.bhs.north_delta_m", nc.get("delta_m"), "m", "Peshnoy, Tyuleniy, Lagan and Kulaly posts")
+    bs = r.get("bulletin_sea_mean_offset") or {}
+    put_dp("datum.bhs.bulletin_delta_m", bs.get("mean_m"), "m",
+           "CASPCOM bulletin 'mean level of the Caspian Sea' minus DAHITI, mean over the years with both")
+    put(m, "datum.bhs.bulletin_n_years", bs.get("n_years"), "years", src)
+
+
 PRODUCT_KEY = {"gebco_2026": "gebco2026", "gebco_2022": "gebco2022", "etopo_2022": "etopo2022",
                "srtm15p_v2.7": "srtm15p", "etopo1": "etopo1"}
 
@@ -589,6 +634,7 @@ def main() -> int:
 
     study_area_metrics(m)
     input_stage_metrics(m)
+    datum_metrics(m)
 
     dq = load("qc/dahiti_summary.json")
     src = "results/qc/dahiti_summary.json"

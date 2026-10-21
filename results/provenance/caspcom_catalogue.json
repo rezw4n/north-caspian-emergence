@@ -1,0 +1,136 @@
+{
+ "source": "CASPCOM General Catalogue of the Caspian Sea level, monthly data (English archive)",
+ "page": "http://www.caspcom.com/%d1%83%d1%80%d0%be%d0%b2%d0%b5%d0%bd%d1%8c/",
+ "url": "http://caspcom.com/wp-content/uploads/2026/07/Sea-Level-EN.zip",
+ "retrieved_utc": "2026-10-21T02:55:35+00:00",
+ "sha256": "093967682df61384f902195315850f70390c1969b599051f62db6bd75e978778",
+ "bytes": 248931,
+ "files": [
+  {
+   "name": "AVERAGE/AKTAU_av.xls",
+   "size": 45568,
+   "date": "2025-08-11"
+  },
+  {
+   "name": "AVERAGE/AMIRABAD_av.xls",
+   "size": 22016,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/ANZALI_av.xls",
+   "size": 50176,
+   "date": "2026-04-22"
+  },
+  {
+   "name": "AVERAGE/ASHOR_av.xls",
+   "size": 31232,
+   "date": "2026-04-22"
+  },
+  {
+   "name": "AVERAGE/BAKU_av.xls",
+   "size": 46592,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/BEK_av.xls",
+   "size": 41984,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/CHELEKEN_av.xls",
+   "size": 28160,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/FORT_av.xls",
+   "size": 52224,
+   "date": "2025-08-11"
+  },
+  {
+   "name": "AVERAGE/F_KENAR_av.xlsx",
+   "size": 10407,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/ISB_av.xls",
+   "size": 25600,
+   "date": "2015-08-21"
+  },
+  {
+   "name": "AVERAGE/JILOY (Chilov)_av.xls",
+   "size": 42496,
+   "date": "2026-04-23"
+  },
+  {
+   "name": "AVERAGE/KBG_av.xlsx",
+   "size": 23132,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/KRASN_av.xls",
+   "size": 46080,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/KUL_av.xls",
+   "size": 48640,
+   "date": "2025-08-11"
+  },
+  {
+   "name": "AVERAGE/KUULI_av.xls",
+   "size": 47104,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/LAG_av.xls",
+   "size": 32768,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/LEN_av.xls",
+   "size": 48640,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/MAKH_av.xls",
+   "size": 47616,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/NEKA_av.xls",
+   "size": 27648,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/NKAMNI_av.xls",
+   "size": 38912,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/NOUSHAR_av.xls",
+   "size": 33280,
+   "date": "2026-04-22"
+  },
+  {
+   "name": "AVERAGE/OGUR_av.xls",
+   "size": 44032,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/PESH_av.xls",
+   "size": 49664,
+   "date": "2025-08-11"
+  },
+  {
+   "name": "AVERAGE/SUMG_av.xls",
+   "size": 35840,
+   "date": "2026-04-14"
+  },
+  {
+   "name": "AVERAGE/TUL_av.xls",
+   "size": 43520,
+   "date": "2026-04-14"
+  }
+ ],
+ "terms": "No licence or terms of use stated on the page; site footer 'Copyright (c) 2026 CASPCOM. All Rights Reserved.' The archive is kept locally (data/ is git-ignored) and not redistributed."
+}
