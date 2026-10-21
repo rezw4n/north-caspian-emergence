@@ -57,6 +57,23 @@ def main(basin: str) -> int:
             rec[f"{name}_heights"] = {"modal_m": float(vals[np.argmax(cnt)]), "modal_share": round(float(cnt.max() / v.size), 4),
                                       "p05_m": round(float(np.nanpercentile(v, 5)), 2), "p95_m": round(float(np.nanpercentile(v, 95)), 2),
                                       "whole_metre_share": round(float(np.mean(np.isclose(v, np.round(v)))), 4)}
+        dep = INTERIM / "generality" / basin / "dep3_60m.npy"
+        if dep.exists():   # the positive-control substitute: flat (hydro-flattened) patches in the band
+            z = np.load(dep)
+            tr60, shp60 = G.grid(B["bbox"], B["crs"], 60)
+            x60, y60 = G.cell_centres(tr60, shp60)
+            ci = np.floor((x60 - tr[2]) / tr[0]).astype(int)
+            ri = np.floor((y60 - tr[5]) / tr[4]).astype(int)
+            ok_c, ok_r = (ci >= 0) & (ci < band.shape[1]), (ri >= 0) & (ri < band.shape[0])
+            b60 = np.zeros(shp60, bool)
+            b60[np.ix_(ok_r, ok_c)] = band[np.ix_(ri[ok_r], ci[ok_c])]
+            v = z[b60]
+            v = v[np.isfinite(v)]
+            vals, cnt = np.unique(np.round(v, 2), return_counts=True)
+            top = np.argsort(cnt)[::-1][:3]
+            rec["dep3_band"] = {"cells_60m": int(v.size),
+                                "plateaus": [{"height_m": float(vals[i]), "share": round(float(cnt[i] / v.size), 4)} for i in top],
+                                "p05_m": round(float(np.percentile(v, 5)), 2), "p95_m": round(float(np.percentile(v, 95)), 2)}
         out["arms"][arm] = rec
     out["etopo_source_names"] = {str(k): v for k, v in ETOPO_SOURCES.items()}
     (RESULTS / "generality" / basin / "lineage.json").write_text(json.dumps(out, indent=1), encoding="utf-8")

@@ -312,7 +312,9 @@ METRIC_INPUTS := $(INV_META) results/study_area/sector_areas.json results/study_
                  results/params.json refs/literature_values.csv results/levels/setup_model.json \
                  results/qc/threshold_rule_summary.json results/provenance/geoid_difference.json \
                  results/study_area/blocks_25km.csv results/study_area/zone_v6_cover_buffered.geojson \
-                 results/levels/screening_sensitivity.json results/levels/dahiti_bhs_offset.json
+                 results/levels/screening_sensitivity.json results/levels/dahiti_bhs_offset.json \
+                 results/generality/great_salt_lake/h1_decision.json results/generality/great_salt_lake/status.json \
+                 results/generality/lake_urmia/status.json
 
 # DAHITI -> BHS-77 offset from the CASPCOM post levels (PREREG section 5; D-093). The script
 # stops if $(CASPCOM) differs from its acquisition record. Also writes the annual differences.

@@ -43,6 +43,18 @@ def arm_decision(disp: pd.DataFrame, noise: pd.DataFrame, arm: str) -> tuple[pd.
     return s, d, s_all
 
 
+def finite_json(x):
+    """Strict JSON: an infinite median (no predicted waterline at most levels) becomes the
+    string "inf" (or "-inf"); NaN becomes null."""
+    if isinstance(x, dict):
+        return {k: finite_json(v) for k, v in x.items()}
+    if isinstance(x, (list, tuple)):
+        return [finite_json(v) for v in x]
+    if isinstance(x, float) and not np.isfinite(x):
+        return None if np.isnan(x) else ("inf" if x > 0 else "-inf")
+    return x
+
+
 def _flag(v):
     return None if v is None or pd.isna(v) else bool(v)
 
@@ -131,9 +143,19 @@ def main(basin: str) -> int:
     rows = [{"product": p, "variant": v, "arm": a, **x} for p, vv in rec["products"].items() for v, e in vv.items()
             for a, x in e.get("arms", {}).items()]
     pd.DataFrame(rows).to_csv(d / "h1_mispredicts.csv", index=False)
+    offsets = {}
+    for arm in B["sectors"]:
+        for sub in ("hindcast", "hindcast_dep3"):
+            f = d / arm / sub / "shape_offsets.json"
+            if f.exists():
+                so = json.loads(f.read_text(encoding="utf-8"))
+                for p, r in so["products"].items():
+                    offsets.setdefault(arm, {})[p] = {"offset_m": r["offset_m"], "loeo_m": {e: x["offset_m"] for e, x in
+                                                                                         r["leave_one_epoch_out"].items()}}
     rec.update(basin=basin, deciding_variant="shape (D-072)", rule="PREREG Amendment 16 items 8 and 9",
-               level_2013_07_01_m=split)
-    (d / "h1_decision.json").write_text(json.dumps(rec, indent=1, default=str), encoding="utf-8")
+               level_2013_07_01_m=split, shape_offsets=offsets)
+    (d / "h1_decision.json").write_text(json.dumps(finite_json(rec), indent=1, default=str, allow_nan=False),
+                                        encoding="utf-8")
     print(json.dumps({k: rec[k] for k in ("verdict", "verdict_total_variant", "positive_control")}, indent=1, default=str))
     return 0
 

@@ -1,6 +1,6 @@
 {
  "basin": "lake_urmia",
  "state": "not started",
- "verdict": "not run: Earth Engine budget (the Great Salt Lake pilot alone exceeds the 30 EECU-h cap)",
+ "verdict": "not run: lead decision (D-094 addendum): Lake Urmia not run this month (Earth Engine budget)",
  "positive_control": "not applicable: no survey product (Amendment 16 item 7)"
 }
