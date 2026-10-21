@@ -679,6 +679,11 @@ def display_h1_metrics(m: dict, tag: str) -> None:
             "rows with a negative median_abs_m (not a distance)")
         put(m, f"h1.block_h1.n_undefined_used.{v}.{PRODUCT_KEY[p]}", int((bad & (g["n"] >= min_n)).sum()), "blocks",
             f"hindcast/{tag}/block_h1.csv", "the same, among blocks with at least params.h1_min_block_n distances")
+    if (hc / "d089_rerun_comparison.json").exists():       # D-089 follow-up
+        dc = load(f"hindcast/{tag}/d089_rerun_comparison.json")["block_h1"]
+        put(m, "h1.block_h1.rows_changed_by_fix", int(dc["rows_dropped_int32_min"]) + int(dc["rows_changed_n_or_median"]),
+            "blocks", f"hindcast/{tag}/d089_rerun_comparison.json",
+            "block rows dropped (INT32_MIN median) or changed (count or median) by the D-089 fix")
     ex = pd.read_csv(hc / "extent.csv", usecols=["product", "variant", "epoch", "bin", "sector", "area_obs_km2"])
     dom = ex[(ex["sector"] == "domain") & (ex["area_obs_km2"] > 0)]
     put(m, "h1.n_units_domain", int(dom[["epoch", "bin"]].drop_duplicates().shape[0]), "units",
@@ -846,6 +851,90 @@ def generality_metrics(m: dict) -> None:
             put(m, f"{key}.{arm}.n_scenes_with_level", x.get("n_scenes_with_level"), "scenes", src)
             put(m, f"{key}.{arm}.n_groups_planned", x.get("n_groups_planned"), "groups", src)
             put(m, f"{key}.{arm}.n_bins_planned", x.get("n_bins_planned"), "bins", src)
+
+
+def h3_sensitivity_metrics(m: dict, tag: str = "main") -> None:
+    """D-081/D-096 H3 sensitivity forms run as the final form (scripts/a8_emergence.py
+    --sensitivity-form; results/emergence/<tag>_<form>): domain emergence of each surface
+    with its interval, the H3 verdict, and the leave-one-epoch-out transfer. Skipped when absent."""
+    import math
+
+    import pandas as pd
+
+    for form in ("constant", "linear"):
+        em = RES / "emergence" / f"{tag}_{form}"
+        if not (em / "h3_decision.json").exists():
+            continue
+        rel = f"emergence/{tag}_{form}"
+        e = pd.read_csv(em / "emergence.csv")
+        d = e[(e["region"] == "domain") & (e["functional"] == "emergence")]
+        for r in d.itertuples():
+            b = f"h3sens.{form}.emergence.{PRODUCT_KEY[r.product]}.{r.surface}.{_scen(r.scenario_m)}"
+            for col, name in (("estimate_km2", "estimate"), ("lo_km2", "lo"), ("hi_km2", "hi")):
+                v = float(getattr(r, col))
+                put(m, f"{b}.{name}_km2", round(v, 1) if math.isfinite(v) else None, "km2", f"{rel}/emergence.csv",
+                    f"H3 with the {form} error model (D-081 sensitivity); domain; 90% interval")
+        dec = load(f"{rel}/h3_decision.json")
+        for p, v in (dec.get("domain") or {}).items():
+            put(m, f"h3sens.{form}.verdict.{PRODUCT_KEY[p]}", v["verdict"], "text", f"{rel}/h3_decision.json")
+            rs = [s for s in str(v.get("relevant_scenarios", "")).split(",") if s]
+            put(m, f"h3sens.{form}.relevant_scenarios.{PRODUCT_KEY[p]}", _and(rs) if rs else "none", "text",
+                f"{rel}/h3_decision.json")
+        tr = pd.read_csv(em / "transfer.csv")
+        for r in tr[(tr["region"] == "domain") & (tr["form"] == form)].itertuples():
+            b = f"h3sens.{form}.transfer.{PRODUCT_KEY[r.product]}.{r.fold}"
+            put(m, f"{b}.emergence_err_corrected_km2", round(float(r.emergence_median_abs_corrected_km2), 1), "km2",
+                f"{rel}/transfer.csv")
+            put(m, f"{b}.emergence_err_uncorrected_km2", round(float(r.emergence_median_abs_uncorrected_km2), 1), "km2",
+                f"{rel}/transfer.csv")
+
+
+def redteam_metrics(m: dict, tag: str = "main") -> None:
+    """The lead's red-team hindcast sensitivities (G3 memo): per-sector shape constants
+    (scripts/a7_sector_shape.py -> results/hindcast/<tag>_sectorshape, whose "total" rows
+    are the sector-shape variant) and the run without the record-low envelope
+    (results/hindcast/<tag>_noenv). Direct reads of their H1 tables; skipped when absent."""
+    import pandas as pd
+
+    sg = load("robustness/r21_seam_gaps/summary.json")      # stage-2 export gaps at tile seams (QC)
+    if sg:
+        cell_km2 = 60 * 60 / 1e6
+        put(m, "qc.seam_gaps.unseen_km2", round(sg["unseen_cells"] * cell_km2, 1), "km2",
+            "results/robustness/r21_seam_gaps/summary.json", "stage-2 cover cells never valid in any group (includes background)")
+        m["qc.seam_gaps.unseen_km2"]["decimals"] = 1
+        put(m, "qc.seam_gaps.unseen_pct_of_cover", round(100 * sg["unseen_cells"] / sg["cover_cells"], 3), "%",
+            "results/robustness/r21_seam_gaps/summary.json")
+        m["qc.seam_gaps.unseen_pct_of_cover"]["decimals"] = 3
+    runs = {"primary": (RES / "hindcast" / tag, {"shape": "shape", "total": "total"}),   # same definitions
+            "sector_shape": (RES / "hindcast" / f"{tag}_sectorshape", {"total": "sector_shape"}),
+            "noenv": (RES / "hindcast" / f"{tag}_noenv", {"shape": "shape", "total": "total"})}
+    for name, (d, variants) in runs.items():
+        if not (d / "h1_mispredicts.csv").exists():
+            continue
+        rel = f"hindcast/{d.name}"
+        mp = pd.read_csv(d / "h1_mispredicts.csv")
+        for (p, v), g in mp.groupby(["product", "variant"]):
+            if v in variants:
+                put(m, f"redteam.{name}.{variants[v]}.{PRODUCT_KEY[p]}.n_sectors", int((g["mispredicts"] == True).sum()),  # noqa: E712
+                    "sectors", f"{rel}/h1_mispredicts.csv", "sectors where the product mispredicts (PREREG section 9 rule)")
+        bt = pd.read_csv(d / "h1_block_test.csv")
+        for r in bt.itertuples():
+            if r.variant in variants:
+                put(m, f"redteam.{name}.{variants[r.variant]}.{PRODUCT_KEY[r.product]}.block_p", round(float(r.p_value), 4),
+                    "p", f"{rel}/h1_block_test.csv", "block permutation test, deltaic or vegetated against the rest")
+        disp = pd.read_csv(d / "displacement.csv")
+        q = disp[(disp["epoch"] == "pooled") & (disp["sector"] != "all") & disp["variant"].isin(list(variants))]
+        if "observed_level" in q.columns:
+            q = q[q["observed_level"].astype(str).eq("True")]
+        for (p, v, sec), g in q.groupby(["product", "variant", "sector"]):
+            put(m, f"redteam.{name}.{variants[v]}.{PRODUCT_KEY[p]}.{sec}_km", round(float(g["median_m"].median()) / 1000, 2),
+                "km", f"{rel}/displacement.csv", "median over levels of the per-level median displacement")
+        if name == "sector_shape" and (d / "sector_offsets.json").exists():
+            so = load(f"{rel}/sector_offsets.json")["products"]
+            for p, r in so.items():
+                vals = [float(x["offset_m"]) for x in r["sectors"].values()]
+                put(m, f"redteam.sector_shape.offset_min.{PRODUCT_KEY[p]}_m", round(min(vals), 2), "m", f"{rel}/sector_offsets.json")
+                put(m, f"redteam.sector_shape.offset_max.{PRODUCT_KEY[p]}_m", round(max(vals), 2), "m", f"{rel}/sector_offsets.json")
 
 
 def atl24_metrics(m: dict) -> None:
@@ -1201,6 +1290,8 @@ def main() -> int:
 
     generality_metrics(m)
     atl24_metrics(m)
+    redteam_metrics(m)
+    h3_sensitivity_metrics(m)
 
     out = RES / "metrics.json"
     out.write_text(json.dumps(dict(sorted(m.items())), indent=1, ensure_ascii=False), encoding="utf-8")
