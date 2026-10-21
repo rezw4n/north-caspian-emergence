@@ -1,9 +1,9 @@
 {
- "time": "2026-10-21T09:48:13",
+ "time": "2026-10-21T10:07:11",
  "month": "2026-10",
  "interactive_s": {
   "gedi_interactive_log.jsonl": 32882.1,
-  "generality_ee_ledger.jsonl": 18098.4,
+  "generality_ee_ledger.jsonl": 182274.9,
   "stage1_interactive_log.jsonl": 41208.0,
   "stage1_v2_interactive_log.jsonl": 100931.6,
   "stage1_v3_interactive_log.jsonl": 58488.4,
@@ -11,6 +11,7 @@
   "stage2_rR_awei_interactive_log.jsonl": 32100.5,
   "stage2_rR_bins005_interactive_log.jsonl": 27035.7,
   "stage2_rR_fixed0_interactive_log.jsonl": 31103.5,
+  "stage2_rR_ndvi020_interactive_log.jsonl": 27447.5,
   "stage2_rR_repro_interactive_log.jsonl": 1424.8,
   "stage2_rR_slcoff_interactive_log.jsonl": 8094.0,
   "stage2_rR_snow_interactive_log.jsonl": 29929.6,
@@ -20,9 +21,9 @@
   "stage2_rR_tau015_interactive_log.jsonl": 17944.3,
   "stage2_sensB_interactive_log.jsonl": 105513.6
  },
- "interactive_total_h": 422.18,
+ "interactive_total_h": 475.41,
  "batch_s": 154480.6,
  "batch_tasks": 166,
  "batch_source": "ee.data.listOperations",
- "total_h": 465.09
+ "total_h": 518.32
 }

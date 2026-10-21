@@ -6,9 +6,11 @@ train_mask) is called unchanged on the basin's own grid and static layers:
 - domain: the arm (scripts/g1_static.py), rasterised by cell centre; one sector;
 - zone for the outside states: the stage-2 cover in the arm plus the 2 km band around
   the shorelines of the near-maximum and near-minimum extents (D-083);
-- open-water seed: the arm's largest open-water component, outside the zone, inside
-  the domain less its 2 km rim; land seed: cells more than 2 km from the near-maximum
-  water (hindcast.beyond_land_state, D-067), likewise; no beyond-domain state;
+- open-water seed: the arm's largest open-water component inside the domain less its
+  2 km rim (it may lie inside the stage-2 cover, which in these lakes takes in nearly
+  all open water; the outside states then use its part outside the zone, or have no
+  water state at all); land seed: cells more than 2 km from the near-maximum water
+  (hindcast.beyond_land_state, D-067), outside the zone and rim; no beyond-domain state;
 - salt ponds: unknown, observed (counts zeroed) and outside states alike;
 - stage-2 counts: the arm's tiles, with counts zeroed outside the arm and in ponds;
 - record-low envelope (D-082) from the arm's three lowest E3 bins;
@@ -205,7 +207,8 @@ def main(argv) -> int:
         meta = {"basin": basin, "arm": arm, "tag": a.tag, "resampling": "bilinear", "envelope": env,
                 "vertical_correction": {**corr_rec, "meaning": "H(NAVD 88) - H(EGM2008), m, added to product heights"},
                 "level_datum": "bins on NAVD 88 minus %.1f m (Amendment 16 item 5)" % B["level_offset_m"],
-                "seeds": {"sea": "largest open-water component of the arm (5 km, >= 80%), outside zone and rim",
+                "seeds": {"sea": "largest open-water component of the arm (5 km, >= 80%), inside the domain less "
+                                 "its rim; it may lie inside the stage-2 cover (observed there)",
                           "land": "observed cells > 2 km from near-maximum water (D-067 construction), outside zone and rim"},
                 "ponds": "OpenStreetMap salt ponds + 120 m: unknown (counts zeroed, outside state unknown)"}
         out = d / arm / "hindcast"

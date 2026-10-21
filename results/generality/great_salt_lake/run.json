@@ -2,7 +2,7 @@
  "basin": "great_salt_lake",
  "prereg": "docs/PREREG.md Amendment 16 and addendum (536ce4c, ee7ec0f, 8ee8a33)",
  "decision": "D-094",
- "state": "stopped at the cost gate before stage 2 (docs/gates/STOP-2026-10-21-generality.md)",
+ "state": "stage 2, hindcast and decision run after the lead's decision (D-094 addendum)",
  "code_head_at_record": "c7c960f",
  "steps": [
   {
@@ -78,17 +78,17 @@
   {
    "step": "stage 2",
    "cmd": "scripts/g1_ee.py stage2 great_salt_lake --tag main --budget <EECU-s>",
-   "out": "not run (STOP)"
+   "out": "data/interim/generality/great_salt_lake/stage2_main/ (results/inventory/generality_great_salt_lake_stage2_main.json)"
   },
   {
    "step": "hindcast",
    "cmd": "scripts/g1_hindcast.py great_salt_lake",
-   "out": "not run"
+   "out": "results/generality/great_salt_lake/{north,south}/{hindcast,hindcast_dep3}/"
   },
   {
    "step": "decision",
    "cmd": "scripts/g1_decide.py great_salt_lake",
-   "out": "not run"
+   "out": "results/generality/great_salt_lake/h1_decision.json"
   }
  ],
  "eecu_s_by_step": {
@@ -97,9 +97,10 @@
   "scenes": 0.2,
   "stage1": 4464.1,
   "stage1_pilot": 109.9,
+  "stage2_main": 164176.5,
   "stage2_pilot": 7436.3,
   "stage2_pilot_block": 5068.2
  },
- "eecu_h_total": 5.03,
+ "eecu_h_total": 50.63,
  "ledger": "results/inventory/generality_ee_ledger.jsonl"
 }

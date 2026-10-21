@@ -75,3 +75,8 @@ def test_etopo_split_by_the_2013_level():
     e = rec["products"]["etopo_2022"]["shape"]["arms"]["south"]
     assert e["median_displacement_below_2013_m"] == 4000.0
     assert e["median_displacement_above_2013_m"] == 100.0
+
+
+def test_finite_json_strict():
+    out = D.finite_json({"a": float("inf"), "b": [float("-inf"), float("nan"), 1.5], "c": {"d": 2}})
+    assert out == {"a": "inf", "b": ["-inf", None, 1.5], "c": {"d": 2}}

@@ -1,0 +1,421 @@
+{
+ "products": {
+  "gebco_2026": {
+   "shape": {
+    "arms": {
+     "north": {
+      "mispredicts": true,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 41,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 1100.7541803886238,
+      "median_noise_p95_m": 314.5255296218187
+     },
+     "south": {
+      "mispredicts": true,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 47,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 1138.4199576606163,
+      "median_noise_p95_m": 120.0
+     }
+    },
+    "n_sectors_mispredict": 2,
+    "n_sectors_evaluable": 2,
+    "in_basin": true
+   },
+   "total": {
+    "arms": {
+     "north": {
+      "mispredicts": true,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 50,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": "inf",
+      "median_noise_p95_m": 314.5255296218187
+     },
+     "south": {
+      "mispredicts": true,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 48,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": "inf",
+      "median_noise_p95_m": 120.0
+     }
+    },
+    "n_sectors_mispredict": 2,
+    "n_sectors_evaluable": 2,
+    "in_basin": true
+   }
+  },
+  "gebco_2022": {
+   "shape": {
+    "arms": {
+     "north": {
+      "mispredicts": true,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 41,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 1961.4557291149717,
+      "median_noise_p95_m": 314.5255296218187
+     },
+     "south": {
+      "mispredicts": true,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 48,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 2043.5263639111683,
+      "median_noise_p95_m": 120.0
+     }
+    },
+    "n_sectors_mispredict": 2,
+    "n_sectors_evaluable": 2,
+    "in_basin": true
+   },
+   "total": {
+    "arms": {
+     "north": {
+      "mispredicts": true,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 50,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": "inf",
+      "median_noise_p95_m": 314.5255296218187
+     },
+     "south": {
+      "mispredicts": true,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 48,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": "inf",
+      "median_noise_p95_m": 120.0
+     }
+    },
+    "n_sectors_mispredict": 2,
+    "n_sectors_evaluable": 2,
+    "in_basin": true
+   }
+  },
+  "etopo_2022": {
+   "shape": {
+    "arms": {
+     "north": {
+      "mispredicts": true,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 30,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 454.627034993008,
+      "median_noise_p95_m": 314.5255296218187,
+      "median_displacement_above_2013_m": 254.5584412271571,
+      "median_displacement_below_2013_m": 1824.828759089466
+     },
+     "south": {
+      "mispredicts": true,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 46,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 780.0,
+      "median_noise_p95_m": 120.0,
+      "median_displacement_above_2013_m": 596.98484809835,
+      "median_displacement_below_2013_m": 900.0
+     }
+    },
+    "n_sectors_mispredict": 2,
+    "n_sectors_evaluable": 2,
+    "in_basin": true
+   },
+   "total": {
+    "arms": {
+     "north": {
+      "mispredicts": true,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 30,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 392.48287590894654,
+      "median_noise_p95_m": 314.5255296218187
+     },
+     "south": {
+      "mispredicts": true,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 43,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 300.0,
+      "median_noise_p95_m": 120.0
+     }
+    },
+    "n_sectors_mispredict": 2,
+    "n_sectors_evaluable": 2,
+    "in_basin": true
+   }
+  },
+  "etopo1": {
+   "shape": {
+    "arms": {
+     "north": {
+      "mispredicts": true,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 41,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 1615.8521813797086,
+      "median_noise_p95_m": 314.5255296218187
+     },
+     "south": {
+      "mispredicts": true,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 48,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 1591.411953027609,
+      "median_noise_p95_m": 120.0
+     }
+    },
+    "n_sectors_mispredict": 2,
+    "n_sectors_evaluable": 2,
+    "in_basin": true
+   },
+   "total": {
+    "arms": {
+     "north": {
+      "mispredicts": true,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 50,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": "inf",
+      "median_noise_p95_m": 314.5255296218187
+     },
+     "south": {
+      "mispredicts": true,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 49,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": "inf",
+      "median_noise_p95_m": 120.0
+     }
+    },
+    "n_sectors_mispredict": 2,
+    "n_sectors_evaluable": 2,
+    "in_basin": true
+   }
+  },
+  "srtm15p_v2.7": {
+   "shape": {
+    "arms": {
+     "north": {
+      "mispredicts": true,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 41,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 1967.3736873829953,
+      "median_noise_p95_m": 314.5255296218187
+     },
+     "south": {
+      "mispredicts": true,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 47,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 1953.4584715319647,
+      "median_noise_p95_m": 120.0
+     }
+    },
+    "n_sectors_mispredict": 2,
+    "n_sectors_evaluable": 2,
+    "in_basin": true
+   },
+   "total": {
+    "arms": {
+     "north": {
+      "mispredicts": true,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 50,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": "inf",
+      "median_noise_p95_m": 314.5255296218187
+     },
+     "south": {
+      "mispredicts": true,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 48,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": "inf",
+      "median_noise_p95_m": 120.0
+     }
+    },
+    "n_sectors_mispredict": 2,
+    "n_sectors_evaluable": 2,
+    "in_basin": true
+   }
+  }
+ },
+ "arms": {
+  "north": {
+   "noise_floor_p95_median_m": 314.5255296218187,
+   "n_noise_levels": 50
+  },
+  "south": {
+   "noise_floor_p95_median_m": 120.0,
+   "n_noise_levels": 49
+  }
+ },
+ "positive_control": {
+  "product": "dep3",
+  "mispredicts_in_basin": false
+ },
+ "control_arms": {
+  "north": {
+   "mispredicts": false,
+   "n_evaluable": 49,
+   "n_exceeding": 1,
+   "median_displacement_m": 84.8528137423857,
+   "median_noise_p95_m": 323.10988842807024
+  },
+  "south": {
+   "mispredicts": false,
+   "n_evaluable": 38,
+   "n_exceeding": 0,
+   "median_displacement_m": 60.0,
+   "median_noise_p95_m": 120.0
+  }
+ },
+ "verdict": {
+  "verdict": "recurs",
+  "n_mispredict": 5,
+  "n_evaluable": 5,
+  "n_global": 5,
+  "positive_control": "pass"
+ },
+ "verdict_total_variant": {
+  "verdict": "recurs",
+  "n_mispredict": 5,
+  "n_evaluable": 5,
+  "n_global": 5,
+  "positive_control": "pass"
+ },
+ "basin": "great_salt_lake",
+ "deciding_variant": "shape (D-072)",
+ "rule": "PREREG Amendment 16 items 8 and 9",
+ "level_2013_07_01_m": {
+  "north": 1279.7244960000005,
+  "south": 1279.862936
+ },
+ "shape_offsets": {
+  "north": {
+   "gebco_2026": {
+    "offset_m": 3.13,
+    "loeo_m": {
+     "E1": 3.13,
+     "E2": 3.53,
+     "E3": 2.74
+    }
+   },
+   "gebco_2022": {
+    "offset_m": 3.73,
+    "loeo_m": {
+     "E1": 3.73,
+     "E2": 3.93,
+     "E3": 3.63
+    }
+   },
+   "etopo_2022": {
+    "offset_m": -0.13,
+    "loeo_m": {
+     "E1": -0.15,
+     "E2": -0.87,
+     "E3": 0.0
+    }
+   },
+   "etopo1": {
+    "offset_m": 3.73,
+    "loeo_m": {
+     "E1": 3.73,
+     "E2": 3.93,
+     "E3": 3.64
+    }
+   },
+   "srtm15p_v2.7": {
+    "offset_m": 3.73,
+    "loeo_m": {
+     "E1": 3.73,
+     "E2": 3.93,
+     "E3": 3.63
+    }
+   },
+   "dep3": {
+    "offset_m": 0.25,
+    "loeo_m": {
+     "E1": 0.25,
+     "E2": 0.2,
+     "E3": 0.35
+    }
+   }
+  },
+  "south": {
+   "gebco_2026": {
+    "offset_m": 4.2,
+    "loeo_m": {
+     "E1": 4.2,
+     "E2": 4.2,
+     "E3": 2.92
+    }
+   },
+   "gebco_2022": {
+    "offset_m": 4.95,
+    "loeo_m": {
+     "E1": 4.95,
+     "E2": 4.96,
+     "E3": 3.66
+    }
+   },
+   "etopo_2022": {
+    "offset_m": 1.16,
+    "loeo_m": {
+     "E1": 1.16,
+     "E2": 1.16,
+     "E3": 0.0
+    }
+   },
+   "etopo1": {
+    "offset_m": 4.96,
+    "loeo_m": {
+     "E1": 4.96,
+     "E2": 4.96,
+     "E3": 3.67
+    }
+   },
+   "srtm15p_v2.7": {
+    "offset_m": 4.96,
+    "loeo_m": {
+     "E1": 4.96,
+     "E2": 4.96,
+     "E3": 3.66
+    }
+   },
+   "dep3": {
+    "offset_m": 0.08,
+    "loeo_m": {
+     "E1": 0.08,
+     "E2": 0.11,
+     "E3": 0.07
+    }
+   }
+  }
+ }
+}

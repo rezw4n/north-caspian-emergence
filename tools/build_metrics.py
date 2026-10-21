@@ -720,21 +720,34 @@ def display_input_metrics(m: dict) -> None:
             m[k]["decimals"] = 0  # metres on a 60 m grid
 
 
-GENERALITY_BASINS = ("great_salt_lake", "lake_urmia")
-
-
 def generality_metrics(m: dict) -> None:
     """A9 generality test (brief section 11; PREREG Amendment 16; D-094). From
     results/generality/<basin>/h1_decision.json when the basin was run (scripts/g1_decide.py),
-    else from its status.json (why it was not run, the pilot cost and the inputs prepared)."""
-    for basin in GENERALITY_BASINS:
+    and from its status.json (why it was not run, or the run's cost and inputs).
+    The inputs are literal paths, so that tests/test_makefile.py checks that they are
+    prerequisites of results/metrics.json. An infinite median (no predicted waterline at
+    most levels) is stored as "inf" in the decision file and kept as a category here."""
+    inputs = {"great_salt_lake": (load("generality/great_salt_lake/h1_decision.json"),
+                                  load("generality/great_salt_lake/status.json")),
+              "lake_urmia": ({}, load("generality/lake_urmia/status.json"))}
+
+    def num(key, x, unit, src, note=None):
+        if isinstance(x, str) and x in ("inf", "-inf"):
+            put(m, key, "infinite" if x == "inf" else "-infinite", "category", src, note)
+        else:
+            put(m, key, x, unit, src, note)
+
+    def flag(key, x, src, note=None):
+        put(m, key, None if x is None else ("true" if x else "false"), "category", src, note)
+
+    for basin, (dec, st) in inputs.items():
         key = f"generality.{basin}"
-        dec = load(f"generality/{basin}/h1_decision.json")
         if dec:
             src = f"results/generality/{basin}/h1_decision.json"
             v = dec["verdict"]
             put(m, f"{key}.verdict", v["verdict"], "category", src, "PREREG Amendment 16 item 9; shape variant decides")
             put(m, f"{key}.n_products_mispredict", v["n_mispredict"], "products", src)
+            put(m, f"{key}.n_products_evaluable", v["n_evaluable"], "products", src)
             put(m, f"{key}.positive_control", v["positive_control"], "category", src)
             put(m, f"{key}.verdict_total_variant", dec["verdict_total_variant"]["verdict"], "category", src)
             for prod, vv in dec["products"].items():
@@ -742,26 +755,43 @@ def generality_metrics(m: dict) -> None:
                     k = f"{key}.{prod}.{var}"
                     put(m, f"{k}.n_sectors_mispredict", e["n_sectors_mispredict"], "sectors", src)
                     put(m, f"{k}.n_sectors_evaluable", e["n_sectors_evaluable"], "sectors", src)
+                    flag(f"{k}.mispredicts_in_basin", e.get("in_basin"), src)
                     for arm, x in e.get("arms", {}).items():
-                        put(m, f"{k}.{arm}.median_displacement_m", x.get("median_displacement_m"), "m", src,
+                        num(f"{k}.{arm}.median_displacement_m", x.get("median_displacement_m"), "m", src,
                             "median over evaluable levels of the per-level median absolute displacement")
-                        put(m, f"{k}.{arm}.median_noise_p95_m", x.get("median_noise_p95_m"), "m", src)
+                        num(f"{k}.{arm}.median_noise_p95_m", x.get("median_noise_p95_m"), "m", src)
                         put(m, f"{k}.{arm}.n_evaluable_levels", x.get("n_evaluable"), "levels", src)
+                        put(m, f"{k}.{arm}.n_observed_levels", x.get("n_observed_levels"), "levels", src)
                         put(m, f"{k}.{arm}.n_exceeding_levels", x.get("n_exceeding"), "levels", src)
+                        flag(f"{k}.{arm}.mispredicts", x.get("mispredicts"), src)
+                        flag(f"{k}.{arm}.mispredicts_pooled_floor", x.get("mispredicts_pooled_floor"), src,
+                             "sensitivity: one noise floor per arm, pooled over all levels")
+                        for side in ("above", "below"):
+                            num(f"{k}.{arm}.median_displacement_{side}_2013_m",
+                                x.get(f"median_displacement_{side}_2013_m"), "m", src,
+                                "descriptive (Amendment 16 item 9): levels above/below the arm's 2013-07-01 level")
             for arm, x in dec.get("arms", {}).items():
-                put(m, f"{key}.{arm}.noise_floor_p95_median_m", x.get("noise_floor_p95_median_m"), "m", src)
+                num(f"{key}.{arm}.noise_floor_p95_median_m", x.get("noise_floor_p95_median_m"), "m", src)
                 put(m, f"{key}.{arm}.n_noise_levels", x.get("n_noise_levels"), "levels", src)
             for arm, x in dec.get("control_arms", {}).items():
-                put(m, f"{key}.control.{arm}.median_displacement_m", x.get("median_displacement_m"), "m", src)
+                num(f"{key}.control.{arm}.median_displacement_m", x.get("median_displacement_m"), "m", src)
+                num(f"{key}.control.{arm}.median_noise_p95_m", x.get("median_noise_p95_m"), "m", src)
                 put(m, f"{key}.control.{arm}.n_evaluable_levels", x.get("n_evaluable"), "levels", src)
-            continue
-        st = load(f"generality/{basin}/status.json")
+                put(m, f"{key}.control.{arm}.n_exceeding_levels", x.get("n_exceeding"), "levels", src)
+                flag(f"{key}.control.{arm}.mispredicts", x.get("mispredicts"), src)
+            for arm, offs in (dec.get("shape_offsets") or {}).items():
+                for prod, r in offs.items():
+                    num(f"{key}.shape_offset.{arm}.{prod}_m", r.get("offset_m"), "m", src,
+                        "D-070 constant (positive: product heights too high)")
+            for arm, lv in (dec.get("level_2013_07_01_m") or {}).items():
+                num(f"{key}.{arm}.level_2013_07_01_m", lv, "m (NAVD 88)", src)
         src = f"results/generality/{basin}/status.json"
-        put(m, f"{key}.verdict", st.get("verdict", "not run: no record"), "category", src,
-            "PREREG Amendment 16 item 9; docs/gates/STOP-2026-10-21-generality.md")
-        put(m, f"{key}.positive_control", st.get("positive_control"), "category", src)
-        for k in ("eecu_h_spent", "eecu_h_cap", "eecu_h_projected_stage2_area_scaled", "eecu_h_projected_stage2_request_scaled",
-                  "eecu_h_projected_total_low", "eecu_h_projected_total_high"):
+        if not dec:
+            put(m, f"{key}.verdict", st.get("verdict", "not run: no record"), "category", src,
+                "PREREG Amendment 16 item 9; docs/gates/STOP-2026-10-21-generality.md")
+            put(m, f"{key}.positive_control", st.get("positive_control"), "category", src)
+        for k in ("eecu_h_spent", "eecu_h_cap", "eecu_h_stage2", "eecu_h_projected_stage2_area_scaled",
+                  "eecu_h_projected_stage2_request_scaled", "eecu_h_projected_total_low", "eecu_h_projected_total_high"):
             put(m, f"{key}.{k}", st.get(k), "EECU-h", src)
         put(m, f"{key}.n_scenes", st.get("n_scenes"), "scenes", src)
         put(m, f"{key}.n_acquisitions", st.get("n_acquisitions"), "acquisitions", src)
