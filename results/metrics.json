@@ -2492,11 +2492,25 @@
   "note": "robustness.check05.hydroweb_const.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
   "decimals": 3
  },
+ "erl.text.m3.robustness.check06.c_+1sigma.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.c_+1sigma.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
  "erl.text.m3.robustness.check06.c_+1sigma.atl08.dem_nmad_m_primary": {
   "value": 0.3700959523799987,
   "unit": "m",
   "source": "results/metrics.json (derived from the keys named in the note)",
   "note": "robustness.check06.c_+1sigma.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check06.c_-1sigma.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.c_-1sigma.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
   "decimals": 3
  },
  "erl.text.m3.robustness.check06.c_-1sigma.atl08.dem_nmad_m_primary": {
@@ -2506,11 +2520,25 @@
   "note": "robustness.check06.c_-1sigma.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
   "decimals": 3
  },
+ "erl.text.m3.robustness.check06.offsets_+1sigma.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.offsets_+1sigma.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
  "erl.text.m3.robustness.check06.offsets_+1sigma.atl08.dem_nmad_m_primary": {
   "value": 0.3700959523799987,
   "unit": "m",
   "source": "results/metrics.json (derived from the keys named in the note)",
   "note": "robustness.check06.offsets_+1sigma.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check06.offsets_-1sigma.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.offsets_-1sigma.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
   "decimals": 3
  },
  "erl.text.m3.robustness.check06.offsets_-1sigma.atl08.dem_nmad_m_primary": {
@@ -2520,11 +2548,25 @@
   "note": "robustness.check06.offsets_-1sigma.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
   "decimals": 3
  },
+ "erl.text.m3.robustness.check06.tide_both_mean.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.tide_both_mean.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
  "erl.text.m3.robustness.check06.tide_both_mean.atl08.dem_nmad_m_primary": {
   "value": 0.3700959523799987,
   "unit": "m",
   "source": "results/metrics.json (derived from the keys named in the note)",
   "note": "robustness.check06.tide_both_mean.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check06.tide_geoid_mean.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check06.tide_geoid_mean.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
   "decimals": 3
  },
  "erl.text.m3.robustness.check06.tide_geoid_mean.atl08.dem_nmad_m_primary": {
@@ -2546,6 +2588,13 @@
   "unit": "m",
   "source": "results/metrics.json (derived from the keys named in the note)",
   "note": "robustness.check07.bins005_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check07.bins_020m.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check07.bins_020m.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
   "decimals": 3
  },
  "erl.text.m3.robustness.check07.bins_020m.atl08.dem_nmad_m_primary": {
@@ -2632,11 +2681,25 @@
   "note": "robustness.check09.ndvi040_R.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
   "decimals": 3
  },
+ "erl.text.m3.robustness.check09.vegetation_as_dry.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check09.vegetation_as_dry.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
  "erl.text.m3.robustness.check09.vegetation_as_dry.atl08.dem_nmad_m_primary": {
   "value": 0.3700959523799987,
   "unit": "m",
   "source": "results/metrics.json (derived from the keys named in the note)",
   "note": "robustness.check09.vegetation_as_dry.atl08.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
+  "decimals": 3
+ },
+ "erl.text.m3.robustness.check09.vegetation_as_water.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "robustness.check09.vegetation_as_water.atl06.dem_nmad_m_primary to the millimetre, as the variant's NMAD",
   "decimals": 3
  },
  "erl.text.m3.robustness.check09.vegetation_as_water.atl08.dem_nmad_m_primary": {
@@ -38737,6 +38800,76 @@
   "source": "results/robustness/r05_levels/summary.json",
   "note": "rule: DECISIONS D-092 (scripts/r20_verdicts.py)"
  },
+ "robustness.check06.c_+1sigma.atl06.coverage": {
+  "value": 0.7194224658815087,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.coverage_primary": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.dem_bias_m": {
+  "value": -0.1199848783401985,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.dem_bias_m_primary": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.dem_n": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.dem_n_primary": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.dem_nmad_m": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.dem_rmse_m": {
+  "value": 1.1076826250811196,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.dem_rmse_m_primary": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.h2_matched_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.h2_matched_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.h2_total_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_+1sigma.atl06.h2_total_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
  "robustness.check06.c_+1sigma.atl08.coverage": {
   "value": 0.7136528546877984,
   "unit": "fraction",
@@ -38808,7 +38941,7 @@
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
  "robustness.check06.c_+1sigma.sources_evaluated": {
-  "value": 1,
+  "value": 2,
   "unit": "value",
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
@@ -38817,6 +38950,76 @@
   "unit": "category",
   "source": "results/robustness/r06_datums_validation/summary.json",
   "note": "rule: DECISIONS D-092 (scripts/r20_verdicts.py)"
+ },
+ "robustness.check06.c_-1sigma.atl06.coverage": {
+  "value": 0.7782141779624853,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.coverage_primary": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.dem_bias_m": {
+  "value": 0.1788031761113506,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.dem_bias_m_primary": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.dem_n": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.dem_n_primary": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.dem_nmad_m": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.dem_rmse_m": {
+  "value": 1.115587290472509,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.dem_rmse_m_primary": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.h2_matched_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.h2_matched_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.h2_total_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.c_-1sigma.atl06.h2_total_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
  },
  "robustness.check06.c_-1sigma.atl08.coverage": {
   "value": 0.7838266182929158,
@@ -38889,7 +39092,7 @@
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
  "robustness.check06.c_-1sigma.sources_evaluated": {
-  "value": 1,
+  "value": 2,
   "unit": "value",
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
@@ -38898,6 +39101,76 @@
   "unit": "category",
   "source": "results/robustness/r06_datums_validation/summary.json",
   "note": "rule: DECISIONS D-092 (scripts/r20_verdicts.py)"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.coverage": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.coverage_primary": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.dem_bias_m": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.dem_bias_m_primary": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.dem_n": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.dem_n_primary": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.dem_nmad_m": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.dem_rmse_m": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.dem_rmse_m_primary": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.h2_matched_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.h2_matched_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.h2_total_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_+1sigma.atl06.h2_total_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
  },
  "robustness.check06.offsets_+1sigma.atl08.coverage": {
   "value": 0.7563108649990452,
@@ -38970,7 +39243,7 @@
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
  "robustness.check06.offsets_+1sigma.sources_evaluated": {
-  "value": 1,
+  "value": 2,
   "unit": "value",
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
@@ -38979,6 +39252,76 @@
   "unit": "category",
   "source": "results/robustness/r06_datums_validation/summary.json",
   "note": "rule: DECISIONS D-092 (scripts/r20_verdicts.py)"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.coverage": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.coverage_primary": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.dem_bias_m": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.dem_bias_m_primary": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.dem_n": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.dem_n_primary": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.dem_nmad_m": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.dem_rmse_m": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.dem_rmse_m_primary": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.h2_matched_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.h2_matched_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.h2_total_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.offsets_-1sigma.atl06.h2_total_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
  },
  "robustness.check06.offsets_-1sigma.atl08.coverage": {
   "value": 0.7563108649990452,
@@ -39051,7 +39394,7 @@
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
  "robustness.check06.offsets_-1sigma.sources_evaluated": {
-  "value": 1,
+  "value": 2,
   "unit": "value",
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
@@ -39167,6 +39510,76 @@
   "source": "results/robustness/r06_datums_sectorshape/summary.json",
   "note": "rule: DECISIONS D-092 (scripts/r20_verdicts.py)"
  },
+ "robustness.check06.tide_both_mean.atl06.coverage": {
+  "value": 0.7515010505315173,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.coverage_primary": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.dem_bias_m": {
+  "value": 0.0305692552010297,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.dem_bias_m_primary": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.dem_n": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.dem_n_primary": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.dem_nmad_m": {
+  "value": 0.3849675850807521,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.dem_rmse_m": {
+  "value": 1.102582557587833,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.dem_rmse_m_primary": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.h2_matched_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.h2_matched_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.h2_total_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_both_mean.atl06.h2_total_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
  "robustness.check06.tide_both_mean.atl08.coverage": {
   "value": 0.7560148940232958,
   "unit": "fraction",
@@ -39238,7 +39651,7 @@
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
  "robustness.check06.tide_both_mean.sources_evaluated": {
-  "value": 1,
+  "value": 2,
   "unit": "value",
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
@@ -39247,6 +39660,76 @@
   "unit": "category",
   "source": "results/robustness/r06_datums_validation/summary.json",
   "note": "rule: DECISIONS D-092 (scripts/r20_verdicts.py)"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.coverage": {
+  "value": 0.7511168975661554,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.coverage_primary": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.dem_bias_m": {
+  "value": 0.0316339485981857,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.dem_bias_m_primary": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.dem_n": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.dem_n_primary": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.dem_nmad_m": {
+  "value": 0.3849711640936871,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.dem_rmse_m": {
+  "value": 1.103495267685181,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.dem_rmse_m_primary": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.h2_matched_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.h2_matched_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.h2_total_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
+ },
+ "robustness.check06.tide_geoid_mean.atl06.h2_total_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r06_datums_validation/summary.json"
  },
  "robustness.check06.tide_geoid_mean.atl08.coverage": {
   "value": 0.7558525873591752,
@@ -39319,7 +39802,7 @@
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
  "robustness.check06.tide_geoid_mean.sources_evaluated": {
-  "value": 1,
+  "value": 2,
   "unit": "value",
   "source": "results/robustness/r06_datums_validation/summary.json"
  },
@@ -39446,6 +39929,76 @@
   "source": "results/robustness/rblock_bins005/summary.json",
   "note": "rule: DECISIONS D-092 (scripts/r20_verdicts.py)"
  },
+ "robustness.check07.bins_020m.atl06.coverage": {
+  "value": 0.7618767509795515,
+  "unit": "fraction",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.coverage_primary": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.dem_bias_m": {
+  "value": -0.0063064414583963,
+  "unit": "m",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.dem_bias_m_primary": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.dem_n": {
+  "value": 1103387.0,
+  "unit": "count",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.dem_n_primary": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.dem_nmad_m": {
+  "value": 0.4020685179000007,
+  "unit": "m",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.dem_rmse_m": {
+  "value": 1.1266059302648368,
+  "unit": "m",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.dem_rmse_m_primary": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.h2_matched_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.h2_matched_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.h2_total_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
+ "robustness.check07.bins_020m.atl06.h2_total_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r07_interpolation_bw020/summary.json"
+ },
  "robustness.check07.bins_020m.atl08.coverage": {
   "value": 0.7652923817436896,
   "unit": "fraction",
@@ -39527,7 +40080,7 @@
   "source": "results/robustness/r07_interpolation_bw020/summary.json"
  },
  "robustness.check07.bins_020m.sources_evaluated": {
-  "value": 1,
+  "value": 2,
   "unit": "value",
   "source": "results/robustness/r07_interpolation_bw020/summary.json"
  },
@@ -40477,6 +41030,76 @@
   "source": "results/robustness/rblock_ndvi040/summary.json",
   "note": "rule: DECISIONS D-092 (scripts/r20_verdicts.py)"
  },
+ "robustness.check09.vegetation_as_dry.atl06.coverage": {
+  "value": 0.7242391533873659,
+  "unit": "fraction",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.coverage_primary": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.dem_bias_m": {
+  "value": -0.0284799279195606,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.dem_bias_m_primary": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.dem_n": {
+  "value": 1103425.0,
+  "unit": "count",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.dem_n_primary": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.dem_nmad_m": {
+  "value": 0.3968695929240828,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.dem_rmse_m": {
+  "value": 1.15057434066064,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.dem_rmse_m_primary": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.h2_matched_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.h2_matched_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.h2_total_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_dry.atl06.h2_total_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
  "robustness.check09.vegetation_as_dry.atl08.coverage": {
   "value": 0.7269471713969212,
   "unit": "fraction",
@@ -40563,7 +41186,7 @@
   "source": "results/robustness/r09_vegetation/summary.json"
  },
  "robustness.check09.vegetation_as_dry.sources_evaluated": {
-  "value": 1,
+  "value": 2,
   "unit": "value",
   "source": "results/robustness/r09_vegetation/summary.json"
  },
@@ -40572,6 +41195,76 @@
   "unit": "category",
   "source": "results/robustness/r09_vegetation/summary.json",
   "note": "rule: DECISIONS D-092 (scripts/r20_verdicts.py)"
+ },
+ "robustness.check09.vegetation_as_water.atl06.coverage": {
+  "value": 0.7733606226902123,
+  "unit": "fraction",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.coverage_primary": {
+  "value": 0.7519042299409183,
+  "unit": "fraction",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.dem_bias_m": {
+  "value": 0.0601171626662358,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.dem_bias_m_primary": {
+  "value": 0.029409148885576,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.dem_n": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.dem_n_primary": {
+  "value": 1103727.0,
+  "unit": "count",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.dem_nmad_m": {
+  "value": 0.412203101056831,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.dem_nmad_m_primary": {
+  "value": 0.3850482699000024,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.dem_rmse_m": {
+  "value": 1.1349182429073013,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.dem_rmse_m_primary": {
+  "value": 1.1015576811563077,
+  "unit": "m",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.h2_matched_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.h2_matched_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.h2_total_supported": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r09_vegetation/summary.json"
+ },
+ "robustness.check09.vegetation_as_water.atl06.h2_total_supported_primary": {
+  "value": 0,
+  "unit": "1 = supported, 0 = not",
+  "source": "results/robustness/r09_vegetation/summary.json"
  },
  "robustness.check09.vegetation_as_water.atl08.coverage": {
   "value": 0.7742505251097956,
@@ -40659,7 +41352,7 @@
   "source": "results/robustness/r09_vegetation/summary.json"
  },
  "robustness.check09.vegetation_as_water.sources_evaluated": {
-  "value": 1,
+  "value": 2,
   "unit": "value",
   "source": "results/robustness/r09_vegetation/summary.json"
  },

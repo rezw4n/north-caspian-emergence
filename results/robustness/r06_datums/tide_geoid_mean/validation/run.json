@@ -2,7 +2,7 @@
  "check": "r06_datums",
  "variant": "tide_geoid_mean",
  "main": "main",
- "created": "2026-10-21T16:05:13Z",
+ "created": "2026-10-21T20:46:03Z",
  "note": "ICESat-2 heights in a mean-tide system (geoid_mean, D-073)",
  "sources": {
   "ATL08": {
@@ -10,6 +10,14 @@
    "n_alt_points": 470645,
    "block_size_m": 50000.0,
    "n_alt_with_dem": 470645,
+   "n_boot": 1000,
+   "main_from": "files"
+  },
+  "ATL06": {
+   "n_main_points": 4948820,
+   "n_alt_points": 4948820,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 4948820,
    "n_boot": 1000,
    "main_from": "files"
   }

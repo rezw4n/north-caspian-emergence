@@ -2,14 +2,22 @@
  "check": "r07_interpolation_bw020",
  "variant": "main__bw020",
  "main": "main",
- "created": "2026-10-21T18:06:58Z",
- "note": "0.20 m bins from the 0.10 m counts",
+ "created": "2026-10-21T19:20:00Z",
+ "note": "r07_interpolation_bw020 (added source)",
  "sources": {
   "ATL08": {
    "n_main_points": 470645,
    "n_alt_points": 470645,
    "block_size_m": 50000.0,
    "n_alt_with_dem": 465012,
+   "n_boot": 1000,
+   "main_from": "files"
+  },
+  "ATL06": {
+   "n_main_points": 4948820,
+   "n_alt_points": 4948820,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 4885525,
    "n_boot": 1000,
    "main_from": "files"
   }
