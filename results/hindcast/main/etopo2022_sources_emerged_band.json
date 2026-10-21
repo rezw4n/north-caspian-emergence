@@ -1,0 +1,8 @@
+{
+ "cells_250m": 593068,
+ "share": {
+  "10 FABDEM (land topography)": 0.4586,
+  "11 GEBCO Lake Depths": 0.5414
+ },
+ "source": "MacFerrin et al. 2025, Table 1"
+}

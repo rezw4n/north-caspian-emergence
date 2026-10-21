@@ -615,6 +615,28 @@ def eq1_curves(path: Path) -> dict:
     return out
 
 
+def _polygons_only(g):
+    """Polygon and MultiPolygon rows of a GeoDataFrame, made valid; polygon parts of
+    geometry collections are kept, other geometry types dropped (area rule)."""
+    import shapely
+    geoms = []
+    for geom in g.geometry:
+        if geom is None or geom.is_empty:
+            geoms.append(None)
+            continue
+        geom = shapely.make_valid(geom)
+        if geom.geom_type in ("Polygon", "MultiPolygon"):
+            geoms.append(geom)
+        elif hasattr(geom, "geoms"):
+            parts = [p for p in shapely.get_parts(geom) if p.geom_type in ("Polygon", "MultiPolygon")]
+            geoms.append(shapely.union_all(parts) if parts else None)
+        else:
+            geoms.append(None)
+    g = g.copy()
+    g["geometry"] = geoms
+    return g[g.geometry.notna()]
+
+
 def osm_layers(osm_dir: Path) -> dict:
     import geopandas as gpd
     out = {}
