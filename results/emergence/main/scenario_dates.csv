@@ -1,0 +1,121 @@
+pathway_id,delta_m,horizon_year,anchor,date,reached,note,role,source,scenario,statistic,kind,ref_year
+HOS25-01,0.5,2100.0,base,,False,not reached by 2100,primary,hoseini2025,low emission scenario,median,projection,2021.0
+HOS25-01,1.0,2100.0,base,,False,not reached by 2100,primary,hoseini2025,low emission scenario,median,projection,2021.0
+HOS25-01,2.0,2100.0,base,,False,not reached by 2100,primary,hoseini2025,low emission scenario,median,projection,2021.0
+HOS25-01,3.0,2100.0,base,,False,not reached by 2100,primary,hoseini2025,low emission scenario,median,projection,2021.0
+HOS25-01,5.0,2100.0,base,,False,not reached by 2100,primary,hoseini2025,low emission scenario,median,projection,2021.0
+HOS25-02,0.5,2100.0,base,2029.238,True,,range,hoseini2025,low emission scenario,25th percentile,projection,2021.0
+HOS25-02,1.0,2100.0,base,2032.475,True,,range,hoseini2025,low emission scenario,25th percentile,projection,2021.0
+HOS25-02,2.0,2100.0,base,2038.951,True,,range,hoseini2025,low emission scenario,25th percentile,projection,2021.0
+HOS25-02,3.0,2100.0,base,2045.426,True,,range,hoseini2025,low emission scenario,25th percentile,projection,2021.0
+HOS25-02,5.0,2100.0,base,2058.377,True,,range,hoseini2025,low emission scenario,25th percentile,projection,2021.0
+HOS25-03,0.5,2100.0,base,,False,not reached by 2100,range,hoseini2025,low emission scenario,75th percentile,projection,2021.0
+HOS25-03,1.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,low emission scenario,75th percentile,projection,2021.0
+HOS25-03,2.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,low emission scenario,75th percentile,projection,2021.0
+HOS25-03,3.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,low emission scenario,75th percentile,projection,2021.0
+HOS25-03,5.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,low emission scenario,75th percentile,projection,2021.0
+HOS25-04,0.5,2100.0,base,2047.944,True,,primary,hoseini2025,medium emission scenario,median,projection,2021.0
+HOS25-04,1.0,2100.0,base,2069.889,True,,primary,hoseini2025,medium emission scenario,median,projection,2021.0
+HOS25-04,2.0,2100.0,base,,False,not reached by 2100,primary,hoseini2025,medium emission scenario,median,projection,2021.0
+HOS25-04,3.0,2100.0,base,,False,not reached by 2100,primary,hoseini2025,medium emission scenario,median,projection,2021.0
+HOS25-04,5.0,2100.0,base,,False,not reached by 2100,primary,hoseini2025,medium emission scenario,median,projection,2021.0
+HOS25-05,0.5,2100.0,base,2031.896,True,,range,hoseini2025,medium emission scenario,25th percentile,projection,2021.0
+HOS25-05,1.0,2100.0,base,2037.791,True,,range,hoseini2025,medium emission scenario,25th percentile,projection,2021.0
+HOS25-05,2.0,2100.0,base,2049.582,True,,range,hoseini2025,medium emission scenario,25th percentile,projection,2021.0
+HOS25-05,3.0,2100.0,base,2061.373,True,,range,hoseini2025,medium emission scenario,25th percentile,projection,2021.0
+HOS25-05,5.0,2100.0,base,2084.955,True,,range,hoseini2025,medium emission scenario,25th percentile,projection,2021.0
+HOS25-06,0.5,2100.0,base,,False,not reached by 2100,range,hoseini2025,medium emission scenario,75th percentile,projection,2021.0
+HOS25-06,1.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,medium emission scenario,75th percentile,projection,2021.0
+HOS25-06,2.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,medium emission scenario,75th percentile,projection,2021.0
+HOS25-06,3.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,medium emission scenario,75th percentile,projection,2021.0
+HOS25-06,5.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,medium emission scenario,75th percentile,projection,2021.0
+HOS25-07,0.5,2100.0,base,2037.97,True,,primary,hoseini2025,medium-to-high emission scenario,median,projection,2021.0
+HOS25-07,1.0,2100.0,base,2049.939,True,,primary,hoseini2025,medium-to-high emission scenario,median,projection,2021.0
+HOS25-07,2.0,2100.0,base,2073.879,True,,primary,hoseini2025,medium-to-high emission scenario,median,projection,2021.0
+HOS25-07,3.0,2100.0,base,2097.818,True,,primary,hoseini2025,medium-to-high emission scenario,median,projection,2021.0
+HOS25-07,5.0,2100.0,base,,False,not reached by 2100,primary,hoseini2025,medium-to-high emission scenario,median,projection,2021.0
+HOS25-08,0.5,2100.0,base,2030.247,True,,range,hoseini2025,medium-to-high emission scenario,25th percentile,projection,2021.0
+HOS25-08,1.0,2100.0,base,2034.495,True,,range,hoseini2025,medium-to-high emission scenario,25th percentile,projection,2021.0
+HOS25-08,2.0,2100.0,base,2042.989,True,,range,hoseini2025,medium-to-high emission scenario,25th percentile,projection,2021.0
+HOS25-08,3.0,2100.0,base,2051.484,True,,range,hoseini2025,medium-to-high emission scenario,25th percentile,projection,2021.0
+HOS25-08,5.0,2100.0,base,2068.473,True,,range,hoseini2025,medium-to-high emission scenario,25th percentile,projection,2021.0
+HOS25-09,0.5,2100.0,base,,False,not reached by 2100,range,hoseini2025,medium-to-high emission scenario,75th percentile,projection,2021.0
+HOS25-09,1.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,medium-to-high emission scenario,75th percentile,projection,2021.0
+HOS25-09,2.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,medium-to-high emission scenario,75th percentile,projection,2021.0
+HOS25-09,3.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,medium-to-high emission scenario,75th percentile,projection,2021.0
+HOS25-09,5.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,medium-to-high emission scenario,75th percentile,projection,2021.0
+HOS25-10,0.5,2100.0,base,2034.977,True,,primary,hoseini2025,high emission scenario,median,projection,2021.0
+HOS25-10,1.0,2100.0,base,2043.955,True,,primary,hoseini2025,high emission scenario,median,projection,2021.0
+HOS25-10,2.0,2100.0,base,2061.909,True,,primary,hoseini2025,high emission scenario,median,projection,2021.0
+HOS25-10,3.0,2100.0,base,2079.864,True,,primary,hoseini2025,high emission scenario,median,projection,2021.0
+HOS25-10,5.0,2100.0,base,,False,not reached by 2100,primary,hoseini2025,high emission scenario,median,projection,2021.0
+HOS25-11,0.5,2100.0,base,2029.591,True,,range,hoseini2025,high emission scenario,25th percentile,projection,2021.0
+HOS25-11,1.0,2100.0,base,2033.182,True,,range,hoseini2025,high emission scenario,25th percentile,projection,2021.0
+HOS25-11,2.0,2100.0,base,2040.364,True,,range,hoseini2025,high emission scenario,25th percentile,projection,2021.0
+HOS25-11,3.0,2100.0,base,2047.545,True,,range,hoseini2025,high emission scenario,25th percentile,projection,2021.0
+HOS25-11,5.0,2100.0,base,2061.909,True,,range,hoseini2025,high emission scenario,25th percentile,projection,2021.0
+HOS25-12,0.5,2100.0,base,,False,not reached by 2100,range,hoseini2025,high emission scenario,75th percentile,projection,2021.0
+HOS25-12,1.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,high emission scenario,75th percentile,projection,2021.0
+HOS25-12,2.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,high emission scenario,75th percentile,projection,2021.0
+HOS25-12,3.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,high emission scenario,75th percentile,projection,2021.0
+HOS25-12,5.0,2100.0,base,,False,not reached by 2100,range,hoseini2025,high emission scenario,75th percentile,projection,2021.0
+NW20-01,0.5,2100.0,base,2030.444,True,,sensitivity,nandiniweiss2020,RCP4.5,"single model (CESM1.2.2, CAM5, 1 deg)",projection,2020.0
+NW20-01,1.0,2100.0,base,2034.889,True,,sensitivity,nandiniweiss2020,RCP4.5,"single model (CESM1.2.2, CAM5, 1 deg)",projection,2020.0
+NW20-01,2.0,2100.0,base,2043.778,True,,sensitivity,nandiniweiss2020,RCP4.5,"single model (CESM1.2.2, CAM5, 1 deg)",projection,2020.0
+NW20-01,3.0,2100.0,base,2052.667,True,,sensitivity,nandiniweiss2020,RCP4.5,"single model (CESM1.2.2, CAM5, 1 deg)",projection,2020.0
+NW20-01,5.0,2100.0,base,2070.444,True,,sensitivity,nandiniweiss2020,RCP4.5,"single model (CESM1.2.2, CAM5, 1 deg)",projection,2020.0
+NW20-02,0.5,2100.0,base,2028.222,True,,sensitivity,nandiniweiss2020,RCP8.5,"single model (CESM1.2.2, CAM5, 1 deg)",projection,2020.0
+NW20-02,1.0,2100.0,base,2030.444,True,,sensitivity,nandiniweiss2020,RCP8.5,"single model (CESM1.2.2, CAM5, 1 deg)",projection,2020.0
+NW20-02,2.0,2100.0,base,2034.889,True,,sensitivity,nandiniweiss2020,RCP8.5,"single model (CESM1.2.2, CAM5, 1 deg)",projection,2020.0
+NW20-02,3.0,2100.0,base,2039.333,True,,sensitivity,nandiniweiss2020,RCP8.5,"single model (CESM1.2.2, CAM5, 1 deg)",projection,2020.0
+NW20-02,5.0,2100.0,base,2048.222,True,,sensitivity,nandiniweiss2020,RCP8.5,"single model (CESM1.2.2, CAM5, 1 deg)",projection,2020.0
+SAM23-07,0.5,2100.0,base,2031.0,True,,primary,samant2023,SSP245,best-fit total (P-E part + observed trend),projection,2020.0
+SAM23-07,1.0,2100.0,base,2036.0,True,,primary,samant2023,SSP245,best-fit total (P-E part + observed trend),projection,2020.0
+SAM23-07,2.0,2100.0,base,2046.0,True,,primary,samant2023,SSP245,best-fit total (P-E part + observed trend),projection,2020.0
+SAM23-07,3.0,2100.0,base,2056.0,True,,primary,samant2023,SSP245,best-fit total (P-E part + observed trend),projection,2020.0
+SAM23-07,5.0,2100.0,base,2076.0,True,,primary,samant2023,SSP245,best-fit total (P-E part + observed trend),projection,2020.0
+SAM23-08,0.5,2100.0,base,2046.0,True,,range,samant2023,SSP245,"best-fit total, inter-model range low",projection,2020.0
+SAM23-08,1.0,2100.0,base,2066.0,True,,range,samant2023,SSP245,"best-fit total, inter-model range low",projection,2020.0
+SAM23-08,2.0,2100.0,base,,False,not reached by 2100,range,samant2023,SSP245,"best-fit total, inter-model range low",projection,2020.0
+SAM23-08,3.0,2100.0,base,,False,not reached by 2100,range,samant2023,SSP245,"best-fit total, inter-model range low",projection,2020.0
+SAM23-08,5.0,2100.0,base,,False,not reached by 2100,range,samant2023,SSP245,"best-fit total, inter-model range low",projection,2020.0
+SAM23-09,0.5,2100.0,base,2028.667,True,,range,samant2023,SSP245,"best-fit total, inter-model range high",projection,2020.0
+SAM23-09,1.0,2100.0,base,2031.333,True,,range,samant2023,SSP245,"best-fit total, inter-model range high",projection,2020.0
+SAM23-09,2.0,2100.0,base,2036.667,True,,range,samant2023,SSP245,"best-fit total, inter-model range high",projection,2020.0
+SAM23-09,3.0,2100.0,base,2042.0,True,,range,samant2023,SSP245,"best-fit total, inter-model range high",projection,2020.0
+SAM23-09,5.0,2100.0,base,2052.667,True,,range,samant2023,SSP245,"best-fit total, inter-model range high",projection,2020.0
+SAM23-10,0.5,2100.0,base,2028.857,True,,primary,samant2023,SSP585,best-fit total (P-E part + observed trend),projection,2020.0
+SAM23-10,1.0,2100.0,base,2031.714,True,,primary,samant2023,SSP585,best-fit total (P-E part + observed trend),projection,2020.0
+SAM23-10,2.0,2100.0,base,2037.429,True,,primary,samant2023,SSP585,best-fit total (P-E part + observed trend),projection,2020.0
+SAM23-10,3.0,2100.0,base,2043.143,True,,primary,samant2023,SSP585,best-fit total (P-E part + observed trend),projection,2020.0
+SAM23-10,5.0,2100.0,base,2054.571,True,,primary,samant2023,SSP585,best-fit total (P-E part + observed trend),projection,2020.0
+SAM23-11,0.5,2100.0,base,2029.636,True,,range,samant2023,SSP585,"best-fit total, inter-model range low",projection,2020.0
+SAM23-11,1.0,2100.0,base,2033.273,True,,range,samant2023,SSP585,"best-fit total, inter-model range low",projection,2020.0
+SAM23-11,2.0,2100.0,base,2040.545,True,,range,samant2023,SSP585,"best-fit total, inter-model range low",projection,2020.0
+SAM23-11,3.0,2100.0,base,2047.818,True,,range,samant2023,SSP585,"best-fit total, inter-model range low",projection,2020.0
+SAM23-11,5.0,2100.0,base,2062.364,True,,range,samant2023,SSP585,"best-fit total, inter-model range low",projection,2020.0
+SAM23-12,0.5,2100.0,base,2027.905,True,,range,samant2023,SSP585,"best-fit total, inter-model range high",projection,2020.0
+SAM23-12,1.0,2100.0,base,2029.81,True,,range,samant2023,SSP585,"best-fit total, inter-model range high",projection,2020.0
+SAM23-12,2.0,2100.0,base,2033.619,True,,range,samant2023,SSP585,"best-fit total, inter-model range high",projection,2020.0
+SAM23-12,3.0,2100.0,base,2037.429,True,,range,samant2023,SSP585,"best-fit total, inter-model range high",projection,2020.0
+SAM23-12,5.0,2100.0,base,2045.048,True,,range,samant2023,SSP585,"best-fit total, inter-model range high",projection,2020.0
+SAM23-14,0.5,2100.0,base,2034.772,True,,primary,samant2023,observed 1996-2021 (DAHITI altimetry),linear trend,rate,2021.0
+SAM23-14,1.0,2100.0,base,2043.544,True,,primary,samant2023,observed 1996-2021 (DAHITI altimetry),linear trend,rate,2021.0
+SAM23-14,2.0,2100.0,base,2061.088,True,,primary,samant2023,observed 1996-2021 (DAHITI altimetry),linear trend,rate,2021.0
+SAM23-14,3.0,2100.0,base,2078.632,True,,primary,samant2023,observed 1996-2021 (DAHITI altimetry),linear trend,rate,2021.0
+SAM23-14,5.0,2100.0,base,,False,not reached by 2100,primary,samant2023,observed 1996-2021 (DAHITI altimetry),linear trend,rate,2021.0
+SAM23-16,0.5,2100.0,base,2031.556,True,,sensitivity,samant2023,observed 2006-2021 (DAHITI altimetry),linear trend,rate,2021.0
+SAM23-16,1.0,2100.0,base,2037.111,True,,sensitivity,samant2023,observed 2006-2021 (DAHITI altimetry),linear trend,rate,2021.0
+SAM23-16,2.0,2100.0,base,2048.222,True,,sensitivity,samant2023,observed 2006-2021 (DAHITI altimetry),linear trend,rate,2021.0
+SAM23-16,3.0,2100.0,base,2059.333,True,,sensitivity,samant2023,observed 2006-2021 (DAHITI altimetry),linear trend,rate,2021.0
+SAM23-16,5.0,2100.0,base,2081.556,True,,sensitivity,samant2023,observed 2006-2021 (DAHITI altimetry),linear trend,rate,2021.0
+SAM23-05+SAM23-14 (Eq. 1 shape),0.5,2100.0,base,2033.305,True,,sensitivity,samant2023,SSP245,"best-fit P-E part (quadratic in time, Eq. 1) + observed 1996-2021 trend (linear)",projection,2020.0
+SAM23-05+SAM23-14 (Eq. 1 shape),1.0,2100.0,base,2039.831,True,,sensitivity,samant2023,SSP245,"best-fit P-E part (quadratic in time, Eq. 1) + observed 1996-2021 trend (linear)",projection,2020.0
+SAM23-05+SAM23-14 (Eq. 1 shape),2.0,2100.0,base,2051.289,True,,sensitivity,samant2023,SSP245,"best-fit P-E part (quadratic in time, Eq. 1) + observed 1996-2021 trend (linear)",projection,2020.0
+SAM23-05+SAM23-14 (Eq. 1 shape),3.0,2100.0,base,2061.291,True,,sensitivity,samant2023,SSP245,"best-fit P-E part (quadratic in time, Eq. 1) + observed 1996-2021 trend (linear)",projection,2020.0
+SAM23-05+SAM23-14 (Eq. 1 shape),5.0,2100.0,base,2078.516,True,,sensitivity,samant2023,SSP245,"best-fit P-E part (quadratic in time, Eq. 1) + observed 1996-2021 trend (linear)",projection,2020.0
+SAM23-06+SAM23-14 (Eq. 1 shape),0.5,2100.0,base,2031.965,True,,sensitivity,samant2023,SSP585,"best-fit P-E part (quadratic in time, Eq. 1) + observed 1996-2021 trend (linear)",projection,2020.0
+SAM23-06+SAM23-14 (Eq. 1 shape),1.0,2100.0,base,2036.957,True,,sensitivity,samant2023,SSP585,"best-fit P-E part (quadratic in time, Eq. 1) + observed 1996-2021 trend (linear)",projection,2020.0
+SAM23-06+SAM23-14 (Eq. 1 shape),2.0,2100.0,base,2045.286,True,,sensitivity,samant2023,SSP585,"best-fit P-E part (quadratic in time, Eq. 1) + observed 1996-2021 trend (linear)",projection,2020.0
+SAM23-06+SAM23-14 (Eq. 1 shape),3.0,2100.0,base,2052.284,True,,sensitivity,samant2023,SSP585,"best-fit P-E part (quadratic in time, Eq. 1) + observed 1996-2021 trend (linear)",projection,2020.0
+SAM23-06+SAM23-14 (Eq. 1 shape),5.0,2100.0,base,2063.994,True,,sensitivity,samant2023,SSP585,"best-fit P-E part (quadratic in time, Eq. 1) + observed 1996-2021 trend (linear)",projection,2020.0
