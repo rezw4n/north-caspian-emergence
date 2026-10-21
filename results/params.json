@@ -603,5 +603,15 @@
   "value": 1,
   "unit": "degrees",
   "source": "figures/fig_study_area.GRATICULE_DEG"
+ },
+ "params.fig_map_res_m": {
+  "value": 150,
+  "unit": "m",
+  "source": "figures/_common.MAP_RES_M"
+ },
+ "params.fig_min_bin_n": {
+  "value": 1000,
+  "unit": "points",
+  "source": "figures/fig3_dem_accuracy.MIN_BIN_N"
  }
 }

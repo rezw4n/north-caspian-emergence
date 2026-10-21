@@ -255,6 +255,9 @@ params.update({
     "params.fig_scale_bar_km": (_const("figures/fig_study_area.py", "SCALE_KM"), "km", "figures/fig_study_area.SCALE_KM"),
     "params.fig_graticule_deg": (_const("figures/fig_study_area.py", "GRATICULE_DEG"), "degrees",
                                  "figures/fig_study_area.GRATICULE_DEG"),
+    "params.fig_map_res_m": (_const("figures/_common.py", "MAP_RES_M"), "m", "figures/_common.MAP_RES_M"),
+    "params.fig_min_bin_n": (_const("figures/fig3_dem_accuracy.py", "MIN_BIN_N"), "points",
+                             "figures/fig3_dem_accuracy.MIN_BIN_N"),
 })
 out = {}
 for k, rec in params.items():

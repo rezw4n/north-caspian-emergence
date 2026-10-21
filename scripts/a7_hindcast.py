@@ -390,6 +390,8 @@ def encode(d, pixel: float = RES) -> np.ndarray:
     integer on the grid; +-INF for infinite), so that a pool over every level holds 4
     bytes per distance and decodes to the same float64 values."""
     d = np.asarray(d, float)
+    if np.isnan(d).any():   # NaN would cast to INT32_MIN and decode as a finite -2,780 km (D-089)
+        raise ValueError("NaN distance passed to encode(); drop undefined distances first")
     k = np.where(np.isinf(d), _INF, np.rint((np.where(np.isinf(d), 0, d) / pixel) ** 2))
     if np.any(k > _INF):
         raise ValueError("distance too large for the int32 code")
@@ -412,7 +414,9 @@ class Pool:
     def add(self, key, res: dict):
         e = self.d.setdefault(key, {"codes": [], "n_pred": 0, "n_obs": 0, "n_pred_unknown": 0,
                                     "n_obs_unknown": 0, "observed_level": False})
-        e["codes"].append(encode(res.get("distances", np.empty(0)), self.pixel))
+        dist = np.asarray(res.get("distances", np.empty(0)), float)
+        e["n_nan_dropped"] = e.get("n_nan_dropped", 0) + int(np.isnan(dist).sum())
+        e["codes"].append(encode(dist[~np.isnan(dist)], self.pixel))
         for k in ("n_pred", "n_obs", "n_pred_unknown", "n_obs_unknown"):
             e[k] += res[k]
         e["observed_level"] = e["observed_level"] or bool(res["observed_level"])
@@ -431,6 +435,8 @@ def _measured(cells: dict, transform, block_m: float):
     rows = np.r_[p["rows"][p["known"]], o["rows"][o["known"]]]
     cols = np.r_[p["cols"][p["known"]], o["cols"][o["known"]]]
     d = np.r_[cells["signed_p"][p["known"]], cells["signed_o"][o["known"]]]
+    ok = ~np.isnan(d)                      # undefined distances are left out (D-089); +-inf kept
+    rows, cols, d = rows[ok], cols[ok], d[ok]
     return (np.floor((c + a * (cols + 0.5)) / block_m).astype(np.int64),
             np.floor((f + e * (rows + 0.5)) / block_m).astype(np.int64), d)
 

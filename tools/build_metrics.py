@@ -191,6 +191,8 @@ def results_metrics(m: dict, tag: str = "main") -> None:
             put(m, f"h2.decision.{v}", d, "text", f"validation/{tag}/h2_decision.json")
         bs = load(f"validation/{tag}/block_size_check.json")
         put(m, "h2.block_size_km", bs["final_block_size_m"] / 1000, "km", f"validation/{tag}/block_size_check.json")
+        if "h2.block_size_km" in m:
+            m["h2.block_size_km"]["decimals"] = 0 if float(m["h2.block_size_km"]["value"]).is_integer() else 1
         for src in ("ATL06", "ATL08"):
             s = src.lower()
             acc = pd.read_csv(val / f"{src}_accuracy.csv")
@@ -220,16 +222,34 @@ def results_metrics(m: dict, tag: str = "main") -> None:
                     put(m, f"h2.{s}.coverage.{sec}", round(float(cov.loc[sec, "coverage"]), 3), "fraction", fc)
             for size in (25000, 12500):
                 sd = val / f"sensitivity_{size}m"
+                # key label as committed: 25000 -> "sens25km", 12500 -> "sens12km" (12.5 km blocks; the
+                # source path in each record names the size exactly)
+                lab = f"sens{size // 1000}km"
                 if (sd / f"{src}_accuracy.csv").exists():
                     a2 = pd.read_csv(sd / f"{src}_accuracy.csv")
                     o2 = a2[a2.scope == "overall"].set_index("model")
                     fs = f"validation/{tag}/sensitivity_{size}m/{src}_accuracy.csv"
-                    put(m, f"h2.sens{size // 1000}km.{s}.n_test_blocks", int(o2.loc["dem", "n_blocks"]), "blocks", fs)
-                    put(m, f"h2.sens{size // 1000}km.{s}.dem.nmad_m", round(float(o2.loc["dem", "nmad"]), 3), "m", fs)
-                    put(m, f"h2.sens{size // 1000}km.{s}.dem.rmse_m", round(float(o2.loc["dem", "rmse"]), 3), "m", fs)
+                    put(m, f"h2.{lab}.{s}.n_test_blocks", int(o2.loc["dem", "n_blocks"]), "blocks", fs)
+                    put(m, f"h2.{lab}.{s}.dem.nmad_m", round(float(o2.loc["dem", "nmad"]), 3), "m", fs)
+                    put(m, f"h2.{lab}.{s}.dem.rmse_m", round(float(o2.loc["dem", "rmse"]), 3), "m", fs)
                     c2 = pd.read_csv(sd / f"{src}_coverage.csv").set_index("scope")
-                    put(m, f"h2.sens{size // 1000}km.{s}.coverage.overall", round(float(c2.loc["overall", "coverage"]), 3),
+                    put(m, f"h2.{lab}.{s}.coverage.overall", round(float(c2.loc["overall", "coverage"]), 3),
                         "fraction", fs.replace("accuracy", "coverage"))
+                    # display items (tables_draft.tex T2, figures/ed_block_size.py): every model at this size
+                    put(m, f"h2.{lab}.{s}.n_test_points", int(o2.loc["dem", "n"]), "points", fs)
+                    put(m, f"h2.{lab}.{s}.dem.bias_m", round(float(o2.loc["dem", "bias"]), 3), "m", fs)
+                    for p, k in PRODUCT_KEY.items():
+                        for metric in ("nmad", "rmse", "bias"):
+                            put(m, f"h2.{lab}.{s}.{k}.{metric}_m", round(float(o2.loc[f"{p}|matched", metric]), 3), "m", fs)
+                    pb2 = pd.read_csv(sd / f"{src}_paired_bootstrap.csv")
+                    pb2 = pb2[(pb2.scope == "overall") & (pb2.variant == "matched")]
+                    fb2 = fs.replace("accuracy", "paired_bootstrap")
+                    for r in pb2.itertuples():
+                        k = f"h2.{lab}.{s}.diff.{r.metric}.{PRODUCT_KEY[r.product]}"
+                        put(m, k + "_m", round(float(r.diff), 3), "m", fb2, "DEM minus product")
+                        put(m, k + "_ci_low_m", round(float(r.ci_low), 3), "m", fb2)
+                        put(m, k + "_ci_high_m", round(float(r.ci_high), 3), "m", fb2)
+            display_h2_metrics(m, tag, src)
     hc = RES / "hindcast" / tag
     if (hc / "h1_decision.json").exists():
         so = load(f"hindcast/{tag}/shape_offsets.json")
@@ -262,6 +282,143 @@ def results_metrics(m: dict, tag: str = "main") -> None:
         for sec, g in nz.groupby("sector"):
             put(m, f"h1.noise_p95.{sec}_km", round(float(g["p95_m"].median()) / 1000, 2), "km", f"hindcast/{tag}/noise_floor.csv",
                 "median over levels of the noise-floor 95th percentile")
+        display_h1_metrics(m, tag)
+    display_input_metrics(m)
+
+
+def display_h2_metrics(m: dict, tag: str, src: str) -> None:
+    """H2 values read for the display items (figures/fig3_dem_accuracy.py, figures/ed_*.py,
+    manuscript/sections/tables_draft.tex): per-sector accuracy of every model, coverage
+    with its intervals, the training-block constants, and the vegetated population (brief
+    section 10 check 9). Direct reads of the committed tables; nothing is recomputed."""
+    import pandas as pd
+
+    val = RES / "validation" / tag
+    s = src.lower()
+    f = f"validation/{tag}/{src}_accuracy.csv"
+    acc = pd.read_csv(val / f"{src}_accuracy.csv")
+    for r in acc[(acc.scope != "overall") & (acc.n > 0)].itertuples():
+        k = "dem" if r.model == "dem" else (PRODUCT_KEY[r.model.split("|")[0]] if r.model.endswith("|matched") else None)
+        if k is None:
+            continue
+        if k == "dem":
+            put(m, f"h2.{s}.n_points.{r.scope}", int(r.n), "points", f, "test-block points in the sector")
+            put(m, f"h2.{s}.n_blocks.{r.scope}", int(r.n_blocks), "blocks", f, "test blocks with points in the sector")
+            put(m, f"h2.{s}.dem.{r.scope}.rmse_m", round(float(r.rmse), 3), "m", f)
+        else:
+            for metric in ("nmad", "rmse", "bias"):
+                put(m, f"h2.{s}.{k}.{r.scope}.{metric}_m", round(float(getattr(r, metric)), 3), "m", f, "matched variant")
+    cov = pd.read_csv(val / f"{src}_coverage.csv")
+    fc = f"validation/{tag}/{src}_coverage.csv"
+    for r in cov[cov.n > 0].itertuples():
+        base = f"h2.{s}.coverage.{r.scope}"
+        put(m, base + "_ci_low", round(float(r.ci_low), 3), "fraction", fc, "binomial 95% interval (points as independent)")
+        put(m, base + "_ci_high", round(float(r.ci_high), 3), "fraction", fc, "binomial 95% interval (points as independent)")
+        put(m, base + "_boot_low", round(float(r.boot_low), 3), "fraction", fc, "test-block bootstrap 95% interval")
+        put(m, base + "_boot_high", round(float(r.boot_high), 3), "fraction", fc, "test-block bootstrap 95% interval")
+        put(m, base + "_n_blocks", int(r.n_blocks), "blocks", fc)
+    dc = load(f"validation/{tag}/{src}_datum_constant.json").get("constant") or {}
+    put(m, f"h2.{s}.datum_constant_m", round(float(dc["constant_m"]), 3) if dc else None, "m",
+        f"validation/{tag}/{src}_datum_constant.json", "training-block median of DEM - H (D-069, D-078)")
+    put(m, f"h2.{s}.datum_constant_sigma_m", round(float(dc["sigma_boot_m"]), 3) if dc else None, "m",
+        f"validation/{tag}/{src}_datum_constant.json", "training-block bootstrap SD")
+    po = load(f"validation/{tag}/{src}_product_offsets.json").get("product_offsets") or {}
+    for p, k in PRODUCT_KEY.items():
+        if p in po:
+            put(m, f"h2.{s}.offset.{k}_m", round(float(po[p]["offset_m"]), 3), "m",
+                f"validation/{tag}/{src}_product_offsets.json", "training-block median of y_ref - product (matched variant)")
+    vg = RES / "validation" / f"{tag}_vegetated"
+    if (vg / f"{src}_accuracy.csv").exists():
+        a3 = pd.read_csv(vg / f"{src}_accuracy.csv")
+        o3 = a3[a3.scope == "overall"].set_index("model")
+        fv = f"validation/{tag}_vegetated/{src}_accuracy.csv"
+        put(m, f"h2.veg.{s}.n_test_points", int(o3.loc["dem", "n"]), "points", fv)
+        put(m, f"h2.veg.{s}.n_test_blocks", int(o3.loc["dem", "n_blocks"]), "blocks", fv)
+        for metric in ("nmad", "rmse", "bias"):
+            put(m, f"h2.veg.{s}.dem.{metric}_m", round(float(o3.loc["dem", metric]), 3), "m", fv)
+            for p, k in PRODUCT_KEY.items():
+                put(m, f"h2.veg.{s}.{k}.{metric}_m", round(float(o3.loc[f"{p}|matched", metric]), 3), "m", fv)
+        c3 = pd.read_csv(vg / f"{src}_coverage.csv").set_index("scope")
+        put(m, f"h2.veg.{s}.coverage.overall", round(float(c3.loc["overall", "coverage"]), 3), "fraction",
+            fv.replace("accuracy", "coverage"))
+
+
+def display_h1_metrics(m: dict, tag: str) -> None:
+    """H1 values read for the display items (figures/fig4_audit.py, figures/ed_*.py):
+    per-sector level counts behind each "mispredicts" call, the sector summary of the
+    per-level median displacement, the block-test counts and the unit counts."""
+    import numpy as np
+    import pandas as pd
+
+    hc = RES / "hindcast" / tag
+    f = f"hindcast/{tag}/h1_mispredicts.csv"
+    for r in pd.read_csv(hc / "h1_mispredicts.csv").itertuples():
+        k = PRODUCT_KEY[r.product]
+        put(m, f"h1.n_exceeding.{r.variant}.{k}.{r.sector}", int(r.n_exceeding), "levels", f,
+            "evaluable levels whose median displacement exceeds the sector noise-floor 95th percentile")
+        put(m, f"h1.n_evaluable.{r.variant}.{k}.{r.sector}", int(r.n_evaluable), "levels", f)
+    det = pd.read_csv(hc / "h1_mispredicts_detail.csv")
+    det = det[det["evaluable"] == True]  # noqa: E712
+    fd = f"hindcast/{tag}/h1_mispredicts_detail.csv"
+    for (p, v, sec), g in det.groupby(["product", "variant", "sector"]):
+        put(m, f"h1.disp_median.{v}.{PRODUCT_KEY[p]}.{sec}_km", round(float(g["median"].median()) / 1000, 2), "km", fd,
+            "median over the evaluable levels of the per-level median displacement (pooled epochs), as quoted in D-087")
+        put(m, f"h1.noise_p95_evaluable.{v}.{PRODUCT_KEY[p]}.{sec}_km", round(float(g["p95_noise"].median()) / 1000, 2),
+            "km", fd, "median over the same evaluable levels of the sector noise-floor 95th percentile")
+    for r in pd.read_csv(hc / "h1_block_test.csv").itertuples():
+        b = f"h1.block_test.{r.variant}.{PRODUCT_KEY[r.product]}"
+        put(m, b + ".n_blocks", int(r.n_blocks), "blocks", f"hindcast/{tag}/h1_block_test.csv", "25 km blocks with values")
+        put(m, b + ".n_group", int(r.n_group), "blocks", f"hindcast/{tag}/h1_block_test.csv", "deltaic or vegetated sectors")
+        put(m, b + ".n_rest", int(r.n_rest), "blocks", f"hindcast/{tag}/h1_block_test.csv")
+    # block_h1.csv rows whose median is not a distance (negative: the decoded int32 minimum,
+    # 2026-10-21 figure review); counted so the display items can state them
+    bh = pd.read_csv(hc / "block_h1.csv")
+    min_n = int(load("params.json").get("params.h1_min_block_n", {}).get("value", 20))
+    for (p, v), g in bh.groupby(["product", "variant"]):
+        bad = g["median_abs_m"] < 0
+        put(m, f"h1.block_h1.n_undefined.{v}.{PRODUCT_KEY[p]}", int(bad.sum()), "blocks", f"hindcast/{tag}/block_h1.csv",
+            "rows with a negative median_abs_m (not a distance)")
+        put(m, f"h1.block_h1.n_undefined_used.{v}.{PRODUCT_KEY[p]}", int((bad & (g["n"] >= min_n)).sum()), "blocks",
+            f"hindcast/{tag}/block_h1.csv", "the same, among blocks with at least params.h1_min_block_n distances")
+    ex = pd.read_csv(hc / "extent.csv", usecols=["product", "variant", "epoch", "bin", "sector", "area_obs_km2"])
+    dom = ex[(ex["sector"] == "domain") & (ex["area_obs_km2"] > 0)]
+    put(m, "h1.n_units_domain", int(dom[["epoch", "bin"]].drop_duplicates().shape[0]), "units",
+        f"hindcast/{tag}/extent.csv", "(epoch, level) units with observed sea inside the domain")
+    for e, g in dom[["epoch", "bin"]].drop_duplicates().groupby("epoch"):
+        put(m, f"h1.n_units_domain.{e}", int(len(g)), "units", f"hindcast/{tag}/extent.csv")
+    nz = pd.read_csv(hc / "noise_floor.csv")
+    ev = nz[(nz["kind"] == "e1_vs_e23") & (nz["sector"] != "all") & (nz["n"] > 0)]
+    put(m, "h1.e1_vs_e23.n_rows", int(len(ev)), "sector-levels", f"hindcast/{tag}/noise_floor.csv",
+        "E1 against E2 + E3 shoreline comparisons with distances (kind e1_vs_e23)")
+    put(m, "h1.e1_vs_e23.n_infinite", int((~np.isfinite(ev["median_m"].astype(float))).sum()), "sector-levels",
+        f"hindcast/{tag}/noise_floor.csv", "of those, comparisons with an infinite median (no counterpart shoreline)")
+    so = load(f"hindcast/{tag}/shape_offsets.json")
+    put(m, "h1.shape_fit.n_units", len(so.get("units", [])) or None, "units", f"hindcast/{tag}/shape_offsets.json",
+        "(epoch, level) units in the shape-offset fit")
+    lb = pd.read_csv(hc / "displacement_by_level_band.csv")
+    edges = sorted({float(x) for b in lb["band"] for x in b.strip("(]").split(",")})
+    for i, v in enumerate(edges):
+        put(m, f"h1.disp_band.edge_{i}_m", v, "m (DAHITI reference)", f"hindcast/{tag}/displacement_by_level_band.csv",
+            "level-band edges (scripts/a7_level_bands.BANDS), lowest first")
+        m[f"h1.disp_band.edge_{i}_m"]["decimals"] = 1
+
+
+def display_input_metrics(m: dict) -> None:
+    """The surge-screening sensitivity of D-077 (results/levels/screening_sensitivity.json),
+    read for Fig. 2c and its Supplementary Figure."""
+    ss = load("levels/screening_sensitivity.json")
+    if not ss:
+        return
+    src = "results/levels/screening_sensitivity.json"
+    put(m, "screening.n_blocks", ss.get("n_blocks"), "blocks", src, "sampled training blocks (tag sensB)")
+    put(m, "screening.chosen_tau", "no screening" if ss.get("chosen") == "inf" else ss.get("chosen"), "text", src)
+    for tau, r in (ss.get("results") or {}).items():
+        lab = "inf" if tau == "inf" else f"{float(tau):.2f}".replace(".", "p")
+        put(m, f"screening.S_m.{lab}", r["S_m"], "m", src, "median over block-bins of the median odd/even displacement")
+        put(m, f"screening.se_m.{lab}", round(float(r["se_m"]), 1), "m", src, "bootstrap SE")
+        put(m, f"screening.n_block_bins.{lab}", int(r["n_block_bins"]), "block-bins", src)
+        for k in (f"screening.S_m.{lab}", f"screening.se_m.{lab}"):
+            m[k]["decimals"] = 0  # metres on a 60 m grid
 
 
 def main() -> int:
