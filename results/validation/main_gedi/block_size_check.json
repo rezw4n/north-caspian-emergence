@@ -1,0 +1,23 @@
+{
+ "created": "2026-10-21T03:52:42Z",
+ "dem_tag": "main",
+ "population": "bare",
+ "rule": "inherited from the H2 (ICESat-2) check; not refitted on this source (Amendment 2, D-091)",
+ "status": "resolved",
+ "inherited_from": "results/validation/main/block_size_check.json",
+ "inherited_sources": [
+  "ATL06",
+  "ATL08"
+ ],
+ "base_block_size_m": 25000.0,
+ "final_block_size_m": 50000.0,
+ "sources": {
+  "GEDI": {
+   "inherited": true,
+   "refitted": false,
+   "from": "results/validation/main/block_size_check.json",
+   "final_block_size_m": 50000.0,
+   "range_within_max_lag": true
+  }
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "created": "2026-10-21T04:19:25Z",
+ "dem_tag": "main",
+ "source": "GEDI",
+ "block_size_m": 50000.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": false,
+ "subset": "night",
+ "product_offsets": {
+  "gebco_2026": {
+   "split": "train",
+   "offset_m": 1.206026529999999,
+   "sigma_boot_m": 0.099436249510522,
+   "n_points": 569970,
+   "n_blocks": 34
+  },
+  "etopo_2022": {
+   "split": "train",
+   "offset_m": 0.8685405149999994,
+   "sigma_boot_m": 0.15768454295726883,
+   "n_points": 569970,
+   "n_blocks": 34
+  },
+  "srtm15p_v2.7": {
+   "split": "train",
+   "offset_m": 1.2478819800000025,
+   "sigma_boot_m": 0.14144477389308602,
+   "n_points": 569970,
+   "n_blocks": 34
+  },
+  "gebco_2022": {
+   "split": "train",
+   "offset_m": 0.9603721050000011,
+   "sigma_boot_m": 0.11774509433711235,
+   "n_points": 569970,
+   "n_blocks": 34
+  },
+  "etopo1": {
+   "split": "train",
+   "offset_m": 0.9973609550000013,
+   "sigma_boot_m": 0.11939711223344329,
+   "n_points": 569970,
+   "n_blocks": 34
+  }
+ }
+}

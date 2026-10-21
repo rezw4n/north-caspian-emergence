@@ -1,0 +1,18 @@
+{
+ "created": "2026-10-21T03:28:03Z",
+ "dem_tag": "main",
+ "source": "GLO30",
+ "block_size_m": 50000.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": false,
+ "constant": {
+  "split": "train",
+  "estimator": "median of DEM - H_EGM2008",
+  "constant_m": 0.6237153999999983,
+  "sigma_boot_m": 0.059064652140696706,
+  "n_points": 374665,
+  "n_blocks": 31,
+  "n_boot": 2000,
+  "seed": 20261020
+ }
+}

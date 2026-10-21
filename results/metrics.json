@@ -5315,6 +5315,5493 @@
   "unit": "text",
   "source": "validation/main/h2_decision.json"
  },
+ "h2.gedi.coverage.interfluve": {
+  "value": 0.953,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.interfluve_boot_high": {
+  "value": 0.953,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.interfluve_boot_low": {
+  "value": 0.953,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.interfluve_ci_high": {
+  "value": 0.956,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.interfluve_ci_low": {
+  "value": 0.95,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.interfluve_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.gedi.coverage.interfluve_n_blocks": {
+  "value": 1,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.komsomolets": {
+  "value": 0.173,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.komsomolets_boot_high": {
+  "value": 0.186,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.komsomolets_boot_low": {
+  "value": 0.155,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.komsomolets_ci_high": {
+  "value": 0.176,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.komsomolets_ci_low": {
+  "value": 0.17,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.komsomolets_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.gedi.coverage.komsomolets_n_blocks": {
+  "value": 2,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.northeast": {
+  "value": 0.951,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.northeast_boot_high": {
+  "value": 0.955,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.northeast_boot_low": {
+  "value": 0.947,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.northeast_ci_high": {
+  "value": 0.951,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.northeast_ci_low": {
+  "value": 0.95,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.northeast_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.gedi.coverage.northeast_n_blocks": {
+  "value": 2,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.open_shelf": {
+  "value": 0.799,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.open_shelf_boot_high": {
+  "value": 0.811,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.open_shelf_boot_low": {
+  "value": 0.594,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.open_shelf_ci_high": {
+  "value": 0.804,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.open_shelf_ci_low": {
+  "value": 0.795,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.open_shelf_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.gedi.coverage.open_shelf_n_blocks": {
+  "value": 4,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.overall": {
+  "value": 0.797,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.overall_boot_high": {
+  "value": 0.944,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.overall_boot_low": {
+  "value": 0.481,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.overall_ci_high": {
+  "value": 0.798,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.overall_ci_low": {
+  "value": 0.795,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.overall_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.gedi.coverage.overall_n_blocks": {
+  "value": 13,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.volga": {
+  "value": 0.931,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.volga_boot_high": {
+  "value": 0.998,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.volga_boot_low": {
+  "value": 0.867,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.volga_ci_high": {
+  "value": 0.934,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.volga_ci_low": {
+  "value": 0.928,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.volga_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.gedi.coverage.volga_n_blocks": {
+  "value": 3,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.west": {
+  "value": 0.763,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.coverage.west_boot_high": {
+  "value": 0.763,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.west_boot_low": {
+  "value": 0.763,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.coverage.west_ci_high": {
+  "value": 0.801,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.west_ci_low": {
+  "value": 0.722,
+  "unit": "fraction",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi.coverage.west_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_gedi/GEDI_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.gedi.coverage.west_n_blocks": {
+  "value": 1,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_coverage.csv"
+ },
+ "h2.gedi.datum_constant_m": {
+  "value": 0.513,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_datum_constant.json",
+  "note": "training-block median of DEM - H (D-069, D-078)"
+ },
+ "h2.gedi.datum_constant_sigma_m": {
+  "value": 0.121,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_datum_constant.json",
+  "note": "training-block bootstrap SD"
+ },
+ "h2.gedi.dem.bias_m": {
+  "value": 0.083,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.interfluve.bias_m": {
+  "value": -0.061,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.interfluve.nmad_m": {
+  "value": 0.256,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.interfluve.rmse_m": {
+  "value": 0.31,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.komsomolets.bias_m": {
+  "value": 1.576,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.komsomolets.nmad_m": {
+  "value": 0.742,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.komsomolets.rmse_m": {
+  "value": 2.34,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.nmad_m": {
+  "value": 0.615,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.northeast.bias_m": {
+  "value": -0.05,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.northeast.nmad_m": {
+  "value": 0.436,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.northeast.rmse_m": {
+  "value": 0.523,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.open_shelf.bias_m": {
+  "value": -0.203,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.open_shelf.nmad_m": {
+  "value": 0.452,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.open_shelf.rmse_m": {
+  "value": 0.806,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.rmse_m": {
+  "value": 1.596,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.volga.bias_m": {
+  "value": -1.915,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.volga.nmad_m": {
+  "value": 1.578,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.volga.rmse_m": {
+  "value": 4.108,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.west.bias_m": {
+  "value": -0.412,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.west.nmad_m": {
+  "value": 1.07,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.dem.west.rmse_m": {
+  "value": 1.326,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.diff.interfluve.nmad.etopo1_ci_high_m": {
+  "value": -0.485,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.nmad.etopo1_ci_low_m": {
+  "value": -0.485,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.nmad.etopo1_m": {
+  "value": -0.485,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.interfluve.nmad.etopo2022_ci_high_m": {
+  "value": -0.373,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.nmad.etopo2022_ci_low_m": {
+  "value": -0.373,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.nmad.etopo2022_m": {
+  "value": -0.373,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.interfluve.nmad.gebco2022_ci_high_m": {
+  "value": -0.735,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.nmad.gebco2022_ci_low_m": {
+  "value": -0.735,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.nmad.gebco2022_m": {
+  "value": -0.735,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.interfluve.nmad.gebco2026_ci_high_m": {
+  "value": -0.734,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.nmad.gebco2026_ci_low_m": {
+  "value": -0.734,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.nmad.gebco2026_m": {
+  "value": -0.734,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.interfluve.nmad.srtm15p_ci_high_m": {
+  "value": -0.737,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.nmad.srtm15p_ci_low_m": {
+  "value": -0.737,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.nmad.srtm15p_m": {
+  "value": -0.737,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.interfluve.rmse.etopo1_ci_high_m": {
+  "value": -0.67,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.rmse.etopo1_ci_low_m": {
+  "value": -0.67,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.rmse.etopo1_m": {
+  "value": -0.67,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.interfluve.rmse.etopo2022_ci_high_m": {
+  "value": -0.872,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.rmse.etopo2022_ci_low_m": {
+  "value": -0.872,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.rmse.etopo2022_m": {
+  "value": -0.872,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.interfluve.rmse.gebco2022_ci_high_m": {
+  "value": -1.082,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.rmse.gebco2022_ci_low_m": {
+  "value": -1.082,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.rmse.gebco2022_m": {
+  "value": -1.082,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.interfluve.rmse.gebco2026_ci_high_m": {
+  "value": -0.909,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.rmse.gebco2026_ci_low_m": {
+  "value": -0.909,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.rmse.gebco2026_m": {
+  "value": -0.909,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.interfluve.rmse.srtm15p_ci_high_m": {
+  "value": -0.883,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.rmse.srtm15p_ci_low_m": {
+  "value": -0.883,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.interfluve.rmse.srtm15p_m": {
+  "value": -0.883,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.komsomolets.nmad.etopo1_ci_high_m": {
+  "value": -0.419,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.nmad.etopo1_ci_low_m": {
+  "value": -0.531,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.nmad.etopo1_m": {
+  "value": -0.515,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.komsomolets.nmad.etopo2022_ci_high_m": {
+  "value": -0.026,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.nmad.etopo2022_ci_low_m": {
+  "value": -0.073,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.nmad.etopo2022_m": {
+  "value": -0.043,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.komsomolets.nmad.gebco2022_ci_high_m": {
+  "value": -0.527,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.nmad.gebco2022_ci_low_m": {
+  "value": -0.651,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.nmad.gebco2022_m": {
+  "value": -0.595,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.komsomolets.nmad.gebco2026_ci_high_m": {
+  "value": -0.527,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.nmad.gebco2026_ci_low_m": {
+  "value": -0.651,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.nmad.gebco2026_m": {
+  "value": -0.595,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.komsomolets.nmad.srtm15p_ci_high_m": {
+  "value": -0.527,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.nmad.srtm15p_ci_low_m": {
+  "value": -0.651,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.nmad.srtm15p_m": {
+  "value": -0.595,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.komsomolets.rmse.etopo1_ci_high_m": {
+  "value": 0.592,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.rmse.etopo1_ci_low_m": {
+  "value": 0.037,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.rmse.etopo1_m": {
+  "value": 0.398,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.komsomolets.rmse.etopo2022_ci_high_m": {
+  "value": 1.384,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.rmse.etopo2022_ci_low_m": {
+  "value": 0.826,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.rmse.etopo2022_m": {
+  "value": 1.187,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.komsomolets.rmse.gebco2022_ci_high_m": {
+  "value": 1.348,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.rmse.gebco2022_ci_low_m": {
+  "value": 0.62,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.rmse.gebco2022_m": {
+  "value": 1.088,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.komsomolets.rmse.gebco2026_ci_high_m": {
+  "value": 1.234,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.rmse.gebco2026_ci_low_m": {
+  "value": 0.612,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.rmse.gebco2026_m": {
+  "value": 1.014,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.komsomolets.rmse.srtm15p_ci_high_m": {
+  "value": 1.212,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.rmse.srtm15p_ci_low_m": {
+  "value": 0.606,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.komsomolets.rmse.srtm15p_m": {
+  "value": 0.998,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.nmad.etopo1_ci_high_m": {
+  "value": 0.217,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.nmad.etopo1_ci_low_m": {
+  "value": -0.534,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.nmad.etopo1_m": {
+  "value": -0.358,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.nmad.etopo2022_ci_high_m": {
+  "value": 0.617,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.nmad.etopo2022_ci_low_m": {
+  "value": -0.809,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.nmad.etopo2022_m": {
+  "value": -0.317,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.nmad.gebco2022_ci_high_m": {
+  "value": 0.263,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.nmad.gebco2022_ci_low_m": {
+  "value": -0.876,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.nmad.gebco2022_m": {
+  "value": -0.633,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.nmad.gebco2026_ci_high_m": {
+  "value": 0.25,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.nmad.gebco2026_ci_low_m": {
+  "value": -0.767,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.nmad.gebco2026_m": {
+  "value": -0.496,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.nmad.srtm15p_ci_high_m": {
+  "value": 0.227,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.nmad.srtm15p_ci_low_m": {
+  "value": -0.786,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.nmad.srtm15p_m": {
+  "value": -0.514,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.northeast.nmad.etopo1_ci_high_m": {
+  "value": -0.212,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.nmad.etopo1_ci_low_m": {
+  "value": -0.437,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.nmad.etopo1_m": {
+  "value": -0.337,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.northeast.nmad.etopo2022_ci_high_m": {
+  "value": 0.045,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.nmad.etopo2022_ci_low_m": {
+  "value": -0.726,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.nmad.etopo2022_m": {
+  "value": -0.38,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.northeast.nmad.gebco2022_ci_high_m": {
+  "value": -0.224,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.nmad.gebco2022_ci_low_m": {
+  "value": -0.798,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.nmad.gebco2022_m": {
+  "value": -0.587,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.northeast.nmad.gebco2026_ci_high_m": {
+  "value": -0.208,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.nmad.gebco2026_ci_low_m": {
+  "value": -0.749,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.nmad.gebco2026_m": {
+  "value": -0.493,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.northeast.nmad.srtm15p_ci_high_m": {
+  "value": -0.208,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.nmad.srtm15p_ci_low_m": {
+  "value": -0.761,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.nmad.srtm15p_m": {
+  "value": -0.506,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.northeast.rmse.etopo1_ci_high_m": {
+  "value": -0.26,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.rmse.etopo1_ci_low_m": {
+  "value": -0.343,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.rmse.etopo1_m": {
+  "value": -0.297,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.northeast.rmse.etopo2022_ci_high_m": {
+  "value": 0.012,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.rmse.etopo2022_ci_low_m": {
+  "value": -0.557,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.rmse.etopo2022_m": {
+  "value": -0.354,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.northeast.rmse.gebco2022_ci_high_m": {
+  "value": -0.562,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.rmse.gebco2022_ci_low_m": {
+  "value": -0.797,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.rmse.gebco2022_m": {
+  "value": -0.671,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.northeast.rmse.gebco2026_ci_high_m": {
+  "value": -0.285,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.rmse.gebco2026_ci_low_m": {
+  "value": -0.409,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.rmse.gebco2026_m": {
+  "value": -0.357,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.northeast.rmse.srtm15p_ci_high_m": {
+  "value": -0.304,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.rmse.srtm15p_ci_low_m": {
+  "value": -0.418,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.northeast.rmse.srtm15p_m": {
+  "value": -0.37,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.open_shelf.nmad.etopo1_ci_high_m": {
+  "value": -0.086,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.nmad.etopo1_ci_low_m": {
+  "value": -0.72,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.nmad.etopo1_m": {
+  "value": -0.482,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.open_shelf.nmad.etopo2022_ci_high_m": {
+  "value": -0.146,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.nmad.etopo2022_ci_low_m": {
+  "value": -0.862,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.nmad.etopo2022_m": {
+  "value": -0.848,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.open_shelf.nmad.gebco2022_ci_high_m": {
+  "value": 0.024,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.nmad.gebco2022_ci_low_m": {
+  "value": -0.9,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.nmad.gebco2022_m": {
+  "value": -0.83,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.open_shelf.nmad.gebco2026_ci_high_m": {
+  "value": 0.046,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.nmad.gebco2026_ci_low_m": {
+  "value": -0.9,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.nmad.gebco2026_m": {
+  "value": -0.827,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.open_shelf.nmad.srtm15p_ci_high_m": {
+  "value": -0.017,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.nmad.srtm15p_ci_low_m": {
+  "value": -0.923,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.nmad.srtm15p_m": {
+  "value": -0.869,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.open_shelf.rmse.etopo1_ci_high_m": {
+  "value": -0.135,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.rmse.etopo1_ci_low_m": {
+  "value": -0.81,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.rmse.etopo1_m": {
+  "value": -0.288,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.open_shelf.rmse.etopo2022_ci_high_m": {
+  "value": -0.301,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.rmse.etopo2022_ci_low_m": {
+  "value": -0.347,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.rmse.etopo2022_m": {
+  "value": -0.337,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.open_shelf.rmse.gebco2022_ci_high_m": {
+  "value": -0.247,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.rmse.gebco2022_ci_low_m": {
+  "value": -0.425,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.rmse.gebco2022_m": {
+  "value": -0.398,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.open_shelf.rmse.gebco2026_ci_high_m": {
+  "value": -0.155,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.rmse.gebco2026_ci_low_m": {
+  "value": -0.435,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.rmse.gebco2026_m": {
+  "value": -0.395,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.open_shelf.rmse.srtm15p_ci_high_m": {
+  "value": -0.049,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.rmse.srtm15p_ci_low_m": {
+  "value": -0.449,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.open_shelf.rmse.srtm15p_m": {
+  "value": -0.39,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.rmse.etopo1_ci_high_m": {
+  "value": 0.421,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.rmse.etopo1_ci_low_m": {
+  "value": -0.267,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.rmse.etopo1_m": {
+  "value": 0.113,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.rmse.etopo2022_ci_high_m": {
+  "value": 0.732,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.rmse.etopo2022_ci_low_m": {
+  "value": -0.318,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.rmse.etopo2022_m": {
+  "value": 0.225,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.rmse.gebco2022_ci_high_m": {
+  "value": 0.658,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.rmse.gebco2022_ci_low_m": {
+  "value": -0.587,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.rmse.gebco2022_m": {
+  "value": 0.056,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.rmse.gebco2026_ci_high_m": {
+  "value": 0.631,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.rmse.gebco2026_ci_low_m": {
+  "value": -0.368,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.rmse.gebco2026_m": {
+  "value": 0.178,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.rmse.srtm15p_ci_high_m": {
+  "value": 0.621,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.rmse.srtm15p_ci_low_m": {
+  "value": -0.383,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.rmse.srtm15p_m": {
+  "value": 0.168,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.volga.nmad.etopo1_ci_high_m": {
+  "value": 0.951,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.nmad.etopo1_ci_low_m": {
+  "value": -0.32,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.nmad.etopo1_m": {
+  "value": 0.061,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.volga.nmad.etopo2022_ci_high_m": {
+  "value": 0.508,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.nmad.etopo2022_ci_low_m": {
+  "value": -0.471,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.nmad.etopo2022_m": {
+  "value": -0.016,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.volga.nmad.gebco2022_ci_high_m": {
+  "value": 0.899,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.nmad.gebco2022_ci_low_m": {
+  "value": -0.512,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.nmad.gebco2022_m": {
+  "value": 0.012,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.volga.nmad.gebco2026_ci_high_m": {
+  "value": 0.629,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.nmad.gebco2026_ci_low_m": {
+  "value": -0.659,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.nmad.gebco2026_m": {
+  "value": -0.165,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.volga.nmad.srtm15p_ci_high_m": {
+  "value": 0.48,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.nmad.srtm15p_ci_low_m": {
+  "value": -0.739,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.nmad.srtm15p_m": {
+  "value": -0.242,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.volga.rmse.etopo1_ci_high_m": {
+  "value": 0.971,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.rmse.etopo1_ci_low_m": {
+  "value": -0.159,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.rmse.etopo1_m": {
+  "value": 0.623,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.volga.rmse.etopo2022_ci_high_m": {
+  "value": 0.854,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.rmse.etopo2022_ci_low_m": {
+  "value": -0.182,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.rmse.etopo2022_m": {
+  "value": 0.574,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.volga.rmse.gebco2022_ci_high_m": {
+  "value": 1.043,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.rmse.gebco2022_ci_low_m": {
+  "value": -0.643,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.rmse.gebco2022_m": {
+  "value": 0.575,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.volga.rmse.gebco2026_ci_high_m": {
+  "value": 0.973,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.rmse.gebco2026_ci_low_m": {
+  "value": -0.642,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.rmse.gebco2026_m": {
+  "value": 0.527,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.volga.rmse.srtm15p_ci_high_m": {
+  "value": 0.992,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.rmse.srtm15p_ci_low_m": {
+  "value": -0.585,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.volga.rmse.srtm15p_m": {
+  "value": 0.541,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.west.nmad.etopo1_ci_high_m": {
+  "value": -0.156,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.nmad.etopo1_ci_low_m": {
+  "value": -0.156,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.nmad.etopo1_m": {
+  "value": -0.156,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.west.nmad.etopo2022_ci_high_m": {
+  "value": -0.062,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.nmad.etopo2022_ci_low_m": {
+  "value": -0.062,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.nmad.etopo2022_m": {
+  "value": -0.062,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.west.nmad.gebco2022_ci_high_m": {
+  "value": -1.258,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.nmad.gebco2022_ci_low_m": {
+  "value": -1.258,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.nmad.gebco2022_m": {
+  "value": -1.258,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.west.nmad.gebco2026_ci_high_m": {
+  "value": -0.481,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.nmad.gebco2026_ci_low_m": {
+  "value": -0.481,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.nmad.gebco2026_m": {
+  "value": -0.481,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.west.nmad.srtm15p_ci_high_m": {
+  "value": -0.572,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.nmad.srtm15p_ci_low_m": {
+  "value": -0.572,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.nmad.srtm15p_m": {
+  "value": -0.572,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.west.rmse.etopo1_ci_high_m": {
+  "value": 0.149,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.rmse.etopo1_ci_low_m": {
+  "value": 0.149,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.rmse.etopo1_m": {
+  "value": 0.149,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.west.rmse.etopo2022_ci_high_m": {
+  "value": 0.218,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.rmse.etopo2022_ci_low_m": {
+  "value": 0.218,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.rmse.etopo2022_m": {
+  "value": 0.218,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.west.rmse.gebco2022_ci_high_m": {
+  "value": -2.014,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.rmse.gebco2022_ci_low_m": {
+  "value": -2.014,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.rmse.gebco2022_m": {
+  "value": -2.014,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.west.rmse.gebco2026_ci_high_m": {
+  "value": -1.287,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.rmse.gebco2026_ci_low_m": {
+  "value": -1.287,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.rmse.gebco2026_m": {
+  "value": -1.287,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.diff.west.rmse.srtm15p_ci_high_m": {
+  "value": -3.505,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.rmse.srtm15p_ci_low_m": {
+  "value": -3.505,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi.diff.west.rmse.srtm15p_m": {
+  "value": -3.505,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi.etopo1.bias_m": {
+  "value": 0.38,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.interfluve.bias_m": {
+  "value": -0.72,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.interfluve.nmad_m": {
+  "value": 0.741,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.interfluve.rmse_m": {
+  "value": 0.98,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.komsomolets.bias_m": {
+  "value": 1.409,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.komsomolets.nmad_m": {
+  "value": 1.257,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.komsomolets.rmse_m": {
+  "value": 1.942,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.nmad_m": {
+  "value": 0.972,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.northeast.bias_m": {
+  "value": 0.309,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.northeast.nmad_m": {
+  "value": 0.773,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.northeast.rmse_m": {
+  "value": 0.82,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.open_shelf.bias_m": {
+  "value": 0.233,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.open_shelf.nmad_m": {
+  "value": 0.934,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.open_shelf.rmse_m": {
+  "value": 1.094,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.rmse_m": {
+  "value": 1.484,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.volga.bias_m": {
+  "value": -0.388,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.volga.nmad_m": {
+  "value": 1.516,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.volga.rmse_m": {
+  "value": 3.485,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.west.bias_m": {
+  "value": -0.559,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.west.nmad_m": {
+  "value": 1.226,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo1.west.rmse_m": {
+  "value": 1.178,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.bias_m": {
+  "value": -0.061,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.interfluve.bias_m": {
+  "value": -0.755,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.interfluve.nmad_m": {
+  "value": 0.63,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.interfluve.rmse_m": {
+  "value": 1.182,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.komsomolets.bias_m": {
+  "value": 0.725,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.komsomolets.nmad_m": {
+  "value": 0.785,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.komsomolets.rmse_m": {
+  "value": 1.153,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.nmad_m": {
+  "value": 0.932,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.northeast.bias_m": {
+  "value": -0.287,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.northeast.nmad_m": {
+  "value": 0.816,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.northeast.rmse_m": {
+  "value": 0.877,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.open_shelf.bias_m": {
+  "value": -0.371,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.open_shelf.nmad_m": {
+  "value": 1.301,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.open_shelf.rmse_m": {
+  "value": 1.143,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.rmse_m": {
+  "value": 1.372,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.volga.bias_m": {
+  "value": 0.724,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.volga.nmad_m": {
+  "value": 1.593,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.volga.rmse_m": {
+  "value": 3.533,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.west.bias_m": {
+  "value": -0.249,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.west.nmad_m": {
+  "value": 1.132,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo2022.west.rmse_m": {
+  "value": 1.108,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo_src.fabdem.dem.bias_m": {
+  "value": -0.135,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json"
+ },
+ "h2.gedi.etopo_src.fabdem.dem.nmad_m": {
+  "value": 0.633,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json"
+ },
+ "h2.gedi.etopo_src.fabdem.dem.rmse_m": {
+  "value": 1.785,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json"
+ },
+ "h2.gedi.etopo_src.fabdem.etopo2022.bias_m": {
+  "value": 0.304,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo_src.fabdem.etopo2022.nmad_m": {
+  "value": 0.522,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo_src.fabdem.etopo2022.rmse_m": {
+  "value": 1.373,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo_src.fabdem.n_blocks": {
+  "value": 13,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json"
+ },
+ "h2.gedi.etopo_src.fabdem.n_points": {
+  "value": 239000,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json"
+ },
+ "h2.gedi.etopo_src.fabdem.share": {
+  "value": 61.8,
+  "unit": "%",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json",
+  "note": "test-block points by ETOPO 2022 source"
+ },
+ "h2.gedi.etopo_src.gebco_lake.dem.bias_m": {
+  "value": 0.434,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json"
+ },
+ "h2.gedi.etopo_src.gebco_lake.dem.nmad_m": {
+  "value": 0.595,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json"
+ },
+ "h2.gedi.etopo_src.gebco_lake.dem.rmse_m": {
+  "value": 1.231,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json"
+ },
+ "h2.gedi.etopo_src.gebco_lake.etopo2022.bias_m": {
+  "value": -0.65,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo_src.gebco_lake.etopo2022.nmad_m": {
+  "value": 0.874,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo_src.gebco_lake.etopo2022.rmse_m": {
+  "value": 1.37,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.gedi.etopo_src.gebco_lake.n_blocks": {
+  "value": 12,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json"
+ },
+ "h2.gedi.etopo_src.gebco_lake.n_points": {
+  "value": 148009,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json"
+ },
+ "h2.gedi.etopo_src.gebco_lake.share": {
+  "value": 38.2,
+  "unit": "%",
+  "source": "validation/main_gedi/GEDI_etopo2022_sources.json",
+  "note": "test-block points by ETOPO 2022 source"
+ },
+ "h2.gedi.gebco2022.bias_m": {
+  "value": 0.325,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.interfluve.bias_m": {
+  "value": -1.039,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.interfluve.nmad_m": {
+  "value": 0.991,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.interfluve.rmse_m": {
+  "value": 1.393,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.komsomolets.bias_m": {
+  "value": 0.259,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.komsomolets.nmad_m": {
+  "value": 1.338,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.komsomolets.rmse_m": {
+  "value": 1.252,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.nmad_m": {
+  "value": 1.248,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.northeast.bias_m": {
+  "value": 0.7,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.northeast.nmad_m": {
+  "value": 1.023,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.northeast.rmse_m": {
+  "value": 1.194,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.open_shelf.bias_m": {
+  "value": -0.133,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.open_shelf.nmad_m": {
+  "value": 1.282,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.open_shelf.rmse_m": {
+  "value": 1.204,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.rmse_m": {
+  "value": 1.541,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.volga.bias_m": {
+  "value": -0.758,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.volga.nmad_m": {
+  "value": 1.566,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.volga.rmse_m": {
+  "value": 3.533,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.west.bias_m": {
+  "value": -1.937,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.west.nmad_m": {
+  "value": 2.328,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2022.west.rmse_m": {
+  "value": 3.34,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.bias_m": {
+  "value": 0.019,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.interfluve.bias_m": {
+  "value": -0.793,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.interfluve.nmad_m": {
+  "value": 0.991,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.interfluve.rmse_m": {
+  "value": 1.219,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.komsomolets.bias_m": {
+  "value": 0.506,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.komsomolets.nmad_m": {
+  "value": 1.338,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.komsomolets.rmse_m": {
+  "value": 1.326,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.nmad_m": {
+  "value": 1.11,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.northeast.bias_m": {
+  "value": 0.081,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.northeast.nmad_m": {
+  "value": 0.928,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.northeast.rmse_m": {
+  "value": 0.879,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.open_shelf.bias_m": {
+  "value": 0.112,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.open_shelf.nmad_m": {
+  "value": 1.279,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.open_shelf.rmse_m": {
+  "value": 1.201,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.rmse_m": {
+  "value": 1.418,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.volga.bias_m": {
+  "value": -0.984,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.volga.nmad_m": {
+  "value": 1.743,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.volga.rmse_m": {
+  "value": 3.581,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.west.bias_m": {
+  "value": -1.135,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.west.nmad_m": {
+  "value": 1.551,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.gebco2026.west.rmse_m": {
+  "value": 2.613,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.n_blocks.interfluve": {
+  "value": 1,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.gedi.n_blocks.komsomolets": {
+  "value": 2,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.gedi.n_blocks.northeast": {
+  "value": 2,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.gedi.n_blocks.open_shelf": {
+  "value": 4,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.gedi.n_blocks.volga": {
+  "value": 3,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.gedi.n_blocks.west": {
+  "value": 1,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.gedi.n_blocks_split.calib": {
+  "value": 11,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_counts.json",
+  "note": "blocks of the split holding points of this source"
+ },
+ "h2.gedi.n_blocks_split.test": {
+  "value": 13,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_counts.json",
+  "note": "blocks of the split holding points of this source"
+ },
+ "h2.gedi.n_blocks_split.train": {
+  "value": 35,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_counts.json",
+  "note": "blocks of the split holding points of this source"
+ },
+ "h2.gedi.n_night_prepared": {
+  "value": 2230820,
+  "unit": "points",
+  "source": "validation/main_gedi/prepare.json"
+ },
+ "h2.gedi.n_points.interfluve": {
+  "value": 24559,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.gedi.n_points.komsomolets": {
+  "value": 69835,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.gedi.n_points.northeast": {
+  "value": 230843,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.gedi.n_points.open_shelf": {
+  "value": 30641,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.gedi.n_points.volga": {
+  "value": 30667,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.gedi.n_points.west": {
+  "value": 464,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.gedi.n_points_prepared": {
+  "value": 3819586,
+  "unit": "points",
+  "source": "validation/main_gedi/prepare.json",
+  "note": "dry points with every model column, before the bare-seabed population (D-084)"
+ },
+ "h2.gedi.n_points_split.calib": {
+  "value": 407891,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_counts.json"
+ },
+ "h2.gedi.n_points_split.test": {
+  "value": 387009,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_counts.json"
+ },
+ "h2.gedi.n_points_split.train": {
+  "value": 1023143,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_counts.json"
+ },
+ "h2.gedi.n_test_blocks": {
+  "value": 13,
+  "unit": "blocks",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.n_test_points": {
+  "value": 387009,
+  "unit": "points",
+  "source": "validation/main_gedi/GEDI_accuracy.csv"
+ },
+ "h2.gedi.offset.etopo1_m": {
+  "value": 0.991,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_product_offsets.json",
+  "note": "training-block median of y_ref - product (matched variant)"
+ },
+ "h2.gedi.offset.etopo2022_m": {
+  "value": 0.864,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_product_offsets.json",
+  "note": "training-block median of y_ref - product (matched variant)"
+ },
+ "h2.gedi.offset.gebco2022_m": {
+  "value": 0.939,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_product_offsets.json",
+  "note": "training-block median of y_ref - product (matched variant)"
+ },
+ "h2.gedi.offset.gebco2026_m": {
+  "value": 1.186,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_product_offsets.json",
+  "note": "training-block median of y_ref - product (matched variant)"
+ },
+ "h2.gedi.offset.srtm15p_m": {
+  "value": 1.227,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_product_offsets.json",
+  "note": "training-block median of y_ref - product (matched variant)"
+ },
+ "h2.gedi.rule_check.matched": {
+  "value": "not supported",
+  "unit": "text",
+  "source": "validation/main_gedi/GEDI_rule_check.json",
+  "note": "PREREG section 7 rule applied descriptively; the H2 decision is ICESat-2's (D-086)"
+ },
+ "h2.gedi.rule_check.total": {
+  "value": "not supported",
+  "unit": "text",
+  "source": "validation/main_gedi/GEDI_rule_check.json",
+  "note": "PREREG section 7 rule applied descriptively; the H2 decision is ICESat-2's (D-086)"
+ },
+ "h2.gedi.sectors_without_test_points": {
+  "value": "ural",
+  "unit": "text",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "sectors with no test-block points (no per-sector accuracy or coverage)"
+ },
+ "h2.gedi.srtm15p.bias_m": {
+  "value": 0.064,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.interfluve.bias_m": {
+  "value": -0.749,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.interfluve.nmad_m": {
+  "value": 0.994,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.interfluve.rmse_m": {
+  "value": 1.193,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.komsomolets.bias_m": {
+  "value": 0.548,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.komsomolets.nmad_m": {
+  "value": 1.338,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.komsomolets.rmse_m": {
+  "value": 1.342,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.nmad_m": {
+  "value": 1.128,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.northeast.bias_m": {
+  "value": 0.125,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.northeast.nmad_m": {
+  "value": 0.941,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.northeast.rmse_m": {
+  "value": 0.892,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.open_shelf.bias_m": {
+  "value": 0.149,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.open_shelf.nmad_m": {
+  "value": 1.321,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.open_shelf.rmse_m": {
+  "value": 1.196,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.rmse_m": {
+  "value": 1.428,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.volga.bias_m": {
+  "value": -0.866,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.volga.nmad_m": {
+  "value": 1.82,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.volga.rmse_m": {
+  "value": 3.566,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.west.bias_m": {
+  "value": -4.496,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.west.nmad_m": {
+  "value": 1.642,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi.srtm15p.west.rmse_m": {
+  "value": 4.832,
+  "unit": "m",
+  "source": "validation/main_gedi/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.coverage.overall": {
+  "value": 0.787,
+  "unit": "fraction",
+  "source": "validation/main_gedi/subset_night/GEDI_coverage.csv"
+ },
+ "h2.gedi_night.coverage.overall_boot_high": {
+  "value": 0.951,
+  "unit": "fraction",
+  "source": "validation/main_gedi/subset_night/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.coverage.overall_boot_low": {
+  "value": 0.46,
+  "unit": "fraction",
+  "source": "validation/main_gedi/subset_night/GEDI_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.coverage.overall_ci_high": {
+  "value": 0.788,
+  "unit": "fraction",
+  "source": "validation/main_gedi/subset_night/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi_night.coverage.overall_ci_low": {
+  "value": 0.785,
+  "unit": "fraction",
+  "source": "validation/main_gedi/subset_night/GEDI_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.gedi_night.coverage.overall_n_blocks": {
+  "value": 13,
+  "unit": "blocks",
+  "source": "validation/main_gedi/subset_night/GEDI_coverage.csv"
+ },
+ "h2.gedi_night.dem.bias_m": {
+  "value": 0.116,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv"
+ },
+ "h2.gedi_night.dem.nmad_m": {
+  "value": 0.596,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv"
+ },
+ "h2.gedi_night.dem.rmse_m": {
+  "value": 1.659,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv"
+ },
+ "h2.gedi_night.diff.nmad.etopo1_ci_high_m": {
+  "value": 0.207,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.nmad.etopo1_ci_low_m": {
+  "value": -0.619,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.nmad.etopo1_m": {
+  "value": -0.42,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi_night.diff.nmad.etopo2022_ci_high_m": {
+  "value": 0.647,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.nmad.etopo2022_ci_low_m": {
+  "value": -0.861,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.nmad.etopo2022_m": {
+  "value": -0.346,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi_night.diff.nmad.gebco2022_ci_high_m": {
+  "value": 0.298,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.nmad.gebco2022_ci_low_m": {
+  "value": -0.983,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.nmad.gebco2022_m": {
+  "value": -0.675,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi_night.diff.nmad.gebco2026_ci_high_m": {
+  "value": 0.278,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.nmad.gebco2026_ci_low_m": {
+  "value": -0.846,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.nmad.gebco2026_m": {
+  "value": -0.554,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi_night.diff.nmad.srtm15p_ci_high_m": {
+  "value": 0.257,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.nmad.srtm15p_ci_low_m": {
+  "value": -0.865,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.nmad.srtm15p_m": {
+  "value": -0.574,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi_night.diff.rmse.etopo1_ci_high_m": {
+  "value": 0.274,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.rmse.etopo1_ci_low_m": {
+  "value": -0.298,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.rmse.etopo1_m": {
+  "value": 0.046,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi_night.diff.rmse.etopo2022_ci_high_m": {
+  "value": 0.632,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.rmse.etopo2022_ci_low_m": {
+  "value": -0.35,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.rmse.etopo2022_m": {
+  "value": 0.164,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi_night.diff.rmse.gebco2022_ci_high_m": {
+  "value": 0.532,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.rmse.gebco2022_ci_low_m": {
+  "value": -0.667,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.rmse.gebco2022_m": {
+  "value": 0.008,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi_night.diff.rmse.gebco2026_ci_high_m": {
+  "value": 0.517,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.rmse.gebco2026_ci_low_m": {
+  "value": -0.428,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.rmse.gebco2026_m": {
+  "value": 0.122,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi_night.diff.rmse.srtm15p_ci_high_m": {
+  "value": 0.506,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.rmse.srtm15p_ci_low_m": {
+  "value": -0.444,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.gedi_night.diff.rmse.srtm15p_m": {
+  "value": 0.114,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.gedi_night.etopo1.bias_m": {
+  "value": 0.404,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.etopo1.nmad_m": {
+  "value": 1.015,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.etopo1.rmse_m": {
+  "value": 1.612,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.etopo2022.bias_m": {
+  "value": -0.049,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.etopo2022.nmad_m": {
+  "value": 0.942,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.etopo2022.rmse_m": {
+  "value": 1.495,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.gebco2022.bias_m": {
+  "value": 0.35,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.gebco2022.nmad_m": {
+  "value": 1.271,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.gebco2022.rmse_m": {
+  "value": 1.651,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.gebco2026.bias_m": {
+  "value": 0.059,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.gebco2026.nmad_m": {
+  "value": 1.149,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.gebco2026.rmse_m": {
+  "value": 1.536,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.n_blocks_split.calib": {
+  "value": 11,
+  "unit": "blocks",
+  "source": "validation/main_gedi/subset_night/GEDI_counts.json",
+  "note": "blocks of the split holding points of this source"
+ },
+ "h2.gedi_night.n_blocks_split.test": {
+  "value": 13,
+  "unit": "blocks",
+  "source": "validation/main_gedi/subset_night/GEDI_counts.json",
+  "note": "blocks of the split holding points of this source"
+ },
+ "h2.gedi_night.n_blocks_split.train": {
+  "value": 34,
+  "unit": "blocks",
+  "source": "validation/main_gedi/subset_night/GEDI_counts.json",
+  "note": "blocks of the split holding points of this source"
+ },
+ "h2.gedi_night.n_points_split.calib": {
+  "value": 245164,
+  "unit": "points",
+  "source": "validation/main_gedi/subset_night/GEDI_counts.json"
+ },
+ "h2.gedi_night.n_points_split.test": {
+  "value": 233085,
+  "unit": "points",
+  "source": "validation/main_gedi/subset_night/GEDI_counts.json"
+ },
+ "h2.gedi_night.n_points_split.train": {
+  "value": 569970,
+  "unit": "points",
+  "source": "validation/main_gedi/subset_night/GEDI_counts.json"
+ },
+ "h2.gedi_night.n_test_blocks": {
+  "value": 13,
+  "unit": "blocks",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv"
+ },
+ "h2.gedi_night.n_test_points": {
+  "value": 233085,
+  "unit": "points",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv"
+ },
+ "h2.gedi_night.rule_check.matched": {
+  "value": "not supported",
+  "unit": "text",
+  "source": "validation/main_gedi/subset_night/GEDI_rule_check.json",
+  "note": "PREREG section 7 rule applied descriptively; the H2 decision is ICESat-2's (D-086)"
+ },
+ "h2.gedi_night.rule_check.total": {
+  "value": "not supported",
+  "unit": "text",
+  "source": "validation/main_gedi/subset_night/GEDI_rule_check.json",
+  "note": "PREREG section 7 rule applied descriptively; the H2 decision is ICESat-2's (D-086)"
+ },
+ "h2.gedi_night.srtm15p.bias_m": {
+  "value": 0.106,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.srtm15p.nmad_m": {
+  "value": 1.17,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.gedi_night.srtm15p.rmse_m": {
+  "value": 1.545,
+  "unit": "m",
+  "source": "validation/main_gedi/subset_night/GEDI_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.coverage.interfluve": {
+  "value": 0.985,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.interfluve_boot_high": {
+  "value": 0.985,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.interfluve_boot_low": {
+  "value": 0.985,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.interfluve_ci_high": {
+  "value": 0.987,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.interfluve_ci_low": {
+  "value": 0.981,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.interfluve_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.glo30.coverage.interfluve_n_blocks": {
+  "value": 1,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.komsomolets": {
+  "value": 0.638,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.komsomolets_boot_high": {
+  "value": 0.701,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.komsomolets_boot_low": {
+  "value": 0.551,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.komsomolets_ci_high": {
+  "value": 0.656,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.komsomolets_ci_low": {
+  "value": 0.619,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.komsomolets_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.glo30.coverage.komsomolets_n_blocks": {
+  "value": 2,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.northeast": {
+  "value": 0.879,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.northeast_boot_high": {
+  "value": 0.974,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.northeast_boot_low": {
+  "value": 0.813,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.northeast_ci_high": {
+  "value": 0.881,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.northeast_ci_low": {
+  "value": 0.877,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.northeast_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.glo30.coverage.northeast_n_blocks": {
+  "value": 2,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.open_shelf": {
+  "value": 0.868,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.open_shelf_boot_high": {
+  "value": 0.972,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.open_shelf_boot_low": {
+  "value": 0.853,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.open_shelf_ci_high": {
+  "value": 0.874,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.open_shelf_ci_low": {
+  "value": 0.863,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.open_shelf_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.glo30.coverage.open_shelf_n_blocks": {
+  "value": 2,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.overall": {
+  "value": 0.882,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.overall_boot_high": {
+  "value": 0.967,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.overall_boot_low": {
+  "value": 0.82,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.overall_ci_high": {
+  "value": 0.883,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.overall_ci_low": {
+  "value": 0.88,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.overall_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.glo30.coverage.overall_n_blocks": {
+  "value": 11,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.volga": {
+  "value": 0.923,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.volga_boot_high": {
+  "value": 1.0,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.volga_boot_low": {
+  "value": 0.887,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.volga_ci_high": {
+  "value": 0.929,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.volga_ci_low": {
+  "value": 0.918,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.volga_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.glo30.coverage.volga_n_blocks": {
+  "value": 3,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.west": {
+  "value": 0.993,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.coverage.west_boot_high": {
+  "value": 0.993,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.west_boot_low": {
+  "value": 0.993,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.coverage.west_ci_high": {
+  "value": 0.999,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.west_ci_low": {
+  "value": 0.975,
+  "unit": "fraction",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "binomial 95% interval (points as independent)"
+ },
+ "h2.glo30.coverage.west_consistent": {
+  "value": "not consistent",
+  "unit": "text",
+  "source": "validation/main_glo30/GLO30_coverage.csv",
+  "note": "0.90 inside the binomial 95% interval (PREREG section 8)"
+ },
+ "h2.glo30.coverage.west_n_blocks": {
+  "value": 1,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_coverage.csv"
+ },
+ "h2.glo30.datum_constant_m": {
+  "value": 0.624,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_datum_constant.json",
+  "note": "training-block median of DEM - H (D-069, D-078)"
+ },
+ "h2.glo30.datum_constant_sigma_m": {
+  "value": 0.059,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_datum_constant.json",
+  "note": "training-block bootstrap SD"
+ },
+ "h2.glo30.dem.bias_m": {
+  "value": 0.002,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.interfluve.bias_m": {
+  "value": 0.029,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.interfluve.nmad_m": {
+  "value": 0.218,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.interfluve.rmse_m": {
+  "value": 0.268,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.komsomolets.bias_m": {
+  "value": -1.328,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.komsomolets.nmad_m": {
+  "value": 0.97,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.komsomolets.rmse_m": {
+  "value": 7.299,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.nmad_m": {
+  "value": 0.436,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.northeast.bias_m": {
+  "value": 0.254,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.northeast.nmad_m": {
+  "value": 0.4,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.northeast.rmse_m": {
+  "value": 0.509,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.open_shelf.bias_m": {
+  "value": -0.148,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.open_shelf.nmad_m": {
+  "value": 0.519,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.open_shelf.rmse_m": {
+  "value": 0.711,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.rmse_m": {
+  "value": 1.425,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.volga.bias_m": {
+  "value": -3.317,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.volga.nmad_m": {
+  "value": 1.797,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.volga.rmse_m": {
+  "value": 4.354,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.west.bias_m": {
+  "value": -0.194,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.west.nmad_m": {
+  "value": 0.241,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.dem.west.rmse_m": {
+  "value": 0.328,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.diff.interfluve.nmad.etopo1_ci_high_m": {
+  "value": -0.332,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.nmad.etopo1_ci_low_m": {
+  "value": -0.332,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.nmad.etopo1_m": {
+  "value": -0.332,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.interfluve.nmad.etopo2022_ci_high_m": {
+  "value": -0.311,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.nmad.etopo2022_ci_low_m": {
+  "value": -0.311,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.nmad.etopo2022_m": {
+  "value": -0.311,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.interfluve.nmad.gebco2022_ci_high_m": {
+  "value": -0.142,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.nmad.gebco2022_ci_low_m": {
+  "value": -0.142,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.nmad.gebco2022_m": {
+  "value": -0.142,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.interfluve.nmad.gebco2026_ci_high_m": {
+  "value": -0.142,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.nmad.gebco2026_ci_low_m": {
+  "value": -0.142,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.nmad.gebco2026_m": {
+  "value": -0.142,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.interfluve.nmad.srtm15p_ci_high_m": {
+  "value": -0.142,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.nmad.srtm15p_ci_low_m": {
+  "value": -0.142,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.nmad.srtm15p_m": {
+  "value": -0.142,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.interfluve.rmse.etopo1_ci_high_m": {
+  "value": -1.083,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.rmse.etopo1_ci_low_m": {
+  "value": -1.083,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.rmse.etopo1_m": {
+  "value": -1.083,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.interfluve.rmse.etopo2022_ci_high_m": {
+  "value": -0.761,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.rmse.etopo2022_ci_low_m": {
+  "value": -0.761,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.rmse.etopo2022_m": {
+  "value": -0.761,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.interfluve.rmse.gebco2022_ci_high_m": {
+  "value": -1.74,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.rmse.gebco2022_ci_low_m": {
+  "value": -1.74,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.rmse.gebco2022_m": {
+  "value": -1.74,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.interfluve.rmse.gebco2026_ci_high_m": {
+  "value": -1.374,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.rmse.gebco2026_ci_low_m": {
+  "value": -1.374,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.rmse.gebco2026_m": {
+  "value": -1.374,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.interfluve.rmse.srtm15p_ci_high_m": {
+  "value": -1.403,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.rmse.srtm15p_ci_low_m": {
+  "value": -1.403,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.interfluve.rmse.srtm15p_m": {
+  "value": -1.403,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.komsomolets.nmad.etopo1_ci_high_m": {
+  "value": 0.307,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.nmad.etopo1_ci_low_m": {
+  "value": -0.252,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.nmad.etopo1_m": {
+  "value": -0.047,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.komsomolets.nmad.etopo2022_ci_high_m": {
+  "value": 0.833,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.nmad.etopo2022_ci_low_m": {
+  "value": 0.299,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.nmad.etopo2022_m": {
+  "value": 0.496,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.komsomolets.nmad.gebco2022_ci_high_m": {
+  "value": 0.517,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.nmad.gebco2022_ci_low_m": {
+  "value": -0.202,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.nmad.gebco2022_m": {
+  "value": 0.017,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.komsomolets.nmad.gebco2026_ci_high_m": {
+  "value": 0.517,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.nmad.gebco2026_ci_low_m": {
+  "value": -0.2,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.nmad.gebco2026_m": {
+  "value": 0.017,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.komsomolets.nmad.srtm15p_ci_high_m": {
+  "value": 0.517,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.nmad.srtm15p_ci_low_m": {
+  "value": -0.2,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.nmad.srtm15p_m": {
+  "value": 0.017,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.komsomolets.rmse.etopo1_ci_high_m": {
+  "value": 7.02,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.rmse.etopo1_ci_low_m": {
+  "value": -0.313,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.rmse.etopo1_m": {
+  "value": 4.948,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.komsomolets.rmse.etopo2022_ci_high_m": {
+  "value": 7.827,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.rmse.etopo2022_ci_low_m": {
+  "value": 0.635,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.rmse.etopo2022_m": {
+  "value": 5.808,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.komsomolets.rmse.gebco2022_ci_high_m": {
+  "value": 7.343,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.rmse.gebco2022_ci_low_m": {
+  "value": 0.495,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.rmse.gebco2022_m": {
+  "value": 5.448,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.komsomolets.rmse.gebco2026_ci_high_m": {
+  "value": 7.431,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.rmse.gebco2026_ci_low_m": {
+  "value": 0.549,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.rmse.gebco2026_m": {
+  "value": 5.524,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.komsomolets.rmse.srtm15p_ci_high_m": {
+  "value": 7.427,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.rmse.srtm15p_ci_low_m": {
+  "value": 0.548,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.komsomolets.rmse.srtm15p_m": {
+  "value": 5.521,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.nmad.etopo1_ci_high_m": {
+  "value": -0.146,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.nmad.etopo1_ci_low_m": {
+  "value": -0.987,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.nmad.etopo1_m": {
+  "value": -0.257,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.nmad.etopo2022_ci_high_m": {
+  "value": 0.492,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.nmad.etopo2022_ci_low_m": {
+  "value": -0.108,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.nmad.etopo2022_m": {
+  "value": 0.152,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.nmad.gebco2022_ci_high_m": {
+  "value": -0.17,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.nmad.gebco2022_ci_low_m": {
+  "value": -1.371,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.nmad.gebco2022_m": {
+  "value": -0.384,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.nmad.gebco2026_ci_high_m": {
+  "value": -0.148,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.nmad.gebco2026_ci_low_m": {
+  "value": -1.233,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.nmad.gebco2026_m": {
+  "value": -0.323,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.nmad.srtm15p_ci_high_m": {
+  "value": -0.149,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.nmad.srtm15p_ci_low_m": {
+  "value": -1.24,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.nmad.srtm15p_m": {
+  "value": -0.322,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.northeast.nmad.etopo1_ci_high_m": {
+  "value": -0.155,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.nmad.etopo1_ci_low_m": {
+  "value": -0.373,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.nmad.etopo1_m": {
+  "value": -0.166,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.northeast.nmad.etopo2022_ci_high_m": {
+  "value": 0.157,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.nmad.etopo2022_ci_low_m": {
+  "value": -0.072,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.nmad.etopo2022_m": {
+  "value": 0.151,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.northeast.nmad.gebco2022_ci_high_m": {
+  "value": -0.155,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.nmad.gebco2022_ci_low_m": {
+  "value": -0.487,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.nmad.gebco2022_m": {
+  "value": -0.239,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.northeast.nmad.gebco2026_ci_high_m": {
+  "value": -0.132,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.nmad.gebco2026_ci_low_m": {
+  "value": -0.472,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.nmad.gebco2026_m": {
+  "value": -0.215,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.northeast.nmad.srtm15p_ci_high_m": {
+  "value": -0.132,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.nmad.srtm15p_ci_low_m": {
+  "value": -0.468,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.nmad.srtm15p_m": {
+  "value": -0.214,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.northeast.rmse.etopo1_ci_high_m": {
+  "value": -0.491,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.rmse.etopo1_ci_low_m": {
+  "value": -0.673,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.rmse.etopo1_m": {
+  "value": -0.551,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.northeast.rmse.etopo2022_ci_high_m": {
+  "value": 0.315,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.rmse.etopo2022_ci_low_m": {
+  "value": -0.652,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.rmse.etopo2022_m": {
+  "value": -0.167,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.northeast.rmse.gebco2022_ci_high_m": {
+  "value": -0.74,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.rmse.gebco2022_ci_low_m": {
+  "value": -1.021,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.rmse.gebco2022_m": {
+  "value": -0.841,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.northeast.rmse.gebco2026_ci_high_m": {
+  "value": -0.239,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.rmse.gebco2026_ci_low_m": {
+  "value": -0.64,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.rmse.gebco2026_m": {
+  "value": -0.392,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.northeast.rmse.srtm15p_ci_high_m": {
+  "value": -0.217,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.rmse.srtm15p_ci_low_m": {
+  "value": -0.628,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.northeast.rmse.srtm15p_m": {
+  "value": -0.374,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.open_shelf.nmad.etopo1_ci_high_m": {
+  "value": -0.1,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.nmad.etopo1_ci_low_m": {
+  "value": -0.434,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.nmad.etopo1_m": {
+  "value": -0.434,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.open_shelf.nmad.etopo2022_ci_high_m": {
+  "value": 0.057,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.nmad.etopo2022_ci_low_m": {
+  "value": -0.819,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.nmad.etopo2022_m": {
+  "value": -0.041,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.open_shelf.nmad.gebco2022_ci_high_m": {
+  "value": -0.343,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.nmad.gebco2022_ci_low_m": {
+  "value": -0.725,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.nmad.gebco2022_m": {
+  "value": -0.725,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.open_shelf.nmad.gebco2026_ci_high_m": {
+  "value": -0.37,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.nmad.gebco2026_ci_low_m": {
+  "value": -0.686,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.nmad.gebco2026_m": {
+  "value": -0.686,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.open_shelf.nmad.srtm15p_ci_high_m": {
+  "value": -0.426,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.nmad.srtm15p_ci_low_m": {
+  "value": -0.693,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.nmad.srtm15p_m": {
+  "value": -0.693,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.open_shelf.rmse.etopo1_ci_high_m": {
+  "value": -0.125,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.rmse.etopo1_ci_low_m": {
+  "value": -0.459,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.rmse.etopo1_m": {
+  "value": -0.43,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.open_shelf.rmse.etopo2022_ci_high_m": {
+  "value": -0.144,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.rmse.etopo2022_ci_low_m": {
+  "value": -0.964,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.rmse.etopo2022_m": {
+  "value": -0.25,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.open_shelf.rmse.gebco2022_ci_high_m": {
+  "value": -0.479,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.rmse.gebco2022_ci_low_m": {
+  "value": -0.943,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.rmse.gebco2022_m": {
+  "value": -0.528,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.open_shelf.rmse.gebco2026_ci_high_m": {
+  "value": -0.504,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.rmse.gebco2026_ci_low_m": {
+  "value": -0.656,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.rmse.gebco2026_m": {
+  "value": -0.637,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.open_shelf.rmse.srtm15p_ci_high_m": {
+  "value": -0.621,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.rmse.srtm15p_ci_low_m": {
+  "value": -0.638,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.open_shelf.rmse.srtm15p_m": {
+  "value": -0.631,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.rmse.etopo1_ci_high_m": {
+  "value": 1.723,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.rmse.etopo1_ci_low_m": {
+  "value": -0.572,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.rmse.etopo1_m": {
+  "value": 0.17,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.rmse.etopo2022_ci_high_m": {
+  "value": 2.277,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.rmse.etopo2022_ci_low_m": {
+  "value": -0.31,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.rmse.etopo2022_m": {
+  "value": 0.567,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.rmse.gebco2022_ci_high_m": {
+  "value": 1.542,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.rmse.gebco2022_ci_low_m": {
+  "value": -0.923,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.rmse.gebco2022_m": {
+  "value": -0.094,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.rmse.gebco2026_ci_high_m": {
+  "value": 1.573,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.rmse.gebco2026_ci_low_m": {
+  "value": -0.636,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.rmse.gebco2026_m": {
+  "value": 0.206,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.rmse.srtm15p_ci_high_m": {
+  "value": 1.554,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.rmse.srtm15p_ci_low_m": {
+  "value": -0.628,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.rmse.srtm15p_m": {
+  "value": 0.213,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.volga.nmad.etopo1_ci_high_m": {
+  "value": 0.304,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.nmad.etopo1_ci_low_m": {
+  "value": -0.394,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.nmad.etopo1_m": {
+  "value": -0.195,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.volga.nmad.etopo2022_ci_high_m": {
+  "value": 1.056,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.nmad.etopo2022_ci_low_m": {
+  "value": -0.044,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.nmad.etopo2022_m": {
+  "value": 0.844,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.volga.nmad.gebco2022_ci_high_m": {
+  "value": 0.674,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.nmad.gebco2022_ci_low_m": {
+  "value": -0.274,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.nmad.gebco2022_m": {
+  "value": -0.078,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.volga.nmad.gebco2026_ci_high_m": {
+  "value": 0.435,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.nmad.gebco2026_ci_low_m": {
+  "value": -0.177,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.nmad.gebco2026_m": {
+  "value": -0.014,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.volga.nmad.srtm15p_ci_high_m": {
+  "value": 0.452,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.nmad.srtm15p_ci_low_m": {
+  "value": -0.176,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.nmad.srtm15p_m": {
+  "value": 0.001,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.volga.rmse.etopo1_ci_high_m": {
+  "value": 2.233,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.rmse.etopo1_ci_low_m": {
+  "value": -0.566,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.rmse.etopo1_m": {
+  "value": 1.585,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.volga.rmse.etopo2022_ci_high_m": {
+  "value": 2.745,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.rmse.etopo2022_ci_low_m": {
+  "value": -0.039,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.rmse.etopo2022_m": {
+  "value": 2.323,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.volga.rmse.gebco2022_ci_high_m": {
+  "value": 2.321,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.rmse.gebco2022_ci_low_m": {
+  "value": -1.045,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.rmse.gebco2022_m": {
+  "value": 1.504,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.volga.rmse.gebco2026_ci_high_m": {
+  "value": 2.099,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.rmse.gebco2026_ci_low_m": {
+  "value": -1.024,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.rmse.gebco2026_m": {
+  "value": 1.363,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.volga.rmse.srtm15p_ci_high_m": {
+  "value": 2.093,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.rmse.srtm15p_ci_low_m": {
+  "value": -1.036,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.volga.rmse.srtm15p_m": {
+  "value": 1.355,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.west.nmad.etopo1_ci_high_m": {
+  "value": 0.008,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.nmad.etopo1_ci_low_m": {
+  "value": 0.008,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.nmad.etopo1_m": {
+  "value": 0.008,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.west.nmad.etopo2022_ci_high_m": {
+  "value": 0.074,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.nmad.etopo2022_ci_low_m": {
+  "value": 0.074,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.nmad.etopo2022_m": {
+  "value": 0.074,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.west.nmad.gebco2022_ci_high_m": {
+  "value": -4.66,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.nmad.gebco2022_ci_low_m": {
+  "value": -4.66,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.nmad.gebco2022_m": {
+  "value": -4.66,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.west.nmad.gebco2026_ci_high_m": {
+  "value": -4.179,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.nmad.gebco2026_ci_low_m": {
+  "value": -4.179,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.nmad.gebco2026_m": {
+  "value": -4.179,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.west.nmad.srtm15p_ci_high_m": {
+  "value": -5.014,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.nmad.srtm15p_ci_low_m": {
+  "value": -5.014,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.nmad.srtm15p_m": {
+  "value": -5.014,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.west.rmse.etopo1_ci_high_m": {
+  "value": -0.678,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.rmse.etopo1_ci_low_m": {
+  "value": -0.678,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.rmse.etopo1_m": {
+  "value": -0.678,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.west.rmse.etopo2022_ci_high_m": {
+  "value": 0.102,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.rmse.etopo2022_ci_low_m": {
+  "value": 0.102,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.rmse.etopo2022_m": {
+  "value": 0.102,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.west.rmse.gebco2022_ci_high_m": {
+  "value": -5.849,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.rmse.gebco2022_ci_low_m": {
+  "value": -5.849,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.rmse.gebco2022_m": {
+  "value": -5.849,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.west.rmse.gebco2026_ci_high_m": {
+  "value": -5.385,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.rmse.gebco2026_ci_low_m": {
+  "value": -5.385,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.rmse.gebco2026_m": {
+  "value": -5.385,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.diff.west.rmse.srtm15p_ci_high_m": {
+  "value": -5.582,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.rmse.srtm15p_ci_low_m": {
+  "value": -5.582,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "test-block bootstrap 95% interval"
+ },
+ "h2.glo30.diff.west.rmse.srtm15p_m": {
+  "value": -5.582,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_paired_bootstrap.csv",
+  "note": "DEM minus product, matched variant"
+ },
+ "h2.glo30.etopo1.bias_m": {
+  "value": 0.592,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.interfluve.bias_m": {
+  "value": -1.253,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.interfluve.nmad_m": {
+  "value": 0.551,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.interfluve.rmse_m": {
+  "value": 1.351,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.komsomolets.bias_m": {
+  "value": 0.104,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.komsomolets.nmad_m": {
+  "value": 1.017,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.komsomolets.rmse_m": {
+  "value": 2.351,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.nmad_m": {
+  "value": 0.694,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.northeast.bias_m": {
+  "value": 0.823,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.northeast.nmad_m": {
+  "value": 0.565,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.northeast.rmse_m": {
+  "value": 1.06,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.open_shelf.bias_m": {
+  "value": 0.631,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.open_shelf.nmad_m": {
+  "value": 0.953,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.open_shelf.rmse_m": {
+  "value": 1.141,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.rmse_m": {
+  "value": 1.255,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.volga.bias_m": {
+  "value": -1.371,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.volga.nmad_m": {
+  "value": 1.992,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.volga.rmse_m": {
+  "value": 2.769,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.west.bias_m": {
+  "value": -0.958,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.west.nmad_m": {
+  "value": 0.232,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo1.west.rmse_m": {
+  "value": 1.006,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.bias_m": {
+  "value": -0.15,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.interfluve.bias_m": {
+  "value": -0.447,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.interfluve.nmad_m": {
+  "value": 0.529,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.interfluve.rmse_m": {
+  "value": 1.029,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.komsomolets.bias_m": {
+  "value": 0.38,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.komsomolets.nmad_m": {
+  "value": 0.475,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.komsomolets.rmse_m": {
+  "value": 1.491,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.nmad_m": {
+  "value": 0.284,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.northeast.bias_m": {
+  "value": -0.156,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.northeast.nmad_m": {
+  "value": 0.248,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.northeast.rmse_m": {
+  "value": 0.676,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.open_shelf.bias_m": {
+  "value": -0.301,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.open_shelf.nmad_m": {
+  "value": 0.56,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.open_shelf.rmse_m": {
+  "value": 0.961,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.rmse_m": {
+  "value": 0.858,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.volga.bias_m": {
+  "value": 0.263,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.volga.nmad_m": {
+  "value": 0.953,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.volga.rmse_m": {
+  "value": 2.031,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.west.bias_m": {
+  "value": 0.069,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.west.nmad_m": {
+  "value": 0.167,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo2022.west.rmse_m": {
+  "value": 0.226,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo_src.fabdem.dem.bias_m": {
+  "value": -0.005,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json"
+ },
+ "h2.glo30.etopo_src.fabdem.dem.nmad_m": {
+  "value": 0.459,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json"
+ },
+ "h2.glo30.etopo_src.fabdem.dem.rmse_m": {
+  "value": 1.491,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json"
+ },
+ "h2.glo30.etopo_src.fabdem.etopo2022.bias_m": {
+  "value": 0.035,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo_src.fabdem.etopo2022.nmad_m": {
+  "value": 0.246,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo_src.fabdem.etopo2022.rmse_m": {
+  "value": 0.621,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo_src.fabdem.n_blocks": {
+  "value": 11,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json"
+ },
+ "h2.glo30.etopo_src.fabdem.n_points": {
+  "value": 158879,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json"
+ },
+ "h2.glo30.etopo_src.fabdem.share": {
+  "value": 90.9,
+  "unit": "%",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json",
+  "note": "test-block points by ETOPO 2022 source"
+ },
+ "h2.glo30.etopo_src.gebco_lake.dem.bias_m": {
+  "value": 0.07,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json"
+ },
+ "h2.glo30.etopo_src.gebco_lake.dem.nmad_m": {
+  "value": 0.249,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json"
+ },
+ "h2.glo30.etopo_src.gebco_lake.dem.rmse_m": {
+  "value": 0.305,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json"
+ },
+ "h2.glo30.etopo_src.gebco_lake.etopo2022.bias_m": {
+  "value": -1.995,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo_src.gebco_lake.etopo2022.nmad_m": {
+  "value": 0.421,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo_src.gebco_lake.etopo2022.rmse_m": {
+  "value": 2.059,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json",
+  "note": "matched variant"
+ },
+ "h2.glo30.etopo_src.gebco_lake.n_blocks": {
+  "value": 8,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json"
+ },
+ "h2.glo30.etopo_src.gebco_lake.n_points": {
+  "value": 15894,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json"
+ },
+ "h2.glo30.etopo_src.gebco_lake.share": {
+  "value": 9.1,
+  "unit": "%",
+  "source": "validation/main_glo30/GLO30_etopo2022_sources.json",
+  "note": "test-block points by ETOPO 2022 source"
+ },
+ "h2.glo30.gebco2022.bias_m": {
+  "value": 0.723,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.interfluve.bias_m": {
+  "value": -1.955,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.interfluve.nmad_m": {
+  "value": 0.36,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.interfluve.rmse_m": {
+  "value": 2.008,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.komsomolets.bias_m": {
+  "value": -0.547,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.komsomolets.nmad_m": {
+  "value": 0.954,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.komsomolets.rmse_m": {
+  "value": 1.851,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.nmad_m": {
+  "value": 0.82,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.northeast.bias_m": {
+  "value": 1.106,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.northeast.nmad_m": {
+  "value": 0.639,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.northeast.rmse_m": {
+  "value": 1.35,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.open_shelf.bias_m": {
+  "value": 0.237,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.open_shelf.nmad_m": {
+  "value": 1.244,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.open_shelf.rmse_m": {
+  "value": 1.239,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.rmse_m": {
+  "value": 1.518,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.volga.bias_m": {
+  "value": -1.745,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.volga.nmad_m": {
+  "value": 1.875,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.volga.rmse_m": {
+  "value": 2.85,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.west.bias_m": {
+  "value": -5.129,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.west.nmad_m": {
+  "value": 4.901,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2022.west.rmse_m": {
+  "value": 6.177,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.bias_m": {
+  "value": 0.285,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.interfluve.bias_m": {
+  "value": -1.576,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.interfluve.nmad_m": {
+  "value": 0.36,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.interfluve.rmse_m": {
+  "value": 1.642,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.komsomolets.bias_m": {
+  "value": -0.166,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.komsomolets.nmad_m": {
+  "value": 0.954,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.komsomolets.rmse_m": {
+  "value": 1.775,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.nmad_m": {
+  "value": 0.759,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.northeast.bias_m": {
+  "value": 0.515,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.northeast.nmad_m": {
+  "value": 0.615,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.northeast.rmse_m": {
+  "value": 0.901,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.open_shelf.bias_m": {
+  "value": 0.634,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.open_shelf.nmad_m": {
+  "value": 1.205,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.open_shelf.rmse_m": {
+  "value": 1.348,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.rmse_m": {
+  "value": 1.218,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.volga.bias_m": {
+  "value": -2.034,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.volga.nmad_m": {
+  "value": 1.811,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.volga.rmse_m": {
+  "value": 2.991,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.west.bias_m": {
+  "value": -4.619,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.west.nmad_m": {
+  "value": 4.42,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.gebco2026.west.rmse_m": {
+  "value": 5.713,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.n_blocks.interfluve": {
+  "value": 1,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.glo30.n_blocks.komsomolets": {
+  "value": 2,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.glo30.n_blocks.northeast": {
+  "value": 2,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.glo30.n_blocks.open_shelf": {
+  "value": 2,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.glo30.n_blocks.volga": {
+  "value": 3,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.glo30.n_blocks.west": {
+  "value": 1,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test blocks with points in the sector"
+ },
+ "h2.glo30.n_blocks_split.calib": {
+  "value": 11,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_counts.json",
+  "note": "blocks of the split holding points of this source"
+ },
+ "h2.glo30.n_blocks_split.test": {
+  "value": 11,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_counts.json",
+  "note": "blocks of the split holding points of this source"
+ },
+ "h2.glo30.n_blocks_split.train": {
+  "value": 31,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_counts.json",
+  "note": "blocks of the split holding points of this source"
+ },
+ "h2.glo30.n_points.interfluve": {
+  "value": 7387,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.glo30.n_points.komsomolets": {
+  "value": 2582,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.glo30.n_points.northeast": {
+  "value": 141338,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.glo30.n_points.open_shelf": {
+  "value": 14056,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.glo30.n_points.volga": {
+  "value": 9118,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.glo30.n_points.west": {
+  "value": 292,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "test-block points in the sector"
+ },
+ "h2.glo30.n_points_prepared": {
+  "value": 3732214,
+  "unit": "points",
+  "source": "validation/main_glo30/prepare.json",
+  "note": "dry points with every model column, before the bare-seabed population (D-084)"
+ },
+ "h2.glo30.n_points_split.calib": {
+  "value": 114555,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_counts.json"
+ },
+ "h2.glo30.n_points_split.test": {
+  "value": 174773,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_counts.json"
+ },
+ "h2.glo30.n_points_split.train": {
+  "value": 374665,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_counts.json"
+ },
+ "h2.glo30.n_test_blocks": {
+  "value": 11,
+  "unit": "blocks",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.n_test_points": {
+  "value": 174773,
+  "unit": "points",
+  "source": "validation/main_glo30/GLO30_accuracy.csv"
+ },
+ "h2.glo30.offset.etopo1_m": {
+  "value": 0.998,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_product_offsets.json",
+  "note": "training-block median of y_ref - product (matched variant)"
+ },
+ "h2.glo30.offset.etopo2022_m": {
+  "value": 0.302,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_product_offsets.json",
+  "note": "training-block median of y_ref - product (matched variant)"
+ },
+ "h2.glo30.offset.gebco2022_m": {
+  "value": 0.75,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_product_offsets.json",
+  "note": "training-block median of y_ref - product (matched variant)"
+ },
+ "h2.glo30.offset.gebco2026_m": {
+  "value": 1.129,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_product_offsets.json",
+  "note": "training-block median of y_ref - product (matched variant)"
+ },
+ "h2.glo30.offset.srtm15p_m": {
+  "value": 1.098,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_product_offsets.json",
+  "note": "training-block median of y_ref - product (matched variant)"
+ },
+ "h2.glo30.rule_check.matched": {
+  "value": "not supported",
+  "unit": "text",
+  "source": "validation/main_glo30/GLO30_rule_check.json",
+  "note": "PREREG section 7 rule applied descriptively; the H2 decision is ICESat-2's (D-086)"
+ },
+ "h2.glo30.rule_check.total": {
+  "value": "not supported",
+  "unit": "text",
+  "source": "validation/main_glo30/GLO30_rule_check.json",
+  "note": "PREREG section 7 rule applied descriptively; the H2 decision is ICESat-2's (D-086)"
+ },
+ "h2.glo30.sectors_without_test_points": {
+  "value": "ural",
+  "unit": "text",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "sectors with no test-block points (no per-sector accuracy or coverage)"
+ },
+ "h2.glo30.srtm15p.bias_m": {
+  "value": 0.254,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.interfluve.bias_m": {
+  "value": -1.605,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.interfluve.nmad_m": {
+  "value": 0.36,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.interfluve.rmse_m": {
+  "value": 1.671,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.komsomolets.bias_m": {
+  "value": -0.197,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.komsomolets.nmad_m": {
+  "value": 0.954,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.komsomolets.rmse_m": {
+  "value": 1.778,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.nmad_m": {
+  "value": 0.758,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.northeast.bias_m": {
+  "value": 0.485,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.northeast.nmad_m": {
+  "value": 0.614,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.northeast.rmse_m": {
+  "value": 0.883,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.open_shelf.bias_m": {
+  "value": 0.597,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.open_shelf.nmad_m": {
+  "value": 1.212,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.open_shelf.rmse_m": {
+  "value": 1.342,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.rmse_m": {
+  "value": 1.212,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.volga.bias_m": {
+  "value": -2.052,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.volga.nmad_m": {
+  "value": 1.796,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.volga.rmse_m": {
+  "value": 2.999,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.west.bias_m": {
+  "value": -4.851,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.west.nmad_m": {
+  "value": 5.255,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
+ "h2.glo30.srtm15p.west.rmse_m": {
+  "value": 5.91,
+  "unit": "m",
+  "source": "validation/main_glo30/GLO30_accuracy.csv",
+  "note": "matched variant"
+ },
  "h2.sens12km.atl06.coverage.overall": {
   "value": 0.825,
   "unit": "fraction",

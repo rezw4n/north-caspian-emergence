@@ -344,6 +344,7 @@ def results_metrics(m: dict, tag: str = "main") -> None:
             put(m, f"h1.noise_p95.{sec}_km", round(float(g["p95_m"].median()) / 1000, 2), "km", f"hindcast/{tag}/noise_floor.csv",
                 "median over levels of the noise-floor 95th percentile")
         display_h1_metrics(m, tag)
+    h2_additional_metrics(m, tag)
     display_input_metrics(m)
     if (RES / "emergence" / tag / "h3_decision.json").exists():
         h3_metrics(m, tag)
@@ -535,6 +536,110 @@ def display_h2_metrics(m: dict, tag: str, src: str) -> None:
         c3 = pd.read_csv(vg / f"{src}_coverage.csv").set_index("scope")
         put(m, f"h2.veg.{s}.coverage.overall", round(float(c3.loc["overall", "coverage"]), 3), "fraction",
             fv.replace("accuracy", "coverage"))
+
+
+ADDITIONAL_SOURCES = (("GLO30", "glo30"), ("GEDI", "gedi"))
+
+
+def h2_additional_metrics(m: dict, tag: str) -> None:
+    """The additional independent checks of the waterline DEM (D-091): Copernicus GLO-30
+    (PREREG section 2) and GEDI L2A (Amendment 2), evaluated on the H2 blocks with the H2
+    metrics (results/validation/<tag>_glo30/, <tag>_gedi/, scripts/a6_validate_dem.py).
+    Keys h2.glo30.* and h2.gedi.* mirror the h2.atl06/atl08 families, plus per-sector
+    paired differences and the split counts; h2.gedi_night.* is the Amendment 2
+    night-only sensitivity. The H2 decision itself is ICESat-2's (D-086). Direct reads of
+    the committed tables; nothing is recomputed; NaN values are not written."""
+    import math
+
+    import pandas as pd
+
+    def putf(key, value, unit, source, note=None):
+        if value is None or (isinstance(value, float) and not math.isfinite(value)):
+            return
+        put(m, key, value, unit, source, note)
+
+    def r3(v):
+        return round(float(v), 3)
+
+    def block(s, rel, src, per_sector=True):
+        d = RES / rel
+        acc = pd.read_csv(d / f"{src}_accuracy.csv")
+        o = acc[acc.scope == "overall"].set_index("model")
+        f = f"{rel}/{src}_accuracy.csv"
+        putf(f"h2.{s}.n_test_points", int(o.loc["dem", "n"]), "points", f)
+        putf(f"h2.{s}.n_test_blocks", int(o.loc["dem", "n_blocks"]), "blocks", f)
+        for metric in ("nmad", "rmse", "bias"):
+            putf(f"h2.{s}.dem.{metric}_m", r3(o.loc["dem", metric]), "m", f)
+            for p, k in PRODUCT_KEY.items():
+                putf(f"h2.{s}.{k}.{metric}_m", r3(o.loc[f"{p}|matched", metric]), "m", f, "matched variant")
+        if per_sector:
+            for sec, r in acc[(acc.model == "dem") & (acc.scope != "overall") & (acc.n > 0)].set_index("scope").iterrows():
+                putf(f"h2.{s}.dem.{sec}.nmad_m", r3(r["nmad"]), "m", f)
+                putf(f"h2.{s}.dem.{sec}.bias_m", r3(r["bias"]), "m", f)
+        pb = pd.read_csv(d / f"{src}_paired_bootstrap.csv")
+        pb = pb[(pb.variant == "matched") & (pb.n_points > 0)]
+        fb = f"{rel}/{src}_paired_bootstrap.csv"
+        for r in pb.itertuples():
+            if r.scope != "overall" and not per_sector:
+                continue
+            k = (f"h2.{s}.diff.{r.metric}.{PRODUCT_KEY[r.product]}" if r.scope == "overall"
+                 else f"h2.{s}.diff.{r.scope}.{r.metric}.{PRODUCT_KEY[r.product]}")
+            putf(k + "_m", r3(r.diff), "m", fb, "DEM minus product, matched variant")
+            putf(k + "_ci_low_m", r3(r.ci_low), "m", fb, "test-block bootstrap 95% interval")
+            putf(k + "_ci_high_m", r3(r.ci_high), "m", fb, "test-block bootstrap 95% interval")
+        cov = pd.read_csv(d / f"{src}_coverage.csv")
+        fc = f"{rel}/{src}_coverage.csv"
+        for r in cov[cov.n > 0].itertuples():
+            if r.scope != "overall" and not per_sector:
+                continue
+            base = f"h2.{s}.coverage.{r.scope}"
+            putf(base, r3(r.coverage), "fraction", fc)
+            putf(base + "_ci_low", r3(r.ci_low), "fraction", fc, "binomial 95% interval (points as independent)")
+            putf(base + "_ci_high", r3(r.ci_high), "fraction", fc, "binomial 95% interval (points as independent)")
+            putf(base + "_boot_low", r3(r.boot_low), "fraction", fc, "test-block bootstrap 95% interval")
+            putf(base + "_boot_high", r3(r.boot_high), "fraction", fc, "test-block bootstrap 95% interval")
+            putf(base + "_n_blocks", int(r.n_blocks), "blocks", fc)
+        cnt = load(f"{rel}/{src}_counts.json")
+        fn = f"{rel}/{src}_counts.json"
+        by = {}
+        for r in cnt["by_split_sector"]:
+            by[r["split"]] = by.get(r["split"], 0) + int(r["n"])
+        for sp in ("train", "calib", "test"):
+            putf(f"h2.{s}.n_points_split.{sp}", by.get(sp), "points", fn)
+            putf(f"h2.{s}.n_blocks_split.{sp}", cnt["n_blocks_with_points"].get(sp), "blocks", fn,
+                 "blocks of the split holding points of this source")
+        es = d / f"{src}_etopo2022_sources.json"          # scripts/a6_etopo_sources.py (D-091)
+        if es.exists():
+            fe = f"{rel}/{src}_etopo2022_sources.json"
+            for name, r in json.loads(es.read_text(encoding="utf-8"))["by_etopo_source"].items():
+                k = {"FABDEM": "fabdem", "GEBCO Lake Depths": "gebco_lake"}.get(name, "other")
+                b = f"h2.{s}.etopo_src.{k}"
+                putf(b + ".share", round(100 * float(r["share"]), 1), "%", fe, "test-block points by ETOPO 2022 source")
+                putf(b + ".n_points", int(r["n_points"]), "points", fe)
+                putf(b + ".n_blocks", int(r["n_blocks"]), "blocks", fe)
+                for metric in ("nmad", "rmse", "bias"):
+                    putf(f"{b}.dem.{metric}_m", r3(r["dem"][metric]), "m", fe)
+                    putf(f"{b}.etopo2022.{metric}_m", r3(r["etopo_2022_matched"][metric]), "m", fe, "matched variant")
+        rc = d / f"{src}_rule_check.json"
+        if rc.exists():
+            for v, st in json.loads(rc.read_text(encoding="utf-8"))["outcome"].items():
+                putf(f"h2.{s}.rule_check.{v}", st, "text", f"{rel}/{src}_rule_check.json",
+                     "PREREG section 7 rule applied descriptively; the H2 decision is ICESat-2's (D-086)")
+
+    for src, s in ADDITIONAL_SOURCES:
+        rel = f"validation/{tag}_{s}"
+        if not (RES / rel / f"{src}_accuracy.csv").exists():
+            continue
+        block(s, rel, src)
+        display_h2_metrics(m, f"{tag}_{s}", src)
+        pj = load(f"{rel}/prepare.json")
+        putf(f"h2.{s}.n_points_prepared", pj.get("n_points"), "points", f"{rel}/prepare.json",
+             "dry points with every model column, before the bare-seabed population (D-084)")
+        if s == "gedi":
+            putf("h2.gedi.n_night_prepared", pj.get("n_night"), "points", f"{rel}/prepare.json")
+        sub = RES / rel / "subset_night"
+        if (sub / f"{src}_accuracy.csv").exists():
+            block(f"{s}_night", f"{rel}/subset_night", src, per_sector=False)
 
 
 def display_h1_metrics(m: dict, tag: str) -> None:

@@ -1,0 +1,25 @@
+{
+ "created": "2026-10-21T03:28:03Z",
+ "dem_tag": "main",
+ "source": "GLO30",
+ "block_size_m": 50000.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": false,
+ "scale_model": {
+  "split": "train",
+  "terms": [
+   "intercept",
+   "log1p_interp_dist",
+   "contour_density",
+   "slope"
+  ],
+  "beta": [
+   -1.78283267486137,
+   0.08393296519378493,
+   -0.00016617682731093208,
+   26.122207892089033
+  ],
+  "n_points": 374665,
+  "floor_m": 0.001
+ }
+}
