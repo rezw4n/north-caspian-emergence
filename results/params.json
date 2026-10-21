@@ -613,5 +613,91 @@
   "value": 1000,
   "unit": "points",
   "source": "figures/fig3_dem_accuracy.MIN_BIN_N"
+ },
+ "params.erl_fig_scale_map_km": {
+  "value": 100,
+  "unit": "km",
+  "source": "figures/_erl.SCALE_MAP_KM"
+ },
+ "params.erl_fig_scale_inset_km": {
+  "value": 20,
+  "unit": "km",
+  "source": "figures/_erl.SCALE_INSET_KM"
+ },
+ "params.erl_fig_scale_gsl_km": {
+  "value": 10,
+  "unit": "km",
+  "source": "figures/_erl.SCALE_GSL_KM"
+ },
+ "params.erl_fig_graticule_map_deg": {
+  "value": 1.0,
+  "unit": "degrees",
+  "source": "figures/_erl.GRATICULE_MAP_DEG",
+  "decimals": 0
+ },
+ "params.erl_fig_graticule_zoom_deg": {
+  "value": 0.5,
+  "unit": "degrees",
+  "source": "figures/_erl.GRATICULE_ZOOM_DEG",
+  "decimals": 1
+ },
+ "params.erl_fig_near_km": {
+  "value": 10,
+  "unit": "km",
+  "source": "figures/_erl.NEAR_KM"
+ },
+ "params.erl_fig_contour_block": {
+  "value": 4,
+  "unit": "display cells",
+  "source": "figures/erl_fig_then_now.BLOCK (block median before contouring)"
+ },
+ "params.erl_fig_contour_min_km": {
+  "value": 6,
+  "unit": "km",
+  "source": "figures/erl_fig_then_now.MIN_LEN_KM (shorter contour pieces not drawn)"
+ },
+ "params.erl_card_sectors_good": {
+  "value": 1,
+  "unit": "sectors",
+  "source": "figures/tab_report_card.CARD_SECTORS (good at most)"
+ },
+ "params.erl_card_sectors_poor": {
+  "value": 4,
+  "unit": "sectors",
+  "source": "figures/tab_report_card.CARD_SECTORS (poor from)"
+ },
+ "params.erl_card_km_good": {
+  "value": 1.0,
+  "unit": "km",
+  "source": "figures/tab_report_card.CARD_KM (good below)",
+  "decimals": 0
+ },
+ "params.erl_card_km_poor": {
+  "value": 3.0,
+  "unit": "km",
+  "source": "figures/tab_report_card.CARD_KM (poor from)",
+  "decimals": 0
+ },
+ "params.erl_card_nmad_good_m": {
+  "value": 0.5,
+  "unit": "m",
+  "source": "figures/tab_report_card.CARD_NMAD_M (good below)",
+  "decimals": 1
+ },
+ "params.erl_card_nmad_poor_m": {
+  "value": 1.0,
+  "unit": "m",
+  "source": "figures/tab_report_card.CARD_NMAD_M (poor from)",
+  "decimals": 1
+ },
+ "params.erl_card_arms_good": {
+  "value": 0,
+  "unit": "arms",
+  "source": "figures/tab_report_card.CARD_ARMS (good)"
+ },
+ "params.erl_card_arms_poor": {
+  "value": 2,
+  "unit": "arms",
+  "source": "figures/tab_report_card.CARD_ARMS (poor)"
  }
 }

@@ -1,0 +1,700 @@
+{
+ "units": [
+  {
+   "epoch": "E3",
+   "bin": 19,
+   "level_m": -28.05,
+   "envelope_cells": 84679,
+   "n_acquisitions": 83,
+   "first_year": 2021,
+   "last_year": 2023,
+   "plan": "plan_main_tau9900cm_landsat.csv"
+  },
+  {
+   "epoch": "E3",
+   "bin": 29,
+   "level_m": -27.05,
+   "envelope_cells": 40594,
+   "n_acquisitions": 155,
+   "first_year": 2012,
+   "last_year": 2018,
+   "plan": "plan_main_tau9900cm_landsat.csv"
+  }
+ ],
+ "products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7"
+ ],
+ "display_res_m": 240,
+ "insets": {
+  "volga": {
+   "sector": "volga",
+   "box_m": [
+    -170000.0,
+    -40000.0,
+    -90000.0,
+    30000.0
+   ],
+   "region_m": [
+    -230000.0,
+    -60000.0,
+    -60000.0,
+    70000.0
+   ]
+  },
+  "northeast": {
+   "sector": "northeast",
+   "box_m": [
+    190000.0,
+    50000.0,
+    270000.0,
+    120000.0
+   ],
+   "region_m": [
+    170000.0,
+    0.0,
+    300000.0,
+    170000.0
+   ]
+  },
+  "komsomolets": {
+   "sector": "komsomolets",
+   "box_m": [
+    180000.0,
+    -35000.0,
+    260000.0,
+    35000.0
+   ],
+   "region_m": [
+    180000.0,
+    -80000.0,
+    380000.0,
+    50000.0
+   ]
+  }
+ },
+ "shape_offsets_m": {
+  "gebco_2026": -1.48,
+  "etopo_2022": -1.49,
+  "srtm15p_v2.7": -1.28
+ },
+ "checks": [
+  {
+   "unit": "E3_b019",
+   "product": "gebco_2026",
+   "sector": "west",
+   "median_m": 3253.8592471095,
+   "displacement_csv_m": 3253.8592471095,
+   "n": 12179,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "gebco_2026",
+   "sector": "volga",
+   "median_m": 9960.722865334625,
+   "displacement_csv_m": 9960.722865334625,
+   "n": 13977,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "gebco_2026",
+   "sector": "interfluve",
+   "median_m": 5165.578380007412,
+   "displacement_csv_m": 5165.578380007412,
+   "n": 5873,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "gebco_2026",
+   "sector": "ural",
+   "median_m": 1321.3629327327144,
+   "displacement_csv_m": 1321.3629327327144,
+   "n": 5651,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "gebco_2026",
+   "sector": "northeast",
+   "median_m": 11356.495938448621,
+   "displacement_csv_m": 11356.49593844862,
+   "n": 17304,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "gebco_2026",
+   "sector": "komsomolets",
+   "median_m": 14856.99825412274,
+   "displacement_csv_m": 14856.99825412274,
+   "n": 2476,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "gebco_2026",
+   "sector": "open_shelf",
+   "median_m": 2005.2929960482084,
+   "displacement_csv_m": 2005.2929960482084,
+   "n": 29122,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "etopo_2022",
+   "sector": "west",
+   "median_m": 3092.7657525263694,
+   "displacement_csv_m": 3092.7657525263694,
+   "n": 12233,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "etopo_2022",
+   "sector": "volga",
+   "median_m": 10041.53374739138,
+   "displacement_csv_m": 10041.53374739138,
+   "n": 13935,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "etopo_2022",
+   "sector": "interfluve",
+   "median_m": 5293.108659117487,
+   "displacement_csv_m": 5293.108659117487,
+   "n": 5838,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "etopo_2022",
+   "sector": "ural",
+   "median_m": 1637.6812876747417,
+   "displacement_csv_m": 1637.6812876747415,
+   "n": 7211,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "etopo_2022",
+   "sector": "northeast",
+   "median_m": 12049.846472051002,
+   "displacement_csv_m": 12049.846472051002,
+   "n": 18254,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "etopo_2022",
+   "sector": "komsomolets",
+   "median_m": 14657.817027101955,
+   "displacement_csv_m": 14657.817027101955,
+   "n": 2476,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "etopo_2022",
+   "sector": "open_shelf",
+   "median_m": 1980.0,
+   "displacement_csv_m": 1980.0,
+   "n": 29207,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "srtm15p_v2.7",
+   "sector": "west",
+   "median_m": 6083.4200907055565,
+   "displacement_csv_m": 6083.4200907055565,
+   "n": 25639,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "srtm15p_v2.7",
+   "sector": "volga",
+   "median_m": 9588.180223587791,
+   "displacement_csv_m": 9588.180223587791,
+   "n": 14957,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "srtm15p_v2.7",
+   "sector": "interfluve",
+   "median_m": 3481.29277689841,
+   "displacement_csv_m": 3481.29277689841,
+   "n": 5754,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "srtm15p_v2.7",
+   "sector": "ural",
+   "median_m": 5341.348144429457,
+   "displacement_csv_m": 5341.348144429457,
+   "n": 5885,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "srtm15p_v2.7",
+   "sector": "northeast",
+   "median_m": 11470.51873282111,
+   "displacement_csv_m": 11470.51873282111,
+   "n": 25661,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "srtm15p_v2.7",
+   "sector": "komsomolets",
+   "median_m": 12347.906705186915,
+   "displacement_csv_m": 12347.906705186915,
+   "n": 13109,
+   "equal": true
+  },
+  {
+   "unit": "E3_b019",
+   "product": "srtm15p_v2.7",
+   "sector": "open_shelf",
+   "median_m": 2821.595131185868,
+   "displacement_csv_m": 2821.595131185868,
+   "n": 41328,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "west",
+   "median_m": 1844.44700705564,
+   "displacement_csv_m": 1844.44700705564,
+   "n": 9208,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "volga",
+   "median_m": 4768.773427203268,
+   "displacement_csv_m": 4768.773427203268,
+   "n": 24316,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "interfluve",
+   "median_m": 2886.2432329933663,
+   "displacement_csv_m": 2886.2432329933663,
+   "n": 19552,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "ural",
+   "median_m": 5278.977173657791,
+   "displacement_csv_m": 5278.977173657791,
+   "n": 18096,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "northeast",
+   "median_m": 6348.527374054849,
+   "displacement_csv_m": 6348.527374054849,
+   "n": 40982,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "komsomolets",
+   "median_m": 13887.505175516586,
+   "displacement_csv_m": 13887.505175516586,
+   "n": 7781,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "open_shelf",
+   "median_m": 569.2099788303083,
+   "displacement_csv_m": 569.2099788303083,
+   "n": 24280,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "west",
+   "median_m": 268.3281572999748,
+   "displacement_csv_m": 268.3281572999748,
+   "n": 7903,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "volga",
+   "median_m": 268.3281572999748,
+   "displacement_csv_m": 268.3281572999748,
+   "n": 31867,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "interfluve",
+   "median_m": 569.2099788303083,
+   "displacement_csv_m": 569.2099788303083,
+   "n": 15548,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "ural",
+   "median_m": 360.0,
+   "displacement_csv_m": 360.0,
+   "n": 16492,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "northeast",
+   "median_m": 1164.989270336856,
+   "displacement_csv_m": 1164.989270336856,
+   "n": 49181,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "komsomolets",
+   "median_m": 1965.4007224991037,
+   "displacement_csv_m": 1965.400722499104,
+   "n": 15573,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "open_shelf",
+   "median_m": 216.33307652783935,
+   "displacement_csv_m": 216.33307652783932,
+   "n": 24510,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "west",
+   "median_m": 9027.358417610325,
+   "displacement_csv_m": 9027.358417610323,
+   "n": 29885,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "volga",
+   "median_m": 3936.2926720456144,
+   "displacement_csv_m": 3936.2926720456144,
+   "n": 50900,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "interfluve",
+   "median_m": 3600.4999652825995,
+   "displacement_csv_m": 3600.4999652825995,
+   "n": 18560,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "ural",
+   "median_m": 2197.1800108320667,
+   "displacement_csv_m": 2197.1800108320667,
+   "n": 17827,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "northeast",
+   "median_m": 2910.463880552377,
+   "displacement_csv_m": 2910.463880552377,
+   "n": 49310,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "komsomolets",
+   "median_m": 2254.5953073667124,
+   "displacement_csv_m": 2254.5953073667124,
+   "n": 14887,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "open_shelf",
+   "median_m": 1462.9410766571773,
+   "displacement_csv_m": 1462.9410766571773,
+   "n": 37076,
+   "equal": true
+  }
+ ],
+ "arrows": [
+  {
+   "unit": "E3_b019",
+   "product": "gebco_2026",
+   "inset": "volga",
+   "sector": "volga",
+   "x0": -112590.0,
+   "y0": 17550.0,
+   "x1": -112470.0,
+   "y1": 7590.0,
+   "distance_m": 9960.723,
+   "sector_median_m": 9960.723,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b019",
+   "product": "gebco_2026",
+   "inset": "northeast",
+   "sector": "northeast",
+   "x0": 228570.0,
+   "y0": 113790.0,
+   "x1": 218430.0,
+   "y1": 108690.0,
+   "distance_m": 11350.313,
+   "sector_median_m": 11356.496,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b019",
+   "product": "gebco_2026",
+   "inset": "komsomolets",
+   "sector": "komsomolets",
+   "x0": 197070.0,
+   "y0": -5550.0,
+   "x1": 184350.0,
+   "y1": 2130.0,
+   "distance_m": 14858.694,
+   "sector_median_m": 14856.998,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b019",
+   "product": "etopo_2022",
+   "inset": "volga",
+   "sector": "volga",
+   "x0": -154290.0,
+   "y0": -16530.0,
+   "x1": -147750.0,
+   "y1": -24150.0,
+   "distance_m": 10041.713,
+   "sector_median_m": 10041.534,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b019",
+   "product": "etopo_2022",
+   "inset": "northeast",
+   "sector": "northeast",
+   "x0": 228450.0,
+   "y0": 115710.0,
+   "x1": 218070.0,
+   "y1": 109590.0,
+   "distance_m": 12049.846,
+   "sector_median_m": 12049.846,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b019",
+   "product": "etopo_2022",
+   "inset": "komsomolets",
+   "sector": "komsomolets",
+   "x0": 201750.0,
+   "y0": 7590.0,
+   "x1": 194790.0,
+   "y1": 20490.0,
+   "distance_m": 14657.817,
+   "sector_median_m": 14657.817,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b019",
+   "product": "srtm15p_v2.7",
+   "inset": "volga",
+   "sector": "volga",
+   "x0": -112710.0,
+   "y0": 16770.0,
+   "x1": -111750.0,
+   "y1": 7230.0,
+   "distance_m": 9588.18,
+   "sector_median_m": 9588.18,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b019",
+   "product": "srtm15p_v2.7",
+   "inset": "northeast",
+   "sector": "northeast",
+   "x0": 229290.0,
+   "y0": 95910.0,
+   "x1": 218250.0,
+   "y1": 99030.0,
+   "distance_m": 11472.402,
+   "sector_median_m": 11470.519,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b019",
+   "product": "srtm15p_v2.7",
+   "inset": "komsomolets",
+   "sector": "komsomolets",
+   "x0": 198930.0,
+   "y0": 7590.0,
+   "x1": 209850.0,
+   "y1": 3750.0,
+   "distance_m": 11575.491,
+   "sector_median_m": 12347.907,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "inset": "volga",
+   "sector": "volga",
+   "x0": -145590.0,
+   "y0": 9390.0,
+   "x1": -147930.0,
+   "y1": 930.0,
+   "distance_m": 8777.653,
+   "sector_median_m": 4768.773,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "inset": "northeast",
+   "sector": "northeast",
+   "x0": 224610.0,
+   "y0": 81210.0,
+   "x1": 221370.0,
+   "y1": 86670.0,
+   "distance_m": 6348.953,
+   "sector_median_m": 6348.527,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "inset": "komsomolets",
+   "sector": "komsomolets",
+   "x0": 211890.0,
+   "y0": -2670.0,
+   "x1": 203310.0,
+   "y1": 8250.0,
+   "distance_m": 13887.505,
+   "sector_median_m": 13887.505,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "inset": "volga",
+   "sector": "volga",
+   "x0": -93930.0,
+   "y0": 27150.0,
+   "x1": -93690.0,
+   "y1": 27330.0,
+   "distance_m": 300.0,
+   "sector_median_m": 268.328,
+   "signed": "observed waterline inside predicted water (too much water)"
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "inset": "northeast",
+   "sector": "northeast",
+   "x0": 235050.0,
+   "y0": 119430.0,
+   "x1": 236190.0,
+   "y1": 119190.0,
+   "distance_m": 1164.989,
+   "sector_median_m": 1164.989,
+   "signed": "observed waterline inside predicted water (too much water)"
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "inset": "komsomolets",
+   "sector": "komsomolets",
+   "x0": 224550.0,
+   "y0": 7830.0,
+   "x1": 222630.0,
+   "y1": 7410.0,
+   "distance_m": 1965.401,
+   "sector_median_m": 1965.401,
+   "signed": "observed waterline inside predicted water (too much water)"
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "inset": "volga",
+   "sector": "volga",
+   "x0": -94650.0,
+   "y0": 27330.0,
+   "x1": -98970.0,
+   "y1": 24570.0,
+   "distance_m": 5126.402,
+   "sector_median_m": 3936.293,
+   "signed": "observed waterline outside predicted water"
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "inset": "northeast",
+   "sector": "northeast",
+   "x0": 229110.0,
+   "y0": 105270.0,
+   "x1": 231930.0,
+   "y1": 105990.0,
+   "distance_m": 2910.464,
+   "sector_median_m": 2910.464,
+   "signed": "observed waterline inside predicted water (too much water)"
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "inset": "komsomolets",
+   "sector": "komsomolets",
+   "x0": 221610.0,
+   "y0": 13050.0,
+   "x1": 219570.0,
+   "y1": 14010.0,
+   "distance_m": 2254.595,
+   "sector_median_m": 2254.595,
+   "signed": "observed waterline inside predicted water (too much water)"
+  }
+ ],
+ "seconds": 43.7,
+ "hindcast_run": "results/hindcast/main/run.json"
+}

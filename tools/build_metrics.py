@@ -1061,6 +1061,116 @@ def atl24_metrics(m: dict) -> None:
         putf("h3.atl24.error_model.fit_shift_max_m", r3(er["fit_shift_range_m"][1]), "m", src, note)
 
 
+def display_erl_metrics(m: dict) -> None:
+    """Numbers drawn on the ERL main display items (D-100, D-102) that no other function
+    provides. From the display preparations of scripts/f1_erl_display.py (each of them
+    cross-checked there against the frozen hindcast and H3 tables), the Landsat acquisition
+    record of scripts/f2_erl_landsat.py, and, for the report card, ranges over keys set
+    above. Inputs are literal paths (tests/test_makefile.py)."""
+    pk = {"gebco_2026": "gebco2026", "gebco_2022": "gebco2022", "etopo_2022": "etopo2022",
+          "srtm15p_v2.7": "srtm15p", "etopo1": "etopo1", "dep3": "dep3"}
+
+    def dp(key, n):
+        if key in m:
+            m[key]["decimals"] = n
+
+    h = load("display/erl_hero.json")
+    src = "results/display/erl_hero.json"
+    for u in h.get("units", []):
+        k = f"erl.hero.{u['epoch'].lower()}_b{int(u['bin']):03d}"
+        put(m, f"{k}.level_m", u["level_m"], "m (DAHITI reference)", src, "bin centre of the hindcast unit")
+        dp(f"{k}.level_m", 2)
+        put(m, f"{k}.n_acquisitions", u.get("n_acquisitions"), "acquisitions", src,
+            "Landsat acquisitions of the unit in the main stage-2 plan")
+        put(m, f"{k}.first_year", None if u.get("first_year") is None else str(u["first_year"]), "year", src)
+        put(m, f"{k}.last_year", None if u.get("last_year") is None else str(u["last_year"]), "year", src)
+    for a in h.get("arrows", []):
+        if "distance_m" not in a:
+            continue
+        k = f"erl.hero.{a['unit'].lower()}.arrow.{a['inset']}.{pk[a['product']]}_km"
+        put(m, k, a["distance_m"] / 1000.0, "km", src,
+            "distance from the observed waterline cell nearest the sector median to the nearest predicted one")
+        dp(k, 1)
+    for c in h.get("checks", []):
+        if c["median_m"] == c["median_m"]:     # not NaN
+            k = f"erl.hero.{c['unit'].lower()}.disp.{c['sector']}.{pk[c['product']]}_km"
+            put(m, k, c["median_m"] / 1000.0, "km", src, "per-sector median displacement of the unit (displacement.csv)")
+            dp(k, 1)
+    if h:
+        put(m, "erl.hero.n_checks", len(h["checks"]), "medians", src)
+        put(m, "erl.hero.n_checks_equal", sum(bool(c["equal"]) for c in h["checks"]), "medians", src)
+        put(m, "erl.hero.display_res_m", int(h["display_res_m"]), "m", src)
+
+    g = load("display/erl_agreement.json")
+    src = "results/display/erl_agreement.json"
+    for s, r in (g.get("scenarios") or {}).items():
+        k = f"erl.agree.{s.replace('.', 'p')}m"
+        for n, v in r["area_km2_by_count"].items():
+            if n != "0":
+                put(m, f"{k}.area_km2_count{n}", v, "km2", src, f"domain area that exactly {n} of the products place in the band")
+        put(m, f"{k}.area_km2_any", r["area_km2_any"], "km2", src, "at least one product")
+        put(m, f"{k}.area_km2_majority", r["area_km2_majority"], "km2", src, "at least three of five products")
+        put(m, f"{k}.area_km2_all", r["area_km2_all"], "km2", src, "all five products")
+        if r["area_km2_any"]:
+            put(m, f"{k}.all_pct_of_any", 100.0 * r["area_km2_all"] / r["area_km2_any"], "%", src)
+            dp(f"{k}.all_pct_of_any", 0)
+    if g:
+        put(m, "erl.agree.n_checks", len(g["checks"]), "areas", src)
+        put(m, "erl.agree.n_checks_equal", sum(bool(c["equal"]) for c in g["checks"]), "areas", src)
+
+    s = load("display/erl_gsl.json")
+    src = "results/display/erl_gsl.json"
+    if s:
+        put(m, "erl.gsl.level_navd88_m", s["unit"]["level_navd88_m"], "m (NAVD 88)", src)
+        dp("erl.gsl.level_navd88_m", 2)
+        put(m, "erl.gsl.epoch", s["unit"]["epoch"], "category", src)
+        put(m, "erl.gsl.n_candidate_units", s["unit"]["selection"]["n_candidates"], "units", src)
+        for arm, r in s["arms"].items():
+            for p, v in r["medians_m"].items():
+                put(m, f"erl.gsl.{arm}.{pk[p]}.median_m", v, "m", src, "median displacement at the mapped unit")
+                dp(f"erl.gsl.{arm}.{pk[p]}.median_m", 0)
+        put(m, "erl.gsl.n_checks", len(s["checks"]), "medians", src)
+        g_ = "generality.great_salt_lake"
+        for arm in s["arms"]:     # noise floors to the metre, as the map's medians
+            for k_src, k_dst in ((f"{g_}.{arm}.noise_floor_p95_median_m", f"erl.gsl.{arm}.noise_floor_m"),
+                                 (f"{g_}.control.{arm}.median_noise_p95_m", f"erl.gsl.control.{arm}.noise_floor_m")):
+                if k_src in m:
+                    put(m, k_dst, m[k_src]["value"], "m", m[k_src]["source"], "as " + k_src + ", to the metre")
+                    dp(k_dst, 0)
+        put(m, "erl.gsl.n_checks_equal", sum(bool(c["equal"]) for c in s["checks"]), "medians", src)
+
+    ls = load("provenance/erl_landsat.json")
+    src = "results/provenance/erl_landsat.json"
+    for name, r in (ls.get("files") or {}).items():
+        k = f"erl.landsat.{name}"
+        main_y = r["window"][:4]
+        fill_y = r["fill_window"][:4]
+        put(m, f"{k}.year", main_y, "year", src)
+        put(m, f"{k}.fill_year", fill_y, "year", src)
+        put(m, f"{k}.n_scenes", int(r["n_scenes"][main_y]), "scenes", src)
+        put(m, f"{k}.n_scenes_fill", int(r["n_scenes"][fill_y]), "scenes", src)
+        put(m, f"{k}.filled_pct", 100.0 * float(r["filled_share"]), "%", src, "map pixels taken from the fill summer")
+        dp(f"{k}.filled_pct", 2)
+    if ls:
+        put(m, "erl.landsat.res_m", int(ls["res_m"]), "m", src)
+        put(m, "erl.landsat.eecu_h", float(ls["eecu_s_total_ledger"]) / 3600.0, "EECU-h", src,
+            "pilot and fetch, from results/inventory/erl_figures_ee_ledger.jsonl")
+        dp("erl.landsat.eecu_h", 2)
+
+    # report card: the FABDEM share is quoted to 0.1 % as in D-087 and the G3 memo
+    for k in ("h1.etopo2022.source_share.fabdem", "h1.etopo2022.source_share.gebco_lake"):
+        dp(k, 1)
+    # report card: range of the per-sector median displacement (shape variant) per product
+    sectors = ("west", "volga", "interfluve", "ural", "northeast", "komsomolets", "open_shelf")
+    for p in ("gebco2026", "gebco2022", "etopo2022", "srtm15p", "etopo1"):
+        v = [m[f"h1.disp_median.shape.{p}.{sc}_km"]["value"] for sc in sectors
+             if f"h1.disp_median.shape.{p}.{sc}_km" in m]
+        if len(v) == len(sectors):
+            src = "results/metrics.json: h1.disp_median.shape.*"
+            put(m, f"erl.card.{p}.disp_min_km", min(v), "km", src, "smallest per-sector median displacement")
+            put(m, f"erl.card.{p}.disp_max_km", max(v), "km", src, "largest per-sector median displacement")
+
+
 def main() -> int:
     m: dict = {}
     inv = load("inventory/inventory_meta.json")
@@ -1294,6 +1404,7 @@ def main() -> int:
     atl24_metrics(m)
     redteam_metrics(m)
     h3_sensitivity_metrics(m)
+    display_erl_metrics(m)
 
     out = RES / "metrics.json"
     out.write_text(json.dumps(dict(sorted(m.items())), indent=1, ensure_ascii=False), encoding="utf-8")

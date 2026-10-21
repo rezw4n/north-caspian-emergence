@@ -26,4 +26,19 @@ Known data defect (2026-10-21): `results/hindcast/main/block_h1.csv` has rows wh
 
 Draft legends are in `manuscript/sections/figure_captions_draft.tex`; numbers in them come from `results/metrics.json`, and display constants quoted there (scale bar, graticule, map grid, minimum bin size) are exported by `tools/export_params.py`. Draft tables are in `manuscript/sections/tables_draft.tex` (T1–T3) and `ed_tables_draft.tex` (generated).
 
+## ERL main display items (D-100, D-102)
+
+Drawn to the Environmental Research Letters rules (`docs/journal_specs.md`): 150 mm wide, text 8 pt or more, panels "(a)", scale bar and graticule on every map, product identity by colour and line style or marker. Shared settings and display constants in `_erl.py` (exported as `params.erl_fig_*`); every number drawn comes from `results/metrics.json` (`_erl.num`, formatted as the text's macros). The shorelines, counts and arrows are rebuilt by `scripts/f1_erl_display.py` with the hindcast's and the H3 driver's own functions, checked against the frozen tables, and cached in `data/interim/figures/erl/`; its small summaries (`results/display/`) feed `erl.*` metrics. The existing figures above move to the Supplementary.
+
+| Script | Display item | Inputs |
+|---|---|---|
+| `erl_fig_then_now.py` | Then and now: Landsat true-colour composites of summer 1996 (TM) and 2025 (OLI) with emergence-date shoreline contours; the basin level | `data/raw/erl_landsat/` (`scripts/f2_erl_landsat.py`, Earth Engine, `make ee-erl-landsat EE_OK=1`; record `results/provenance/erl_landsat.json`), emergence-date tiles, `level_series_daily.csv` |
+| `erl_fig_shorelines.py` | Where the maps put the shoreline: observed against GEBCO_2026, ETOPO 2022 and SRTM15+ shorelines at −28.05 m, six zooms at −28.05 and −27.05 m, arrows | `results/display/erl_hero.json`, `data/interim/figures/erl/hero_main.npz` |
+| `erl_fig_gsl.py` | Great Salt Lake: both arms at a representative level with the products and the 3DEP control; medians against the noise floors | `results/display/erl_gsl.json`, `data/interim/figures/erl/gsl.npz`, metrics `generality.*` |
+| `erl_fig_agreement.py` | How many of the five uncorrected products place each cell in the 1 m and 2 m bands, with OSM ports, platforms and settlements | `results/display/erl_agreement.json`, `data/interim/figures/erl/agreement_main.npz`, `data/raw/osm/` |
+| `erl_fig_timeline.py` | When and how much: the level record joined to the seven primary pathways; uncorrected emerged area with 90% intervals | `level_series_daily.csv`, `results/levels/projection_pathways.csv` (via `scripts/a8_emergence.py`), metrics `h3.*` |
+| `tab_report_card.py` | Table 1, the product report card, in `manuscript/sections/tables_erl.tex` (ERL-T1 markers) and a preview `erl_tab_report_card.png` | metrics `h1.*`, `h2.atl08.*`, `generality.*`, `h3.emergence.*`, `erl.card.*` |
+
+Draft legends: `manuscript/sections/figure_captions_erl.tex`.
+
 QC figures (`qc_*.py`) write vector PDF and a PNG preview to `outputs/qc/`; `make all` runs them (`make qc-figures`).
