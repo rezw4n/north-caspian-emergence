@@ -2,14 +2,22 @@
  "check": "r09_vegetation",
  "variant": "main__veg_as_water",
  "main": "main",
- "created": "2026-10-21T17:50:46Z",
- "note": "reed beds as_water (check 9)",
+ "created": "2026-10-21T19:04:48Z",
+ "note": "r09_vegetation (added source)",
  "sources": {
   "ATL08": {
    "n_main_points": 470645,
    "n_alt_points": 470645,
    "block_size_m": 50000.0,
    "n_alt_with_dem": 467822,
+   "n_boot": 1000,
+   "main_from": "files"
+  },
+  "ATL06": {
+   "n_main_points": 4948820,
+   "n_alt_points": 4948820,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 4913259,
    "n_boot": 1000,
    "main_from": "files"
   }

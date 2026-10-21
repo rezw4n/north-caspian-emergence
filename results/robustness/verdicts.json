@@ -1,5 +1,5 @@
 {
- "created": "2026-10-21T18:50:15Z",
+ "created": "2026-10-21T21:00:20Z",
  "rule": "DECISIONS D-092",
  "checks": {
   "check04": {
@@ -432,6 +432,20 @@
     "bins_020m": {
      "verdict": "partly sensitive",
      "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.4020685179000007,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.1266059302648368,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": -0.0063064414583963,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 1103387.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.7618767509795515,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
       "atl08.dem_nmad_m_primary": 0.3700959523799987,
       "atl08.dem_nmad_m": 0.3917426114389321,
       "atl08.dem_rmse_m_primary": 1.1213313505134612,
@@ -446,12 +460,14 @@
       "atl08.h2_matched_supported": 0,
       "atl08.h2_total_supported_primary": 0,
       "atl08.h2_total_supported": 0,
-      "sources_evaluated": 1,
+      "sources_evaluated": 2,
       "dem_diff_mean_m": -0.03771707907234848,
       "dem_diff_rms_m": 0.28588046635932285
      },
      "source": "results/robustness/r07_interpolation_bw020/summary.json",
      "why": [
+      "atl06: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve']",
+      "atl06: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve']",
       "atl08: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve']",
       "atl08: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve']"
      ]
@@ -571,6 +587,20 @@
     "vegetation_as_dry": {
      "verdict": "partly sensitive",
      "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.3968695929240828,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.15057434066064,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": -0.0284799279195606,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 1103425.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.7242391533873659,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
       "atl08.dem_nmad_m_primary": 0.3700959523799987,
       "atl08.dem_nmad_m": 0.3826083217432177,
       "atl08.dem_rmse_m_primary": 1.1213313505134612,
@@ -585,13 +615,15 @@
       "atl08.h2_matched_supported": 0,
       "atl08.h2_total_supported_primary": 0,
       "atl08.h2_total_supported": 0,
-      "sources_evaluated": 1,
+      "sources_evaluated": 2,
       "dem_diff_mean_m": -0.025859504712574886,
       "dem_diff_rms_m": 0.3303547273139097,
       "share_observations_vegetation": 0.18232484294451334
      },
      "source": "results/robustness/r09_vegetation/summary.json",
      "why": [
+      "atl06: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve']",
+      "atl06: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve']",
       "atl08: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve']",
       "atl08: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve']"
      ]
@@ -599,6 +631,20 @@
     "vegetation_as_water": {
      "verdict": "partly sensitive",
      "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.412203101056831,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.1349182429073013,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": 0.0601171626662358,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 1103727.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.7733606226902123,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
       "atl08.dem_nmad_m_primary": 0.3700959523799987,
       "atl08.dem_nmad_m": 0.398796799634347,
       "atl08.dem_rmse_m_primary": 1.1213313505134612,
@@ -613,13 +659,15 @@
       "atl08.h2_matched_supported": 0,
       "atl08.h2_total_supported_primary": 0,
       "atl08.h2_total_supported": 0,
-      "sources_evaluated": 1,
+      "sources_evaluated": 2,
       "dem_diff_mean_m": -0.1732764249312332,
       "dem_diff_rms_m": 0.5063076379366552,
       "share_observations_vegetation": 0.18232484294451334
      },
      "source": "results/robustness/r09_vegetation/summary.json",
      "why": [
+      "atl06: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve']",
+      "atl06: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve']",
       "atl08: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve']",
       "atl08: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve']"
      ]
@@ -686,6 +734,20 @@
     "c_+1sigma": {
      "verdict": "partly sensitive",
      "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.3850482699000024,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.1076826250811196,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": -0.1199848783401985,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 1103727.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.7194224658815087,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
       "atl08.dem_nmad_m_primary": 0.3700959523799987,
       "atl08.dem_nmad_m": 0.3700959523799987,
       "atl08.dem_rmse_m_primary": 1.1213313505134612,
@@ -700,16 +762,31 @@
       "atl08.h2_matched_supported": 0,
       "atl08.h2_total_supported_primary": 0,
       "atl08.h2_total_supported": 0,
-      "sources_evaluated": 1
+      "sources_evaluated": 2
      },
      "source": "results/robustness/r06_datums_validation/summary.json",
      "why": [
+      "atl06: DEM bias +0.029 -> -0.120 m",
       "atl08: DEM bias +0.028 -> -0.151 m"
      ]
     },
     "c_-1sigma": {
      "verdict": "partly sensitive",
      "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.3850482699000024,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.115587290472509,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": 0.1788031761113506,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 1103727.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.7782141779624853,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
       "atl08.dem_nmad_m_primary": 0.3700959523799987,
       "atl08.dem_nmad_m": 0.3700959523799987,
       "atl08.dem_rmse_m_primary": 1.1213313505134612,
@@ -724,16 +801,31 @@
       "atl08.h2_matched_supported": 0,
       "atl08.h2_total_supported_primary": 0,
       "atl08.h2_total_supported": 0,
-      "sources_evaluated": 1
+      "sources_evaluated": 2
      },
      "source": "results/robustness/r06_datums_validation/summary.json",
      "why": [
+      "atl06: DEM bias +0.029 -> +0.179 m",
       "atl08: DEM bias +0.028 -> +0.206 m"
      ]
     },
     "offsets_+1sigma": {
      "verdict": "robust",
      "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.3850482699000024,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.1015576811563077,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": 0.029409148885576,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 1103727.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.7519042299409183,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
       "atl08.dem_nmad_m_primary": 0.3700959523799987,
       "atl08.dem_nmad_m": 0.3700959523799987,
       "atl08.dem_rmse_m_primary": 1.1213313505134612,
@@ -748,7 +840,7 @@
       "atl08.h2_matched_supported": 0,
       "atl08.h2_total_supported_primary": 0,
       "atl08.h2_total_supported": 0,
-      "sources_evaluated": 1
+      "sources_evaluated": 2
      },
      "source": "results/robustness/r06_datums_validation/summary.json",
      "why": []
@@ -756,6 +848,20 @@
     "offsets_-1sigma": {
      "verdict": "robust",
      "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.3850482699000024,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.1015576811563077,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": 0.029409148885576,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 1103727.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.7519042299409183,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
       "atl08.dem_nmad_m_primary": 0.3700959523799987,
       "atl08.dem_nmad_m": 0.3700959523799987,
       "atl08.dem_rmse_m_primary": 1.1213313505134612,
@@ -770,7 +876,7 @@
       "atl08.h2_matched_supported": 0,
       "atl08.h2_total_supported_primary": 0,
       "atl08.h2_total_supported": 0,
-      "sources_evaluated": 1
+      "sources_evaluated": 2
      },
      "source": "results/robustness/r06_datums_validation/summary.json",
      "why": []
@@ -778,6 +884,20 @@
     "tide_both_mean": {
      "verdict": "robust",
      "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.3849675850807521,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.102582557587833,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": 0.0305692552010297,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 1103727.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.7515010505315173,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
       "atl08.dem_nmad_m_primary": 0.3700959523799987,
       "atl08.dem_nmad_m": 0.3701232852402523,
       "atl08.dem_rmse_m_primary": 1.1213313505134612,
@@ -792,7 +912,7 @@
       "atl08.h2_matched_supported": 0,
       "atl08.h2_total_supported_primary": 0,
       "atl08.h2_total_supported": 0,
-      "sources_evaluated": 1
+      "sources_evaluated": 2
      },
      "source": "results/robustness/r06_datums_validation/summary.json",
      "why": []
@@ -800,6 +920,20 @@
     "tide_geoid_mean": {
      "verdict": "robust",
      "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.3849711640936871,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.103495267685181,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": 0.0316339485981857,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 1103727.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.7511168975661554,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
       "atl08.dem_nmad_m_primary": 0.3700959523799987,
       "atl08.dem_nmad_m": 0.3701117581921658,
       "atl08.dem_rmse_m_primary": 1.1213313505134612,
@@ -814,7 +948,7 @@
       "atl08.h2_matched_supported": 0,
       "atl08.h2_total_supported_primary": 0,
       "atl08.h2_total_supported": 0,
-      "sources_evaluated": 1
+      "sources_evaluated": 2
      },
      "source": "results/robustness/r06_datums_validation/summary.json",
      "why": []
