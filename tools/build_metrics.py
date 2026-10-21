@@ -1171,6 +1171,294 @@ def display_erl_metrics(m: dict) -> None:
             put(m, f"erl.card.{p}.disp_max_km", max(v), "km", src, "largest per-sector median displacement")
 
 
+def erl_text_metrics(m: dict) -> None:
+    """Numbers the ERL Letter and its Supplementary Information quote (manuscript/main_erl.tex,
+    manuscript/supplementary_erl.tex; D-107) that no other function provides: ranges, counts,
+    ratios and lists over keys set above, and copies of existing keys at the precision the prose
+    quotes (erl.text.p4.*, erl.text.pct.*, erl.text.m0.*). Every value is derived from metrics
+    already in m, which come from the committed result files read above, except two values read
+    from committed result files directly: the ETOPO 2022 source share of the Great Salt Lake band
+    (its lineage table) and the block-test p-values of both runs around the D-089 fix.
+    Nothing is refitted or recomputed from data."""
+    import math
+
+    prods = ("gebco2026", "gebco2022", "etopo2022", "etopo1", "srtm15p")
+    name = {"gebco2026": "GEBCO_2026", "gebco2022": "GEBCO_2022", "etopo2022": "ETOPO 2022",
+            "etopo1": "ETOPO1", "srtm15p": "SRTM15+"}
+    gname = {"gebco2026": "gebco_2026", "gebco2022": "gebco_2022", "etopo2022": "etopo_2022",
+             "etopo1": "etopo1", "srtm15p": "srtm15p_v2.7"}     # generality and robustness keys
+    sectors = ("west", "volga", "interfluve", "ural", "northeast", "komsomolets", "open_shelf")
+    T = "erl.text"
+    src = "results/metrics.json (derived from the keys named in the note)"
+
+    def val(k):
+        r = m.get(k)
+        return None if r is None else r["value"]
+
+    def num(x):
+        return isinstance(x, (int, float)) and not isinstance(x, bool) and math.isfinite(x)
+
+    def add(key, value, unit, note, dp=None, source=src):
+        put(m, key, value, unit, source, note)
+        if dp is not None and key in m:
+            m[key]["decimals"] = dp
+
+    def span(kmin, kmax, keys, unit, note, dp=None, absval=False):
+        xs = [val(k) for k in keys]
+        if not keys or not all(num(x) for x in xs):
+            return
+        xs = [abs(x) for x in xs] if absval else xs
+        add(kmin, min(xs), unit, "minimum of " + note, dp)
+        add(kmax, max(xs), unit, "maximum of " + note, dp)
+
+    def tokens(text):
+        # "0.5, 1 and 2" -> ["0.5", "1", "2"]
+        return [t.strip() for t in str(text).replace(" and ", ",").split(",") if t.strip()]
+
+    # -- the same values at the precision the prose quotes ------------------------------------
+    for k in list(m):
+        x = val(k)
+        if not num(x):
+            continue
+        parts = k.split(".")
+        if ((k.startswith("h1.block_test.") and k.endswith(".p"))
+                or (k.startswith("redteam.") and k.endswith(".block_p"))
+                or (k.startswith("robustness.check06.") and ".block_test_p" in k)):
+            add(f"{T}.p4.{k}", float(x), "p-value", f"{k} to 4 decimals", 4)
+        elif (k.startswith("h2.") and len(parts) >= 4 and parts[-2] == "coverage" and isinstance(x, float)
+              and 0.0 <= x <= 1.0):
+            add(f"{T}.pct.{k}", 100.0 * x, "%", f"{k} as a percentage", 1)
+        elif (k.startswith("generality.great_salt_lake.") and k.endswith("_m") and isinstance(x, float)
+              and ("displacement" in k or "noise" in k)):
+            add(f"{T}.m0.{k}", x, "m", f"{k} to the metre", 0)
+        elif k.startswith("robustness.") and k.endswith("nmad_m_primary") and isinstance(x, float):
+            add(f"{T}.m3.{k}", x, "m", f"{k} to the millimetre, as the variant's NMAD", 3)
+        elif k.startswith("robustness.check11.") and k.endswith("_km2_per_m"):
+            add(f"{T}.k0.{k}", x, "km2 per m", f"{k} to the square kilometre", 0)
+
+    # -- inputs --------------------------------------------------------------------------------
+    ls = [val(f"inventory.n_scenes.{s}") for s in ("TM_L5", "ETM_L7", "OLI_L8", "OLI_L9")]
+    if all(num(x) for x in ls):
+        add(f"{T}.inventory.n_landsat", int(sum(ls)), "scenes",
+            "Landsat scenes in the inventory: inventory.n_scenes.TM_L5 + ETM_L7 + OLI_L8 + OLI_L9")
+    lv, dl = val("h3.level_2026_m"), val("datum.bhs.delta_m")
+    if num(lv) and num(dl):
+        add(f"{T}.h3.level_2026_bhs_m", lv + dl, "m (BHS-77)",
+            "h3.level_2026_m + datum.bhs.delta_m: the 2026 reference level in the Baltic Height System", 2)
+
+    # -- H1: the audit -------------------------------------------------------------------------
+    ns = {p: val(f"h1.mispredicts.shape.{p}.n_sectors") for p in prods}
+    if all(num(x) for x in ns.values()):
+        maj = [p for p in prods if ns[p] > len(sectors) / 2]     # the D-092 headline: a majority of sectors
+        rest = [p for p in prods if p not in maj]
+        add(f"{T}.h1.n_products", len(prods), "products", "products audited")
+        add(f"{T}.h1.n_products_majority", len(maj), "products",
+            "products that mispredict in a majority of the seven sectors (h1.mispredicts.shape.*.n_sectors)")
+        if maj:
+            add(f"{T}.h1.majority_products", _and(name[p] for p in maj), "text", "those products")
+        if rest:
+            add(f"{T}.h1.other_products", _and(name[p] for p in rest), "text", "the remaining products")
+        span(f"{T}.h1.majority.n_sectors_min", f"{T}.h1.majority.n_sectors_max",
+             [f"h1.mispredicts.shape.{p}.n_sectors" for p in maj], "sectors",
+             "h1.mispredicts.shape.<p>.n_sectors over the majority products")
+        span(f"{T}.h1.majority.disp_min_km", f"{T}.h1.majority.disp_max_km",
+             [f"h1.disp_median.shape.{p}.{s}_km" for p in maj for s in sectors], "km",
+             "h1.disp_median.shape.<p>.<sector>_km over the majority products and the seven sectors", 2)
+        span(f"{T}.h1.total.n_sectors_min", f"{T}.h1.total.n_sectors_max",
+             [f"h1.mispredicts.total.{p}.n_sectors" for p in prods], "sectors",
+             "h1.mispredicts.total.<p>.n_sectors over all products")
+        # red team R1 (no envelope) and R2 (per-sector constants); robustness check 10 (E2 + E3)
+        span(f"{T}.redteam.noenv.majority.n_sectors_min", f"{T}.redteam.noenv.majority.n_sectors_max",
+             [f"redteam.noenv.shape.{p}.n_sectors" for p in maj], "sectors",
+             "redteam.noenv.shape.<p>.n_sectors over the majority products")
+        span(f"{T}.redteam.sector_shape.majority.n_sectors_min", f"{T}.redteam.sector_shape.majority.n_sectors_max",
+             [f"redteam.sector_shape.sector_shape.{p}.n_sectors" for p in maj], "sectors",
+             "redteam.sector_shape.sector_shape.<p>.n_sectors over the majority products")
+        span(f"{T}.robust.e2e3.majority.n_sectors_min", f"{T}.robust.e2e3.majority.n_sectors_max",
+             [f"robustness.check10.h1_e2e3_only.{gname[p]}.n_sectors_mispredict" for p in maj], "sectors",
+             "robustness.check10.h1_e2e3_only.<p>.n_sectors_mispredict over the majority products")
+    span(f"{T}.h1.noise_p95_min_km", f"{T}.h1.noise_p95_max_km", [f"h1.noise_p95.{s}_km" for s in sectors], "km",
+         "h1.noise_p95.<sector>_km", 2)
+    span(f"{T}.h1.area_bias_shape_absmin_pct", f"{T}.h1.area_bias_shape_absmax_pct",
+         [f"h1.domain_area_bias.shape.{p}.median_pct" for p in prods], "%",
+         "|h1.domain_area_bias.shape.<p>.median_pct| over products", 1, absval=True)
+    span(f"{T}.h1.area_bias_shape_levelmax_min_pct", f"{T}.h1.area_bias_shape_levelmax_max_pct",
+         [f"h1.domain_area_bias.shape.{p}.max_abs_pct" for p in prods], "%",
+         "h1.domain_area_bias.shape.<p>.max_abs_pct (largest absolute bias at a single unit) over products", 1)
+    span(f"{T}.h1.area_bias_total_min_pct", f"{T}.h1.area_bias_total_max_pct",
+         [f"h1.domain_area_bias.total.{p}.median_pct" for p in prods], "%",
+         "h1.domain_area_bias.total.<p>.median_pct over products", 1)
+    span(f"{T}.h1.iou_shape_min", f"{T}.h1.iou_shape_max",
+         [f"h1.domain_area_bias.shape.{p}.median_iou" for p in prods], "IoU",
+         "h1.domain_area_bias.shape.<p>.median_iou over products", 2)
+    span(f"{T}.h1.shape_offset_min_m", f"{T}.h1.shape_offset_max_m", [f"h1.shape_offset.{p}_m" for p in prods], "m",
+         "h1.shape_offset.<p>_m over products", 2)
+    alpha = val("params.alpha")
+    if num(alpha):
+        for var in ("shape", "total"):
+            ps = {p: val(f"h1.block_test.{var}.{p}.p") for p in prods}
+            sig = [p for p in prods if num(ps[p]) and ps[p] <= alpha]
+            add(f"{T}.h1.block.{var}.n_significant", len(sig), "products",
+                f"products whose h1.block_test.{var}.<p>.p <= params.alpha")
+            if sig:
+                add(f"{T}.h1.block.{var}.significant_products", _and(name[p] for p in sig), "text", "those products")
+            if var == "shape" and sig:
+                span(f"{T}.redteam.noenv.block_p_min", f"{T}.redteam.noenv.block_p_max",
+                     [f"redteam.noenv.shape.{p}.block_p" for p in sig], "p-value",
+                     "redteam.noenv.shape.<p>.block_p over the products significant in the primary shape run", 2)
+                nsig = [p for p in sig if num(val(f"redteam.noenv.shape.{p}.block_p"))
+                        and val(f"redteam.noenv.shape.{p}.block_p") <= alpha]
+                add(f"{T}.redteam.noenv.n_still_significant", len(nsig), "products",
+                    "of those products, the number still significant without the envelope")
+    # both runs of the block test around the D-089 fix (the Supplementary reports both)
+    d89 = load("hindcast/main/d089_rerun_comparison.json")
+    short = {v_: k_ for k_, v_ in gname.items()}
+    for r in d89.get("block_test") or []:
+        p = short.get(r.get("product"))
+        if p is None:
+            continue
+        for run in ("first_run", "rerun"):
+            x = r.get(f"p_value_{run}")
+            if num(x):
+                add(f"{T}.d089.{r['variant']}.{p}.p_{run}", float(x), "p-value",
+                    f"results/hindcast/main/d089_rerun_comparison.json: block-test p, {run}", 4,
+                    source="results/hindcast/main/d089_rerun_comparison.json")
+    sh = val("robustness.check10.morphology_table.share_levels_e1_better")
+    if num(sh):
+        add(f"{T}.robust.morph_share_e1_better_pct", 100.0 * sh, "%",
+            "robustness.check10.morphology_table.share_levels_e1_better as a percentage", 0)
+
+    # ETOPO 2022 above and below the edge where its emerged band switches from FABDEM to lake depths
+    edge = val("h1.disp_band.edge_2_m")
+    bands = sorted({k.split(".")[2] for k in m if k.startswith("h1.disp_band.") and k.endswith("_km")})
+
+    def lowest(b):     # lower level bound of a band label: "m27p7_m27p0" -> -27.7
+        if b.startswith("below_"):
+            return float("-inf")
+        tok = b[len("above_"):] if b.startswith("above_") else b.split("_")[0]
+        return -float(tok[1:].replace("p", "."))
+
+    if num(edge) and bands:
+        up = [b for b in bands if lowest(b) >= edge - 1e-9]
+        low = [b for b in bands if lowest(b) < edge - 1e-9]
+        span(f"{T}.h1.band_upper.etopo2022_min_km", f"{T}.h1.band_upper.etopo2022_max_km",
+             [f"h1.disp_band.{b}.etopo2022_km" for b in up], "km",
+             "h1.disp_band.<band>.etopo2022_km over the bands above h1.disp_band.edge_2_m", 2)
+        span(f"{T}.h1.band_lower.etopo2022_min_km", f"{T}.h1.band_lower.etopo2022_max_km",
+             [f"h1.disp_band.{b}.etopo2022_km" for b in low], "km",
+             "h1.disp_band.<band>.etopo2022_km over the bands below h1.disp_band.edge_2_m", 2)
+        span(f"{T}.h1.band_lower.others_min_km", f"{T}.h1.band_lower.others_max_km",
+             [f"h1.disp_band.{b}.{p}_km" for b in low for p in prods if p != "etopo2022"], "km",
+             "h1.disp_band.<band>.<p>_km over the bands below h1.disp_band.edge_2_m and the other four products", 2)
+
+    # -- Great Salt Lake ----------------------------------------------------------------------------
+    g = "generality.great_salt_lake"
+    span(f"{T}.gsl.disp_min_m", f"{T}.gsl.disp_max_m",
+         [f"{g}.{gname[p]}.shape.{a}.median_displacement_m" for p in prods for a in ("north", "south")], "m",
+         f"{g}.<p>.shape.<arm>.median_displacement_m over products and arms", 0)
+    span(f"{T}.gsl.n_arms_mispredicted_min", f"{T}.gsl.n_arms_mispredicted_max",
+         [f"{g}.{gname[p]}.shape.n_sectors_mispredict" for p in prods], "arms",
+         f"{g}.<p>.shape.n_sectors_mispredict over products")
+    # ETOPO 2022 source of the Great Salt Lake emerged band (source ID 10 = FABDEM, MacFerrin et al.
+    # 2025, Table 1; the same ID as in results/hindcast/main/etopo2022_sources_emerged_band.json)
+    lin = load("generality/great_salt_lake/lineage.json")
+    for arm, r in (lin.get("arms") or {}).items():
+        sh_ = (r.get("etopo_2022_source_id_shares") or {}).get("10")
+        if num(sh_):
+            add(f"{T}.gsl.{arm}.etopo2022_fabdem_pct", 100.0 * sh_, "%",
+                "results/generality/great_salt_lake/lineage.json: share of the arm's emerged band (250 m cells) "
+                "whose ETOPO 2022 source ID is 10 (FABDEM)", 0, source="results/generality/great_salt_lake/lineage.json")
+
+    # -- H2: the waterline DEM against ICESat-2 --------------------------------------------------------
+    for s in ("atl06", "atl08"):
+        span(f"{T}.h2.{s}.product_nmad_min_m", f"{T}.h2.{s}.product_nmad_max_m",
+             [f"h2.{s}.{p}.nmad_m" for p in prods], "m", f"h2.{s}.<p>.nmad_m over products", 3)
+        span(f"{T}.h2.{s}.product_rmse_min_m", f"{T}.h2.{s}.product_rmse_max_m",
+             [f"h2.{s}.{p}.rmse_m" for p in prods], "m", f"h2.{s}.<p>.rmse_m over products", 2)
+        for stat in ("nmad", "rmse"):
+            lo = [val(f"h2.{s}.diff.{stat}.{p}_ci_low_m") for p in prods]
+            hi = [val(f"h2.{s}.diff.{stat}.{p}_ci_high_m") for p in prods]
+            if all(num(x) for x in lo + hi):
+                add(f"{T}.h2.{s}.diff_{stat}.n_ci_include_zero", sum(a <= 0.0 <= b for a, b in zip(lo, hi)),
+                    "products", f"products whose block-bootstrap interval of the DEM - product {stat} difference "
+                    f"includes zero (h2.{s}.diff.{stat}.<p>_ci_low_m, _ci_high_m)")
+
+    # -- H3: near-term emergence ---------------------------------------------------------------------
+    for sc in ("0p5", "1", "2"):
+        est = {p: val(f"h3.emergence.{p}.uncorrected.{sc}.estimate_km2") for p in prods}
+        if not all(num(x) for x in est.values()):
+            continue
+        for which, p in (("min", min(prods, key=lambda q: est[q])), ("max", max(prods, key=lambda q: est[q]))):
+            b = f"{T}.h3.uncorrected.{sc}.{which}"
+            add(f"{b}_km2", est[p], "km2", f"h3.emergence.{p}.uncorrected.{sc}.estimate_km2 ({which} over products)", 0)
+            add(f"{b}_lo_km2", val(f"h3.emergence.{p}.uncorrected.{sc}.lo_km2"), "km2", "its 90% interval, lower bound", 0)
+            add(f"{b}_hi_km2", val(f"h3.emergence.{p}.uncorrected.{sc}.hi_km2"), "km2", "its 90% interval, upper bound", 0)
+            add(f"{b}_product", name[p], "text", "the product")
+        lo_ = min(est.values())
+        if lo_ > 0:
+            add(f"{T}.h3.uncorrected.{sc}.ratio", max(est.values()) / lo_, "ratio",
+                f"largest over smallest h3.emergence.<p>.uncorrected.{sc}.estimate_km2", 1)
+        fus = {p: val(f"h3.emergence.{p}.fused.{sc}.estimate_km2") for p in prods}
+        if all(num(x) and x > 0 for x in fus.values()):
+            r_ =[est[p] / fus[p] for p in prods]
+            add(f"{T}.h3.registered.{sc}.unc_over_fused_min", min(r_), "ratio",
+                f"minimum over products of uncorrected over fused (registered) emergence at {sc} m", 1)
+            add(f"{T}.h3.registered.{sc}.unc_over_fused_max", max(r_), "ratio",
+                f"maximum over products of uncorrected over fused (registered) emergence at {sc} m", 1)
+    for form, pre in (("registered", "h3"), ("constant", "h3sens.constant")):
+        rel = {p: val(f"{pre}.relevant_scenarios.{p}") for p in prods}
+        if all(x is not None for x in rel.values()):
+            at1 = [p for p in prods if "1" in tokens(rel[p])]
+            add(f"{T}.h3.{form}.n_relevant_at_1m", len(at1), "products",
+                f"products whose {pre}.relevant_scenarios.<p> includes 1 m")
+            if at1:
+                add(f"{T}.h3.{form}.relevant_at_1m_products", _and(name[p] for p in at1), "text", "those products")
+            if form == "constant":
+                notrel = [p for p in prods if p not in at1]
+                d = [abs(val(f"{pre}.emergence.{p}.fused.1.estimate_km2") - val(f"h3.emergence.{p}.uncorrected.1.estimate_km2"))
+                     / val(f"h3.emergence.{p}.uncorrected.1.estimate_km2") * 100.0 for p in notrel
+                     if num(val(f"{pre}.emergence.{p}.fused.1.estimate_km2"))
+                     and num(val(f"h3.emergence.{p}.uncorrected.1.estimate_km2"))]
+                if notrel and len(d) == len(notrel):
+                    add(f"{T}.h3.constant.not_relevant_1m.n_products", len(notrel), "products",
+                        "products whose constant-form correction is not decision-relevant at 1 m")
+                    add(f"{T}.h3.constant.not_relevant_1m.max_reldiff_pct", max(d), "%",
+                        "largest |constant-form fused - uncorrected| / uncorrected at 1 m over those products", 0)
+        worse = [p for p in prods
+                 if num(val(f"{pre}.transfer.{p}.E3.emergence_err_corrected_km2"))
+                 and num(val(f"{pre}.transfer.{p}.E3.emergence_err_uncorrected_km2"))
+                 and val(f"{pre}.transfer.{p}.E3.emergence_err_corrected_km2")
+                 > val(f"{pre}.transfer.{p}.E3.emergence_err_uncorrected_km2")]
+        add(f"{T}.h3.{form}.e3_n_corrected_worse", len(worse), "products",
+            f"products whose corrected E3 hold-out emergence error exceeds the uncorrected one ({pre}.transfer)")
+
+    # pathway dates: the primary pathways, from the notes of h3.date.* (scenario_dates.csv roles)
+    for sc in ("1", "2"):
+        ids = sorted({k.split(".")[2] for k in m if k.startswith("h3.date.") and k.endswith("." + sc)
+                      and "primary pathway" in (m[k].get("note") or "")})
+        years = [int(val(f"h3.date.{i}.{sc}")) for i in ids if str(val(f"h3.date.{i}.{sc}")).isdigit()]
+        if ids:
+            add(f"{T}.h3.paths.n_primary", len(ids), "pathways", "primary pathways (h3.date.<id> notes)")
+            add(f"{T}.h3.paths.{sc}m.n_reached", len(years), "pathways",
+                f"primary pathways reaching {sc} m below the 2026 level by 2100")
+        if years:
+            add(f"{T}.h3.paths.{sc}m.first_year", str(min(years)), "year", f"earliest such year (h3.date.<id>.{sc})")
+            add(f"{T}.h3.paths.{sc}m.last_year", str(max(years)), "year", f"latest such year (h3.date.<id>.{sc})")
+
+    # exposure 1 m below 2026, the products as users apply them
+    for lay in ("ports", "settlements", "channels", "worldcover"):
+        am = {p: val(f"h3.exposure.{lay}.{p}.uncorrected.1.amount") for p in prods}
+        if not all(num(x) for x in am.values()):
+            continue
+        for which, p in (("min", min(prods, key=lambda q: am[q])), ("max", max(prods, key=lambda q: am[q]))):
+            b = f"{T}.h3.exposure.{lay}.1.{which}"
+            for part in ("amount", "lo", "hi"):
+                k = f"h3.exposure.{lay}.{p}.uncorrected.1.{part}"
+                if k in m:
+                    add(f"{b}_{part}", val(k), m[k]["unit"], f"{k} ({which} over products)", m[k].get("decimals"))
+            add(f"{b}_product", name[p], "text", "the product")
+
+
 def main() -> int:
     m: dict = {}
     inv = load("inventory/inventory_meta.json")
@@ -1405,6 +1693,7 @@ def main() -> int:
     redteam_metrics(m)
     h3_sensitivity_metrics(m)
     display_erl_metrics(m)
+    erl_text_metrics(m)
 
     out = RES / "metrics.json"
     out.write_text(json.dumps(dict(sorted(m.items())), indent=1, ensure_ascii=False), encoding="utf-8")

@@ -1,0 +1,51 @@
+% Supplementary Information of the ERL Letter (D-107): details of the hindcast audit (H1):
+% sector tables, level bands, the block test and both runs around the D-089 fix. D-087, D-089.
+% Every number is a \metric{} macro.
+
+\subsection*{Products and sectors}
+After the best-fitting vertical constant (the shape variant, which decides), \metric{erl.text.h1.majority_products} mispredict in a majority of the seven sectors (\metric{erl.text.h1.majority.n_sectors_min} or \metric{erl.text.h1.majority.n_sectors_max}); \metric{erl.text.h1.other_products} mispredicts in \metric{h1.mispredicts.shape.etopo2022.n_sectors}. On the documented datum chain without a constant (the total variant), every grid mispredicts in \metric{erl.text.h1.total.n_sectors_min} of the 7 sectors, and the median domain area biases are \metric{erl.text.h1.area_bias_total_min_pct}--\metric{erl.text.h1.area_bias_total_max_pct}\%: the vertical mismatch with the altimetric reference is common to all grids (constants \metric{erl.text.h1.shape_offset_min_m} to \metric{erl.text.h1.shape_offset_max_m}~m), and the total variant inherits it. The sector tables (tables~\ref{tab:ed_h1_sectors_shape} and \ref{tab:ed_h1_sectors_total}) give, per grid and sector, the levels whose median displacement exceeds the noise floor, out of the evaluable levels, and the median displacement; the block maps are figures~\ref{fig:ed_h1blocks_shape} and \ref{fig:ed_h1blocks_total}.
+
+\subsection*{Level bands}
+Table~\ref{tab:si_bands} gives the median displacement by level band. ETOPO 2022's displacement is a few hundred metres in the bands above \metric{h1.disp_band.edge_2_m}~m and kilometres below it, like the other grids. In the emerged band, \metric{h1.etopo2022.source_share.fabdem}\% of ETOPO 2022's cells come from FABDEM (source identifier 10) and \metric{h1.etopo2022.source_share.gebco_lake}\% from GEBCO lake depths (identifier 11), by the source grid distributed with ETOPO 2022\citep{macferrin2025}; the share of each source by level band was not computed.
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Median shoreline displacement by level band, after the best-fitting vertical constant (km).} Median over sectors and levels of the per-level median distance between predicted and observed shorelines, epochs pooled. Band edges on the DAHITI reference.}
+\label{tab:si_bands}
+\begin{tabular}{lrrrrr}
+\hline
+Level band (m) & GEBCO\_2026 & GEBCO\_2022 & ETOPO 2022 & ETOPO1 & SRTM15+ \\
+\hline
+above \metric{h1.disp_band.edge_4_m} & \metric{h1.disp_band.above_m26p3.gebco2026_km} & \metric{h1.disp_band.above_m26p3.gebco2022_km} & \metric{h1.disp_band.above_m26p3.etopo2022_km} & \metric{h1.disp_band.above_m26p3.etopo1_km} & \metric{h1.disp_band.above_m26p3.srtm15p_km} \\
+\metric{h1.disp_band.edge_3_m} to \metric{h1.disp_band.edge_4_m} & \metric{h1.disp_band.m27p0_m26p3.gebco2026_km} & \metric{h1.disp_band.m27p0_m26p3.gebco2022_km} & \metric{h1.disp_band.m27p0_m26p3.etopo2022_km} & \metric{h1.disp_band.m27p0_m26p3.etopo1_km} & \metric{h1.disp_band.m27p0_m26p3.srtm15p_km} \\
+\metric{h1.disp_band.edge_2_m} to \metric{h1.disp_band.edge_3_m} & \metric{h1.disp_band.m27p7_m27p0.gebco2026_km} & \metric{h1.disp_band.m27p7_m27p0.gebco2022_km} & \metric{h1.disp_band.m27p7_m27p0.etopo2022_km} & \metric{h1.disp_band.m27p7_m27p0.etopo1_km} & \metric{h1.disp_band.m27p7_m27p0.srtm15p_km} \\
+\metric{h1.disp_band.edge_1_m} to \metric{h1.disp_band.edge_2_m} & \metric{h1.disp_band.m28p3_m27p7.gebco2026_km} & \metric{h1.disp_band.m28p3_m27p7.gebco2022_km} & \metric{h1.disp_band.m28p3_m27p7.etopo2022_km} & \metric{h1.disp_band.m28p3_m27p7.etopo1_km} & \metric{h1.disp_band.m28p3_m27p7.srtm15p_km} \\
+below \metric{h1.disp_band.edge_1_m} & \metric{h1.disp_band.below_m28p3.gebco2026_km} & \metric{h1.disp_band.below_m28p3.gebco2022_km} & \metric{h1.disp_band.below_m28p3.etopo2022_km} & \metric{h1.disp_band.below_m28p3.etopo1_km} & \metric{h1.disp_band.below_m28p3.srtm15p_km} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Deltaic and vegetated sectors}
+The one-sided block permutation test compares the median block displacement in the deltaic or vegetated sectors (west, Volga, Ural) with the rest (table~\ref{tab:si_blocktest}). It is significant at $\alpha = \metric{params.alpha}$ for \metric{erl.text.h1.block.shape.significant_products} in the shape variant, and for \metric{erl.text.h1.block.total.significant_products} in the total variant; it is reversed for ETOPO 2022, whose deltas are filled from FABDEM.
+
+\emph{Defect found after the first results, and both runs.} After the first hindcast, undefined distances were found encoded as the smallest 32-bit integer in the block table that feeds this test, which pulled down the medians of \metric{h1.block_h1.rows_changed_by_fix} blocks. The defect was fixed and tested, the hindcast rerun, and every table compared: all hindcast tables except the block table are identical between the runs. Table~\ref{tab:si_blocktest} gives both runs' $p$-values; no significance changed at $\alpha = \metric{params.alpha}$, and the rerun is the one reported.
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Block permutation test of larger errors in the deltaic and vegetated sectors.} Difference in median block displacement (deltaic or vegetated minus the rest, km) and one-sided $p$ from \metric{params.permutations_n} permutations, in the reported run and in the first run before the defect fix (blocks of \metric{params.block_size_km}~km with at least \metric{params.h1_min_block_n} distances).}
+\label{tab:si_blocktest}
+\begin{tabular}{lrrrrrr}
+\hline
+ & \multicolumn{3}{c}{Shape variant} & \multicolumn{3}{c}{Total variant} \\
+Grid & Difference & $p$ & $p$, first run & Difference & $p$ & $p$, first run \\
+\hline
+GEBCO\_2026 & \metric{h1.block_test.shape.gebco2026.diff_km} & \metric{erl.text.d089.shape.gebco2026.p_rerun} & \metric{erl.text.d089.shape.gebco2026.p_first_run} & \metric{h1.block_test.total.gebco2026.diff_km} & \metric{erl.text.d089.total.gebco2026.p_rerun} & \metric{erl.text.d089.total.gebco2026.p_first_run} \\
+GEBCO\_2022 & \metric{h1.block_test.shape.gebco2022.diff_km} & \metric{erl.text.d089.shape.gebco2022.p_rerun} & \metric{erl.text.d089.shape.gebco2022.p_first_run} & \metric{h1.block_test.total.gebco2022.diff_km} & \metric{erl.text.d089.total.gebco2022.p_rerun} & \metric{erl.text.d089.total.gebco2022.p_first_run} \\
+ETOPO 2022 & \metric{h1.block_test.shape.etopo2022.diff_km} & \metric{erl.text.d089.shape.etopo2022.p_rerun} & \metric{erl.text.d089.shape.etopo2022.p_first_run} & \metric{h1.block_test.total.etopo2022.diff_km} & \metric{erl.text.d089.total.etopo2022.p_rerun} & \metric{erl.text.d089.total.etopo2022.p_first_run} \\
+ETOPO1 & \metric{h1.block_test.shape.etopo1.diff_km} & \metric{erl.text.d089.shape.etopo1.p_rerun} & \metric{erl.text.d089.shape.etopo1.p_first_run} & \metric{h1.block_test.total.etopo1.diff_km} & \metric{erl.text.d089.total.etopo1.p_rerun} & \metric{erl.text.d089.total.etopo1.p_first_run} \\
+SRTM15+ & \metric{h1.block_test.shape.srtm15p.diff_km} & \metric{erl.text.d089.shape.srtm15p.p_rerun} & \metric{erl.text.d089.shape.srtm15p.p_first_run} & \metric{h1.block_test.total.srtm15p.diff_km} & \metric{erl.text.d089.total.srtm15p.p_rerun} & \metric{erl.text.d089.total.srtm15p.p_first_run} \\
+\hline
+\end{tabular}
+\end{table}

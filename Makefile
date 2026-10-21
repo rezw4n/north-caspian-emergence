@@ -384,6 +384,9 @@ METRIC_INPUTS += results/robustness/r21_seam_gaps/summary.json
 # ERL display summaries and the Landsat acquisition record (display_erl_metrics)
 METRIC_INPUTS += $(ERL_DISPLAY) results/provenance/erl_landsat.json
 
+# Values the ERL Letter quotes from committed result files (erl_text_metrics, D-107)
+METRIC_INPUTS += results/generality/great_salt_lake/lineage.json results/hindcast/main/d089_rerun_comparison.json
+
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
 
@@ -407,6 +410,21 @@ manuscript/main.pdf: manuscript/main.tex manuscript/numbers.tex $(wildcard manus
         refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
 	$(TECTONIC) -X compile manuscript/main.tex
 
+# Environmental Research Letters Letter and its Supplementary Information (D-099, D-107). The
+# Letter keeps its .aux (git-ignored), which the Supplementary reads through xr-hyper for the
+# numbers of the Letter's figures, so the Letter is built first.
+manuscript/main_erl.pdf: manuscript/main_erl.tex manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) \
+        refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
+	$(TECTONIC) -X compile --keep-intermediates manuscript/main_erl.tex
+manuscript/supplementary_erl.pdf: manuscript/supplementary_erl.tex manuscript/main_erl.pdf manuscript/numbers.tex \
+        $(wildcard manuscript/sections/*.tex) refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
+	$(TECTONIC) -X compile manuscript/supplementary_erl.tex
+# Main-text word count of the Letter as ERL defines it (excluding title, abstract, captions,
+# tables and references); also the abstract's length. Not part of `all`.
+.PHONY: erl-wordcount
+erl-wordcount:
+	$(PYTHON) tools/word_count_erl.py
+
 ## named steps -------------------------------------------------------------
 check-inputs: $(VERIFIED)
 dahiti-qc: results/qc/dahiti_summary.json
@@ -419,7 +437,7 @@ figures: $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex manuscri
 params: results/params.json
 metrics: results/metrics.json manuscript/numbers.tex
 macros: manuscript/numbers.tex
-manuscript: manuscript/main.pdf
+manuscript: manuscript/main.pdf manuscript/main_erl.pdf manuscript/supplementary_erl.pdf
 
 RESULTS_ALL := results/qc/dahiti_summary.json results/study_area/sector_areas.json \
                results/study_area/sector_edges.json \
@@ -429,4 +447,5 @@ RESULTS_ALL := results/qc/dahiti_summary.json results/study_area/sector_areas.js
                results/params.json results/metrics.json
 
 all: $(VERIFIED) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex \
-     manuscript/sections/ed_tables_h3_draft.tex manuscript/numbers.tex manuscript/main.pdf
+     manuscript/sections/ed_tables_h3_draft.tex manuscript/numbers.tex manuscript/main.pdf \
+     manuscript/main_erl.pdf manuscript/supplementary_erl.pdf

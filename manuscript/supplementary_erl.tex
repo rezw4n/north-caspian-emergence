@@ -1,0 +1,123 @@
+% Supplementary Information of the ERL Letter main_erl.tex (D-099, D-107). Every number comes
+% from results/metrics.json through \metric{...}. Built after main_erl.tex, whose .aux it reads
+% through xr-hyper for the Letter's figure numbers (labels prefixed M-). Section numbering is
+% shared with the Letter through sections/erl_si_numbers.tex.
+% ERL asks each supplementary file to carry a title (at most 30 characters) and a description
+% (at most 30 words) inside it: see the first lines of the document.
+\documentclass[11pt]{article}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage{xr-hyper}
+\usepackage[hidelinks]{hyperref}
+\input{numbers.tex}
+
+\newcommand{\kmsq}{km\textsuperscript{2}}
+\newcommand{\todo}[1]{\textbf{[TODO: #1]}}
+\setlength{\emergencystretch}{3em}
+\input{sections/erl_si_numbers}
+
+% A figure file that has not been built yet prints a placeholder instead of stopping the build.
+\let\erlincludegraphics\includegraphics
+\renewcommand{\includegraphics}[2][]{\IfFileExists{#2}{\erlincludegraphics[#1,height=0.5\textheight,keepaspectratio]{#2}}%
+  {\fbox{\parbox[c][4cm][c]{0.9\linewidth}{\centering Figure file not built yet:\\\texttt{\detokenize{#2}}}}}}
+
+% Supplementary numbering: figure S1, table S1, ...
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\renewcommand{\bibnumfmt}[1]{[S#1]}
+\renewcommand{\citenumfont}[1]{S#1}
+
+% Each supplementary section is numbered by the shared macros, e.g. \SIsection{\SIdem}{...}.
+\newcommand{\SIsection}[2]{\clearpage\section*{#1\quad #2}\addcontentsline{toc}{section}{#1\quad #2}}
+
+\input{sections/si_erl_figures}
+% The Letter's labels, read last so that every macro its captions use is defined.
+\externaldocument[M-]{main_erl}
+
+\title{Supplementary information}
+\author{Rezwan Ahmed, Nusrat Jahan Zerin and Obaidur Rahman}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{center}
+\begin{minipage}{0.85\linewidth}
+\noindent\textbf{Description.} Full methods, accuracy of the waterline elevation model, robustness checks, red-team tests, Great Salt Lake methods, near-term emergence sensitivities and deviations from the pre-registration.
+
+\medskip
+\noindent Supplementary information for: \emph{Four decades of retreating shorelines audit projected seabed emergence in the North Caspian Sea} (Environmental Research Letters, submitted). Figures and sections cited as ``of the Letter'' are in the main article.
+\end{minipage}
+\end{center}
+\tableofcontents
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SImethods}{Full methods}
+\input{sections/si_erl_methods_data}
+\SIfigstudyarea
+\SIfiglevels
+\input{sections/si_erl_methods_water}
+\input{sections/si_erl_methods_frequency}
+\input{sections/si_erl_methods_surge}
+\SIfigsetup
+\input{sections/si_erl_methods_dem}
+\SIfigmethod
+\SIfigemergence
+\input{sections/si_erl_methods_datums}
+\input{sections/si_erl_methods_validation}
+\input{sections/si_erl_methods_hindcast}
+\input{sections/si_erl_methods_h3}
+\input{sections/si_erl_methods_stats}
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIdem}{Accuracy of the waterline elevation model and conformal coverage}
+\input{sections/si_erl_dem}
+\input{sections/tables_draft}
+\SIfigdem
+\SIfigedhexbins
+\SIfigedblocksize
+\SIfigedvegetation
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIaudit}{The hindcast audit in detail}
+\input{sections/si_erl_audit}
+\input{sections/ed_tables_draft}
+\SIfigedhoneshape
+\SIfigedhonetotal
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIrobust}{Robustness checks}
+\input{sections/si_erl_robustness}
+\SIfigedscreening
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIredteam}{Red team}
+\input{sections/si_erl_redteam}
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIgsl}{Generality: Great Salt Lake}
+\input{sections/si_erl_generality}
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SInearterm}{Near-term emergence: the registered correction and its sensitivity forms}
+\input{sections/si_erl_nearterm}
+\input{sections/ed_tables_h3_draft}
+\SIfignextmetres
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIdeviations}{Deviations from the pre-registration}
+\input{sections/si_erl_deviations}
+
+\clearpage
+\bibliographystyle{unsrtnat}
+\bibliography{../refs/references}
+\end{document}
