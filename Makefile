@@ -141,9 +141,11 @@ osm-download:
 wdpa-download:
 	$(PYTHON) -I scripts/a8_wdpa_exposure.py fetch
 
-# doi.org and Crossref/DataCite: refs/references.bib and refs/verification.csv.
+# doi.org and Crossref/DataCite: refs/references.bib and refs/verification.csv, then the
+# documented metadata corrections of refs/bib_corrections.csv (D-131, D-134).
 refs:
 	$(PYTHON) tools/fetch_bibtex.py
+	$(PYTHON) tools/apply_bib_corrections.py .
 
 ## stage 1b: raw inputs from Earth Engine (spends EECU; never run by `make all`) ----
 ee-inputs: ee-scene-inventory ee-etopo1
