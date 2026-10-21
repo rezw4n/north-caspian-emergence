@@ -1019,6 +1019,12 @@
   "unit": "year",
   "source": "results/provenance/erl_landsat.json"
  },
+ "erl.text.conformal_pct": {
+  "value": 90,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "params.conformal_level as a percentage"
+ },
  "erl.text.d089.shape.etopo1.p_first_run": {
   "value": 0.0090990900909909,
   "unit": "p-value",
@@ -1172,6 +1178,12 @@
   "source": "results/metrics.json (derived from the keys named in the note)",
   "note": "minimum of generality.great_salt_lake.<p>.shape.<arm>.median_displacement_m over products and arms",
   "decimals": 0
+ },
+ "erl.text.gsl.n_arms": {
+  "value": 2,
+  "unit": "arms",
+  "source": "results/generality/great_salt_lake/lineage.json",
+  "note": "arms of Great Salt Lake audited (lineage.json)"
  },
  "erl.text.gsl.n_arms_mispredicted_max": {
   "value": 2,
@@ -6446,6 +6458,41 @@
   "unit": "sector-levels",
   "source": "hindcast/main/noise_floor.csv",
   "note": "E1 against E2 + E3 shoreline comparisons with distances (kind e1_vs_e23)"
+ },
+ "h1.etopo2022.fabdem_share_band.above_m26p3": {
+  "value": 93.2,
+  "unit": "%",
+  "source": "hindcast/main/etopo2022_sources_by_level_band.csv",
+  "note": "share of ETOPO 2022 emerged-band cells filled from FABDEM, by the band of the observed seabed height",
+  "decimals": 0
+ },
+ "h1.etopo2022.fabdem_share_band.below_m28p3": {
+  "value": 1.9,
+  "unit": "%",
+  "source": "hindcast/main/etopo2022_sources_by_level_band.csv",
+  "note": "share of ETOPO 2022 emerged-band cells filled from FABDEM, by the band of the observed seabed height",
+  "decimals": 0
+ },
+ "h1.etopo2022.fabdem_share_band.m27p0_m26p3": {
+  "value": 60.7,
+  "unit": "%",
+  "source": "hindcast/main/etopo2022_sources_by_level_band.csv",
+  "note": "share of ETOPO 2022 emerged-band cells filled from FABDEM, by the band of the observed seabed height",
+  "decimals": 0
+ },
+ "h1.etopo2022.fabdem_share_band.m27p7_m27p0": {
+  "value": 16.1,
+  "unit": "%",
+  "source": "hindcast/main/etopo2022_sources_by_level_band.csv",
+  "note": "share of ETOPO 2022 emerged-band cells filled from FABDEM, by the band of the observed seabed height",
+  "decimals": 0
+ },
+ "h1.etopo2022.fabdem_share_band.m28p3_m27p7": {
+  "value": 4.4,
+  "unit": "%",
+  "source": "hindcast/main/etopo2022_sources_by_level_band.csv",
+  "note": "share of ETOPO 2022 emerged-band cells filled from FABDEM, by the band of the observed seabed height",
+  "decimals": 0
  },
  "h1.etopo2022.source_share.fabdem": {
   "value": 45.9,
@@ -31598,6 +31645,17 @@
   "value": 20,
   "unit": "distances",
   "source": "caspian.h1.MIN_BLOCK_N"
+ },
+ "params.h3_min_monotone": {
+  "value": 0.2,
+  "unit": "",
+  "source": "caspian.exposure.MIN_MONOTONE",
+  "decimals": 1
+ },
+ "params.h3_min_units": {
+  "value": 5,
+  "unit": "units",
+  "source": "caspian.exposure.MIN_UNITS"
  },
  "params.high_extent_min_water_pct": {
   "value": 10,

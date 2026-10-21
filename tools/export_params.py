@@ -156,6 +156,7 @@ import a7_hindcast  # noqa: E402
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 from caspian import blocking, conformal, h1, surge, thresholds, validation, waterlines  # noqa: E402
+from caspian import exposure  # noqa: E402
 
 if tuple(a3_thresholds.ICE_MONTHS) != tuple(a6_stage2_plan.ICE_MONTHS):
     raise SystemExit("ice months differ between a3_thresholds.py and a6_stage2_plan.py")
@@ -258,6 +259,9 @@ params.update({
     "params.fig_map_res_m": (_const("figures/_common.py", "MAP_RES_M"), "m", "figures/_common.MAP_RES_M"),
     "params.fig_min_bin_n": (_const("figures/fig3_dem_accuracy.py", "MIN_BIN_N"), "points",
                              "figures/fig3_dem_accuracy.MIN_BIN_N"),
+    # guards of the near-term error model (caspian.exposure.fit_model, fit_models; D-081)
+    "params.h3_min_units": (exposure.MIN_UNITS, "units", "caspian.exposure.MIN_UNITS"),
+    "params.h3_min_monotone": (exposure.MIN_MONOTONE, "", "caspian.exposure.MIN_MONOTONE", 1),
     # display constants of the ERL main figures (figures/_erl.py; D-102)
     "params.erl_fig_scale_map_km": (_const("figures/_erl.py", "SCALE_MAP_KM"), "km", "figures/_erl.SCALE_MAP_KM"),
     "params.erl_fig_scale_inset_km": (_const("figures/_erl.py", "SCALE_INSET_KM"), "km", "figures/_erl.SCALE_INSET_KM"),

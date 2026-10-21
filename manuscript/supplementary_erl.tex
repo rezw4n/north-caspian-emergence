@@ -15,6 +15,7 @@
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{microtype}
 \usepackage{xurl}
+\usepackage[font=small,labelfont=bf]{caption}  % legends smaller than the body text (D-107 addendum)
 \usepackage{xr-hyper}
 \usepackage[hidelinks]{hyperref}
 \input{numbers.tex}
@@ -26,12 +27,13 @@
 
 % A figure file that has not been built yet prints a placeholder instead of stopping the build.
 \let\erlincludegraphics\includegraphics
-\renewcommand{\includegraphics}[2][]{\IfFileExists{#2}{\erlincludegraphics[#1,height=0.5\textheight,keepaspectratio]{#2}}%
+\renewcommand{\includegraphics}[2][]{\IfFileExists{#2}{\erlincludegraphics[#1,height=0.6\textheight,keepaspectratio]{#2}}%
   {\fbox{\parbox[c][4cm][c]{0.9\linewidth}{\centering Figure file not built yet:\\\texttt{\detokenize{#2}}}}}}
 
 % Supplementary numbering: figure S1, table S1, ...
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
 \renewcommand{\figurename}{Figure}
 \renewcommand{\tablename}{Table}
 \renewcommand{\bibnumfmt}[1]{[S#1]}
@@ -76,6 +78,7 @@
 \input{sections/si_erl_methods_validation}
 \input{sections/si_erl_methods_hindcast}
 \input{sections/si_erl_methods_h3}
+\input{sections/si_erl_methods_display}
 \input{sections/si_erl_methods_stats}
 
 % ---------------------------------------------------------------------------------------------
