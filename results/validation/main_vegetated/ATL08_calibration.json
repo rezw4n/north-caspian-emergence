@@ -1,0 +1,64 @@
+{
+ "created": "2026-10-21T01:06:28Z",
+ "dem_tag": "main",
+ "source": "ATL08",
+ "block_size_m": 50000.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": false,
+ "calibration": {
+  "alpha": 0.09999999999999998,
+  "min_n": 50,
+  "pooled": {
+   "q": 2.6432100016333844,
+   "n": 33956
+  },
+  "groups": {
+   "interfluve": {
+    "q": 1.5332496139171379,
+    "n": 933,
+    "used_pooled": false
+   },
+   "northeast": {
+    "q": 1.4752300955295874,
+    "n": 1569,
+    "used_pooled": false
+   },
+   "ural": {
+    "q": 1.2215003202186048,
+    "n": 1947,
+    "used_pooled": false
+   },
+   "volga": {
+    "q": 2.8293372078918644,
+    "n": 24364,
+    "used_pooled": false
+   },
+   "west": {
+    "q": 1.7835081508721935,
+    "n": 5143,
+    "used_pooled": false
+   },
+   "komsomolets": {
+    "q": 2.6432100016333844,
+    "n": 0,
+    "used_pooled": true
+   },
+   "open_shelf": {
+    "q": 2.6432100016333844,
+    "n": 0,
+    "used_pooled": true
+   }
+  },
+  "n_excluded": {
+   "interfluve": 0,
+   "northeast": 0,
+   "ural": 0,
+   "volga": 0,
+   "west": 0,
+   "komsomolets": 0,
+   "open_shelf": 0
+  },
+  "split": "calib",
+  "level": 0.9
+ }
+}

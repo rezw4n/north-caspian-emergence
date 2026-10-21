@@ -1,0 +1,107 @@
+{
+ "created": "2026-10-21T01:06:28Z",
+ "dem_tag": "main",
+ "source": "ATL08",
+ "block_size_m": 50000.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": false,
+ "n_points": 134218,
+ "n_outside_block_table": 2463,
+ "by_split_sector": [
+  {
+   "split": "calib",
+   "sector": "interfluve",
+   "n": 933
+  },
+  {
+   "split": "calib",
+   "sector": "northeast",
+   "n": 1569
+  },
+  {
+   "split": "calib",
+   "sector": "ural",
+   "n": 1947
+  },
+  {
+   "split": "calib",
+   "sector": "volga",
+   "n": 24364
+  },
+  {
+   "split": "calib",
+   "sector": "west",
+   "n": 5143
+  },
+  {
+   "split": "none",
+   "sector": "none",
+   "n": 2463
+  },
+  {
+   "split": "test",
+   "sector": "interfluve",
+   "n": 17
+  },
+  {
+   "split": "test",
+   "sector": "northeast",
+   "n": 118
+  },
+  {
+   "split": "test",
+   "sector": "open_shelf",
+   "n": 2501
+  },
+  {
+   "split": "test",
+   "sector": "volga",
+   "n": 23343
+  },
+  {
+   "split": "test",
+   "sector": "west",
+   "n": 2522
+  },
+  {
+   "split": "train",
+   "sector": "interfluve",
+   "n": 552
+  },
+  {
+   "split": "train",
+   "sector": "komsomolets",
+   "n": 1
+  },
+  {
+   "split": "train",
+   "sector": "northeast",
+   "n": 2182
+  },
+  {
+   "split": "train",
+   "sector": "open_shelf",
+   "n": 351
+  },
+  {
+   "split": "train",
+   "sector": "ural",
+   "n": 447
+  },
+  {
+   "split": "train",
+   "sector": "volga",
+   "n": 55745
+  },
+  {
+   "split": "train",
+   "sector": "west",
+   "n": 10020
+  }
+ ],
+ "n_blocks_with_points": {
+  "calib": 10,
+  "test": 10,
+  "train": 23
+ }
+}
