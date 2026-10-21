@@ -541,3 +541,93 @@ The Caspian H1 result (D-087) was known. That is why every rule below is the Cas
 - **What had been seen:** the gauge series and the scene inventory, both input-level. Before 1989-09, NWIS holds the two gauges' values only on the 1st and the 15th or 16th of each month. Under the 10-day rule, only 5 (south) and 8 (north) scenes before mid-1986 had a level. E1, the rising limb, was then almost empty, and 1984–1989 would have been lost.
 - **Reason:** the 10-day bound was set without knowing the sampling. Over 16 days at the 1983–1987 rise rates (at most about 0.15 m per month), linear interpolation errs by well under the 0.10 m bin. The Caspian bridged gaps of up to 60 days (Amendment 4, item 2).
 - **Also fixed here (item 6):** each arm's open-water seed is the **largest component** of its open-water mask. A walled evaporation pond west of Stansbury Island (a rectangle of 2022 water, 84 km² of which passed the 5 km test) is otherwise a second seed. No product had been read on the hindcast grid.
+
+## Amendment 17 — 2026-10-21 11:05 (ATL24 check of the near-term emergence surfaces; PREREG §2 "ATL24 bathymetry where available", §10; brief §8 A8; before any ATL24 height was compared with any surface)
+
+**What had been seen.**
+- The H3 result (D-090) and its leave-one-epoch-out transfer test: at the lowest epoch the corrected surfaces' emergence error exceeds the uncorrected products' for all five products (`results/emergence/main/transfer.csv`).
+- The fitted error models (`results/emergence/main/error_models.json`, `linear_hold`). Where a product holds whole metres, the fitted depths of a sector cluster at a few values, and the Theil–Sen slopes are steep. The held shift at the deepest fitted depth reaches +45.7 m (GEBCO_2026, west), +27.5 m (GEBCO_2022, west), +21.5 m (GEBCO_2022, interfluve) and +15 m (GEBCO_2026 and SRTM15+, interfluve). In those sectors the corrected surface lies tens of metres below the product beyond the fitted range. This was read from the model parameters alone.
+- ATL24 documentation: the v002 user guide, the v002 ATBD (§4.3, §4.4.8, §4.5, §5.3, §6.4, §6.5) and the data dictionary (`refs/notes/is2_atl24_*`).
+- The CMR inventory: 995 granules, about 65,600 MB in total (CMR sizes).
+- The structure of one granule, whose photons all lie in the Persian Gulf.
+- The `metadata/extent` polygons and photon counts per class of the first granules read. No ATL24 height inside the domain had been looked at.
+- DAHITI levels from 2018-10 to 2024-11: −27.29 to −28.74 m.
+
+**1. Photon selection** (`caspian.atl24.photon_steps`; ordered, each step counted). The rules follow the ATL24 v002 user guide §1.2.2.2 and the ATBD §5.3 and §6.5.
+- `class_ph` = 40 (bathymetry).
+- Finite `ellipse_h`, `ortho_h` and `surface_h`.
+- **Confidence:** `low_confidence_flag` = 0 and `confidence` ≥ 0.6. This is the ATBD threshold: the "best-estimate for removing those photon classification that have a lower probability of being correct".
+- `sensor_depth_exceeded` = 0.
+- **Strong beams only** (`orbit_info/sc_orient`, as D-069). All beams are a sensitivity.
+- **Depth:** 0 < d ≤ 6.5 m, with d = `surface_h` − `ortho_h`, the instantaneous depth below ATL24's own sea surface.
+  - 6.5 m is the depth, below the highest 2018–2024 DAHITI level (−27.29 m), of the deepest seabed in the near-term population (L₂₀₂₆ − 5 m = −33.62 m), rounded up.
+  - It is the turbidity bound. Class-40 photons deeper than any population seabed could be at acquisition are water-column or noise returns (ATBD Table 9: false positives "in depths past extinction depth", and "Turbidity").
+  - Turbidity is not measured at the photon level. The results are therefore also reported by depth class (0–2, 2–4, 4–6.5 m), and with d ≤ 3 m as a sensitivity.
+- Finite N(EIGEN-6C4).
+- `invalid_kd` and `invalid_wind_speed` affect only the uncertainty model (ATBD §5.3). They are counted, not used.
+- **Night/day:** day and night photons are used, as for GEDI (Amendment 2). Night only (`night_flag` = 1) is a sensitivity. Its reason is the ATBD's known issue "Class 40 false positives for daylight granules".
+
+**2. Datum.**
+- H = `ellipse_h` − N(EIGEN-6C4), N bilinear from the ICGEM tide-free grid (`validation.EigenGeoid`), exactly as ATL06/ATL08 (D-078). ATL24's EGM08 `ortho_h` is used only to form the depth. The ATBD calls that geoid "outdated and contains errors" (§6.5).
+- **Tide system.** `ellipse_h` is the ATL03 photon height (ATBD Algorithm 10: input `h_ph` from ATL03) plus the refraction correction. the data dictionary says "neither the geoid, ocean tide nor the dynamic atmosphere (DAC) corrections are applied to the ellipsoidal heights". The ATL24 documents do not name a tide system. ATL03 heights are tide-free (DATUMS, D-073), so ATL24 `ellipse_h` is taken as tide-free: an inference from its ATL03 input, stated as such. No tide conversion is applied. If DAHITI heights are mean-tide, a north–south tilt of at most 0.024 m remains (D-074).
+- **Frame.** These granules use ATL03 release 006 (ITRF2014). The ITRF2014 → ITRF2020 difference is 2 mm (D-073) and is ignored.
+
+**3. Constant.** y_ref = H + c, with c = the ATL08 training-block constant of H2: 0.710 m, σ 0.183 m (`results/validation/main/ATL08_datum_constant.json`).
+- **Reason:**
+  - ATL24 and ATL08 heights are the same ATL03 photon heights on the same geoid chain, so the constant that ties ICESat-2 to the working (DAHITI) reference is the same.
+  - c was fitted before ATL24 was read, so nothing is fitted on ATL24.
+  - ATL08 rather than ATL06, because NSIDC calls ATL06 experimental outside the polar regions (D-073).
+- **Sensitivities, reported beside the verdict and never replacing it:**
+  - the ATL06 constant, 0.723 m;
+  - the **water-surface constant**: the median over overpasses of the per-overpass median of L_DAHITI(t) − (ATL24 sea surface on the same scale without c). L_DAHITI(t) is the DAHITI series interpolated linearly to the photon time. This ties ATL24 to the level datum directly, through ATL24's own water surface.
+- The verdict is also computed under each sensitivity constant. A verdict that changes is reported as "sensitive to the datum constant".
+
+**4. Populations** (on y_ref, never on any surface).
+- **Near-term:** L₂₀₂₆ − 5 m ≤ y_ref < L₂₀₂₆, with L₂₀₂₆ = −28.619 m (`results/emergence/main/run.json`).
+- **Emerged band:** L₂₀₂₆ ≤ y_ref ≤ −25.816 m, the record high of the 3-record running median (Amendment 4). Seabed above the level at acquisition is not seen by ATL24. In practice the band is therefore its lower part, the seabed that emerged after 2018.
+- Cells inside the domain only. Per-sector results are reported where a sector has cells.
+
+**5. Aggregation.**
+- Photons go to the 60 m hindcast cell that contains them (equal-area grid of `scripts/a7_hindcast.py`).
+- One observation per (cell, track), where a track is a granule and beam. Its value is the median y_ref of the photons, and it is kept with at least 3 photons. Dense photons therefore do not dominate.
+- **Sector:** the hindcast sector map of the cell.
+- **Block:** the 50 km cell of the H2 block lattice (D-085; `blocking.block_index` at 50 km) holding the cell centre. All blocks are used, whether or not they appear in `blocks_50km.csv`, because ATL24 entered no fit.
+
+**6. Surfaces at a cell.**
+- **Uncorrected product** (as users apply it): the product on the hindcast grid, bilinear, plus N(EGM2008, NGA) − N(EIGEN-6C4) (`products.Corrected` with `geoid_correction_primary.npz`; the H1 total variant, D-074).
+- **Fused surface:** exactly the H3 surface of `scripts/a8_emergence.py`. It is the `exposure.FusedSurface` of the final `linear_hold` models in `results/emergence/main/error_models.json` (nothing refitted), with:
+  - the waterline DEM aggregated to the 60 m grid (`dem_to_grid`);
+  - the observed unit at the lowest fitted level;
+  - the outside states.
+
+  It is checked by reproducing the per-sector cell counts of `results/emergence/main/fused_summary.csv`.
+- **Reported, not deciding:**
+  - the corrected product without the DEM (`CorrectedSurface`);
+  - the shape variant, the uncorrected product less its D-070 constant;
+  - the correction applied at each cell-track (fused minus uncorrected), with the share of cell-tracks where it exceeds 5 m, the end of the D-070/D-081 search grid.
+- **Emerged band:** the waterline DEM at the 60 m cell, as the fused surface reads it, is compared as well.
+
+**7. Metrics.**
+- **Error:** surface minus ATL24 (positive: the surface is too high).
+- **Per surface:** bias (mean), RMSE and NMAD, with the median and the 5th and 95th percentiles, overall and per sector.
+- **Paired set:** the cell-tracks where both surfaces of the pair have values.
+- **Differences:** fused minus uncorrected, for NMAD, |bias| and RMSE.
+- **Intervals:** percentile 95% intervals from 2,000 block-bootstrap resamples of the 50 km blocks, seed 20261020; one draw per scope serves every metric (`validation.block_bootstrap`).
+- **Also reported:** the number of granules, photons (after each step), cell-tracks, cells and blocks.
+
+**8. Decision, per product (overall scope).**
+- **Rule:** "the correction improves the near-term seabed if the corrected surface's NMAD and |bias| are both lower than the uncorrected product's, with a block-bootstrap 95% interval on the NMAD difference that excludes zero."
+- **"correction worsens":** both higher, with the interval above zero.
+- **"no clear difference":** any other outcome, with the criteria that did hold stated (partial outcomes are reported as such).
+- **"not evaluable":** fewer than 5 blocks, or a value missing. If ATL24 holds no usable photon in the domain, every verdict is "not evaluable: no ATL24 data", and that is reported.
+- Sector verdicts use the same rule and are descriptive.
+
+**9. Role.**
+- This is an independent check made after the H3 decision (D-090). The H3 verdict is not revisited by this amendment.
+- The outcome is reported prominently in the G3 memo and the paper whichever way it goes (CLAUDE.md integrity rule 4). A "correction worsens" outcome is evidence against the H3 correction below the observed range.
+
+**10. Data access** (D-095).
+- The 995 granules exceed the lead's 60 GB download limit.
+- Each granule covers a whole ATL03 region.
+- They are read in place and subset by space instead of by beams or dates. Only the class-40 photons inside the domain's bounding box are kept, with all their variables (`scripts/a8_atl24_fetch.py`).
+- A granule is read beyond its `metadata/extent` only if that extent meets the box. A random sample of 20 of the skipped granules is read in full as a check.
