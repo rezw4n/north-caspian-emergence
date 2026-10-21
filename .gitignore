@@ -53,3 +53,7 @@ manuscript/*.pdf
 manuscript/*.xdv
 manuscript/*.bbl
 manuscript/*.blg
+
+# Not redistributable (CASPCOM catalogue: "All Rights Reserved", no licence; D-101, docs/DATA_RELEASE.md).
+# Regenerated locally by scripts/a7_dahiti_bhs_offset.py.
+results/levels/dahiti_bhs_annual_diffs.csv
