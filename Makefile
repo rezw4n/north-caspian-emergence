@@ -59,6 +59,7 @@ need_step = $(if $(STEP),,$(error `make $@` needs STEP=$(1)))
 
 .PHONY: help env lock test verify-0 verify-A verify-B \
         fetch dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download \
+        wdpa-download \
         ee-inputs ee-scene-inventory ee-etopo1 ee-zone ee-stage1 ee-era5-winds ee-erl-landsat \
         check-inputs dahiti-qc study-area scene-levels qc-figures params metrics macros check-refs \
         check-quotes manuscript figures all
@@ -66,7 +67,7 @@ need_step = $(if $(STEP),,$(error `make $@` needs STEP=$(1)))
 help:
 	@echo Targets
 	@echo   all            rebuild results, QC figures, numbers.tex and manuscript/main.pdf from the raw inputs
-	@echo   fetch          acquire network inputs: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download
+	@echo   fetch          acquire network inputs: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download wdpa-download
 	@echo   ee-inputs      acquire Earth Engine inputs: ee-scene-inventory ee-etopo1, with EE_OK=1
 	@echo   ee-zone ee-stage1 ee-era5-winds   Earth Engine batch stages, with EE_OK=1 and STEP=...
 	@echo   check-inputs   check raw inputs against their acquisition records: checksums, inventory numbers
@@ -99,7 +100,8 @@ verify-B:
 	$(PYTHON) tools/verify.py B
 
 ## stage 1a: raw inputs over the network (credentials; never run by `make all`) ----
-fetch: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download
+fetch: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download \
+       wdpa-download
 
 # CASPCOM post levels (public HTTP). Writes $(CASPCOM), results/provenance/caspcom_catalogue.json.
 caspcom-download:
@@ -128,6 +130,11 @@ bathymetry-download:
 # OpenStreetMap layers via the Overpass API.
 osm-download:
 	$(PYTHON) scripts/a8_osm_exposure.py
+
+# WDPA country downloads (Protected Planet public file store; non-commercial terms, D-101, D-103).
+# Writes data/raw/wdpa/ (never redistributed) and results/provenance/wdpa.json.
+wdpa-download:
+	$(PYTHON) -I scripts/a8_wdpa_exposure.py fetch
 
 # doi.org and Crossref/DataCite: refs/references.bib and refs/verification.csv.
 refs:
@@ -380,6 +387,11 @@ METRIC_INPUTS += results/provenance/icesat2_atl24.json results/validation/atl24/
 
 # Stage-2 seam-gap QC (robustness agent, scripts/r21_seam_gaps.py), read by build_metrics
 METRIC_INPUTS += results/robustness/r21_seam_gaps/summary.json
+
+# WDPA protected-area and Ramsar exposure (D-103): counts and areas from scripts/a8_wdpa_exposure.py
+# layers | exposure on the H3 runs' cached surfaces. Like the H3 tables these are committed results:
+# they need the git-ignored WDPA download and flood-level caches, so make does not rebuild them.
+METRIC_INPUTS += results/emergence/wdpa/layers.json results/emergence/wdpa/run.json
 
 # ERL display summaries and the Landsat acquisition record (display_erl_metrics)
 METRIC_INPUTS += $(ERL_DISPLAY) results/provenance/erl_landsat.json

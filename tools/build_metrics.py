@@ -903,6 +903,70 @@ def h3_sensitivity_metrics(m: dict, tag: str = "main") -> None:
                 f"{rel}/transfer.csv")
 
 
+WDPA_LAYERS = {"wdpa_protected_areas": ("wdpa", "WDPA protected area (dissolved layer) that emerges (km2)"),
+               "wdpa_ramsar": ("ramsar", "Ramsar site area (WDPA, dissolved layer) that emerges (km2)")}
+
+
+def wdpa_exposure_metrics(m: dict) -> None:
+    """WDPA protected areas and Ramsar sites as H3 exposure layers (D-101, D-103;
+    scripts/a8_wdpa_exposure.py; results/emergence/wdpa/), keyed as the exposure layers of
+    h3_metrics: h3.exposure.{wdpa,ramsar}.<product>.<surface>.<scenario>.{amount,lo,hi}
+    from the registered run (main), h3sens.constant.exposure.* from the constant-form
+    sensitivity (main_constant), the layer counts, and h3.exposure.wdpa.release. The
+    terms of the data require the citation with its release month and year wherever these
+    numbers appear (the note of h3.exposure.wdpa.release carries it); the polygons are
+    never redistributed (docs/DATA_RELEASE.md)."""
+    import math
+
+    import pandas as pd
+
+    lay = load("emergence/wdpa/layers.json")
+    run = load("emergence/wdpa/run.json")
+    if not lay or not run:
+        return
+    src = "results/emergence/wdpa/layers.json"
+    put(m, "h3.exposure.wdpa.release", lay.get("release"), "text", src,
+        "WDPA release used. Required citation (terms of use): " + str(lay.get("citation")))
+    put(m, "h3.exposure.wdpa.n_records_in_domain", lay.get("n_polygon_records_in_domain"), "records", src,
+        "WDPA/WD-OECM polygon records of Kazakhstan and Russia that intersect the domain")
+    put(m, "h3.exposure.wdpa.n_sites_in_domain", lay.get("n_sites_in_domain"), "sites", src,
+        "distinct site ids among those records")
+    for k, note in (("n_mab_records_in_domain", "UNESCO-MAB Biosphere Reserve records (not in the protected-area layer)"),
+                    ("n_oecm_records_in_domain", "OECM records (counted, not used)"),
+                    ("n_not_designated_records_in_domain", "records with status Proposed or Not Reported (not used)"),
+                    ("n_point_records_in_domain", "point records (no boundary; not used)")):
+        put(m, f"h3.exposure.wdpa.{k}", lay.get(k), "records", src, note)
+    for name, (short, what) in WDPA_LAYERS.items():
+        rec = (lay.get("layers") or {}).get(name) or {}
+        put(m, f"h3.exposure.{short}.n_sites", rec.get("n_sites"), "sites", src,
+            "sites of the layer whose polygons intersect the domain")
+        put(m, f"h3.exposure.{short}.n_patches", rec.get("n_features"), "features", src,
+            "connected parts of the dissolved layer (the exposure features)")
+        if rec.get("union_area_in_domain_km2") is not None:
+            put(m, f"h3.exposure.{short}.area_in_domain_km2", round(float(rec["union_area_in_domain_km2"]), 1), "km2",
+                src, "area of the dissolved layer inside the domain")
+    for tag, prefix in (("main", "h3"), ("main_constant", "h3sens.constant")):
+        f = RES / "emergence" / "wdpa" / f"exposure_{tag}.csv"
+        if not f.exists():
+            continue
+        fx = f"emergence/wdpa/exposure_{tag}.csv"
+        x = pd.read_csv(f)
+        x = x[(x["region"] == "domain") & x["layer"].isin(list(WDPA_LAYERS))]
+        tail = "" if tag == "main" else "; constant-form error model (D-081 sensitivity, D-096)"
+        for lay_name, g in x.groupby("layer"):
+            put(m, f"{prefix}.exposure.{WDPA_LAYERS[lay_name][0]}.n_features", int(g["n_features"].iloc[0]), "features",
+                fx, "features of the layer inside the domain")
+        for r in x.itertuples():
+            short, what = WDPA_LAYERS[r.layer]
+            b = f"{prefix}.exposure.{short}.{PRODUCT_KEY[r.product]}.{r.surface}.{_scen(r.scenario_m)}"
+            for col, name in (("amount", "amount"), ("amount_lo", "lo"), ("amount_hi", "hi")):
+                v = float(getattr(r, col))
+                if not math.isfinite(v):
+                    continue
+                put(m, f"{b}.{name}", round(v, 1), "km2", fx,
+                    what + "; lo/hi at the equivalent levels of the area-interval bounds" + tail)
+
+
 def redteam_metrics(m: dict, tag: str = "main") -> None:
     """The lead's red-team hindcast sensitivities (G3 memo): per-sector shape constants
     (scripts/a7_sector_shape.py -> results/hindcast/<tag>_sectorshape, whose "total" rows
@@ -1710,6 +1774,7 @@ def main() -> int:
     atl24_metrics(m)
     redteam_metrics(m)
     h3_sensitivity_metrics(m)
+    wdpa_exposure_metrics(m)
     display_erl_metrics(m)
     erl_text_metrics(m)
 

@@ -19,7 +19,7 @@ pytestmark = pytest.mark.skipif(MAKE is None, reason="GNU make not on PATH (it i
 
 ACQUISITION = ["p0_dahiti_download.py", "a4_hydroweb_download.py", "a5_swot_download.py", "a2_scene_inventory.py",
                "a7_get_", "a8_osm_exposure.py", "a2_zone.py", "a3_stage1_thresholds.py", "a5_era5_winds.py",
-               "a2_eecu_pilot", "--record-scenes"]
+               "a2_eecu_pilot", "--record-scenes", "a8_wdpa_exposure.py fetch"]
 GRID_FILES = ("gebco_2022_ncaspian.nc", "gebco_2026_ncaspian.nc", "etopo_2022_ncaspian.nc",
               "srtm15p_v2.7_ncaspian.nc", "etopo1_ncaspian.tif")
 

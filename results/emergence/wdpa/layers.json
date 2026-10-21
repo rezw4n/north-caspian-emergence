@@ -1,0 +1,55 @@
+{
+ "release": "October 2026",
+ "citation": "UNEP-WCMC and IUCN (2026), Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [Online], October 2026, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net.",
+ "countries": [
+  "KAZ",
+  "RUS"
+ ],
+ "crs": "+proj=laea +lat_0=45.5 +lon_0=50 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +type=crs",
+ "rules": {
+  "status_excluded": [
+   "Proposed",
+   "Not Reported"
+  ],
+  "site_type": "PA (OECMs counted, not used)",
+  "mab": "UNESCO-MAB Biosphere Reserve records kept in the protected-area layer, counted",
+  "ramsar": "DESIG_ENG contains 'Ramsar'",
+  "points": "counted, not used",
+  "dissolve": "union per layer, split into connected parts (the features)",
+  "domain": "whole polygons that intersect the domain (as a8_emergence.polygon_layers)"
+ },
+ "n_polygon_records_countries": 7773,
+ "n_point_records_in_domain": 16,
+ "n_ramsar_point_records_in_domain": 1,
+ "n_ramsar_point_records_countries": 9,
+ "n_ramsar_polygon_records_countries": 36,
+ "n_polygon_records_in_domain": 25,
+ "n_sites_in_domain": 25,
+ "n_oecm_records_in_domain": 0,
+ "n_mab_records_in_domain": 2,
+ "n_not_designated_records_in_domain": 0,
+ "by_designation_type": {
+  "National": 22,
+  "International": 3
+ },
+ "layers": {
+  "wdpa_protected_areas": {
+   "what": "protected areas (WDPA, every designated protected-area polygon; dissolved)",
+   "n_records": 25,
+   "n_sites": 25,
+   "n_features": 14,
+   "union_area_km2": 80075.73210027308,
+   "union_area_in_domain_km2": 76946.98580342936,
+   "sum_record_area_km2": 85126.42595124955
+  },
+  "wdpa_ramsar": {
+   "what": "Ramsar sites (WDPA international designation; polygons; dissolved)",
+   "n_records": 1,
+   "n_sites": 1,
+   "n_features": 1,
+   "union_area_km2": 10646.948934570644,
+   "union_area_in_domain_km2": 10646.948934570644,
+   "sum_record_area_km2": 10646.948934570644
+  }
+ }
+}
