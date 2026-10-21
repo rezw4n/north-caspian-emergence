@@ -1,0 +1,13 @@
+bulletin,bulletin_date,year,quantity,posts,value_m,location,verbatim_quote
+12,2016-09-12,2015,sea_mean,BAKU;NKAMNI;MAKH;FORT;KUULI;KRASN;KBG,-27.98,"CASPCOM Bulletin No. 12 (EN), PDF p. 1, para. 1; post set from footnote 1, p. 1","the mean level of the Caspian Sea in 2015 fell by 24 cm as compared to 2014 and measured -27.98 m"
+20,2020-10-30,2018,sea_mean,BAKU;MAKH;FORT;KRASN,-28.03,"CASPCOM Bulletin No. 20 (EN), PDF p. 1, para. 2; post set from footnote 1, p. 1","the mean level of the Caspian Sea in 2019 decreased by about 17 cm as compared to 2018 (-28.03 m abs.) and amounted to -28.20 m"
+20,2020-10-30,2019,sea_mean,BAKU;MAKH;FORT;KRASN,-28.20,"CASPCOM Bulletin No. 20 (EN), PDF p. 1, para. 2; post set from footnote 1, p. 1",(same quote)
+25,2023-05-17,2021,sea_mean,BAKU;NKAMNI;MAKH;FORT;KUULI;KRASN;KBG,-28.43,"CASPCOM Bulletin No. 25 (EN), PDF p. 1, para. 2; post set from footnote 1, p. 1","the mean level of the Caspian Sea decreased by about 27 cm in 2022 compared with 2021 (-28.43 m abs.) and amounted to -28.70 m abs."
+25,2023-05-17,2022,sea_mean,BAKU;NKAMNI;MAKH;FORT;KUULI;KRASN;KBG,-28.70,"CASPCOM Bulletin No. 25 (EN), PDF p. 1, para. 2; post set from footnote 1, p. 1",(same quote)
+27,2024-05-15,2023,sea_mean,BAKU;NKAMNI;MAKH;FORT;KUULI;KRASN;KBG,-28.99,"CASPCOM Bulletin No. 27 (EN), PDF p. 1, para. 2; post set from footnote 1, p. 1","the mean level of the Caspian Sea decreased by about 30 cm in 2023 compared with 2022 (-28.70 m abs.) and amounted to -28.99 m abs."
+29,2025-05-16,2024,post,MAKH,-28.86,"CASPCOM Bulletin No. 29 (EN), PDF p. 1, para. 2","at Makhachkala and Naft Dashlari -28.86 m abs. (12 and 17.5cm lower accordingly), at Fort Shevchenko -29.38 m (38 cm lower), at Turkmenbashi -29.19m (14 cm lower), Guvlymayak -29.37 m (18 cm lower), Duzlybogaz (Kara-Bogaz-Gol) -29.45 m abs. (23 cm lower)"
+29,2025-05-16,2024,post,NKAMNI,-28.86,"CASPCOM Bulletin No. 29 (EN), PDF p. 1, para. 2",(same quote)
+29,2025-05-16,2024,post,FORT,-29.38,"CASPCOM Bulletin No. 29 (EN), PDF p. 1, para. 2",(same quote)
+29,2025-05-16,2024,post,KRASN,-29.19,"CASPCOM Bulletin No. 29 (EN), PDF p. 1, para. 2",(same quote)
+29,2025-05-16,2024,post,KUULI,-29.37,"CASPCOM Bulletin No. 29 (EN), PDF p. 1, para. 2",(same quote)
+29,2025-05-16,2024,post,KBG,-29.45,"CASPCOM Bulletin No. 29 (EN), PDF p. 1, para. 2",(same quote)

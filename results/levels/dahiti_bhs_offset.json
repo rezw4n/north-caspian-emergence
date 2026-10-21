@@ -1,0 +1,1091 @@
+{
+ "definition": "delta = H_BHS-77 - H_DAHITI (m); H_BHS-77 = H_DAHITI + delta",
+ "source": {
+  "catalogue": "CASPCOM General Catalogue of the Caspian Sea level, monthly data (English archive)",
+  "url": "http://caspcom.com/wp-content/uploads/2026/07/Sea-Level-EN.zip",
+  "page": "http://www.caspcom.com/%d1%83%d1%80%d0%be%d0%b2%d0%b5%d0%bd%d1%8c/",
+  "retrieved_utc": "2026-10-21T02:55:35+00:00",
+  "sha256": "093967682df61384f902195315850f70390c1969b599051f62db6bd75e978778",
+  "dahiti_file": "data/raw/dahiti/dahiti_39_caspian_sea_water_level.csv"
+ },
+ "settings": {
+  "posts": [
+   "BAKU",
+   "NKAMNI",
+   "MAKH",
+   "FORT",
+   "KUULI",
+   "KRASN",
+   "KBG"
+  ],
+  "max_gap_days": 60.0,
+  "block_years": 3,
+  "n_boot": 10000,
+  "seed": 0,
+  "min_years_per_post": 10,
+  "stat": "mean",
+  "annual_mean": "mean of 12 monthly means (years with all 12 only), posts and DAHITI alike"
+ },
+ "primary": {
+  "delta_m": -0.5729790453468183,
+  "sigma_m": 0.008017351671861914,
+  "ci95_m": [
+   -0.5866813509442426,
+   -0.5552368104332075
+  ],
+  "n_boot_valid": 10000,
+  "n_posts": 7,
+  "posts": [
+   "BAKU",
+   "NKAMNI",
+   "MAKH",
+   "FORT",
+   "KUULI",
+   "KRASN",
+   "KBG"
+  ],
+  "n_years": 26,
+  "first_year": 1993,
+  "last_year": 2021,
+  "n_post_years": 169,
+  "stat": "mean",
+  "block_years": 3,
+  "resample_posts": false
+ },
+ "between_post_sd_m": 0.14444289219520934,
+ "between_post_range_m": [
+  -0.7482732416729195,
+  -0.3747265003607502
+ ],
+ "posts_and_years_bootstrap": {
+  "delta_m": -0.5729790453468183,
+  "sigma_m": 0.051758712908213815,
+  "ci95_m": [
+   -0.6718940276125351,
+   -0.4684085741715343
+  ],
+  "n_boot_valid": 10000,
+  "n_posts": 7,
+  "posts": [
+   "BAKU",
+   "NKAMNI",
+   "MAKH",
+   "FORT",
+   "KUULI",
+   "KRASN",
+   "KBG"
+  ],
+  "n_years": 26,
+  "first_year": 1993,
+  "last_year": 2021,
+  "n_post_years": 169,
+  "stat": "mean",
+  "block_years": 3,
+  "resample_posts": true
+ },
+ "common_drift": {
+  "trend_m_per_decade": 0.013443425744472569,
+  "n_years": 26,
+  "residual_sd_m": 0.03314138970455725
+ },
+ "per_post": [
+  {
+   "post": "BAKU",
+   "n_years": 23,
+   "m": -0.4225795858188247,
+   "sd": 0.13827293965562862,
+   "trend_m_per_decade": 0.11679160194561827,
+   "first": 1993,
+   "last": 2019
+  },
+  {
+   "post": "NKAMNI",
+   "n_years": 25,
+   "m": -0.3747265003607502,
+   "sd": 0.06949580028156421,
+   "trend_m_per_decade": 0.0645745993005517,
+   "first": 1993,
+   "last": 2019
+  },
+  {
+   "post": "MAKH",
+   "n_years": 26,
+   "m": -0.4999218174672143,
+   "sd": 0.03609354283936986,
+   "trend_m_per_decade": 0.013591713363341107,
+   "first": 1993,
+   "last": 2021
+  },
+  {
+   "post": "FORT",
+   "n_years": 23,
+   "m": -0.5966494452297672,
+   "sd": 0.06416993288044552,
+   "trend_m_per_decade": 0.031371168178851015,
+   "first": 1993,
+   "last": 2021
+  },
+  {
+   "post": "KUULI",
+   "n_years": 21,
+   "m": -0.7482732416729195,
+   "sd": 0.058046789120106544,
+   "trend_m_per_decade": -0.04997152081624317,
+   "first": 1993,
+   "last": 2021
+  },
+  {
+   "post": "KRASN",
+   "n_years": 26,
+   "m": -0.7145601162960579,
+   "sd": 0.04561246529572826,
+   "trend_m_per_decade": -0.01253916306178547,
+   "first": 1993,
+   "last": 2021
+  },
+  {
+   "post": "KBG",
+   "n_years": 25,
+   "m": -0.6541426105821951,
+   "sd": 0.12387867076826531,
+   "trend_m_per_decade": -0.05714562662321561,
+   "first": 1993,
+   "last": 2021
+  }
+ ],
+ "all_baltic_posts": [
+  {
+   "post": "AKTAU",
+   "n_years": 26,
+   "m": -0.720265244501186,
+   "sd": 0.10533819373390998,
+   "trend_m_per_decade": -0.06172020639717155,
+   "first": 1993.0,
+   "last": 2021.0,
+   "name": "Aktau"
+  },
+  {
+   "post": "BAKU",
+   "n_years": 23,
+   "m": -0.4225795858188247,
+   "sd": 0.13827293965562862,
+   "trend_m_per_decade": 0.11679160194561827,
+   "first": 1993.0,
+   "last": 2019.0,
+   "name": "Baku"
+  },
+  {
+   "post": "BEK",
+   "n_years": 20,
+   "m": -0.5940634264084436,
+   "sd": 0.14071681470056646,
+   "trend_m_per_decade": 0.046799390704253305,
+   "first": 1994.0,
+   "last": 2021.0,
+   "name": "Bekdash (Garabogaz)"
+  },
+  {
+   "post": "CHELEKEN",
+   "n_years": 8,
+   "m": NaN,
+   "sd": 0.14181508228080095,
+   "trend_m_per_decade": 0.3336138376301914,
+   "first": 2013.0,
+   "last": 2021.0,
+   "name": "Cheleken"
+  },
+  {
+   "post": "FORT",
+   "n_years": 23,
+   "m": -0.5966494452297672,
+   "sd": 0.06416993288044552,
+   "trend_m_per_decade": 0.031371168178851015,
+   "first": 1993.0,
+   "last": 2021.0,
+   "name": "Fort-Shevchenko"
+  },
+  {
+   "post": "ISB",
+   "n_years": 0,
+   "m": NaN,
+   "sd": NaN,
+   "trend_m_per_decade": NaN,
+   "first": NaN,
+   "last": NaN,
+   "name": "Isberg"
+  },
+  {
+   "post": "JILOY (Chilov)",
+   "n_years": 25,
+   "m": -0.27642650036074984,
+   "sd": 0.1611694251618821,
+   "trend_m_per_decade": 0.17540538882869428,
+   "first": 1993.0,
+   "last": 2019.0,
+   "name": "Jiloy (Chilov)"
+  },
+  {
+   "post": "KBG",
+   "n_years": 25,
+   "m": -0.6541426105821951,
+   "sd": 0.12387867076826531,
+   "trend_m_per_decade": -0.05714562662321561,
+   "first": 1993.0,
+   "last": 2021.0,
+   "name": "Kara Bogaz Gol (Duzlybogaz)"
+  },
+  {
+   "post": "KRASN",
+   "n_years": 26,
+   "m": -0.7145601162960579,
+   "sd": 0.04561246529572826,
+   "trend_m_per_decade": -0.01253916306178547,
+   "first": 1993.0,
+   "last": 2021.0,
+   "name": "Krasnovodsk (Turkmenbashi)"
+  },
+  {
+   "post": "KUL",
+   "n_years": 19,
+   "m": -0.582816676498203,
+   "sd": 0.08023139546735622,
+   "trend_m_per_decade": 0.010986384848101858,
+   "first": 1995.0,
+   "last": 2021.0,
+   "name": "Kulaly"
+  },
+  {
+   "post": "KUULI",
+   "n_years": 21,
+   "m": -0.7482732416729195,
+   "sd": 0.058046789120106544,
+   "trend_m_per_decade": -0.04997152081624317,
+   "first": 1993.0,
+   "last": 2021.0,
+   "name": "Kuuli-beacon (Guvlymayak)"
+  },
+  {
+   "post": "LAG",
+   "n_years": 23,
+   "m": -0.3395989802811583,
+   "sd": 0.06732008073559376,
+   "trend_m_per_decade": 0.0690855911476455,
+   "first": 1993.0,
+   "last": 2021.0,
+   "name": "Kaspiysky /Lagan/"
+  },
+  {
+   "post": "LEN",
+   "n_years": 21,
+   "m": -0.58392420539075,
+   "sd": 0.09606569472030835,
+   "trend_m_per_decade": -0.06483301597267176,
+   "first": 1993.0,
+   "last": 2017.0,
+   "name": "Lenkoran"
+  },
+  {
+   "post": "MAKH",
+   "n_years": 26,
+   "m": -0.4999218174672143,
+   "sd": 0.03609354283936986,
+   "trend_m_per_decade": 0.013591713363341107,
+   "first": 1993.0,
+   "last": 2021.0,
+   "name": "Makhachkala"
+  },
+  {
+   "post": "NKAMNI",
+   "n_years": 25,
+   "m": -0.3747265003607502,
+   "sd": 0.06949580028156421,
+   "trend_m_per_decade": 0.0645745993005517,
+   "first": 1993.0,
+   "last": 2019.0,
+   "name": "N.KAMNI"
+  },
+  {
+   "post": "OGUR",
+   "n_years": 22,
+   "m": -0.6281440594014905,
+   "sd": 0.1407842684482025,
+   "trend_m_per_decade": 0.05160951895437333,
+   "first": 1993.0,
+   "last": 2021.0,
+   "name": "Ogurchinsky (Ogrydzhali)"
+  },
+  {
+   "post": "PESH",
+   "n_years": 25,
+   "m": -0.6369171988634236,
+   "sd": 0.07787915440663713,
+   "trend_m_per_decade": -0.0015275816507105634,
+   "first": 1993.0,
+   "last": 2021.0,
+   "name": "Peshnoy"
+  },
+  {
+   "post": "SUMG",
+   "n_years": 17,
+   "m": -0.4198990386717915,
+   "sd": 0.12102676964103462,
+   "trend_m_per_decade": 0.11008231965807184,
+   "first": 1993.0,
+   "last": 2018.0,
+   "name": "Sumgait"
+  },
+  {
+   "post": "TUL",
+   "n_years": 26,
+   "m": -0.5758302132427393,
+   "sd": 0.08795530527264536,
+   "trend_m_per_decade": 0.046354637877143584,
+   "first": 1993.0,
+   "last": 2021.0,
+   "name": "isl.Tyuleniy"
+  }
+ ],
+ "sensitivities": {
+  "median": {
+   "delta_m": -0.5651199465025591,
+   "sigma_m": 0.018853424418326898,
+   "ci95_m": [
+    -0.6093141376478854,
+    -0.5402852538528151
+   ],
+   "n_boot_valid": 10000,
+   "n_posts": 7,
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "n_years": 26,
+   "first_year": 1993,
+   "last_year": 2021,
+   "n_post_years": 169,
+   "stat": "median",
+   "block_years": 3,
+   "resample_posts": false
+  },
+  "block_1": {
+   "delta_m": -0.5729790453468183,
+   "sigma_m": 0.0064070508332960754,
+   "ci95_m": [
+    -0.5857505148179986,
+    -0.5605267948145554
+   ],
+   "n_boot_valid": 10000,
+   "n_posts": 7,
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "n_years": 26,
+   "first_year": 1993,
+   "last_year": 2021,
+   "n_post_years": 169,
+   "stat": "mean",
+   "block_years": 1,
+   "resample_posts": false
+  },
+  "block_5": {
+   "delta_m": -0.5729790453468183,
+   "sigma_m": 0.009006611530498252,
+   "ci95_m": [
+    -0.5879243348846878,
+    -0.5527351571262404
+   ],
+   "n_boot_valid": 10000,
+   "n_posts": 7,
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "n_years": 26,
+   "first_year": 1993,
+   "last_year": 2021,
+   "n_post_years": 169,
+   "stat": "mean",
+   "block_years": 5,
+   "resample_posts": false
+  },
+  "garabogaz_as_BEK": {
+   "delta_m": -0.5643963047505681,
+   "sigma_m": 0.009545125804466016,
+   "ci95_m": [
+    -0.5818615959605611,
+    -0.5443910312459687
+   ],
+   "n_boot_valid": 10000,
+   "n_posts": 7,
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "BEK"
+   ],
+   "n_years": 26,
+   "first_year": 1993,
+   "last_year": 2021,
+   "n_post_years": 164,
+   "stat": "mean",
+   "block_years": 3,
+   "resample_posts": false
+  },
+  "six_posts_without_garabogaz": {
+   "delta_m": -0.5594517844742556,
+   "sigma_m": 0.007522302209356682,
+   "ci95_m": [
+    -0.5733463540766988,
+    -0.5440186959845779
+   ],
+   "n_boot_valid": 10000,
+   "n_posts": 6,
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN"
+   ],
+   "n_years": 26,
+   "first_year": 1993,
+   "last_year": 2021,
+   "n_post_years": 144,
+   "stat": "mean",
+   "block_years": 3,
+   "resample_posts": false
+  },
+  "bulletin20_four_posts": {
+   "delta_m": -0.558427741202966,
+   "sigma_m": 0.010919130097947555,
+   "ci95_m": [
+    -0.5796218258442534,
+    -0.5370022824535452
+   ],
+   "n_boot_valid": 10000,
+   "n_posts": 4,
+   "posts": [
+    "BAKU",
+    "MAKH",
+    "FORT",
+    "KRASN"
+   ],
+   "n_years": 26,
+   "first_year": 1993,
+   "last_year": 2021,
+   "n_post_years": 98,
+   "stat": "mean",
+   "block_years": 3,
+   "resample_posts": false
+  },
+  "north_caspian_posts": {
+   "delta_m": -0.5337907672213811,
+   "sigma_m": 0.011038107712867262,
+   "ci95_m": [
+    -0.5555617776833349,
+    -0.5130907463040406
+   ],
+   "n_boot_valid": 10000,
+   "n_posts": 4,
+   "posts": [
+    "PESH",
+    "TUL",
+    "LAG",
+    "KUL"
+   ],
+   "n_years": 26,
+   "first_year": 1993,
+   "last_year": 2021,
+   "n_post_years": 93,
+   "stat": "mean",
+   "block_years": 3,
+   "resample_posts": false
+  },
+  "monthly_differences": {
+   "delta_m": -0.579144995327008,
+   "sigma_m": 0.008406342406013434,
+   "ci95_m": [
+    -0.5899022693087446,
+    -0.5567154575332355
+   ],
+   "n_boot_valid": 10000,
+   "n_posts": 7,
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "n_years": 33,
+   "first_year": 1992,
+   "last_year": 2024,
+   "n_post_years": 223,
+   "stat": "mean",
+   "block_years": 3,
+   "resample_posts": false
+  },
+  "dahiti_no_gap_limit": {
+   "delta_m": -0.5802381301898158,
+   "sigma_m": 0.008114775122523243,
+   "ci95_m": [
+    -0.5895976200112754,
+    -0.5574791796713355
+   ],
+   "n_boot_valid": 10000,
+   "n_posts": 7,
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "n_years": 32,
+   "first_year": 1993,
+   "last_year": 2024,
+   "n_post_years": 202,
+   "stat": "mean",
+   "block_years": 3,
+   "resample_posts": false
+  }
+ },
+ "dahiti_complete_years": 26,
+ "dahiti_complete_years_no_gap_limit": 33,
+ "post_meta": {
+  "AKTAU": {
+   "file": "AVERAGE/AKTAU_av.xls",
+   "name": "Aktau",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ____-28,0_____ metres; Altitude system __baltic system__________",
+   "datum_sign_inferred": false
+  },
+  "AMIRABAD": {
+   "file": "AVERAGE/AMIRABAD_av.xls",
+   "name": "Amirabad",
+   "datum_m": null,
+   "altitude_system": "persian gulf",
+   "datum_text": "Post datum equals to _________ metres  from the Persian Gulf",
+   "datum_sign_inferred": false
+  },
+  "ANZALI": {
+   "file": "AVERAGE/ANZALI_av.xls",
+   "name": "Anzali",
+   "datum_m": -26.075,
+   "altitude_system": "persian gulf",
+   "datum_text": "Post datum equals to ______-26,075____ metres  from the Persian Gulf",
+   "datum_sign_inferred": false
+  },
+  "ASHOR": {
+   "file": "AVERAGE/ASHOR_av.xls",
+   "name": "Ashoradeh",
+   "datum_m": -27.147,
+   "altitude_system": "persian gulf",
+   "datum_text": "Post datum equals to ______-27,147____ metres  from the Persian Gulf",
+   "datum_sign_inferred": false
+  },
+  "BAKU": {
+   "file": "AVERAGE/BAKU_av.xls",
+   "name": "Baku",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ______28,0____ metres; Altitude system _Baltic system______",
+   "datum_sign_inferred": true
+  },
+  "BEK": {
+   "file": "AVERAGE/BEK_av.xls",
+   "name": "Bekdash (Garabogaz)",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ____-28,0____ metres; Altitude system ____Baltic system__________________",
+   "datum_sign_inferred": false
+  },
+  "CHELEKEN": {
+   "file": "AVERAGE/CHELEKEN_av.xls",
+   "name": "Cheleken",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ____-28,0____ metres; Altitude system ____Baltic system__________________",
+   "datum_sign_inferred": false
+  },
+  "FORT": {
+   "file": "AVERAGE/FORT_av.xls",
+   "name": "Fort-Shevchenko",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ____-28,0_____ metres; Altitude system __baltic system__________",
+   "datum_sign_inferred": false
+  },
+  "F_KENAR": {
+   "file": "AVERAGE/F_KENAR_av.xlsx",
+   "name": "Freydoonkenar",
+   "datum_m": -27.687,
+   "altitude_system": "persian gulf",
+   "datum_text": "Post datum equals to ______-27.687____ metres  from the Persian Gulf",
+   "datum_sign_inferred": false
+  },
+  "ISB": {
+   "file": "AVERAGE/ISB_av.xls",
+   "name": "Isberg",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ______-28,0_____ metres; Altitude system _Baltic System_",
+   "datum_sign_inferred": false
+  },
+  "JILOY (Chilov)": {
+   "file": "AVERAGE/JILOY (Chilov)_av.xls",
+   "name": "Jiloy (Chilov)",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ______28,0____ metres; Altitude system _Baltic system______",
+   "datum_sign_inferred": true
+  },
+  "KBG": {
+   "file": "AVERAGE/KBG_av.xlsx",
+   "name": "Kara Bogaz Gol (Duzlybogaz)",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ____-28,0____ metres; Altitude system ____Baltic system__________________",
+   "datum_sign_inferred": false
+  },
+  "KRASN": {
+   "file": "AVERAGE/KRASN_av.xls",
+   "name": "Krasnovodsk (Turkmenbashi)",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ____-28,0____ metres; Altitude system ____Baltic system__________________",
+   "datum_sign_inferred": false
+  },
+  "KUL": {
+   "file": "AVERAGE/KUL_av.xls",
+   "name": "Kulaly",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ____-28,0_____ metres; Altitude system __baltic system__________",
+   "datum_sign_inferred": false
+  },
+  "KUULI": {
+   "file": "AVERAGE/KUULI_av.xls",
+   "name": "Kuuli-beacon (Guvlymayak)",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ____-28,0____ metres; Altitude system ____Baltic system__________________",
+   "datum_sign_inferred": false
+  },
+  "LAG": {
+   "file": "AVERAGE/LAG_av.xls",
+   "name": "Kaspiysky /Lagan/",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ______-28,0_____ metres; Altitude system _Baltic System_",
+   "datum_sign_inferred": false
+  },
+  "LEN": {
+   "file": "AVERAGE/LEN_av.xls",
+   "name": "Lenkoran",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ______28,0____ metres; Altitude system _Baltic system______",
+   "datum_sign_inferred": true
+  },
+  "MAKH": {
+   "file": "AVERAGE/MAKH_av.xls",
+   "name": "Makhachkala",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ______-28,0_____ metres; Altitude system _Baltic System_",
+   "datum_sign_inferred": false
+  },
+  "NEKA": {
+   "file": "AVERAGE/NEKA_av.xls",
+   "name": "Neka",
+   "datum_m": -26.86,
+   "altitude_system": "persian gulf",
+   "datum_text": "Post datum equals to ______-26,860____ metres  from the Persian Gulf",
+   "datum_sign_inferred": false
+  },
+  "NKAMNI": {
+   "file": "AVERAGE/NKAMNI_av.xls",
+   "name": "N.KAMNI",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ______28,0____ metres; Altitude system _Baltic system______",
+   "datum_sign_inferred": true
+  },
+  "NOUSHAR": {
+   "file": "AVERAGE/NOUSHAR_av.xls",
+   "name": "Noushahr",
+   "datum_m": -26.137,
+   "altitude_system": "persian gulf",
+   "datum_text": "Post datum equals to ______-26,137____ metres  from the Persian Gulf",
+   "datum_sign_inferred": false
+  },
+  "OGUR": {
+   "file": "AVERAGE/OGUR_av.xls",
+   "name": "Ogurchinsky (Ogrydzhali)",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ____-28,0____ metres; Altitude system ____Baltic system__________________",
+   "datum_sign_inferred": false
+  },
+  "PESH": {
+   "file": "AVERAGE/PESH_av.xls",
+   "name": "Peshnoy",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ____-28,0_____ metres; Altitude system __baltic system__________",
+   "datum_sign_inferred": false
+  },
+  "SUMG": {
+   "file": "AVERAGE/SUMG_av.xls",
+   "name": "Sumgait",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ______28,0____ metres; Altitude system _Baltic system______",
+   "datum_sign_inferred": true
+  },
+  "TUL": {
+   "file": "AVERAGE/TUL_av.xls",
+   "name": "isl.Tyuleniy",
+   "datum_m": -28.0,
+   "altitude_system": "baltic",
+   "datum_text": "Post datum equals to ______-28,0_____ metres; Altitude system _Baltic System_",
+   "datum_sign_inferred": false
+  }
+ },
+ "datum_sign_inferred_posts": [
+  "BAKU",
+  "JILOY (Chilov)",
+  "LEN",
+  "NKAMNI",
+  "SUMG"
+ ],
+ "non_baltic_posts": [
+  "AMIRABAD",
+  "ANZALI",
+  "ASHOR",
+  "F_KENAR",
+  "NEKA",
+  "NOUSHAR"
+ ],
+ "bulletin_qc": [
+  {
+   "bulletin": 12,
+   "year": 2015,
+   "quantity": "sea_mean",
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "posts_in_catalogue": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "bulletin_m": -27.98,
+   "catalogue_m": -27.923583095603835,
+   "catalogue_minus_bulletin_m": 0.056416904396165535,
+   "complete": true
+  },
+  {
+   "bulletin": 20,
+   "year": 2018,
+   "quantity": "sea_mean",
+   "posts": [
+    "BAKU",
+    "MAKH",
+    "FORT",
+    "KRASN"
+   ],
+   "posts_in_catalogue": [
+    "BAKU",
+    "MAKH",
+    "FORT",
+    "KRASN"
+   ],
+   "bulletin_m": -28.03,
+   "catalogue_m": -27.91916666666667,
+   "catalogue_minus_bulletin_m": 0.11083333333333201,
+   "complete": true
+  },
+  {
+   "bulletin": 20,
+   "year": 2019,
+   "quantity": "sea_mean",
+   "posts": [
+    "BAKU",
+    "MAKH",
+    "FORT",
+    "KRASN"
+   ],
+   "posts_in_catalogue": [
+    "BAKU",
+    "MAKH",
+    "FORT",
+    "KRASN"
+   ],
+   "bulletin_m": -28.2,
+   "catalogue_m": -28.12125,
+   "catalogue_minus_bulletin_m": 0.07874999999999943,
+   "complete": true
+  },
+  {
+   "bulletin": 25,
+   "year": 2021,
+   "quantity": "sea_mean",
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "posts_in_catalogue": [
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "bulletin_m": -28.43,
+   "catalogue_m": -28.483079032258065,
+   "catalogue_minus_bulletin_m": -0.053079032258064984,
+   "complete": false
+  },
+  {
+   "bulletin": 25,
+   "year": 2022,
+   "quantity": "sea_mean",
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "posts_in_catalogue": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "bulletin_m": -28.7,
+   "catalogue_m": -28.66113395878375,
+   "catalogue_minus_bulletin_m": 0.0388660412162487,
+   "complete": true
+  },
+  {
+   "bulletin": 27,
+   "year": 2023,
+   "quantity": "sea_mean",
+   "posts": [
+    "BAKU",
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "posts_in_catalogue": [
+    "NKAMNI",
+    "MAKH",
+    "FORT",
+    "KUULI",
+    "KRASN",
+    "KBG"
+   ],
+   "bulletin_m": -28.99,
+   "catalogue_m": -28.990887205210427,
+   "catalogue_minus_bulletin_m": -0.000887205210428732,
+   "complete": false
+  },
+  {
+   "bulletin": 29,
+   "year": 2024,
+   "quantity": "post",
+   "posts": [
+    "MAKH"
+   ],
+   "posts_in_catalogue": [
+    "MAKH"
+   ],
+   "bulletin_m": -28.86,
+   "catalogue_m": -28.85451325546904,
+   "catalogue_minus_bulletin_m": 0.005486744530958987,
+   "complete": true
+  },
+  {
+   "bulletin": 29,
+   "year": 2024,
+   "quantity": "post",
+   "posts": [
+    "NKAMNI"
+   ],
+   "posts_in_catalogue": [],
+   "bulletin_m": -28.86,
+   "catalogue_m": null,
+   "catalogue_minus_bulletin_m": null,
+   "complete": false
+  },
+  {
+   "bulletin": 29,
+   "year": 2024,
+   "quantity": "post",
+   "posts": [
+    "FORT"
+   ],
+   "posts_in_catalogue": [
+    "FORT"
+   ],
+   "bulletin_m": -29.38,
+   "catalogue_m": -29.383333333333336,
+   "catalogue_minus_bulletin_m": -0.003333333333337407,
+   "complete": true
+  },
+  {
+   "bulletin": 29,
+   "year": 2024,
+   "quantity": "post",
+   "posts": [
+    "KRASN"
+   ],
+   "posts_in_catalogue": [],
+   "bulletin_m": -29.19,
+   "catalogue_m": null,
+   "catalogue_minus_bulletin_m": null,
+   "complete": false
+  },
+  {
+   "bulletin": 29,
+   "year": 2024,
+   "quantity": "post",
+   "posts": [
+    "KUULI"
+   ],
+   "posts_in_catalogue": [],
+   "bulletin_m": -29.37,
+   "catalogue_m": null,
+   "catalogue_minus_bulletin_m": null,
+   "complete": false
+  },
+  {
+   "bulletin": 29,
+   "year": 2024,
+   "quantity": "post",
+   "posts": [
+    "KBG"
+   ],
+   "posts_in_catalogue": [],
+   "bulletin_m": -29.45,
+   "catalogue_m": null,
+   "catalogue_minus_bulletin_m": null,
+   "complete": false
+  }
+ ],
+ "bulletin_sea_mean_offset": {
+  "n_years": 4,
+  "years": [
+   {
+    "year": 2015,
+    "bulletin": 12,
+    "d": -0.6648303212342839
+   },
+   {
+    "year": 2018,
+    "bulletin": 20,
+    "d": -0.6241408205569421
+   },
+   {
+    "year": 2019,
+    "bulletin": 20,
+    "d": -0.6132368048853856
+   },
+   {
+    "year": 2021,
+    "bulletin": 25,
+    "d": -0.602067181345415
+   }
+  ],
+  "mean_m": -0.6260687820055066,
+  "sd_m": 0.027367318890658663
+ },
+ "bulletin_sea_mean_offset_no_gap_limit": {
+  "n_years": 6,
+  "years": [
+   {
+    "year": 2015,
+    "bulletin": 12,
+    "d": -0.6648303212342839
+   },
+   {
+    "year": 2018,
+    "bulletin": 20,
+    "d": -0.6241408205569421
+   },
+   {
+    "year": 2019,
+    "bulletin": 20,
+    "d": -0.6132368048853856
+   },
+   {
+    "year": 2021,
+    "bulletin": 25,
+    "d": -0.602067181345415
+   },
+   {
+    "year": 2022,
+    "bulletin": 25,
+    "d": -0.6316110026013178
+   },
+   {
+    "year": 2023,
+    "bulletin": 27,
+    "d": -0.6956325377921928
+   }
+  ],
+  "mean_m": -0.6385864447359229,
+  "sd_m": 0.035147095119445214
+ }
+}

@@ -30,6 +30,9 @@ HYDROWEB ?= data/raw/hydroweb/extracted/HYDROWEB_LAKES_OPE/hydroprd_L_caspian.tx
 # Directory holding the Hydroweb zip named in results/provenance/hydroweb_l_caspian.json.
 HYDROWEB_DIR ?= data/raw/hydroweb
 SCENES   ?= data/interim/inventory/scenes.csv
+# CASPCOM General Catalogue of the Caspian Sea level (monthly post levels, Baltic system);
+# its SHA-256 is in results/provenance/caspcom_catalogue.json, checked by the offset script.
+CASPCOM  ?= data/raw/gauges/caspcom/Sea-Level-EN.zip
 BATHY    ?= data/raw/bathymetry
 # 15-arc-second relief subsets (bathymetry-download) and ETOPO1 (ee-etopo1).
 GRIDS    := $(BATHY)/gebco_2022_ncaspian.nc $(BATHY)/gebco_2026_ncaspian.nc $(BATHY)/etopo_2022_ncaspian.nc \
@@ -55,7 +58,7 @@ ee_ok = $(if $(EE_OK),,$(error `make $@` uses Earth Engine and spends EECU: pilo
 need_step = $(if $(STEP),,$(error `make $@` needs STEP=$(1)))
 
 .PHONY: help env lock test verify-0 verify-A verify-B \
-        fetch dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs \
+        fetch dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download \
         ee-inputs ee-scene-inventory ee-etopo1 ee-zone ee-stage1 ee-era5-winds \
         check-inputs dahiti-qc study-area scene-levels qc-figures params metrics macros check-refs \
         check-quotes manuscript figures all
@@ -63,7 +66,7 @@ need_step = $(if $(STEP),,$(error `make $@` needs STEP=$(1)))
 help:
 	@echo Targets
 	@echo   all            rebuild results, QC figures, numbers.tex and manuscript/main.pdf from the raw inputs
-	@echo   fetch          acquire network inputs: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs
+	@echo   fetch          acquire network inputs: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download
 	@echo   ee-inputs      acquire Earth Engine inputs: ee-scene-inventory ee-etopo1, with EE_OK=1
 	@echo   ee-zone ee-stage1 ee-era5-winds   Earth Engine batch stages, with EE_OK=1 and STEP=...
 	@echo   check-inputs   check raw inputs against their acquisition records: checksums, inventory numbers
@@ -96,7 +99,11 @@ verify-B:
 	$(PYTHON) tools/verify.py B
 
 ## stage 1a: raw inputs over the network (credentials; never run by `make all`) ----
-fetch: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs
+fetch: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download
+
+# CASPCOM post levels (public HTTP). Writes $(CASPCOM), results/provenance/caspcom_catalogue.json.
+caspcom-download:
+	$(PYTHON) scripts/a7_dahiti_bhs_offset.py fetch
 
 # DAHITI target 39; needs DAHITI_API_KEY. Writes $(DAHITI), results/provenance/dahiti_39.json.
 dahiti-download:
@@ -170,6 +177,9 @@ $(SCENES) $(INV_META) $(INV_REC):
 
 $(GRIDS):
 	$(call need,$@,bathymetry-download,network access)
+
+$(CASPCOM):
+	$(call need,$@,caspcom-download,network access)
 
 $(ETOPO1):
 	$(call need,$@,ee-etopo1 EE_OK=1,Earth Engine)
@@ -302,7 +312,13 @@ METRIC_INPUTS := $(INV_META) results/study_area/sector_areas.json results/study_
                  results/params.json refs/literature_values.csv results/levels/setup_model.json \
                  results/qc/threshold_rule_summary.json results/provenance/geoid_difference.json \
                  results/study_area/blocks_25km.csv results/study_area/zone_v6_cover_buffered.geojson \
-                 results/levels/screening_sensitivity.json
+                 results/levels/screening_sensitivity.json results/levels/dahiti_bhs_offset.json
+
+# DAHITI -> BHS-77 offset from the CASPCOM post levels (PREREG section 5; D-093). The script
+# stops if $(CASPCOM) differs from its acquisition record. Also writes the annual differences.
+results/levels/dahiti_bhs_offset.json: scripts/a7_dahiti_bhs_offset.py $(DAHITI) $(CASPCOM) \
+        results/provenance/caspcom_catalogue.json refs/caspcom_bulletin_levels.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/a7_dahiti_bhs_offset.py
 
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
@@ -345,7 +361,8 @@ RESULTS_ALL := results/qc/dahiti_summary.json results/study_area/sector_areas.js
                results/study_area/sector_edges.json \
                results/qc/level_crosscheck.json results/qc/level_crosscheck_pairs.csv \
                results/qc/level_crosscheck_w20d.json results/qc/level_crosscheck_pairs_w20d.csv \
-               results/levels/scene_levels_summary.json results/params.json results/metrics.json
+               results/levels/scene_levels_summary.json results/levels/dahiti_bhs_offset.json \
+               results/params.json results/metrics.json
 
 all: $(VERIFIED) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex \
      manuscript/sections/ed_tables_h3_draft.tex manuscript/numbers.tex manuscript/main.pdf

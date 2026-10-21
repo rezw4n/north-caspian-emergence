@@ -20,6 +20,114 @@
   "source": "results/study_area/blocks_25km.csv",
   "note": "25 km blocks whose centre lies in a sector"
  },
+ "datum.bhs.between_post_sd_m": {
+  "value": 0.14444289219520934,
+  "unit": "m",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "SD of the per-post offsets",
+  "decimals": 2
+ },
+ "datum.bhs.bulletin_delta_m": {
+  "value": -0.6260687820055066,
+  "unit": "m",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "CASPCOM bulletin 'mean level of the Caspian Sea' minus DAHITI, mean over the years with both",
+  "decimals": 2
+ },
+ "datum.bhs.bulletin_n_years": {
+  "value": 4,
+  "unit": "years",
+  "source": "results/levels/dahiti_bhs_offset.json"
+ },
+ "datum.bhs.delta_m": {
+  "value": -0.5729790453468183,
+  "unit": "m",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "delta = H_BHS-77 - H_DAHITI; mean over the CASPCOM century posts of the per-post mean annual difference",
+  "decimals": 2
+ },
+ "datum.bhs.drift_m_per_decade": {
+  "value": 0.013443425744472569,
+  "unit": "m per decade",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "OLS trend of the year-mean difference after removing post effects",
+  "decimals": 3
+ },
+ "datum.bhs.first_year": {
+  "value": "1993",
+  "unit": "year",
+  "source": "results/levels/dahiti_bhs_offset.json"
+ },
+ "datum.bhs.last_year": {
+  "value": "2021",
+  "unit": "year",
+  "source": "results/levels/dahiti_bhs_offset.json"
+ },
+ "datum.bhs.n_post_years": {
+  "value": 169,
+  "unit": "post-years",
+  "source": "results/levels/dahiti_bhs_offset.json"
+ },
+ "datum.bhs.n_posts": {
+  "value": 7,
+  "unit": "posts",
+  "source": "results/levels/dahiti_bhs_offset.json"
+ },
+ "datum.bhs.n_years": {
+  "value": 26,
+  "unit": "years",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "calendar years with a difference at any post"
+ },
+ "datum.bhs.north_delta_m": {
+  "value": -0.5337907672213811,
+  "unit": "m",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "Peshnoy, Tyuleniy, Lagan and Kulaly posts",
+  "decimals": 2
+ },
+ "datum.bhs.post_max_m": {
+  "value": -0.3747265003607502,
+  "unit": "m",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "least negative per-post offset",
+  "decimals": 2
+ },
+ "datum.bhs.post_min_m": {
+  "value": -0.7482732416729195,
+  "unit": "m",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "most negative per-post offset",
+  "decimals": 2
+ },
+ "datum.bhs.sens_max_m": {
+  "value": -0.5337907672213811,
+  "unit": "m",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "range over the D-093 sensitivities",
+  "decimals": 2
+ },
+ "datum.bhs.sens_min_m": {
+  "value": -0.5802381301898158,
+  "unit": "m",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "range over the D-093 sensitivities",
+  "decimals": 2
+ },
+ "datum.bhs.sigma_posts_years_m": {
+  "value": 0.051758712908213815,
+  "unit": "m",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "bootstrap over posts and year blocks",
+  "decimals": 2
+ },
+ "datum.bhs.sigma_years_m": {
+  "value": 0.008017351671861914,
+  "unit": "m",
+  "source": "results/levels/dahiti_bhs_offset.json",
+  "note": "moving-block bootstrap over years (3-year blocks)",
+  "decimals": 3
+ },
  "datum.dN_max_m": {
   "value": 0.16342949202300083,
   "unit": "m",
