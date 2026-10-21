@@ -22,4 +22,9 @@ Rules for any public release of this repository or its data (Zenodo, ESSD, a pub
 
 1. Check the files against this list. `results/levels/dahiti_bhs_offset.json` must hold only δ, σ and method fields, not per-gauge values.
 2. Re-read each source's terms, which change without notice.
-3. The PI approves the release.
+3. **Rewrite the git history** to drop `results/levels/dahiti_bhs_annual_diffs.csv`, which was committed in 4e95e9a. Approved by the PI on 2026-10-21 (D-109).
+   - Do it only when no agent is working and the working tree is clean; a rewrite on a dirty tree destroys uncommitted work.
+   - Keep a backup branch.
+   - Verify that the PREREG commit c2b94d8 and the first metric commit 812662e keep their hashes; they predate 4e95e9a.
+   - Then force-push, and rerun the history audit (no secrets, no restricted files).
+4. The PI approves the release and makes the repository public.
