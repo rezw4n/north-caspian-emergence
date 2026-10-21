@@ -1,0 +1,73 @@
+{
+ "grid_250m": {
+  "transform": [
+   250.0,
+   0.0,
+   -56750.0,
+   0.0,
+   -250.0,
+   67000.0
+  ],
+  "shape": [
+   553,
+   458
+  ]
+ },
+ "windows": {
+  "north": {
+   "max_date": "1987-03-15",
+   "max_m": 1284.473,
+   "high_year": 1987,
+   "low_date": "2022-10-16",
+   "low_m": 1277.615,
+   "low_year": 2022
+  },
+  "south": {
+   "max_date": "1986-06-01",
+   "max_m": 1284.642,
+   "high_year": 1986,
+   "low_date": "2022-10-27",
+   "low_m": 1277.662,
+   "low_year": 2022
+  }
+ },
+ "areas_km2": {
+  "north_arm": 3594.2,
+  "south_arm": 7724.3,
+  "bear_river_bay_excluded": 3629.5,
+  "farmington_bay_excluded": 881.6,
+  "salt_ponds_buffered": 276.9,
+  "high": 6767.5,
+  "low": 3195.6,
+  "open_water_seed": {
+   "north": 753.4,
+   "south": 932.9
+  },
+  "zone": 4531.5,
+  "cover": 8966.1,
+  "cover_by_arm": {
+   "north": 3360.0,
+   "south": 5606.1
+  }
+ },
+ "n_cover_tiles": 424,
+ "n_zone_polygons": 2,
+ "railway_vertices": 26,
+ "promontory_medial_rows": 120,
+ "promontory_north_extension_high_water_cells": 0,
+ "antelope_island_tip_lonlat": [
+  -112.1813,
+  40.8518
+ ],
+ "causeway_ends_lonlat": [
+  [
+   -112.2302,
+   41.0668
+  ],
+  [
+   -112.1215,
+   41.0893
+  ]
+ ],
+ "rules": "Amendment 16 items 4 and 6"
+}

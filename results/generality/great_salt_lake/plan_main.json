@@ -1,0 +1,28 @@
+{
+ "tag": "main",
+ "placeholder_threshold": null,
+ "arms": {
+  "north": {
+   "n_rows": 2888,
+   "n_acquisitions": 1551,
+   "n_groups": 183,
+   "n_bins_by_epoch": {
+    "E1": 14,
+    "E2": 54,
+    "E3": 30
+   },
+   "parity0_share_median": 0.523
+  },
+  "south": {
+   "n_rows": 2892,
+   "n_acquisitions": 1554,
+   "n_groups": 186,
+   "n_bins_by_epoch": {
+    "E1": 14,
+    "E2": 55,
+    "E3": 32
+   },
+   "parity0_share_median": 0.522
+  }
+ }
+}

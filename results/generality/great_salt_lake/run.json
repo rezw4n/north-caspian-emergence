@@ -1,0 +1,105 @@
+{
+ "basin": "great_salt_lake",
+ "prereg": "docs/PREREG.md Amendment 16 and addendum (536ce4c, ee7ec0f, 8ee8a33)",
+ "decision": "D-094",
+ "state": "stopped at the cost gate before stage 2 (docs/gates/STOP-2026-10-21-generality.md)",
+ "code_head_at_record": "c7c960f",
+ "steps": [
+  {
+   "step": "levels",
+   "cmd": "scripts/g1_data.py levels great_salt_lake",
+   "out": "results/provenance/generality_great_salt_lake_levels.json"
+  },
+  {
+   "step": "products",
+   "cmd": "scripts/g1_data.py products great_salt_lake",
+   "out": "results/provenance/generality_great_salt_lake_products.json"
+  },
+  {
+   "step": "osm",
+   "cmd": "scripts/g1_data.py osm great_salt_lake",
+   "out": "results/provenance/generality_great_salt_lake_osm.json"
+  },
+  {
+   "step": "vdatum",
+   "cmd": "scripts/g1_data.py vdatum great_salt_lake",
+   "out": "results/provenance/generality_great_salt_lake_vdatum.json"
+  },
+  {
+   "step": "extents",
+   "cmd": "scripts/g1_ee.py extents great_salt_lake",
+   "out": "results/generality/great_salt_lake/extents.json"
+  },
+  {
+   "step": "static",
+   "cmd": "scripts/g1_static.py great_salt_lake",
+   "out": "results/generality/great_salt_lake/static.json"
+  },
+  {
+   "step": "scenes",
+   "cmd": "scripts/g1_ee.py scenes great_salt_lake",
+   "out": "results/generality/great_salt_lake/scene_inventory.json"
+  },
+  {
+   "step": "scene levels",
+   "cmd": "scripts/g1_plan.py levels great_salt_lake",
+   "out": "results/generality/great_salt_lake/scene_levels.json"
+  },
+  {
+   "step": "stage 1",
+   "cmd": "scripts/g1_ee.py stage1 great_salt_lake --budget 5000 (after an 80-scene pilot)",
+   "out": "data/interim/generality/great_salt_lake/stage1.csv"
+  },
+  {
+   "step": "thresholds",
+   "cmd": "scripts/g1_plan.py thresholds great_salt_lake",
+   "out": "results/generality/great_salt_lake/threshold_rule_summary.json"
+  },
+  {
+   "step": "plan",
+   "cmd": "scripts/g1_plan.py plan great_salt_lake main",
+   "out": "results/generality/great_salt_lake/plan_main.json"
+  },
+  {
+   "step": "3DEP",
+   "cmd": "scripts/g1_ee.py dep3 great_salt_lake",
+   "out": "results/provenance/generality_great_salt_lake_dep3.json"
+  },
+  {
+   "step": "stage-2 pilots",
+   "cmd": "scripts/g1_ee.py pilot great_salt_lake --box=-112.40,40.60,-112.10,40.90 ...",
+   "out": "results/inventory/generality_great_salt_lake_pilot.json"
+  },
+  {
+   "step": "lineage (descriptive)",
+   "cmd": "scripts/g1_lineage.py great_salt_lake",
+   "out": "results/generality/great_salt_lake/lineage.json"
+  },
+  {
+   "step": "stage 2",
+   "cmd": "scripts/g1_ee.py stage2 great_salt_lake --tag main --budget <EECU-s>",
+   "out": "not run (STOP)"
+  },
+  {
+   "step": "hindcast",
+   "cmd": "scripts/g1_hindcast.py great_salt_lake",
+   "out": "not run"
+  },
+  {
+   "step": "decision",
+   "cmd": "scripts/g1_decide.py great_salt_lake",
+   "out": "not run"
+  }
+ ],
+ "eecu_s_by_step": {
+  "dep3": 525.4,
+  "extents": 494.2,
+  "scenes": 0.2,
+  "stage1": 4464.1,
+  "stage1_pilot": 109.9,
+  "stage2_pilot": 7436.3,
+  "stage2_pilot_block": 5068.2
+ },
+ "eecu_h_total": 5.03,
+ "ledger": "results/inventory/generality_ee_ledger.jsonl"
+}

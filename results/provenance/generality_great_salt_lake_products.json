@@ -1,0 +1,192 @@
+{
+ "gebco_2026": {
+  "product": "GEBCO_2026",
+  "doi": "10.5285/4f68d5c7-45eb-f999-e063-7086abc036fa",
+  "urls": [
+   "https://dap.ceda.ac.uk/bodc/gebco/global/gebco_2026/ice_surface_elevation/netcdf/GEBCO_2026.nc",
+   "https://dap.ceda.ac.uk/bodc/gebco/global/gebco_2026/type_identifier_grid/netcdf/gebco_2026_tid.nc"
+  ],
+  "window_index": [
+   31334,
+   31632,
+   16039,
+   16363
+  ],
+  "shape": [
+   298,
+   324
+  ],
+  "elevation_range_m": [
+   1252,
+   2856
+  ],
+  "tid_values_present": [
+   0
+  ],
+  "file": "gebco_2026.nc",
+  "subset_sha256": "17392ee6b713ee84effb572135c0d365eedd9cbd9ddd18a8e091b5b67138cd48",
+  "retrieved_utc": "2026-10-21T03:14:12+00:00",
+  "seconds": 43.4,
+  "box_wsen": [
+   -113.17,
+   40.56,
+   -111.82,
+   41.8
+  ]
+ },
+ "gebco_2022": {
+  "product": "GEBCO_2022",
+  "doi": "10.5285/e0f0bb80-ab44-2739-e053-6c86abc0289c",
+  "urls": [
+   "https://dap.ceda.ac.uk/bodc/gebco/global/gebco_2022/ice_surface_elevation/netcdf/GEBCO_2022_CF.nc",
+   "https://dap.ceda.ac.uk/bodc/gebco/global/gebco_2022/type_identifier_grid/netcdf/GEBCO_2022_TID.nc"
+  ],
+  "window_index": [
+   31334,
+   31632,
+   16039,
+   16363
+  ],
+  "shape": [
+   298,
+   324
+  ],
+  "elevation_range_m": [
+   1252,
+   2856
+  ],
+  "tid_values_present": [
+   0
+  ],
+  "file": "gebco_2022.nc",
+  "subset_sha256": "bbda292ae09383a834e6a4ead7ad95b663200c313a9157f425bebe47643d01c1",
+  "retrieved_utc": "2026-10-21T03:14:53+00:00",
+  "seconds": 40.4,
+  "box_wsen": [
+   -113.17,
+   40.56,
+   -111.82,
+   41.8
+  ]
+ },
+ "etopo_2022": {
+  "product": "ETOPO 2022 v1 15 arc-second",
+  "doi": "10.25921/fd45-gt74",
+  "urls": {
+   "elevation": [
+    "https://www.ngdc.noaa.gov/thredds/dodsC/global/ETOPO2022/15s/15s_surface_elev_netcdf/ETOPO_2022_v1_15s_N45W120_surface.nc"
+   ],
+   "source_id": [
+    "https://www.ngdc.noaa.gov/thredds/dodsC/global/ETOPO2022/15s/15s_surface_sid_netcdf/ETOPO_2022_v1_15s_N45W120_surface_sid.nc"
+   ]
+  },
+  "attrs": {
+   "elevation": {
+    "long_name": "z",
+    "grid_mapping": "crs",
+    "units": "meters",
+    "positive": "up",
+    "standard_name": "height",
+    "vert_crs_name": "EGM2008",
+    "vert_crs_epsg": "EPSG:3855",
+    "_ChunkSizes": "[1800 1800]"
+   },
+   "source_id": {
+    "long_name": "z",
+    "valid_range": "[  0 255]",
+    "grid_mapping": "crs",
+    "units": "meters",
+    "positive": "up",
+    "standard_name": "height",
+    "vert_crs_name": "EGM2008",
+    "vert_crs_epsg": "EPSG:3855",
+    "_ChunkSizes": "[3600 3600]"
+   }
+  },
+  "shape": [
+   298,
+   324
+  ],
+  "elevation_range_m": [
+   1276.0,
+   2881.887451171875
+  ],
+  "source_ids_present": [
+   10
+  ],
+  "file": "etopo_2022.nc",
+  "subset_sha256": "d86b5c3104cb65f3d20824c9060696cbaf1a1c662d0324e692bb6bf0bc235ed8",
+  "retrieved_utc": "2026-10-21T03:15:04+00:00",
+  "seconds": 11.6,
+  "box_wsen": [
+   -113.17,
+   40.56,
+   -111.82,
+   41.8
+  ]
+ },
+ "etopo1": {
+  "product": "ETOPO1 (bedrock, ice_surface), 1 arc-minute",
+  "doi": "10.7289/V5C8276M",
+  "source": "Earth Engine catalogue NOAA/NGDC/ETOPO1",
+  "native_affine": {
+   "scaleX": 0.016666666666666666,
+   "translateX": -180.00833333333333,
+   "scaleY": -0.016666666666666663,
+   "translateY": 90.00833333333334
+  },
+  "subset_transform": [
+   0.016666666666666666,
+   0,
+   -113.175,
+   0,
+   -0.016666666666666663,
+   41.80833333333335
+  ],
+  "subset_dims": [
+   82,
+   75
+  ],
+  "bedrock_range_m": [
+   1278,
+   2734
+  ],
+  "file": "etopo1.tif",
+  "subset_sha256": "3d341ed63db5ee360b24463b7b9764b9bf19fe9d46f41d8b1b52bea214c849ee",
+  "retrieved_utc": "2026-10-21T03:15:09+00:00",
+  "seconds": 4.4,
+  "box_wsen": [
+   -113.17,
+   40.56,
+   -111.82,
+   41.8
+  ]
+ },
+ "srtm15p_v2.7": {
+  "product": "SRTM15+ V2.7",
+  "citation_doi": "10.1029/2019ea000658",
+  "urls": [
+   "https://topex.ucsd.edu/pub/srtm15_plus/SRTM15_V2.7.nc",
+   "https://topex.ucsd.edu/pub/srtm15_plus/SID_V2.7.nc"
+  ],
+  "shape": [
+   298,
+   324
+  ],
+  "elevation_range_m": [
+   1252.0,
+   2856.0
+  ],
+  "n_source_ids": 1,
+  "file": "srtm15p_v2.7.nc",
+  "subset_sha256": "43a5658cf7bf350a368c88bf40f28372a92b7d43a9464dba1eed8bcb286045a8",
+  "retrieved_utc": "2026-10-21T03:15:50+00:00",
+  "seconds": 41.1,
+  "box_wsen": [
+   -113.17,
+   40.56,
+   -111.82,
+   41.8
+  ]
+ }
+}

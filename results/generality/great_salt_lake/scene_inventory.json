@@ -1,0 +1,122 @@
+{
+ "n_scenes": 2952,
+ "n_acquisitions": 1586,
+ "eecu_s": 0.2,
+ "by_path_row": [
+  {
+   "sensor": "ETM_L7",
+   "path": 37,
+   "row": 31,
+   "n": 11
+  },
+  {
+   "sensor": "ETM_L7",
+   "path": 37,
+   "row": 32,
+   "n": 10
+  },
+  {
+   "sensor": "ETM_L7",
+   "path": 38,
+   "row": 31,
+   "n": 250
+  },
+  {
+   "sensor": "ETM_L7",
+   "path": 38,
+   "row": 32,
+   "n": 264
+  },
+  {
+   "sensor": "ETM_L7",
+   "path": 39,
+   "row": 31,
+   "n": 263
+  },
+  {
+   "sensor": "ETM_L7",
+   "path": 39,
+   "row": 32,
+   "n": 264
+  },
+  {
+   "sensor": "ETM_L7",
+   "path": 40,
+   "row": 31,
+   "n": 1
+  },
+  {
+   "sensor": "OLI_L8",
+   "path": 38,
+   "row": 31,
+   "n": 138
+  },
+  {
+   "sensor": "OLI_L8",
+   "path": 38,
+   "row": 32,
+   "n": 149
+  },
+  {
+   "sensor": "OLI_L8",
+   "path": 39,
+   "row": 31,
+   "n": 154
+  },
+  {
+   "sensor": "OLI_L8",
+   "path": 39,
+   "row": 32,
+   "n": 156
+  },
+  {
+   "sensor": "OLI_L9",
+   "path": 38,
+   "row": 31,
+   "n": 52
+  },
+  {
+   "sensor": "OLI_L9",
+   "path": 38,
+   "row": 32,
+   "n": 53
+  },
+  {
+   "sensor": "OLI_L9",
+   "path": 39,
+   "row": 31,
+   "n": 59
+  },
+  {
+   "sensor": "OLI_L9",
+   "path": 39,
+   "row": 32,
+   "n": 60
+  },
+  {
+   "sensor": "TM_L5",
+   "path": 38,
+   "row": 31,
+   "n": 268
+  },
+  {
+   "sensor": "TM_L5",
+   "path": 38,
+   "row": 32,
+   "n": 266
+  },
+  {
+   "sensor": "TM_L5",
+   "path": 39,
+   "row": 31,
+   "n": 259
+  },
+  {
+   "sensor": "TM_L5",
+   "path": 39,
+   "row": 32,
+   "n": 275
+  }
+ ],
+ "rule": "cloud < 60%, April-October, 1984-2026"
+}

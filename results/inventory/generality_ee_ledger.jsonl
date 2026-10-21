@@ -1,0 +1,124 @@
+{"time": "2026-10-21T09:16:37", "basin": "great_salt_lake", "step": "extents", "eecu_s": 494.177, "dims": [458, 553]}
+{"time": "2026-10-21T09:19:59", "basin": "great_salt_lake", "step": "scenes", "eecu_s": 0.203, "n": 2952}
+{"time": "2026-10-21T09:21:59", "basin": "great_salt_lake", "step": "stage1_pilot", "eecu_s": 55.291, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:22:01", "basin": "great_salt_lake", "step": "stage1_pilot", "eecu_s": 54.634, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:22:16", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 6.715, "key": "south_1_m14", "n_groups": 16, "seconds": 3.6}
+{"time": "2026-10-21T09:22:19", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 6.39, "key": "south_1_m14", "n_groups": 16, "seconds": 5.9}
+{"time": "2026-10-21T09:22:21", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 17.478, "key": "south_1_m14", "n_groups": 16, "seconds": 5.3}
+{"time": "2026-10-21T09:22:31", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 116.387, "key": "south_1_m14", "n_groups": 16, "seconds": 16.6}
+{"time": "2026-10-21T09:22:34", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 114.267, "key": "south_1_m14", "n_groups": 16, "seconds": 19.5}
+{"time": "2026-10-21T09:22:34", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 13.46, "key": "south_1_m14", "n_groups": 10, "seconds": 2.6}
+{"time": "2026-10-21T09:22:37", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 102.419, "key": "south_1_m14", "n_groups": 16, "seconds": 15.5}
+{"time": "2026-10-21T09:22:37", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 261.152, "key": "south_1_m14", "n_groups": 16, "seconds": 21.0}
+{"time": "2026-10-21T09:22:38", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 7.975, "key": "south_1_m13", "n_groups": 16, "seconds": 3.9}
+{"time": "2026-10-21T09:22:42", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 330.819, "key": "south_1_m14", "n_groups": 16, "seconds": 26.4}
+{"time": "2026-10-21T09:22:44", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 235.159, "key": "south_1_m14", "n_groups": 16, "seconds": 28.8}
+{"time": "2026-10-21T09:22:45", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 159.605, "key": "south_1_m14", "n_groups": 16, "seconds": 30.0}
+{"time": "2026-10-21T09:22:48", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 19.131, "key": "south_1_m13", "n_groups": 16, "seconds": 6.1}
+{"time": "2026-10-21T09:22:49", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 6.818, "key": "south_1_m13", "n_groups": 16, "seconds": 4.8}
+{"time": "2026-10-21T09:22:54", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 129.848, "key": "south_1_m13", "n_groups": 16, "seconds": 16.0}
+{"time": "2026-10-21T09:22:55", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 132.306, "key": "south_1_m13", "n_groups": 16, "seconds": 17.1}
+{"time": "2026-10-21T09:22:58", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 217.508, "key": "south_1_m13", "n_groups": 16, "seconds": 23.7}
+{"time": "2026-10-21T09:23:00", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 18.199, "key": "south_1_m13", "n_groups": 10, "seconds": 4.7}
+{"time": "2026-10-21T09:23:02", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 110.933, "key": "south_1_m13", "n_groups": 16, "seconds": 16.4}
+{"time": "2026-10-21T09:23:04", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 9.952, "key": "south_1_m12", "n_groups": 16, "seconds": 5.7}
+{"time": "2026-10-21T09:23:10", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 268.853, "key": "south_1_m13", "n_groups": 16, "seconds": 21.0}
+{"time": "2026-10-21T09:23:10", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 103.869, "key": "south_1_m13", "n_groups": 16, "seconds": 15.3}
+{"time": "2026-10-21T09:23:13", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 403.43, "key": "south_1_m13", "n_groups": 16, "seconds": 35.3}
+{"time": "2026-10-21T09:23:15", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 17.957, "key": "south_1_m12", "n_groups": 16, "seconds": 4.5}
+{"time": "2026-10-21T09:23:17", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 713.452, "key": "south_1_m14", "n_groups": 16, "seconds": 56.9}
+{"time": "2026-10-21T09:23:18", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 6.108, "key": "south_1_m12", "n_groups": 16, "seconds": 4.6}
+{"time": "2026-10-21T09:23:19", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 145.095, "key": "south_1_m12", "n_groups": 16, "seconds": 13.8}
+{"time": "2026-10-21T09:23:24", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 270.254, "key": "south_1_m12", "n_groups": 16, "seconds": 23.7}
+{"time": "2026-10-21T09:23:26", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 108.072, "key": "south_1_m12", "n_groups": 16, "seconds": 16.3}
+{"time": "2026-10-21T09:23:28", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 104.735, "key": "south_1_m12", "n_groups": 16, "seconds": 12.6}
+{"time": "2026-10-21T09:23:29", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 7.685, "key": "south_1_m11", "n_groups": 16, "seconds": 2.5}
+{"time": "2026-10-21T09:23:30", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 94.589, "key": "south_1_m12", "n_groups": 16, "seconds": 11.1}
+{"time": "2026-10-21T09:23:31", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 17.524, "key": "south_1_m12", "n_groups": 10, "seconds": 6.5}
+{"time": "2026-10-21T09:23:41", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 729.42, "key": "south_1_m13", "n_groups": 16, "seconds": 51.3}
+{"time": "2026-10-21T09:23:45", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 122.503, "key": "south_1_m11", "n_groups": 16, "seconds": 14.2}
+{"time": "2026-10-21T09:23:51", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 147.807, "key": "south_1_m11", "n_groups": 16, "seconds": 20.3}
+{"time": "2026-10-21T09:23:53", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 282.517, "key": "south_1_m12", "n_groups": 16, "seconds": 35.0}
+{"time": "2026-10-21T09:24:00", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 306.377, "key": "south_1_m11", "n_groups": 16, "seconds": 30.8}
+{"time": "2026-10-21T09:24:01", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 283.578, "key": "south_1_m11", "n_groups": 16, "seconds": 33.2}
+{"time": "2026-10-21T09:24:10", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 417.136, "key": "south_1_m12", "n_groups": 16, "seconds": 68.2}
+{"time": "2026-10-21T09:25:34", "basin": "great_salt_lake", "step": "stage2_pilot", "eecu_s": 868.785, "key": "south_1_m12", "n_groups": 16, "seconds": 135.8}
+{"time": "2026-10-21T09:26:29", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 53.339, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:26:32", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 68.489, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:26:38", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 75.964, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:26:38", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 71.614, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:26:43", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 65.669, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:26:46", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 63.224, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:26:48", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 50.566, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:26:51", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 67.195, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:26:53", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 47.783, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:26:57", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 55.096, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:00", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 68.912, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:01", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 70.276, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:02", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 67.102, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:08", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 67.892, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:11", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 51.703, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:12", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 49.058, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:15", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 70.561, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:17", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 69.403, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:20", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 56.063, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:21", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 63.382, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:27", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 68.045, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:30", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 70.459, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:31", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 61.797, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:32", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 48.97, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:39", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 56.659, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:40", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 60.617, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:41", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 37.417, "n": 23, "rows": 23}
+{"time": "2026-10-21T09:27:44", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 65.44, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:49", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 72.404, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:53", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 75.409, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:53", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 80.42, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:27:54", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 58.445, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:00", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 63.917, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:01", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 69.253, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:03", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 67.143, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:07", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 62.93, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:10", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 67.883, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:12", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 56.469, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:13", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 65.543, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:20", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 57.096, "n": 37, "rows": 37}
+{"time": "2026-10-21T09:28:20", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 56.456, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:21", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 79.835, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:29", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 61.038, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:30", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 85.734, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:31", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 72.852, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:37", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 46.008, "n": 24, "rows": 24}
+{"time": "2026-10-21T09:28:38", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 81.148, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:39", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 58.215, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:42", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 67.979, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:46", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 64.567, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:47", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 65.208, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:50", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 63.285, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:51", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 63.431, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:28:58", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 65.363, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:00", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 68.842, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:02", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 68.041, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:03", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 69.568, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:05", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 48.907, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:07", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 49.387, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:10", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 53.941, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:13", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 66.824, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:14", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 68.73, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:16", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 53.233, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:19", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 61.088, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:21", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 51.626, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:23", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 47.032, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:27", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 71.624, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:29", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 66.592, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:31", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 51.661, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:33", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 49.066, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:29:34", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 17.296, "n": 13, "rows": 13}
+{"time": "2026-10-21T09:29:36", "basin": "great_salt_lake", "step": "stage1", "eecu_s": 49.962, "n": 40, "rows": 40}
+{"time": "2026-10-21T09:31:51", "basin": "great_salt_lake", "step": "stage2_pilot_block", "eecu_s": 107.1, "key": "south_02_03", "n_groups": 16, "seconds": 8.8}
+{"time": "2026-10-21T09:32:09", "basin": "great_salt_lake", "step": "dep3", "eecu_s": 525.439}
+{"time": "2026-10-21T09:32:12", "basin": "great_salt_lake", "step": "stage2_pilot_block", "eecu_s": 760.088, "key": "south_02_03", "n_groups": 16, "seconds": 20.1}
+{"time": "2026-10-21T09:32:16", "basin": "great_salt_lake", "step": "stage2_pilot_block", "eecu_s": 1033.255, "key": "south_02_03", "n_groups": 16, "seconds": 32.1}
+{"time": "2026-10-21T09:32:22", "basin": "great_salt_lake", "step": "stage2_pilot_block", "eecu_s": 159.295, "key": "south_02_03", "n_groups": 16, "seconds": 10.0}
+{"time": "2026-10-21T09:32:27", "basin": "great_salt_lake", "step": "stage2_pilot_block", "eecu_s": 910.651, "key": "south_02_03", "n_groups": 16, "seconds": 43.2}
+{"time": "2026-10-21T09:32:43", "basin": "great_salt_lake", "step": "stage2_pilot_block", "eecu_s": 2097.832, "key": "south_02_03", "n_groups": 16, "seconds": 59.0}

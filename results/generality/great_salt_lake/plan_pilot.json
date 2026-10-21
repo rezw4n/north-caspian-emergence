@@ -1,0 +1,28 @@
+{
+ "tag": "pilot",
+ "placeholder_threshold": 0.2,
+ "arms": {
+  "north": {
+   "n_rows": 2893,
+   "n_acquisitions": 1553,
+   "n_groups": 183,
+   "n_bins_by_epoch": {
+    "E1": 14,
+    "E2": 54,
+    "E3": 30
+   },
+   "parity0_share_median": 0.523
+  },
+  "south": {
+   "n_rows": 2897,
+   "n_acquisitions": 1556,
+   "n_groups": 186,
+   "n_bins_by_epoch": {
+    "E1": 14,
+    "E2": 55,
+    "E3": 32
+   },
+   "parity0_share_median": 0.521
+  }
+ }
+}

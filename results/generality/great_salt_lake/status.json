@@ -1,0 +1,30 @@
+{
+ "basin": "great_salt_lake",
+ "state": "stopped before stage 2 (docs/gates/STOP-2026-10-21-generality.md)",
+ "verdict": "not run: Earth Engine budget (stage-2 pilot projects 36-58 EECU-h against the 30 EECU-h cap)",
+ "positive_control": "not run: USGS DEM not retrievable by script (ScienceBase browser challenge); 3DEP substitute fetched, hindcast not run",
+ "eecu_h_spent": 5.03,
+ "eecu_h_cap": 30.0,
+ "eecu_h_projected_stage2_area_scaled": 31.1,
+ "eecu_h_projected_stage2_request_scaled": 53.5,
+ "eecu_h_projected_total_low": 36.2,
+ "eecu_h_projected_total_high": 58.5,
+ "n_scenes": 2952,
+ "n_acquisitions": 1586,
+ "arms": {
+  "north": {
+   "ngvd29_to_navd88_m": 0.93,
+   "e1_end": "1987-03-15",
+   "n_scenes_with_level": 2893,
+   "n_groups_planned": 183,
+   "n_bins_planned": 98
+  },
+  "south": {
+   "ngvd29_to_navd88_m": 0.977,
+   "e1_end": "1986-06-01",
+   "n_scenes_with_level": 2897,
+   "n_groups_planned": 186,
+   "n_bins_planned": 101
+  }
+ }
+}

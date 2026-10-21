@@ -1,0 +1,45 @@
+{
+ "windows": {
+  "north": {
+   "max_date": "1987-03-15",
+   "max_m": 1284.473,
+   "high_year": 1987,
+   "low_date": "2022-10-16",
+   "low_m": 1277.615,
+   "low_year": 2022
+  },
+  "south": {
+   "max_date": "1986-06-01",
+   "max_m": 1284.642,
+   "high_year": 1986,
+   "low_date": "2022-10-27",
+   "low_m": 1277.662,
+   "low_year": 2022
+  }
+ },
+ "transform": [
+  250.0,
+  0.0,
+  -56750.0,
+  0.0,
+  -250.0,
+  67000.0
+ ],
+ "shape": [
+  553,
+  458
+ ],
+ "eecu_s": 494.18,
+ "rules": "zone v6 (D-029): high = water (zone_water) in >= 10% of clear TM April-October observations of the year of the arm's record maximum, GSW max_extent where < 3 observations; low = water in >= 90% of clear OLI April-October observations of the year of the arm's lowest April-October level",
+ "counts": {
+  "high_1986": 108199,
+  "filled_1986": 12,
+  "nhigh_1986": 253273,
+  "high_1987": 106681,
+  "filled_1987": 46,
+  "nhigh_1987": 253273,
+  "low_2022": 51129,
+  "nlow_2022": 253274,
+  "gsw_max": 112181
+ }
+}

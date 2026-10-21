@@ -1,0 +1,63 @@
+{
+ "source": "USGS NWIS daily values, parameter 62614 (lake water-surface elevation above NGVD 1929, ft), statistic 00003 (mean)",
+ "retrieved_utc": "2026-10-21T03:10:38+00:00",
+ "gauges": {
+  "south": {
+   "site": "10010000",
+   "station": "GREAT SALT LAKE AT SALTAIR BOAT HARBOR, UT",
+   "lat": 40.73133329,
+   "lon": -112.2135569,
+   "coord_datum": "NAD83",
+   "url": "https://waterservices.usgs.gov/nwis/dv/?format=rdb&sites=10010000&parameterCd=62614&statCd=00003&startDT=1983-01-01&endDT=2026-12-31",
+   "file": "nwis_10010000_62614_dv.rdb",
+   "bytes": 478582,
+   "sha256": "38e3987b45b1c7e067ffa7397de888fc94a04c7e6708a512db2e1affa7a0bfd1",
+   "n_days": 13701,
+   "first": "1983-01-01",
+   "last": "2026-10-19",
+   "qualifiers": {
+    "A": 13115,
+    "A:e": 305,
+    "P": 150,
+    "A:R": 131
+   },
+   "ngvd29_to_navd88": {
+    "url": "https://geodesy.noaa.gov/api/ncat/llh?lat=40.73133329&lon=-112.2135569&orthoHt=1280.0&inDatum=NAD83(1986)&outDatum=NAD83(1986)&inVertDatum=NGVD29&outVertDatum=NAVD88",
+    "vertcon_version": "3.0",
+    "src_orthoht_m": 1280.0,
+    "dest_orthoht_m": 1280.977,
+    "sigma_m": 0.01,
+    "delta_m": 0.977
+   }
+  },
+  "north": {
+   "site": "10010100",
+   "station": "GREAT SALT LAKE NEAR SALINE, UT",
+   "lat": 41.25521065,
+   "lon": -112.496903,
+   "coord_datum": "NAD83",
+   "url": "https://waterservices.usgs.gov/nwis/dv/?format=rdb&sites=10010100&parameterCd=62614&statCd=00003&startDT=1983-01-01&endDT=2026-12-31",
+   "file": "nwis_10010100_62614_dv.rdb",
+   "bytes": 477677,
+   "sha256": "ed11ed130131fe50ec91d8c0d723b214c3d838ce12e2784c58c6dd00ebc8f50c",
+   "n_days": 13696,
+   "first": "1983-01-01",
+   "last": "2026-10-19",
+   "qualifiers": {
+    "A": 13426,
+    "P": 173,
+    "A:e": 97
+   },
+   "ngvd29_to_navd88": {
+    "url": "https://geodesy.noaa.gov/api/ncat/llh?lat=41.25521065&lon=-112.496903&orthoHt=1280.0&inDatum=NAD83(1986)&outDatum=NAD83(1986)&inVertDatum=NGVD29&outVertDatum=NAVD88",
+    "vertcon_version": "3.0",
+    "src_orthoht_m": 1280.0,
+    "dest_orthoht_m": 1280.93,
+    "sigma_m": 0.012,
+    "delta_m": 0.93
+   }
+  }
+ },
+ "combined_file": "gsl_daily_levels.csv",
+ "conversion": "level_navd88_m = 0.3048 * ft_ngvd29 + delta_m (VERTCON 3.0 via NOAA NCAT at the gauge)"
+}
