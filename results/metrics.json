@@ -24187,6 +24187,41 @@
   "source": "emergence/main/h3_decision.json",
   "note": "near-term scenarios (m) at which the correction is decision-relevant"
  },
+ "h3.scenario.0p5_m": {
+  "value": 0.5,
+  "unit": "m",
+  "source": "emergence/main/run.json",
+  "note": "scenario depth below the 2026 level",
+  "decimals": 1
+ },
+ "h3.scenario.1_m": {
+  "value": 1.0,
+  "unit": "m",
+  "source": "emergence/main/run.json",
+  "note": "scenario depth below the 2026 level",
+  "decimals": 0
+ },
+ "h3.scenario.2_m": {
+  "value": 2.0,
+  "unit": "m",
+  "source": "emergence/main/run.json",
+  "note": "scenario depth below the 2026 level",
+  "decimals": 0
+ },
+ "h3.scenario.3_m": {
+  "value": 3.0,
+  "unit": "m",
+  "source": "emergence/main/run.json",
+  "note": "scenario depth below the 2026 level",
+  "decimals": 0
+ },
+ "h3.scenario.5_m": {
+  "value": 5.0,
+  "unit": "m",
+  "source": "emergence/main/run.json",
+  "note": "scenario depth below the 2026 level",
+  "decimals": 0
+ },
  "h3.scenarios_text": {
   "value": "0.5, 1, 2, 3 and 5",
   "unit": "text",
@@ -28043,8 +28078,7 @@
   "value": 35.3,
   "unit": "km2",
   "source": "results/robustness/r21_seam_gaps/summary.json",
-  "note": "stage-2 cover cells never valid in any group (includes background)",
-  "decimals": 1
+  "note": "stage-2 cover cells never valid in any group (includes background)"
  },
  "qc.seam_gaps.unseen_pct_of_cover": {
   "value": 0.036,
