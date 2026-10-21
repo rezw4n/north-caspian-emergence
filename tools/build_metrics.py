@@ -276,6 +276,19 @@ def results_metrics(m: dict, tag: str = "main") -> None:
                 put(m, f"h1.disp_band.{names.get(r['band'], r['band'])}.{k}_km",
                     round(float(r[p]) / 1000, 2) if p in r and pd.notna(r[p]) else None,
                     "km", f"hindcast/{tag}/displacement_by_level_band.csv")
+        # PREREG section 1: the whole-domain area bias is reported beside the per-sector test
+        # (Bocharov et al. 2026 found whole-sea chart areas within 5.75% of satellite areas)
+        ex = pd.read_csv(hc / "extent.csv")
+        ex = ex[(ex["sector"] == "domain") & (ex["epoch"] != "pooled")]
+        fe = f"hindcast/{tag}/extent.csv"
+        for (p, v), g in ex.groupby(["product", "variant"]):
+            rel = 100 * g["area_bias_rel_total"].astype(float)
+            b = f"h1.domain_area_bias.{v}.{PRODUCT_KEY[p]}"
+            put(m, f"{b}.median_pct", round(float(rel.median()), 1), "%", fe,
+                "median over (epoch, level) units of the domain total relative area bias")
+            put(m, f"{b}.max_abs_pct", round(float(rel.abs().max()), 1), "%", fe, "largest |relative area bias|")
+            put(m, f"{b}.median_iou", round(float(g["iou_total"].astype(float).median()), 3), "IoU", fe)
+            put(m, f"{b}.n_units", int(len(g)), "units", fe)
         es = load(f"hindcast/{tag}/etopo2022_sources_emerged_band.json")
         for name, share in es.get("share", {}).items():
             key = "fabdem" if "FABDEM" in name else "gebco_lake" if "GEBCO" in name else "other"
