@@ -334,6 +334,9 @@ results/levels/dahiti_bhs_offset.json: scripts/a7_dahiti_bhs_offset.py $(DAHITI)
 METRIC_INPUTS += results/provenance/icesat2_atl24.json results/validation/atl24/run.json \
                  results/validation/atl24/verdicts.json results/validation/atl24/water_surface_constant.json
 
+# Stage-2 seam-gap QC (robustness agent, scripts/r21_seam_gaps.py), read by build_metrics
+METRIC_INPUTS += results/robustness/r21_seam_gaps/summary.json
+
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
 
