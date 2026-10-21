@@ -1,0 +1,252 @@
+{
+ "rule": "D-070 fit per sector on its training cells; domain constant where a sector has no training cell; offsets Gaussian-smoothed and subtracted from the corrected heights",
+ "smooth_sigma_m": 10000.0,
+ "coarse_cells": 16,
+ "training_cells_by_sector": {
+  "none": 0,
+  "west": 3041242,
+  "volga": 8598943,
+  "interfluve": 1863905,
+  "ural": 889221,
+  "northeast": 5641034,
+  "komsomolets": 4095988,
+  "open_shelf": 11302600
+ },
+ "products": {
+  "gebco_2026": {
+   "domain_offset_m": -1.48,
+   "sectors": {
+    "west": {
+     "offset_m": -0.71,
+     "objective_km2_at_offset": 16649.7768,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "volga": {
+     "offset_m": -2.0,
+     "objective_km2_at_offset": 39429.8928,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "interfluve": {
+     "offset_m": -1.86,
+     "objective_km2_at_offset": 13647.9168,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "ural": {
+     "offset_m": -2.22,
+     "objective_km2_at_offset": 6872.9364,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "northeast": {
+     "offset_m": -1.41,
+     "objective_km2_at_offset": 16141.842,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "komsomolets": {
+     "offset_m": -1.88,
+     "objective_km2_at_offset": 10960.5888,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "open_shelf": {
+     "offset_m": -0.77,
+     "objective_km2_at_offset": 5665.0644,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    }
+   }
+  },
+  "etopo_2022": {
+   "domain_offset_m": -1.49,
+   "sectors": {
+    "west": {
+     "offset_m": -0.76,
+     "objective_km2_at_offset": 1448.3592,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "volga": {
+     "offset_m": -0.78,
+     "objective_km2_at_offset": 5711.9112,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "interfluve": {
+     "offset_m": -1.63,
+     "objective_km2_at_offset": 5659.5924,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "ural": {
+     "offset_m": -1.42,
+     "objective_km2_at_offset": 2116.3572,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "northeast": {
+     "offset_m": -1.81,
+     "objective_km2_at_offset": 17532.1476,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "komsomolets": {
+     "offset_m": -2.16,
+     "objective_km2_at_offset": 8414.4132,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "open_shelf": {
+     "offset_m": -0.79,
+     "objective_km2_at_offset": 5951.412,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    }
+   }
+  },
+  "srtm15p_v2.7": {
+   "domain_offset_m": -1.28,
+   "sectors": {
+    "west": {
+     "offset_m": -0.76,
+     "objective_km2_at_offset": 16279.92,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "volga": {
+     "offset_m": -1.39,
+     "objective_km2_at_offset": 44736.066,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "interfluve": {
+     "offset_m": -1.68,
+     "objective_km2_at_offset": 20029.1904,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "ural": {
+     "offset_m": -1.82,
+     "objective_km2_at_offset": 12041.946,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "northeast": {
+     "offset_m": -0.91,
+     "objective_km2_at_offset": 21089.3832,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "komsomolets": {
+     "offset_m": -1.91,
+     "objective_km2_at_offset": 6875.5572,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "open_shelf": {
+     "offset_m": -0.18,
+     "objective_km2_at_offset": 11870.37,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    }
+   }
+  },
+  "gebco_2022": {
+   "domain_offset_m": -1.45,
+   "sectors": {
+    "west": {
+     "offset_m": -0.72,
+     "objective_km2_at_offset": 16576.6464,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "volga": {
+     "offset_m": -1.4,
+     "objective_km2_at_offset": 38649.4308,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "interfluve": {
+     "offset_m": -1.86,
+     "objective_km2_at_offset": 13542.0192,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "ural": {
+     "offset_m": -2.22,
+     "objective_km2_at_offset": 6778.422,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "northeast": {
+     "offset_m": -1.19,
+     "objective_km2_at_offset": 12172.5972,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "komsomolets": {
+     "offset_m": -1.78,
+     "objective_km2_at_offset": 11066.1552,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "open_shelf": {
+     "offset_m": -0.77,
+     "objective_km2_at_offset": 5616.486,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    }
+   }
+  },
+  "etopo1": {
+   "domain_offset_m": -1.38,
+   "sectors": {
+    "west": {
+     "offset_m": -1.06,
+     "objective_km2_at_offset": 11060.244,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "volga": {
+     "offset_m": -1.41,
+     "objective_km2_at_offset": 33079.2588,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "interfluve": {
+     "offset_m": -1.64,
+     "objective_km2_at_offset": 15448.7268,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "ural": {
+     "offset_m": -1.92,
+     "objective_km2_at_offset": 6631.596,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "northeast": {
+     "offset_m": -1.49,
+     "objective_km2_at_offset": 13850.1828,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "komsomolets": {
+     "offset_m": -1.96,
+     "objective_km2_at_offset": 13054.1148,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    },
+    "open_shelf": {
+     "offset_m": -0.07,
+     "objective_km2_at_offset": 8393.3568,
+     "n_tied_minima": 1,
+     "source": "fitted"
+    }
+   }
+  }
+ }
+}
