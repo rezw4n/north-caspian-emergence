@@ -87,6 +87,17 @@
   \label{fig:audit}
 \end{figure}
 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/out/fig5_next_metres.pdf}
+  \caption{\textbf{The next metres.}
+  \textbf{a}, Seabed emerged in the domain for declines of \metric{h3.scenarios_text}~m below the 2026 level (\metric{h3.level_2026_m}~m on the DAHITI reference, the mean of the \metric{h3.level_2026.n_records} DAHITI records of 2026), each surface referenced to its own 2026 shoreline: each product as used (open symbols)\citep{gebco2026,gebco2022,etopo2022,macferrin2025,tozer2019,amante2009} and the fused surface (filled; the waterline DEM inside the observed level range and, below it, the product corrected by the error model learned in the hindcast of Fig.~\ref{fig:audit}). Bars, \metric{params.conformal_level} split-conformal intervals calibrated on the absolute hindcast area errors of held-out units and clipped at zero; no line joins the scenario depths. Grey band, the \metric{h3.n_near_term} near-term scenarios of the pre-registered decision rule, whose verdict is printed in each panel. GEBCO\_2026, GEBCO\_2022, ETOPO 2022 (GEBCO Lake Depths in the Caspian) and ETOPO1 store depths in whole metres in the Caspian, so their uncorrected emergence jumps when a whole-metre contour emerges, between the 0.5~m and 1~m scenarios (GEBCO\_2026: \metric{h3.emergence.gebco2026.uncorrected.0p5.estimate_km2} and \metric{h3.emergence.gebco2026.uncorrected.1.estimate_km2}~\kmsq{}).
+  \textbf{b}, The same per sector, 1~m and 2~m below the 2026 level: fused estimate (bars) with its interval (lines), and the uncorrected estimate (ticks). The H3 run stores no per-cell emergence raster, so the panel shows sector totals, not maps.
+  \textbf{c}, Exposure in the domain: platforms and wells (of \metric{h3.exposure.platforms.n_features}) in the sea in 2026 and onshore at the scenario level; pipeline and channel length that emerges; ports, piers and ferry terminals (of \metric{h3.exposure.ports.n_features}) and settlements (of \metric{h3.exposure.settlements.n_features}) with the sea within \metric{h3.port_access_km}~km and \metric{h3.coast_km}~km in 2026 and beyond it at the scenario level; and ESA WorldCover 2021 herbaceous wetland that emerges (an open-licence habitat stand-in). Filled, fused surface, with the exposure at the levels at which its emergence reaches the area-interval bounds; open, the product as used. Other habitat layers are in Table~\ref{tab:h3}. Data \textcopyright{} OpenStreetMap contributors (ODbL).
+  \textbf{d}, Calendar year in which the primary published pathways\citep{hoseini2025,samant2023} reach each decline (circled, m), each linear between the points its source states and never extrapolated beyond its last stated year; declines not reached by 2100 are listed at the right. Range and sensitivity pathways are in Supplementary Table~\ref{tab:ed_scenario_dates}.}
+  \label{fig:nextmetres}
+\end{figure}
+
 % Supplementary Figures (results), continuing the numbering of those above.
 \renewcommand{\figurename}{Supplementary Figure}
 \setcounter{figure}{3}

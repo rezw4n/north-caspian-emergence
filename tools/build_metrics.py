@@ -284,6 +284,117 @@ def results_metrics(m: dict, tag: str = "main") -> None:
                 "median over levels of the noise-floor 95th percentile")
         display_h1_metrics(m, tag)
     display_input_metrics(m)
+    if (RES / "emergence" / tag / "h3_decision.json").exists():
+        h3_metrics(m, tag)
+
+
+H3_LAYERS = {"osm_platforms": ("platforms", "platforms and wells newly onshore"),
+             "osm_pipelines": ("pipelines", "pipeline length that emerges (km)"),
+             "osm_channels": ("channels", "channel and canal length that emerges (km)"),
+             "osm_ports": ("ports", "ports, piers and ferry terminals losing the sea within the threshold"),
+             "osm_settlements": ("settlements", "settlements losing the sea within the threshold"),
+             "osm_wetlands": ("osm_wetlands", "OSM wetland area that emerges (km2)"),
+             "worldcover2021_herbaceous_wetland": ("worldcover", "ESA WorldCover 2021 herbaceous wetland that emerges (km2)"),
+             "gwl_fcs30_2020_wetland": ("gwl", "GWL_FCS30 2020 wetland that emerges (km2)"),
+             "glwd_v2_wetland": ("glwd", "GLWD v2 wetland that emerges (km2)")}
+
+
+def _scen(s: float) -> str:
+    """Scenario label in keys: 0.5 -> "0p5", 1.0 -> "1"."""
+    return f"{float(s):g}".replace(".", "p")
+
+
+def _and(items) -> str:
+    items = [str(i) for i in items]
+    return items[0] if len(items) == 1 else ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def h3_metrics(m: dict, tag: str) -> None:
+    """H3 values from the frozen tables of scripts/a8_emergence.py and caspian.h3
+    (results/emergence/<tag>/; D-081, D-090), read for Fig. 5 and Table 3: the 2026
+    level, the emerged area of each surface with its conformal interval (domain,
+    "emergence" functional), the verdicts, exposure at 1 and 2 m and the scenario
+    dates of every pathway. Direct reads; nothing is recomputed."""
+    import math
+
+    import pandas as pd
+
+    em = RES / "emergence" / tag
+    run = load(f"emergence/{tag}/run.json")
+    lv = run.get("level_2026") or {}
+    put(m, "h3.level_2026_m", lv.get("level_m"), "m (DAHITI reference)", f"emergence/{tag}/run.json",
+        f"{lv.get('method')} of the {lv.get('n_records')} DAHITI records of 2026")
+    if "h3.level_2026_m" in m:
+        m["h3.level_2026_m"]["decimals"] = 2
+    put(m, "h3.level_2026.n_records", lv.get("n_records"), "records", f"emergence/{tag}/run.json")
+    cst = run.get("constants") or {}
+    for key, name in (("PORT_ACCESS_M", "h3.port_access_km"), ("COAST_M", "h3.coast_km")):
+        if cst.get(key) is not None:
+            put(m, name, int(cst[key] / 1000) if float(cst[key] / 1000).is_integer() else cst[key] / 1000, "km",
+                f"emergence/{tag}/run.json", "access threshold of the exposure rule (scripts/a8_emergence.py)")
+    sc = run.get("scenarios_m") or []
+    if sc:
+        put(m, "h3.scenarios_text", _and(f"{s:g}" for s in sc), "text", f"emergence/{tag}/run.json",
+            "scenario depths below the 2026 level (m)")
+    e = pd.read_csv(em / "emergence.csv")
+    fe = f"emergence/{tag}/emergence.csv"
+    d = e[(e["region"] == "domain") & (e["functional"] == "emergence")]
+    for r in d.itertuples():
+        b = f"h3.emergence.{PRODUCT_KEY[r.product]}.{r.surface}.{_scen(r.scenario_m)}"
+        for col, name in (("estimate_km2", "estimate"), ("lo_km2", "lo"), ("hi_km2", "hi")):
+            v = float(getattr(r, col))
+            put(m, f"{b}.{name}_km2", round(v, 1) if math.isfinite(v) else None, "km2", fe,
+                "domain, emerged area below the surface's own 2026 shoreline; lo/hi: split-conformal 90% interval")
+    for (p, s_), g in d.groupby(["product", "surface"]):
+        put(m, f"h3.n_scores.{PRODUCT_KEY[p]}.{s_}", int(g["n_scores"].iloc[0]), "scores", fe,
+            "held-out unit errors calibrating the interval (domain, emergence)")
+    dec = load(f"emergence/{tag}/h3_decision.json")
+    for p, v in (dec.get("domain") or {}).items():
+        k = PRODUCT_KEY[p]
+        fd = f"emergence/{tag}/h3_decision.json"
+        put(m, f"h3.verdict.{k}", v["verdict"], "text", fd, dec.get("primary"))
+        rel = [s for s in str(v.get("relevant_scenarios", "")).split(",") if s]
+        put(m, f"h3.relevant_scenarios.{k}", _and(rel) if rel else "none", "text", fd,
+            "near-term scenarios (m) at which the correction is decision-relevant")
+        put(m, f"h3.n_relevant.{k}", v.get("n_relevant"), "scenarios", fd)
+        put(m, "h3.n_near_term", v.get("n_near_term"), "scenarios", fd)
+    sm = pd.read_csv(em / "h3_summary.csv")
+    sm = sm[sm["functional"] == "emergence"]
+    for r in sm.itertuples():
+        put(m, f"h3.verdict.{PRODUCT_KEY[r.product]}.{r.region}", r.verdict, "text", f"emergence/{tag}/h3_summary.csv",
+            "per region, emergence functional")
+    x = pd.read_csv(em / "exposure.csv")
+    fx = f"emergence/{tag}/exposure.csv"
+    x = x[(x["region"] == "domain") & x["layer"].isin(list(H3_LAYERS))]
+    for lay, g in x.groupby("layer"):
+        short, what = H3_LAYERS[lay]
+        put(m, f"h3.exposure.{short}.n_features", int(g["n_features"].iloc[0]), "features", fx,
+            "features of the layer inside the domain")
+    for r in x[x["scenario_m"].isin([1.0, 2.0])].itertuples():
+        short, what = H3_LAYERS[r.layer]
+        count = r.rule in ("onshore", "access")
+        b = f"h3.exposure.{short}.{PRODUCT_KEY[r.product]}.{r.surface}.{_scen(r.scenario_m)}"
+        unit = "features" if count else ("km" if r.rule == "length" else "km2")
+        for col, name in (("amount", "amount"), ("amount_lo", "lo"), ("amount_hi", "hi")):
+            v = float(getattr(r, col))
+            if not math.isfinite(v):
+                continue
+            put(m, f"{b}.{name}", int(round(v)) if count else round(v, 1), unit, fx,
+                what + "; lo/hi at the equivalent levels of the area-interval bounds")
+            if r.rule == "length":
+                m[f"{b}.{name}"]["decimals"] = 1   # km to 0.1; areas follow the km2 convention (0 dp)
+    sd = pd.read_csv(em / "scenario_dates.csv")
+    fs = f"emergence/{tag}/scenario_dates.csv"
+    for r in sd.itertuples():
+        pid = "".join(ch if ch.isalnum() else "_" for ch in str(r.pathway_id).lower())
+        pid = "_".join(t for t in pid.split("_") if t)
+        if bool(r.reached) and pd.notna(r.date):
+            val = str(int(math.floor(float(r.date))))
+        else:
+            val = str(r.note) if pd.notna(r.note) else "not reached"
+        put(m, f"h3.date.{pid}.{_scen(r.delta_m)}", val, "year", fs,
+            f"{r.role} pathway ({r.source}, {r.scenario}, {r.statistic}); calendar year in which its fall after 2026 "
+            f"reaches the depth (anchor {r.anchor})")
 
 
 def display_h2_metrics(m: dict, tag: str, src: str) -> None:

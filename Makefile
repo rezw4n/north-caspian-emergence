@@ -285,6 +285,15 @@ $(FIG_OUT)/ed_h2_hexbins.pdf: figures/ed_h2_hexbins.py $(FIG_DEPS) $(wildcard re
 manuscript/sections/ed_tables_draft.tex: figures/ed_sector_tables.py figures/_common.py results/metrics.json \
         results/hindcast/main/h1_mispredicts.csv
 	$(PYTHON) figures/ed_sector_tables.py
+# H3 (results/emergence/main/): Fig. 5; Table 3 (written into tables_draft.tex between its
+# T3 markers) and the Supplementary Tables of scenario dates and further exposure.
+RESULT_FIGS += $(FIG_OUT)/fig5_next_metres.pdf
+H3_TABLES := $(wildcard results/emergence/main/*.csv results/emergence/main/*.json)
+$(FIG_OUT)/fig5_next_metres.pdf: figures/fig5_next_metres.py $(FIG_DEPS) $(H3_TABLES)
+	$(PYTHON) figures/fig5_next_metres.py
+manuscript/sections/ed_tables_h3_draft.tex: figures/tab_h3.py figures/_common.py results/metrics.json \
+        results/emergence/main/scenario_dates.csv refs/verification.csv
+	$(PYTHON) figures/tab_h3.py
 
 # Every file tools/build_metrics.py reads (tests/test_makefile.py checks this list).
 METRIC_INPUTS := $(INV_META) results/study_area/sector_areas.json results/study_area/sector_edges.json \
@@ -326,7 +335,7 @@ scene-levels: results/qc/level_crosscheck.json results/qc/level_crosscheck_pairs
               results/qc/level_crosscheck_w20d.json results/qc/level_crosscheck_pairs_w20d.csv \
               results/levels/scene_levels_summary.json
 qc-figures: $(QC_FIGS)
-figures: $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex
+figures: $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex manuscript/sections/ed_tables_h3_draft.tex
 params: results/params.json
 metrics: results/metrics.json manuscript/numbers.tex
 macros: manuscript/numbers.tex
@@ -339,4 +348,4 @@ RESULTS_ALL := results/qc/dahiti_summary.json results/study_area/sector_areas.js
                results/levels/scene_levels_summary.json results/params.json results/metrics.json
 
 all: $(VERIFIED) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex \
-     manuscript/numbers.tex manuscript/main.pdf
+     manuscript/sections/ed_tables_h3_draft.tex manuscript/numbers.tex manuscript/main.pdf
