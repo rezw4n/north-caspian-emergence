@@ -1,0 +1,17 @@
+{
+ "check": "r06_datums",
+ "variant": "c_+1sigma",
+ "main": "main",
+ "created": "2026-10-21T16:01:25Z",
+ "note": "ICESat-2 -> DEM constant c +1 sigma",
+ "sources": {
+  "ATL08": {
+   "n_main_points": 470645,
+   "n_alt_points": 470645,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 470645,
+   "n_boot": 1000,
+   "main_from": "files"
+  }
+ }
+}

@@ -283,10 +283,13 @@ def _hist_quantile(counts, q: float) -> float:
     return float(centres[min(k, centres.size - 1)])
 
 
-def dem_difference(check: str, variant: str, main_tag: str) -> pd.DataFrame:
+def dem_difference(check: str, variant: str, main_tag: str, main_range: tuple | None = None,
+                   name: str = "dem_difference.csv") -> pd.DataFrame:
     """Variant minus main DEM height on the cells both have, per sector and overall
     (sectors rasterised by cell centre on each 60 km tile): n, mean, RMS, p05, median,
-    p95 (from 1 mm histograms), and the cells only one of the two DEMs has."""
+    p95 (from 1 mm histograms), and the cells only one of the two DEMs has.
+    ``main_range`` = (lo, hi): only cells whose main height lies in [lo, hi] (e.g. the
+    two-limb band of check 10); the table is written as ``name``."""
     import rasterio
     import shapely
     from rasterio.features import rasterize
@@ -311,6 +314,10 @@ def dem_difference(check: str, variant: str, main_tag: str) -> pd.DataFrame:
             lab = rasterize([(mapping(p), k) for k, p in enumerate(polys, 1)], out_shape=a.shape,
                             transform=a.transform, fill=0, dtype="uint8")
         fa, fb = np.isfinite(za), np.isfinite(zb)
+        if main_range is not None:
+            with np.errstate(invalid="ignore"):
+                inr = (zb >= main_range[0]) & (zb <= main_range[1])
+            fa, fb = fa & inr, fb & inr
         d = za - zb
         for k, n in enumerate(names):
             m = lab == k
@@ -334,7 +341,7 @@ def dem_difference(check: str, variant: str, main_tag: str) -> pd.DataFrame:
     out = out_dir(check, variant)
     out.mkdir(parents=True, exist_ok=True)
     t = pd.DataFrame(rows)
-    t.to_csv(out / "dem_difference.csv", index=False)
+    t.to_csv(out / name, index=False)
     return t
 
 

@@ -1,6 +1,6 @@
 {
  "check": "r10_morphology",
- "created": "2026-10-21T01:08:52Z",
+ "created": "2026-10-21T18:47:52Z",
  "summary_shape": [
   {
    "product": "etopo1",
@@ -316,6 +316,212 @@
    "n_e1_better": 1,
    "sign_test_p": 0.625,
    "median_ratio": 170.50952827262418
+  }
+ ],
+ "limb_difference_E1_minus_E2E3": [
+  {
+   "sector": "outside",
+   "n_cells": 484,
+   "mean_m": 0.41068205163498556,
+   "rms_m": 0.46993063209770447,
+   "p05_m": 0.1975,
+   "median_m": 0.3725,
+   "p95_m": 0.8745,
+   "cells_only_variant": 40,
+   "cells_only_main": 104
+  },
+  {
+   "sector": "west",
+   "n_cells": 4009248,
+   "mean_m": 1.602053022647536,
+   "rms_m": 1.883374890391416,
+   "p05_m": 0.3155,
+   "median_m": 1.8925,
+   "p95_m": 2.7935,
+   "cells_only_variant": 3919,
+   "cells_only_main": 5974096
+  },
+  {
+   "sector": "volga",
+   "n_cells": 21168799,
+   "mean_m": 0.6265605857188563,
+   "rms_m": 0.8412591677375164,
+   "p05_m": 0.1145,
+   "median_m": 0.4295,
+   "p95_m": 2.0484999999999998,
+   "cells_only_variant": 142,
+   "cells_only_main": 7220502
+  },
+  {
+   "sector": "interfluve",
+   "n_cells": 1376289,
+   "mean_m": 1.1092649956079152,
+   "rms_m": 1.426182564263228,
+   "p05_m": 0.0135,
+   "median_m": 0.9195,
+   "p95_m": 2.6055,
+   "cells_only_variant": 11015,
+   "cells_only_main": 2022348
+  },
+  {
+   "sector": "ural",
+   "n_cells": 2793388,
+   "mean_m": 0.9740783526174824,
+   "rms_m": 1.285398975011684,
+   "p05_m": 0.0305,
+   "median_m": 0.6975,
+   "p95_m": 2.5975,
+   "cells_only_variant": 54951,
+   "cells_only_main": 830350
+  },
+  {
+   "sector": "northeast",
+   "n_cells": 10214616,
+   "mean_m": 1.081954384236586,
+   "rms_m": 1.415382743713966,
+   "p05_m": -0.0545,
+   "median_m": 0.9275,
+   "p95_m": 2.6775,
+   "cells_only_variant": 94449,
+   "cells_only_main": 3245925
+  },
+  {
+   "sector": "komsomolets",
+   "n_cells": 11042181,
+   "mean_m": 0.6700732024231354,
+   "rms_m": 0.9570851775031841,
+   "p05_m": -0.0225,
+   "median_m": 0.3745,
+   "p95_m": 2.1055,
+   "cells_only_variant": 20,
+   "cells_only_main": 2260918
+  },
+  {
+   "sector": "open_shelf",
+   "n_cells": 5567972,
+   "mean_m": 1.5837769138376112,
+   "rms_m": 1.862977329483768,
+   "p05_m": 0.0395,
+   "median_m": 2.0815,
+   "p95_m": 2.6115000000000004,
+   "cells_only_variant": 409,
+   "cells_only_main": 5377333
+  },
+  {
+   "sector": "overall",
+   "n_cells": 56172977,
+   "mean_m": 0.911535334857832,
+   "rms_m": 1.2410653588213811,
+   "p05_m": 0.035500000000000004,
+   "median_m": 0.5165,
+   "p95_m": 2.5885,
+   "cells_only_variant": 164945,
+   "cells_only_main": 26931576
+  }
+ ],
+ "two_limb_band_m": [
+  -26.65,
+  -25.82
+ ],
+ "limb_difference_two_limb_band": [
+  {
+   "sector": "outside",
+   "n_cells": 422,
+   "mean_m": 0.3463295489125907,
+   "rms_m": 0.35933867574184103,
+   "p05_m": 0.1965,
+   "median_m": 0.3515,
+   "p95_m": 0.5055000000000001,
+   "cells_only_variant": 0,
+   "cells_only_main": 80
+  },
+  {
+   "sector": "west",
+   "n_cells": 1341785,
+   "mean_m": 0.4245188459865323,
+   "rms_m": 0.43969646801089074,
+   "p05_m": 0.2195,
+   "median_m": 0.4185,
+   "p95_m": 0.6194999999999999,
+   "cells_only_variant": 0,
+   "cells_only_main": 2379899
+  },
+  {
+   "sector": "volga",
+   "n_cells": 15693374,
+   "mean_m": 0.3603227226072865,
+   "rms_m": 0.3907151675025307,
+   "p05_m": 0.0995,
+   "median_m": 0.3725,
+   "p95_m": 0.6005,
+   "cells_only_variant": 0,
+   "cells_only_main": 3779151
+  },
+  {
+   "sector": "interfluve",
+   "n_cells": 536770,
+   "mean_m": 0.23607587142919603,
+   "rms_m": 0.3166906376771793,
+   "p05_m": -0.0595,
+   "median_m": 0.1805,
+   "p95_m": 0.6315,
+   "cells_only_variant": 0,
+   "cells_only_main": 490192
+  },
+  {
+   "sector": "ural",
+   "n_cells": 1335704,
+   "mean_m": 0.2725872093975056,
+   "rms_m": 0.3304301062006435,
+   "p05_m": -0.0275,
+   "median_m": 0.2745,
+   "p95_m": 0.5914999999999999,
+   "cells_only_variant": 0,
+   "cells_only_main": 14787
+  },
+  {
+   "sector": "northeast",
+   "n_cells": 4258019,
+   "mean_m": 0.19979320678046406,
+   "rms_m": 0.2931554361836145,
+   "p05_m": -0.1035,
+   "median_m": 0.1935,
+   "p95_m": 0.5954999999999999,
+   "cells_only_variant": 0,
+   "cells_only_main": 581295
+  },
+  {
+   "sector": "komsomolets",
+   "n_cells": 6791455,
+   "mean_m": 0.2207374137783419,
+   "rms_m": 0.28368896328748827,
+   "p05_m": -0.0745,
+   "median_m": 0.1995,
+   "p95_m": 0.5355000000000001,
+   "cells_only_variant": 0,
+   "cells_only_main": 1147662
+  },
+  {
+   "sector": "open_shelf",
+   "n_cells": 1531018,
+   "mean_m": 0.22446449534836155,
+   "rms_m": 0.30322220384888326,
+   "p05_m": -0.0815,
+   "median_m": 0.1955,
+   "p95_m": 0.5905,
+   "cells_only_variant": 0,
+   "cells_only_main": 429346
+  },
+  {
+   "sector": "overall",
+   "n_cells": 31488547,
+   "mean_m": 0.29879953986532337,
+   "rms_m": 0.35229668425440697,
+   "p05_m": -0.0305,
+   "median_m": 0.3065,
+   "p95_m": 0.5954999999999999,
+   "cells_only_variant": 0,
+   "cells_only_main": 8822412
   }
  ]
 }

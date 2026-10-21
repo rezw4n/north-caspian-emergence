@@ -1,0 +1,127 @@
+{
+ "check": "r07_interpolation",
+ "created": "2026-10-21T18:18:28Z",
+ "gp_blocks": [
+  "-3_-1",
+  "4_0",
+  "5_-3",
+  "-1_0",
+  "0_-1",
+  "4_-3",
+  "-1_2",
+  "-2_0"
+ ],
+ "n_cells_kriged": 9455932,
+ "covariance": {
+  "nugget": 0.23558590197322507,
+  "sill": 0.54524963497777,
+  "a": 49190.14116899614,
+  "practical_range": 147570.42350698842,
+  "bin_width_m": 500.0,
+  "max_lag_m": 20000.0,
+  "n_points": 1829484
+ },
+ "nugget_m2": 0.0031894649333333333,
+ "thin_m": 90.0,
+ "block_size_m": 50000.0,
+ "datum_constant": "primary c for both DEMs (no refit on the subsample)",
+ "table": "D:\\Caspian\\results\\robustness\\r07_interpolation\\gp_vs_tin.csv",
+ "overall": [
+  {
+   "source": "ATL06",
+   "scope": "all_sampled",
+   "n": 651311.0,
+   "tin_bias": 0.17615214485537636,
+   "tin_rmse": 0.8436190683417885,
+   "tin_nmad": 0.397495734719999,
+   "gp_bias": 0.18923295367605836,
+   "gp_rmse": 0.8531396838930452,
+   "gp_nmad": 0.40596158913823377,
+   "min_product_nmad": 0.8080064735400007,
+   "nmad_diff_ci": NaN,
+   "rmse_diff_ci": NaN
+  },
+  {
+   "source": "ATL06",
+   "scope": "split:test",
+   "n": 442898.0,
+   "tin_bias": 0.0031783602418616525,
+   "tin_rmse": 0.7362982400462353,
+   "tin_nmad": 0.2326528537200005,
+   "gp_bias": 0.009673069262389528,
+   "gp_rmse": 0.7430869466083324,
+   "gp_nmad": 0.2249720045109952,
+   "min_product_nmad": 0.7400108792999995,
+   "nmad_diff_ci": NaN,
+   "rmse_diff_ci": NaN
+  },
+  {
+   "source": "ATL06",
+   "scope": "gp_minus_tin_ci95",
+   "n": NaN,
+   "tin_bias": NaN,
+   "tin_rmse": NaN,
+   "tin_nmad": NaN,
+   "gp_bias": NaN,
+   "gp_rmse": NaN,
+   "gp_nmad": NaN,
+   "min_product_nmad": NaN,
+   "nmad_diff_ci": [
+    -0.07104089331844919,
+    0.03091468568410473
+   ],
+   "rmse_diff_ci": [
+    0.004072531225992005,
+    0.03222439635162016
+   ]
+  },
+  {
+   "source": "ATL08",
+   "scope": "all_sampled",
+   "n": 59355.0,
+   "tin_bias": 0.1663351833914606,
+   "tin_rmse": 0.8246401347856308,
+   "tin_nmad": 0.36341550504000164,
+   "gp_bias": 0.17801497180977557,
+   "gp_rmse": 0.8344837809160356,
+   "gp_nmad": 0.3739127734205975,
+   "min_product_nmad": 0.8346293734800029,
+   "nmad_diff_ci": NaN,
+   "rmse_diff_ci": NaN
+  },
+  {
+   "source": "ATL08",
+   "scope": "split:test",
+   "n": 42382.0,
+   "tin_bias": 0.010372520763534156,
+   "tin_rmse": 0.7304244001737467,
+   "tin_nmad": 0.22872804086999673,
+   "gp_bias": 0.015958103446778036,
+   "gp_rmse": 0.739512349727165,
+   "gp_nmad": 0.22073947214909864,
+   "min_product_nmad": 0.7919634071999998,
+   "nmad_diff_ci": NaN,
+   "rmse_diff_ci": NaN
+  },
+  {
+   "source": "ATL08",
+   "scope": "gp_minus_tin_ci95",
+   "n": NaN,
+   "tin_bias": NaN,
+   "tin_rmse": NaN,
+   "tin_nmad": NaN,
+   "gp_bias": NaN,
+   "gp_rmse": NaN,
+   "gp_nmad": NaN,
+   "min_product_nmad": NaN,
+   "nmad_diff_ci": [
+    -0.07406605615334733,
+    0.036412482799399966
+   ],
+   "rmse_diff_ci": [
+    0.004195095627044721,
+    0.03453738413167647
+   ]
+  }
+ ]
+}

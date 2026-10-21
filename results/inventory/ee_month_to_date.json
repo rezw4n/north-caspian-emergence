@@ -1,0 +1,35 @@
+{
+ "time_utc": "2026-10-21T16:16:22Z",
+ "month": "2026-10",
+ "interactive_by_ledger_h": {
+  "erl_figures_ee_ledger.jsonl": 0.88,
+  "gedi_interactive_log.jsonl": 9.134,
+  "generality_ee_ledger.jsonl": 50.632,
+  "stage1_interactive_log.jsonl": 11.447,
+  "stage1_v2_interactive_log.jsonl": 28.037,
+  "stage1_v3_interactive_log.jsonl": 16.247,
+  "stage2_mainL_interactive_log.jsonl": 274.635,
+  "stage2_rR_awei_interactive_log.jsonl": 8.917,
+  "stage2_rR_bins005_interactive_log.jsonl": 7.51,
+  "stage2_rR_fixed0_interactive_log.jsonl": 8.64,
+  "stage2_rR_ndvi020_interactive_log.jsonl": 8.408,
+  "stage2_rR_ndvi040_interactive_log.jsonl": 8.589,
+  "stage2_rR_repro_interactive_log.jsonl": 0.396,
+  "stage2_rR_s2_interactive_log.jsonl": 7.934,
+  "stage2_rR_slcoff_interactive_log.jsonl": 2.248,
+  "stage2_rR_snow_interactive_log.jsonl": 8.314,
+  "stage2_rR_subetm_interactive_log.jsonl": 2.547,
+  "stage2_rR_suboli_interactive_log.jsonl": 2.894,
+  "stage2_rR_subtm_interactive_log.jsonl": 1.893,
+  "stage2_rR_tau015_interactive_log.jsonl": 4.985,
+  "stage2_sensB_interactive_log.jsonl": 29.309
+ },
+ "interactive_h": 493.6,
+ "skipped": [
+  "ee_guard_log.jsonl"
+ ],
+ "batch_h": 42.91,
+ "batch_operations": 166,
+ "total_h": 536.51,
+ "limit_h": 640.0
+}

@@ -41,11 +41,21 @@ from caspian.config import RESULTS
 ROB = RESULTS / "robustness"
 ORDER = {"robust": 0, "partly sensitive": 1, "sensitive": 2}
 # what a check's verdict does not cover (stated with it)
-NOTES = {"check06": "per-sector datum constants only (the lead's red-team run); the D-074 total variant and c / "
-                    "product offsets at +-1 sigma / mean-tide recipes were not run; the DAHITI -> BHS-77 offset "
-                    "(D-093) cancels in every metric (reporting only)",
-         "check08": "block size only (H2 at 25 and 12.5 km against 50 km); split reassignment not run",
-         "check09": "NDVI 0.20 / 0.40 on the block sample R only; the as-dry / as-water bounds (o band) were not run"}
+NOTES = {"check06": "per-sector datum constants (the lead's red-team run, H1) and the validation side (c and the "
+                    "product offsets at +-1 bootstrap sigma, both mean-tide recipes; H2 on the sources listed per "
+                    "variant, sources_evaluated); the D-074 total-variant hindcast was not run; the DAHITI -> BHS-77 "
+                    "offset (D-093) cancels in every metric (reporting only)",
+         "check07": "kriging against TIN on a seeded subsample of 8 blocks (same points); 0.20 m bins and the "
+                    "static-contour rule on the whole DEM (H2 side); 0.05 m bins on the block sample R; "
+                    "natural-neighbour interpolation not run (no SciPy implementation)",
+         "check08": "block size (H2 at 25 and 12.5 km against 50 km) and the calibration split (20 seeded "
+                    "reassignments of the 50 km blocks as one variant, worst over the seeds, and the calibration/"
+                    "test swap); each moves the test points, so the magnitude criterion does not apply; the split "
+                    "variants are post-hoc sensitivities that reuse test blocks for fitting",
+         "check09": "NDVI 0.20 / 0.40 on the block sample R; the as-dry / as-water bounds (o band) on the whole "
+                    "DEM, H2 side; the H1 side of the bounds needs a full hindcast and was not run",
+         "check10": "H1 on E2 + E3 and the morphology table decide; the E1 minus E2 + E3 limb-difference map "
+                    "(r10_morphology, two-limb band) is descriptive"}
 N_SECTORS = 7
 
 
@@ -241,6 +251,36 @@ def main() -> int:
             if h2:
                 v, n, w = h2_variant(h2, magnitude=not s.get("same_points") is False)
                 add("check08", name, v, n, "results/robustness/r08_blocking/summary.json", w)
+    # check 08: the calibration split (scripts/r08_blocking.py splits). Each reassignment
+    # moves the test points, so the magnitude criterion (same points) does not apply, as for
+    # the block sizes. The seeded reassignments are one variant whose verdict is the worst
+    # over the seeds (the check's verdict is the same as listing each seed), with the
+    # number of seeds per verdict and per H2 status; the swap is its own variant.
+    if s and s.get("splits"):
+        src_ = "results/robustness/r08_blocking/summary.json"
+        seeds = {k: h for k, h in sorted(s["splits"].items()) if k.startswith("split_seed") and h}
+        if seeds:
+            res = {k: h2_variant(h, magnitude=False) for k, h in seeds.items()}
+            n = {"n_seeds": len(res)}
+            for verdict in ORDER:
+                n[f"n_seeds_{verdict.replace(' ', '_')}"] = sum(r[0] == verdict for r in res.values())
+            for key in sorted({k for r in res.values() for k in r[1] if k.endswith("_supported")}):
+                src, rest = key.split(".", 1)
+                n[f"{src}.n_seeds_{rest}"] = sum(int(r[1].get(key, 0)) for r in res.values())
+                prim = [r[1].get(f"{key}_primary") for r in res.values() if f"{key}_primary" in r[1]]
+                if prim:
+                    n[f"{key}_primary"] = prim[0]
+            for q, lo, hi in (("dem_nmad_m", "dem_nmad_min_m", "dem_nmad_max_m"), ("coverage", "coverage_min", "coverage_max")):
+                for src in sorted({k.split(".")[0] for r in res.values() for k in r[1] if "." in k}):
+                    vals = [r[1][f"{src}.{q}"] for r in res.values() if f"{src}.{q}" in r[1]]
+                    if vals:
+                        n[f"{src}.{lo}"], n[f"{src}.{hi}"] = float(min(vals)), float(max(vals))
+            w = [f"{k}: {x}" for k, r in res.items() for x in r[2] if ": H2 (" in x]   # headline flips only
+            add("check08", "split_reassignment", worst([r[0] for r in res.values()]), n, src_, w)
+        sw = s["splits"].get("split_swap_calib_test")
+        if sw:
+            v, n, w = h2_variant(sw, magnitude=False)
+            add("check08", "split_swap_calib_test", v, n, src_, w)
     # check 09 bounds: reed beds counted as dry or as water (o band)
     s = _load("r09_vegetation")
     if s:
