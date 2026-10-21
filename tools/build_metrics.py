@@ -1650,6 +1650,19 @@ def erl_text_metrics(m: dict) -> None:
             add(f"{b}_product", name[p], "text", "the product")
 
 
+def revision_metrics(m: dict) -> None:
+    """Post-review revision analyses (PREREG Amendment 18; D-112). Each workstream
+    adds its keys from its own module tools/metrics_rev_<name>.py, which defines add(m);
+    modules load in name order, so parallel workstreams never edit this file."""
+    import importlib.util
+
+    for path in sorted(Path(__file__).resolve().parent.glob("metrics_rev_*.py")):
+        spec = importlib.util.spec_from_file_location(path.stem, path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        mod.add(m)
+
+
 def main() -> int:
     m: dict = {}
     inv = load("inventory/inventory_meta.json")
@@ -1887,6 +1900,7 @@ def main() -> int:
     display_erl_metrics(m)
     erl_text_metrics(m)
     wdpa_share_metrics(m)
+    revision_metrics(m)
 
     out = RES / "metrics.json"
     out.write_text(json.dumps(dict(sorted(m.items())), indent=1, ensure_ascii=False), encoding="utf-8")
