@@ -812,6 +812,12 @@ def test_r00_pipeline_dem_difference(tmp_path, monkeypatch):
     assert t.loc["overall", "n_cells"] == n * n - 5 and t.loc["overall", "cells_only_main"] == 5
     assert t.loc["overall", "mean_m"] == pytest.approx(0.05, abs=1e-6)
     assert t.loc["overall", "median_m"] == pytest.approx(0.05, abs=1e-3)
+    # restricted to a range of main heights: inside it nothing changes, outside no cell counts
+    b = P.dem_difference("c", "v", "m", main_range=(-27.5, -26.5), name="band.csv").set_index("sector")
+    assert b.loc["overall", "n_cells"] == n * n - 5
+    o = P.dem_difference("c", "v", "m", main_range=(-26.0, -25.0), name="none.csv").set_index("sector")
+    assert o.loc["overall", "n_cells"] == 0 and o.loc["overall", "cells_only_main"] == 0
+    assert (tmp_path / "robust" / "c" / "v" / "band.csv").exists()
 
 
 def _main_like_plan(seed=13):

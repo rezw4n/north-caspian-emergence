@@ -1,0 +1,17 @@
+{
+ "check": "r07_interpolation_bw020",
+ "variant": "main__bw020",
+ "main": "main",
+ "created": "2026-10-21T18:06:58Z",
+ "note": "0.20 m bins from the 0.10 m counts",
+ "sources": {
+  "ATL08": {
+   "n_main_points": 470645,
+   "n_alt_points": 470645,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 465012,
+   "n_boot": 1000,
+   "main_from": "files"
+  }
+ }
+}

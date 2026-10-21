@@ -1,5 +1,5 @@
 {
- "created": "2026-10-21T08:32:30Z",
+ "created": "2026-10-21T18:50:15Z",
  "rule": "DECISIONS D-092",
  "checks": {
   "check04": {
@@ -408,6 +408,54 @@
       "atl08 northeast: H2 ordering True -> False"
      ]
     },
+    "kriging_subsample": {
+     "verdict": "robust",
+     "metrics": {
+      "atl06.tin_nmad_m": 0.2326528537200005,
+      "atl06.gp_nmad_m": 0.2249720045109952,
+      "atl06.tin_rmse_m": 0.7362982400462353,
+      "atl06.gp_rmse_m": 0.7430869466083324,
+      "atl06.tin_bias_m": 0.0031783602418616525,
+      "atl06.gp_bias_m": 0.009673069262389528,
+      "atl06.min_product_nmad_m": 0.7400108792999995,
+      "atl08.tin_nmad_m": 0.22872804086999673,
+      "atl08.gp_nmad_m": 0.22073947214909864,
+      "atl08.tin_rmse_m": 0.7304244001737467,
+      "atl08.gp_rmse_m": 0.739512349727165,
+      "atl08.tin_bias_m": 0.010372520763534156,
+      "atl08.gp_bias_m": 0.015958103446778036,
+      "atl08.min_product_nmad_m": 0.7919634071999998
+     },
+     "source": "results/robustness/r07_interpolation/summary.json",
+     "why": []
+    },
+    "bins_020m": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.3917426114389321,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.1428655377516972,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": -0.0068024946422589,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104714.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7652923817436896,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1,
+      "dem_diff_mean_m": -0.03771707907234848,
+      "dem_diff_rms_m": 0.28588046635932285
+     },
+     "source": "results/robustness/r07_interpolation_bw020/summary.json",
+     "why": [
+      "atl08: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve']",
+      "atl08: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve']"
+     ]
+    },
     "no_static_exclusion": {
      "verdict": "partly sensitive",
      "metrics": {
@@ -450,7 +498,8 @@
      ]
     }
    },
-   "verdict": "partly sensitive"
+   "verdict": "partly sensitive",
+   "note": "kriging against TIN on a seeded subsample of 8 blocks (same points); 0.20 m bins and the static-contour rule on the whole DEM (H2 side); 0.05 m bins on the block sample R; natural-neighbour interpolation not run (no SciPy implementation)"
   },
   "check09": {
    "variants": {
@@ -518,10 +567,66 @@
      },
      "source": "results/robustness/rblock_ndvi040/summary.json",
      "why": []
+    },
+    "vegetation_as_dry": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.3826083217432177,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.1671674897240347,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": -0.0308970512126311,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104718.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7269471713969212,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1,
+      "dem_diff_mean_m": -0.025859504712574886,
+      "dem_diff_rms_m": 0.3303547273139097,
+      "share_observations_vegetation": 0.18232484294451334
+     },
+     "source": "results/robustness/r09_vegetation/summary.json",
+     "why": [
+      "atl08: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve']",
+      "atl08: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve']"
+     ]
+    },
+    "vegetation_as_water": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.398796799634347,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.1533678053173273,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": 0.0607132055673664,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104740.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7742505251097956,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1,
+      "dem_diff_mean_m": -0.1732764249312332,
+      "dem_diff_rms_m": 0.5063076379366552,
+      "share_observations_vegetation": 0.18232484294451334
+     },
+     "source": "results/robustness/r09_vegetation/summary.json",
+     "why": [
+      "atl08: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve']",
+      "atl08: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve']"
+     ]
     }
    },
    "verdict": "partly sensitive",
-   "note": "NDVI 0.20 / 0.40 on the block sample R only; the as-dry / as-water bounds (o band) were not run"
+   "note": "NDVI 0.20 / 0.40 on the block sample R; the as-dry / as-water bounds (o band) on the whole DEM, H2 side; the H1 side of the bounds needs a full hindcast and was not run"
   },
   "check05": {
    "variants": {
@@ -578,6 +683,142 @@
   },
   "check06": {
    "variants": {
+    "c_+1sigma": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.3700959523799987,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.1311502875006318,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": -0.1512548148531827,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104740.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7136528546877984,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1
+     },
+     "source": "results/robustness/r06_datums_validation/summary.json",
+     "why": [
+      "atl08: DEM bias +0.028 -> -0.151 m"
+     ]
+    },
+    "c_-1sigma": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.3700959523799987,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.139840263870538,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": 0.2064288575852863,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104740.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7838266182929158,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1
+     },
+     "source": "results/robustness/r06_datums_validation/summary.json",
+     "why": [
+      "atl08: DEM bias +0.028 -> +0.206 m"
+     ]
+    },
+    "offsets_+1sigma": {
+     "verdict": "robust",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.3700959523799987,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.1213313505134612,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": 0.0275870213660518,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104740.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7563108649990452,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1
+     },
+     "source": "results/robustness/r06_datums_validation/summary.json",
+     "why": []
+    },
+    "offsets_-1sigma": {
+     "verdict": "robust",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.3700959523799987,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.1213313505134612,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": 0.0275870213660518,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104740.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7563108649990452,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1
+     },
+     "source": "results/robustness/r06_datums_validation/summary.json",
+     "why": []
+    },
+    "tide_both_mean": {
+     "verdict": "robust",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.3701232852402523,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.1223619445913495,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": 0.0291679063637213,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104740.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7560148940232958,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1
+     },
+     "source": "results/robustness/r06_datums_validation/summary.json",
+     "why": []
+    },
+    "tide_geoid_mean": {
+     "verdict": "robust",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.3701117581921658,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.1232742262521815,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": 0.0303772128390133,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104740.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7558525873591752,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1
+     },
+     "source": "results/robustness/r06_datums_validation/summary.json",
+     "why": []
+    },
     "sector_shape_constants": {
      "verdict": "sensitive",
      "metrics": {
@@ -611,7 +852,7 @@
     }
    },
    "verdict": "sensitive",
-   "note": "per-sector datum constants only (the lead's red-team run); the D-074 total variant and c / product offsets at +-1 sigma / mean-tide recipes were not run; the DAHITI -> BHS-77 offset (D-093) cancels in every metric (reporting only)"
+   "note": "per-sector datum constants (the lead's red-team run, H1) and the validation side (c and the product offsets at +-1 bootstrap sigma, both mean-tide recipes; H2 on the sources listed per variant, sources_evaluated); the D-074 total-variant hindcast was not run; the DAHITI -> BHS-77 offset (D-093) cancels in every metric (reporting only)"
   },
   "check08": {
    "variants": {
@@ -697,10 +938,61 @@
       "atl08: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve', 'northeast', 'ural']",
       "atl08: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve', 'northeast', 'ural']"
      ]
+    },
+    "split_reassignment": {
+     "verdict": "sensitive",
+     "metrics": {
+      "n_seeds": 20,
+      "n_seeds_robust": 4,
+      "n_seeds_partly_sensitive": 13,
+      "n_seeds_sensitive": 3,
+      "atl08.n_seeds_h2_matched_supported": 3,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.n_seeds_h2_total_supported": 3,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.dem_nmad_min_m": 0.2155873864200005,
+      "atl08.dem_nmad_max_m": 1.032079372799997,
+      "atl08.coverage_min": 0.4680759738169331,
+      "atl08.coverage_max": 0.949515720025867
+     },
+     "source": "results/robustness/r08_blocking/summary.json",
+     "why": [
+      "split_seed01: atl08: H2 (matched) not supported -> supported",
+      "split_seed01: atl08: H2 (total) not supported -> supported",
+      "split_seed05: atl08: H2 (matched) not supported -> supported",
+      "split_seed05: atl08: H2 (total) not supported -> supported",
+      "split_seed12: atl08: H2 (matched) not supported -> supported",
+      "split_seed12: atl08: H2 (total) not supported -> supported"
+     ]
+    },
+    "split_swap_calib_test": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.2380353588899994,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 0.722228333498344,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": -0.0944694236385965,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 99236.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.8847998710145512,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1
+     },
+     "source": "results/robustness/r08_blocking/summary.json",
+     "why": [
+      "atl08: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve', 'northeast', 'open_shelf', 'ural']",
+      "atl08: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve', 'northeast', 'open_shelf', 'ural']"
+     ]
     }
    },
    "verdict": "sensitive",
-   "note": "block size only (H2 at 25 and 12.5 km against 50 km); split reassignment not run"
+   "note": "block size (H2 at 25 and 12.5 km against 50 km) and the calibration split (20 seeded reassignments of the 50 km blocks as one variant, worst over the seeds, and the calibration/test swap); each moves the test points, so the magnitude criterion does not apply; the split variants are post-hoc sensitivities that reuse test blocks for fitting"
   },
   "check10": {
    "variants": {
@@ -840,7 +1132,8 @@
      "why": []
     }
    },
-   "verdict": "partly sensitive"
+   "verdict": "partly sensitive",
+   "note": "H1 on E2 + E3 and the morphology table decide; the E1 minus E2 + E3 limb-difference map (r10_morphology, two-limb band) is descriptive"
   },
   "check11": {
    "variants": {

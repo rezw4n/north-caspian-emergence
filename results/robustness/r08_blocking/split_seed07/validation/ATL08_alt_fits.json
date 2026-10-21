@@ -1,0 +1,122 @@
+{
+ "constant": {
+  "split": "train",
+  "estimator": "median of DEM - H_EGM2008",
+  "constant_m": 0.6957552000000007,
+  "sigma_boot_m": 0.13041737517182267,
+  "n_points": 233635,
+  "n_blocks": 37,
+  "n_boot": 1000,
+  "seed": 20261020
+ },
+ "product_offsets": {
+  "gebco_2026": {
+   "split": "train",
+   "offset_m": 1.2476964000000024,
+   "sigma_boot_m": 0.13295067432342556,
+   "n_points": 233635,
+   "n_blocks": 37
+  },
+  "etopo_2022": {
+   "split": "train",
+   "offset_m": 1.1253379999999993,
+   "sigma_boot_m": 0.31351511393766124,
+   "n_points": 233635,
+   "n_blocks": 37
+  },
+  "srtm15p_v2.7": {
+   "split": "train",
+   "offset_m": 1.2632112000000006,
+   "sigma_boot_m": 0.16909994763325145,
+   "n_points": 233635,
+   "n_blocks": 37
+  },
+  "gebco_2022": {
+   "split": "train",
+   "offset_m": 1.0256749999999997,
+   "sigma_boot_m": 0.0814464245504404,
+   "n_points": 233635,
+   "n_blocks": 37
+  },
+  "etopo1": {
+   "split": "train",
+   "offset_m": 0.9390327999999997,
+   "sigma_boot_m": 0.12120669253877976,
+   "n_points": 233635,
+   "n_blocks": 37
+  }
+ },
+ "scale_model": {
+  "split": "train",
+  "terms": [
+   "intercept",
+   "log1p_interp_dist",
+   "contour_density",
+   "slope"
+  ],
+  "beta": [
+   -2.00557902093324,
+   0.14552753840100813,
+   -0.000950867444381609,
+   132.64643081707328
+  ],
+  "n_points": 233635,
+  "floor_m": 0.001
+ },
+ "calibration": {
+  "alpha": 0.09999999999999998,
+  "min_n": 50,
+  "pooled": {
+   "q": 3.525011118120157,
+   "n": 124817
+  },
+  "groups": {
+   "interfluve": {
+    "q": 0.8583893467746581,
+    "n": 3786,
+    "used_pooled": false
+   },
+   "komsomolets": {
+    "q": 7.175551950114079,
+    "n": 33424,
+    "used_pooled": false
+   },
+   "northeast": {
+    "q": 1.8724066233852719,
+    "n": 63969,
+    "used_pooled": false
+   },
+   "open_shelf": {
+    "q": 2.384814856982075,
+    "n": 7289,
+    "used_pooled": false
+   },
+   "ural": {
+    "q": 2.3026961974796047,
+    "n": 976,
+    "used_pooled": false
+   },
+   "volga": {
+    "q": 7.779364574876477,
+    "n": 10444,
+    "used_pooled": false
+   },
+   "west": {
+    "q": 3.315652428535291,
+    "n": 4929,
+    "used_pooled": false
+   }
+  },
+  "n_excluded": {
+   "interfluve": 0,
+   "komsomolets": 0,
+   "northeast": 0,
+   "open_shelf": 0,
+   "ural": 0,
+   "volga": 0,
+   "west": 0
+  },
+  "split": "calib",
+  "level": 0.9
+ }
+}

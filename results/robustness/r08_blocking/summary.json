@@ -1,6 +1,6 @@
 {
  "check": "r08_blocking",
- "created": "2026-10-21T08:30:27Z",
+ "created": "2026-10-21T18:40:46Z",
  "h2": {
   "block_25km": {
    "ATL06": {
@@ -218,5 +218,4074 @@
   "block_25km": "results/validation/main/sensitivity_25000m",
   "block_12_5km": "results/validation/main/sensitivity_12500m"
  },
- "split_reassignment": "not run"
+ "split_reassignment": {
+  "variants": [
+   "split_seed01",
+   "split_seed02",
+   "split_seed03",
+   "split_seed04",
+   "split_seed05",
+   "split_seed06",
+   "split_seed07",
+   "split_seed08",
+   "split_seed09",
+   "split_seed10",
+   "split_seed11",
+   "split_seed12",
+   "split_seed13",
+   "split_seed14",
+   "split_seed15",
+   "split_seed16",
+   "split_seed17",
+   "split_seed18",
+   "split_seed19",
+   "split_seed20",
+   "split_swap_calib_test"
+  ],
+  "design": "scripts/r08_blocking.py splits: seeds 1..N of caspian.robustness.reassign_splits and the calibration/test swap; post-hoc sensitivity that reuses test blocks for fitting"
+ },
+ "splits": {
+  "split_seed01": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      0.0447799511698424
+     ],
+     "interfluve|n": [
+      3786.0,
+      24063.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1593144138600004
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.2565674394143115
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      -0.251897994048163
+     ],
+     "komsomolets|n": [
+      16193.0,
+      22010.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.2090202838500006
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      0.3390571013234983
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      NaN
+     ],
+     "northeast|n": [
+      63146.0,
+      0.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      NaN
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      NaN
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.518134900292639
+     ],
+     "open_shelf|n": [
+      11487.0,
+      11960.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.5624434355399978
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      1.1647469958511107
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      -0.0821466313867422
+     ],
+     "overall|n": [
+      104740.0,
+      65636.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2932209184799992
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.832927321835979
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -1.0372856503001748
+     ],
+     "volga|n": [
+      9725.0,
+      6996.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.0759372753499974
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      1.888698317011023
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.2222662080724843
+     ],
+     "west|n": [
+      403.0,
+      607.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.3556336341600063
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.6294980665728898
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.7468727922536674
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      1.0
+     ],
+     "northeast": [
+      0.8736420359167644,
+      NaN
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.8118729096989966
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.8679078554451826
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.9631217838765008
+     ],
+     "west": [
+      0.8610421836228288,
+      0.8830313014827018
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "west",
+      "interfluve",
+      "komsomolets"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "komsomolets"
+     ]
+    }
+   }
+  },
+  "split_seed02": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      0.001924144400423
+     ],
+     "interfluve|n": [
+      3786.0,
+      3786.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1017303781200041
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.1355985497104138
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      0.2536846353967213
+     ],
+     "komsomolets|n": [
+      16193.0,
+      33424.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.3651288717300034
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      0.9837164805591476
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      0.2098131167472963
+     ],
+     "northeast|n": [
+      63146.0,
+      18397.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.2004783580800038
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.3554533783823739
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.0823218595648914
+     ],
+     "open_shelf|n": [
+      11487.0,
+      15318.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.1379568195599996
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.4403068531315536
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      -0.0074211619486111
+     ],
+     "overall|n": [
+      104740.0,
+      76457.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.307945063859999
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.217305519044708
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -2.9080155028670043
+     ],
+     "volga|n": [
+      9725.0,
+      4925.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.925715929760001
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      3.911253489779989
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.242501408072488
+     ],
+     "west|n": [
+      403.0,
+      607.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.3556336341600116
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.6369242352785964
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.9775488642366614
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.976663475347056
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.9385769418927
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.9413108760934848
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.9336097414232836
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.5801015228426396
+     ],
+     "west": [
+      0.8610421836228288,
+      0.8121911037891268
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "west",
+      "interfluve",
+      "northeast"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast"
+     ]
+    }
+   }
+  },
+  "split_seed03": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.0899951645316667
+     ],
+     "interfluve|n": [
+      3786.0,
+      5605.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1439500817999962
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.2085074907806115
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      2.029849133517351
+     ],
+     "komsomolets|n": [
+      16193.0,
+      1268.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.201281853150002
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      2.095988281333925
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      0.0188192974365563
+     ],
+     "northeast|n": [
+      63146.0,
+      46812.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.2644377962099983
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.3401375537661881
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.4369931176819511
+     ],
+     "open_shelf|n": [
+      11487.0,
+      6238.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.482514171509997
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.6948568508113139
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      -0.0672400702433015
+     ],
+     "overall|n": [
+      104740.0,
+      66748.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.3216585949499978
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.8367948904469025
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -1.4893037410109875
+     ],
+     "volga|n": [
+      9725.0,
+      6825.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.3872928381199972
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      2.182069240881356
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      NaN
+     ],
+     "west|n": [
+      403.0,
+      0.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      NaN
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      NaN
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.6465655664585191
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.6876971608832808
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.8805434503973341
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.909426098108368
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.8640408701384311
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.9207326007326008
+     ],
+     "west": [
+      0.8610421836228288,
+      NaN
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    }
+   }
+  },
+  "split_seed04": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.0922280377358495
+     ],
+     "interfluve|n": [
+      3786.0,
+      265.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.0725701565399972
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.1314428509009312
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      1.6450525332279378
+     ],
+     "komsomolets|n": [
+      16193.0,
+      16193.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.4794000443400018
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      1.9807317558383848
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.0852560508452325
+     ],
+     "northeast|n": [
+      63146.0,
+      36558.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.15830587521
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.2682753159693657
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      -0.0470259664071578
+     ],
+     "open_shelf|n": [
+      11487.0,
+      8606.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.2189712726599984
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.3910658273467707
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.3670062742732992
+     ],
+     "overall|n": [
+      104740.0,
+      62598.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2920715328299988
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.0389617525495702
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      NaN
+     ],
+     "volga|n": [
+      9725.0,
+      0.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      NaN
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      NaN
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      -0.1214552355532789
+     ],
+     "west|n": [
+      403.0,
+      976.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.1903209172200031
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.3020701863854279
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.8679245283018868
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.9768418452417712
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.9016904644674216
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.9337671392052056
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.9268826480079236
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      NaN
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9969262295081968
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "open_shelf"
+     ]
+    }
+   }
+  },
+  "split_seed05": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.1205451145316678
+     ],
+     "interfluve|n": [
+      3786.0,
+      5605.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1439500817999962
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.2233995718661921
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      0.1621607398029069
+     ],
+     "komsomolets|n": [
+      16193.0,
+      37089.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.4660333675200032
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      0.9037893303572248
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.0639350079532709
+     ],
+     "northeast|n": [
+      63146.0,
+      76698.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.2046162946800041
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.2703108010293016
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.0088990573500499
+     ],
+     "open_shelf|n": [
+      11487.0,
+      14138.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.1292724159299996
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.4268342880631082
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.0099260275234151
+     ],
+     "overall|n": [
+      104740.0,
+      137627.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2303309538599981
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.5382644706148806
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      0.1972388790544413
+     ],
+     "volga|n": [
+      9725.0,
+      3490.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      0.4535494307400017
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      0.5039022751463064
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.1925432580724878
+     ],
+     "west|n": [
+      403.0,
+      607.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.3556336341600063
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.619627674331331
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.6547725245316681
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.9975734045134677
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.9416021278260188
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.9762342622718914
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.949515720025867
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      1.0
+     ],
+     "west": [
+      0.8610421836228288,
+      0.8220757825370676
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "open_shelf"
+     ]
+    }
+   }
+  },
+  "split_seed06": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.0751514377358502
+     ],
+     "interfluve|n": [
+      3786.0,
+      265.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.0725701565399972
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.120078935297264
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      0.0282543623586308
+     ],
+     "komsomolets|n": [
+      16193.0,
+      28737.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.2653524862800029
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      0.8189464155663776
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.3292082014754485
+     ],
+     "northeast|n": [
+      63146.0,
+      8472.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.2749108084799997
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.4780404531222334
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.3639839055094331
+     ],
+     "open_shelf|n": [
+      11487.0,
+      9275.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.5235613609799951
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.6619990506434223
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      -0.1793002307902453
+     ],
+     "overall|n": [
+      104740.0,
+      53591.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.3705478488600019
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.193563339607881
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -1.7098456409659897
+     ],
+     "volga|n": [
+      9725.0,
+      6439.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.9918532331599976
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      2.8087052005851167
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.0543128861042171
+     ],
+     "west|n": [
+      403.0,
+      403.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.5972416884000031
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.8208519604031616
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.8830188679245283
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.9713609632181508
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.7541312559017942
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.9749865229110511
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.8749790076691982
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.4598540145985401
+     ],
+     "west": [
+      0.8610421836228288,
+      0.8684863523573201
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    }
+   }
+  },
+  "split_seed07": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      0.0217655511698449
+     ],
+     "interfluve|n": [
+      3786.0,
+      24063.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1593144138600004
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.2535652700165582
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      0.686838579591877
+     ],
+     "komsomolets|n": [
+      16193.0,
+      50083.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      1.2491005816799985
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      1.207181067794404
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.1720800892382015
+     ],
+     "northeast|n": [
+      63146.0,
+      13455.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.2677175298000037
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.4509874156044848
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.4515691072297291
+     ],
+     "open_shelf|n": [
+      11487.0,
+      5920.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.5247289084799995
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      1.4390873753522908
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.3269550465101323
+     ],
+     "overall|n": [
+      104740.0,
+      101107.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.4743566839199998
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.0385216001266748
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -0.6204893358820829
+     ],
+     "volga|n": [
+      9725.0,
+      4342.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      0.6243551806799997
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      2.093435164931321
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.1451837331381004
+     ],
+     "west|n": [
+      403.0,
+      3244.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.2519202044099987
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.3881680154155161
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.7511947803682001
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.795080166922908
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.8364176885916016
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.802027027027027
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.799469868555095
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.8783970520497466
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9617755856966708
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    }
+   }
+  },
+  "split_seed08": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.2325511645316675
+     ],
+     "interfluve|n": [
+      3786.0,
+      5605.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1439500818000014
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.2990924408900696
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      0.2818851419301462
+     ],
+     "komsomolets|n": [
+      16193.0,
+      37707.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.509957764679993
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      1.2226985734068003
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.3184400269253032
+     ],
+     "northeast|n": [
+      63146.0,
+      74261.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.1869712790400025
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.4154767985366815
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      -0.1094207506743233
+     ],
+     "open_shelf|n": [
+      11487.0,
+      15497.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.323092491540002
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.6465067585475587
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      -0.1698353467451811
+     ],
+     "overall|n": [
+      104740.0,
+      142223.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2376563321999998
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.8374515297251097
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -0.9578287107769712
+     ],
+     "volga|n": [
+      9725.0,
+      8546.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.011745884449997
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      1.6533377053575709
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.0805372080724881
+     ],
+     "west|n": [
+      403.0,
+      607.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.3556336341600116
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.5944340084922772
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.631757359500446
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.6319516270188559
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.8340447879775387
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.6894237594373105
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.7631044205227002
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.9335361572665576
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9258649093904447
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    }
+   }
+  },
+  "split_seed09": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      0.0011799444004214
+     ],
+     "interfluve|n": [
+      3786.0,
+      3786.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1017303781200041
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.1355900314207574
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      1.5418367368827035
+     ],
+     "komsomolets|n": [
+      16193.0,
+      42832.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.5738118640800023
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      1.7675267660988971
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      0.1464542140087095
+     ],
+     "northeast|n": [
+      63146.0,
+      28932.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.307799027759999
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.3738393937702359
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.0345832166234153
+     ],
+     "open_shelf|n": [
+      11487.0,
+      6551.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.2113317313799966
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      1.2544072559396673
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.7466935958389662
+     ],
+     "overall|n": [
+      104740.0,
+      83871.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      1.032079372799997
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.5259396543951838
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -4.453247332683617
+     ],
+     "volga|n": [
+      9725.0,
+      1770.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.9184078237099984
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      5.156206385612074
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      NaN
+     ],
+     "west|n": [
+      403.0,
+      0.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      NaN
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      NaN
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.8821975699947174
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.1952045199850579
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.7535946356974976
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.8407876660051901
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.4680759738169331
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.1389830508474576
+     ],
+     "west": [
+      0.8610421836228288,
+      NaN
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    }
+   }
+  },
+  "split_seed10": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.1912256145316677
+     ],
+     "interfluve|n": [
+      3786.0,
+      5605.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1439500817999909
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.2682228173097117
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      -0.1590693605427932
+     ],
+     "komsomolets|n": [
+      16193.0,
+      27469.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.2517115284600015
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      0.7219352969863039
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.3148152385777745
+     ],
+     "northeast|n": [
+      63146.0,
+      34214.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.1808211577200006
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.4095139661086041
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      -0.0420453439512021
+     ],
+     "open_shelf|n": [
+      11487.0,
+      15923.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.1414945996799971
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.4125446150352385
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      -0.3064283760488028
+     ],
+     "overall|n": [
+      104740.0,
+      94932.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2405826139500016
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.9125508277182238
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -1.4660743339070426
+     ],
+     "volga|n": [
+      9725.0,
+      8477.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.7026953799799929
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      2.55762081160286
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.0677946831381015
+     ],
+     "west|n": [
+      403.0,
+      3244.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.2519202044100013
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.3663225503371321
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.5612845673505799
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.9729513269503804
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.7903782077512129
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.97682597500471
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.8768592255509207
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.8991388462899611
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9716399506781752
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "komsomolets",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "komsomolets",
+      "open_shelf"
+     ]
+    }
+   }
+  },
+  "split_seed11": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.1388199377358505
+     ],
+     "interfluve|n": [
+      3786.0,
+      265.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.0725701565400025
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.1674580162946658
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      1.0959863847961464
+     ],
+     "komsomolets|n": [
+      16193.0,
+      15575.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.531379110780004
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      1.4521511681684172
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.0639992205161624
+     ],
+     "northeast|n": [
+      63146.0,
+      19955.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.1671201545999955
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.2662947466209883
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.6076875459368205
+     ],
+     "open_shelf|n": [
+      11487.0,
+      4147.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.4848487476
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.7781128580373576
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.3127502337792783
+     ],
+     "overall|n": [
+      104740.0,
+      43503.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.6192520714799976
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.0525588877863707
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -1.74336133187621
+     ],
+     "volga|n": [
+      9725.0,
+      2585.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.1551236085199963
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      2.092343988447446
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      -0.1680471355532801
+     ],
+     "west|n": [
+      403.0,
+      976.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.1903209172200005
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.3236276610972665
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.9886792452830188
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.9112680577849116
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.9492357805061388
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.5377381239450205
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.8992253407810955
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.9775628626692456
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9887295081967212
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    }
+   }
+  },
+  "split_seed12": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.071114914531668
+     ],
+     "interfluve|n": [
+      3786.0,
+      5605.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1439500817999962
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.2010810163625385
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      0.1580956990041123
+     ],
+     "komsomolets|n": [
+      16193.0,
+      27965.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.2809338709799995
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      0.8664115691483409
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      0.0968323812680267
+     ],
+     "northeast|n": [
+      63146.0,
+      48887.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.2470010117399914
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.3320651270031912
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.1750557761649035
+     ],
+     "open_shelf|n": [
+      11487.0,
+      23062.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.1861507340699973
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.5236761276561267
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.1247768165839232
+     ],
+     "overall|n": [
+      104740.0,
+      115034.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2764406292900003
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.5488596099681734
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      0.1515680427922182
+     ],
+     "volga|n": [
+      9725.0,
+      6271.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      0.3712784741399966
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      0.4346116017578108
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.1879053831381012
+     ],
+     "west|n": [
+      403.0,
+      3244.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.2519202044099987
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.4060843814233462
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.9546833184656556
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.9580189522617558
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.9235584102113036
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.8703928540456162
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.9283950831927952
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      1.0
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9744143033292232
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    }
+   }
+  },
+  "split_seed13": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.0548275645316691
+     ],
+     "interfluve|n": [
+      3786.0,
+      5605.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1439500817999962
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.1959140268204892
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      1.5203648083960255
+     ],
+     "komsomolets|n": [
+      16193.0,
+      34028.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.6277198672499998
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      1.662444637588696
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      0.1151319985985908
+     ],
+     "northeast|n": [
+      63146.0,
+      55801.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.3128182217999976
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.3871198905753621
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.1171087552497152
+     ],
+     "open_shelf|n": [
+      11487.0,
+      3524.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.2591128900500009
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      1.6655298883210583
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.4686372718902704
+     ],
+     "overall|n": [
+      104740.0,
+      107556.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.5966712580500001
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.1569898896646629
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -1.5917982665427726
+     ],
+     "volga|n": [
+      9725.0,
+      5354.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      0.9371369305200004
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      2.4072056897488574
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.2041927331381001
+     ],
+     "west|n": [
+      403.0,
+      3244.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.2519202044099987
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.4138728839753971
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.7691347011596789
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.8132420359703774
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.7037508288381928
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.8027809307604994
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.7621053218788352
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.9237952932387
+     ],
+     "west": [
+      0.8610421836228288,
+      0.906288532675709
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    }
+   }
+  },
+  "split_seed14": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.0345014555995763
+     ],
+     "interfluve|n": [
+      3786.0,
+      3786.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1017303781200041
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.1399057353734415
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      1.4448269730042351
+     ],
+     "komsomolets|n": [
+      16193.0,
+      32594.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.5348950966800023
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      1.5986145180772702
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.1869438019773535
+     ],
+     "northeast|n": [
+      63146.0,
+      60940.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.1728255700499992
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.3057485963002548
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.4931570711126479
+     ],
+     "open_shelf|n": [
+      11487.0,
+      2894.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.2834462849400002
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.5906576816956335
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.2875208143244563
+     ],
+     "overall|n": [
+      104740.0,
+      109519.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.3808501397400018
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.997551668358507
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -0.647774575075038
+     ],
+     "volga|n": [
+      9725.0,
+      8329.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      0.7563483899999991
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      1.503147258375375
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      -0.1153715355532776
+     ],
+     "west|n": [
+      403.0,
+      976.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.1903209172200031
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.2996758490027948
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.9165346011621764
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.5381358532245198
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.945356087955366
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.937456807187284
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.8243683744373123
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.9582182735022212
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9938524590163934
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "open_shelf"
+     ]
+    }
+   }
+  },
+  "split_seed15": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      0.0374563444004234
+     ],
+     "interfluve|n": [
+      3786.0,
+      3786.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1017303781200041
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.1406635776871079
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      1.7733599323754647
+     ],
+     "komsomolets|n": [
+      16193.0,
+      10238.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.4354042599899994
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      2.1747058942475315
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.0490620429821091
+     ],
+     "northeast|n": [
+      63146.0,
+      58301.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.1583754832799996
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.215373879994528
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.4451063500508807
+     ],
+     "open_shelf|n": [
+      11487.0,
+      6879.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.4938840085199996
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.6977074144546387
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.1734347284099651
+     ],
+     "overall|n": [
+      104740.0,
+      83017.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2155873864200005
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.0117235104055322
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -4.552435444395711
+     ],
+     "volga|n": [
+      9725.0,
+      1026.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.8440910902400007
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      5.363737118611034
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.2044637576964487
+     ],
+     "west|n": [
+      403.0,
+      2787.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.4985887431
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.5714972297504299
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.9836238774432118
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.8907013088493847
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.9808408089055076
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.7970635266753888
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.9397954635797487
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.5380116959064327
+     ],
+     "west": [
+      0.8610421836228288,
+      0.7021887334050951
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "west",
+      "interfluve",
+      "northeast"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "west",
+      "interfluve",
+      "northeast"
+     ]
+    }
+   }
+  },
+  "split_seed16": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.1037303377358496
+     ],
+     "interfluve|n": [
+      3786.0,
+      265.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.0725701565399972
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.1397540520884907
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      1.547131715096557
+     ],
+     "komsomolets|n": [
+      16193.0,
+      5955.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.5305897745400028
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      1.722553994455731
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      0.093048058823936
+     ],
+     "northeast|n": [
+      63146.0,
+      28944.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.3078052546800006
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.3564086655203624
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.0901663342568656
+     ],
+     "open_shelf|n": [
+      11487.0,
+      12380.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.4863871674899984
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.7088976261526702
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.1204836771466928
+     ],
+     "overall|n": [
+      104740.0,
+      55865.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.4895159723999993
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.8830283076521801
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -0.8351988942273663
+     ],
+     "volga|n": [
+      9725.0,
+      7345.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      0.8710795392600003
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      1.4710889031496972
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      -0.132957535553279
+     ],
+     "west|n": [
+      403.0,
+      976.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.1903209172200031
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.306875755836179
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.9924528301886792
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.5256087321578505
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.8481550580431177
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.948788368336026
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.8557594200304305
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.9734513274336284
+     ],
+     "west": [
+      0.8610421836228288,
+      0.992827868852459
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    }
+   }
+  },
+  "split_seed17": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      0.0406825511698432
+     ],
+     "interfluve|n": [
+      3786.0,
+      24063.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1593144138600004
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.2558841083587058
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      0.7057555795918753
+     ],
+     "komsomolets|n": [
+      16193.0,
+      50083.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      1.2491005816799985
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      1.218043445099769
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      0.1260113873182938
+     ],
+     "northeast|n": [
+      63146.0,
+      33915.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.2850492720600024
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.3676239784080613
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.631626355958873
+     ],
+     "open_shelf|n": [
+      11487.0,
+      9532.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.5139207544800032
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.8295996351976018
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.2243421742966532
+     ],
+     "overall|n": [
+      104740.0,
+      126652.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.4826435283600023
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.1733727229556383
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -3.222458687305247
+     ],
+     "volga|n": [
+      9725.0,
+      5815.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.2923996181600017
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      3.864497043730139
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.1641007331380987
+     ],
+     "west|n": [
+      403.0,
+      3244.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.2519202044099987
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.3956325851597245
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.7469143498316918
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.7137551664237366
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.8562877782692024
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.5118548048678137
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.7490762088241797
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.7116079105760963
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9537607891491984
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    }
+   }
+  },
+  "split_seed18": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      0.0745750511698435
+     ],
+     "interfluve|n": [
+      3786.0,
+      24063.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1593144138600004
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.2634066157062645
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      1.7473876323754618
+     ],
+     "komsomolets|n": [
+      16193.0,
+      10238.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.4354042599899994
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      2.15357930304388
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.0338492511967278
+     ],
+     "northeast|n": [
+      63146.0,
+      46669.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.1805344228799919
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.2369385004202118
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.4688691883236116
+     ],
+     "open_shelf|n": [
+      11487.0,
+      8059.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.5639408615400017
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.70151001535741
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.0400697889640011
+     ],
+     "overall|n": [
+      104740.0,
+      98842.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2550659109600022
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.1610084822377464
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -2.8261336715908074
+     ],
+     "volga|n": [
+      9725.0,
+      6569.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.2394825107000038
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      3.4225260948081804
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.1979932331380991
+     ],
+     "west|n": [
+      403.0,
+      3244.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.2519202044099987
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.410849622358574
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.7493662469351287
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.9055479585856612
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.9730870599327176
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.8108946519419282
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.876773031707169
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.6576343431268077
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9528360049321823
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "open_shelf"
+     ]
+    }
+   }
+  },
+  "split_seed19": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.13601613773585
+     ],
+     "interfluve|n": [
+      3786.0,
+      265.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.0725701565399972
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.1651411572956204
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      NaN
+     ],
+     "komsomolets|n": [
+      16193.0,
+      0.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      NaN
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      NaN
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      0.0074611333514893
+     ],
+     "northeast|n": [
+      63146.0,
+      42226.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.281439066930004
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.3631418974453984
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      -0.1237249277763101
+     ],
+     "open_shelf|n": [
+      11487.0,
+      25352.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.2060117919299993
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.779570882439052
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      -0.1874838681406781
+     ],
+     "overall|n": [
+      104740.0,
+      74987.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2698191153000018
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.986935295323072
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -2.9570556304564106
+     ],
+     "volga|n": [
+      9725.0,
+      3900.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.17458703306
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      3.637530052773862
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.1021359331381004
+     ],
+     "west|n": [
+      403.0,
+      3244.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.2519202044099987
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.3742029404770834
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.9962264150943396
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      NaN
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.895609340216928
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.8628116124960555
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.884913384986731
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.8356410256410256
+     ],
+     "west": [
+      0.8610421836228288,
+      0.968557336621455
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve"
+     ]
+    }
+   }
+  },
+  "split_seed20": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      -0.1313565377358482
+     ],
+     "interfluve|n": [
+      3786.0,
+      265.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.0725701565399919
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.1613249891191951
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      -0.3133005940481587
+     ],
+     "komsomolets|n": [
+      16193.0,
+      22010.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      0.209020283849998
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      0.3868648094403699
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.1250469511967246
+     ],
+     "northeast|n": [
+      63146.0,
+      46669.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.1805344228799972
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.2657645973006856
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      -0.0651067715070035
+     ],
+     "open_shelf|n": [
+      11487.0,
+      5282.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.2489140846500015
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.3796521488528716
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      -0.2715374745031625
+     ],
+     "overall|n": [
+      104740.0,
+      82180.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2190306507899996
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.7870788564737037
+     ],
+     "ural|bias": [
+      NaN,
+      NaN
+     ],
+     "ural|n": [
+      0.0,
+      0.0
+     ],
+     "ural|nmad": [
+      NaN,
+      NaN
+     ],
+     "ural|rmse": [
+      NaN,
+      NaN
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -1.296640045682143
+     ],
+     "volga|n": [
+      9725.0,
+      6978.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.48787331168
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      2.4953816051145594
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      -0.1605837355532774
+     ],
+     "west|n": [
+      403.0,
+      976.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.1903209172200058
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.319815821034341
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.9886792452830188
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      0.9999545661063152
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.9521095373802738
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.8405906853464596
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.9448649306400584
+     ],
+     "ural": [
+      NaN,
+      NaN
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.792920607623961
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9948770491803278
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "komsomolets"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "komsomolets"
+     ]
+    }
+   }
+  },
+  "split_swap_calib_test": {
+   "ATL08": {
+    "dem": {
+     "interfluve|bias": [
+      -0.0554009555995751,
+      0.0076900511698479
+     ],
+     "interfluve|n": [
+      3786.0,
+      24063.0
+     ],
+     "interfluve|nmad": [
+      0.1017303781200041,
+      0.1593144138600004
+     ],
+     "interfluve|rmse": [
+      0.1464668229779017,
+      0.2527464022055266
+     ],
+     "komsomolets|bias": [
+      1.6302367332279402,
+      NaN
+     ],
+     "komsomolets|n": [
+      16193.0,
+      0.0
+     ],
+     "komsomolets|nmad": [
+      0.4794000443400018,
+      NaN
+     ],
+     "komsomolets|rmse": [
+      1.968444121094796,
+      NaN
+     ],
+     "northeast|bias": [
+      -0.0950917564390433,
+      -0.0281682846714136
+     ],
+     "northeast|n": [
+      63146.0,
+      49972.0
+     ],
+     "northeast|nmad": [
+      0.2690240710499997,
+      0.2316386070599992
+     ],
+     "northeast|rmse": [
+      0.3596437779735271,
+      0.2826370657109398
+     ],
+     "open_shelf|bias": [
+      -0.2317684251588728,
+      0.3869835513506309
+     ],
+     "open_shelf|n": [
+      11487.0,
+      3739.0
+     ],
+     "open_shelf|nmad": [
+      0.204569889300007,
+      0.2876375951399947
+     ],
+     "open_shelf|rmse": [
+      0.5581453277156959,
+      0.475491384885658
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      -0.0944694236385965
+     ],
+     "overall|n": [
+      104740.0,
+      99236.0
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2380353588899994
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.722228333498344
+     ],
+     "ural|bias": [
+      NaN,
+      0.0444553107999014
+     ],
+     "ural|n": [
+      0.0,
+      11889.0
+     ],
+     "ural|nmad": [
+      NaN,
+      0.2036147983799965
+     ],
+     "ural|rmse": [
+      NaN,
+      0.3845122805914015
+     ],
+     "volga|bias": [
+      -1.5055278446663216,
+      -1.7075736865350355
+     ],
+     "volga|n": [
+      9725.0,
+      6179.0
+     ],
+     "volga|nmad": [
+      1.4222523978600046,
+      1.533075413520002
+     ],
+     "volga|rmse": [
+      2.4179364812125943,
+      2.62480311018967
+     ],
+     "west|bias": [
+      0.0224204861042204,
+      0.124764059104304
+     ],
+     "west|n": [
+      403.0,
+      3394.0
+     ],
+     "west|nmad": [
+      0.5972416884000031,
+      0.4654978524000052
+     ],
+     "west|rmse": [
+      0.8193599511190996,
+      0.5588059293715315
+     ]
+    },
+    "coverage": {
+     "interfluve": [
+      0.98837823560486,
+      0.7445040103062793
+     ],
+     "komsomolets": [
+      0.0868276415735194,
+      NaN
+     ],
+     "northeast": [
+      0.8736420359167644,
+      0.922136396381974
+     ],
+     "open_shelf": [
+      0.8215373900931487,
+      0.9887670500133724
+     ],
+     "overall": [
+      0.7563108649990452,
+      0.8847998710145512
+     ],
+     "ural": [
+      NaN,
+      0.978299268231138
+     ],
+     "volga": [
+      0.9374807197943444,
+      0.8481955008901116
+     ],
+     "west": [
+      0.8610421836228288,
+      0.9543311726576312
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "ural",
+      "northeast",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "ural",
+      "northeast",
+      "open_shelf"
+     ]
+    }
+   }
+  }
+ }
 }

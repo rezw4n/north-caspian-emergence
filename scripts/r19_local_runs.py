@@ -297,9 +297,17 @@ def cmd_fold(a) -> int:
     vmain = RESULTS / "validation" / MAIN
     dirs = {"block_25km": "sensitivity_25000m", "block_12_5km": "sensitivity_12500m"}
     h2 = {k: h2_from_folders(vmain, vmain / d) for k, d in dirs.items() if (vmain / d).exists()}
+    # the calibration-split check (scripts/r08_blocking.py splits: seeded reassignments of the
+    # final-size blocks and the calibration/test swap), where run; other test points again
+    splits = {d.name: h2_summary("r08_blocking", d.name) for d in sorted((ROB / "r08_blocking").glob("split_*"))
+              if (d / "validation" / "run.json").exists()}
     write_summary("r08_blocking", {"h2": h2, "same_points": False,
                                    "sources": {k: f"results/validation/main/{dirs[k]}" for k in h2},
-                                   "split_reassignment": "not run"})
+                                   "split_reassignment": ({"variants": sorted(splits), "design": "scripts/r08_blocking.py "
+                                                           "splits: seeds 1..N of caspian.robustness.reassign_splits "
+                                                           "and the calibration/test swap; post-hoc sensitivity that "
+                                                           "reuses test blocks for fitting"} if splits else "not run"),
+                                   "splits": splits})
     hm, hs = RESULTS / "hindcast" / MAIN, RESULTS / "hindcast" / "main_sectorshape"
     if (hs / "h1_mispredicts.csv").exists():
         rec = h1_from_folders(hm, hs, "shape", "total")
@@ -740,6 +748,9 @@ def cmd_komsomolets(a) -> int:
     return 0
 
 
+TWO_LIMB_BAND_M = (-26.65, -25.82)   # levels crossed on both limbs, DAHITI reference (D-037)
+
+
 def cmd_morphology(a) -> int:
     r10 = _load("r10_morphology")
     r10.main(["--main", MAIN, "--no-map"])
@@ -753,6 +764,13 @@ def cmd_morphology(a) -> int:
         lim = P.dem_difference("r10_morphology", e1, MAIN)
         lim.to_csv(d / "limb_difference_by_sector.csv", index=False)
         rec["limb_difference_E1_minus_E2E3"] = lim.to_dict(orient="records")
+        # inside the two-limb band only (cells whose E2 + E3 height lies in it), where both
+        # limbs have contours; elsewhere the E1 TIN is unconstrained (plan, check 10)
+        band = P.dem_difference("r10_morphology", e1, MAIN, main_range=TWO_LIMB_BAND_M,
+                                name="dem_difference_two_limb_band.csv")
+        band.to_csv(d / "limb_difference_two_limb_band_by_sector.csv", index=False)
+        rec["two_limb_band_m"] = list(TWO_LIMB_BAND_M)
+        rec["limb_difference_two_limb_band"] = band.to_dict(orient="records")
     write_summary("r10_morphology", rec)
     return 0
 

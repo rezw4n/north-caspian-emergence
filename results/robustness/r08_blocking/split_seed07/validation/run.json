@@ -1,0 +1,17 @@
+{
+ "check": "r08_blocking",
+ "variant": "split_seed07",
+ "main": "main",
+ "created": "2026-10-21T18:24:19Z",
+ "note": "split reassignment (sensitivity; reuses test blocks)",
+ "sources": {
+  "ATL08": {
+   "n_main_points": 470645,
+   "n_alt_points": 470645,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 470645,
+   "n_boot": 1000,
+   "main_from": "files"
+  }
+ }
+}
