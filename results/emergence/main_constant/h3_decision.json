@@ -1,0 +1,36 @@
+{
+ "tag": "main_constant",
+ "primary": "fused (constant) vs uncorrected, functional emergence",
+ "domain": {
+  "etopo1": {
+   "verdict": "partial",
+   "relevant_scenarios": "0.5,2",
+   "n_relevant": 2,
+   "n_near_term": 3
+  },
+  "etopo_2022": {
+   "verdict": "supported",
+   "relevant_scenarios": "0.5,1,2",
+   "n_relevant": 3,
+   "n_near_term": 3
+  },
+  "gebco_2022": {
+   "verdict": "partial",
+   "relevant_scenarios": "0.5",
+   "n_relevant": 1,
+   "n_near_term": 3
+  },
+  "gebco_2026": {
+   "verdict": "partial",
+   "relevant_scenarios": "0.5",
+   "n_relevant": 1,
+   "n_near_term": 3
+  },
+  "srtm15p_v2.7": {
+   "verdict": "partial",
+   "relevant_scenarios": "0.5",
+   "n_relevant": 1,
+   "n_near_term": 3
+  }
+ }
+}

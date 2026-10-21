@@ -1,0 +1,383 @@
+{
+ "tag": "main",
+ "dem_tag": "main",
+ "dem_tiles": 56,
+ "hindcast_run": "D:\\Caspian\\results\\hindcast\\main\\run.json",
+ "vertical_correction": {
+  "file": "geoid_correction_primary.npz",
+  "sha256": "365eeb612a4bd88c828ad72c099b70bd776e293281e8b0b1d31e2376001358db",
+  "meaning": "N(EGM2008) - N(EIGEN-6C4), m, added to product heights",
+  "cache": "correction_5b893a9c2a4b.npy"
+ },
+ "resampling": "bilinear",
+ "pathways": "D:\\Caspian\\results\\levels\\projection_pathways.csv",
+ "sensitivity_form": "constant",
+ "stage2_dir": "D:\\Caspian\\data\\interim\\stage2\\main",
+ "products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7",
+  "gebco_2022",
+  "etopo1"
+ ],
+ "forms": [
+  "constant"
+ ],
+ "primary_form": "linear_hold",
+ "fit_epochs": [
+  "E2",
+  "E3"
+ ],
+ "folds": {
+  "E1": [
+   "E2",
+   "E3"
+  ],
+  "E2": [
+   "E1",
+   "E3"
+  ],
+  "E3": [
+   "E1",
+   "E2"
+  ]
+ },
+ "fit_region": "every cell",
+ "level_2026": {
+  "level_m": -28.619375,
+  "method": "annual_mean",
+  "n_records": 24,
+  "first": "2026-01-09",
+  "last": "2026-09-14",
+  "datum": "DAHITI working datum (D-070)"
+ },
+ "scenarios_m": [
+  0.5,
+  1.0,
+  2.0,
+  3.0,
+  5.0
+ ],
+ "conformal_level": 0.9,
+ "observed_level_source": "hindcast displacement.csv (Amendment 6 item 5)",
+ "cross_check_extent_domain": {
+  "n_rows": 215,
+  "max_abs_diff_cells": 0.0,
+  "max_abs_diff_km2": 1.0913936421275139e-11
+ },
+ "units": [
+  {
+   "epoch": "E3",
+   "bin": 12,
+   "level_m": -28.75
+  },
+  {
+   "epoch": "E3",
+   "bin": 13,
+   "level_m": -28.65
+  },
+  {
+   "epoch": "E3",
+   "bin": 14,
+   "level_m": -28.55
+  },
+  {
+   "epoch": "E3",
+   "bin": 15,
+   "level_m": -28.45
+  },
+  {
+   "epoch": "E3",
+   "bin": 16,
+   "level_m": -28.35
+  },
+  {
+   "epoch": "E3",
+   "bin": 17,
+   "level_m": -28.25
+  },
+  {
+   "epoch": "E3",
+   "bin": 18,
+   "level_m": -28.15
+  },
+  {
+   "epoch": "E3",
+   "bin": 19,
+   "level_m": -28.05
+  },
+  {
+   "epoch": "E3",
+   "bin": 20,
+   "level_m": -27.95
+  },
+  {
+   "epoch": "E3",
+   "bin": 21,
+   "level_m": -27.85
+  },
+  {
+   "epoch": "E3",
+   "bin": 22,
+   "level_m": -27.75
+  },
+  {
+   "epoch": "E3",
+   "bin": 23,
+   "level_m": -27.65
+  },
+  {
+   "epoch": "E3",
+   "bin": 24,
+   "level_m": -27.55
+  },
+  {
+   "epoch": "E3",
+   "bin": 25,
+   "level_m": -27.45
+  },
+  {
+   "epoch": "E3",
+   "bin": 26,
+   "level_m": -27.35
+  },
+  {
+   "epoch": "E3",
+   "bin": 27,
+   "level_m": -27.25
+  },
+  {
+   "epoch": "E3",
+   "bin": 28,
+   "level_m": -27.15
+  },
+  {
+   "epoch": "E3",
+   "bin": 29,
+   "level_m": -27.05
+  },
+  {
+   "epoch": "E3",
+   "bin": 30,
+   "level_m": -26.95
+  },
+  {
+   "epoch": "E2",
+   "bin": 31,
+   "level_m": -26.85
+  },
+  {
+   "epoch": "E3",
+   "bin": 31,
+   "level_m": -26.85
+  },
+  {
+   "epoch": "E2",
+   "bin": 32,
+   "level_m": -26.75
+  },
+  {
+   "epoch": "E3",
+   "bin": 32,
+   "level_m": -26.75
+  },
+  {
+   "epoch": "E2",
+   "bin": 33,
+   "level_m": -26.65
+  },
+  {
+   "epoch": "E3",
+   "bin": 33,
+   "level_m": -26.65
+  },
+  {
+   "epoch": "E1",
+   "bin": 34,
+   "level_m": -26.55
+  },
+  {
+   "epoch": "E2",
+   "bin": 34,
+   "level_m": -26.55
+  },
+  {
+   "epoch": "E1",
+   "bin": 35,
+   "level_m": -26.45
+  },
+  {
+   "epoch": "E2",
+   "bin": 35,
+   "level_m": -26.45
+  },
+  {
+   "epoch": "E1",
+   "bin": 36,
+   "level_m": -26.35
+  },
+  {
+   "epoch": "E2",
+   "bin": 36,
+   "level_m": -26.35
+  },
+  {
+   "epoch": "E1",
+   "bin": 37,
+   "level_m": -26.25
+  },
+  {
+   "epoch": "E2",
+   "bin": 37,
+   "level_m": -26.25
+  },
+  {
+   "epoch": "E1",
+   "bin": 38,
+   "level_m": -26.15
+  },
+  {
+   "epoch": "E2",
+   "bin": 38,
+   "level_m": -26.15
+  },
+  {
+   "epoch": "E1",
+   "bin": 39,
+   "level_m": -26.05
+  },
+  {
+   "epoch": "E2",
+   "bin": 39,
+   "level_m": -26.05
+  },
+  {
+   "epoch": "E1",
+   "bin": 40,
+   "level_m": -25.95
+  },
+  {
+   "epoch": "E2",
+   "bin": 40,
+   "level_m": -25.95
+  },
+  {
+   "epoch": "E1",
+   "bin": 41,
+   "level_m": -25.85
+  },
+  {
+   "epoch": "E2",
+   "bin": 41,
+   "level_m": -25.85
+  },
+  {
+   "epoch": "E1",
+   "bin": 42,
+   "level_m": -25.75
+  },
+  {
+   "epoch": "E1",
+   "bin": 43,
+   "level_m": -25.65
+  }
+ ],
+ "constants": {
+  "C_GRID": "D-070, 0.01 m over +-5 m",
+  "MIN_UNITS": 5,
+  "MIN_MONOTONE": 0.2,
+  "PORT_ACCESS_M": 1000.0,
+  "COAST_M": 5000.0,
+  "LEVEL_MARGIN_M": 5.0
+ },
+ "layers": {
+  "osm_platforms": {
+   "rule": "onshore",
+   "threshold_m": null,
+   "radius_m": null,
+   "file": "osm_platforms.gpkg",
+   "source": null,
+   "n_features": 70
+  },
+  "osm_pipelines": {
+   "rule": "length",
+   "threshold_m": null,
+   "radius_m": null,
+   "file": "osm_pipelines.gpkg",
+   "source": null,
+   "n_features": 693
+  },
+  "osm_channels": {
+   "rule": "length",
+   "threshold_m": null,
+   "radius_m": null,
+   "file": "osm_channels.gpkg",
+   "source": null,
+   "n_features": 905
+  },
+  "osm_ports": {
+   "rule": "access",
+   "threshold_m": 1000.0,
+   "radius_m": 10000.0,
+   "file": "osm_ports.gpkg",
+   "source": null,
+   "n_features": 587
+  },
+  "osm_settlements": {
+   "rule": "access",
+   "threshold_m": 5000.0,
+   "radius_m": 20000.0,
+   "file": "osm_settlements.gpkg",
+   "source": null,
+   "n_features": 521
+  },
+  "osm_wetlands": {
+   "rule": "area",
+   "threshold_m": null,
+   "radius_m": null,
+   "file": "osm_wetlands.gpkg",
+   "source": null,
+   "n_features": 1034
+  },
+  "worldcover2021_herbaceous_wetland": {
+   "rule": "area",
+   "threshold_m": null,
+   "radius_m": null,
+   "file": "ESA_WorldCover_10m_2021_v200_N42E045_Map_NCaspian_subset.tif, ESA_WorldCover_10m_2021_v200_N42E048_Map_NCaspian_subset.tif, ESA_WorldCover_10m_2021_v200_N42E051_Map_NCaspian_subset.tif, ESA_WorldCover_10m_2021_v200_N42E054_Map_NCaspian_subset.tif, ESA_WorldCover_10m_2021_v200_N45E045_Map_NCaspian_subset.tif, ESA_WorldCover_10m_2021_v200_N45E048_Map_NCaspian_subset.tif, ESA_WorldCover_10m_2021_v200_N45E051_Map_NCaspian_subset.tif, ESA_WorldCover_10m_2021_v200_N45E054_Map_NCaspian_subset.tif",
+   "source": null,
+   "n_features": 66914
+  },
+  "gwl_fcs30_2020_wetland": {
+   "rule": "area",
+   "threshold_m": null,
+   "radius_m": null,
+   "file": "GWL_FCS30_2020_E45N45.tif, GWL_FCS30_2020_E45N50.tif, GWL_FCS30_2020_E50N45.tif, GWL_FCS30_2020_E50N50.tif",
+   "source": null,
+   "n_features": 41408
+  },
+  "glwd_v2_wetland": {
+   "rule": "area",
+   "threshold_m": null,
+   "radius_m": null,
+   "file": "GLWD_v2_0_main_class.tif",
+   "source": null,
+   "n_features": 8879
+  }
+ },
+ "grid": {
+  "transform": [
+   60.0,
+   0.0,
+   -297360.0,
+   0.0,
+   -60.0,
+   227220.0
+  ],
+  "shape": [
+   6698,
+   11249
+  ],
+  "crs": "+proj=laea +lat_0=45.5 +lon_0=50 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +type=crs"
+ },
+ "seconds": 8131.3
+}

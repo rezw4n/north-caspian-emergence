@@ -1,0 +1,2152 @@
+{
+ "gebco_2026": {
+  "constant": {
+   "final": {
+    "lowest_level_m": -28.75,
+    "epochs": [
+     "E2",
+     "E3"
+    ],
+    "form": "constant",
+    "models": {
+     "west": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.41999999999999815,
+      "d_hi": 0.5700000000000003,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.22,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "volga": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.4299999999999997,
+      "d_hi": -0.36999999999999744,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.2,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "interfluve": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.29999999999999716,
+      "d_hi": 0.8200000000000003,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.38,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "ural": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.21000000000000085,
+      "d_hi": 0.8099999999999987,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.42,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "northeast": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.2899999999999991,
+      "d_hi": 0.7899999999999991,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.34,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "komsomolets": {
+      "form_requested": "constant",
+      "n": 28,
+      "d_lo": -1.0999999999999979,
+      "d_hi": 0.46999999999999886,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.13,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 28
+     },
+     "open_shelf": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.3500000000000014,
+      "d_hi": 0.5799999999999983,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.12,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "domain": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.4299999999999997,
+      "d_hi": 0.5899999999999999,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.31,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     }
+    }
+   },
+   "folds": {
+    "E1": {
+     "lowest_level_m": -28.75,
+     "epochs": [
+      "E2",
+      "E3"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.41999999999999815,
+       "d_hi": 0.5700000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.22,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.4299999999999997,
+       "d_hi": -0.36999999999999744,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.2,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.29999999999999716,
+       "d_hi": 0.8200000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.38,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.21000000000000085,
+       "d_hi": 0.8099999999999987,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.42,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.2899999999999991,
+       "d_hi": 0.7899999999999991,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.34,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 28,
+       "d_lo": -1.0999999999999979,
+       "d_hi": 0.46999999999999886,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.13,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 28
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.3500000000000014,
+       "d_hi": 0.5799999999999983,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.12,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.4299999999999997,
+       "d_hi": 0.5899999999999999,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.31,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      }
+     }
+    },
+    "E2": {
+     "lowest_level_m": -28.75,
+     "epochs": [
+      "E1",
+      "E3"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.41000000000000014,
+       "d_hi": 0.5700000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.165,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.4200000000000017,
+       "d_hi": -0.36999999999999744,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.145,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.3099999999999987,
+       "d_hi": 0.8200000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.33,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.19000000000000128,
+       "d_hi": 0.8099999999999987,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.37,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.3699999999999974,
+       "d_hi": 0.7899999999999991,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.24,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 26,
+       "d_lo": -0.4200000000000017,
+       "d_hi": 0.46999999999999886,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.025,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 26
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.4299999999999997,
+       "d_hi": 0.5799999999999983,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.025,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.4399999999999977,
+       "d_hi": 0.5899999999999999,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.27,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      }
+     }
+    },
+    "E3": {
+     "lowest_level_m": -26.85,
+     "epochs": [
+      "E1",
+      "E2"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.4800000000000004,
+       "d_hi": 1.5199999999999996,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.12,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.4699999999999989,
+       "d_hi": 1.5300000000000011,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.13,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.5899999999999999,
+       "d_hi": 1.6900000000000013,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.29,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.6899999999999977,
+       "d_hi": 1.7300000000000004,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.32,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.5300000000000011,
+       "d_hi": 2.6599999999999966,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.0,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 12,
+       "d_lo": 0.8000000000000007,
+       "d_hi": 1.5500000000000007,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.1100000000000003,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 12
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.46999999999999886,
+       "d_hi": 1.4800000000000004,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.59,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.4600000000000009,
+       "d_hi": 1.7199999999999989,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.17,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      }
+     }
+    }
+   }
+  }
+ },
+ "etopo_2022": {
+  "constant": {
+   "final": {
+    "lowest_level_m": -28.75,
+    "epochs": [
+     "E2",
+     "E3"
+    ],
+    "form": "constant",
+    "models": {
+     "west": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -2.289999999999999,
+      "d_hi": 0.5700000000000003,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.06,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "volga": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -2.4400000000000013,
+      "d_hi": 0.5700000000000003,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.08,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "interfluve": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -2.09,
+      "d_hi": 0.7699999999999996,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.81,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "ural": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -2.4499999999999993,
+      "d_hi": 0.8200000000000003,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.9,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "northeast": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.5300000000000011,
+      "d_hi": 0.8299999999999983,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.98,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "komsomolets": {
+      "form_requested": "constant",
+      "n": 28,
+      "d_lo": -0.5399999999999991,
+      "d_hi": 0.6799999999999997,
+      "fallback": null,
+      "form": "constant",
+      "a": -2.01,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 28
+     },
+     "open_shelf": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -2.580000000000002,
+      "d_hi": 0.5899999999999999,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.49,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "domain": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.1799999999999997,
+      "d_hi": 0.7299999999999969,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.88,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     }
+    }
+   },
+   "folds": {
+    "E1": {
+     "lowest_level_m": -28.75,
+     "epochs": [
+      "E2",
+      "E3"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -2.289999999999999,
+       "d_hi": 0.5700000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.06,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -2.4400000000000013,
+       "d_hi": 0.5700000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.08,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -2.09,
+       "d_hi": 0.7699999999999996,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.81,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -2.4499999999999993,
+       "d_hi": 0.8200000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.9,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.5300000000000011,
+       "d_hi": 0.8299999999999983,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.98,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 28,
+       "d_lo": -0.5399999999999991,
+       "d_hi": 0.6799999999999997,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.01,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 28
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -2.580000000000002,
+       "d_hi": 0.5899999999999999,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.49,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.1799999999999997,
+       "d_hi": 0.7299999999999969,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.88,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      }
+     }
+    },
+    "E2": {
+     "lowest_level_m": -28.75,
+     "epochs": [
+      "E1",
+      "E3"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -2.2900000000000027,
+       "d_hi": 0.5700000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.04,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -2.4400000000000013,
+       "d_hi": 0.5700000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.0350000000000001,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -2.09,
+       "d_hi": 0.7699999999999996,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.5750000000000002,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -2.450000000000003,
+       "d_hi": 0.8200000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.5550000000000002,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.8200000000000003,
+       "d_hi": 0.8299999999999983,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.58,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 26,
+       "d_lo": -0.4299999999999997,
+       "d_hi": 0.6799999999999997,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.005,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 26
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -2.580000000000002,
+       "d_hi": 0.5899999999999999,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.125,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.0899999999999999,
+       "d_hi": 0.7299999999999969,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.875,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      }
+     }
+    },
+    "E3": {
+     "lowest_level_m": -26.85,
+     "epochs": [
+      "E1",
+      "E2"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": -0.3900000000000041,
+       "d_hi": 1.139999999999997,
+       "fallback": null,
+       "form": "constant",
+       "a": -0.87,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": -0.5400000000000027,
+       "d_hi": 2.0,
+       "fallback": null,
+       "form": "constant",
+       "a": -0.92,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": -0.19000000000000128,
+       "d_hi": 2.5199999999999996,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.18,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": -0.5500000000000043,
+       "d_hi": 2.6999999999999993,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.03,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.0799999999999983,
+       "d_hi": 2.6599999999999966,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.65,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 12,
+       "d_lo": 1.3599999999999994,
+       "d_hi": 2.4899999999999984,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.2800000000000002,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 12
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": -0.6800000000000033,
+       "d_hi": 1.7899999999999956,
+       "fallback": null,
+       "form": "constant",
+       "a": -0.71,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.7199999999999989,
+       "d_hi": 2.099999999999998,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.01,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      }
+     }
+    }
+   }
+  }
+ },
+ "srtm15p_v2.7": {
+  "constant": {
+   "final": {
+    "lowest_level_m": -28.75,
+    "epochs": [
+     "E2",
+     "E3"
+    ],
+    "form": "constant",
+    "models": {
+     "west": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.4399999999999977,
+      "d_hi": 0.5600000000000023,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.38,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "volga": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.3099999999999987,
+      "d_hi": -0.3999999999999986,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.18,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "interfluve": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.3099999999999987,
+      "d_hi": 0.629999999999999,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.38,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "ural": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.21999999999999886,
+      "d_hi": -0.1700000000000017,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.41,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "northeast": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.3699999999999974,
+      "d_hi": 0.620000000000001,
+      "fallback": null,
+      "form": "constant",
+      "a": -0.89,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "komsomolets": {
+      "form_requested": "constant",
+      "n": 28,
+      "d_lo": -1.1600000000000001,
+      "d_hi": 0.620000000000001,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.7,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 28
+     },
+     "open_shelf": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.3500000000000014,
+      "d_hi": 0.33999999999999986,
+      "fallback": null,
+      "form": "constant",
+      "a": -0.98,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "domain": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.1999999999999993,
+      "d_hi": 0.28999999999999915,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.23,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     }
+    }
+   },
+   "folds": {
+    "E1": {
+     "lowest_level_m": -28.75,
+     "epochs": [
+      "E2",
+      "E3"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.4399999999999977,
+       "d_hi": 0.5600000000000023,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.38,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.3099999999999987,
+       "d_hi": -0.3999999999999986,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.18,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.3099999999999987,
+       "d_hi": 0.629999999999999,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.38,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.21999999999999886,
+       "d_hi": -0.1700000000000017,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.41,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.3699999999999974,
+       "d_hi": 0.620000000000001,
+       "fallback": null,
+       "form": "constant",
+       "a": -0.89,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 28,
+       "d_lo": -1.1600000000000001,
+       "d_hi": 0.620000000000001,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.7,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 28
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.3500000000000014,
+       "d_hi": 0.33999999999999986,
+       "fallback": null,
+       "form": "constant",
+       "a": -0.98,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.1999999999999993,
+       "d_hi": 0.28999999999999915,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.23,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      }
+     }
+    },
+    "E2": {
+     "lowest_level_m": -28.75,
+     "epochs": [
+      "E1",
+      "E3"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.7900000000000027,
+       "d_hi": 0.5600000000000023,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.335,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.3699999999999974,
+       "d_hi": -0.3999999999999986,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.13,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.3200000000000003,
+       "d_hi": 0.629999999999999,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.33,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.22000000000000242,
+       "d_hi": -0.1700000000000017,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.365,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.4499999999999993,
+       "d_hi": 0.620000000000001,
+       "fallback": null,
+       "form": "constant",
+       "a": -0.905,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 26,
+       "d_lo": -0.4200000000000017,
+       "d_hi": 0.620000000000001,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.7,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 26
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.4699999999999989,
+       "d_hi": 0.33999999999999986,
+       "fallback": null,
+       "form": "constant",
+       "a": -0.965,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.259999999999998,
+       "d_hi": 0.28999999999999915,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.18,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      }
+     }
+    },
+    "E3": {
+     "lowest_level_m": -26.85,
+     "epochs": [
+      "E1",
+      "E2"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.1099999999999959,
+       "d_hi": 2.039999999999999,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.16,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.5300000000000011,
+       "d_hi": 1.4899999999999984,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.81,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.5799999999999983,
+       "d_hi": 1.6900000000000013,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.29,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.6799999999999962,
+       "d_hi": 1.7199999999999989,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.32,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.4499999999999993,
+       "d_hi": 2.5199999999999996,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.36,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 12,
+       "d_lo": 0.7399999999999984,
+       "d_hi": 1.5799999999999983,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.08,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 12
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.4299999999999997,
+       "d_hi": 1.4399999999999977,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.53,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.6400000000000006,
+       "d_hi": 1.6099999999999994,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.91,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      }
+     }
+    }
+   }
+  }
+ },
+ "gebco_2022": {
+  "constant": {
+   "final": {
+    "lowest_level_m": -28.75,
+    "epochs": [
+     "E2",
+     "E3"
+    ],
+    "form": "constant",
+    "models": {
+     "west": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.4299999999999997,
+      "d_hi": 0.5700000000000003,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.22,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "volga": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.4299999999999997,
+      "d_hi": -0.36999999999999744,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.2,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "interfluve": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.29999999999999716,
+      "d_hi": 0.7799999999999976,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.36,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "ural": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.21999999999999886,
+      "d_hi": 0.8099999999999987,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.42,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "northeast": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.4499999999999993,
+      "d_hi": 0.7899999999999991,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.25,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "komsomolets": {
+      "form_requested": "constant",
+      "n": 28,
+      "d_lo": -1.3200000000000003,
+      "d_hi": 0.5799999999999983,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.12,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 28
+     },
+     "open_shelf": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.3500000000000014,
+      "d_hi": 0.5799999999999983,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.12,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "domain": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.4499999999999993,
+      "d_hi": 0.5899999999999999,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.28,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     }
+    }
+   },
+   "folds": {
+    "E1": {
+     "lowest_level_m": -28.75,
+     "epochs": [
+      "E2",
+      "E3"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.4299999999999997,
+       "d_hi": 0.5700000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.22,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.4299999999999997,
+       "d_hi": -0.36999999999999744,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.2,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.29999999999999716,
+       "d_hi": 0.7799999999999976,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.36,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.21999999999999886,
+       "d_hi": 0.8099999999999987,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.42,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.4499999999999993,
+       "d_hi": 0.7899999999999991,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.25,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 28,
+       "d_lo": -1.3200000000000003,
+       "d_hi": 0.5799999999999983,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.12,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 28
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.3500000000000014,
+       "d_hi": 0.5799999999999983,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.12,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.4499999999999993,
+       "d_hi": 0.5899999999999999,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.28,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      }
+     }
+    },
+    "E2": {
+     "lowest_level_m": -28.75,
+     "epochs": [
+      "E1",
+      "E3"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.41000000000000014,
+       "d_hi": 0.5700000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.17,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.4200000000000017,
+       "d_hi": -0.36999999999999744,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.145,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.3100000000000023,
+       "d_hi": 0.7799999999999976,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.31,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.20000000000000284,
+       "d_hi": 0.8099999999999987,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.37,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -2.25,
+       "d_hi": 0.7899999999999991,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.14,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 26,
+       "d_lo": -0.4299999999999997,
+       "d_hi": 0.5799999999999983,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.0150000000000001,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 26
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.7800000000000011,
+       "d_hi": 0.5799999999999983,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.0150000000000001,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.7999999999999972,
+       "d_hi": 0.5899999999999999,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.2349999999999999,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      }
+     }
+    },
+    "E3": {
+     "lowest_level_m": -26.85,
+     "epochs": [
+      "E1",
+      "E2"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.4699999999999989,
+       "d_hi": 1.5300000000000011,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.13,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.4699999999999989,
+       "d_hi": 1.5300000000000011,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.13,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.5899999999999963,
+       "d_hi": 1.6700000000000017,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.27,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.6799999999999997,
+       "d_hi": 1.7300000000000004,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.32,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": -0.3500000000000014,
+       "d_hi": 2.6599999999999966,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.77,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 12,
+       "d_lo": 0.5799999999999983,
+       "d_hi": 1.5299999999999976,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.105,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 12
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.11999999999999744,
+       "d_hi": 1.4599999999999973,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.55,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.1000000000000014,
+       "d_hi": 1.7199999999999989,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.16,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      }
+     }
+    }
+   }
+  }
+ },
+ "etopo1": {
+  "constant": {
+   "final": {
+    "lowest_level_m": -28.75,
+    "epochs": [
+     "E2",
+     "E3"
+    ],
+    "form": "constant",
+    "models": {
+     "west": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.3500000000000014,
+      "d_hi": 0.15000000000000213,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.11,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "volga": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.4299999999999997,
+      "d_hi": -0.370000000000001,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.21,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "interfluve": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.3200000000000003,
+      "d_hi": 0.6699999999999982,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.36,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "ural": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.23000000000000043,
+      "d_hi": 0.8200000000000003,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.7,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "northeast": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.1600000000000001,
+      "d_hi": 0.8099999999999987,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.38,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "komsomolets": {
+      "form_requested": "constant",
+      "n": 28,
+      "d_lo": -0.4399999999999977,
+      "d_hi": -0.10000000000000142,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.12,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 28
+     },
+     "open_shelf": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -1.2800000000000011,
+      "d_hi": -0.33999999999999986,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.16,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     },
+     "domain": {
+      "form_requested": "constant",
+      "n": 33,
+      "d_lo": -0.4399999999999977,
+      "d_hi": 0.5,
+      "fallback": null,
+      "form": "constant",
+      "a": -1.28,
+      "b": 0.0,
+      "used_domain": false,
+      "n_own": 33
+     }
+    }
+   },
+   "folds": {
+    "E1": {
+     "lowest_level_m": -28.75,
+     "epochs": [
+      "E2",
+      "E3"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.3500000000000014,
+       "d_hi": 0.15000000000000213,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.11,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.4299999999999997,
+       "d_hi": -0.370000000000001,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.21,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.3200000000000003,
+       "d_hi": 0.6699999999999982,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.36,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.23000000000000043,
+       "d_hi": 0.8200000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.7,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.1600000000000001,
+       "d_hi": 0.8099999999999987,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.38,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 28,
+       "d_lo": -0.4399999999999977,
+       "d_hi": -0.10000000000000142,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.12,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 28
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -1.2800000000000011,
+       "d_hi": -0.33999999999999986,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.16,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 33,
+       "d_lo": -0.4399999999999977,
+       "d_hi": 0.5,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.28,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 33
+      }
+     }
+    },
+    "E2": {
+     "lowest_level_m": -28.75,
+     "epochs": [
+      "E1",
+      "E3"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.3500000000000014,
+       "d_hi": 0.15000000000000213,
+       "fallback": null,
+       "form": "constant",
+       "a": -0.985,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.4200000000000017,
+       "d_hi": -0.370000000000001,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.155,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.3299999999999983,
+       "d_hi": 0.6699999999999982,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.31,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.20000000000000284,
+       "d_hi": 0.8200000000000003,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.665,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -1.4599999999999973,
+       "d_hi": 0.8099999999999987,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.3599999999999999,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 26,
+       "d_lo": -0.4200000000000017,
+       "d_hi": -0.10000000000000142,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.0150000000000001,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 26
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -2.129999999999999,
+       "d_hi": -0.33999999999999986,
+       "fallback": null,
+       "form": "constant",
+       "a": -0.9199999999999999,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 32,
+       "d_lo": -0.4399999999999977,
+       "d_hi": 0.5,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.245,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 32
+      }
+     }
+    },
+    "E3": {
+     "lowest_level_m": -26.85,
+     "epochs": [
+      "E1",
+      "E2"
+     ],
+     "form": "constant",
+     "models": {
+      "west": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.5499999999999972,
+       "d_hi": 1.5199999999999996,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.75,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "volga": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.4699999999999989,
+       "d_hi": 1.5199999999999996,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.12,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "interfluve": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.5700000000000003,
+       "d_hi": 1.6700000000000017,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.27,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "ural": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.6699999999999982,
+       "d_hi": 2.1099999999999994,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.31,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "northeast": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 0.4400000000000013,
+       "d_hi": 2.669999999999998,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.88,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "komsomolets": {
+       "form_requested": "constant",
+       "n": 12,
+       "d_lo": 1.4600000000000009,
+       "d_hi": 1.5399999999999991,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.1550000000000002,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 12
+      },
+      "open_shelf": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": -0.23000000000000043,
+       "d_hi": 1.4800000000000004,
+       "fallback": null,
+       "form": "constant",
+       "a": -1.67,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      },
+      "domain": {
+       "form_requested": "constant",
+       "n": 21,
+       "d_lo": 1.4600000000000009,
+       "d_hi": 1.6600000000000001,
+       "fallback": null,
+       "form": "constant",
+       "a": -2.16,
+       "b": 0.0,
+       "used_domain": false,
+       "n_own": 21
+      }
+     }
+    }
+   }
+  }
+ }
+}
