@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this code or these data, please cite the paper and the repository."
+title: "North Caspian seabed emergence: code, data products and audit trail"
+type: software
+authors:
+  - family-names: Ahmed
+    given-names: Rezwan
+    affiliation: "Department of Geography and Environment, University of Dhaka"
+  - family-names: Zerin
+    given-names: Nusrat Jahan
+    affiliation: "Department of Geography, University of California, Santa Barbara"
+    email: njarin@umail.ucsb.edu
+  - family-names: Rahman
+    given-names: Obaidur
+    affiliation: "Department of Geography, Oklahoma State University"
+repository-code: "https://github.com/rezw4n/north-caspian-emergence"
+license: MIT
+keywords:
+  - bathymetry
+  - shoreline
+  - Caspian Sea
+  - Great Salt Lake
+  - remote sensing
+  - altimetry
+preferred-citation:
+  type: article
+  title: "Four decades of retreating shorelines audit projected seabed emergence in the North Caspian Sea"
+  authors:
+    - family-names: Ahmed
+      given-names: Rezwan
+    - family-names: Zerin
+      given-names: Nusrat Jahan
+    - family-names: Rahman
+      given-names: Obaidur
+  journal: "Environmental Research Letters"
+  status: in-preparation
