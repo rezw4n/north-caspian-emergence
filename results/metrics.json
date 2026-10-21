@@ -1110,6 +1110,46 @@
   "unit": "text",
   "source": "validation/main/h2_decision.json"
  },
+ "h2.sens12km.atl06.coverage.overall": {
+  "value": 0.825,
+  "unit": "fraction",
+  "source": "validation/main/sensitivity_12500m/ATL06_coverage.csv"
+ },
+ "h2.sens12km.atl06.dem.nmad_m": {
+  "value": 0.428,
+  "unit": "m",
+  "source": "validation/main/sensitivity_12500m/ATL06_accuracy.csv"
+ },
+ "h2.sens12km.atl06.dem.rmse_m": {
+  "value": 1.071,
+  "unit": "m",
+  "source": "validation/main/sensitivity_12500m/ATL06_accuracy.csv"
+ },
+ "h2.sens12km.atl06.n_test_blocks": {
+  "value": 109,
+  "unit": "blocks",
+  "source": "validation/main/sensitivity_12500m/ATL06_accuracy.csv"
+ },
+ "h2.sens12km.atl08.coverage.overall": {
+  "value": 0.82,
+  "unit": "fraction",
+  "source": "validation/main/sensitivity_12500m/ATL08_coverage.csv"
+ },
+ "h2.sens12km.atl08.dem.nmad_m": {
+  "value": 0.426,
+  "unit": "m",
+  "source": "validation/main/sensitivity_12500m/ATL08_accuracy.csv"
+ },
+ "h2.sens12km.atl08.dem.rmse_m": {
+  "value": 1.061,
+  "unit": "m",
+  "source": "validation/main/sensitivity_12500m/ATL08_accuracy.csv"
+ },
+ "h2.sens12km.atl08.n_test_blocks": {
+  "value": 105,
+  "unit": "blocks",
+  "source": "validation/main/sensitivity_12500m/ATL08_accuracy.csv"
+ },
  "h2.sens25km.atl06.coverage.overall": {
   "value": 0.893,
   "unit": "fraction",
