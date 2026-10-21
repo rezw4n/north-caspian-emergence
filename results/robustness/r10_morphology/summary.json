@@ -1,0 +1,321 @@
+{
+ "check": "r10_morphology",
+ "created": "2026-10-21T01:08:52Z",
+ "summary_shape": [
+  {
+   "product": "etopo1",
+   "variant": "shape",
+   "sector": "interfluve",
+   "n_bins": 4,
+   "n_e1_better": 0,
+   "sign_test_p": 0.125,
+   "median_ratio": 61.03277807866852
+  },
+  {
+   "product": "etopo1",
+   "variant": "shape",
+   "sector": "komsomolets",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 0.7005706427191173
+  },
+  {
+   "product": "etopo1",
+   "variant": "shape",
+   "sector": "northeast",
+   "n_bins": 4,
+   "n_e1_better": 3,
+   "sign_test_p": 0.625,
+   "median_ratio": 3.2033573428570703
+  },
+  {
+   "product": "etopo1",
+   "variant": "shape",
+   "sector": "open_shelf",
+   "n_bins": 4,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 9.219544457292889
+  },
+  {
+   "product": "etopo1",
+   "variant": "shape",
+   "sector": "ural",
+   "n_bins": 4,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 29.087504293197277
+  },
+  {
+   "product": "etopo1",
+   "variant": "shape",
+   "sector": "volga",
+   "n_bins": 4,
+   "n_e1_better": 0,
+   "sign_test_p": 0.125,
+   "median_ratio": 11.419266370572998
+  },
+  {
+   "product": "etopo1",
+   "variant": "shape",
+   "sector": "west",
+   "n_bins": 3,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 122.08925940259202
+  },
+  {
+   "product": "etopo_2022",
+   "variant": "shape",
+   "sector": "interfluve",
+   "n_bins": 3,
+   "n_e1_better": 1,
+   "sign_test_p": 1.0,
+   "median_ratio": 3.0
+  },
+  {
+   "product": "etopo_2022",
+   "variant": "shape",
+   "sector": "komsomolets",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 0.7169403617287123
+  },
+  {
+   "product": "etopo_2022",
+   "variant": "shape",
+   "sector": "northeast",
+   "n_bins": 4,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 0.9108613107448544
+  },
+  {
+   "product": "etopo_2022",
+   "variant": "shape",
+   "sector": "open_shelf",
+   "n_bins": 2,
+   "n_e1_better": 0,
+   "sign_test_p": 0.5,
+   "median_ratio": 2.2360679774997902
+  },
+  {
+   "product": "etopo_2022",
+   "variant": "shape",
+   "sector": "ural",
+   "n_bins": 2,
+   "n_e1_better": 0,
+   "sign_test_p": 0.5,
+   "median_ratio": 3.1993247890669068
+  },
+  {
+   "product": "etopo_2022",
+   "variant": "shape",
+   "sector": "volga",
+   "n_bins": 3,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 1.3395069097499366
+  },
+  {
+   "product": "etopo_2022",
+   "variant": "shape",
+   "sector": "west",
+   "n_bins": 2,
+   "n_e1_better": 1,
+   "sign_test_p": 1.0,
+   "median_ratio": 9.5951258846596
+  },
+  {
+   "product": "gebco_2022",
+   "variant": "shape",
+   "sector": "interfluve",
+   "n_bins": 4,
+   "n_e1_better": 0,
+   "sign_test_p": 0.125,
+   "median_ratio": 55.86591089385369
+  },
+  {
+   "product": "gebco_2022",
+   "variant": "shape",
+   "sector": "komsomolets",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 0.7141766044303635
+  },
+  {
+   "product": "gebco_2022",
+   "variant": "shape",
+   "sector": "northeast",
+   "n_bins": 4,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 1.3303980712455188
+  },
+  {
+   "product": "gebco_2022",
+   "variant": "shape",
+   "sector": "open_shelf",
+   "n_bins": 3,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 5.0
+  },
+  {
+   "product": "gebco_2022",
+   "variant": "shape",
+   "sector": "ural",
+   "n_bins": 4,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 12.842383955399242
+  },
+  {
+   "product": "gebco_2022",
+   "variant": "shape",
+   "sector": "volga",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 11.542615145288131
+  },
+  {
+   "product": "gebco_2022",
+   "variant": "shape",
+   "sector": "west",
+   "n_bins": 4,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 157.77055893922312
+  },
+  {
+   "product": "gebco_2026",
+   "variant": "shape",
+   "sector": "interfluve",
+   "n_bins": 4,
+   "n_e1_better": 0,
+   "sign_test_p": 0.125,
+   "median_ratio": 62.817195098157626
+  },
+  {
+   "product": "gebco_2026",
+   "variant": "shape",
+   "sector": "komsomolets",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 0.7139929341902221
+  },
+  {
+   "product": "gebco_2026",
+   "variant": "shape",
+   "sector": "northeast",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 1.3741230469807533
+  },
+  {
+   "product": "gebco_2026",
+   "variant": "shape",
+   "sector": "open_shelf",
+   "n_bins": 4,
+   "n_e1_better": 3,
+   "sign_test_p": 0.625,
+   "median_ratio": 4.123105625617661
+  },
+  {
+   "product": "gebco_2026",
+   "variant": "shape",
+   "sector": "ural",
+   "n_bins": 4,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 15.699611268123476
+  },
+  {
+   "product": "gebco_2026",
+   "variant": "shape",
+   "sector": "volga",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 11.888773707872687
+  },
+  {
+   "product": "gebco_2026",
+   "variant": "shape",
+   "sector": "west",
+   "n_bins": 4,
+   "n_e1_better": 2,
+   "sign_test_p": 1.0,
+   "median_ratio": 153.89753864808705
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "variant": "shape",
+   "sector": "interfluve",
+   "n_bins": 4,
+   "n_e1_better": 0,
+   "sign_test_p": 0.125,
+   "median_ratio": 123.664869708418
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "variant": "shape",
+   "sector": "komsomolets",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 0.7125273548004579
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "variant": "shape",
+   "sector": "northeast",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 2.109083650066047
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "variant": "shape",
+   "sector": "open_shelf",
+   "n_bins": 4,
+   "n_e1_better": 3,
+   "sign_test_p": 0.625,
+   "median_ratio": 5.0
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "variant": "shape",
+   "sector": "ural",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 19.899657933076966
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "variant": "shape",
+   "sector": "volga",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 11.11883629557962
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "variant": "shape",
+   "sector": "west",
+   "n_bins": 4,
+   "n_e1_better": 1,
+   "sign_test_p": 0.625,
+   "median_ratio": 170.50952827262418
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "check": "r05_levels",
+ "variant": "main__lv_hydroweb_const",
+ "main": "main",
+ "created": "2026-10-21T02:49:47Z",
+ "note": "r05_levels",
+ "sources": {
+  "ATL08": {
+   "n_main_points": 470645,
+   "n_alt_points": 470645,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 470645
+  }
+ }
+}

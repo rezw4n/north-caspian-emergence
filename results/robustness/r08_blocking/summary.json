@@ -1,0 +1,222 @@
+{
+ "check": "r08_blocking",
+ "created": "2026-10-21T08:30:27Z",
+ "h2": {
+  "block_25km": {
+   "ATL06": {
+    "dem": {
+     "overall|n": [
+      1103727.0,
+      864153.0
+     ],
+     "overall|bias": [
+      0.029409148885576,
+      0.0282221619922392
+     ],
+     "overall|rmse": [
+      1.1015576811563077,
+      0.9765185109633238
+     ],
+     "overall|nmad": [
+      0.3850482699000024,
+      0.2738454121200012
+     ]
+    },
+    "coverage": {
+     "overall": [
+      0.7519042299409183,
+      0.8932457562491827
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "ural",
+      "northeast"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "ural",
+      "northeast"
+     ]
+    }
+   },
+   "ATL08": {
+    "dem": {
+     "overall|n": [
+      104740.0,
+      83254.0
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.0292828673771835
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      0.9755499564770538
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.2648844294600058
+     ]
+    },
+    "coverage": {
+     "overall": [
+      0.7563108649990452,
+      0.8896149133975545
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "ural",
+      "northeast"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "ural",
+      "northeast"
+     ]
+    }
+   }
+  },
+  "block_12_5km": {
+   "ATL06": {
+    "dem": {
+     "overall|n": [
+      1103727.0,
+      879867.0
+     ],
+     "overall|bias": [
+      0.029409148885576,
+      0.2229276804633206
+     ],
+     "overall|rmse": [
+      1.1015576811563077,
+      1.0712710885937833
+     ],
+     "overall|nmad": [
+      0.3850482699000024,
+      0.4278392193600044
+     ]
+    },
+    "coverage": {
+     "overall": [
+      0.7519042299409183,
+      0.8254770323242036
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "not supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "northeast",
+      "open_shelf"
+     ]
+    }
+   },
+   "ATL08": {
+    "dem": {
+     "overall|n": [
+      104740.0,
+      83540.0
+     ],
+     "overall|bias": [
+      0.0275870213660518,
+      0.2435178170845105
+     ],
+     "overall|rmse": [
+      1.1213313505134612,
+      1.0608088992382727
+     ],
+     "overall|nmad": [
+      0.3700959523799987,
+      0.4255013815499975
+     ]
+    },
+    "coverage": {
+     "overall": [
+      0.7563108649990452,
+      0.8200263346899689
+     ]
+    },
+    "h2_matched": {
+     "primary": "not supported",
+     "variant": "supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    },
+    "h2_total": {
+     "primary": "not supported",
+     "variant": "supported",
+     "sectors_supported_primary": [
+      "interfluve",
+      "open_shelf"
+     ],
+     "sectors_supported_variant": [
+      "interfluve",
+      "open_shelf"
+     ]
+    }
+   }
+  }
+ },
+ "same_points": false,
+ "sources": {
+  "block_25km": "results/validation/main/sensitivity_25000m",
+  "block_12_5km": "results/validation/main/sensitivity_12500m"
+ },
+ "split_reassignment": "not run"
+}

@@ -1,0 +1,98 @@
+{
+ "check": "r04_screening_komsomolets",
+ "created": "2026-10-21T01:11:33Z",
+ "table": [
+  {
+   "tau_compared_m": 0.05,
+   "screening": "screened",
+   "n_block_bins": 228,
+   "S_median_m": 231.85970703244948,
+   "p90_m": 1669.5269280508264,
+   "valid_km2": 50760.4212,
+   "waterline_cells": 167959
+  },
+  {
+   "tau_compared_m": 0.05,
+   "screening": "unscreened",
+   "n_block_bins": 252,
+   "S_median_m": 120.0,
+   "p90_m": 486.6259408800271,
+   "valid_km2": 91886.0436,
+   "waterline_cells": 273113
+  },
+  {
+   "tau_compared_m": 0.1,
+   "screening": "screened",
+   "n_block_bins": 234,
+   "S_median_m": 169.7056274847714,
+   "p90_m": 1336.8353907805063,
+   "valid_km2": 73436.4468,
+   "waterline_cells": 228571
+  },
+  {
+   "tau_compared_m": 0.1,
+   "screening": "unscreened",
+   "n_block_bins": 252,
+   "S_median_m": 120.0,
+   "p90_m": 486.6259408800271,
+   "valid_km2": 91886.0436,
+   "waterline_cells": 273113
+  },
+  {
+   "tau_compared_m": 0.15,
+   "screening": "screened",
+   "n_block_bins": 240,
+   "S_median_m": 134.1640786499874,
+   "p90_m": 1146.9089933495338,
+   "valid_km2": 82725.5628,
+   "waterline_cells": 250793
+  },
+  {
+   "tau_compared_m": 0.15,
+   "screening": "unscreened",
+   "n_block_bins": 252,
+   "S_median_m": 120.0,
+   "p90_m": 486.6259408800271,
+   "valid_km2": 91886.0436,
+   "waterline_cells": 273113
+  },
+  {
+   "tau_compared_m": 0.2,
+   "screening": "screened",
+   "n_block_bins": 246,
+   "S_median_m": 120.0,
+   "p90_m": 844.695333483798,
+   "valid_km2": 86471.8452,
+   "waterline_cells": 256686
+  },
+  {
+   "tau_compared_m": 0.2,
+   "screening": "unscreened",
+   "n_block_bins": 252,
+   "S_median_m": 120.0,
+   "p90_m": 486.6259408800271,
+   "valid_km2": 91886.0436,
+   "waterline_cells": 273113
+  },
+  {
+   "tau_compared_m": 0.3,
+   "screening": "screened",
+   "n_block_bins": 252,
+   "S_median_m": 120.0,
+   "p90_m": 481.90119228657056,
+   "valid_km2": 90152.7156,
+   "waterline_cells": 270645
+  },
+  {
+   "tau_compared_m": 0.3,
+   "screening": "unscreened",
+   "n_block_bins": 252,
+   "S_median_m": 120.0,
+   "p90_m": 486.6259408800271,
+   "valid_km2": 91886.0436,
+   "waterline_cells": 273113
+  }
+ ],
+ "blocks": "the 6 Komsomolets training blocks of the D-064 sample",
+ "note": "local part of the D-066 check; the H1 headline in Komsomolets needs no export, since the primary is unscreened (tau = inf)"
+}

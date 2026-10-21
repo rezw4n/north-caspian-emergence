@@ -1,0 +1,187 @@
+{
+ "R_blocks": [
+  "-9_-3",
+  "-8_-2",
+  "-7_-1",
+  "-1_5",
+  "2_5",
+  "2_6",
+  "4_7",
+  "4_6",
+  "7_5",
+  "8_2",
+  "10_-3",
+  "12_-2",
+  "-4_-3",
+  "4_0"
+ ],
+ "areas_km2": {
+  "R": 6429.023279849719,
+  "cover": 97083.45944241919
+ },
+ "rate_eecu_s_per_km2": {
+  "central": 5.8,
+  "high": 6.8
+ },
+ "alternatives": {
+  "fixed_mndwi0": {
+   "eecu_h_central": 10.36,
+   "eecu_h_high": 12.14,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 1.000 (scene-km2 share) x 1",
+   "share": 1.0,
+   "region": "R",
+   "kind": "full",
+   "classifier": "mndwi_fixed0",
+   "n_scenes": 10039
+  },
+  "awei_sh": {
+   "eecu_h_central": 15.54,
+   "eecu_h_high": 18.22,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 1.000 (scene-km2 share) x 1.5",
+   "share": 1.0,
+   "region": "R",
+   "kind": "full",
+   "classifier": "awei_sh",
+   "n_scenes": 10039
+  },
+  "ndvi020": {
+   "eecu_h_central": 10.36,
+   "eecu_h_high": 12.14,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 1.000 (scene-km2 share) x 1",
+   "share": 1.0,
+   "region": "R",
+   "kind": "full",
+   "classifier": "ndvi020",
+   "n_scenes": 10039
+  },
+  "ndvi040": {
+   "eecu_h_central": 10.36,
+   "eecu_h_high": 12.14,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 1.000 (scene-km2 share) x 1",
+   "share": 1.0,
+   "region": "R",
+   "kind": "full",
+   "classifier": "ndvi040",
+   "n_scenes": 10039
+  },
+  "snow_all_months": {
+   "eecu_h_central": 10.36,
+   "eecu_h_high": 12.14,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 1.000 (scene-km2 share) x 1",
+   "share": 1.0,
+   "region": "R",
+   "kind": "full",
+   "classifier": "snow_all_months",
+   "n_scenes": 10039
+  },
+  "november": {
+   "eecu_h_central": 1.58,
+   "eecu_h_high": 1.72,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 0.081 (scene-km2 share) x 1 + 0.74 h stage 1",
+   "share": 0.08128457325998097,
+   "region": "R",
+   "kind": "add",
+   "classifier": "main",
+   "n_scenes": null
+  },
+  "tau015": {
+   "eecu_h_central": 6.8,
+   "eecu_h_high": 7.98,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 0.657 (scene-km2 share) x 1",
+   "share": 0.6569531165804027,
+   "region": "R",
+   "kind": "sub",
+   "classifier": "main",
+   "n_scenes": 6538,
+   "n_sub_pairs": 15020,
+   "mixed_acq_sector": 2
+  },
+  "sub_tm": {
+   "eecu_h_central": 2.55,
+   "eecu_h_high": 2.99,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 0.246 (scene-km2 share) x 1",
+   "share": 0.24644763952195603,
+   "region": "R",
+   "kind": "sub",
+   "classifier": "main",
+   "n_scenes": 2480
+  },
+  "sub_etm": {
+   "eecu_h_central": 3.95,
+   "eecu_h_high": 4.63,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 0.381 (scene-km2 share) x 1",
+   "share": 0.3811919105542399,
+   "region": "R",
+   "kind": "sub",
+   "classifier": "main",
+   "n_scenes": 3835
+  },
+  "sub_slcoff": {
+   "eecu_h_central": 3.61,
+   "eecu_h_high": 4.24,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 0.349 (scene-km2 share) x 1",
+   "share": 0.3487879741395615,
+   "region": "R",
+   "kind": "sub",
+   "classifier": "main",
+   "n_scenes": 3507
+  },
+  "sub_oli": {
+   "eecu_h_central": 3.86,
+   "eecu_h_high": 4.52,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 0.372 (scene-km2 share) x 1",
+   "share": 0.37236044992380396,
+   "region": "R",
+   "kind": "sub",
+   "classifier": "main",
+   "n_scenes": 3724
+  },
+  "bins005": {
+   "eecu_h_central": 10.36,
+   "eecu_h_high": 12.14,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 1.000 (scene-km2 share) x 1",
+   "share": 1.0,
+   "region": "R",
+   "kind": "full_regrouped",
+   "classifier": "main",
+   "n_scenes": 10039
+  },
+  "e1_end_k1": {
+   "eecu_h_central": 0.16,
+   "eecu_h_high": 0.19,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 97083 km2 (cover) x 0.001 (scene-km2 share) x 1",
+   "share": 0.0010196854099945186,
+   "region": "cover",
+   "kind": "sub+add",
+   "classifier": "main",
+   "n_scenes": 7,
+   "n_window_scenes": 7
+  },
+  "e1_end_k9": {
+   "eecu_h_central": 1.56,
+   "eecu_h_high": 1.83,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 97083 km2 (cover) x 0.010 (scene-km2 share) x 1",
+   "share": 0.009975253782887075,
+   "region": "cover",
+   "kind": "sub+add",
+   "classifier": "main",
+   "n_scenes": 46,
+   "n_window_scenes": 46
+  },
+  "s2_add": {
+   "eecu_h_central": 46.61,
+   "eecu_h_high": 54.65,
+   "arithmetic": "5.8-6.8 EECU-s/km2 x 6429 km2 (R) x 1.000 (scene-km2 share) x 4.5",
+   "share": 1.0,
+   "region": "R",
+   "kind": "add",
+   "classifier": "main",
+   "n_scenes": 15189
+  }
+ },
+ "total": {
+  "eecu_h_central": 138.0,
+  "eecu_h_high": 161.7
+ },
+ "note": "dry run: nothing was sent to Earth Engine"
+}

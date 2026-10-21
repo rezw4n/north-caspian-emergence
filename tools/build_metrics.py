@@ -720,6 +720,49 @@ def display_input_metrics(m: dict) -> None:
             m[k]["decimals"] = 0  # metres on a 60 m grid
 
 
+def _robustness_unit(metric: str) -> str:
+    if metric.endswith("_supported") or metric.endswith("_supported_primary"):
+        return "1 = supported, 0 = not"
+    if "km2_per_m" in metric:
+        return "km2 per m"
+    if metric.endswith("_m") or metric.endswith("_m_primary") or "_m_primary" in metric:
+        return "m"
+    if "coverage" in metric or "share" in metric:
+        return "fraction"
+    if "n_sectors" in metric:
+        return "sectors"
+    if "block_test_p" in metric:
+        return "p-value"
+    if metric.startswith("n_") or ".n_" in metric or metric.endswith(".dem_n") or "dem_n_primary" in metric:
+        return "count"
+    return "value"
+
+
+def robustness_metrics(m: dict) -> None:
+    """Brief section 10 robustness verdicts and the numbers behind them (D-092), from
+    results/robustness/verdicts.json (scripts/r20_verdicts.py), and nothing else:
+    robustness.checkNN.verdict ("robust", "partly sensitive", "sensitive", "not run: ...",
+    "pending EE") and robustness.checkNN.<variant>.<metric> (variant values, with the
+    primary beside them as <metric>_primary); robustness.named.<variant>.* likewise."""
+    v = load("robustness/verdicts.json")
+    if not v:
+        return
+    src = "results/robustness/verdicts.json"
+    note = "rule: DECISIONS D-092 (scripts/r20_verdicts.py)"
+    for check, rec in sorted(v.get("checks", {}).items()):
+        put(m, f"robustness.{check}.verdict", rec["verdict"], "category", src, note)
+        for var, r in sorted(rec.get("variants", {}).items()):
+            put(m, f"robustness.{check}.{var}.verdict", r["verdict"], "category", r.get("source", src), note)
+            for k, x in sorted(r.get("metrics", {}).items()):
+                if isinstance(x, (int, float)) and x is not None and x == x:
+                    put(m, f"robustness.{check}.{var}.{k}", x, _robustness_unit(k), r.get("source", src))
+    for var, r in sorted(v.get("named", {}).items()):
+        put(m, f"robustness.named.{var}.verdict", r["verdict"], "category", r.get("source", src), note)
+        for k, x in sorted(r.get("metrics", {}).items()):
+            if isinstance(x, (int, float)) and x is not None and x == x:
+                put(m, f"robustness.named.{var}.{k}", x, _robustness_unit(k), r.get("source", src))
+
+
 def generality_metrics(m: dict) -> None:
     """A9 generality test (brief section 11; PREREG Amendment 16; D-094). From
     results/generality/<basin>/h1_decision.json when the basin was run (scripts/g1_decide.py),
@@ -1154,6 +1197,7 @@ def main() -> int:
             m[k]["decimals"] = rec["decimals"]
 
     results_metrics(m)
+    robustness_metrics(m)
 
     generality_metrics(m)
     atl24_metrics(m)

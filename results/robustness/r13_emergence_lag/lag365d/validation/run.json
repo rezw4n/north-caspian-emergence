@@ -1,0 +1,21 @@
+{
+ "check": "r13_emergence_lag",
+ "variant": "lag365d",
+ "main": "main",
+ "created": "2026-10-21T07:19:33Z",
+ "note": "dryness test with emergence + 365 days",
+ "sources": {
+  "ATL08": {
+   "n_main_points": 470645,
+   "n_alt_points": 443674,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 443674
+  },
+  "ATL06": {
+   "n_main_points": 4948820,
+   "n_alt_points": 4645690,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 4645690
+  }
+ }
+}

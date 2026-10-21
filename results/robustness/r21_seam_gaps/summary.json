@@ -1,0 +1,28 @@
+{
+ "cover_cells": 26967573,
+ "unseen_cells": 9814,
+ "by_distance_to_seam_m": {
+  "0-120": {
+   "cells": 136606,
+   "unseen": 7924,
+   "unseen_share": 0.05800623691492321
+  },
+  "120-300": {
+   "cells": 204274,
+   "unseen": 1890,
+   "unseen_share": 0.009252278802001234
+  },
+  "300-1000": {
+   "cells": 785161,
+   "unseen": 0,
+   "unseen_share": 0.0
+  },
+  "1000-1e+09": {
+   "cells": 25841532,
+   "unseen": 0,
+   "unseen_share": 0.0
+  }
+ },
+ "unseen_within_120m_of_seam_km2": 28.5264,
+ "note": "cells never valid in any group (e.g. permanently land or water-masked) are also 'unseen'; the seam excess over the background rate is the export gap"
+}
