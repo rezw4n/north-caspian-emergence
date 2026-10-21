@@ -179,7 +179,11 @@ def main() -> int:
     axc.legend(loc="lower left", fontsize=E.FS, frameon=False, handlelength=1.6, borderaxespad=0.2)
     E.label(axc, "c", x=-0.075, y=1.0)
     del halo
-    C.save(fig, "erl_fig_then_now")
+    paths = C.save(fig, "erl_fig_then_now")
+    # the composites are photographs: JPEG inside the PDF keeps the Letter small; text, lines and
+    # fonts stay vector; the 600 dpi TIFF is written by C.save and not touched (D-102 addendum)
+    before, after = E.jpeg_images(paths[0])
+    print(f"erl_fig_then_now.pdf: imagery as JPEG (quality {E.JPEG_QUALITY}), {before / 1e6:.1f} -> {after / 1e6:.1f} MB")
     plt.close(fig)
     return 0
 

@@ -1,7 +1,8 @@
 % Supplementary figures of the ERL Letter (D-107), adapted by a one-off script from the Phase A
 % legends in figure_captions_draft.tex (panel letters as (a), cross-references to the Letter
 % through xr as M-<label>). Each figure is a macro, placed by supplementary_erl.tex in its
-% section. fig4_audit is the Letter's audit figure for now and is not repeated here.
+% section. The Letter's audit figure is erl_fig_audit (the ERL version of fig4_audit, without its
+% per-block maps, which are the two block figures below).
 % Edit this file, not the draft, for the Supplementary.
 
 \newcommand{\SIfiglevels}{%
@@ -120,7 +121,7 @@
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{../figures/out/ed_h1_blocks_shape.pdf}
-  \caption{\textbf{Where each product misplaces the historic shorelines, shape variant.} Median absolute shoreline displacement per \metric{params.block_size_km}~km block, pooled over all (epoch, level) units, for each product shifted by its fitted constant ((a)--(e)). Blocks with fewer than \metric{params.h1_min_block_n} distances are not drawn; the number drawn is printed on each map. Colours as figure~\ref{M-fig:erl_audit}(c) of the Letter; light blue, open sea, \metric{params.lowstand_label}; scale bars, \metric{params.fig_scale_bar_km}~km.}
+  \caption{\textbf{Where each product misplaces the historic shorelines, shape variant.} Median absolute shoreline displacement per \metric{params.block_size_km}~km block, pooled over all (epoch, level) units, for each product shifted by its fitted constant ((a)--(e)). Blocks with fewer than \metric{params.h1_min_block_n} distances are not drawn; the number drawn is printed on each map. Colour key on the figure; light blue, open sea, \metric{params.lowstand_label}; scale bars, \metric{params.fig_scale_bar_km}~km.}
   \label{fig:ed_h1blocks_shape}
 \end{figure}
 }

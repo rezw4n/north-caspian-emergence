@@ -333,7 +333,11 @@ results/display/erl_gsl.json: scripts/f1_erl_display.py scripts/g1_hindcast.py s
 	$(PYTHON) scripts/f1_erl_display.py gsl
 ERL_DEPS := figures/_erl.py $(FIG_DEPS)
 RESULT_FIGS += $(FIG_OUT)/erl_fig_then_now.pdf $(FIG_OUT)/erl_fig_shorelines.pdf $(FIG_OUT)/erl_fig_gsl.pdf \
-               $(FIG_OUT)/erl_fig_agreement.pdf $(FIG_OUT)/erl_fig_timeline.pdf $(FIG_OUT)/erl_tab_report_card.pdf
+               $(FIG_OUT)/erl_fig_agreement.pdf $(FIG_OUT)/erl_fig_timeline.pdf $(FIG_OUT)/erl_tab_report_card.pdf \
+               $(FIG_OUT)/erl_fig_audit.pdf
+# The Letter's audit figure: the ERL version of fig4_audit, from the same hindcast tables (D-102 addendum).
+$(FIG_OUT)/erl_fig_audit.pdf: figures/erl_fig_audit.py $(ERL_DEPS) $(wildcard results/hindcast/main/*.csv)
+	$(PYTHON) figures/erl_fig_audit.py
 $(FIG_OUT)/erl_fig_then_now.pdf: figures/erl_fig_then_now.py $(ERL_DEPS) results/provenance/erl_landsat.json $(STUDY_MAP)
 	$(PYTHON) figures/erl_fig_then_now.py
 $(FIG_OUT)/erl_fig_shorelines.pdf: figures/erl_fig_shorelines.py $(ERL_DEPS) results/display/erl_hero.json $(STUDY_MAP)
