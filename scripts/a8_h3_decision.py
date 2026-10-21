@@ -20,15 +20,17 @@ from caspian.config import RESULTS
 
 def main(tag: str) -> int:
     d = RESULTS / "emergence" / tag
+    # the run's final (fused) form: the primary, or a D-081 sensitivity form (D-096)
+    final = (json.loads((d / "run.json").read_text(encoding="utf-8")).get("forms") or [ex.PRIMARY_FORM])[0]
     e = pd.read_csv(d / "emergence.csv")
     e = e[((e["surface"] == "uncorrected") & (e["form"] == "none")) |
-          ((e["surface"] == "fused") & (e["form"] == ex.PRIMARY_FORM))]
+          ((e["surface"] == "fused") & (e["form"] == final))]
     dec = h3.decision(e)
     summ = h3.summary(dec)
     dec.to_csv(d / "h3_decision.csv", index=False)
     summ.to_csv(d / "h3_summary.csv", index=False)
     dom = summ[(summ["region"] == "domain") & (summ["functional"] == "emergence")]
-    out = {"tag": tag, "primary": f"fused ({ex.PRIMARY_FORM}) vs uncorrected, functional emergence",
+    out = {"tag": tag, "primary": f"fused ({final}) vs uncorrected, functional emergence",
            "domain": {r.product: {"verdict": r.verdict, "relevant_scenarios": r.scenarios_relevant,
                                   "n_relevant": int(r.n_relevant), "n_near_term": int(r.n_near_term)}
                       for r in dom.itertuples()}}
