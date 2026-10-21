@@ -1,36 +1,48 @@
 % Draft tables (main text or Methods per the journal's limits; venue decided at G3).
 % Every number is a \metric{...} macro from results/metrics.json (manuscript/numbers.tex).
 % Identifiers (product versions, release numbers, DOIs) are not results and are typed;
-% each DOI is copied from refs/verification.csv, and only references already verified
-% there are cited. Rows without a verified reference say so and are listed for the PI.
+% each reference in the data-sources table is verified in refs/verification.csv
+% (citation workstream C, D-131: rows made consistent with the Supplementary Methods).
 
 \begin{table}[!htbp]
 \centering
 \scriptsize
-\caption{\textbf{Data sources.} Products, the version used, their role, their vertical reference as documented (docs/DATUMS.md), and the reference cited. ``Not yet verified'': no reference for the dataset has passed the citation audit (refs/verification.csv) yet; these are listed for the PI and are not cited.}
+\caption{\textbf{Data sources.} Products, the version used, their role, their vertical reference as documented in the sources cited, and the references.}
 \label{tab:data}
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{p{2.3cm}p{2.4cm}p{2.6cm}p{2.9cm}p{4.6cm}}
+\begin{tabular}{p{2.3cm}p{2.4cm}p{2.6cm}p{3.1cm}p{4.4cm}}
 \hline
-Dataset & Version or product & Use & Vertical reference & Reference (DOI) \\
+Dataset & Version or product & Use & Vertical reference & References \\
 \hline
-Landsat 4--5 TM & Collection 2 Level-2 surface reflectance & Water frequencies and waterlines & -- & \citet{usgs_l45tm_c2l2}; \url{10.5066/P9IAXOVV} \\
-Landsat 7 ETM+ & Collection 2 Level-2 & As above & -- & \citet{usgs_l7etm_c2l2}; \url{10.5066/P9C7I13B} \\
-Landsat 8--9 OLI/TIRS & Collection 2 Level-2 & As above & -- & \citet{usgs_l89oli_c2l2}; \url{10.5066/P9OGBGM6} \\
-Sentinel-2 MSI & L2A, harmonized, with Cloud Score+ & Stage 1 only (thresholds, snow and ice diagnostics) & -- & Cloud Score+: \citet{pasquarella2023}; \url{10.1109/cvprw59228.2023.00206}. Sentinel-2 product: not yet verified \\
-JRC Global Surface Water & Occurrence & Active zone & -- & \citet{pekel2016}; \url{10.1038/nature20584} \\
-DAHITI, Caspian Sea (target 39) & Water level from altimetry & Basin level; working datum & Normal heights, EIGEN-6C4 quasi-geoid & \citet{schwatke2015}; \url{10.5194/hess-19-4345-2015} \\
-Hydroweb, L\_caspian & Operational lake water level & Gap filling and cross-check & Geoid GGM02C & \citet{hydrowebwl}; \url{10.24400/329360/HYDROWEB_WATER_LEVEL}; \citet{cretaux2011}; \url{10.1016/j.asr.2011.01.004} \\
-ERA5 & Hourly single levels (10~m wind, pressure) & Wind-setup model & -- & \citet{hersbach2020}; \url{10.1002/qj.3803} \\
-SWOT & L2 HR Raster, 250~m & Setup-model calibration & Geoid-relative; model not yet read & Not yet verified \\
-ICESat-2 ATL06 and ATL08 & Release 007 & Independent heights (H2) & WGS84 ellipsoid (ITRF2020); converted with EIGEN-6C4 & Not yet verified \\
-EIGEN-6C4 and EGM2008 grids & ICGEM, tide-free; NGA & Datum chain & -- & Not yet verified \\
-GEBCO\_2026 Grid & 15 arc-second & Audited product & Mean sea level as stated; unresolved in the Caspian & \citet{gebco2026}; \url{10.5285/4f68d5c7-45eb-f999-e063-7086abc036fa} \\
-GEBCO\_2022 Grid & 15 arc-second & Audited product & As GEBCO\_2026 & \citet{gebco2022}; \url{10.5285/e0f0bb80-ab44-2739-e053-6c86abc0289c} \\
-ETOPO 2022 & 15 arc-second & Audited product & EGM2008 (file attributes) & \citet{etopo2022}; \url{10.25921/fd45-gt74}; \citet{macferrin2025}; \url{10.5194/essd-17-1835-2025} \\
-SRTM15+ & V2.7 & Audited product & Not stated by the distribution & \citet{tozer2019}; \url{10.1029/2019ea000658} \\
-ETOPO1 & 1 arc-minute & Audited product & Not recorded & \citet{amante2009}; \url{10.7289/V5C8276M} \\
-OpenStreetMap & Overpass extract (ODbL 1.0) & Fig.~1; exposure (H3) & -- & Not yet verified (licence attribution) \\
+Landsat 4--5 TM & Collection 2 Level-2 surface reflectance & Water frequencies and waterlines & -- & \citet{usgs_l45tm_c2l2} \\
+Landsat 7 ETM+ & Collection 2 Level-2 & As above & -- & \citet{usgs_l7etm_c2l2} \\
+Landsat 8--9 OLI/TIRS & Collection 2 Level-2 & As above & -- & \citet{usgs_l89oli_c2l2} \\
+Sentinel-2 MSI & Level-2A, harmonized, with Cloud Score+ & Stage 1 only (thresholds, snow and ice diagnostics) & -- & \citet{ee_s2_sr_harmonized}; Cloud Score+: \citet{pasquarella2023} \\
+JRC Global Surface Water & Transitions and maximum extent layers & Coastal sectors; active zone & -- & \citet{pekel2016} \\
+DAHITI, Caspian Sea & Water level from altimetry (data version v6.0) & Basin level; working datum & Normal heights, EIGEN-6C4 quasi-geoid & \citet{schwatke2015,dahiti_wl} \\
+Hydroweb, Caspian Sea & Operational lake water level & Gap filling and cross-check & Above the GGM02C geoid & \citet{hydrowebwl,cretaux2011} \\
+CASPCOM General Catalogue & Monthly post levels; Information Bulletins & Offset from DAHITI to the Baltic Height System & Baltic Height System & \citet{caspcom2026} \\
+ERA5 & Hourly single levels (10~m wind, pressure) & Wind-setup model & -- & \citet{hersbach2020} \\
+SWOT & Level-2 HR Raster, 250~m, versions D and C & Setup-model calibration & Above the EGM2008 geoid (mean tide); de-meaned per block & \citet{swot_raster_d,swot_raster_c,swot_pdd_raster} \\
+ICESat-2 ATL06 and ATL08 & Release 007 & Independent heights (H2) & WGS84 ellipsoid (ITRF2020), tide-free; converted with EIGEN-6C4 & \citet{atl06_v7,atl08_v7,is2_compguide_r007,markus2017} \\
+GEDI & L2A Version 2 & Independent ground heights & WGS84 ellipsoid; converted as ICESat-2 & \citet{gedi_l2a_v2} \\
+Copernicus DEM & GLO-30 & Independent heights; FABDEM base & EGM2008 & \citet{copdem,copdem_handbook_i5} \\
+EIGEN-6C4 and EGM2008 & Spherical-harmonic models, tide-free (ICGEM calculation service) & Datum chain & -- & \citet{forste2014,pavlis2012,ince2019} \\
+GEBCO\_2026 Grid & 15 arc-second & Audited grid & Mean sea level as stated; other datums in some shallow areas & \citet{gebco2026} \\
+GEBCO\_2022 Grid & 15 arc-second & Audited grid & As GEBCO\_2026 & \citet{gebco2022} \\
+ETOPO 2022 & 15 arc-second & Audited grid & EGM2008 & \citet{etopo2022,macferrin2025} \\
+SRTM15+ & V2.7 & Audited grid & Onshore heights orthometric; none stated for soundings & \citet{tozer2019} \\
+ETOPO1 & 1 arc-minute & Audited grid & Sea level & \citet{amante2009} \\
+FABDEM & -- & Source of ETOPO 2022 land heights (attribution) & -- & \citet{hawker2022} \\
+ICESat-2 ATL24 & Version 2 & Registered independent seabed check (no data over the Caspian) & Ellipsoidal and orthometric heights & \citet{atl24_v2,is2_atl24_atbd_v2} \\
+USGS NWIS gauges 10010000 and 10010100 & Daily mean lake level & Great Salt Lake levels & NGVD~29; converted to NAVD~88 (VERTCON~3.0) & \citet{usgs_nwis,noaa_ncat} \\
+USGS 3D Elevation Program & 1/3 arc-second (10~m) DEM & Great Salt Lake positive control (mostly 2016 lidar) & NAVD~88 & \citet{usgs_3dep10m,usgs_3dep13_tiles,archuleta2017,quantumspatial2017_gsl} \\
+USGS Great Salt Lake topobathymetric DEM & 0.5~m, 2002--2016 & Registered Great Salt Lake control (section~\SIgsl) & NAVD~88 & \citet{root2023_gsl_tbdem} \\
+WDPA (WDPCA) & October 2026 release & Protected areas and Ramsar sites (exposure) & -- & \citet{wdpa} \\
+OpenStreetMap & Overpass extract (ODbL 1.0) & Domain anchors; exposure features & -- & \citet{osm} \\
+ESA WorldCover & 2021 v200 & Habitat stand-in (herbaceous wetland) & -- & \citet{worldcover2021} \\
+GWL\_FCS30 & 2020 & Habitat stand-in (wetland classes) & -- & \citet{zhang2023} \\
+GLWD & Version 2 & Habitat stand-in (wetland classes) & -- & \citet{lehner2025} \\
 \hline
 \end{tabular}
 \end{table}
