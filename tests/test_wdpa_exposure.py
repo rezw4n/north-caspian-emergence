@@ -40,10 +40,21 @@ def test_select_rules():
     assert s["_not_designated"].tolist() == [False, True, False, False, True, False]
 
 
+def test_select_leaves_out_the_reserved_zone_only_in_the_sensitivity_layer():
+    g = pd.DataFrame({"SITE_ID": [342651, 62578], "SITE_TYPE": ["PA", "PA"], "STATUS": ["Designated"] * 2,
+                      "DESIG_ENG": ["State Natural Protected Zone", "Zakaznik"]})
+    s = w.select(g)
+    assert s["wdpa_protected_areas"].tolist() == [True, True]
+    assert s["wdpa_protected_areas_noksrz"].tolist() == [False, True]
+    assert s["_ksrz"].tolist() == [True, False]
+
+
 def test_select_reads_the_older_field_name():
     g = pd.DataFrame({"PA_DEF": ["1", "0"], "STATUS": ["Designated", "Designated"],
                       "DESIG_ENG": ["Zakaznik", "Zakaznik"]})
-    assert w.select(g)["wdpa_protected_areas"].tolist() == [True, False]
+    s = w.select(g)
+    assert s["wdpa_protected_areas"].tolist() == [True, False]
+    assert s["wdpa_protected_areas_noksrz"].tolist() == [True, False]     # no id column: nothing left out
 
 
 def test_dissolve_counts_overlaps_once_and_splits_parts():

@@ -36,7 +36,12 @@ Commands
             Then a8_emergence.exposure_table on the WDPA layers ->
             results/emergence/wdpa/exposure_<tag>.csv and run.json.
 
+            Sensitivity (D-103 addendum): --layers wdpa_protected_areas_noksrz --suffix _noksrz
+            (the protected areas without the Kazakh northern-Caspian reserved zone) ->
+            exposure_<tag>_noksrz.csv and run_noksrz.json.
+
 Usage: python scripts/a8_wdpa_exposure.py fetch | layers | exposure [--tags main,main_constant]
+           [--layers wdpa_protected_areas,wdpa_ramsar] [--suffix ""]
 """
 
 from __future__ import annotations
@@ -94,7 +99,17 @@ STATUS_OUT = ("Proposed", "Not Reported")
 MAB = "UNESCO-MAB Biosphere Reserve"
 RAMSAR_KEY = "Ramsar"
 LAYERS = {"wdpa_protected_areas": "protected areas (WDPA, every designated protected-area polygon; dissolved)",
-          "wdpa_ramsar": "Ramsar sites (WDPA international designation; polygons; dissolved)"}
+          "wdpa_ramsar": "Ramsar sites (WDPA international designation; polygons; dissolved)",
+          "wdpa_protected_areas_noksrz": "protected areas without the Kazakh State Reserved Zone in the northern "
+                                         "Caspian (sensitivity, D-103 addendum; dissolved)"}
+# Sensitivity (D-103 addendum): the Kazakh "State Reserved Zone in Northern part of Caspian Sea"
+# is drawn as a 63,077 km2 polygon against a reported area of 6,626.3 km2 and dominates the
+# protected-area layer; the sensitivity layer leaves out this one record. layers stops unless
+# exactly one record in the domain has this id and its name names the reserved zone.
+KSRZ_SITE_ID = 342651
+KSRZ_NAME_KEY = "Reserved Zone"
+# the exposure command's default layers: the two of the registered D-103 tables
+PRIMARY_LAYERS = ("wdpa_protected_areas", "wdpa_ramsar")
 DOC_FILES = ("Resources_in_English/WDPA_WDOECM_Manual_1_6.pdf", "Resources_in_English/WDPA_WDOECM_Metadata_1_6.pdf",
              "Resources_in_English/Summary_table_WDPA_WDOECM_attributes.pdf", "Shapefile_splitting_README.txt",
              f"WDPA_sources_{RELEASE}.csv")
@@ -228,8 +243,12 @@ def select(g) -> dict:
     is_pa = site_type.isin(["PA", "1", "Protected Area", "protected area"])
     designated = ~status.isin(STATUS_OUT)
     ramsar = desig.str.contains(RAMSAR_KEY, case=False, regex=False)
+    idc = next((c for c in ("SITE_ID", "WDPAID") if c in g.columns), None)
+    ksrz = (pd.to_numeric(g[idc], errors="coerce") == KSRZ_SITE_ID) if idc else pd.Series(False, index=g.index)
     return {"wdpa_protected_areas": is_pa & designated, "wdpa_ramsar": is_pa & designated & ramsar,
-            "_oecm": ~is_pa, "_mab": desig == MAB, "_not_designated": ~designated, "_ramsar_any": ramsar}
+            "wdpa_protected_areas_noksrz": is_pa & designated & ~ksrz,
+            "_oecm": ~is_pa, "_mab": desig == MAB, "_not_designated": ~designated, "_ramsar_any": ramsar,
+            "_ksrz": ksrz}
 
 
 def dissolve(geoms) -> list:
@@ -258,6 +277,9 @@ def cmd_layers(a) -> int:
     inside = g[g.intersects(dom)].copy()
     p_in = p[p.intersects(dom)]
     sel = select(inside)
+    k = inside.loc[sel["_ksrz"].to_numpy()]
+    if len(k) != 1 or KSRZ_NAME_KEY.lower() not in str(k[_col(k, "NAME_ENG", "NAME")].iloc[0]).lower():
+        raise SystemExit(f"expected one record {KSRZ_SITE_ID} naming the {KSRZ_NAME_KEY!r} in the domain, found {len(k)}")
     idc = _col(inside, "SITE_ID", "WDPAID")
     keep_cols = [c for c in (idc, "SITE_PID", "WDPA_PID", "NAME_ENG", "NAME", "DESIG_ENG", "DESIG_TYPE", "SITE_TYPE",
                              "PA_DEF", "IUCN_CAT", "STATUS", "STATUS_YR", "REALM", "MARINE", "REP_AREA", "GIS_AREA",
@@ -396,8 +418,13 @@ def cmd_exposure(a) -> int:
     lay = gpd.read_file(WORK / "layers.gpkg")
     if lay.crs is None or not lay.crs.equals(CRS_EQUAL_AREA):
         lay = lay.to_crs(CRS_EQUAL_AREA)
+    names_l = [n for n in a.layers.split(",") if n]
+    if not set(names_l) <= set(LAYERS):
+        raise SystemExit(f"unknown layers: {sorted(set(names_l) - set(LAYERS))}")
     layers = {n: {"geoms": list(lay.loc[lay["layer"] == n].geometry), "rule": "area", "threshold_m": None,
-                  "file": "data/interim/wdpa/layers.gpkg (from the WDPA October 2026 release)"} for n in LAYERS}
+                  "file": "data/interim/wdpa/layers.gpkg (from the WDPA October 2026 release)"} for n in names_l}
+    if any(not v["geoms"] for v in layers.values()):
+        raise SystemExit("a requested layer has no features in layers.gpkg: run layers")
     osm = {k: v for k, v in a8.osm_layers(RAW / "osm").items() if k == "osm_wetlands"}
     rec = {"script": "scripts/a8_wdpa_exposure.py exposure", "citation": CITATION, "release": RELEASE_TEXT,
            "layers_json": "results/emergence/wdpa/layers.json", "runs": {}}
@@ -422,16 +449,18 @@ def cmd_exposure(a) -> int:
         t0 = time.time()
         x = a8.exposure_table(layers, surfaces, bounds, lab_in, SECTOR_ORDER, transform, shape, level_2026, deltas)
         x.insert(0, "form", form)
-        x.to_csv(OUT / f"exposure_{tag}.csv", index=False)
+        x.to_csv(OUT / f"exposure_{tag}{a.suffix}.csv", index=False)
         rec["runs"][tag] = {"form": form, "emergence_csv": f"results/emergence/{tag}/emergence.csv",
                             "fused_maps": [fused_cache(form, p).name for p in names],
                             "level_2026_m": level_2026, "scenarios_m": deltas,
                             "check_emergence": c1, "check_osm_wetlands": c2,
                             "n_features": {n: len(v["geoms"]) for n, v in layers.items()},
-                            "seconds": round(time.time() - t0, 1), "table": f"results/emergence/wdpa/exposure_{tag}.csv"}
-        log(tag, "wrote", OUT / f"exposure_{tag}.csv")
+                            "seconds": round(time.time() - t0, 1),
+                            "table": f"results/emergence/wdpa/exposure_{tag}{a.suffix}.csv"}
+        log(tag, "wrote", OUT / f"exposure_{tag}{a.suffix}.csv")
         del surfaces
-    (OUT / "run.json").write_text(_json(rec), encoding="utf-8")
+    rec["layers"] = names_l
+    (OUT / f"run{a.suffix}.json").write_text(_json(rec), encoding="utf-8")
     return 0
 
 
@@ -439,6 +468,8 @@ def main(argv) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("cmd", choices=["fetch", "layers", "exposure"])
     ap.add_argument("--tags", default="main,main_constant")
+    ap.add_argument("--layers", default=",".join(PRIMARY_LAYERS), help="exposure: layers of layers.gpkg to compute")
+    ap.add_argument("--suffix", default="", help="exposure: suffix of the output tables and run record")
     ap.add_argument("--tile", type=int, default=2048)
     a = ap.parse_args(argv)
     return {"fetch": cmd_fetch, "layers": cmd_layers, "exposure": cmd_exposure}[a.cmd](a)

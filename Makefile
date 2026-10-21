@@ -395,7 +395,7 @@ METRIC_INPUTS += results/robustness/r21_seam_gaps/summary.json
 # WDPA protected-area and Ramsar exposure (D-103): counts and areas from scripts/a8_wdpa_exposure.py
 # layers | exposure on the H3 runs' cached surfaces. Like the H3 tables these are committed results:
 # they need the git-ignored WDPA download and flood-level caches, so make does not rebuild them.
-METRIC_INPUTS += results/emergence/wdpa/layers.json results/emergence/wdpa/run.json
+METRIC_INPUTS += results/emergence/wdpa/layers.json results/emergence/wdpa/run.json results/emergence/wdpa/run_noksrz.json
 
 # ERL display summaries and the Landsat acquisition record (display_erl_metrics)
 METRIC_INPUTS += $(ERL_DISPLAY) results/provenance/erl_landsat.json
