@@ -1,0 +1,6 @@
+product,variant,n_blocks,n_excluded_few,n_excluded_no_sector,min_n,group_sectors,n_group,n_rest,n_excluded_nan,n_perm,seed,alpha,statistic,p_value,significant
+etopo1,total,184,2,6,20,ural+volga+west,68,108,0,10000,20261020,0.05,6588.467666396044,9.999000099990002e-05,True
+etopo_2022,total,165,2,5,20,ural+volga+west,54,104,0,10000,20261020,0.05,-1239.9576338613574,0.9972002799720028,False
+gebco_2022,total,190,1,6,20,ural+volga+west,74,109,0,10000,20261020,0.05,8020.824701171758,9.999000099990002e-05,True
+gebco_2026,total,187,1,6,20,ural+volga+west,71,109,0,10000,20261020,0.05,7519.934131022868,9.999000099990002e-05,True
+srtm15p_v2.7,total,199,2,6,20,ural+volga+west,76,115,0,10000,20261020,0.05,7344.389235206587,0.00029997000299970003,True
