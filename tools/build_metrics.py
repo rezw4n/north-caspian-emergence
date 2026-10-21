@@ -313,7 +313,7 @@ def h3_metrics(m: dict, tag: str) -> None:
     """H3 values from the frozen tables of scripts/a8_emergence.py and caspian.h3
     (results/emergence/<tag>/; D-081, D-090), read for Fig. 5 and Table 3: the 2026
     level, the emerged area of each surface with its conformal interval (domain,
-    "emergence" functional), the verdicts, exposure at 1 and 2 m and the scenario
+    "emergence" functional), the verdicts, exposure at every scenario and the scenario
     dates of every pathway. Direct reads; nothing is recomputed."""
     import math
 
@@ -370,7 +370,7 @@ def h3_metrics(m: dict, tag: str) -> None:
         short, what = H3_LAYERS[lay]
         put(m, f"h3.exposure.{short}.n_features", int(g["n_features"].iloc[0]), "features", fx,
             "features of the layer inside the domain")
-    for r in x[x["scenario_m"].isin([1.0, 2.0])].itertuples():
+    for r in x.itertuples():     # every scenario (brief section 15: exposure per scenario)
         short, what = H3_LAYERS[r.layer]
         count = r.rule in ("onshore", "access")
         b = f"h3.exposure.{short}.{PRODUCT_KEY[r.product]}.{r.surface}.{_scen(r.scenario_m)}"
@@ -428,6 +428,13 @@ def display_h2_metrics(m: dict, tag: str, src: str) -> None:
         put(m, base + "_boot_low", round(float(r.boot_low), 3), "fraction", fc, "test-block bootstrap 95% interval")
         put(m, base + "_boot_high", round(float(r.boot_high), 3), "fraction", fc, "test-block bootstrap 95% interval")
         put(m, base + "_n_blocks", int(r.n_blocks), "blocks", fc)
+        put(m, base + "_consistent", "consistent" if bool(r.consistent_with_nominal) else "not consistent", "text",
+            fc, "0.90 inside the binomial 95% interval (PREREG section 8)")
+    sectors = sorted(k.split(".")[-1] for k in m if k.startswith("study_area.sector_km2."))
+    seen = set(acc.loc[(acc.model == "dem") & (acc.n > 0), "scope"])
+    missing = [x for x in sectors if x not in seen]
+    put(m, f"h2.{s}.sectors_without_test_points", ", ".join(missing) if missing else "none", "text", f,
+        "sectors with no test-block points (no per-sector accuracy or coverage)")
     dc = load(f"validation/{tag}/{src}_datum_constant.json").get("constant") or {}
     put(m, f"h2.{s}.datum_constant_m", round(float(dc["constant_m"]), 3) if dc else None, "m",
         f"validation/{tag}/{src}_datum_constant.json", "training-block median of DEM - H (D-069, D-078)")
