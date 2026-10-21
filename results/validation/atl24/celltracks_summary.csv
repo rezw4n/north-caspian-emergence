@@ -1,0 +1,13 @@
+variant,population,n_celltracks,n_cells,n_blocks,n_tracks,n_granules
+primary,near_term,0,0,0,0,0
+primary,emerged_band,0,0,0,0,0
+night,near_term,0,0,0,0,0
+night,emerged_band,0,0,0,0,0
+all_beams,near_term,0,0,0,0,0
+all_beams,emerged_band,0,0,0,0,0
+shallow3m,near_term,0,0,0,0,0
+shallow3m,emerged_band,0,0,0,0,0
+primary_c_atl06,near_term,0,0,0,0,0
+primary_c_atl06,emerged_band,0,0,0,0,0
+primary_c_water_surface,near_term,0,0,0,0,0
+primary_c_water_surface,emerged_band,0,0,0,0,0

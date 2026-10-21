@@ -805,6 +805,128 @@ def generality_metrics(m: dict) -> None:
             put(m, f"{key}.{arm}.n_bins_planned", x.get("n_bins_planned"), "bins", src)
 
 
+def atl24_metrics(m: dict) -> None:
+    """The ATL24 check of the near-term emergence surfaces (PREREG Amendment 17; D-095),
+    from results/validation/atl24/ (scripts/a8_atl24_check.py) and the fetch provenance
+    (results/provenance/icesat2_atl24.json): granule and photon counts, per product the
+    uncorrected and fused accuracy against ATL24 (near-term population, primary
+    selection and constant), the paired differences with their block-bootstrap
+    intervals, the verdict, the waterline DEM in the emerged band and the water-surface
+    constant. Keys h3.atl24.*. Direct reads; nothing is recomputed; NaN is not written."""
+    import math
+
+    import pandas as pd
+
+    d = RES / "validation" / "atl24"
+    run = load("validation/atl24/run.json")
+    if not run:
+        return
+    src = "results/validation/atl24/run.json"
+
+    def putf(key, value, unit, source, note=None):
+        if value is None or (isinstance(value, float) and not math.isfinite(value)):
+            return
+        put(m, key, value, unit, source, note)
+
+    def r3(v):
+        return round(float(v), 3)
+
+    g = run.get("granules") or {}
+    putf("h3.atl24.n_granules_found", g.get("n_found"), "granules", src, "CMR, ATL24 v002, domain bounding box")
+    putf("h3.atl24.n_granules_read", g.get("n_read"), "granules", src)
+    putf("h3.atl24.n_granules_extent_in_box", g.get("n_extent_meets_box"), "granules", src,
+         "granules whose metadata/extent polygon meets the domain bounding box")
+    putf("h3.atl24.n_granules_class40_in_box", g.get("n_with_class40_in_box"), "granules", src)
+    putf("h3.atl24.n_granules_primary", g.get("n_with_primary_photons"), "granules", src,
+         "granules with photons passing every Amendment 17 step")
+    sc = g.get("spot_check") or {}
+    if sc:
+        vals = list((sc.get("n_box_by_granule") or {}).values())
+        putf("h3.atl24.spot_check.n_sampled", sc.get("n_sampled"), "granules", "results/provenance/icesat2_atl24.json")
+        putf("h3.atl24.spot_check.n_with_box_photons", sum(1 for v in vals if isinstance(v, int) and v > 0),
+             "granules", "results/provenance/icesat2_atl24.json",
+             "skipped granules read in full that hold any photon in the box (expected 0)")
+    putf("h3.atl24.n_photons_primary", run.get("n_photons_primary"), "photons", src)
+    prov = load("provenance/icesat2_atl24.json")
+    ext = [r["extent_bounds_wsen"] for r in (prov.get("granules") or {}).values() if r.get("extent_bounds_wsen")]
+    if ext:
+        fp = "results/provenance/icesat2_atl24.json"
+        note = "bounds over every granule's metadata/extent polygon (where ATL24 v002 holds data)"
+        putf("h3.atl24.extent.lon_min_deg", round(min(e[0] for e in ext), 2), "degrees east", fp, note)
+        putf("h3.atl24.extent.lon_max_deg", round(max(e[2] for e in ext), 2), "degrees east", fp, note)
+        putf("h3.atl24.extent.lat_min_deg", round(min(e[1] for e in ext), 2), "degrees north", fp, note)
+        putf("h3.atl24.extent.lat_max_deg", round(max(e[3] for e in ext), 2), "degrees north", fp, note)
+        putf("h3.atl24.size_mb_cmr", int(round(float(prov.get("size_mib_cmr_total")))) if prov.get("size_mib_cmr_total")
+             else None, "MB", fp, "sum of the CMR granule sizes")
+    for v, n in (run.get("n_celltracks") or {}).items():
+        putf(f"h3.atl24.n_celltracks.{v}", n, "cell-tracks", src, "before the population cut")
+    cs = d / "celltracks_summary.csv"
+    if cs.exists():
+        t = pd.read_csv(cs)
+        for r in t[t["variant"] == "primary"].itertuples():
+            for k in ("n_celltracks", "n_cells", "n_blocks", "n_granules"):
+                putf(f"h3.atl24.{r.population}.{k}", int(getattr(r, k)), k.split("_")[1],
+                     "results/validation/atl24/celltracks_summary.csv")
+    ver = load("validation/atl24/verdicts.json")
+    prim = (ver.get("primary") or {}).get("near_term") or {}
+    for p, k in PRODUCT_KEY.items():
+        v = (prim.get(p) or {}).get("overall") or {"verdict": "not evaluable", "reason": "no ATL24 data"}
+        note = "PREREG Amendment 17 item 8" + (f"; {v['reason']}" if v.get("reason") else "") + \
+            (f"; {v['partial']}" if v.get("partial") else "")
+        putf(f"h3.atl24.{k}.verdict", v["verdict"], "category", "results/validation/atl24/verdicts.json", note)
+        sens = ((run.get("verdict_primary_near_term") or {}).get(p) or {})
+        if sens.get("sensitive_to_datum_constant") is not None and v["verdict"] != "not evaluable":
+            putf(f"h3.atl24.{k}.verdict_sensitive_to_constant", bool(sens["sensitive_to_datum_constant"]),
+                 "flag", src)
+    for pop in ("near_term", "emerged_band"):
+        fa, fd = d / f"accuracy_primary_{pop}.csv", d / f"differences_primary_{pop}.csv"
+        if not fa.exists():
+            continue
+        acc, dif = pd.read_csv(fa), pd.read_csv(fd)
+        rel_a, rel_d = f"results/validation/atl24/{fa.name}", f"results/validation/atl24/{fd.name}"
+        tag = "" if pop == "near_term" else ".emerged"
+        for p, k in PRODUCT_KEY.items():
+            a = acc[acc["pair"] == p]
+            for r in a.itertuples():
+                if r.n == 0:
+                    continue
+                for metric in ("bias", "rmse", "nmad"):
+                    putf(f"h3.atl24{tag}.{k}.{r.surface}.{r.scope}.{metric}_m", r3(getattr(r, metric)), "m", rel_a,
+                         "surface minus ATL24")
+                putf(f"h3.atl24{tag}.{k}.{r.surface}.{r.scope}.n", int(r.n), "cell-tracks", rel_a)
+                putf(f"h3.atl24{tag}.{k}.{r.surface}.{r.scope}.n_blocks", int(r.n_blocks), "blocks", rel_a)
+            for r in dif[(dif["pair"] == p) & (dif["n"] > 0)].itertuples():
+                b = f"h3.atl24{tag}.{k}.diff.{r.scope}.{r.metric}"
+                putf(b + "_m", r3(r.diff), "m", rel_d, "fused minus uncorrected")
+                putf(b + "_ci_low_m", r3(r.ci_low), "m", rel_d, "50 km block bootstrap, 95% percentile interval")
+                putf(b + "_ci_high_m", r3(r.ci_high), "m", rel_d, "50 km block bootstrap, 95% percentile interval")
+        if pop == "emerged_band":
+            dm = acc[(acc["pair"] == "gebco_2026|dem_vs_uncorrected") & (acc["column"] == "dem")]
+            for r in dm.itertuples():
+                if r.n == 0:
+                    continue
+                for metric in ("bias", "rmse", "nmad"):
+                    putf(f"h3.atl24.emerged.dem.{r.scope}.{metric}_m", r3(getattr(r, metric)), "m", rel_a,
+                         "waterline DEM (60 m mean, as the fused surface reads it) minus ATL24")
+                putf(f"h3.atl24.emerged.dem.{r.scope}.n", int(r.n), "cell-tracks", rel_a)
+    ws = load("validation/atl24/water_surface_constant.json")
+    putf("h3.atl24.water_surface_constant_m", r3(ws["constant_m"]) if ws.get("constant_m") is not None
+         and math.isfinite(ws["constant_m"]) else None, "m", "results/validation/atl24/water_surface_constant.json",
+         "sensitivity constant (Amendment 17 item 3)")
+    putf("h3.atl24.water_surface_n_overpasses", ws.get("n_overpasses"), "overpasses",
+         "results/validation/atl24/water_surface_constant.json")
+    er = run.get("error_model_range") or {}
+    note = ("H3 final linear_hold models (D-081): the shift applied to product heights in the near-term zone "
+            "against the range of the shifts the model was fitted on; surface-only, no ATL24")
+    putf("h3.atl24.error_model.n_models", er.get("n_models"), "models", src, note)
+    putf("h3.atl24.error_model.n_outside_fit_range", er.get("n_outside_fit_range"), "models", src, note)
+    if er.get("max_applied_shift_m") is not None:
+        putf("h3.atl24.error_model.max_applied_shift_m", r3(er["max_applied_shift_m"]), "m", src, note)
+        putf("h3.atl24.error_model.min_applied_shift_m", r3(er["min_applied_shift_m"]), "m", src, note)
+        putf("h3.atl24.error_model.fit_shift_min_m", r3(er["fit_shift_range_m"][0]), "m", src, note)
+        putf("h3.atl24.error_model.fit_shift_max_m", r3(er["fit_shift_range_m"][1]), "m", src, note)
+
+
 def main() -> int:
     m: dict = {}
     inv = load("inventory/inventory_meta.json")
@@ -1034,6 +1156,7 @@ def main() -> int:
     results_metrics(m)
 
     generality_metrics(m)
+    atl24_metrics(m)
 
     out = RES / "metrics.json"
     out.write_text(json.dumps(dict(sorted(m.items())), indent=1, ensure_ascii=False), encoding="utf-8")

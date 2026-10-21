@@ -1,0 +1,458 @@
+{
+ "primary": {
+  "near_term": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  },
+  "emerged_band": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  }
+ },
+ "night": {
+  "near_term": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  },
+  "emerged_band": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  }
+ },
+ "all_beams": {
+  "near_term": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  },
+  "emerged_band": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  }
+ },
+ "shallow3m": {
+  "near_term": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  },
+  "emerged_band": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  }
+ },
+ "primary_c_atl06": {
+  "near_term": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  },
+  "emerged_band": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  }
+ },
+ "primary_c_water_surface": {
+  "near_term": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  },
+  "emerged_band": {
+   "gebco_2026": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "srtm15p_v2.7": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "gebco_2022": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   },
+   "etopo1": {
+    "overall": {
+     "verdict": "not evaluable",
+     "reason": "no ATL24 data",
+     "partial": null
+    }
+   }
+  }
+ }
+}

@@ -12072,6 +12072,215 @@
   "unit": "m",
   "source": "validation/main_vegetated/ATL08_accuracy.csv"
  },
+ "h3.atl24.emerged_band.n_blocks": {
+  "value": 0,
+  "unit": "blocks",
+  "source": "results/validation/atl24/celltracks_summary.csv"
+ },
+ "h3.atl24.emerged_band.n_cells": {
+  "value": 0,
+  "unit": "cells",
+  "source": "results/validation/atl24/celltracks_summary.csv"
+ },
+ "h3.atl24.emerged_band.n_celltracks": {
+  "value": 0,
+  "unit": "celltracks",
+  "source": "results/validation/atl24/celltracks_summary.csv"
+ },
+ "h3.atl24.emerged_band.n_granules": {
+  "value": 0,
+  "unit": "granules",
+  "source": "results/validation/atl24/celltracks_summary.csv"
+ },
+ "h3.atl24.error_model.fit_shift_max_m": {
+  "value": 0.43,
+  "unit": "m",
+  "source": "results/validation/atl24/run.json",
+  "note": "H3 final linear_hold models (D-081): the shift applied to product heights in the near-term zone against the range of the shifts the model was fitted on; surface-only, no ATL24"
+ },
+ "h3.atl24.error_model.fit_shift_min_m": {
+  "value": -3.63,
+  "unit": "m",
+  "source": "results/validation/atl24/run.json",
+  "note": "H3 final linear_hold models (D-081): the shift applied to product heights in the near-term zone against the range of the shifts the model was fitted on; surface-only, no ATL24"
+ },
+ "h3.atl24.error_model.max_applied_shift_m": {
+  "value": 45.73,
+  "unit": "m",
+  "source": "results/validation/atl24/run.json",
+  "note": "H3 final linear_hold models (D-081): the shift applied to product heights in the near-term zone against the range of the shifts the model was fitted on; surface-only, no ATL24"
+ },
+ "h3.atl24.error_model.min_applied_shift_m": {
+  "value": -11.511,
+  "unit": "m",
+  "source": "results/validation/atl24/run.json",
+  "note": "H3 final linear_hold models (D-081): the shift applied to product heights in the near-term zone against the range of the shifts the model was fitted on; surface-only, no ATL24"
+ },
+ "h3.atl24.error_model.n_models": {
+  "value": 40,
+  "unit": "models",
+  "source": "results/validation/atl24/run.json",
+  "note": "H3 final linear_hold models (D-081): the shift applied to product heights in the near-term zone against the range of the shifts the model was fitted on; surface-only, no ATL24"
+ },
+ "h3.atl24.error_model.n_outside_fit_range": {
+  "value": 21,
+  "unit": "models",
+  "source": "results/validation/atl24/run.json",
+  "note": "H3 final linear_hold models (D-081): the shift applied to product heights in the near-term zone against the range of the shifts the model was fitted on; surface-only, no ATL24"
+ },
+ "h3.atl24.etopo1.verdict": {
+  "value": "not evaluable",
+  "unit": "category",
+  "source": "results/validation/atl24/verdicts.json",
+  "note": "PREREG Amendment 17 item 8; no ATL24 data"
+ },
+ "h3.atl24.etopo2022.verdict": {
+  "value": "not evaluable",
+  "unit": "category",
+  "source": "results/validation/atl24/verdicts.json",
+  "note": "PREREG Amendment 17 item 8; no ATL24 data"
+ },
+ "h3.atl24.extent.lat_max_deg": {
+  "value": 30.75,
+  "unit": "degrees north",
+  "source": "results/provenance/icesat2_atl24.json",
+  "note": "bounds over every granule's metadata/extent polygon (where ATL24 v002 holds data)"
+ },
+ "h3.atl24.extent.lat_min_deg": {
+  "value": 26.99,
+  "unit": "degrees north",
+  "source": "results/provenance/icesat2_atl24.json",
+  "note": "bounds over every granule's metadata/extent polygon (where ATL24 v002 holds data)"
+ },
+ "h3.atl24.extent.lon_max_deg": {
+  "value": 56.99,
+  "unit": "degrees east",
+  "source": "results/provenance/icesat2_atl24.json",
+  "note": "bounds over every granule's metadata/extent polygon (where ATL24 v002 holds data)"
+ },
+ "h3.atl24.extent.lon_min_deg": {
+  "value": 47.59,
+  "unit": "degrees east",
+  "source": "results/provenance/icesat2_atl24.json",
+  "note": "bounds over every granule's metadata/extent polygon (where ATL24 v002 holds data)"
+ },
+ "h3.atl24.gebco2022.verdict": {
+  "value": "not evaluable",
+  "unit": "category",
+  "source": "results/validation/atl24/verdicts.json",
+  "note": "PREREG Amendment 17 item 8; no ATL24 data"
+ },
+ "h3.atl24.gebco2026.verdict": {
+  "value": "not evaluable",
+  "unit": "category",
+  "source": "results/validation/atl24/verdicts.json",
+  "note": "PREREG Amendment 17 item 8; no ATL24 data"
+ },
+ "h3.atl24.n_celltracks.all_beams": {
+  "value": 0,
+  "unit": "cell-tracks",
+  "source": "results/validation/atl24/run.json",
+  "note": "before the population cut"
+ },
+ "h3.atl24.n_celltracks.night": {
+  "value": 0,
+  "unit": "cell-tracks",
+  "source": "results/validation/atl24/run.json",
+  "note": "before the population cut"
+ },
+ "h3.atl24.n_celltracks.primary": {
+  "value": 0,
+  "unit": "cell-tracks",
+  "source": "results/validation/atl24/run.json",
+  "note": "before the population cut"
+ },
+ "h3.atl24.n_celltracks.shallow3m": {
+  "value": 0,
+  "unit": "cell-tracks",
+  "source": "results/validation/atl24/run.json",
+  "note": "before the population cut"
+ },
+ "h3.atl24.n_granules_class40_in_box": {
+  "value": 0,
+  "unit": "granules",
+  "source": "results/validation/atl24/run.json"
+ },
+ "h3.atl24.n_granules_extent_in_box": {
+  "value": 0,
+  "unit": "granules",
+  "source": "results/validation/atl24/run.json",
+  "note": "granules whose metadata/extent polygon meets the domain bounding box"
+ },
+ "h3.atl24.n_granules_found": {
+  "value": 995,
+  "unit": "granules",
+  "source": "results/validation/atl24/run.json",
+  "note": "CMR, ATL24 v002, domain bounding box"
+ },
+ "h3.atl24.n_granules_primary": {
+  "value": 0,
+  "unit": "granules",
+  "source": "results/validation/atl24/run.json",
+  "note": "granules with photons passing every Amendment 17 step"
+ },
+ "h3.atl24.n_granules_read": {
+  "value": 995,
+  "unit": "granules",
+  "source": "results/validation/atl24/run.json"
+ },
+ "h3.atl24.n_photons_primary": {
+  "value": 0,
+  "unit": "photons",
+  "source": "results/validation/atl24/run.json"
+ },
+ "h3.atl24.near_term.n_blocks": {
+  "value": 0,
+  "unit": "blocks",
+  "source": "results/validation/atl24/celltracks_summary.csv"
+ },
+ "h3.atl24.near_term.n_cells": {
+  "value": 0,
+  "unit": "cells",
+  "source": "results/validation/atl24/celltracks_summary.csv"
+ },
+ "h3.atl24.near_term.n_celltracks": {
+  "value": 0,
+  "unit": "celltracks",
+  "source": "results/validation/atl24/celltracks_summary.csv"
+ },
+ "h3.atl24.near_term.n_granules": {
+  "value": 0,
+  "unit": "granules",
+  "source": "results/validation/atl24/celltracks_summary.csv"
+ },
+ "h3.atl24.size_mb_cmr": {
+  "value": 65602,
+  "unit": "MB",
+  "source": "results/provenance/icesat2_atl24.json",
+  "note": "sum of the CMR granule sizes"
+ },
+ "h3.atl24.spot_check.n_sampled": {
+  "value": 20,
+  "unit": "granules",
+  "source": "results/provenance/icesat2_atl24.json"
+ },
+ "h3.atl24.spot_check.n_with_box_photons": {
+  "value": 0,
+  "unit": "granules",
+  "source": "results/provenance/icesat2_atl24.json",
+  "note": "skipped granules read in full that hold any photon in the box (expected 0)"
+ },
+ "h3.atl24.srtm15p.verdict": {
+  "value": "not evaluable",
+  "unit": "category",
+  "source": "results/validation/atl24/verdicts.json",
+  "note": "PREREG Amendment 17 item 8; no ATL24 data"
+ },
+ "h3.atl24.water_surface_n_overpasses": {
+  "value": 0,
+  "unit": "overpasses",
+  "source": "results/validation/atl24/water_surface_constant.json"
+ },
  "h3.coast_km": {
   "value": 5,
   "unit": "km",
