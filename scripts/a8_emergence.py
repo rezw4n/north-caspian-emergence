@@ -193,17 +193,18 @@ def run(stage2_dir, out_dir, static: dict, heights: dict, transform, *, dem, lev
         level_2026_record: dict | None = None, flood_maps: dict | None = None, hindcast_tables: dict | None = None,
         sector_names=SECTOR_ORDER, forms=(ex.PRIMARY_FORM,), fit_epochs=("E2", "E3"), fit_mask=None,
         scenarios=design.SCENARIOS_M, layers: dict | None = None, pathways: pd.DataFrame | None = None,
-        extra_curves: dict | None = None,
+        extra_curves: dict | None = None, sensitivity: bool = False,
         cache_dir: Path | None = None, tile: int = ht.TILE, meta: dict | None = None, log=print) -> dict:
     """Compute and write the H3 tables (module docstring). ``heights``: {product: heights
     on the grid as the hindcast read them (total variant)}; ``dem``: the waterline DEM on
     the grid; ``layers``: {name: {"geoms": [shapely, grid CRS], "rule", "threshold_m"}};
     ``fit_mask``: optional cells the shifts are counted on (e.g. training blocks; default
     every cell); ``extra_curves``: {id: {"curve": (years, change), "role", "source", ...}}
-    dated beside ``pathways`` (eq1_curves)."""
+    dated beside ``pathways`` (eq1_curves). ``sensitivity``: allow a first (final) form other
+    than the primary, for the D-081 form sensitivities (written to a separate folder)."""
     t_start = time.time()
     forms = tuple(forms)
-    if forms[0] != ex.PRIMARY_FORM:
+    if forms[0] != ex.PRIMARY_FORM and not sensitivity:
         raise ValueError(f"the first form must be the primary one, {ex.PRIMARY_FORM}")
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -713,7 +714,11 @@ def main(argv) -> int:
     ap.add_argument("--pathways", default=str(PATHWAYS))
     ap.add_argument("--resampling", default="bilinear", choices=products.METHODS)
     ap.add_argument("--tile", type=int, default=ht.TILE)
+    ap.add_argument("--sensitivity-form", default=None, choices=[f for f in ex.FORMS if f != ex.PRIMARY_FORM],
+                    help="D-081 sensitivity: this form is the final (fused) one; writes results/emergence/<tag>_<form>")
     a = ap.parse_args(argv)
+    if a.sensitivity_form:
+        a.forms = a.sensitivity_form
     hdir = RESULTS / "hindcast" / a.tag
     hrun = json.loads((hdir / "run.json").read_text(encoding="utf-8"))
     if float(hrun["level_datum"]["offset_m"]) != 0.0 or hrun.get("product_offsets") not in (None, {},
@@ -763,11 +768,13 @@ def main(argv) -> int:
               **({} if a.no_habitat_rasters else raster_layers(transform, shape))}
     meta = {"tag": a.tag, "dem_tag": a.dem_tag, "dem_tiles": len(dem_paths), "hindcast_run": str(hdir / "run.json"),
             "vertical_correction": corr_rec or "none", "resampling": a.resampling,
-            "pathways": a.pathways if pathways is not None else "none"}
-    run(INTERIM / "stage2" / a.tag, RESULTS / "emergence" / a.tag, static, heights, transform, dem=dem,
+            "pathways": a.pathways if pathways is not None else "none",
+            "sensitivity_form": a.sensitivity_form or "none (primary run)"}
+    out_name = a.tag + (f"_{a.sensitivity_form}" if a.sensitivity_form else "")
+    run(INTERIM / "stage2" / a.tag, RESULTS / "emergence" / out_name, static, heights, transform, dem=dem,
         level_2026=round(float(lrec["level_m"]), 4), level_2026_record=lrec, flood_maps=flood_maps,
         hindcast_tables=tables, forms=a.forms.split(","), fit_mask=fit_mask, layers=layers, pathways=pathways,
-        extra_curves=eq1_curves(Path(a.pathways)),
+        extra_curves=eq1_curves(Path(a.pathways)), sensitivity=bool(a.sensitivity_form),
         cache_dir=INTERIM / "emergence" / a.tag, tile=a.tile, meta=meta)
     return 0
 
