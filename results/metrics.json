@@ -468,6 +468,11 @@
   "unit": "km",
   "source": "hindcast/main/displacement_by_level_band.csv"
  },
+ "h1.disp_band.above_m26p3.srtm15p_km": {
+  "value": 11.04,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
  "h1.disp_band.below_m28p3.etopo1_km": {
   "value": 6.85,
   "unit": "km",
@@ -485,6 +490,11 @@
  },
  "h1.disp_band.below_m28p3.gebco2026_km": {
   "value": 4.51,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.below_m28p3.srtm15p_km": {
+  "value": 13.84,
   "unit": "km",
   "source": "hindcast/main/displacement_by_level_band.csv"
  },
@@ -550,6 +560,11 @@
   "unit": "km",
   "source": "hindcast/main/displacement_by_level_band.csv"
  },
+ "h1.disp_band.m27p0_m26p3.srtm15p_km": {
+  "value": 3.69,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
  "h1.disp_band.m27p7_m27p0.etopo1_km": {
   "value": 3.41,
   "unit": "km",
@@ -566,6 +581,11 @@
   "source": "hindcast/main/displacement_by_level_band.csv"
  },
  "h1.disp_band.m27p7_m27p0.gebco2026_km": {
+  "value": 3.18,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m27p7_m27p0.srtm15p_km": {
   "value": 3.18,
   "unit": "km",
   "source": "hindcast/main/displacement_by_level_band.csv"
@@ -587,6 +607,11 @@
  },
  "h1.disp_band.m28p3_m27p7.gebco2026_km": {
   "value": 3.57,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m28p3_m27p7.srtm15p_km": {
+  "value": 7.75,
   "unit": "km",
   "source": "hindcast/main/displacement_by_level_band.csv"
  },
