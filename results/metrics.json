@@ -48,6 +48,1108 @@
   "note": "NGA/PROJ EGM2008 minus ICGEM EGM2008 (the NGA height offset), mean over the product box",
   "decimals": 2
  },
+ "h1.block_test.shape.etopo1.diff_km": {
+  "value": 4.53,
+  "unit": "km",
+  "source": "hindcast/main/h1_block_test.csv",
+  "note": "median block displacement, deltaic or vegetated minus the rest"
+ },
+ "h1.block_test.shape.etopo1.p": {
+  "value": 0.0091,
+  "unit": "p",
+  "source": "hindcast/main/h1_block_test.csv"
+ },
+ "h1.block_test.shape.etopo2022.diff_km": {
+  "value": -1.81,
+  "unit": "km",
+  "source": "hindcast/main/h1_block_test.csv",
+  "note": "median block displacement, deltaic or vegetated minus the rest"
+ },
+ "h1.block_test.shape.etopo2022.p": {
+  "value": 1.0,
+  "unit": "p",
+  "source": "hindcast/main/h1_block_test.csv"
+ },
+ "h1.block_test.shape.gebco2022.diff_km": {
+  "value": 3.78,
+  "unit": "km",
+  "source": "hindcast/main/h1_block_test.csv",
+  "note": "median block displacement, deltaic or vegetated minus the rest"
+ },
+ "h1.block_test.shape.gebco2022.p": {
+  "value": 0.005,
+  "unit": "p",
+  "source": "hindcast/main/h1_block_test.csv"
+ },
+ "h1.block_test.shape.gebco2026.diff_km": {
+  "value": 4.49,
+  "unit": "km",
+  "source": "hindcast/main/h1_block_test.csv",
+  "note": "median block displacement, deltaic or vegetated minus the rest"
+ },
+ "h1.block_test.shape.gebco2026.p": {
+  "value": 0.0031,
+  "unit": "p",
+  "source": "hindcast/main/h1_block_test.csv"
+ },
+ "h1.block_test.shape.srtm15p.diff_km": {
+  "value": 1.89,
+  "unit": "km",
+  "source": "hindcast/main/h1_block_test.csv",
+  "note": "median block displacement, deltaic or vegetated minus the rest"
+ },
+ "h1.block_test.shape.srtm15p.p": {
+  "value": 0.1353,
+  "unit": "p",
+  "source": "hindcast/main/h1_block_test.csv"
+ },
+ "h1.block_test.total.etopo1.diff_km": {
+  "value": 8.73,
+  "unit": "km",
+  "source": "hindcast/main/h1_block_test.csv",
+  "note": "median block displacement, deltaic or vegetated minus the rest"
+ },
+ "h1.block_test.total.etopo1.p": {
+  "value": 0.0058,
+  "unit": "p",
+  "source": "hindcast/main/h1_block_test.csv"
+ },
+ "h1.block_test.total.etopo2022.diff_km": {
+  "value": -2.51,
+  "unit": "km",
+  "source": "hindcast/main/h1_block_test.csv",
+  "note": "median block displacement, deltaic or vegetated minus the rest"
+ },
+ "h1.block_test.total.etopo2022.p": {
+  "value": 0.9868,
+  "unit": "p",
+  "source": "hindcast/main/h1_block_test.csv"
+ },
+ "h1.block_test.total.gebco2022.diff_km": {
+  "value": 9.32,
+  "unit": "km",
+  "source": "hindcast/main/h1_block_test.csv",
+  "note": "median block displacement, deltaic or vegetated minus the rest"
+ },
+ "h1.block_test.total.gebco2022.p": {
+  "value": 0.0048,
+  "unit": "p",
+  "source": "hindcast/main/h1_block_test.csv"
+ },
+ "h1.block_test.total.gebco2026.diff_km": {
+  "value": 8.75,
+  "unit": "km",
+  "source": "hindcast/main/h1_block_test.csv",
+  "note": "median block displacement, deltaic or vegetated minus the rest"
+ },
+ "h1.block_test.total.gebco2026.p": {
+  "value": 0.0125,
+  "unit": "p",
+  "source": "hindcast/main/h1_block_test.csv"
+ },
+ "h1.block_test.total.srtm15p.diff_km": {
+  "value": 11.89,
+  "unit": "km",
+  "source": "hindcast/main/h1_block_test.csv",
+  "note": "median block displacement, deltaic or vegetated minus the rest"
+ },
+ "h1.block_test.total.srtm15p.p": {
+  "value": 0.0012,
+  "unit": "p",
+  "source": "hindcast/main/h1_block_test.csv"
+ },
+ "h1.disp_band.above_m26p3.etopo1_km": {
+  "value": 8.34,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.above_m26p3.etopo2022_km": {
+  "value": 0.49,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.above_m26p3.gebco2022_km": {
+  "value": 5.76,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.above_m26p3.gebco2026_km": {
+  "value": 5.56,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.below_m28p3.etopo1_km": {
+  "value": 6.85,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.below_m28p3.etopo2022_km": {
+  "value": 4.12,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.below_m28p3.gebco2022_km": {
+  "value": 5.23,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.below_m28p3.gebco2026_km": {
+  "value": 4.51,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m27p0_m26p3.etopo1_km": {
+  "value": 8.24,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m27p0_m26p3.etopo2022_km": {
+  "value": 0.3,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m27p0_m26p3.gebco2022_km": {
+  "value": 5.2,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m27p0_m26p3.gebco2026_km": {
+  "value": 5.33,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m27p7_m27p0.etopo1_km": {
+  "value": 3.41,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m27p7_m27p0.etopo2022_km": {
+  "value": 0.55,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m27p7_m27p0.gebco2022_km": {
+  "value": 3.19,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m27p7_m27p0.gebco2026_km": {
+  "value": 3.18,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m28p3_m27p7.etopo1_km": {
+  "value": 4.15,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m28p3_m27p7.etopo2022_km": {
+  "value": 3.48,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m28p3_m27p7.gebco2022_km": {
+  "value": 3.6,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.disp_band.m28p3_m27p7.gebco2026_km": {
+  "value": 3.57,
+  "unit": "km",
+  "source": "hindcast/main/displacement_by_level_band.csv"
+ },
+ "h1.etopo2022.source_share.fabdem": {
+  "value": 45.9,
+  "unit": "%",
+  "source": "hindcast/main/etopo2022_sources_emerged_band.json"
+ },
+ "h1.etopo2022.source_share.gebco_lake": {
+  "value": 54.1,
+  "unit": "%",
+  "source": "hindcast/main/etopo2022_sources_emerged_band.json"
+ },
+ "h1.mispredicts.shape.etopo1.n_sectors": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "hindcast/main/h1_mispredicts.csv"
+ },
+ "h1.mispredicts.shape.etopo2022.n_sectors": {
+  "value": 1,
+  "unit": "sectors",
+  "source": "hindcast/main/h1_mispredicts.csv"
+ },
+ "h1.mispredicts.shape.gebco2022.n_sectors": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "hindcast/main/h1_mispredicts.csv"
+ },
+ "h1.mispredicts.shape.gebco2026.n_sectors": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "hindcast/main/h1_mispredicts.csv"
+ },
+ "h1.mispredicts.shape.srtm15p.n_sectors": {
+  "value": 6,
+  "unit": "sectors",
+  "source": "hindcast/main/h1_mispredicts.csv"
+ },
+ "h1.mispredicts.total.etopo1.n_sectors": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "hindcast/main/h1_mispredicts.csv"
+ },
+ "h1.mispredicts.total.etopo2022.n_sectors": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "hindcast/main/h1_mispredicts.csv"
+ },
+ "h1.mispredicts.total.gebco2022.n_sectors": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "hindcast/main/h1_mispredicts.csv"
+ },
+ "h1.mispredicts.total.gebco2026.n_sectors": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "hindcast/main/h1_mispredicts.csv"
+ },
+ "h1.mispredicts.total.srtm15p.n_sectors": {
+  "value": 7,
+  "unit": "sectors",
+  "source": "hindcast/main/h1_mispredicts.csv"
+ },
+ "h1.noise_p95.interfluve_km": {
+  "value": 0.85,
+  "unit": "km",
+  "source": "hindcast/main/noise_floor.csv",
+  "note": "median over levels of the noise-floor 95th percentile"
+ },
+ "h1.noise_p95.komsomolets_km": {
+  "value": 3.73,
+  "unit": "km",
+  "source": "hindcast/main/noise_floor.csv",
+  "note": "median over levels of the noise-floor 95th percentile"
+ },
+ "h1.noise_p95.northeast_km": {
+  "value": 2.26,
+  "unit": "km",
+  "source": "hindcast/main/noise_floor.csv",
+  "note": "median over levels of the noise-floor 95th percentile"
+ },
+ "h1.noise_p95.open_shelf_km": {
+  "value": 0.49,
+  "unit": "km",
+  "source": "hindcast/main/noise_floor.csv",
+  "note": "median over levels of the noise-floor 95th percentile"
+ },
+ "h1.noise_p95.ural_km": {
+  "value": 0.86,
+  "unit": "km",
+  "source": "hindcast/main/noise_floor.csv",
+  "note": "median over levels of the noise-floor 95th percentile"
+ },
+ "h1.noise_p95.volga_km": {
+  "value": 2.55,
+  "unit": "km",
+  "source": "hindcast/main/noise_floor.csv",
+  "note": "median over levels of the noise-floor 95th percentile"
+ },
+ "h1.noise_p95.west_km": {
+  "value": 1.12,
+  "unit": "km",
+  "source": "hindcast/main/noise_floor.csv",
+  "note": "median over levels of the noise-floor 95th percentile"
+ },
+ "h1.shape_offset.etopo1_m": {
+  "value": -1.38,
+  "unit": "m",
+  "source": "hindcast/main/shape_offsets.json"
+ },
+ "h1.shape_offset.etopo2022_m": {
+  "value": -1.49,
+  "unit": "m",
+  "source": "hindcast/main/shape_offsets.json"
+ },
+ "h1.shape_offset.gebco2022_m": {
+  "value": -1.45,
+  "unit": "m",
+  "source": "hindcast/main/shape_offsets.json"
+ },
+ "h1.shape_offset.gebco2026_m": {
+  "value": -1.48,
+  "unit": "m",
+  "source": "hindcast/main/shape_offsets.json"
+ },
+ "h1.shape_offset.srtm15p_m": {
+  "value": -1.28,
+  "unit": "m",
+  "source": "hindcast/main/shape_offsets.json"
+ },
+ "h2.atl06.coverage.interfluve": {
+  "value": 0.986,
+  "unit": "fraction",
+  "source": "validation/main/ATL06_coverage.csv"
+ },
+ "h2.atl06.coverage.komsomolets": {
+  "value": 0.085,
+  "unit": "fraction",
+  "source": "validation/main/ATL06_coverage.csv"
+ },
+ "h2.atl06.coverage.northeast": {
+  "value": 0.854,
+  "unit": "fraction",
+  "source": "validation/main/ATL06_coverage.csv"
+ },
+ "h2.atl06.coverage.open_shelf": {
+  "value": 0.846,
+  "unit": "fraction",
+  "source": "validation/main/ATL06_coverage.csv"
+ },
+ "h2.atl06.coverage.overall": {
+  "value": 0.752,
+  "unit": "fraction",
+  "source": "validation/main/ATL06_coverage.csv"
+ },
+ "h2.atl06.coverage.volga": {
+  "value": 0.946,
+  "unit": "fraction",
+  "source": "validation/main/ATL06_coverage.csv"
+ },
+ "h2.atl06.coverage.west": {
+  "value": 0.835,
+  "unit": "fraction",
+  "source": "validation/main/ATL06_coverage.csv"
+ },
+ "h2.atl06.dem.bias_m": {
+  "value": 0.029,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.interfluve.bias_m": {
+  "value": -0.058,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.interfluve.nmad_m": {
+  "value": 0.106,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.komsomolets.bias_m": {
+  "value": 1.657,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.komsomolets.nmad_m": {
+  "value": 0.445,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.nmad_m": {
+  "value": 0.385,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.northeast.bias_m": {
+  "value": -0.089,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.northeast.nmad_m": {
+  "value": 0.279,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.open_shelf.bias_m": {
+  "value": -0.226,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.open_shelf.nmad_m": {
+  "value": 0.206,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.rmse_m": {
+  "value": 1.102,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.volga.bias_m": {
+  "value": -1.363,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.volga.nmad_m": {
+  "value": 1.379,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.west.bias_m": {
+  "value": -0.088,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.dem.west.nmad_m": {
+  "value": 0.647,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.diff.nmad.etopo1_ci_high_m": {
+  "value": 0.138,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.nmad.etopo1_ci_low_m": {
+  "value": -0.667,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.nmad.etopo1_m": {
+  "value": -0.453,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl06.diff.nmad.etopo2022_ci_high_m": {
+  "value": 0.554,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.nmad.etopo2022_ci_low_m": {
+  "value": -0.96,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.nmad.etopo2022_m": {
+  "value": -0.525,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl06.diff.nmad.gebco2022_ci_high_m": {
+  "value": 0.282,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.nmad.gebco2022_ci_low_m": {
+  "value": -0.77,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.nmad.gebco2022_m": {
+  "value": -0.643,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl06.diff.nmad.gebco2026_ci_high_m": {
+  "value": 0.266,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.nmad.gebco2026_ci_low_m": {
+  "value": -0.928,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.nmad.gebco2026_m": {
+  "value": -0.66,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl06.diff.nmad.srtm15p_ci_high_m": {
+  "value": 0.179,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.nmad.srtm15p_ci_low_m": {
+  "value": -1.033,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.nmad.srtm15p_m": {
+  "value": -0.751,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl06.diff.rmse.etopo1_ci_high_m": {
+  "value": 0.379,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.rmse.etopo1_ci_low_m": {
+  "value": -0.312,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.rmse.etopo1_m": {
+  "value": 0.005,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl06.diff.rmse.etopo2022_ci_high_m": {
+  "value": 0.552,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.rmse.etopo2022_ci_low_m": {
+  "value": -0.417,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.rmse.etopo2022_m": {
+  "value": 0.079,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl06.diff.rmse.gebco2022_ci_high_m": {
+  "value": 0.52,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.rmse.gebco2022_ci_low_m": {
+  "value": -0.618,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.rmse.gebco2022_m": {
+  "value": -0.068,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl06.diff.rmse.gebco2026_ci_high_m": {
+  "value": 0.491,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.rmse.gebco2026_ci_low_m": {
+  "value": -0.448,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.rmse.gebco2026_m": {
+  "value": 0.03,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl06.diff.rmse.srtm15p_ci_high_m": {
+  "value": 0.409,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.rmse.srtm15p_ci_low_m": {
+  "value": -0.522,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv"
+ },
+ "h2.atl06.diff.rmse.srtm15p_m": {
+  "value": -0.021,
+  "unit": "m",
+  "source": "validation/main/ATL06_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl06.etopo1.bias_m": {
+  "value": 0.213,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.etopo1.nmad_m": {
+  "value": 0.838,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.etopo1.rmse_m": {
+  "value": 1.097,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.etopo2022.bias_m": {
+  "value": -0.13,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.etopo2022.nmad_m": {
+  "value": 0.91,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.etopo2022.rmse_m": {
+  "value": 1.023,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.gebco2022.bias_m": {
+  "value": 0.264,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.gebco2022.nmad_m": {
+  "value": 1.028,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.gebco2022.rmse_m": {
+  "value": 1.17,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.gebco2026.bias_m": {
+  "value": -0.104,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.gebco2026.nmad_m": {
+  "value": 1.045,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.gebco2026.rmse_m": {
+  "value": 1.071,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.n_test_blocks": {
+  "value": 14,
+  "unit": "blocks",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.n_test_points": {
+  "value": 1103727,
+  "unit": "points",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.srtm15p.bias_m": {
+  "value": -0.036,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.srtm15p.nmad_m": {
+  "value": 1.136,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl06.srtm15p.rmse_m": {
+  "value": 1.122,
+  "unit": "m",
+  "source": "validation/main/ATL06_accuracy.csv"
+ },
+ "h2.atl08.coverage.interfluve": {
+  "value": 0.988,
+  "unit": "fraction",
+  "source": "validation/main/ATL08_coverage.csv"
+ },
+ "h2.atl08.coverage.komsomolets": {
+  "value": 0.087,
+  "unit": "fraction",
+  "source": "validation/main/ATL08_coverage.csv"
+ },
+ "h2.atl08.coverage.northeast": {
+  "value": 0.874,
+  "unit": "fraction",
+  "source": "validation/main/ATL08_coverage.csv"
+ },
+ "h2.atl08.coverage.open_shelf": {
+  "value": 0.822,
+  "unit": "fraction",
+  "source": "validation/main/ATL08_coverage.csv"
+ },
+ "h2.atl08.coverage.overall": {
+  "value": 0.756,
+  "unit": "fraction",
+  "source": "validation/main/ATL08_coverage.csv"
+ },
+ "h2.atl08.coverage.volga": {
+  "value": 0.937,
+  "unit": "fraction",
+  "source": "validation/main/ATL08_coverage.csv"
+ },
+ "h2.atl08.coverage.west": {
+  "value": 0.861,
+  "unit": "fraction",
+  "source": "validation/main/ATL08_coverage.csv"
+ },
+ "h2.atl08.dem.bias_m": {
+  "value": 0.028,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.interfluve.bias_m": {
+  "value": -0.055,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.interfluve.nmad_m": {
+  "value": 0.102,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.komsomolets.bias_m": {
+  "value": 1.63,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.komsomolets.nmad_m": {
+  "value": 0.479,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.nmad_m": {
+  "value": 0.37,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.northeast.bias_m": {
+  "value": -0.095,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.northeast.nmad_m": {
+  "value": 0.269,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.open_shelf.bias_m": {
+  "value": -0.232,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.open_shelf.nmad_m": {
+  "value": 0.205,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.rmse_m": {
+  "value": 1.121,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.volga.bias_m": {
+  "value": -1.506,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.volga.nmad_m": {
+  "value": 1.422,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.west.bias_m": {
+  "value": 0.022,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.dem.west.nmad_m": {
+  "value": 0.597,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.diff.nmad.etopo1_ci_high_m": {
+  "value": 0.179,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.nmad.etopo1_ci_low_m": {
+  "value": -0.692,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.nmad.etopo1_m": {
+  "value": -0.484,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl08.diff.nmad.etopo2022_ci_high_m": {
+  "value": 0.571,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.nmad.etopo2022_ci_low_m": {
+  "value": -0.977,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.nmad.etopo2022_m": {
+  "value": -0.503,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl08.diff.nmad.gebco2022_ci_high_m": {
+  "value": 0.301,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.nmad.gebco2022_ci_low_m": {
+  "value": -0.789,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.nmad.gebco2022_m": {
+  "value": -0.693,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl08.diff.nmad.gebco2026_ci_high_m": {
+  "value": 0.274,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.nmad.gebco2026_ci_low_m": {
+  "value": -0.938,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.nmad.gebco2026_m": {
+  "value": -0.649,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl08.diff.nmad.srtm15p_ci_high_m": {
+  "value": 0.185,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.nmad.srtm15p_ci_low_m": {
+  "value": -1.033,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.nmad.srtm15p_m": {
+  "value": -0.742,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl08.diff.rmse.etopo1_ci_high_m": {
+  "value": 0.409,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.rmse.etopo1_ci_low_m": {
+  "value": -0.328,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.rmse.etopo1_m": {
+  "value": 0.012,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl08.diff.rmse.etopo2022_ci_high_m": {
+  "value": 0.629,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.rmse.etopo2022_ci_low_m": {
+  "value": -0.432,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.rmse.etopo2022_m": {
+  "value": 0.099,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl08.diff.rmse.gebco2022_ci_high_m": {
+  "value": 0.587,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.rmse.gebco2022_ci_low_m": {
+  "value": -0.623,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.rmse.gebco2022_m": {
+  "value": -0.047,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl08.diff.rmse.gebco2026_ci_high_m": {
+  "value": 0.541,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.rmse.gebco2026_ci_low_m": {
+  "value": -0.441,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.rmse.gebco2026_m": {
+  "value": 0.056,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl08.diff.rmse.srtm15p_ci_high_m": {
+  "value": 0.484,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.rmse.srtm15p_ci_low_m": {
+  "value": -0.505,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv"
+ },
+ "h2.atl08.diff.rmse.srtm15p_m": {
+  "value": 0.015,
+  "unit": "m",
+  "source": "validation/main/ATL08_paired_bootstrap.csv",
+  "note": "DEM minus product"
+ },
+ "h2.atl08.etopo1.bias_m": {
+  "value": 0.213,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.etopo1.nmad_m": {
+  "value": 0.855,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.etopo1.rmse_m": {
+  "value": 1.109,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.etopo2022.bias_m": {
+  "value": -0.144,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.etopo2022.nmad_m": {
+  "value": 0.873,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.etopo2022.rmse_m": {
+  "value": 1.022,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.gebco2022.bias_m": {
+  "value": 0.265,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.gebco2022.nmad_m": {
+  "value": 1.063,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.gebco2022.rmse_m": {
+  "value": 1.168,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.gebco2026.bias_m": {
+  "value": -0.1,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.gebco2026.nmad_m": {
+  "value": 1.019,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.gebco2026.rmse_m": {
+  "value": 1.065,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.n_test_blocks": {
+  "value": 14,
+  "unit": "blocks",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.n_test_points": {
+  "value": 104740,
+  "unit": "points",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.srtm15p.bias_m": {
+  "value": -0.044,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.srtm15p.nmad_m": {
+  "value": 1.112,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.atl08.srtm15p.rmse_m": {
+  "value": 1.106,
+  "unit": "m",
+  "source": "validation/main/ATL08_accuracy.csv"
+ },
+ "h2.block_size_km": {
+  "value": 50.0,
+  "unit": "km",
+  "source": "validation/main/block_size_check.json"
+ },
+ "h2.decision.matched": {
+  "value": "not supported",
+  "unit": "text",
+  "source": "validation/main/h2_decision.json"
+ },
+ "h2.decision.total": {
+  "value": "not supported",
+  "unit": "text",
+  "source": "validation/main/h2_decision.json"
+ },
+ "h2.sens25km.atl06.coverage.overall": {
+  "value": 0.893,
+  "unit": "fraction",
+  "source": "validation/main/sensitivity_25000m/ATL06_coverage.csv"
+ },
+ "h2.sens25km.atl06.dem.nmad_m": {
+  "value": 0.274,
+  "unit": "m",
+  "source": "validation/main/sensitivity_25000m/ATL06_accuracy.csv"
+ },
+ "h2.sens25km.atl06.dem.rmse_m": {
+  "value": 0.977,
+  "unit": "m",
+  "source": "validation/main/sensitivity_25000m/ATL06_accuracy.csv"
+ },
+ "h2.sens25km.atl06.n_test_blocks": {
+  "value": 37,
+  "unit": "blocks",
+  "source": "validation/main/sensitivity_25000m/ATL06_accuracy.csv"
+ },
+ "h2.sens25km.atl08.coverage.overall": {
+  "value": 0.89,
+  "unit": "fraction",
+  "source": "validation/main/sensitivity_25000m/ATL08_coverage.csv"
+ },
+ "h2.sens25km.atl08.dem.nmad_m": {
+  "value": 0.265,
+  "unit": "m",
+  "source": "validation/main/sensitivity_25000m/ATL08_accuracy.csv"
+ },
+ "h2.sens25km.atl08.dem.rmse_m": {
+  "value": 0.976,
+  "unit": "m",
+  "source": "validation/main/sensitivity_25000m/ATL08_accuracy.csv"
+ },
+ "h2.sens25km.atl08.n_test_blocks": {
+  "value": 37,
+  "unit": "blocks",
+  "source": "validation/main/sensitivity_25000m/ATL08_accuracy.csv"
+ },
  "inventory.first.ETM_L7": {
   "value": "1999-06-30",
   "unit": "date",
