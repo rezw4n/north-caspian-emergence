@@ -46,11 +46,11 @@ from caspian import ee_io, masks, pipeline_ee
 from caspian import generality as G
 from caspian.config import EE_PROJECT, INTERIM, RESULTS
 
-LEDGER = RESULTS / "inventory" / "generality_ee_ledger.jsonl"
-CAP_EECU_S = 30 * 3600.0                 # Amendment 16 item 10
+INVENTORY = RESULTS / "inventory"
+LEDGER = INVENTORY / "generality_ee_ledger.jsonl"
+CAP_EECU_S = 60 * 3600.0                 # D-094 addendum (lead decision): 60 EECU-h for GSL, spent included
 MONTH_LIMIT_H = 640.0                    # task rule: month-to-date + planned < 640 EECU-h
-MONTH_BASELINE_H = 413.0                 # October use when this task started (lead's figure, 2026-10-21)
-RESERVED_OTHERS_H = 130.0                # reserved by two other agents
+MONTH = "2026-10"
 SENSORS = ["TM_L5", "ETM_L7", "OLI_L8", "OLI_L9"]
 MAX_CLOUD = 60
 MONTHS = (4, 5, 6, 7, 8, 9, 10)          # November-March excluded (D-062)
@@ -96,16 +96,71 @@ def log(basin, step, eecu_s, **kw):
                             "eecu_s": round(float(eecu_s), 3), **kw}) + "\n")
 
 
+def interactive_logs_s(inventory: Path = INVENTORY) -> dict:
+    """EECU-s per interactive log or ledger in results/inventory/ (every *.jsonl except the
+    guard's cancellation log, whose tasks are batch tasks): the sum of the per-entry
+    ``eecu_s``. Entries without it count 0."""
+    out = {}
+    for f in sorted(Path(inventory).glob("*.jsonl")):
+        if f.name == "ee_guard_log.jsonl":
+            continue
+        tot = 0.0
+        for line in f.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                try:
+                    tot += float(json.loads(line).get("eecu_s") or 0.0)
+                except (ValueError, AttributeError):
+                    pass
+        out[f.name] = round(tot, 1)
+    return out
+
+
+def batch_s(month: str = MONTH) -> tuple[float, int, str]:
+    """EECU-s of this project's batch tasks created in ``month`` (ee.data.listOperations,
+    batchEecuUsageSeconds); falls back to results/inventory/ee_batch_tasks_<month>.json."""
+    try:
+        ops = ee.data.listOperations()
+        tot, n = 0.0, 0
+        for op in ops:
+            md = op.get("metadata", {})
+            if str(md.get("createTime", "")).startswith(month):
+                tot += float(md.get("batchEecuUsageSeconds") or 0.0)
+                n += 1
+        return tot, n, "ee.data.listOperations"
+    except Exception:
+        recs = json.loads((INVENTORY / f"ee_batch_tasks_{month}.json").read_text(encoding="utf-8"))
+        return sum(float(r.get("eecu_s") or 0.0) for r in recs), len(recs), f"ee_batch_tasks_{month}.json"
+
+
+def month_to_date(write: bool = True) -> dict:
+    """October-to-date use (D-094 addendum, lead item 2b): every interactive log and ledger in
+    results/inventory/ plus every batch task of the month. Interactive requests that no log
+    recorded are not counted (the Earth Engine console figure stays authoritative)."""
+    inter = interactive_logs_s()
+    b, n, src = batch_s()
+    rec = {"time": time.strftime("%Y-%m-%dT%H:%M:%S"), "month": MONTH, "interactive_s": inter,
+           "interactive_total_h": round(sum(inter.values()) / 3600, 2), "batch_s": round(b, 1), "batch_tasks": n,
+           "batch_source": src, "total_h": round((sum(inter.values()) + b) / 3600, 2)}
+    if write:
+        (INVENTORY / "generality_month_to_date.json").write_text(json.dumps(rec, indent=1), encoding="utf-8")
+    return rec
+
+
 def check(planned_s: float, what: str) -> None:
-    """Stop before a step that would break the generality cap or the month rule."""
+    """Stop before a step that would break the GSL cap (60 EECU-h, spend included) or the
+    month rule (month-to-date from every log and batch task, plus this step, under 640)."""
     used = spent_s()
-    month = MONTH_BASELINE_H + RESERVED_OTHERS_H + (used + planned_s) / 3600
+    mtd = month_to_date()
+    month = mtd["total_h"] + planned_s / 3600
     if used + planned_s > CAP_EECU_S:
-        raise SystemExit(f"{what}: planned {planned_s:.0f} EECU-s + spent {used:.0f} exceeds the 30 EECU-h cap")
+        raise SystemExit(f"{what}: planned {planned_s:.0f} EECU-s + spent {used:.0f} exceeds the "
+                         f"{CAP_EECU_S / 3600:.0f} EECU-h cap")
     if month >= MONTH_LIMIT_H:
-        raise SystemExit(f"{what}: month-to-date estimate {month:.1f} EECU-h >= {MONTH_LIMIT_H}")
-    print(f"budget check {what}: generality spent {used / 3600:.2f} h, planned {planned_s / 3600:.2f} h, "
-          f"month estimate {month:.1f} h (< {MONTH_LIMIT_H})", flush=True)
+        raise SystemExit(f"{what}: month-to-date {mtd['total_h']:.1f} + planned {planned_s / 3600:.1f} EECU-h "
+                         f">= {MONTH_LIMIT_H}")
+    print(f"budget check {what}: generality spent {used / 3600:.2f} h, planned {planned_s / 3600:.2f} h; "
+          f"month to date {mtd['total_h']:.1f} h (interactive {mtd['interactive_total_h']:.1f}, batch "
+          f"{mtd['batch_s'] / 3600:.1f}) + planned = {month:.1f} h (< {MONTH_LIMIT_H})", flush=True)
 
 
 def metered(fn, *a, **k):
@@ -354,23 +409,84 @@ def build_counts(plan: pd.DataFrame, groups, region_ll, observed: bool = True):
     return ee.ImageCollection.fromImages(bands).toBands().rename(names).clip(region_ll)
 
 
+KINDS = ("w", "v", "o")
+
+
+def _partial_dir(out: Path, key: str) -> Path:
+    return Path(out) / "partial" / key
+
+
+def load_partials(out: Path, key: str, dims) -> tuple[dict, dict]:
+    """Checkpointed requests of one target (D-094 addendum): ({band: array of the target},
+    {(c0, r0): set of finished groups})."""
+    arr, done = {}, {}
+    d = _partial_dir(out, key)
+    if not d.exists():
+        return arr, done
+    for f in sorted(d.glob("*.npz")):
+        with np.load(f) as z:
+            c0, r0 = int(z["c0"]), int(z["r0"])
+            groups = [str(g) for g in z["groups"]]
+            for g in groups:
+                for kind in KINDS:
+                    band = f"{kind}_{g}"
+                    sub = z[band]
+                    if band not in arr:
+                        arr[band] = np.zeros((dims[1], dims[0]), np.uint16)
+                    arr[band][r0:r0 + sub.shape[0], c0:c0 + sub.shape[1]] = sub
+        done.setdefault((c0, r0), set()).update(groups)
+    return arr, done
+
+
+def save_partial(out: Path, key: str, c0: int, r0: int, chunk, arr) -> Path:
+    """One finished request, written atomically, so that a budget stop or a crash loses at
+    most the requests in flight (D-094 addendum)."""
+    d = _partial_dir(out, key)
+    d.mkdir(parents=True, exist_ok=True)
+    f = d / f"r{r0:05d}_c{c0:05d}_{chunk[0]}_{len(chunk):02d}.npz"
+    tmp = f.with_name(f.stem + ".tmp.npz")
+    np.savez_compressed(tmp, c0=c0, r0=r0, groups=np.array(list(chunk)),
+                        **{f"{k}_{g}": np.asarray(arr[f"{k}_{g}"], np.uint16) for g in chunk for k in KINDS})
+    tmp.replace(f)
+    return f
+
+
 def run_counts(basin, plan, targets: dict, budget: float, step: str, px: int = 512, groups_per_req: int = 16,
-               workers: int = 8, out=None) -> dict:
+               workers: int = 8, out=None, request_fn=None, guard=None, guard_every: int = 10,
+               first_guess: float = 250.0) -> dict:
     """Interactive computePixels over ``targets`` = {key: {"region": ee.Geometry, "transform",
     "dims" (w, h), "groups"}} (D-079: 512 px x 16 groups per request), metered against a hard
-    ``budget`` (EECU-s). A target is written (tile_<key>.npz) only when all its requests
-    succeed. Returns {key: eecu_s}."""
+    ``budget`` (EECU-s).
+
+    Checkpointing (D-094 addendum): every finished request is saved under
+    ``out``/partial/<key>/; a rerun loads those and requests only the missing groups of each
+    sub-block. A target is written (tile_<key>.npz) when all its groups are in, and its
+    partial files are then removed.
+
+    Stops: predictively, before a request that with those in flight would pass ``budget``
+    (mean cost of the finished requests, ``first_guess`` before the first); and when
+    ``guard(spent)`` returns False (checked every ``guard_every`` finished requests).
+    ``request_fn(job, target)`` -> (arrays, eecu_s, seconds) replaces the Earth Engine
+    request (tests). Returns {key: eecu_s of this invocation} for the targets written."""
+    import shutil
     crs = wkt(basin)
-    jobs = []
-    state = {}
+    jobs, state = [], {}
+    result = {}
     for key, t in targets.items():
         if out is not None and (out / f"tile_{key}.npz").exists():
             continue
-        state[key] = {"pending": 0, "failed": False, "eecu": 0.0, "arr": {}, **t}
+        arr, done = load_partials(out, key, t["dims"]) if out is not None else ({}, {})
+        state[key] = {"pending": 0, "failed": False, "eecu": 0.0, "arr": arr, **t}
         for c0, r0, w, h in ee_io.tiles(t["dims"], px):
-            for k in range(0, len(t["groups"]), groups_per_req):
-                jobs.append((key, c0, r0, w, h, t["groups"][k:k + groups_per_req]))
+            todo = [g for g in t["groups"] if g not in done.get((c0, r0), set())]
+            for k in range(0, len(todo), groups_per_req):
+                jobs.append((key, c0, r0, w, h, todo[k:k + groups_per_req]))
                 state[key]["pending"] += 1
+        if state[key]["pending"] == 0 and out is not None:       # every request was checkpointed
+            np.savez_compressed(out / f"tile_{key}.npz", transform=np.array(t["transform"]), **arr)
+            shutil.rmtree(_partial_dir(out, key), ignore_errors=True)
+            result[key] = 0.0
+            print(f"wrote {key} from checkpoints", flush=True)
     print(f"{len(state)} targets, {len(jobs)} requests", flush=True)
     spent, stop = 0.0, False
     tries: dict = {}
@@ -378,6 +494,8 @@ def run_counts(basin, plan, targets: dict, budget: float, step: str, px: int = 5
     def run(job):
         key, c0, r0, w, h, chunk = job
         t = state[key]
+        if request_fn is not None:
+            return request_fn(job, t)
         a, b_, c, d, e, f = t["transform"]
         sub = [a, b_, c + a * c0, d, e, f + e * r0]
         img = build_counts(plan, chunk, t["region"])
@@ -386,13 +504,11 @@ def run_counts(basin, plan, targets: dict, budget: float, step: str, px: int = 5
         return arr, eecu, time.time() - t0
 
     queue = list(jobs)
-    result = {}
-    done_n = [0]
+    done_n = 0
     with ThreadPoolExecutor(workers) as pool:
         running = {}
         while queue or running:
-            # predictive stop: do not start a request that, with those in flight, would pass the budget
-            avg = spent / done_n[0] if done_n[0] else 250.0
+            avg = spent / done_n if done_n else first_guess
             while queue and len(running) < workers and not stop:
                 if spent + (len(running) + 1) * avg > budget:
                     stop = True
@@ -428,23 +544,29 @@ def run_counts(basin, plan, targets: dict, budget: float, step: str, px: int = 5
                         print("FAILED", key, r0, c0, chunk[0], str(ex)[:200], flush=True)
                     continue
                 spent += eecu
-                done_n[0] += 1
+                done_n += 1
                 t["eecu"] += eecu
-                kinds = ("w", "v", "o")
                 for g in chunk:
-                    for kind in kinds:
+                    for kind in KINDS:
                         band = f"{kind}_{g}"
                         if band not in t["arr"]:
                             t["arr"][band] = np.zeros((t["dims"][1], t["dims"][0]), np.uint16)
                         t["arr"][band][r0:r0 + h, c0:c0 + w] = arr[band]
+                if out is not None:
+                    save_partial(out, key, c0, r0, chunk, arr)
                 t["pending"] -= 1
                 log(basin, step, eecu, key=key, n_groups=len(chunk), seconds=round(secs, 1))
                 if t["pending"] == 0 and not t["failed"]:
                     if out is not None:
                         np.savez_compressed(out / f"tile_{key}.npz", transform=np.array(t["transform"]), **t["arr"])
+                        shutil.rmtree(_partial_dir(out, key), ignore_errors=True)
                     result[key] = round(t["eecu"], 2)
                     print(f"wrote {key}: {t['eecu']:.0f} EECU-s | {spent:.0f}", flush=True)
                     t["arr"] = {}
+                if guard is not None and done_n % guard_every == 0 and not stop and not guard(spent):
+                    stop = True
+                    queue.clear()
+                    print(f"guard stop after {done_n} requests ({spent:.0f} EECU-s)", flush=True)
                 if spent >= budget and not stop:
                     stop = True
                     queue.clear()
@@ -552,7 +674,17 @@ def stage2(basin, tag: str, budget: float) -> int:
     sdir.mkdir(exist_ok=True)
     st_path = RESULTS / "inventory" / f"generality_{basin}_stage2_{tag}.json"
     st = json.loads(st_path.read_text(encoding="utf-8")) if st_path.exists() else {"tiles": {}}
-    res = run_counts(basin, pd.concat(plans.values()), tg, budget, f"stage2_{tag}", out=sdir)
+    def guard(spent):
+        """Month rule during the run: logged month-to-date (which already holds this run's
+        logged requests) plus what this run may still spend must stay under 640 EECU-h."""
+        mtd = month_to_date()
+        ok = mtd["total_h"] + max(budget - spent, 0.0) / 3600 < MONTH_LIMIT_H
+        if not ok:
+            print(f"month guard: {mtd['total_h']:.1f} + {(budget - spent) / 3600:.1f} h >= {MONTH_LIMIT_H}", flush=True)
+        return ok
+
+    res = run_counts(basin, pd.concat(plans.values()), tg, budget, f"stage2_{tag}", out=sdir, guard=guard,
+                     guard_every=20)
     for k, v in res.items():
         st["tiles"][k] = {"eecu_s": v, "area_km2": tg[k]["area_km2"], "arm": tg[k]["arm"], "dims": tg[k]["dims"],
                           "transform": tg[k]["transform"], "n_groups": len(tg[k]["groups"])}
