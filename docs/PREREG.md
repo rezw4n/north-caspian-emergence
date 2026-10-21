@@ -422,7 +422,7 @@ No level-binned water frequency, waterline, contour, DEM or metric existed. Stag
 
 **Reason.** On training blocks, the residuals of all prepared points had a median of +0.34 m, an NMAD of 1.45 m and an RMSE of 8.2 m. The cause was points on land above the record shoreline and on reed canopies, neither of which is the "seabed that was dry at acquisition" of §2. The semivariogram reached no sill within 150 km, which is a trend and not a range: read literally, §6 would have required 250 km blocks and left too few blocks for any split.
 
-## Amendment 16 — 2026-10-21 09:30 (generality test, brief §11; before any generality metric)
+## Amendment 16 — 2026-10-21 09:05 (generality test, brief §11; before any generality metric)
 
 **What had been seen.** For neither basin did any water frequency, observed extent, product subset or hindcast quantity exist. Seen:
 - the USGS metadata of the Great Salt Lake topobathymetric DEM (Root 2023) and the NWIS series catalogue of the two gauges (record lengths and two daily values);
@@ -536,7 +536,7 @@ The Caspian H1 result (D-087) was known. That is why every rule below is the Cas
 - daily gauge levels instead of altimetry (GSL);
 - the positive control and its substitute (data access).
 
-**Amendment 16, addendum (2026-10-21 10:10; before any water frequency or metric of either basin).**
+**Amendment 16, addendum (2026-10-21 09:20; before any water frequency or metric of either basin).**
 - **Change, item 2 (GSL):** daily gauge values are interpolated linearly across gaps of at most **16 days** (was 10).
 - **What had been seen:** the gauge series and the scene inventory, both input-level. Before 1989-09, NWIS holds the two gauges' values only on the 1st and the 15th or 16th of each month. Under the 10-day rule, only 5 (south) and 8 (north) scenes before mid-1986 had a level. E1, the rising limb, was then almost empty, and 1984–1989 would have been lost.
 - **Reason:** the 10-day bound was set without knowing the sampling. Over 16 days at the 1983–1987 rise rates (at most about 0.15 m per month), linear interpolation errs by well under the 0.10 m bin. The Caspian bridged gaps of up to 60 days (Amendment 4, item 2).
