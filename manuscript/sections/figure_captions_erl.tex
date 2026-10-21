@@ -32,7 +32,7 @@
   \centering
   \includegraphics[width=\linewidth]{../figures/out/erl_fig_gsl.pdf}
   \caption{\textbf{The same error at Great Salt Lake, Utah.}
-  (a) Both arms at \metric{erl.gsl.level_navd88_m}~m (North American Vertical Datum of 1988)\citep{usgs_nwis}: observed state, observed shoreline (black), the shorelines predicted by GEBCO\_2026, ETOPO 2022 and SRTM15+ after their best-fitting vertical shift, and that of the lidar control (grey)\citep{usgs_3dep10m}.
+  (a) Both arms at \metric{erl.gsl.level_navd88_m}~m (North American Vertical Datum of 1988, converted from the gauges' NGVD~29 record\citep{usgs_nwis,noaa_ncat}): observed state, observed shoreline (black), the shorelines predicted by GEBCO\_2026, ETOPO 2022 and SRTM15+ after their best-fitting vertical shift, and that of the 3DEP control (grey), mostly 2016 lidar\citep{usgs_3dep10m,quantumspatial2017_gsl}.
   (b) Per arm and surface, the median over evaluable levels of the median distance between predicted and observed shorelines ($n = \metric{generality.great_salt_lake.gebco_2026.shape.north.n_evaluable_levels}$ levels north, \metric{generality.great_salt_lake.gebco_2026.shape.south.n_evaluable_levels} south), against the observation noise floor (grey bar: the median \metric{params.err_pct_hi}th percentile of the distance between two independent halves of the observations). Filled, the surface mispredicts the arm; open, it does not. Logarithmic axis. Level choice and display: Supplementary Methods.}
   \label{fig:erl_gsl}
 \end{figure}
