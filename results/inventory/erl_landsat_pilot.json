@@ -1,0 +1,36 @@
+{
+ "time": "2026-10-21T20:54:49",
+ "box_m": [
+  -190000.0,
+  10000.0,
+  -160000.0,
+  40000.0
+ ],
+ "box_lonlat": [
+  47.55408892619264,
+  45.56414821180628,
+  47.949992226729314,
+  45.84146713068594
+ ],
+ "res_m": 200.0,
+ "composites": {
+  "tm_1996": {
+   "eecu_s": 2.42,
+   "valid_share": 1.0,
+   "filled_share": 0.0,
+   "projected_full_eecu_s": 731.2
+  },
+  "oli_2025": {
+   "eecu_s": 4.96,
+   "valid_share": 1.0,
+   "filled_share": 0.0,
+   "projected_full_eecu_s": 1497.1
+  }
+ },
+ "pixel_scale_factor": 301.65,
+ "projected_full_eecu_s": 2228.3,
+ "spent_eecu_s": 7.4,
+ "pilot_eecu_s": 7.4,
+ "budget_eecu_s": 10800.0,
+ "go": true
+}

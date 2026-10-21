@@ -1,0 +1,28 @@
+{"time": "2026-10-21T20:54:51", "figure": "erl_fig2_then_now", "step": "pilot", "eecu_s": 2.424, "composite": "tm_1996", "tile": [0, 0, 150, 150], "seconds": 1.9}
+{"time": "2026-10-21T20:54:53", "figure": "erl_fig2_then_now", "step": "pilot", "eecu_s": 4.963, "composite": "oli_2025", "tile": [0, 0, 150, 150], "seconds": 2.4}
+{"time": "2026-10-21T20:56:03", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 0.676, "composite": "tm_1996", "what": "scene ids", "notes": []}
+{"time": "2026-10-21T20:56:12", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 80.572, "composite": "tm_1996", "tile": [0, 0, 844, 844], "seconds": 8.7}
+{"time": "2026-10-21T20:56:23", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 108.966, "composite": "tm_1996", "tile": [844, 0, 844, 844], "seconds": 10.7}
+{"time": "2026-10-21T20:56:37", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 122.425, "composite": "tm_1996", "tile": [1688, 0, 844, 844], "seconds": 14.6}
+{"time": "2026-10-21T20:56:49", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 86.648, "composite": "tm_1996", "tile": [2532, 0, 843, 844], "seconds": 11.6}
+{"time": "2026-10-21T20:57:00", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 114.819, "composite": "tm_1996", "tile": [0, 844, 844, 844], "seconds": 11.1}
+{"time": "2026-10-21T20:57:16", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 100.16, "composite": "tm_1996", "tile": [844, 844, 844, 844], "seconds": 15.7}
+{"time": "2026-10-21T20:57:29", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 121.933, "composite": "tm_1996", "tile": [1688, 844, 844, 844], "seconds": 13.3}
+{"time": "2026-10-21T20:57:43", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 127.313, "composite": "tm_1996", "tile": [2532, 844, 843, 844], "seconds": 14.1}
+{"time": "2026-10-21T20:57:52", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 42.55, "composite": "tm_1996", "tile": [0, 1688, 844, 323], "seconds": 9.1}
+{"time": "2026-10-21T20:57:58", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 26.643, "composite": "tm_1996", "tile": [844, 1688, 844, 323], "seconds": 5.9}
+{"time": "2026-10-21T20:58:09", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 40.18, "composite": "tm_1996", "tile": [1688, 1688, 844, 323], "seconds": 11.2}
+{"time": "2026-10-21T20:58:21", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 53.686, "composite": "tm_1996", "tile": [2532, 1688, 843, 323], "seconds": 12.1}
+{"time": "2026-10-21T20:58:26", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 1.811, "composite": "oli_2025", "what": "scene ids", "notes": []}
+{"time": "2026-10-21T20:58:42", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 188.913, "composite": "oli_2025", "tile": [0, 0, 844, 844], "seconds": 15.8}
+{"time": "2026-10-21T20:59:07", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 225.403, "composite": "oli_2025", "tile": [844, 0, 844, 844], "seconds": 24.9}
+{"time": "2026-10-21T20:59:31", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 275.628, "composite": "oli_2025", "tile": [1688, 0, 844, 844], "seconds": 23.6}
+{"time": "2026-10-21T20:59:49", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 194.115, "composite": "oli_2025", "tile": [2532, 0, 843, 844], "seconds": 18.3}
+{"time": "2026-10-21T21:00:15", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 278.652, "composite": "oli_2025", "tile": [0, 844, 844, 844], "seconds": 25.7}
+{"time": "2026-10-21T21:00:35", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 232.366, "composite": "oli_2025", "tile": [844, 844, 844, 844], "seconds": 20.3}
+{"time": "2026-10-21T21:00:49", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 208.676, "composite": "oli_2025", "tile": [1688, 844, 844, 844], "seconds": 14.2}
+{"time": "2026-10-21T21:01:06", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 212.921, "composite": "oli_2025", "tile": [2532, 844, 843, 844], "seconds": 17.1}
+{"time": "2026-10-21T21:01:16", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 78.518, "composite": "oli_2025", "tile": [0, 1688, 844, 323], "seconds": 9.5}
+{"time": "2026-10-21T21:01:22", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 63.119, "composite": "oli_2025", "tile": [844, 1688, 844, 323], "seconds": 6.5}
+{"time": "2026-10-21T21:01:37", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 102.326, "composite": "oli_2025", "tile": [1688, 1688, 844, 323], "seconds": 15.1}
+{"time": "2026-10-21T21:01:44", "figure": "erl_fig2_then_now", "step": "fetch", "eecu_s": 71.425, "composite": "oli_2025", "tile": [2532, 1688, 843, 323], "seconds": 6.2}

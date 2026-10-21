@@ -156,6 +156,869 @@
   "note": "NGA/PROJ EGM2008 minus ICGEM EGM2008 (the NGA height offset), mean over the product box",
   "decimals": 2
  },
+ "erl.agree.1m.all_pct_of_any": {
+  "value": 1.9078094235965029,
+  "unit": "%",
+  "source": "results/display/erl_agreement.json",
+  "decimals": 0
+ },
+ "erl.agree.1m.area_km2_all": {
+  "value": 729.9972,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "all five products"
+ },
+ "erl.agree.1m.area_km2_any": {
+  "value": 38263.6332,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "at least one product"
+ },
+ "erl.agree.1m.area_km2_count1": {
+  "value": 18184.1292,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "domain area that exactly 1 of the products place in the band"
+ },
+ "erl.agree.1m.area_km2_count2": {
+  "value": 9176.003999999999,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "domain area that exactly 2 of the products place in the band"
+ },
+ "erl.agree.1m.area_km2_count3": {
+  "value": 4791.5424,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "domain area that exactly 3 of the products place in the band"
+ },
+ "erl.agree.1m.area_km2_count4": {
+  "value": 5381.9604,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "domain area that exactly 4 of the products place in the band"
+ },
+ "erl.agree.1m.area_km2_count5": {
+  "value": 729.9972,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "domain area that exactly 5 of the products place in the band"
+ },
+ "erl.agree.1m.area_km2_majority": {
+  "value": 10903.5,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "at least three of five products"
+ },
+ "erl.agree.2m.all_pct_of_any": {
+  "value": 15.205165660818185,
+  "unit": "%",
+  "source": "results/display/erl_agreement.json",
+  "decimals": 0
+ },
+ "erl.agree.2m.area_km2_all": {
+  "value": 7783.0127999999995,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "all five products"
+ },
+ "erl.agree.2m.area_km2_any": {
+  "value": 51186.636,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "at least one product"
+ },
+ "erl.agree.2m.area_km2_count1": {
+  "value": 18414.5148,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "domain area that exactly 1 of the products place in the band"
+ },
+ "erl.agree.2m.area_km2_count2": {
+  "value": 11847.1428,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "domain area that exactly 2 of the products place in the band"
+ },
+ "erl.agree.2m.area_km2_count3": {
+  "value": 2652.8651999999997,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "domain area that exactly 3 of the products place in the band"
+ },
+ "erl.agree.2m.area_km2_count4": {
+  "value": 10489.1004,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "domain area that exactly 4 of the products place in the band"
+ },
+ "erl.agree.2m.area_km2_count5": {
+  "value": 7783.0127999999995,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "domain area that exactly 5 of the products place in the band"
+ },
+ "erl.agree.2m.area_km2_majority": {
+  "value": 20924.9784,
+  "unit": "km2",
+  "source": "results/display/erl_agreement.json",
+  "note": "at least three of five products"
+ },
+ "erl.agree.n_checks": {
+  "value": 10,
+  "unit": "areas",
+  "source": "results/display/erl_agreement.json"
+ },
+ "erl.agree.n_checks_equal": {
+  "value": 10,
+  "unit": "areas",
+  "source": "results/display/erl_agreement.json"
+ },
+ "erl.card.etopo1.disp_max_km": {
+  "value": 11.72,
+  "unit": "km",
+  "source": "results/metrics.json: h1.disp_median.shape.*",
+  "note": "largest per-sector median displacement"
+ },
+ "erl.card.etopo1.disp_min_km": {
+  "value": 2.04,
+  "unit": "km",
+  "source": "results/metrics.json: h1.disp_median.shape.*",
+  "note": "smallest per-sector median displacement"
+ },
+ "erl.card.etopo2022.disp_max_km": {
+  "value": 2.22,
+  "unit": "km",
+  "source": "results/metrics.json: h1.disp_median.shape.*",
+  "note": "largest per-sector median displacement"
+ },
+ "erl.card.etopo2022.disp_min_km": {
+  "value": 0.25,
+  "unit": "km",
+  "source": "results/metrics.json: h1.disp_median.shape.*",
+  "note": "smallest per-sector median displacement"
+ },
+ "erl.card.gebco2022.disp_max_km": {
+  "value": 12.87,
+  "unit": "km",
+  "source": "results/metrics.json: h1.disp_median.shape.*",
+  "note": "largest per-sector median displacement"
+ },
+ "erl.card.gebco2022.disp_min_km": {
+  "value": 0.59,
+  "unit": "km",
+  "source": "results/metrics.json: h1.disp_median.shape.*",
+  "note": "smallest per-sector median displacement"
+ },
+ "erl.card.gebco2026.disp_max_km": {
+  "value": 13.13,
+  "unit": "km",
+  "source": "results/metrics.json: h1.disp_median.shape.*",
+  "note": "largest per-sector median displacement"
+ },
+ "erl.card.gebco2026.disp_min_km": {
+  "value": 0.6,
+  "unit": "km",
+  "source": "results/metrics.json: h1.disp_median.shape.*",
+  "note": "smallest per-sector median displacement"
+ },
+ "erl.card.srtm15p.disp_max_km": {
+  "value": 12.83,
+  "unit": "km",
+  "source": "results/metrics.json: h1.disp_median.shape.*",
+  "note": "largest per-sector median displacement"
+ },
+ "erl.card.srtm15p.disp_min_km": {
+  "value": 1.63,
+  "unit": "km",
+  "source": "results/metrics.json: h1.disp_median.shape.*",
+  "note": "smallest per-sector median displacement"
+ },
+ "erl.gsl.control.north.noise_floor_m": {
+  "value": 323.10988842807024,
+  "unit": "m",
+  "source": "results/generality/great_salt_lake/h1_decision.json",
+  "note": "as generality.great_salt_lake.control.north.median_noise_p95_m, to the metre",
+  "decimals": 0
+ },
+ "erl.gsl.control.south.noise_floor_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/generality/great_salt_lake/h1_decision.json",
+  "note": "as generality.great_salt_lake.control.south.median_noise_p95_m, to the metre",
+  "decimals": 0
+ },
+ "erl.gsl.epoch": {
+  "value": "E2",
+  "unit": "category",
+  "source": "results/display/erl_gsl.json"
+ },
+ "erl.gsl.level_navd88_m": {
+  "value": 1280.15,
+  "unit": "m (NAVD 88)",
+  "source": "results/display/erl_gsl.json",
+  "decimals": 2
+ },
+ "erl.gsl.n_candidate_units": {
+  "value": 58,
+  "unit": "units",
+  "source": "results/display/erl_gsl.json"
+ },
+ "erl.gsl.n_checks": {
+  "value": 12,
+  "unit": "medians",
+  "source": "results/display/erl_gsl.json"
+ },
+ "erl.gsl.n_checks_equal": {
+  "value": 12,
+  "unit": "medians",
+  "source": "results/display/erl_gsl.json"
+ },
+ "erl.gsl.north.dep3.median_m": {
+  "value": 84.8528137423857,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.north.etopo1.median_m": {
+  "value": 1740.0,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.north.etopo2022.median_m": {
+  "value": 300.0,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.north.gebco2022.median_m": {
+  "value": 2127.2515798582526,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.north.gebco2026.median_m": {
+  "value": 1693.8713056191725,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.north.noise_floor_m": {
+  "value": 314.5255296218187,
+  "unit": "m",
+  "source": "results/generality/great_salt_lake/h1_decision.json",
+  "note": "as generality.great_salt_lake.north.noise_floor_p95_median_m, to the metre",
+  "decimals": 0
+ },
+ "erl.gsl.north.srtm15p.median_m": {
+  "value": 2128.097742116184,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.south.dep3.median_m": {
+  "value": 60.0,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.south.etopo1.median_m": {
+  "value": 1693.8713056191725,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.south.etopo2022.median_m": {
+  "value": 684.1052550594827,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.south.gebco2022.median_m": {
+  "value": 2220.0,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.south.gebco2026.median_m": {
+  "value": 1863.866948041088,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.gsl.south.noise_floor_m": {
+  "value": 120.0,
+  "unit": "m",
+  "source": "results/generality/great_salt_lake/h1_decision.json",
+  "note": "as generality.great_salt_lake.south.noise_floor_p95_median_m, to the metre",
+  "decimals": 0
+ },
+ "erl.gsl.south.srtm15p.median_m": {
+  "value": 2220.0,
+  "unit": "m",
+  "source": "results/display/erl_gsl.json",
+  "note": "median displacement at the mapped unit",
+  "decimals": 0
+ },
+ "erl.hero.display_res_m": {
+  "value": 240,
+  "unit": "m",
+  "source": "results/display/erl_hero.json"
+ },
+ "erl.hero.e3_b019.arrow.komsomolets.etopo2022_km": {
+  "value": 14.657817,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.arrow.komsomolets.gebco2026_km": {
+  "value": 14.858694,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.arrow.komsomolets.srtm15p_km": {
+  "value": 11.575491,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.arrow.northeast.etopo2022_km": {
+  "value": 12.049845999999999,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.arrow.northeast.gebco2026_km": {
+  "value": 11.350313,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.arrow.northeast.srtm15p_km": {
+  "value": 11.472402,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.arrow.volga.etopo2022_km": {
+  "value": 10.041713,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.arrow.volga.gebco2026_km": {
+  "value": 9.960723,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.arrow.volga.srtm15p_km": {
+  "value": 9.58818,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.interfluve.etopo2022_km": {
+  "value": 5.293108659117487,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.interfluve.gebco2026_km": {
+  "value": 5.165578380007412,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.interfluve.srtm15p_km": {
+  "value": 3.48129277689841,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.komsomolets.etopo2022_km": {
+  "value": 14.657817027101956,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.komsomolets.gebco2026_km": {
+  "value": 14.85699825412274,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.komsomolets.srtm15p_km": {
+  "value": 12.347906705186915,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.northeast.etopo2022_km": {
+  "value": 12.049846472051001,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.northeast.gebco2026_km": {
+  "value": 11.35649593844862,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.northeast.srtm15p_km": {
+  "value": 11.47051873282111,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.open_shelf.etopo2022_km": {
+  "value": 1.98,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.open_shelf.gebco2026_km": {
+  "value": 2.005292996048208,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.open_shelf.srtm15p_km": {
+  "value": 2.821595131185868,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.ural.etopo2022_km": {
+  "value": 1.6376812876747417,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.ural.gebco2026_km": {
+  "value": 1.3213629327327143,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.ural.srtm15p_km": {
+  "value": 5.341348144429457,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.volga.etopo2022_km": {
+  "value": 10.04153374739138,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.volga.gebco2026_km": {
+  "value": 9.960722865334624,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.volga.srtm15p_km": {
+  "value": 9.588180223587791,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.west.etopo2022_km": {
+  "value": 3.092765752526369,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.west.gebco2026_km": {
+  "value": 3.2538592471095,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.disp.west.srtm15p_km": {
+  "value": 6.083420090705556,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b019.first_year": {
+  "value": "2021",
+  "unit": "year",
+  "source": "results/display/erl_hero.json"
+ },
+ "erl.hero.e3_b019.last_year": {
+  "value": "2023",
+  "unit": "year",
+  "source": "results/display/erl_hero.json"
+ },
+ "erl.hero.e3_b019.level_m": {
+  "value": -28.05,
+  "unit": "m (DAHITI reference)",
+  "source": "results/display/erl_hero.json",
+  "note": "bin centre of the hindcast unit",
+  "decimals": 2
+ },
+ "erl.hero.e3_b019.n_acquisitions": {
+  "value": 83,
+  "unit": "acquisitions",
+  "source": "results/display/erl_hero.json",
+  "note": "Landsat acquisitions of the unit in the main stage-2 plan"
+ },
+ "erl.hero.e3_b029.arrow.komsomolets.etopo2022_km": {
+  "value": 1.9654010000000002,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.arrow.komsomolets.gebco2026_km": {
+  "value": 13.887504999999999,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.arrow.komsomolets.srtm15p_km": {
+  "value": 2.2545949999999997,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.arrow.northeast.etopo2022_km": {
+  "value": 1.164989,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.arrow.northeast.gebco2026_km": {
+  "value": 6.348953000000001,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.arrow.northeast.srtm15p_km": {
+  "value": 2.910464,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.arrow.volga.etopo2022_km": {
+  "value": 0.3,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.arrow.volga.gebco2026_km": {
+  "value": 8.777653,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.arrow.volga.srtm15p_km": {
+  "value": 5.126402,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "distance from the observed waterline cell nearest the sector median to the nearest predicted one",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.interfluve.etopo2022_km": {
+  "value": 0.5692099788303083,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.interfluve.gebco2026_km": {
+  "value": 2.8862432329933663,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.interfluve.srtm15p_km": {
+  "value": 3.6004999652825997,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.komsomolets.etopo2022_km": {
+  "value": 1.9654007224991037,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.komsomolets.gebco2026_km": {
+  "value": 13.887505175516585,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.komsomolets.srtm15p_km": {
+  "value": 2.254595307366712,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.northeast.etopo2022_km": {
+  "value": 1.1649892703368558,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.northeast.gebco2026_km": {
+  "value": 6.348527374054849,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.northeast.srtm15p_km": {
+  "value": 2.910463880552377,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.open_shelf.etopo2022_km": {
+  "value": 0.21633307652783934,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.open_shelf.gebco2026_km": {
+  "value": 0.5692099788303083,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.open_shelf.srtm15p_km": {
+  "value": 1.4629410766571773,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.ural.etopo2022_km": {
+  "value": 0.36,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.ural.gebco2026_km": {
+  "value": 5.2789771736577915,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.ural.srtm15p_km": {
+  "value": 2.1971800108320667,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.volga.etopo2022_km": {
+  "value": 0.2683281572999748,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.volga.gebco2026_km": {
+  "value": 4.768773427203268,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.volga.srtm15p_km": {
+  "value": 3.936292672045614,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.west.etopo2022_km": {
+  "value": 0.2683281572999748,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.west.gebco2026_km": {
+  "value": 1.84444700705564,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.disp.west.srtm15p_km": {
+  "value": 9.027358417610325,
+  "unit": "km",
+  "source": "results/display/erl_hero.json",
+  "note": "per-sector median displacement of the unit (displacement.csv)",
+  "decimals": 1
+ },
+ "erl.hero.e3_b029.first_year": {
+  "value": "2012",
+  "unit": "year",
+  "source": "results/display/erl_hero.json"
+ },
+ "erl.hero.e3_b029.last_year": {
+  "value": "2018",
+  "unit": "year",
+  "source": "results/display/erl_hero.json"
+ },
+ "erl.hero.e3_b029.level_m": {
+  "value": -27.05,
+  "unit": "m (DAHITI reference)",
+  "source": "results/display/erl_hero.json",
+  "note": "bin centre of the hindcast unit",
+  "decimals": 2
+ },
+ "erl.hero.e3_b029.n_acquisitions": {
+  "value": 155,
+  "unit": "acquisitions",
+  "source": "results/display/erl_hero.json",
+  "note": "Landsat acquisitions of the unit in the main stage-2 plan"
+ },
+ "erl.hero.n_checks": {
+  "value": 42,
+  "unit": "medians",
+  "source": "results/display/erl_hero.json"
+ },
+ "erl.hero.n_checks_equal": {
+  "value": 42,
+  "unit": "medians",
+  "source": "results/display/erl_hero.json"
+ },
+ "erl.landsat.eecu_h": {
+  "value": 0.8799444444444445,
+  "unit": "EECU-h",
+  "source": "results/provenance/erl_landsat.json",
+  "note": "pilot and fetch, from results/inventory/erl_figures_ee_ledger.jsonl",
+  "decimals": 2
+ },
+ "erl.landsat.oli_2025.fill_year": {
+  "value": "2024",
+  "unit": "year",
+  "source": "results/provenance/erl_landsat.json"
+ },
+ "erl.landsat.oli_2025.filled_pct": {
+  "value": 0.0,
+  "unit": "%",
+  "source": "results/provenance/erl_landsat.json",
+  "note": "map pixels taken from the fill summer",
+  "decimals": 2
+ },
+ "erl.landsat.oli_2025.n_scenes": {
+  "value": 444,
+  "unit": "scenes",
+  "source": "results/provenance/erl_landsat.json"
+ },
+ "erl.landsat.oli_2025.n_scenes_fill": {
+  "value": 457,
+  "unit": "scenes",
+  "source": "results/provenance/erl_landsat.json"
+ },
+ "erl.landsat.oli_2025.year": {
+  "value": "2025",
+  "unit": "year",
+  "source": "results/provenance/erl_landsat.json"
+ },
+ "erl.landsat.res_m": {
+  "value": 200,
+  "unit": "m",
+  "source": "results/provenance/erl_landsat.json"
+ },
+ "erl.landsat.tm_1996.fill_year": {
+  "value": "1995",
+  "unit": "year",
+  "source": "results/provenance/erl_landsat.json"
+ },
+ "erl.landsat.tm_1996.filled_pct": {
+  "value": 0.02,
+  "unit": "%",
+  "source": "results/provenance/erl_landsat.json",
+  "note": "map pixels taken from the fill summer",
+  "decimals": 2
+ },
+ "erl.landsat.tm_1996.n_scenes": {
+  "value": 207,
+  "unit": "scenes",
+  "source": "results/provenance/erl_landsat.json"
+ },
+ "erl.landsat.tm_1996.n_scenes_fill": {
+  "value": 181,
+  "unit": "scenes",
+  "source": "results/provenance/erl_landsat.json"
+ },
+ "erl.landsat.tm_1996.year": {
+  "value": "1996",
+  "unit": "year",
+  "source": "results/provenance/erl_landsat.json"
+ },
  "generality.great_salt_lake.control.north.median_displacement_m": {
   "value": 84.8528137423857,
   "unit": "m",
@@ -2586,12 +3449,14 @@
  "h1.etopo2022.source_share.fabdem": {
   "value": 45.9,
   "unit": "%",
-  "source": "hindcast/main/etopo2022_sources_emerged_band.json"
+  "source": "hindcast/main/etopo2022_sources_emerged_band.json",
+  "decimals": 1
  },
  "h1.etopo2022.source_share.gebco_lake": {
   "value": 54.1,
   "unit": "%",
-  "source": "hindcast/main/etopo2022_sources_emerged_band.json"
+  "source": "hindcast/main/etopo2022_sources_emerged_band.json",
+  "decimals": 1
  },
  "h1.mispredicts.shape.etopo1.n_sectors": {
   "value": 7,
@@ -27599,6 +28464,92 @@
   "value": 365,
   "unit": "days",
   "source": "docs/DECISIONS.md D-069 (robustness check; not yet in code)"
+ },
+ "params.erl_card_arms_good": {
+  "value": 0,
+  "unit": "arms",
+  "source": "figures/tab_report_card.CARD_ARMS (good)"
+ },
+ "params.erl_card_arms_poor": {
+  "value": 2,
+  "unit": "arms",
+  "source": "figures/tab_report_card.CARD_ARMS (poor)"
+ },
+ "params.erl_card_km_good": {
+  "value": 1.0,
+  "unit": "km",
+  "source": "figures/tab_report_card.CARD_KM (good below)",
+  "decimals": 0
+ },
+ "params.erl_card_km_poor": {
+  "value": 3.0,
+  "unit": "km",
+  "source": "figures/tab_report_card.CARD_KM (poor from)",
+  "decimals": 0
+ },
+ "params.erl_card_nmad_good_m": {
+  "value": 0.5,
+  "unit": "m",
+  "source": "figures/tab_report_card.CARD_NMAD_M (good below)",
+  "decimals": 1
+ },
+ "params.erl_card_nmad_poor_m": {
+  "value": 1.0,
+  "unit": "m",
+  "source": "figures/tab_report_card.CARD_NMAD_M (poor from)",
+  "decimals": 1
+ },
+ "params.erl_card_sectors_good": {
+  "value": 1,
+  "unit": "sectors",
+  "source": "figures/tab_report_card.CARD_SECTORS (good at most)"
+ },
+ "params.erl_card_sectors_poor": {
+  "value": 4,
+  "unit": "sectors",
+  "source": "figures/tab_report_card.CARD_SECTORS (poor from)"
+ },
+ "params.erl_fig_contour_block": {
+  "value": 4,
+  "unit": "display cells",
+  "source": "figures/erl_fig_then_now.BLOCK (block median before contouring)"
+ },
+ "params.erl_fig_contour_min_km": {
+  "value": 6,
+  "unit": "km",
+  "source": "figures/erl_fig_then_now.MIN_LEN_KM (shorter contour pieces not drawn)"
+ },
+ "params.erl_fig_graticule_map_deg": {
+  "value": 1.0,
+  "unit": "degrees",
+  "source": "figures/_erl.GRATICULE_MAP_DEG",
+  "decimals": 0
+ },
+ "params.erl_fig_graticule_zoom_deg": {
+  "value": 0.5,
+  "unit": "degrees",
+  "source": "figures/_erl.GRATICULE_ZOOM_DEG",
+  "decimals": 1
+ },
+ "params.erl_fig_near_km": {
+  "value": 10,
+  "unit": "km",
+  "source": "figures/_erl.NEAR_KM"
+ },
+ "params.erl_fig_scale_gsl_km": {
+  "value": 10,
+  "unit": "km",
+  "source": "figures/_erl.SCALE_GSL_KM"
+ },
+ "params.erl_fig_scale_inset_km": {
+  "value": 20,
+  "unit": "km",
+  "source": "figures/_erl.SCALE_INSET_KM"
+ },
+ "params.erl_fig_scale_map_km": {
+  "value": 100,
+  "unit": "km",
+  "source": "figures/_erl.SCALE_MAP_KM"
  },
  "params.err_pct_hi": {
   "value": 95,

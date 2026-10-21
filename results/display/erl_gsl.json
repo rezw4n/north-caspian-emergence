@@ -1,0 +1,143 @@
+{
+ "basin": "great_salt_lake",
+ "unit": {
+  "epoch": "E2",
+  "bin": 101,
+  "level_bin_m": -19.85,
+  "level_navd88_m": 1280.15,
+  "selection": {
+   "n_candidates": 58,
+   "score": 1.9777,
+   "rule": "closest to the audit's summary medians: min sum over arms and surfaces of |ln(unit/summary)|"
+  }
+ },
+ "map_products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7"
+ ],
+ "arms": {
+  "north": {
+   "shape_offsets_m": {
+    "gebco_2026": 3.13,
+    "gebco_2022": 3.73,
+    "etopo_2022": -0.13,
+    "etopo1": 3.73,
+    "srtm15p_v2.7": 3.73,
+    "dep3": 0.25
+   },
+   "medians_m": {
+    "gebco_2026": 1693.8713056191725,
+    "gebco_2022": 2127.2515798582526,
+    "etopo_2022": 300.0,
+    "etopo1": 1740.0,
+    "srtm15p_v2.7": 2128.097742116184,
+    "dep3": 84.8528137423857
+   }
+  },
+  "south": {
+   "shape_offsets_m": {
+    "gebco_2026": 4.2,
+    "gebco_2022": 4.95,
+    "etopo_2022": 1.16,
+    "etopo1": 4.96,
+    "srtm15p_v2.7": 4.96,
+    "dep3": 0.08
+   },
+   "medians_m": {
+    "gebco_2026": 1863.866948041088,
+    "gebco_2022": 2220.0,
+    "etopo_2022": 684.1052550594827,
+    "etopo1": 1693.8713056191725,
+    "srtm15p_v2.7": 2220.0,
+    "dep3": 60.0
+   }
+  }
+ },
+ "checks": [
+  {
+   "arm": "north",
+   "product": "gebco_2026",
+   "median_m": 1693.8713056191725,
+   "displacement_csv_m": 1693.8713056191723,
+   "equal": true
+  },
+  {
+   "arm": "north",
+   "product": "gebco_2022",
+   "median_m": 2127.2515798582526,
+   "displacement_csv_m": 2127.2515798582526,
+   "equal": true
+  },
+  {
+   "arm": "north",
+   "product": "etopo_2022",
+   "median_m": 300.0,
+   "displacement_csv_m": 300.0,
+   "equal": true
+  },
+  {
+   "arm": "north",
+   "product": "etopo1",
+   "median_m": 1740.0,
+   "displacement_csv_m": 1740.0,
+   "equal": true
+  },
+  {
+   "arm": "north",
+   "product": "srtm15p_v2.7",
+   "median_m": 2128.097742116184,
+   "displacement_csv_m": 2128.097742116184,
+   "equal": true
+  },
+  {
+   "arm": "north",
+   "product": "dep3",
+   "median_m": 84.8528137423857,
+   "displacement_csv_m": 84.8528137423857,
+   "equal": true
+  },
+  {
+   "arm": "south",
+   "product": "gebco_2026",
+   "median_m": 1863.866948041088,
+   "displacement_csv_m": 1863.866948041088,
+   "equal": true
+  },
+  {
+   "arm": "south",
+   "product": "gebco_2022",
+   "median_m": 2220.0,
+   "displacement_csv_m": 2220.0,
+   "equal": true
+  },
+  {
+   "arm": "south",
+   "product": "etopo_2022",
+   "median_m": 684.1052550594827,
+   "displacement_csv_m": 684.1052550594827,
+   "equal": true
+  },
+  {
+   "arm": "south",
+   "product": "etopo1",
+   "median_m": 1693.8713056191725,
+   "displacement_csv_m": 1693.8713056191723,
+   "equal": true
+  },
+  {
+   "arm": "south",
+   "product": "srtm15p_v2.7",
+   "median_m": 2220.0,
+   "displacement_csv_m": 2220.0,
+   "equal": true
+  },
+  {
+   "arm": "south",
+   "product": "dep3",
+   "median_m": 60.0,
+   "displacement_csv_m": 60.0,
+   "equal": true
+  }
+ ]
+}

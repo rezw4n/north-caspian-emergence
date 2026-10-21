@@ -1,0 +1,124 @@
+{
+ "level_2026_m": -28.6194,
+ "products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7",
+  "gebco_2022",
+  "etopo1"
+ ],
+ "scenarios": {
+  "1": {
+   "level_m": -29.6194,
+   "area_km2_by_count": {
+    "0": 182901.6972,
+    "1": 18184.1292,
+    "2": 9176.003999999999,
+    "3": 4791.5424,
+    "4": 5381.9604,
+    "5": 729.9972
+   },
+   "area_km2_any": 38263.6332,
+   "area_km2_all": 729.9972,
+   "area_km2_majority": 10903.5
+  },
+  "2": {
+   "level_m": -30.6194,
+   "area_km2_by_count": {
+    "0": 169978.6944,
+    "1": 18414.5148,
+    "2": 11847.1428,
+    "3": 2652.8651999999997,
+    "4": 10489.1004,
+    "5": 7783.0127999999995
+   },
+   "area_km2_any": 51186.636,
+   "area_km2_all": 7783.0127999999995,
+   "area_km2_majority": 20924.9784
+  }
+ },
+ "checks": [
+  {
+   "scenario_m": 1.0,
+   "product": "gebco_2026",
+   "cells": 2965285,
+   "km2": 10675.026,
+   "emergence_csv_km2": 10675.026,
+   "equal": true
+  },
+  {
+   "scenario_m": 1.0,
+   "product": "etopo_2022",
+   "cells": 6249237,
+   "km2": 22497.2532,
+   "emergence_csv_km2": 22497.2532,
+   "equal": true
+  },
+  {
+   "scenario_m": 1.0,
+   "product": "srtm15p_v2.7",
+   "cells": 5025201,
+   "km2": 18090.7236,
+   "emergence_csv_km2": 18090.7236,
+   "equal": true
+  },
+  {
+   "scenario_m": 1.0,
+   "product": "gebco_2022",
+   "cells": 2950370,
+   "km2": 10621.332,
+   "emergence_csv_km2": 10621.332,
+   "equal": true
+  },
+  {
+   "scenario_m": 1.0,
+   "product": "etopo1",
+   "cells": 3945627,
+   "km2": 14204.2572,
+   "emergence_csv_km2": 14204.2572,
+   "equal": true
+  },
+  {
+   "scenario_m": 2.0,
+   "product": "gebco_2026",
+   "cells": 5693060,
+   "km2": 20495.016,
+   "emergence_csv_km2": 20495.016,
+   "equal": true
+  },
+  {
+   "scenario_m": 2.0,
+   "product": "etopo_2022",
+   "cells": 8970705,
+   "km2": 32294.538,
+   "emergence_csv_km2": 32294.538,
+   "equal": true
+  },
+  {
+   "scenario_m": 2.0,
+   "product": "srtm15p_v2.7",
+   "cells": 8314407,
+   "km2": 29931.8652,
+   "emergence_csv_km2": 29931.8652,
+   "equal": true
+  },
+  {
+   "scenario_m": 2.0,
+   "product": "gebco_2022",
+   "cells": 5676042,
+   "km2": 20433.7512,
+   "emergence_csv_km2": 20433.7512,
+   "equal": true
+  },
+  {
+   "scenario_m": 2.0,
+   "product": "etopo1",
+   "cells": 7717692,
+   "km2": 27783.691199999997,
+   "emergence_csv_km2": 27783.6912,
+   "equal": true
+  }
+ ],
+ "seconds": 9.4,
+ "emergence_table": "results/emergence/main/emergence.csv"
+}

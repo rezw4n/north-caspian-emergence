@@ -59,7 +59,7 @@ need_step = $(if $(STEP),,$(error `make $@` needs STEP=$(1)))
 
 .PHONY: help env lock test verify-0 verify-A verify-B \
         fetch dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download \
-        ee-inputs ee-scene-inventory ee-etopo1 ee-zone ee-stage1 ee-era5-winds \
+        ee-inputs ee-scene-inventory ee-etopo1 ee-zone ee-stage1 ee-era5-winds ee-erl-landsat \
         check-inputs dahiti-qc study-area scene-levels qc-figures params metrics macros check-refs \
         check-quotes manuscript figures all
 
@@ -234,7 +234,8 @@ outputs/qc/gebco_2026_tid.pdf: figures/qc_gebco_tid.py $(BATHY)/gebco_2026_ncasp
 PARAM_SCRIPTS := $(addprefix scripts/,a4_scene_levels.py a3_stage1_interactive.py a3_thresholds.py a5_setup_model.py a5_swot_sector_levels.py \
                  a5_sea_mask.py a6_screening.py a6_stage2_plan.py a6_stage2_export.py a6_static_rule.py \
                  a6_waterlines.py a6_vegetation.py a6_dem.py a7_beyond_state.py a7_hindcast.py)
-results/params.json: tools/export_params.py $(PARAM_SCRIPTS) figures/fig_study_area.py $(PKG)
+results/params.json: tools/export_params.py $(PARAM_SCRIPTS) figures/fig_study_area.py figures/_erl.py \
+        figures/tab_report_card.py figures/erl_fig_then_now.py $(PKG)
 	$(PYTHON) tools/export_params.py
 
 # Display items that need no results (figures/; vector PDF, 600 dpi TIFF and a PNG
@@ -305,6 +306,49 @@ manuscript/sections/ed_tables_h3_draft.tex: figures/tab_h3.py figures/_common.py
         results/emergence/main/scenario_dates.csv refs/verification.csv
 	$(PYTHON) figures/tab_h3.py
 
+# ERL main display items (D-100, D-102). scripts/f1_erl_display.py rebuilds, with the
+# hindcast's own functions, the shorelines and agreement counts the maps draw, checks every
+# recomputed median and area against the frozen tables, and writes the small summaries that
+# build_metrics reads (results/display/); it also reads git-ignored products (stage-2 tiles,
+# flood-level caches, the Great Salt Lake grids). The Landsat composites are an Earth Engine
+# acquisition (ee-erl-landsat, never run by `make all`); their record is committed.
+ERL_DISPLAY := results/display/erl_hero.json results/display/erl_agreement.json results/display/erl_gsl.json
+results/display/erl_hero.json: scripts/f1_erl_display.py scripts/a7_hindcast.py results/hindcast/main/run.json \
+        results/hindcast/main/shape_offsets.json results/hindcast/main/displacement.csv \
+        results/emergence/main/emergence.csv $(STUDY_MAP) results/study_area/zone_v6_cover_buffered.geojson \
+        $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/f1_erl_display.py caspian
+results/display/erl_agreement.json: results/display/erl_hero.json ;
+results/display/erl_gsl.json: scripts/f1_erl_display.py scripts/g1_hindcast.py scripts/a7_hindcast.py \
+        results/generality/great_salt_lake/h1_decision.json results/generality/great_salt_lake/arms_laea.geojson \
+        $(wildcard results/generality/great_salt_lake/*/hindcast*/displacement.csv \
+        results/generality/great_salt_lake/*/hindcast*/run.json) $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/f1_erl_display.py gsl
+ERL_DEPS := figures/_erl.py $(FIG_DEPS)
+RESULT_FIGS += $(FIG_OUT)/erl_fig_then_now.pdf $(FIG_OUT)/erl_fig_shorelines.pdf $(FIG_OUT)/erl_fig_gsl.pdf \
+               $(FIG_OUT)/erl_fig_agreement.pdf $(FIG_OUT)/erl_fig_timeline.pdf $(FIG_OUT)/erl_tab_report_card.pdf
+$(FIG_OUT)/erl_fig_then_now.pdf: figures/erl_fig_then_now.py $(ERL_DEPS) results/provenance/erl_landsat.json $(STUDY_MAP)
+	$(PYTHON) figures/erl_fig_then_now.py
+$(FIG_OUT)/erl_fig_shorelines.pdf: figures/erl_fig_shorelines.py $(ERL_DEPS) results/display/erl_hero.json $(STUDY_MAP)
+	$(PYTHON) figures/erl_fig_shorelines.py
+$(FIG_OUT)/erl_fig_gsl.pdf: figures/erl_fig_gsl.py $(ERL_DEPS) results/display/erl_gsl.json \
+        results/generality/great_salt_lake/arms_laea.geojson
+	$(PYTHON) figures/erl_fig_gsl.py
+$(FIG_OUT)/erl_fig_agreement.pdf: figures/erl_fig_agreement.py $(ERL_DEPS) results/display/erl_agreement.json $(STUDY_MAP)
+	$(PYTHON) figures/erl_fig_agreement.py
+$(FIG_OUT)/erl_fig_timeline.pdf: figures/erl_fig_timeline.py $(ERL_DEPS) scripts/a8_emergence.py \
+        results/levels/projection_pathways.csv $(H3_TABLES)
+	$(PYTHON) figures/erl_fig_timeline.py
+# The report card: Table 1 in tables_erl.tex (between its ERL-T1 markers) and a rendered preview.
+manuscript/sections/tables_erl.tex: figures/tab_report_card.py $(ERL_DEPS)
+	$(PYTHON) figures/tab_report_card.py
+$(FIG_OUT)/erl_tab_report_card.pdf: manuscript/sections/tables_erl.tex ;
+# Landsat then-and-now composites (Earth Engine, interactive, 3 EECU-h cap; pilot first).
+ee-erl-landsat:
+	$(ee_ok)
+	$(PYTHON) scripts/f2_erl_landsat.py pilot
+	$(PYTHON) scripts/f2_erl_landsat.py fetch
+
 # Every file tools/build_metrics.py reads (tests/test_makefile.py checks this list).
 METRIC_INPUTS := $(INV_META) results/study_area/sector_areas.json results/study_area/sector_edges.json \
                  results/qc/dahiti_summary.json \
@@ -336,6 +380,9 @@ METRIC_INPUTS += results/provenance/icesat2_atl24.json results/validation/atl24/
 
 # Stage-2 seam-gap QC (robustness agent, scripts/r21_seam_gaps.py), read by build_metrics
 METRIC_INPUTS += results/robustness/r21_seam_gaps/summary.json
+
+# ERL display summaries and the Landsat acquisition record (display_erl_metrics)
+METRIC_INPUTS += $(ERL_DISPLAY) results/provenance/erl_landsat.json
 
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
