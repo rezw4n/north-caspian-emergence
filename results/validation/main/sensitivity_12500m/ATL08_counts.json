@@ -1,0 +1,127 @@
+{
+ "created": "2026-10-21T00:49:00Z",
+ "dem_tag": "main",
+ "source": "ATL08",
+ "block_size_m": 12500.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": true,
+ "n_points": 470645,
+ "n_outside_block_table": 361,
+ "by_split_sector": [
+  {
+   "split": "calib",
+   "sector": "interfluve",
+   "n": 5562
+  },
+  {
+   "split": "calib",
+   "sector": "komsomolets",
+   "n": 35057
+  },
+  {
+   "split": "calib",
+   "sector": "northeast",
+   "n": 27735
+  },
+  {
+   "split": "calib",
+   "sector": "open_shelf",
+   "n": 7024
+  },
+  {
+   "split": "calib",
+   "sector": "ural",
+   "n": 4698
+  },
+  {
+   "split": "calib",
+   "sector": "volga",
+   "n": 8978
+  },
+  {
+   "split": "calib",
+   "sector": "west",
+   "n": 1848
+  },
+  {
+   "split": "none",
+   "sector": "none",
+   "n": 361
+  },
+  {
+   "split": "test",
+   "sector": "interfluve",
+   "n": 7207
+  },
+  {
+   "split": "test",
+   "sector": "komsomolets",
+   "n": 34829
+  },
+  {
+   "split": "test",
+   "sector": "northeast",
+   "n": 26553
+  },
+  {
+   "split": "test",
+   "sector": "open_shelf",
+   "n": 6147
+  },
+  {
+   "split": "test",
+   "sector": "ural",
+   "n": 1091
+  },
+  {
+   "split": "test",
+   "sector": "volga",
+   "n": 5513
+  },
+  {
+   "split": "test",
+   "sector": "west",
+   "n": 2200
+  },
+  {
+   "split": "train",
+   "sector": "interfluve",
+   "n": 20950
+  },
+  {
+   "split": "train",
+   "sector": "komsomolets",
+   "n": 114104
+  },
+  {
+   "split": "train",
+   "sector": "northeast",
+   "n": 86178
+  },
+  {
+   "split": "train",
+   "sector": "open_shelf",
+   "n": 34090
+  },
+  {
+   "split": "train",
+   "sector": "ural",
+   "n": 11597
+  },
+  {
+   "split": "train",
+   "sector": "volga",
+   "n": 21605
+  },
+  {
+   "split": "train",
+   "sector": "west",
+   "n": 7318
+  }
+ ],
+ "n_blocks_with_points": {
+  "calib": 119,
+  "test": 105,
+  "train": 345
+ }
+}

@@ -1,0 +1,18 @@
+{
+ "created": "2026-10-21T00:46:26Z",
+ "dem_tag": "main",
+ "source": "ATL06",
+ "block_size_m": 12500.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": true,
+ "constant": {
+  "split": "train",
+  "estimator": "median of DEM - H_EGM2008",
+  "constant_m": 0.7075109499999996,
+  "sigma_boot_m": 0.025802121392705633,
+  "n_points": 3150784,
+  "n_blocks": 350,
+  "n_boot": 2000,
+  "seed": 20261020
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "created": "2026-10-21T00:46:26Z",
+ "dem_tag": "main",
+ "source": "ATL06",
+ "block_size_m": 12500.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": true,
+ "product_offsets": {
+  "gebco_2026": {
+   "split": "train",
+   "offset_m": 1.1174807999999992,
+   "sigma_boot_m": 0.06079627099721313,
+   "n_points": 3150784,
+   "n_blocks": 350
+  },
+  "etopo_2022": {
+   "split": "train",
+   "offset_m": 1.1001176499999996,
+   "sigma_boot_m": 0.12130033591431787,
+   "n_points": 3150784,
+   "n_blocks": 350
+  },
+  "srtm15p_v2.7": {
+   "split": "train",
+   "offset_m": 1.1394572000000007,
+   "sigma_boot_m": 0.09817365131279032,
+   "n_points": 3150784,
+   "n_blocks": 350
+  },
+  "gebco_2022": {
+   "split": "train",
+   "offset_m": 0.9288068000000003,
+   "sigma_boot_m": 0.05658685341531365,
+   "n_points": 3150784,
+   "n_blocks": 350
+  },
+  "etopo1": {
+   "split": "train",
+   "offset_m": 0.9424646999999986,
+   "sigma_boot_m": 0.046236951110578295,
+   "n_points": 3150784,
+   "n_blocks": 350
+  }
+ }
+}

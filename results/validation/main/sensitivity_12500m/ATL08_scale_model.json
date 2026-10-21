@@ -1,0 +1,25 @@
+{
+ "created": "2026-10-21T00:49:00Z",
+ "dem_tag": "main",
+ "source": "ATL08",
+ "block_size_m": 12500.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": true,
+ "scale_model": {
+  "split": "train",
+  "terms": [
+   "intercept",
+   "log1p_interp_dist",
+   "contour_density",
+   "slope"
+  ],
+  "beta": [
+   -1.9941843218157753,
+   0.135228576602714,
+   -0.0009425581817415207,
+   121.28137384004808
+  ],
+  "n_points": 295842,
+  "floor_m": 0.001
+ }
+}
