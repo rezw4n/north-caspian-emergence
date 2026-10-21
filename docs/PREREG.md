@@ -535,3 +535,9 @@ The Caspian H1 result (D-087) was known. That is why every rule below is the Cas
 - the arms and the excluded sub-basins (causeways split the lake into water bodies at different levels, and only two of them have gauges);
 - daily gauge levels instead of altimetry (GSL);
 - the positive control and its substitute (data access).
+
+**Amendment 16, addendum (2026-10-21 10:10; before any water frequency or metric of either basin).**
+- **Change, item 2 (GSL):** daily gauge values are interpolated linearly across gaps of at most **16 days** (was 10).
+- **What had been seen:** the gauge series and the scene inventory, both input-level. Before 1989-09, NWIS holds the two gauges' values only on the 1st and the 15th or 16th of each month. Under the 10-day rule, only 5 (south) and 8 (north) scenes before mid-1986 had a level. E1, the rising limb, was then almost empty, and 1984–1989 would have been lost.
+- **Reason:** the 10-day bound was set without knowing the sampling. Over 16 days at the 1983–1987 rise rates (at most about 0.15 m per month), linear interpolation errs by well under the 0.10 m bin. The Caspian bridged gaps of up to 60 days (Amendment 4, item 2).
+- **Also fixed here (item 6):** each arm's open-water seed is the **largest component** of its open-water mask. A walled evaporation pond west of Stansbury Island (a rectangle of 2022 water, 84 km² of which passed the 5 km test) is otherwise a second seed. No product had been read on the hindcast grid.
