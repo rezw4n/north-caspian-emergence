@@ -1,0 +1,215 @@
+{
+ "created": "2026-10-21T05:43:07Z",
+ "prereg": "Amendment 17",
+ "decision": "D-095",
+ "level_2026_m": -28.619375,
+ "record_high_m": -25.816,
+ "near_term_range_m": [
+  -33.619375000000005,
+  -28.619375
+ ],
+ "constants": {
+  "atl08": {
+   "split": "train",
+   "estimator": "median of DEM - H_EGM2008",
+   "constant_m": 0.7098306999999977,
+   "sigma_boot_m": 0.1828731543584344,
+   "n_points": 255583,
+   "n_blocks": 36,
+   "n_boot": 2000,
+   "seed": 20261020
+  },
+  "atl06": {
+   "split": "train",
+   "estimator": "median of DEM - H_EGM2008",
+   "constant_m": 0.7229551000000001,
+   "sigma_boot_m": 0.1547443379274999,
+   "n_points": 2711463,
+   "n_blocks": 37,
+   "n_boot": 2000,
+   "seed": 20261020
+  },
+  "water_surface": {
+   "constant_m": null
+  }
+ },
+ "photon_variants": {
+  "primary": {
+   "strong_only": true,
+   "night_only": false,
+   "max_depth_m": 6.5
+  },
+  "night": {
+   "strong_only": true,
+   "night_only": true,
+   "max_depth_m": 6.5
+  },
+  "all_beams": {
+   "strong_only": false,
+   "night_only": false,
+   "max_depth_m": 6.5
+  },
+  "shallow3m": {
+   "strong_only": true,
+   "night_only": false,
+   "max_depth_m": 3.0
+  }
+ },
+ "min_photons": 3,
+ "min_blocks": 5,
+ "max_depth_m": 6.5,
+ "confidence_min": 0.6,
+ "block_m": 50000.0,
+ "n_boot": 2000,
+ "seed": 20261020,
+ "granules": {
+  "n_found": 995,
+  "n_read": 995,
+  "n_extent_meets_box": 0,
+  "n_with_class40_in_box": 0,
+  "n_with_primary_photons": 0,
+  "spot_check": {
+   "rule": "latitude arrays of every beam read for a random sample (seed 20261020) of granules whose extent missed the box; photons in the box counted",
+   "n_sampled": 20,
+   "n_box_by_granule": {
+    "ATL24_20191010184125_02120502_006_02_002_01.h5": 0,
+    "ATL24_20190813212913_07150402_006_02_002_01.h5": 0,
+    "ATL24_20190613002529_11570302_006_02_002_01.h5": 0,
+    "ATL24_20190429022252_04710302_006_02_002_01.h5": 0,
+    "ATL24_20200224115813_09130602_006_01_002_01.h5": 0,
+    "ATL24_20210819223845_08751206_006_01_002_01.h5": 0,
+    "ATL24_20221215233403_13171706_006_02_002_01.h5": 0,
+    "ATL24_20210526143442_09591102_006_01_002_01.h5": 0,
+    "ATL24_20220630072359_01281606_006_01_002_01.h5": 0,
+    "ATL24_20230209083845_07761802_006_02_002_01.h5": 0,
+    "ATL24_20201207104009_11340906_006_01_002_01.h5": 0,
+    "ATL24_20230916215114_13552002_006_02_002_01.h5": 0,
+    "ATL24_20210215072720_08141006_006_01_002_01.h5": 0,
+    "ATL24_20230113221009_03721806_006_02_002_01.h5": 0,
+    "ATL24_20231015202712_04102102_006_02_002_01.h5": 0,
+    "ATL24_20240701081651_02122402_006_01_002_01.h5": 0,
+    "ATL24_20240316131012_13552202_006_01_002_01.h5": 0,
+    "ATL24_20240121040554_05092206_006_01_002_01.h5": 0,
+    "ATL24_20230812120506_08142006_006_02_002_01.h5": 0,
+    "ATL24_20231026202802_05782102_006_02_002_01.h5": 0
+   }
+  }
+ },
+ "n_photons_primary": 0,
+ "n_celltracks": {
+  "primary": 0,
+  "night": 0,
+  "all_beams": 0,
+  "shallow3m": 0
+ },
+ "surfaces": {
+  "fit_epochs": [
+   "E2",
+   "E3"
+  ],
+  "lowest_unit": [
+   "E3",
+   12
+  ],
+  "products": {
+   "gebco_2026": {
+    "lowest_level_m": -28.75,
+    "shape_offset_m": -1.48,
+    "heights_cache": "gebco_2026_bilinear_1c44d2a8539d.npy"
+   },
+   "etopo_2022": {
+    "lowest_level_m": -28.75,
+    "shape_offset_m": -1.49,
+    "heights_cache": "etopo_2022_bilinear_d373a0709d8e.npy"
+   },
+   "srtm15p_v2.7": {
+    "lowest_level_m": -28.75,
+    "shape_offset_m": -1.28,
+    "heights_cache": "srtm15p_v2.7_bilinear_88f76a0b5e66.npy"
+   },
+   "gebco_2022": {
+    "lowest_level_m": -28.75,
+    "shape_offset_m": -1.45,
+    "heights_cache": "gebco_2022_bilinear_352d2ebf53d6.npy"
+   },
+   "etopo1": {
+    "lowest_level_m": -28.75,
+    "shape_offset_m": -1.38,
+    "heights_cache": "etopo1_bilinear_4511373ce867.npy"
+   }
+  },
+  "dem_tiles": 56,
+  "correction": "geoid_correction_primary.npz",
+  "correction_sha256": "365eeb612a4bd88c828ad72c099b70bd776e293281e8b0b1d31e2376001358db",
+  "status": "surface stage verified on 300 random domain cells (no ATL24 cell-track)"
+ },
+ "fused_check_all_equal": true,
+ "verdict_primary_near_term": {
+  "gebco_2026": {
+   "primary": "not evaluable",
+   "sensitivities": {
+    "night": "not evaluable",
+    "all_beams": "not evaluable",
+    "shallow3m": "not evaluable",
+    "primary_c_atl06": "not evaluable",
+    "primary_c_water_surface": "not evaluable"
+   },
+   "sensitive_to_datum_constant": false
+  },
+  "etopo_2022": {
+   "primary": "not evaluable",
+   "sensitivities": {
+    "night": "not evaluable",
+    "all_beams": "not evaluable",
+    "shallow3m": "not evaluable",
+    "primary_c_atl06": "not evaluable",
+    "primary_c_water_surface": "not evaluable"
+   },
+   "sensitive_to_datum_constant": false
+  },
+  "srtm15p_v2.7": {
+   "primary": "not evaluable",
+   "sensitivities": {
+    "night": "not evaluable",
+    "all_beams": "not evaluable",
+    "shallow3m": "not evaluable",
+    "primary_c_atl06": "not evaluable",
+    "primary_c_water_surface": "not evaluable"
+   },
+   "sensitive_to_datum_constant": false
+  },
+  "gebco_2022": {
+   "primary": "not evaluable",
+   "sensitivities": {
+    "night": "not evaluable",
+    "all_beams": "not evaluable",
+    "shallow3m": "not evaluable",
+    "primary_c_atl06": "not evaluable",
+    "primary_c_water_surface": "not evaluable"
+   },
+   "sensitive_to_datum_constant": false
+  },
+  "etopo1": {
+   "primary": "not evaluable",
+   "sensitivities": {
+    "night": "not evaluable",
+    "all_beams": "not evaluable",
+    "shallow3m": "not evaluable",
+    "primary_c_atl06": "not evaluable",
+    "primary_c_water_surface": "not evaluable"
+   },
+   "sensitive_to_datum_constant": false
+  }
+ },
+ "error_model_range": {
+  "n_models": 40,
+  "n_outside_fit_range": 21,
+  "max_applied_shift_m": 45.72999999999269,
+  "min_applied_shift_m": -11.510733333334116,
+  "fit_shift_range_m": [
+   -3.63,
+   0.43
+  ]
+ },
+ "seconds": 152.6
+}
