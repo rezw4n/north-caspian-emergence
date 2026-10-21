@@ -1035,6 +1035,226 @@
   "source": "hindcast/main/h1_mispredicts_detail.csv",
   "note": "median over the evaluable levels of the per-level median displacement (pooled epochs), as quoted in D-087"
  },
+ "h1.domain_area_bias.shape.etopo1.max_abs_pct": {
+  "value": 91.5,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "largest |relative area bias|"
+ },
+ "h1.domain_area_bias.shape.etopo1.median_iou": {
+  "value": 0.817,
+  "unit": "IoU",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.shape.etopo1.median_pct": {
+  "value": 2.6,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "median over (epoch, level) units of the domain total relative area bias"
+ },
+ "h1.domain_area_bias.shape.etopo1.n_units": {
+  "value": 43,
+  "unit": "units",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.shape.etopo2022.max_abs_pct": {
+  "value": 32.2,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "largest |relative area bias|"
+ },
+ "h1.domain_area_bias.shape.etopo2022.median_iou": {
+  "value": 0.89,
+  "unit": "IoU",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.shape.etopo2022.median_pct": {
+  "value": 3.8,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "median over (epoch, level) units of the domain total relative area bias"
+ },
+ "h1.domain_area_bias.shape.etopo2022.n_units": {
+  "value": 43,
+  "unit": "units",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.shape.gebco2022.max_abs_pct": {
+  "value": 134.1,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "largest |relative area bias|"
+ },
+ "h1.domain_area_bias.shape.gebco2022.median_iou": {
+  "value": 0.811,
+  "unit": "IoU",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.shape.gebco2022.median_pct": {
+  "value": -4.8,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "median over (epoch, level) units of the domain total relative area bias"
+ },
+ "h1.domain_area_bias.shape.gebco2022.n_units": {
+  "value": 43,
+  "unit": "units",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.shape.gebco2026.max_abs_pct": {
+  "value": 136.8,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "largest |relative area bias|"
+ },
+ "h1.domain_area_bias.shape.gebco2026.median_iou": {
+  "value": 0.804,
+  "unit": "IoU",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.shape.gebco2026.median_pct": {
+  "value": -6.1,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "median over (epoch, level) units of the domain total relative area bias"
+ },
+ "h1.domain_area_bias.shape.gebco2026.n_units": {
+  "value": 43,
+  "unit": "units",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.shape.srtm15p.max_abs_pct": {
+  "value": 162.2,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "largest |relative area bias|"
+ },
+ "h1.domain_area_bias.shape.srtm15p.median_iou": {
+  "value": 0.624,
+  "unit": "IoU",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.shape.srtm15p.median_pct": {
+  "value": 6.0,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "median over (epoch, level) units of the domain total relative area bias"
+ },
+ "h1.domain_area_bias.shape.srtm15p.n_units": {
+  "value": 43,
+  "unit": "units",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.total.etopo1.max_abs_pct": {
+  "value": 285.6,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "largest |relative area bias|"
+ },
+ "h1.domain_area_bias.total.etopo1.median_iou": {
+  "value": 0.689,
+  "unit": "IoU",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.total.etopo1.median_pct": {
+  "value": 43.5,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "median over (epoch, level) units of the domain total relative area bias"
+ },
+ "h1.domain_area_bias.total.etopo1.n_units": {
+  "value": 43,
+  "unit": "units",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.total.etopo2022.max_abs_pct": {
+  "value": 47.6,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "largest |relative area bias|"
+ },
+ "h1.domain_area_bias.total.etopo2022.median_iou": {
+  "value": 0.788,
+  "unit": "IoU",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.total.etopo2022.median_pct": {
+  "value": 25.8,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "median over (epoch, level) units of the domain total relative area bias"
+ },
+ "h1.domain_area_bias.total.etopo2022.n_units": {
+  "value": 43,
+  "unit": "units",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.total.gebco2022.max_abs_pct": {
+  "value": 346.9,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "largest |relative area bias|"
+ },
+ "h1.domain_area_bias.total.gebco2022.median_iou": {
+  "value": 0.696,
+  "unit": "IoU",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.total.gebco2022.median_pct": {
+  "value": 41.1,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "median over (epoch, level) units of the domain total relative area bias"
+ },
+ "h1.domain_area_bias.total.gebco2022.n_units": {
+  "value": 43,
+  "unit": "units",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.total.gebco2026.max_abs_pct": {
+  "value": 360.3,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "largest |relative area bias|"
+ },
+ "h1.domain_area_bias.total.gebco2026.median_iou": {
+  "value": 0.681,
+  "unit": "IoU",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.total.gebco2026.median_pct": {
+  "value": 44.0,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "median over (epoch, level) units of the domain total relative area bias"
+ },
+ "h1.domain_area_bias.total.gebco2026.n_units": {
+  "value": 43,
+  "unit": "units",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.total.srtm15p.max_abs_pct": {
+  "value": 360.3,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "largest |relative area bias|"
+ },
+ "h1.domain_area_bias.total.srtm15p.median_iou": {
+  "value": 0.675,
+  "unit": "IoU",
+  "source": "hindcast/main/extent.csv"
+ },
+ "h1.domain_area_bias.total.srtm15p.median_pct": {
+  "value": 38.9,
+  "unit": "%",
+  "source": "hindcast/main/extent.csv",
+  "note": "median over (epoch, level) units of the domain total relative area bias"
+ },
+ "h1.domain_area_bias.total.srtm15p.n_units": {
+  "value": 43,
+  "unit": "units",
+  "source": "hindcast/main/extent.csv"
+ },
  "h1.e1_vs_e23.n_infinite": {
   "value": 1,
   "unit": "sector-levels",
