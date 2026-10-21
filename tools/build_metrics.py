@@ -398,6 +398,9 @@ def h3_metrics(m: dict, tag: str) -> None:
     if sc:
         put(m, "h3.scenarios_text", _and(f"{s:g}" for s in sc), "text", f"emergence/{tag}/run.json",
             "scenario depths below the 2026 level (m)")
+        for s_ in sc:     # each scenario depth, for labels (G3 memo)
+            put(m, f"h3.scenario.{_scen(s_)}_m", float(s_), "m", f"emergence/{tag}/run.json", "scenario depth below the 2026 level")
+            m[f"h3.scenario.{_scen(s_)}_m"]["decimals"] = 0 if float(s_).is_integer() else 1
     e = pd.read_csv(em / "emergence.csv")
     fe = f"emergence/{tag}/emergence.csv"
     d = e[(e["region"] == "domain") & (e["functional"] == "emergence")]
@@ -899,9 +902,8 @@ def redteam_metrics(m: dict, tag: str = "main") -> None:
     sg = load("robustness/r21_seam_gaps/summary.json")      # stage-2 export gaps at tile seams (QC)
     if sg:
         cell_km2 = 60 * 60 / 1e6
-        put(m, "qc.seam_gaps.unseen_km2", round(sg["unseen_cells"] * cell_km2, 1), "km2",
+        put(m, "qc.seam_gaps.unseen_km2", round(sg["unseen_cells"] * cell_km2, 1), "km2",   # km2: 0 dp convention
             "results/robustness/r21_seam_gaps/summary.json", "stage-2 cover cells never valid in any group (includes background)")
-        m["qc.seam_gaps.unseen_km2"]["decimals"] = 1
         put(m, "qc.seam_gaps.unseen_pct_of_cover", round(100 * sg["unseen_cells"] / sg["cover_cells"], 3), "%",
             "results/robustness/r21_seam_gaps/summary.json")
         m["qc.seam_gaps.unseen_pct_of_cover"]["decimals"] = 3
