@@ -322,6 +322,10 @@ results/levels/dahiti_bhs_offset.json: scripts/a7_dahiti_bhs_offset.py $(DAHITI)
         results/provenance/caspcom_catalogue.json refs/caspcom_bulletin_levels.csv $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a7_dahiti_bhs_offset.py
 
+# ATL24 check of the near-term surfaces (PREREG Amendment 17, D-095): inputs read by build_metrics
+METRIC_INPUTS += results/provenance/icesat2_atl24.json results/validation/atl24/run.json \
+                 results/validation/atl24/verdicts.json results/validation/atl24/water_surface_constant.json
+
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
 
