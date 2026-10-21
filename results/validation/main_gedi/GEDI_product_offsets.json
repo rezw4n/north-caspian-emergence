@@ -1,0 +1,45 @@
+{
+ "created": "2026-10-21T04:09:19Z",
+ "dem_tag": "main",
+ "source": "GEDI",
+ "block_size_m": 50000.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": false,
+ "product_offsets": {
+  "gebco_2026": {
+   "split": "train",
+   "offset_m": 1.186194750000002,
+   "sigma_boot_m": 0.10721313914867561,
+   "n_points": 1023143,
+   "n_blocks": 35
+  },
+  "etopo_2022": {
+   "split": "train",
+   "offset_m": 0.8638130400000001,
+   "sigma_boot_m": 0.1696819632194795,
+   "n_points": 1023143,
+   "n_blocks": 35
+  },
+  "srtm15p_v2.7": {
+   "split": "train",
+   "offset_m": 1.227421579999998,
+   "sigma_boot_m": 0.15958678583096123,
+   "n_points": 1023143,
+   "n_blocks": 35
+  },
+  "gebco_2022": {
+   "split": "train",
+   "offset_m": 0.9386253999999994,
+   "sigma_boot_m": 0.1195417724364931,
+   "n_points": 1023143,
+   "n_blocks": 35
+  },
+  "etopo1": {
+   "split": "train",
+   "offset_m": 0.9914005800000005,
+   "sigma_boot_m": 0.1284466454850727,
+   "n_points": 1023143,
+   "n_blocks": 35
+  }
+ }
+}

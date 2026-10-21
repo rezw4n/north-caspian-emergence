@@ -1,0 +1,10 @@
+step,n_remaining,n_fail_alone
+input,14631837,0
+height,14631837,0
+quality_flag_1,5966691,8665146
+degrade_flag_0,4704413,3132281
+beam_ranging,4547441,615539
+gross_error,4078166,5469217
+geoid,4078166,0
+unique_across_images,4078036,130
+dry_at_acquisition,3819586,258450

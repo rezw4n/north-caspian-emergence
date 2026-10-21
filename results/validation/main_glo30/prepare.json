@@ -1,0 +1,262 @@
+{
+ "created": "2026-10-21T03:19:18Z",
+ "source": "GLO30",
+ "dem_tag": "main",
+ "emergence_dir": "data/processed/dem/main/emergence",
+ "epochs": [
+  "E2",
+  "E3"
+ ],
+ "products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7",
+  "gebco_2022",
+  "etopo1"
+ ],
+ "product_interpolation": "bilinear, as distributed (caspian.products.sample)",
+ "tiles": [
+  "N43E046",
+  "N43E047",
+  "N44E046",
+  "N44E047",
+  "N44E050",
+  "N44E051",
+  "N44E052",
+  "N44E053",
+  "N44E054",
+  "N45E046",
+  "N45E047",
+  "N45E048",
+  "N45E049",
+  "N45E050",
+  "N45E051",
+  "N45E052",
+  "N45E053",
+  "N45E054",
+  "N46E046",
+  "N46E047",
+  "N46E048",
+  "N46E049",
+  "N46E050",
+  "N46E051",
+  "N46E052",
+  "N46E053",
+  "N46E054",
+  "N47E046",
+  "N47E047",
+  "N47E048",
+  "N47E049",
+  "N47E050",
+  "N47E051",
+  "N47E052",
+  "N47E053",
+  "N47E054"
+ ],
+ "excluded_tiles": [
+  "N44E048",
+  "N44E049"
+ ],
+ "thinning": {
+  "rows": 3,
+  "cols": 4,
+  "offset": "centred (validation.thin_index)",
+  "spacing_m": "about 93 m north-south, 84-89 m east-west"
+ },
+ "window": [
+  "2010-12-01",
+  "2015-01-31"
+ ],
+ "dryness": "emergence + 30 days before the window start, for every 30 m DEM pixel within 1 pixel (validation.dry_at_acquisition at t = window start)",
+ "quality_steps": {
+  "wbm": 0,
+  "edm": 1,
+  "flm": 2
+ },
+ "datum": "h_orth = h_GLO30 (EGM2008, NGA) + dN, dN = N_EGM2008(NGA) - N_EIGEN-6C4 bilinear from results/study_area/geoid_correction_primary.npz (D-074); constants absorbed by the training constant c",
+ "emergence_lag_days": 30,
+ "per_tile": {
+  "N43E046": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 0
+  },
+  "N43E047": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 1403
+  },
+  "N44E046": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 104904
+  },
+  "N44E047": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 74169
+  },
+  "N44E050": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 25378
+  },
+  "N44E051": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 92036
+  },
+  "N44E052": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 22409
+  },
+  "N44E053": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 84460
+  },
+  "N44E054": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 11475
+  },
+  "N45E046": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 8643
+  },
+  "N45E047": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 450322
+  },
+  "N45E048": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 236557
+  },
+  "N45E049": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 8193
+  },
+  "N45E050": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 4208
+  },
+  "N45E051": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 57341
+  },
+  "N45E052": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 59426
+  },
+  "N45E053": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 480967
+  },
+  "N45E054": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 89998
+  },
+  "N46E046": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 19525
+  },
+  "N46E047": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 436492
+  },
+  "N46E048": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 645522
+  },
+  "N46E049": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 283863
+  },
+  "N46E050": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 73934
+  },
+  "N46E051": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 41335
+  },
+  "N46E052": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 99302
+  },
+  "N46E053": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 178370
+  },
+  "N46E054": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 0
+  },
+  "N47E046": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 10220
+  },
+  "N47E047": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 157370
+  },
+  "N47E048": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 0
+  },
+  "N47E049": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 0
+  },
+  "N47E050": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 16969
+  },
+  "N47E051": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 69724
+  },
+  "N47E052": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 63832
+  },
+  "N47E053": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 3930
+  },
+  "N47E054": {
+   "n_pixels": 12960000,
+   "n_thinned": 1080000,
+   "n_kept": 0
+  }
+ },
+ "n_points": 3732214,
+ "n_with_dem": 3732214
+}

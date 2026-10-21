@@ -56,6 +56,7 @@ tables.
 from __future__ import annotations
 
 import math
+import re
 from pathlib import Path
 from typing import Callable, Protocol
 
@@ -72,7 +73,7 @@ NMAD_SCALE = 1.4826
 # Defaults where the pre-registration is silent (proposed for docs/DECISIONS.md).
 GROSS_ERROR_M = 50.0            # |h - product reference DEM| bound; mirrors Amendment 2 (GEDI)
 GEOID_MAX_GAP_S = 0.1           # ATL06 geoid samples bracketing an ATL08 time (~0.7 km along track)
-DRY_RADIUS_PX = {"ATL06": 1, "ATL08": 2, "GEDI": 1}   # segment half-length or footprint, in 30 m pixels
+DRY_RADIUS_PX = {"ATL06": 1, "ATL08": 2, "GEDI": 1, "GLO30": 1}   # segment half-length or footprint, in 30 m pixels
 CONTOUR_RADIUS_M = 500.0        # contour-density radius (scale covariate, PREREG section 8)
 ABS_RESID_FLOOR_M = 1e-3        # |residual| floor before the log in the scale model
 VARIO_BIN_M = 2_500.0           # semivariogram bin width (PREREG section 6)
@@ -251,6 +252,78 @@ def gedi_steps(d: pd.DataFrame) -> dict[str, np.ndarray]:
             "degrade_flag_0": d["degrade_flag"].to_numpy(float) == 0,
             "beam_ranging": ~early,
             "gross_error": _gross(d["elev_lowestmode"], d["digital_elevation_model"])}
+
+
+GEDI_EPOCH = np.datetime64("2018-01-01T00:00:00", "ns")   # delta_time origin (GEDI02 User Guide)
+
+
+def gedi_time(delta_time) -> np.ndarray:
+    """GEDI ``delta_time`` (seconds since 2018-01-01 00:00 UTC; no leap second since)
+    as datetime64[ns]."""
+    s = np.asarray(delta_time, float)
+    return GEDI_EPOCH + np.round(s * 1e9).astype("int64").astype("timedelta64[ns]")
+
+
+# --- Copernicus DEM GLO-30 (D-073, D-091) ----------------------------------------------
+
+# Caspian geocells that "have not been acquired and produced as TanDEM-X DEM" (Product
+# Handbook v5.0 section 1.2.10) and intersect the domain (D-073): never used.
+GLO30_EXCLUDED_TILES = ("N44E048", "N44E049")
+GLO30_WINDOW = (np.datetime64("2010-12-01", "ns"), np.datetime64("2015-01-31", "ns"))   # D-073
+GLO30_EDM_NOT_EDITED = 1        # Edit Data Mask: 1 = not edited (Handbook Table 6)
+GLO30_FLM_NOT_FILLED = 2        # Filling Mask: 2 = not edited / not filled (Table 7)
+GLO30_WBM_NO_WATER = 0          # Water Body Mask: 0 = no water (Table 8)
+
+
+def glo30_cell_name(lat_floor: int, lon_floor: int) -> str:
+    """``N44E050`` for the 1-degree cell with south-west corner (44 N, 50 E)."""
+    return f"{'N' if lat_floor >= 0 else 'S'}{abs(lat_floor):02d}{'E' if lon_floor >= 0 else 'W'}{abs(lon_floor):03d}"
+
+
+def glo30_tile_id(name: str) -> str:
+    """AWS Open Data object prefix of a 1" (GLO-30) tile: ``N45E049`` ->
+    ``Copernicus_DSM_COG_10_N45_00_E049_00_DEM``."""
+    m = re.fullmatch(r"([NS])(\d{2})([EW])(\d{3})", name)
+    if not m:
+        raise ValueError(f"bad cell name {name!r}")
+    return f"Copernicus_DSM_COG_10_{m.group(1)}{m.group(2)}_00_{m.group(3)}{m.group(4)}_00_DEM"
+
+
+def thin_index(n: int, step: int) -> np.ndarray:
+    """Every ``step``-th index of an axis of length ``n``, centred in its group of
+    ``step`` (so the thinned grid does not hug one tile edge)."""
+    if step < 1:
+        raise ValueError("step must be >= 1")
+    return np.arange(step // 2, n, step)
+
+
+def glo30_steps(h, wbm, edm, flm, dN) -> dict[str, np.ndarray]:
+    """GLO-30 pixel quality steps (D-091; the analogue of the ICESat-2 land-surface
+    flags): finite height; WBM no water; EDM not edited; FLM not filled; finite geoid
+    difference. Dryness is a separate step (``dry_at_acquisition``)."""
+    h = np.asarray(h, float)
+    return {"height": np.isfinite(h) & (h > -1e4),
+            "wbm_no_water": np.asarray(wbm) == GLO30_WBM_NO_WATER,
+            "edm_not_edited": np.asarray(edm) == GLO30_EDM_NOT_EDITED,
+            "flm_not_filled": np.asarray(flm) == GLO30_FLM_NOT_FILLED,
+            "geoid": np.isfinite(np.asarray(dN, float))}
+
+
+class GridLookup:
+    """Bilinear lookup of one [lat, lon] layer of an .npz with 1-D ``lat`` and ``lon``
+    axes (cell centres, ascending), e.g. ``dN`` of
+    results/study_area/geoid_correction_primary.npz (N_EGM2008(NGA) - N_EIGEN-6C4,
+    D-074). NaN outside the grid."""
+
+    def __init__(self, path, key: str):
+        from scipy.interpolate import RegularGridInterpolator
+        z = np.load(path)
+        self.key = key
+        self._f = RegularGridInterpolator((z["lat"], z["lon"]), z[key].astype(float), method="linear",
+                                          bounds_error=False, fill_value=np.nan)
+
+    def __call__(self, lon, lat) -> np.ndarray:
+        return self._f(np.column_stack([np.asarray(lat, float), np.asarray(lon, float)]))
 
 
 def cascade(steps: dict[str, np.ndarray], n: int) -> tuple[np.ndarray, pd.DataFrame]:

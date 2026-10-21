@@ -1,0 +1,87 @@
+{
+ "pilot": {
+  "pilot_box": [
+   53.0,
+   46.0,
+   53.25,
+   46.25
+  ],
+  "months": [
+   "2020-06",
+   "2020-07",
+   "2020-08"
+  ],
+  "images": [
+   "LARSE/GEDI/GEDI02_A_002_MONTHLY/202006_048E_042N",
+   "LARSE/GEDI/GEDI02_A_002_MONTHLY/202007_048E_042N",
+   "LARSE/GEDI/GEDI02_A_002_MONTHLY/202008_048E_042N"
+  ],
+  "eecu_s": 29.18,
+  "n_shots": 24420,
+  "eecu_s_per_km2_image": 0.01824317445042261,
+  "region_area_km2": 70343.7,
+  "n_parts": 33,
+  "n_months": 63,
+  "zone_hits": 33,
+  "projected_eecu_h": 22.46,
+  "spent_before_eecu_s": 0.0,
+  "hard_budget_eecu_h": 20.0
+ },
+ "pilots": [
+  {
+   "time": "2026-10-21T03:03:38Z",
+   "pilot": "part 46N052E",
+   "months": [
+    "202106",
+    "202209"
+   ],
+   "n_requests": 2,
+   "eecu_s": 398.64,
+   "n_shots": 57699,
+   "eecu_s_per_km2_request": 0.08852565561942072,
+   "plan_n_requests": 2079,
+   "plan_area_km2_summed": 2242704,
+   "projected_eecu_h": 55.15,
+   "spent_all_gedi_eecu_s": 427.8,
+   "hard_budget_eecu_h": 20.0
+  },
+  {
+   "time": "2026-10-21T03:14:00Z",
+   "pilot": "part 46N052E",
+   "months": [
+    "202106"
+   ],
+   "n_requests": 1,
+   "eecu_s": 32.1,
+   "n_shots": 38490,
+   "eecu_s_per_km2_request": 0.01714304561483484,
+   "plan_n_requests": 2079,
+   "plan_area_km2_summed": 2242704,
+   "projected_eecu_h": 10.68,
+   "spent_all_gedi_eecu_s": 1230.4,
+   "hard_budget_eecu_h": 20.0
+  }
+ ],
+ "export": {
+  "updated": "2026-10-21T03:45:46Z",
+  "collection": "LARSE/GEDI/GEDI02_A_002_MONTHLY",
+  "bands": [
+   "elev_lowestmode",
+   "digital_elevation_model",
+   "quality_flag",
+   "degrade_flag",
+   "beam",
+   "solar_elevation",
+   "delta_time"
+  ],
+  "cell_deg": 0.005,
+  "region_rule": "per monthly image: CELL_DEG cells holding emerged-band cells whose emergence date is before the end of the month minus 30 days (month_cut)",
+  "n_requests": 2079,
+  "n_missing": 0,
+  "missing": [],
+  "area_km2_summed": 2242704,
+  "stopped_by_budget": false,
+  "spent_eecu_s_total": 32882.1,
+  "budget_eecu_s": 72000.0
+ }
+}

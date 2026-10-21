@@ -1,0 +1,9 @@
+step,n_remaining,n_fail_alone
+input,38880000,0
+dry_centre,4529086,34350914
+height,4529086,0
+wbm_no_water,3938260,12098167
+edm_not_edited,3912277,12194586
+flm_not_filled,3912277,12194586
+geoid,3912277,9466200
+dry_throughout_window,3732214,180063

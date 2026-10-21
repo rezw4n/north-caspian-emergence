@@ -1,0 +1,26 @@
+{
+ "created": "2026-10-21T04:19:25Z",
+ "dem_tag": "main",
+ "source": "GEDI",
+ "block_size_m": 50000.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": false,
+ "subset": "night",
+ "scale_model": {
+  "split": "train",
+  "terms": [
+   "intercept",
+   "log1p_interp_dist",
+   "contour_density",
+   "slope"
+  ],
+  "beta": [
+   -0.9688657229467837,
+   0.014274191740430889,
+   -0.0009358474488046931,
+   71.06635084812167
+  ],
+  "n_points": 569970,
+  "floor_m": 0.001
+ }
+}

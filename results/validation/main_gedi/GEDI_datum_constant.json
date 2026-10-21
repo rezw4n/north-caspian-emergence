@@ -1,0 +1,18 @@
+{
+ "created": "2026-10-21T04:09:19Z",
+ "dem_tag": "main",
+ "source": "GEDI",
+ "block_size_m": 50000.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": false,
+ "constant": {
+  "split": "train",
+  "estimator": "median of DEM - H_EGM2008",
+  "constant_m": 0.5127603000000001,
+  "sigma_boot_m": 0.12115508589656787,
+  "n_points": 1023143,
+  "n_blocks": 35,
+  "n_boot": 2000,
+  "seed": 20261020
+ }
+}

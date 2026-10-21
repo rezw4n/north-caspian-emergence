@@ -1,0 +1,45 @@
+{
+ "created": "2026-10-21T03:28:03Z",
+ "dem_tag": "main",
+ "source": "GLO30",
+ "block_size_m": 50000.0,
+ "final_block_size_m": 50000.0,
+ "sensitivity": false,
+ "product_offsets": {
+  "gebco_2026": {
+   "split": "train",
+   "offset_m": 1.1292668999999975,
+   "sigma_boot_m": 0.22048594783132316,
+   "n_points": 374665,
+   "n_blocks": 31
+  },
+  "etopo_2022": {
+   "split": "train",
+   "offset_m": 0.3019945999999969,
+   "sigma_boot_m": 0.024372796793943895,
+   "n_points": 374665,
+   "n_blocks": 31
+  },
+  "srtm15p_v2.7": {
+   "split": "train",
+   "offset_m": 1.0981157999999986,
+   "sigma_boot_m": 0.22188000373251296,
+   "n_points": 374665,
+   "n_blocks": 31
+  },
+  "gebco_2022": {
+   "split": "train",
+   "offset_m": 0.7504363999999981,
+   "sigma_boot_m": 0.2958996141541878,
+   "n_points": 374665,
+   "n_blocks": 31
+  },
+  "etopo1": {
+   "split": "train",
+   "offset_m": 0.9983790999999975,
+   "sigma_boot_m": 0.2038969380777617,
+   "n_points": 374665,
+   "n_blocks": 31
+  }
+ }
+}

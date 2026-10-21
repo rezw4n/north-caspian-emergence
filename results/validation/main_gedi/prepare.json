@@ -1,0 +1,29 @@
+{
+ "created": "2026-10-21T03:52:15Z",
+ "source": "GEDI",
+ "collection": "LARSE/GEDI/GEDI02_A_002_MONTHLY",
+ "dem_tag": "main",
+ "emergence_dir": "data/processed/dem/main/emergence",
+ "epochs": [
+  "E2",
+  "E3"
+ ],
+ "products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7",
+  "gebco_2022",
+  "etopo1"
+ ],
+ "product_interpolation": "bilinear, as distributed (caspian.products.sample)",
+ "n_files": 2079,
+ "n_shots_exported": 14631837,
+ "n_duplicates_within_files": 0,
+ "shot_location": "centre of the 25 m pixel the shot is rasterised to (ee.Image.pixelLonLat); the collection has no lowest-mode location band",
+ "shot_rules": "Amendment 2: quality_flag = 1, degrade_flag = 0, BEAM0000/BEAM0001 before 2020-02-06 dropped, |elev_lowestmode - digital_elevation_model| <= 50 m; dry at acquisition for every 30 m DEM pixel within 1 pixel",
+ "datum": "h_orth = elev_lowestmode (WGS84 ellipsoid) - N(EIGEN-6C4) (validation.EigenGeoid, D-078)",
+ "emergence_lag_days": 30,
+ "n_points": 3819586,
+ "n_night": 2230820,
+ "n_with_dem": 3819586
+}

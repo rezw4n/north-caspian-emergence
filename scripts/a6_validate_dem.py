@@ -45,6 +45,13 @@ Usage:
          [--products a,b | --no-products] [--epochs E2,E3]
   python scripts/a6_validate_dem.py <tag> blocksize [--sources ATL06,ATL08]
   python scripts/a6_validate_dem.py <tag> evaluate [--sources ATL06,ATL08] [--block-size M]
+
+Additional independent sources (D-091), one at a time, never pooled with ICESat-2: GLO30
+(scripts/a6_glo30.py) and GEDI (scripts/a6_gedi.py) build the point table; then
+  python scripts/a6_validate_dem.py <tag> blocksize --sources GLO30   (inherits the H2 size)
+  python scripts/a6_validate_dem.py <tag> evaluate --sources GLO30
+  python scripts/a6_validate_dem.py <tag> evaluate --sources GEDI --subset night
+write to results/validation/<tag>_glo30/ and <tag>_gedi/ (subset_night/).
 """
 
 from __future__ import annotations
@@ -65,6 +72,11 @@ from caspian import design, frequency, validation
 from caspian.config import CRS_EQUAL_AREA, INTERIM, PROCESSED, RESULTS
 
 SOURCES = ("ATL06", "ATL08")
+# Additional independent sources (PREREG section 2 and Amendment 2; D-091). Their point
+# tables are built by scripts/a6_glo30.py and scripts/a6_gedi.py in the format of
+# ``prepare``; blocksize and evaluate then run on them one at a time, with results in
+# results/validation/<tag>_<source lower>/ and the H2 block size inherited (never refitted).
+EXTRA_SOURCES = ("GLO30", "GEDI")
 CHUNK = 250_000          # points per emergence-window read
 
 
@@ -187,6 +199,21 @@ def _product_sampler(names_arg: str | None, no_products: bool):
         return products.sample(natives[name], lon, lat)
 
     return names, sampler
+
+
+def attach_model_columns(d: pd.DataFrame, dem, cx, cy, names, sample) -> pd.DataFrame:
+    """The DEM-side columns of a point table, as ``prepare`` attaches them: DEM height and
+    interpolation distance (bands 1 and 2), slope, contour density, and one column per
+    product height as distributed. ``d`` needs x, y, lon and lat. Used for the
+    additional sources (scripts/a6_glo30.py, scripts/a6_gedi.py)."""
+    d = d.copy()
+    d["dem_h"] = dem.sample(d["x"], d["y"], 1)
+    d["interp_dist"] = dem.sample(d["x"], d["y"], 2)
+    d["slope"] = dem.slope(d["x"], d["y"])
+    d["contour_density"] = validation.contour_density(d["x"], d["y"], cx, cy)
+    for name in names:
+        d[f"prod:{name}"] = np.asarray(sample(name, d["lon"].to_numpy(float), d["lat"].to_numpy(float)), float)
+    return d
 
 
 def prepare(a) -> int:
@@ -312,8 +339,36 @@ def _load_points(tag: str, source: str, population: str = "bare") -> pd.DataFram
 
 def _res_dir(a) -> Path:
     """Results folder of a stage: results/validation/<tag> for the H2 population, with a
-    suffix for the others (D-084)."""
-    return _out(a.tag) if a.population == "bare" else RESULTS / "validation" / f"{a.tag}_{a.population}"
+    suffix for the others (D-084). An additional source (EXTRA_SOURCES, run alone) gets
+    its own folder, results/validation/<tag>_<source lower>[_<population>] (D-091)."""
+    extra = [s for s in getattr(a, "sources", []) if s in EXTRA_SOURCES]
+    base = f"{a.tag}_{extra[0].lower()}" if extra else a.tag
+    return RESULTS / "validation" / (base if a.population == "bare" else f"{base}_{a.population}")
+
+
+def _inherit_block_size(a) -> int:
+    """Additional sources (D-091): the H2 blocks are used as they are (Amendment 2: "the
+    same blocks, metrics and sectors"). The block size is read from the ICESat-2 check
+    of the same population and never refitted on these heights; the record says so."""
+    h2_dir = _out(a.tag) if a.population == "bare" else RESULTS / "validation" / f"{a.tag}_{a.population}"
+    p = h2_dir / "block_size_check.json"
+    if not p.exists():
+        raise SystemExit(f"no H2 block-size check {p}: the additional sources inherit it (D-091)")
+    h2 = json.loads(p.read_text(encoding="utf-8"))
+    if h2.get("final_block_size_m") is None:
+        raise SystemExit(f"the H2 block-size check {p} is unresolved")
+    final = h2["final_block_size_m"]
+    rel = str(p.relative_to(RESULTS.parent)).replace("\\", "/") if p.is_relative_to(RESULTS.parent) else str(p)
+    recs = {s: {"inherited": True, "refitted": False, "from": rel, "final_block_size_m": final,
+                "range_within_max_lag": True} for s in a.sources}
+    _res_dir(a).mkdir(parents=True, exist_ok=True)
+    _write(_res_dir(a) / "block_size_check.json",
+           {"created": _now(), "dem_tag": a.tag, "population": a.population,
+            "rule": "inherited from the H2 (ICESat-2) check; not refitted on this source (Amendment 2, D-091)",
+            "status": "resolved", "inherited_from": rel, "inherited_sources": sorted(h2.get("sources", {})),
+            "base_block_size_m": h2.get("base_block_size_m"), "final_block_size_m": final, "sources": recs})
+    print(",".join(a.sources), "block size inherited from", rel, "->", final, "m", flush=True)
+    return 0
 
 
 def _blocks(size_m: float) -> pd.DataFrame:
@@ -325,6 +380,8 @@ def _blocks(size_m: float) -> pd.DataFrame:
 
 
 def blocksize(a) -> int:
+    if any(s in EXTRA_SOURCES for s in a.sources):
+        return _inherit_block_size(a)
     base = float(design.BLOCK_SIZE_M)
     blocks = _blocks(base)
     _res_dir(a).mkdir(parents=True, exist_ok=True)
@@ -378,14 +435,24 @@ def evaluate(a) -> int:
     final = float(chk["final_block_size_m"])
     size = final if a.block_size is None else float(a.block_size)
     out = _res_dir(a) if size == final else _res_dir(a) / f"sensitivity_{int(size)}m"
+    subset = getattr(a, "subset", None)
+    if subset:                  # a sensitivity on a subset of the points (e.g. GEDI night shots)
+        out = out / f"subset_{subset}"
     blocks = _blocks(size)
     out.mkdir(parents=True, exist_ok=True)
     for source in a.sources:
-        pts = validation.attach_blocks(_load_points(a.tag, source, a.population), blocks, size)
+        pts = _load_points(a.tag, source, a.population)
+        if subset:
+            if subset not in pts.columns:
+                raise SystemExit(f"--subset {subset}: no such column in the {source} point table")
+            pts = pts[pts[subset].astype(bool).to_numpy()].reset_index(drop=True)
+        pts = validation.attach_blocks(pts, blocks, size)
         products = {c.split(":", 1)[1]: c for c in pts.columns if c.startswith("prod:")}
         r = validation.run(pts, products)
         head = {"created": _now(), "dem_tag": a.tag, "source": source, "block_size_m": size,
                 "final_block_size_m": final, "sensitivity": size != final}
+        if subset:
+            head["subset"] = subset
         for key in ("constant", "product_offsets", "scale_model", "calibration"):
             name = {"constant": "datum_constant"}.get(key, key)
             _write(out / f"{source}_{name}.json", {**head, key: r[key]})
@@ -415,11 +482,18 @@ def main(argv) -> int:
     ap.add_argument("--geoid", choices=["eigen6c4", "atl06"], default="eigen6c4",
                     help="N for ICESat-2 heights: EIGEN-6C4 grid (D-078) or the ATL06 geoid_h chain (D-069)")
     ap.add_argument("--block-size", type=float, default=None, help="sensitivity run (PREREG section 6)")
+    ap.add_argument("--subset", default=None,
+                    help="evaluate: keep points whose boolean column SUBSET is true (results in subset_<SUBSET>/)")
     a = ap.parse_args(argv)
     a.sources = a.sources.split(",")
-    bad = [s for s in a.sources if s not in SOURCES]
+    bad = [s for s in a.sources if s not in SOURCES + EXTRA_SOURCES]
     if bad:
         ap.error(f"unknown sources {bad}")
+    if any(s in EXTRA_SOURCES for s in a.sources):
+        if len(a.sources) > 1:
+            ap.error(f"run each of {EXTRA_SOURCES} alone (never pooled with ICESat-2, Amendment 2)")
+        if a.stage == "prepare":
+            ap.error(f"{a.sources[0]} points are built by scripts/a6_{a.sources[0].lower()}.py (D-091)")
     return {"prepare": prepare, "blocksize": blocksize, "evaluate": evaluate}[a.stage](a)
 
 
