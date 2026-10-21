@@ -633,6 +633,49 @@ def compare_json(a, b, rel: float = REPRO_REL_TOL, abs_: float = REPRO_ABS_TOL, 
     return [] if a == b else [f"{path or '/'}: {a!r} != {b!r}"]
 
 
+# Run records (run.json, summary.json and the like) carry metadata of the run itself that a
+# rebuild cannot reproduce: when it ran, how long it took and where the files were (D-133).
+RUN_META_KEYS = frozenset({"created", "seconds", "elapsed_s", "wall_s", "started", "finished"})
+_ABS_PATH = re.compile(r"^(?:[A-Za-z]:[\\/]|/(?:tmp|home|Users|var|mnt|d|c)/)")
+
+
+def strip_run_metadata(x):
+    """x without run metadata: keys in RUN_META_KEYS are dropped and absolute paths
+    become "<abs path>". Every other key and value is kept as it is."""
+    if isinstance(x, dict):
+        return {k: strip_run_metadata(v) for k, v in x.items() if k not in RUN_META_KEYS}
+    if isinstance(x, list):
+        return [strip_run_metadata(v) for v in x]
+    if isinstance(x, str) and _ABS_PATH.match(x):
+        return "<abs path>"
+    return x
+
+
+def compare_rebuilt_json(committed, rebuilt, rel: float = REPRO_REL_TOL,
+                         abs_: float = REPRO_ABS_TOL) -> tuple[list[str], list[str]]:
+    """(differences, added) between a committed JSON result and its rebuild, after
+    strip_run_metadata. A key present only in the rebuild is "added" (a field the code
+    has written since the committed run); every other difference, including a key
+    missing from the rebuild, is a difference."""
+    diffs: list[str] = []
+    added: list[str] = []
+
+    def walk(a, b, path: str) -> None:
+        if isinstance(a, dict) and isinstance(b, dict):
+            added.extend(f"{path}/{k}" for k in sorted(set(b) - set(a)))
+            diffs.extend(f"{path}/{k}: missing from the rebuild" for k in sorted(set(a) - set(b)))
+            for k in sorted(set(a) & set(b)):
+                walk(a[k], b[k], f"{path}/{k}")
+        elif isinstance(a, list) and isinstance(b, list) and len(a) == len(b):
+            for i, (x, y) in enumerate(zip(a, b)):
+                walk(x, y, f"{path}[{i}]")
+        else:
+            diffs.extend(compare_json(a, b, rel, abs_, path))
+
+    walk(strip_run_metadata(committed), strip_run_metadata(rebuilt), "")
+    return diffs, added
+
+
 def _as_number(s: str):
     try:
         return float(s)
