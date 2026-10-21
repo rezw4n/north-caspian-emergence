@@ -631,3 +631,111 @@ The Caspian H1 result (D-087) was known. That is why every rule below is the Cas
 - Each granule covers a whole ATL03 region.
 - They are read in place and subset by space instead of by beams or dates. Only the class-40 photons inside the domain's bounding box are kept, with all their variables (`scripts/a8_atl24_fetch.py`).
 - A granule is read beyond its `metadata/extent` only if that extent meets the box. A random sample of 20 of the skipped granules is read in full as a check.
+
+## Amendment 18 — 2026-10-22 (revision analyses after the internal review; before any analysis below was computed)
+
+**What had been seen.**
+- Every Phase A result, the G3 memo and the ERL Letter and Supplementary built from commit a0c9781.
+- The three internal reviews (`docs/reviews/review_1.md` to `review_3.md`) and the citation audit (`docs/reviews/citation_audit.md`).
+- The WDPA sensitivity without the Kazakh reserved-zone polygon (D-103 addendum).
+- The per-sector DEM accuracy tables (`results/validation/main/ATL0{6,8}_accuracy.csv`), which define item 1.
+
+**Status of these analyses.**
+- All are **post-review analyses**. Each is labelled exploratory, except where it runs a sensitivity already registered (§10, Amendments 11 and 15), and it is then labelled "registered sensitivity".
+- None replaces a registered verdict: H1, H2, H3 and the generality verdict stand as decided and are reported.
+- Where this amendment changes what the Letter reports as primary, the change is a reported deviation (§12), not a new registration.
+- Seeds: 20261022 for every new resampling. Every rule below was written before its numbers existed. Where a run must be cut back for time, the cut is logged in DECISIONS before the run.
+
+**1. Observation-validated sectors.**
+- A sector is validated if it holds at least one H2 test block, and the waterline DEM's mean and median errors against both ATL08 and ATL06 are within ±0.5 m there. 0.5 m is half the whole-metre step of the grids.
+- By the existing tables this gives West (Kizlyar–Dagestan), the Volga–Ural interfluve, the NE Kazakh coast and the open shelf.
+- The Volga delta (bias −1.51 m) and Komsomolets Bay (+1.63 m) fail. The Ural delta has no test block. These three are reported as "observations not validated".
+- **Headline variants:** the verdict counts in the four validated sectors; and in the six sectors other than Komsomolets Bay.
+
+**2. Uncertainty of the H1 verdicts.**
+- **Per (product, sector, variant):** a moving-block bootstrap over the evaluable levels in level order, with contiguous blocks of 3 bins (0.30 m), B = 2,000. P(mispredict) is the share of resamples in which the §9 majority rule holds.
+- **Per product:** the distribution of the number of mispredicted sectors, from resamples drawn jointly in all sectors.
+- **Also reported:** the per-level ratio of D (product median displacement) to Q (the floor's 95th percentile), with its median and IQR per sector.
+
+**3. Constants.**
+- **Displacement-fitted constant c_D per product:** it minimises the sum over training-block units of the unit median displacement. The search runs over c_area ± 1.0 m in 0.10 m steps (0.20 m if a pilot shows more than 3 h per product). The verdicts are recomputed under c_D.
+- **Best-case per-sector constant:** for each (product, sector), the minimum over the same search of the number of levels above the floor. "No single constant brings the shorelines within the floor" holds where even this minimum is a majority.
+
+**4. Area-based claims.**
+- **Per-level area bias** (shape variant): IQR, range and Theil–Sen slope against level, in all sectors and in the validated sectors.
+- **Out of sample:** c fitted on E1 + E2 training-block units, and the area bias evaluated on E3 units in calibration and test blocks.
+- **Overlap in the band:** IoU and F1 restricted to the band between the near-minimum and near-maximum extents, reported per level (median and IQR).
+
+**5. Deltaic test at sector level.**
+- An exact permutation over all C(7,3) = 35 assignments of the three deltaic or vegetated labels to the seven sectors. The statistic is that of Eq. S12, computed on sector medians. The smallest attainable one-sided p is 1/35.
+- Holm adjustment over the 5 products × 2 variants, for this test and for the registered block test.
+- Group sizes and null distributions are reported.
+
+**6. Resolution, quantisation and channel banks.**
+- **Static-contour filter on the audit extents:** the D-034/D-075 rule removes static waterline cells from the observed waterlines before distances are taken, in all sectors. The effect on the floor and the verdicts is reported, sector by sector.
+- **Resolution-matched floor:** the observed extents (full and halves) are aggregated by majority to each product's native cell before distances are taken, and the verdicts recomputed.
+- **"Perfect but degraded" control:**
+  - **Construction:** the waterline DEM (main) is put into each product's vertical frame (the inverse of that product's total-variant correction). It is then rounded to whole metres where the product stores whole metres, averaged to the product's native cell, sampled back to 60 m as the products are (D-070), returned to the working frame, given its own area constant, and audited exactly as the products are (shape variant).
+  - **Separating the two effects:** a control without rounding separates resolution from quantisation.
+  - **Excess rule:** in a sector, a product's error is attributed to more than quantisation and resolution if its D exceeds max(Q, D_control) at more than half of the levels evaluable for both.
+  - **Stop rule:** if, for the four products that mispredict, the excess rule fails in more than half of the product × validated-sector cases, the attribution in the main claim changes. The lead then writes a STOP memo before any text is revised.
+  - **Stated bias of the control:** the DEM is built from the same E2 + E3 waterlines. Its own interpolation error adds displacement, while sharing the observations removes some, so the control is not a perfect baseline in either direction.
+
+**7. Vertical-equivalent errors and an error budget.**
+- **Gradient:** each sector's shelf gradient g is the median |∇z| of the waterline DEM in the band, in m per km.
+- **Vertical equivalents:** D·g and Q·g are reported per sector and level.
+- **Budget:** a vertical 1σ budget per sector and level combines in quadrature:
+  - the level σ;
+  - the common Hydroweb gap-fill error, in the years it applies;
+  - the setup-model residual sd;
+  - the sector's departure from DAHITI (item 9).
+- **Augmented floor (sensitivity):** Q + 1.645·σ_budget/g, added rather than combined in quadrature, so that the test favours the products. The verdicts under it are reported.
+
+**8. Seabed change and hysteresis.**
+- The number of comparisons behind "older seabed fits better at 35% of levels", with a two-sided binomial test.
+- The median distance between E1 and later observed waterlines at the same level, per sector, against the within-epoch floor. This is descriptive.
+
+**9. Spatial structure of the water surface.**
+- **Sector departure from DAHITI:** from the SWOT block means before de-meaning, over April–October passes, as the median of block mean minus DAHITI at the pass time. The audit is re-run with each sector's levels shifted by its departure.
+- **Planar offset field:** c(x, y) = c₀ + a·x + b·y per product, fitted on training-block units by the Eq. S11 criterion. The audit is re-run with the fitted field, and the surviving shape error is reported against the sector-constant run (R2).
+
+**10. Near-term emergence.**
+- **(a) Common baseline (registered sensitivity, §10):** the observed 2026 extent.
+- **(b) Shifted products:** each product with its H1 shape constant.
+- **(c) Already dry:** the share of each uncorrected product's band that was already dry in the observed 2025–26 extent.
+- **(d) Curves and reference level:** E(Δ) at 0.1 m steps from 0 to 5 m. Reported under L₂₀₂₆ ± 0.3 m, under the registered running-median L₂₀₂₆, and with the EGM2008 realisation constant set to 0.
+- **(e) Observed band:** the observed seabed between L₂₀₂₆ and the lowest audited warm-season level.
+- **(f) Hindcast error envelopes** replace "90% intervals":
+  - scale-aware scores (|error| divided by the observed area change), with the finite-sample quantile at 0.9;
+  - applied only within the range of declines present in the hindcast pairs; larger declines are marked uncalibrated;
+  - the registered lowest-epoch sensitivity is also reported.
+- **(g) Vertical-error simulation:**
+  - **Fields:** 200 Gaussian random fields per product, with exponential covariance. The sill is the product's ICESat-2 NMAD²; the range is 150 km, and 50 km as a sensitivity.
+  - **Outputs:** the spread of E(1 m) and E(2 m) on the shifted surfaces.
+  - **Reference for agreement:** the five-way agreement among five perturbed copies of one product. This is the reference distribution for the observed 2% agreement.
+- **(h) Dry seabed and isolated water:** E(Δ) split into dry seabed (z ≥ L − Δ) and isolated water (z < L − Δ ≤ F).
+- **(i) Exposure:**
+  - computed on (a) and (b), with no count intervals;
+  - a location envelope from each product's band dilated and eroded by its validated-sector median displacement;
+  - the protected-area share with and without WDPA 342651.
+- **(j) Pathways × products:**
+  - emerged area at 2035 and 2050 for every primary pathway × product, on (a) and (b);
+  - the shares of the sum of squares from pathway, product and interaction, on area and on log₁₀(area + 1 km²).
+- **(k) Pathway anchoring and trend window:**
+  - each pathway's 2021–2026 change against the observed 2021–2026 fall;
+  - the observed-trend pathway over 1996–2021, 2006–2025 and 2016–2025.
+
+**11. Great Salt Lake, H2 and ETOPO 2022.**
+- **Great Salt Lake:**
+  - each product's source in each arm, from its source grids;
+  - the product verdicts restricted to the control's levels;
+  - the registered topobathymetric control at all levels, if the USGS DEM can now be retrieved.
+- **H2:**
+  - leave-one-block-out and leave-one-sector-out influence on the H2 differences;
+  - single-block intervals reported as not estimable;
+  - Mondrian q̂ and n per sector, in points and blocks;
+  - block sizes compared on a common point set;
+  - an independent dryness test (each ICESat-2 point's cell observed dry in the level bin of its date).
+- **ETOPO 2022:**
+  - displacement split by the source of the predicted shoreline cell (FABDEM or lake depth) at matched levels;
+  - the floor per level band.
