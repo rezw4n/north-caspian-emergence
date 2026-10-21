@@ -1,8 +1,9 @@
 """Shared settings for the ERL main display items (figures/erl_fig*.py, tab_report_card.py;
 D-100, D-102).
 
-Environmental Research Letters figure rules (docs/journal_specs.md, read 2026-10-21): text
-8-12 pt at final size, Helvetica/Arial-type fonts, widths 8.5 cm (single) and 15 cm
+Environmental Research Letters figure rules (docs/journal_specs.md): text 8-12 pt at final
+size, fonts restricted to Times, Helvetica, Courier or Symbol (here TeX Gyre Heros, a
+Helvetica clone; see FONT_FAMILY), widths 8.5 cm (single) and 15 cm
 (double column), vector PDF preferred, colour never the only means of conveying
 information, panels labelled (a), (b), ..., scale bars on maps. These take precedence over
 the project's 5-7 pt rule (CLAUDE.md, Figures; D-099). Text here is 8 pt or more, panel
@@ -32,6 +33,7 @@ SCALE_GSL_KM = 10            # scale bar of the Great Salt Lake map
 GRATICULE_MAP_DEG = 1.0      # graticule of the whole-domain maps
 GRATICULE_ZOOM_DEG = 0.5     # graticule of the zooms and of the Great Salt Lake map
 NEAR_KM = 10                 # exposure features drawn within this distance of the 2 m band
+JPEG_QUALITY = 85            # photographic layers in the PDF (then-and-now composites), D-102 addendum
 FS = 8.0            # every text element
 FS_LABEL = 9.0      # panel labels
 INK, MUTED, GRID = plotting.INK, plotting.INK_MUTED, plotting.GRID
@@ -80,13 +82,104 @@ def value(m: dict, key: str) -> float:
     return float(m[key]["value"])
 
 
+# Typeface (D-102 addendum). IOP's figure guidelines: "Fonts used should be restricted to the
+# standard font families (Times, Helvetica, Courier or Symbol)" (docs/journal_specs.md). Arial is
+# not one of them, and Helvetica itself cannot be embedded here, so the figures use TeX Gyre
+# Heros, the GUST Foundry's version of the URW Helvetica clone (GUST Font License), which
+# matplotlib embeds as a CID font. Its OpenType files come from tectonic's bundle cache (the
+# manuscript build fetches them); ``font_files`` fetches them with tectonic if they are missing.
+FONT_FAMILY = "TeX Gyre Heros"
+FONT_FILES = ("texgyreheros-regular.otf", "texgyreheros-bold.otf", "texgyreheros-italic.otf",
+              "texgyreheros-bolditalic.otf")
+
+
+def _font_dirs():
+    import os
+    from pathlib import Path
+
+    env = os.environ.get("CASPIAN_FONT_DIR")
+    roots = [Path(env)] if env else []
+    local = os.environ.get("LOCALAPPDATA")
+    if local:
+        roots.append(Path(local) / "TectonicProject" / "Tectonic" / "cache" / "bundles" / "data")
+    roots += [Path.home() / ".cache" / "Tectonic" / "bundles" / "data",
+              Path.home() / "Library" / "Caches" / "Tectonic" / "bundles" / "data"]
+    return roots
+
+
+def _find_fonts() -> dict:
+    found = {}
+    for root in _font_dirs():
+        if not root.exists():
+            continue
+        for name in FONT_FILES:
+            if name not in found:
+                hits = sorted(root.glob(name)) + sorted(root.glob(f"*/{name}"))
+                if hits:
+                    found[name] = hits[0]
+    return found
+
+
+def font_files() -> list:
+    """The four TeX Gyre Heros files; if tectonic's cache lacks them, compile a one-line
+    document with tectonic (which downloads them into its cache) and look again."""
+    import shutil
+    import subprocess
+    import tempfile
+    from pathlib import Path
+
+    found = _find_fonts()
+    if len(found) < len(FONT_FILES) and shutil.which("tectonic"):
+        bs = chr(92)
+        doc = (bs + "documentclass{article}" + chr(10) + bs + "usepackage{fontspec}" + chr(10) + bs
+               + "setmainfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,"
+               "ItalicFont=*-italic,BoldItalicFont=*-bolditalic]" + chr(10) + bs + "begin{document}x " + bs
+               + "textbf{x} " + bs + "textit{x} " + bs + "textbf{" + bs + "textit{x}}" + bs + "end{document}" + chr(10))
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "f.tex").write_text(doc, encoding="utf-8")
+            subprocess.run(["tectonic", "-X", "compile", "f.tex"], cwd=d, capture_output=True, check=False)
+        found = _find_fonts()
+    missing = [n for n in FONT_FILES if n not in found]
+    if missing:
+        raise SystemExit(f"TeX Gyre Heros files not found ({missing}): run tectonic once with network access, or set "
+                         "CASPIAN_FONT_DIR to a folder holding them")
+    return [found[n] for n in FONT_FILES]
+
+
 def style() -> None:
+    from matplotlib import font_manager
+
     C.style()
-    mpl.rcParams.update({"font.size": FS, "axes.titlesize": FS, "axes.labelsize": FS, "xtick.labelsize": FS,
+    for f in font_files():
+        font_manager.fontManager.addfont(str(f))
+    mpl.rcParams.update({"font.family": "sans-serif", "font.sans-serif": [FONT_FAMILY], "pdf.fonttype": 42,
+                         "font.size": FS, "axes.titlesize": FS, "axes.labelsize": FS, "xtick.labelsize": FS,
                          "ytick.labelsize": FS, "legend.fontsize": FS, "legend.title_fontsize": FS,
                          "axes.linewidth": 0.6, "xtick.major.width": 0.6, "ytick.major.width": 0.6,
                          "xtick.major.size": 3.0, "ytick.major.size": 3.0, "lines.linewidth": 1.0,
                          "hatch.linewidth": 0.5})
+
+
+def jpeg_images(pdf, quality: int = JPEG_QUALITY) -> tuple[int, int]:
+    """Re-encode the raster images inside a figure PDF as JPEG (PyMuPDF rewrite_images) at
+    their own resolution, leaving text, lines and fonts as they are; for photographic layers
+    (satellite composites), whose lossless encoding makes the PDF too large for the Letter.
+    Returns the file size before and after."""
+    import os
+    from pathlib import Path
+
+    import fitz
+
+    pdf = Path(pdf)
+    before = pdf.stat().st_size
+    doc = fitz.open(pdf)
+    doc.rewrite_images(dpi_threshold=None, dpi_target=0, quality=quality, lossy=True, lossless=True, bitonal=False,
+                       color=True, gray=True)
+    tmp = pdf.with_suffix(".tmp.pdf")
+    doc.save(tmp, garbage=3, deflate=True)
+    doc.close()
+    os.replace(tmp, pdf)
+    return before, pdf.stat().st_size
 
 
 def label(ax, letter: str, x: float = 0.0, y: float = 1.0, inside: bool = False, **kw) -> None:

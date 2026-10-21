@@ -1,16 +1,15 @@
-% Audit-summary figure of the ERL Letter (D-100 display item 3). For now the Phase A audit
-% figure (figures/fig4_audit.py), by the lead's instruction of 2026-10-21; the lead decides
-% whether to slim it down. Its type is still the Phase A size (5-7 pt), below ERL's 8 pt
-% minimum, so it must be redrawn before submission (D-107). Legend shortened to at most 120
+% Audit-summary figure of the ERL Letter (D-100 display item 3): figures/erl_fig_audit.py, the
+% ERL version of the Phase A audit figure (15 cm, text 8 pt or more), without its per-block
+% maps, which are Supplementary figures (D-102 addendum). Panels: (a) area bias, both
+% variants; (b) displacement by level band; (c) sector summary. Legend shortened to at most 120
 % words (D-107 addendum); the shift values, band edges and block rules are in the Methods and
 % the Supplementary Methods. Every number is a \metric{} macro.
 \begin{figure}[!htbp]
   \centering
-  \includegraphics[width=\linewidth]{../figures/out/fig4_audit.pdf}
+  \includegraphics[width=\linewidth]{../figures/out/erl_fig_audit.pdf}
   \caption{\textbf{Auditing the bathymetry grids behind emergence projections.}
-  (a) Area bias of the sea each grid predicts\citep{gebco2026,gebco2022,etopo2022,macferrin2025,tozer2019,amante2009} against the observed sea, per observed level ($n = \metric{h1.n_units_domain}$ levels; line style, epoch), after the best-fitting vertical shift (upper) and on the documented datum chain (lower); positive, too much sea.
+  (a) Area bias of the sea each grid predicts\citep{gebco2026,gebco2022,etopo2022,macferrin2025,tozer2019,amante2009} against the observed sea, per observed level ($n = \metric{h1.n_units_domain}$ levels; line style, epoch), after the best-fitting vertical shift (left) and on the documented datum chain (right); positive, too much sea.
   (b) Median shoreline displacement by level band, after the shift; dashed line, \metric{h1.disp_band.edge_2_m}~m.
-  (c) Median displacement per \metric{params.block_size_km}~km block for GEBCO\_2026 and ETOPO 2022.
-  (d) Per sector, each grid's median displacement against the observation noise floor (grey bar: the \metric{params.err_pct_hi}th percentile of the distance between two independent halves of the observations); filled, the grid mispredicts the sector (equation~(\ref{eq:mispredicts})); open, it does not. Methods and Supplementary Methods give the details.}
+  (c) Per sector, each grid's median displacement against the observation noise floor (grey bar: the \metric{params.err_pct_hi}th percentile of the distance between two independent halves of the observations); filled, the grid mispredicts the sector (equation~(\ref{eq:mispredicts})); open, it does not. Methods and Supplementary Methods give the details.}
   \label{fig:erl_audit}
 \end{figure}
