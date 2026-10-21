@@ -1,0 +1,133 @@
+{
+ "created": "2026-10-21T00:52:07Z",
+ "dem_tag": "main",
+ "population": "vegetated",
+ "rule": "PREREG section 6; largest size over the sources",
+ "status": "resolved",
+ "base_block_size_m": 25000.0,
+ "final_block_size_m": 50000.0,
+ "sources": {
+  "ATL06": {
+   "split": "train",
+   "n_points": 797412,
+   "n_blocks": 67,
+   "bin_width_m": 2500.0,
+   "max_lag_m": 150000.0,
+   "max_pairs": 2000000,
+   "seed": 20261020,
+   "fit": {
+    "nugget": 4.9899692293600986e-33,
+    "partial_sill": 159042.33660059565,
+    "a": 3769514491.9628654,
+    "practical_range": 11308543475.888596
+   },
+   "partial_sill_share": 1.0,
+   "range_within_max_lag": true,
+   "structure_test": {
+    "T": 0.15904529003881154,
+    "p": 0.001,
+    "detected": true,
+    "n_short_pairs": 32017,
+    "n_pairs": 1265121,
+    "n_perm": 999,
+    "short_lag_m": 7500.0,
+    "alpha": 0.05
+   },
+   "detrend": "sector",
+   "base_block_size_m": 25000.0,
+   "final_block_size_m": 50000.0,
+   "raw": {
+    "split": "train",
+    "n_points": 797412,
+    "n_blocks": 67,
+    "bin_width_m": 2500.0,
+    "max_lag_m": 150000.0,
+    "max_pairs": 2000000,
+    "seed": 20261020,
+    "fit": {
+     "nugget": 1.1995390082123521e-33,
+     "partial_sill": 116880.29781055558,
+     "a": 2609370062.75562,
+     "practical_range": 7828110188.26686
+    },
+    "partial_sill_share": 1.0,
+    "range_within_max_lag": false,
+    "structure_test": {
+     "T": 0.1511022855013379,
+     "p": 0.001,
+     "detected": true,
+     "n_short_pairs": 32017,
+     "n_pairs": 1265121,
+     "n_perm": 999,
+     "short_lag_m": 7500.0,
+     "alpha": 0.05
+    },
+    "detrend": null,
+    "base_block_size_m": 25000.0,
+    "final_block_size_m": 7828125000.0
+   },
+   "capped": true
+  },
+  "ATL08": {
+   "split": "train",
+   "n_points": 70334,
+   "n_blocks": 64,
+   "bin_width_m": 2500.0,
+   "max_lag_m": 150000.0,
+   "max_pairs": 2000000,
+   "seed": 20261020,
+   "fit": {
+    "nugget": 9.876268049785585e-49,
+    "partial_sill": 133682.65155731366,
+    "a": 2994378239.2667727,
+    "practical_range": 8983134717.800318
+   },
+   "partial_sill_share": 1.0,
+   "range_within_max_lag": true,
+   "structure_test": {
+    "T": 0.09945852391734286,
+    "p": 0.001,
+    "detected": true,
+    "n_short_pairs": 31821,
+    "n_pairs": 1270658,
+    "n_perm": 999,
+    "short_lag_m": 7500.0,
+    "alpha": 0.05
+   },
+   "detrend": "sector",
+   "base_block_size_m": 25000.0,
+   "final_block_size_m": 50000.0,
+   "raw": {
+    "split": "train",
+    "n_points": 70334,
+    "n_blocks": 64,
+    "bin_width_m": 2500.0,
+    "max_lag_m": 150000.0,
+    "max_pairs": 2000000,
+    "seed": 20261020,
+    "fit": {
+     "nugget": 1.1949413317761196e-42,
+     "partial_sill": 133864.54366383606,
+     "a": 2807243325.9213657,
+     "practical_range": 8421729977.764097
+    },
+    "partial_sill_share": 1.0,
+    "range_within_max_lag": false,
+    "structure_test": {
+     "T": 0.0936250383164203,
+     "p": 0.001,
+     "detected": true,
+     "n_short_pairs": 31821,
+     "n_pairs": 1270658,
+     "n_perm": 999,
+     "short_lag_m": 7500.0,
+     "alpha": 0.05
+    },
+    "detrend": null,
+    "base_block_size_m": 25000.0,
+    "final_block_size_m": 8421750000.0
+   },
+   "capped": true
+  }
+ }
+}
