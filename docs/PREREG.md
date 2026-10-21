@@ -421,3 +421,117 @@ No level-binned water frequency, waterline, contour, DEM or metric existed. Stag
 2. **Block size when the fitted practical range lies beyond the largest lag (D-084):** the check is refitted on residuals less each sector's training median, and the size follows the detrended range. If that is still beyond the largest lag, the size is capped at 50 km. The 12.5, 25 and 50 km sensitivities are always reported.
 
 **Reason.** On training blocks, the residuals of all prepared points had a median of +0.34 m, an NMAD of 1.45 m and an RMSE of 8.2 m. The cause was points on land above the record shoreline and on reed canopies, neither of which is the "seabed that was dry at acquisition" of §2. The semivariogram reached no sill within 150 km, which is a trend and not a range: read literally, §6 would have required 250 km blocks and left too few blocks for any split.
+
+## Amendment 16 — 2026-10-21 09:30 (generality test, brief §11; before any generality metric)
+
+**What had been seen.** For neither basin did any water frequency, observed extent, product subset or hindcast quantity exist. Seen:
+- the USGS metadata of the Great Salt Lake topobathymetric DEM (Root 2023) and the NWIS series catalogue of the two gauges (record lengths and two daily values);
+- a 300 m quick-look of JRC GSW occurrence over Great Salt Lake (0.07 EECU-s), with the OpenStreetMap railway, causeways and salt ponds;
+- 3DEP 10 m heights at six open-water points (1,278.66 m in the south arm, 1,277.65 m in the north arm);
+- the NOAA NCAT (VERTCON 3.0) shift at the Saltair gauge, +0.977 m.
+
+The Caspian H1 result (D-087) was known. That is why every rule below is the Caspian rule, unless a reason is given.
+
+**1. Basins and order.**
+- **Great Salt Lake (GSL) first.**
+- **Lake Urmia second.** It runs only if, after GSL, the rest of the 30 EECU-h generality budget covers its pilot projection and time allows. Otherwise it is reported as "not run: <reason>".
+- Aral not used (D-080).
+
+**2. Level sources.**
+- **GSL:** USGS NWIS daily mean water-surface elevation (parameter 62614, feet above NGVD 29).
+  - South arm: gauge 10010000 (Saltair Boat Harbor). North arm: gauge 10010100 (near Saline).
+  - Converted to metres above NAVD 88 as 0.3048 × ft + Δ, with Δ = NAVD 88 − NGVD 29 from NOAA NCAT (VERTCON 3.0) at each gauge's coordinates. The conversion is documented in `docs/DATUMS.md` before any metric.
+  - A scene takes its arm's daily value on its acquisition date (UTC). If that value is missing, it is interpolated linearly between daily values at most 10 days apart; otherwise the scene has no level.
+- **Urmia:** DAHITI target 104, interpolated to each acquisition with `caspian.levels` as for the Caspian: Brownian bridge, bracketing records at most 60 days apart, σ and q estimated jointly. There is no gap fill, because there is no second series.
+
+**3. Grid and projection.**
+- A 60 m grid per basin, aligned to multiples of 60 m, in a Lambert azimuthal equal-area projection on WGS84 centred on the basin: GSL at 41.2° N, 112.5° W; Urmia at 37.7° N, 45.5° E.
+- The Caspian projection (D-002) is not used outside the Caspian, where its scale distortion is large.
+- **Basin boxes:** GSL 113.17–111.82° W, 40.56–41.80° N (the USGS DEM's extent ± 0.1°); Urmia 44.85–46.15° E, 36.95–38.40° N.
+
+**4. Sectors.**
+- **GSL: two arms.**
+  - **Dividing lines:** the Union Pacific Lakeside Subdivision across the whole box (the 1959 Lucin Cutoff causeway, with its fill east to Ogden; OpenStreetMap, ODbL). North of the railway, the medial line of the Promontory peninsula: in each grid row, the midpoint of its never-water cells in JRC GSW `max_extent`.
+  - **North arm** (Gunnison Bay): north of the railway and west of the peninsula. Binned on gauge 10010100.
+  - **South arm** (Gilbert Bay, with its western and southern bays and Ogden Bay): south of the railway. Binned on gauge 10010000.
+  - **Farmington Bay is excluded** from the south arm: east of Antelope Island and south of the West Davis County Causeway, closed in the south by the parallel through the island's southernmost never-water cell.
+  - **Bear River Bay is excluded** (north of the railway, east of the peninsula). Like Farmington Bay, it is fed by a river, partly impounded by causeways and dikes, can stand above the Saltair level at low stages, and has no gauge.
+  - **Salt-evaporation ponds** (OpenStreetMap `landuse=salt_pond`, buffered by 120 m) have unknown state, both observed and predicted.
+  - **Each arm is its own hindcast.** Its domain is the arm, and product heights outside it are not used. So the flood fill and the observed sea connection stay inside the arm, which stands at its own level behind the causeway.
+- **Urmia:** the whole lake is one sector. The causeway's bridge opening keeps the two basins connected, and DAHITI gives one series.
+
+**5. Epochs and bins.** For each arm (GSL) or the lake (Urmia), on its own level series:
+- **Epochs:**
+  - E1: from the first levelled scene to the date of the maximum of the 3-record running median (Amendment 4, item 1). For GSL this is the daily series within the Landsat era, 1984–2026.
+  - E2: from then to 2010-12-31.
+  - E3: from 2011-01-01.
+- **Bins:** 0.10 m wide, with edges at whole metres plus 0.1 k m on the basin's working datum (GSL: NAVD 88; Urmia: DAHITI). This is the §4 origin rule.
+- **Parity halves:** per (epoch, bin), alternating in time order over acquisitions (Amendment 3, item 3).
+
+**6. Pipeline (Landsat 5/7/8/9 Collection 2 Level-2 only, 60 m).** As the Caspian main run, unchanged (Amendments 3, 9, 11 and 12; D-061, D-062, D-068, D-079):
+- **Masks:** `caspian.masks`; scenes with cloud cover below 60%; November–March excluded (D-062).
+- **Zone from the observed extremes** (zone v6 rules, D-029):
+  - near-maximum extent: water (`zone_water`) in at least 10% of the clear observations of the April–October season of the year of each arm's record maximum; GSW `max_extent` where there are fewer than 3 observations;
+  - near-minimum extent: water in at least 90% of the clear observations of the April–October season of the year of each arm's lowest April–October level;
+  - zone: the band between the two extents that is connected to open water, dilated by 2 km at 250 m;
+  - cover: the 5 km tile cover, buffered by one tile (D-060);
+  - **open-water mask:** near-minimum water whose surroundings within **5 km** are at least 80% water. The Caspian used 20 km; the radius is scaled to arms 25–40 km wide.
+- **Stage 1:** a per-scene Otsu threshold on clear in-zone pixels at 240 m; per-acquisition pooled thresholds with the D-061 rule and its fallback.
+- **Stage 2:** water, valid and observed counts (w, v, o) per (epoch, bin, parity), by interactive computePixels (512 px, 16 groups per request; D-079).
+- **Surge screening: none (τ = ∞).**
+  - No setup model is calibrated for either lake, and the Caspian rule chose no screening (D-077).
+  - **Limitation, stated:** wind setup and seiches on GSL reach decimetres, which is comparable to one bin.
+
+**7. Products.**
+- **Global products (both basins):** GEBCO_2026, GEBCO_2022, ETOPO 2022 (15″ surface), ETOPO1 (bedrock) and SRTM15+ V2.7.
+  - They are subset by range requests (Earth Engine for ETOPO1), as for the Caspian, and sampled bilinearly at cell centres (D-070).
+- **Positive control (GSL): the USGS topobathymetric DEM** (Root 2023, doi:10.5066/P9DGG75W), averaged over each 60 m cell.
+  - It is distributed only from ScienceBase, as one 31.6 GB GeoTIFF, and ScienceBase returns a browser challenge (HTTP 403) to scripted requests. It is not downloaded on the PI's behalf (STOP memo).
+  - **Substitute, fixed now: the USGS 3DEP 1/3″ DEM** (Earth Engine `USGS/3DEP/10m_collection`), averaged over each 60 m cell.
+    - Over the lake it is the 2016 Great Salt Lake QL1/QL2 lidar, the same lidar that forms the USGS DEM above its bathymetric survey limits. Its hydro-flattened water surfaces are at 1,277.65 m (north arm) and 1,278.66 m (south arm).
+    - It is evaluated only at observed levels whose bin lies wholly above the arm's hydro-flattened surface. Below that surface the substitute has no lakebed, and no test is made.
+    - It therefore tests the method against a surface of lidar accuracy (RMSE of 0.10 m or less), but it does not test the survey bathymetry.
+- **Urmia:** global products only. No survey product was retrieved. Schröder et al. (2022) built their DEM from waterlines, so it is not an audit target; it is not used.
+- **Vertical:**
+  - **Working datum:** NAVD 88 (GSL) or DAHITI (Urmia). 3DEP is on NAVD 88.
+  - **Total variant:** products are read as EGM2008 heights (D-070) and converted per cell. GSL uses H(NAVD 88) − H(EGM2008) from PROJ (EGM2008 → WGS84 → NAD83(2011) → GEOID18 grids). Urmia uses N(EGM2008) − N(EIGEN-6C4) (D-074).
+  - **Shape variant:** the D-070 fit on training-block cells, with c on a 0.01 m grid over ±5 m and ties as D-072. The blocks are 25 km squares on the basin grid, each taking the sector of its centre, split 0.6/0.2/0.2 stratified by sector with seed 20261020.
+
+**8. Hindcast and the H1 rule (unchanged).** PREREG §9 with Amendments 6, 7, 10, 13 and 14, and D-070, D-072 and D-089:
+- **Extents:**
+  - predicted: the flood fill from the open-water seed, 8-connected;
+  - observed: sea-connected, with the record-low envelope.
+- **Outside states:**
+  - from open-water and land seeds, with the 2 km coastal band and the 2 km rim;
+  - the land seed uses the D-067 construction: observed cells more than 2 km from the near-maximum water;
+  - there is no beyond-domain state, so cells outside the arm's domain are unknown.
+- **Displacement and noise floor:** the displacement is symmetric. The noise floor is taken per level: the halves of every epoch plus E1 against E2 + E3, pooled per level.
+- **"Mispredicts":** the median absolute displacement exceeds the noise-floor 95th percentile at a majority of the evaluable observed levels.
+  - The shape variant decides; the total variant is reported.
+  - The pooled-floor sensitivity is reported.
+- The deltaic/vegetated permutation test is not part of the generality test.
+
+**9. What counts as recurrence.**
+- **A product "mispredicts in the basin"** when it mispredicts (shape variant) in a majority of the basin's evaluable sectors. For GSL that means both arms if both are evaluable; for Urmia, the lake.
+- **The positive control (GSL) passes** when it does not mispredict in a majority of its evaluable arms, on its evaluable levels (item 7).
+- **Verdict per basin:**
+  - **"recurs":** at least 3 of the 5 global products mispredict in the basin, and the positive control passes or could not be evaluated;
+  - **"does not recur":** at most 1 of the 5 mispredicts, and the positive control passes or could not be evaluated;
+  - **"partial":** 2 of the 5 mispredict; **or the positive control fails** (it mispredicts), whatever the products do. A failed positive control means the audit flags a lidar- or survey-grade surface, so product error cannot be separated from a bias of the method in that basin. It is reported prominently, as evidence about the method;
+  - **"not run: <reason>":** the basin was not run, or has no evaluable sector.
+- **If the positive control could not be evaluated,** that is stated beside the verdict.
+- **A "does not recur" is reported as a boundary condition** of the Caspian finding. The candidate explanation is the products' source lineage over the basin (source-ID grids), which is described, not re-analysed.
+- **Descriptive, not deciding** (the FABDEM mechanism of D-087):
+  - ETOPO 2022's source-ID shares in each arm's emerged band;
+  - its shape displacement at levels above and below the arm's level on 2013-07-01, the mid-point of the Copernicus DEM's 2011–2015 acquisitions.
+
+**10. Budget.**
+- A hard cap of 30 EECU-h for both basins.
+- A 0.3° pilot comes first. A STOP memo is written if the pilot projects more than the cap.
+
+**Reason.** Brief §11 and D-080. The Caspian rules apply unchanged, except where a basin forces a change:
+- the projection (scale distortion);
+- the 5 km open-water radius (lake width);
+- the arms and the excluded sub-basins (causeways split the lake into water bodies at different levels, and only two of them have gauges);
+- daily gauge levels instead of altimetry (GSL);
+- the positive control and its substitute (data access).
