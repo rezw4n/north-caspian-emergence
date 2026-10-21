@@ -904,7 +904,10 @@ def h3_sensitivity_metrics(m: dict, tag: str = "main") -> None:
 
 
 WDPA_LAYERS = {"wdpa_protected_areas": ("wdpa", "WDPA protected area (dissolved layer) that emerges (km2)"),
-               "wdpa_ramsar": ("ramsar", "Ramsar site area (WDPA, dissolved layer) that emerges (km2)")}
+               "wdpa_ramsar": ("ramsar", "Ramsar site area (WDPA, dissolved layer) that emerges (km2)"),
+               "wdpa_protected_areas_noksrz": ("wdpa_noksrz", "WDPA protected area without the Kazakh northern-"
+                                               "Caspian State Reserved Zone (dissolved layer) that emerges (km2); "
+                                               "sensitivity, D-103 addendum")}
 
 
 def wdpa_exposure_metrics(m: dict) -> None:
@@ -945,11 +948,12 @@ def wdpa_exposure_metrics(m: dict) -> None:
         if rec.get("union_area_in_domain_km2") is not None:
             put(m, f"h3.exposure.{short}.area_in_domain_km2", round(float(rec["union_area_in_domain_km2"]), 1), "km2",
                 src, "area of the dissolved layer inside the domain")
-    for tag, prefix in (("main", "h3"), ("main_constant", "h3sens.constant")):
-        f = RES / "emergence" / "wdpa" / f"exposure_{tag}.csv"
+    for tag, prefix, sfx in (("main", "h3", ""), ("main_constant", "h3sens.constant", ""),
+                             ("main", "h3", "_noksrz"), ("main_constant", "h3sens.constant", "_noksrz")):
+        f = RES / "emergence" / "wdpa" / f"exposure_{tag}{sfx}.csv"
         if not f.exists():
             continue
-        fx = f"emergence/wdpa/exposure_{tag}.csv"
+        fx = f"emergence/wdpa/exposure_{tag}{sfx}.csv"
         x = pd.read_csv(f)
         x = x[(x["region"] == "domain") & x["layer"].isin(list(WDPA_LAYERS))]
         tail = "" if tag == "main" else "; constant-form error model (D-081 sensitivity, D-096)"
@@ -965,6 +969,52 @@ def wdpa_exposure_metrics(m: dict) -> None:
                     continue
                 put(m, f"{b}.{name}", round(v, 1), "km2", fx,
                     what + "; lo/hi at the equivalent levels of the area-interval bounds" + tail)
+
+
+def wdpa_share_metrics(m: dict) -> None:
+    """Share of each grid's emerged area that lies in WDPA protected areas, with and without
+    the Kazakh northern-Caspian State Reserved Zone (D-103 and its addendum), over the five
+    products: erl.text.h3.<layer>_share.<scenario>[.<surface>].{min,max}_{pct,product}, for
+    the uncorrected surface (no surface tag), the registered fused surface ("registered") and
+    the constant-form fused surface ("constant"), at 1 and 2 m. A sibling of erl_text_metrics,
+    which sets erl.text.h3.wdpa_share.1.* (full layer, uncorrected, 1 m); that key is not set
+    here. Approximate, as there: a layer's features include their parts outside the domain."""
+    import math
+
+    prods = ("gebco2026", "gebco2022", "etopo2022", "etopo1", "srtm15p")
+    name = {"gebco2026": "GEBCO_2026", "gebco2022": "GEBCO_2022", "etopo2022": "ETOPO 2022",
+            "etopo1": "ETOPO1", "srtm15p": "SRTM15+"}
+    src = "results/metrics.json (derived from the keys named in the note)"
+
+    def val(k):
+        r = m.get(k)
+        return None if r is None else r["value"]
+
+    def num(x):
+        return isinstance(x, (int, float)) and not isinstance(x, bool) and math.isfinite(x)
+
+    surfaces = (("uncorrected", "h3.exposure", "h3.emergence", "uncorrected"),
+                ("registered", "h3.exposure", "h3.emergence", "fused"),
+                ("constant", "h3sens.constant.exposure", "h3sens.constant.emergence", "fused"))
+    for lay in ("wdpa", "wdpa_noksrz"):
+        for sc in ("1", "2"):
+            for tag, pre_x, pre_e, surf in surfaces:
+                if (lay, sc, tag) == ("wdpa", "1", "uncorrected"):
+                    continue                          # set by erl_text_metrics
+                shares = {}
+                for p in prods:
+                    a, e = val(f"{pre_x}.{lay}.{p}.{surf}.{sc}.amount"), val(f"{pre_e}.{p}.{surf}.{sc}.estimate_km2")
+                    if num(a) and num(e) and e > 0:
+                        shares[p] = 100.0 * a / e
+                if len(shares) != len(prods):
+                    continue
+                base = f"erl.text.h3.{lay}_share.{sc}" + ("" if tag == "uncorrected" else f".{tag}")
+                for which, p in (("min", min(shares, key=shares.get)), ("max", max(shares, key=shares.get))):
+                    put(m, f"{base}.{which}_pct", shares[p], "%", src,
+                        f"{pre_x}.{lay}.{p}.{surf}.{sc}.amount / {pre_e}.{p}.{surf}.{sc}.estimate_km2 "
+                        f"({which} over products; approximate, D-103)")
+                    m[f"{base}.{which}_pct"]["decimals"] = 0
+                    put(m, f"{base}.{which}_product", name[p], "text", src, "the product")
 
 
 def redteam_metrics(m: dict, tag: str = "main") -> None:
@@ -1836,6 +1886,7 @@ def main() -> int:
     wdpa_exposure_metrics(m)
     display_erl_metrics(m)
     erl_text_metrics(m)
+    wdpa_share_metrics(m)
 
     out = RES / "metrics.json"
     out.write_text(json.dumps(dict(sorted(m.items())), indent=1, ensure_ascii=False), encoding="utf-8")

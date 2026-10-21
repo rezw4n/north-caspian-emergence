@@ -1,0 +1,75 @@
+{
+ "script": "scripts/a8_wdpa_exposure.py exposure",
+ "citation": "UNEP-WCMC and IUCN (2026), Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [Online], October 2026, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net.",
+ "release": "October 2026",
+ "layers_json": "results/emergence/wdpa/layers.json",
+ "runs": {
+  "main": {
+   "form": "linear_hold",
+   "emergence_csv": "results/emergence/main/emergence.csv",
+   "fused_maps": [
+    "gebco_2026_linear_hold_fused_c6457e99853a.npy",
+    "etopo_2022_linear_hold_fused_8f6b2313a0fa.npy",
+    "srtm15p_v2.7_linear_hold_fused_830303487412.npy",
+    "gebco_2022_linear_hold_fused_941f23020a59.npy",
+    "etopo1_linear_hold_fused_3845c41eb0ca.npy"
+   ],
+   "level_2026_m": -28.6194,
+   "scenarios_m": [
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    5.0
+   ],
+   "check_emergence": {
+    "n_values": 400,
+    "max_abs_diff_km2": 7.275957614183426e-12
+   },
+   "check_osm_wetlands": {
+    "n_rows": 400,
+    "max_abs_diff": 5.684341886080802e-14
+   },
+   "n_features": {
+    "wdpa_protected_areas_noksrz": 18
+   },
+   "seconds": 335.1,
+   "table": "results/emergence/wdpa/exposure_main_noksrz.csv"
+  },
+  "main_constant": {
+   "form": "constant",
+   "emergence_csv": "results/emergence/main_constant/emergence.csv",
+   "fused_maps": [
+    "gebco_2026_constant_fused_6df5c056c91b.npy",
+    "etopo_2022_constant_fused_877d4d828a67.npy",
+    "srtm15p_v2.7_constant_fused_1863fd71b67c.npy",
+    "gebco_2022_constant_fused_bad5006ae18e.npy",
+    "etopo1_constant_fused_ded9a9fa647d.npy"
+   ],
+   "level_2026_m": -28.6194,
+   "scenarios_m": [
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    5.0
+   ],
+   "check_emergence": {
+    "n_values": 400,
+    "max_abs_diff_km2": 7.275957614183426e-12
+   },
+   "check_osm_wetlands": {
+    "n_rows": 400,
+    "max_abs_diff": 5.684341886080802e-14
+   },
+   "n_features": {
+    "wdpa_protected_areas_noksrz": 18
+   },
+   "seconds": 313.6,
+   "table": "results/emergence/wdpa/exposure_main_constant_noksrz.csv"
+  }
+ },
+ "layers": [
+  "wdpa_protected_areas_noksrz"
+ ]
+}

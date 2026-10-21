@@ -2380,6 +2380,188 @@
   "source": "results/metrics.json (derived from the keys named in the note)",
   "note": "the product"
  },
+ "erl.text.h3.wdpa_noksrz_share.1.constant.max_pct": {
+  "value": 22.53394772254618,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.1.amount / h3sens.constant.emergence.gebco2022.fused.1.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.constant.max_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.constant.min_pct": {
+  "value": 11.85372411938693,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.1.amount / h3sens.constant.emergence.srtm15p.fused.1.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.constant.min_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.max_pct": {
+  "value": 32.00361537664881,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.1.amount / h3.emergence.gebco2022.uncorrected.1.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.max_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.min_pct": {
+  "value": 7.131288452077586,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.1.amount / h3.emergence.srtm15p.uncorrected.1.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.min_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.registered.max_pct": {
+  "value": 47.08014293006636,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa_noksrz.gebco2026.fused.1.amount / h3.emergence.gebco2026.fused.1.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.registered.max_product": {
+  "value": "GEBCO_2026",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.registered.min_pct": {
+  "value": 22.34695011670085,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa_noksrz.etopo2022.fused.1.amount / h3.emergence.etopo2022.fused.1.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.1.registered.min_product": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.constant.max_pct": {
+  "value": 10.751492053665567,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.2.amount / h3sens.constant.emergence.gebco2022.fused.2.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.constant.max_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.constant.min_pct": {
+  "value": 6.917347466796292,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.2.amount / h3sens.constant.emergence.srtm15p.fused.2.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.constant.min_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.max_pct": {
+  "value": 18.127535209493335,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa_noksrz.etopo1.uncorrected.2.amount / h3.emergence.etopo1.uncorrected.2.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.max_product": {
+  "value": "ETOPO1",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.min_pct": {
+  "value": 4.3742629101393495,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.2.amount / h3.emergence.srtm15p.uncorrected.2.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.min_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.registered.max_pct": {
+  "value": 29.26586530237766,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa_noksrz.gebco2026.fused.2.amount / h3.emergence.gebco2026.fused.2.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.registered.max_product": {
+  "value": "GEBCO_2026",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.registered.min_pct": {
+  "value": 10.64691575540533,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa_noksrz.etopo2022.fused.2.amount / h3.emergence.etopo2022.fused.2.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_noksrz_share.2.registered.min_product": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.1.constant.max_pct": {
+  "value": 81.05008295713237,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa.etopo2022.fused.1.amount / h3sens.constant.emergence.etopo2022.fused.1.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.1.constant.max_product": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.1.constant.min_pct": {
+  "value": 74.09870647349223,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa.etopo1.fused.1.amount / h3sens.constant.emergence.etopo1.fused.1.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.1.constant.min_product": {
+  "value": "ETOPO1",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
  "erl.text.h3.wdpa_share.1.max_pct": {
   "value": 85.95087230376697,
   "unit": "%",
@@ -2401,6 +2583,110 @@
   "decimals": 0
  },
  "erl.text.h3.wdpa_share.1.min_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.1.registered.max_pct": {
+  "value": 91.60606483234045,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.etopo1.fused.1.amount / h3.emergence.etopo1.fused.1.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.1.registered.max_product": {
+  "value": "ETOPO1",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.1.registered.min_pct": {
+  "value": 78.1165216904875,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.srtm15p.fused.1.amount / h3.emergence.srtm15p.fused.1.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.1.registered.min_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.2.constant.max_pct": {
+  "value": 76.90019588401732,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa.gebco2026.fused.2.amount / h3sens.constant.emergence.gebco2026.fused.2.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.2.constant.max_product": {
+  "value": "GEBCO_2026",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.2.constant.min_pct": {
+  "value": 73.16717716687214,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa.etopo1.fused.2.amount / h3sens.constant.emergence.etopo1.fused.2.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.2.constant.min_product": {
+  "value": "ETOPO1",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.2.max_pct": {
+  "value": 82.2646791101019,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.gebco2022.uncorrected.2.amount / h3.emergence.gebco2022.uncorrected.2.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.2.max_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.2.min_pct": {
+  "value": 67.03951302790668,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.srtm15p.uncorrected.2.amount / h3.emergence.srtm15p.uncorrected.2.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.2.min_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.2.registered.max_pct": {
+  "value": 86.00004849307761,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.etopo1.fused.2.amount / h3.emergence.etopo1.fused.2.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.2.registered.max_product": {
+  "value": "ETOPO1",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.2.registered.min_pct": {
+  "value": 70.40455851828197,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.srtm15p.fused.2.amount / h3.emergence.srtm15p.fused.2.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.2.registered.min_product": {
   "value": "SRTM15+",
   "unit": "text",
   "source": "results/metrics.json (derived from the keys named in the note)",
@@ -29431,6 +29717,930 @@
   "source": "emergence/wdpa/exposure_main.csv",
   "note": "WDPA protected area (dissolved layer) that emerges (km2); lo/hi at the equivalent levels of the area-interval bounds"
  },
+ "h3.exposure.wdpa_noksrz.area_in_domain_km2": {
+  "value": 17718.2,
+  "unit": "km2",
+  "source": "results/emergence/wdpa/layers.json",
+  "note": "area of the dissolved layer inside the domain"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.0p5.amount": {
+  "value": 1297.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.0p5.hi": {
+  "value": 2168.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.1.amount": {
+  "value": 1804.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.1.hi": {
+  "value": 2168.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.1.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.2.amount": {
+  "value": 2073.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.2.hi": {
+  "value": 2168.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.2.lo": {
+  "value": 184.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.3.amount": {
+  "value": 2168.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.3.hi": {
+  "value": 2168.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.3.lo": {
+  "value": 2050.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.5.amount": {
+  "value": 2168.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.5.hi": {
+  "value": 2168.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.fused.5.lo": {
+  "value": 2168.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.0p5.amount": {
+  "value": 457.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.0p5.hi": {
+  "value": 1655.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.1.amount": {
+  "value": 3368.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.1.hi": {
+  "value": 3866.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.1.lo": {
+  "value": 2919.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.2.amount": {
+  "value": 5036.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.2.hi": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.2.lo": {
+  "value": 4972.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.3.amount": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.3.hi": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.3.lo": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.5.amount": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.5.hi": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo1.uncorrected.5.lo": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.0p5.amount": {
+  "value": 2123.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.0p5.hi": {
+  "value": 2213.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.0p5.lo": {
+  "value": 121.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.1.amount": {
+  "value": 2211.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.1.hi": {
+  "value": 2216.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.1.lo": {
+  "value": 2119.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.2.amount": {
+  "value": 2223.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.2.hi": {
+  "value": 2225.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.2.lo": {
+  "value": 2216.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.3.amount": {
+  "value": 2225.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.3.hi": {
+  "value": 2225.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.3.lo": {
+  "value": 2225.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.5.amount": {
+  "value": 2225.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.5.hi": {
+  "value": 2225.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.fused.5.lo": {
+  "value": 2225.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.0p5.amount": {
+  "value": 310.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.0p5.hi": {
+  "value": 627.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.0p5.lo": {
+  "value": 77.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.1.amount": {
+  "value": 5573.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.1.hi": {
+  "value": 5620.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.1.lo": {
+  "value": 5359.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.2.amount": {
+  "value": 5847.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.2.hi": {
+  "value": 5853.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.2.lo": {
+  "value": 5791.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.3.amount": {
+  "value": 5864.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.3.hi": {
+  "value": 5865.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.3.lo": {
+  "value": 5864.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.5.amount": {
+  "value": 5866.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.5.hi": {
+  "value": 5866.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.etopo2022.uncorrected.5.lo": {
+  "value": 5866.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.0p5.amount": {
+  "value": 1781.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.0p5.hi": {
+  "value": 1927.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.1.amount": {
+  "value": 1853.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.1.hi": {
+  "value": 1930.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.1.lo": {
+  "value": 60.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.2.amount": {
+  "value": 1938.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.2.hi": {
+  "value": 1984.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.2.lo": {
+  "value": 1896.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.3.amount": {
+  "value": 1988.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.3.hi": {
+  "value": 1990.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.3.lo": {
+  "value": 1984.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.5.amount": {
+  "value": 1991.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.5.hi": {
+  "value": 1991.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.fused.5.lo": {
+  "value": 1991.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.0p5.amount": {
+  "value": 121.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.0p5.hi": {
+  "value": 2322.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.1.amount": {
+  "value": 3399.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.1.hi": {
+  "value": 3568.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.1.lo": {
+  "value": 3055.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.2.amount": {
+  "value": 3682.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.2.hi": {
+  "value": 3696.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.2.lo": {
+  "value": 3572.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.3.amount": {
+  "value": 3699.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.3.hi": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.3.lo": {
+  "value": 3697.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.5.amount": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.5.hi": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2022.uncorrected.5.lo": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.0p5.amount": {
+  "value": 1772.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.0p5.hi": {
+  "value": 1882.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.1.amount": {
+  "value": 1844.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.1.hi": {
+  "value": 1882.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.1.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.2.amount": {
+  "value": 1882.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.2.hi": {
+  "value": 1882.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.2.lo": {
+  "value": 121.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.3.amount": {
+  "value": 1885.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.3.hi": {
+  "value": 1928.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.3.lo": {
+  "value": 1882.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.5.amount": {
+  "value": 1982.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.5.hi": {
+  "value": 1984.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.fused.5.lo": {
+  "value": 1979.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.0p5.amount": {
+  "value": 120.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.0p5.hi": {
+  "value": 2327.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.1.amount": {
+  "value": 3399.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.1.hi": {
+  "value": 3572.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.1.lo": {
+  "value": 3055.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.2.amount": {
+  "value": 3683.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.2.hi": {
+  "value": 3696.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.2.lo": {
+  "value": 3574.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.3.amount": {
+  "value": 3699.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.3.hi": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.3.lo": {
+  "value": 3697.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.5.amount": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.5.hi": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.gebco2026.uncorrected.5.lo": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.n_features": {
+  "value": 17,
+  "unit": "features",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "features of the layer inside the domain"
+ },
+ "h3.exposure.wdpa_noksrz.n_patches": {
+  "value": 18,
+  "unit": "features",
+  "source": "results/emergence/wdpa/layers.json",
+  "note": "connected parts of the dissolved layer (the exposure features)"
+ },
+ "h3.exposure.wdpa_noksrz.n_sites": {
+  "value": 24,
+  "unit": "sites",
+  "source": "results/emergence/wdpa/layers.json",
+  "note": "sites of the layer whose polygons intersect the domain"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.0p5.amount": {
+  "value": 2093.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.0p5.hi": {
+  "value": 2175.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.1.amount": {
+  "value": 2167.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.1.hi": {
+  "value": 2204.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.1.lo": {
+  "value": 120.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.2.amount": {
+  "value": 2175.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.2.hi": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.2.lo": {
+  "value": 120.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.3.amount": {
+  "value": 2204.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.3.hi": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.3.lo": {
+  "value": 2169.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.5.amount": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.5.hi": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.fused.5.lo": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.0p5.amount": {
+  "value": 292.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.0p5.hi": {
+  "value": 1139.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.1.amount": {
+  "value": 1290.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.1.hi": {
+  "value": 1307.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.1.lo": {
+  "value": 1156.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.2.amount": {
+  "value": 1309.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.2.hi": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.2.lo": {
+  "value": 1308.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.3.amount": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.3.hi": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.3.lo": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.5.amount": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.5.hi": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
+ "h3.exposure.wdpa_noksrz.srtm15p.uncorrected.5.lo": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds"
+ },
  "h3.exposure.worldcover.etopo1.fused.0p5.amount": {
   "value": 1.5,
   "unit": "km2",
@@ -34502,6 +35712,912 @@
   "unit": "km2",
   "source": "emergence/wdpa/exposure_main_constant.csv",
   "note": "WDPA protected area (dissolved layer) that emerges (km2); lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.0p5.amount": {
+  "value": 1602.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.0p5.hi": {
+  "value": 2341.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.0p5.lo": {
+  "value": 129.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.1.amount": {
+  "value": 2347.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.1.hi": {
+  "value": 2372.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.1.lo": {
+  "value": 2083.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.2.amount": {
+  "value": 2372.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.2.hi": {
+  "value": 2372.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.2.lo": {
+  "value": 2369.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.3.amount": {
+  "value": 2372.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.3.hi": {
+  "value": 2372.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.3.lo": {
+  "value": 2372.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.5.amount": {
+  "value": 2372.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.5.hi": {
+  "value": 2372.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.fused.5.lo": {
+  "value": 2372.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.0p5.amount": {
+  "value": 457.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.0p5.hi": {
+  "value": 1655.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.1.amount": {
+  "value": 3368.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.1.hi": {
+  "value": 3866.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.1.lo": {
+  "value": 2919.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.2.amount": {
+  "value": 5036.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.2.hi": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.2.lo": {
+  "value": 4972.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.3.amount": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.3.hi": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.3.lo": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.5.amount": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.5.hi": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo1.uncorrected.5.lo": {
+  "value": 5072.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.0p5.amount": {
+  "value": 2125.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.0p5.hi": {
+  "value": 2212.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.0p5.lo": {
+  "value": 120.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.1.amount": {
+  "value": 2212.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.1.hi": {
+  "value": 2215.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.1.lo": {
+  "value": 2124.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.2.amount": {
+  "value": 2223.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.2.hi": {
+  "value": 2225.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.2.lo": {
+  "value": 2216.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.3.amount": {
+  "value": 2225.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.3.hi": {
+  "value": 2225.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.3.lo": {
+  "value": 2225.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.5.amount": {
+  "value": 2225.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.5.hi": {
+  "value": 2225.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.fused.5.lo": {
+  "value": 2225.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.0p5.amount": {
+  "value": 310.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.0p5.hi": {
+  "value": 627.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.0p5.lo": {
+  "value": 77.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.1.amount": {
+  "value": 5573.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.1.hi": {
+  "value": 5620.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.1.lo": {
+  "value": 5359.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.2.amount": {
+  "value": 5847.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.2.hi": {
+  "value": 5853.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.2.lo": {
+  "value": 5791.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.3.amount": {
+  "value": 5864.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.3.hi": {
+  "value": 5865.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.3.lo": {
+  "value": 5864.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.5.amount": {
+  "value": 5866.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.5.hi": {
+  "value": 5866.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.etopo2022.uncorrected.5.lo": {
+  "value": 5866.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.0p5.amount": {
+  "value": 2078.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.0p5.hi": {
+  "value": 2208.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.0p5.lo": {
+  "value": 30.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.1.amount": {
+  "value": 2210.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.1.hi": {
+  "value": 2222.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.1.lo": {
+  "value": 2080.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.2.amount": {
+  "value": 2223.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.2.hi": {
+  "value": 2224.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.2.lo": {
+  "value": 2222.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.3.amount": {
+  "value": 2224.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.3.hi": {
+  "value": 2224.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.3.lo": {
+  "value": 2224.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.5.amount": {
+  "value": 2224.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.5.hi": {
+  "value": 2224.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.fused.5.lo": {
+  "value": 2224.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.0p5.amount": {
+  "value": 121.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.0p5.hi": {
+  "value": 2322.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.1.amount": {
+  "value": 3399.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.1.hi": {
+  "value": 3568.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.1.lo": {
+  "value": 3055.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.2.amount": {
+  "value": 3682.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.2.hi": {
+  "value": 3696.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.2.lo": {
+  "value": 3572.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.3.amount": {
+  "value": 3699.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.3.hi": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.3.lo": {
+  "value": 3697.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.5.amount": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.5.hi": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2022.uncorrected.5.lo": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.0p5.amount": {
+  "value": 2075.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.0p5.hi": {
+  "value": 2207.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.0p5.lo": {
+  "value": 120.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.1.amount": {
+  "value": 2211.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.1.hi": {
+  "value": 2221.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.1.lo": {
+  "value": 2180.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.2.amount": {
+  "value": 2222.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.2.hi": {
+  "value": 2224.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.2.lo": {
+  "value": 2222.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.3.amount": {
+  "value": 2224.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.3.hi": {
+  "value": 2224.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.3.lo": {
+  "value": 2224.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.5.amount": {
+  "value": 2224.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.5.hi": {
+  "value": 2224.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.fused.5.lo": {
+  "value": 2224.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.0p5.amount": {
+  "value": 120.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.0p5.hi": {
+  "value": 2327.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.1.amount": {
+  "value": 3399.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.1.hi": {
+  "value": 3572.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.1.lo": {
+  "value": 3055.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.2.amount": {
+  "value": 3683.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.2.hi": {
+  "value": 3696.6,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.2.lo": {
+  "value": 3574.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.3.amount": {
+  "value": 3699.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.3.hi": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.3.lo": {
+  "value": 3697.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.5.amount": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.5.hi": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.gebco2026.uncorrected.5.lo": {
+  "value": 3701.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.n_features": {
+  "value": 17,
+  "unit": "features",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "features of the layer inside the domain"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.0p5.amount": {
+  "value": 2199.5,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.0p5.hi": {
+  "value": 2204.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.0p5.lo": {
+  "value": 120.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.1.amount": {
+  "value": 2204.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.1.hi": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.1.lo": {
+  "value": 2199.8,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.2.amount": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.2.hi": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.2.lo": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.3.amount": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.3.hi": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.3.lo": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.5.amount": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.5.hi": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.fused.5.lo": {
+  "value": 2205.7,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.0p5.amount": {
+  "value": 292.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.0p5.hi": {
+  "value": 1139.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.0p5.lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.1.amount": {
+  "value": 1290.1,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.1.hi": {
+  "value": 1307.9,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.1.lo": {
+  "value": 1156.4,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.2.amount": {
+  "value": 1309.3,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.2.hi": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.2.lo": {
+  "value": 1308.0,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.3.amount": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.3.hi": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.3.lo": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.5.amount": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.5.hi": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
+ },
+ "h3sens.constant.exposure.wdpa_noksrz.srtm15p.uncorrected.5.lo": {
+  "value": 1311.2,
+  "unit": "km2",
+  "source": "emergence/wdpa/exposure_main_constant_noksrz.csv",
+  "note": "WDPA protected area without the Kazakh northern-Caspian State Reserved Zone (dissolved layer) that emerges (km2); sensitivity, D-103 addendum; lo/hi at the equivalent levels of the area-interval bounds; constant-form error model (D-081 sensitivity, D-096)"
  },
  "h3sens.constant.relevant_scenarios.etopo1": {
   "value": "0.5 and 2",

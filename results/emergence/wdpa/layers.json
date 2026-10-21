@@ -50,6 +50,15 @@
    "union_area_km2": 10646.948934570644,
    "union_area_in_domain_km2": 10646.948934570644,
    "sum_record_area_km2": 10646.948934570644
+  },
+  "wdpa_protected_areas_noksrz": {
+   "what": "protected areas without the Kazakh State Reserved Zone in the northern Caspian (sensitivity, D-103 addendum; dissolved)",
+   "n_records": 24,
+   "n_sites": 24,
+   "n_features": 18,
+   "union_area_km2": 19791.12364334658,
+   "union_area_in_domain_km2": 17718.201119264675,
+   "sum_record_area_km2": 22075.07525009794
   }
  }
 }
