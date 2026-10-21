@@ -1,0 +1,56 @@
+{
+ "dataset": "WDPA and WD-OECM (Protected Planet), public country downloads",
+ "release": "October 2026",
+ "citation": "UNEP-WCMC and IUCN (2026), Protected Planet: The World Database on Protected Areas (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM) [Online], October 2026, Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net.",
+ "terms": "https://www.protectedplanet.net/en/legal",
+ "terms_conditions": [
+  "non-commercial use only (D-101: academic research)",
+  "no redistribution of the data, in whole or in part, as downloadable files: the polygons and attributes stay in data/ (git-ignored); only derived counts and areas",
+  "published material: the citation with the release month and year, and a link to www.protectedplanet.net",
+  "UNEP-WCMC asks for two free copies of published materials and recommends review before publication (the PI's action; contacting anyone is the PI's step)"
+ ],
+ "files": {
+  "KAZ": {
+   "url": "https://d1gam3xoknrgr2.cloudfront.net/current/WDPA_WDOECM_Oct2026_Public_KAZ_shp.zip",
+   "file": "data/raw/wdpa/zips/WDPA_WDOECM_Oct2026_Public_KAZ_shp.zip",
+   "bytes": 11811333,
+   "sha256": "489b29a0e0cdbce9e4a7ed00a08a4a7a0777f76b9cc2a69f265758207c7abff4",
+   "http": {
+    "Content-Length": "11811333",
+    "Date": "Wed, 21 Oct 2026 15:55:33 GMT",
+    "Last-Modified": "Thu, 15 Oct 2026 05:49:13 GMT",
+    "ETag": "\"12ccf4ce3fc73da7fcef91062c32fdfd\""
+   },
+   "shapefile_parts": [
+    "WDPA_WDOECM_Oct2026_Public_KAZ_shp_0",
+    "WDPA_WDOECM_Oct2026_Public_KAZ_shp_1",
+    "WDPA_WDOECM_Oct2026_Public_KAZ_shp_2"
+   ],
+   "members": 25
+  },
+  "RUS": {
+   "url": "https://d1gam3xoknrgr2.cloudfront.net/current/WDPA_WDOECM_Oct2026_Public_RUS_shp.zip",
+   "file": "data/raw/wdpa/zips/WDPA_WDOECM_Oct2026_Public_RUS_shp.zip",
+   "bytes": 45936395,
+   "sha256": "6b7fc604de47a6273f50dda871650769028ce4615a7fd5adacbb0e70f5ee6bfb",
+   "http": {
+    "Content-Length": "45936395",
+    "Date": "Wed, 21 Oct 2026 16:04:26 GMT",
+    "Last-Modified": "Wed, 14 Oct 2026 22:29:26 GMT",
+    "ETag": "\"528273c7b13655d2e8eae0c00045a63b-9\""
+   },
+   "shapefile_parts": [
+    "WDPA_WDOECM_Oct2026_Public_RUS_shp_0",
+    "WDPA_WDOECM_Oct2026_Public_RUS_shp_1",
+    "WDPA_WDOECM_Oct2026_Public_RUS_shp_2"
+   ],
+   "members": 25
+  }
+ },
+ "retrieved_by": "scripts/a8_wdpa_exposure.py fetch",
+ "terms_page": {
+  "file": "protectedplanet_legal_2026-10-21.html",
+  "sha256": "4c89182dbe04c7c2ac78eb1a737ef9cc6e4fe54d55a5d7f222f3a9cfbff917a2",
+  "note": "text identical to the copy of 2026-10-21 01:45 (data/raw/terms) except the page's CSRF token and e-mail obfuscation"
+ }
+}

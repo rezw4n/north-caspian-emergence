@@ -17,6 +17,7 @@ Rules for any public release of this repository or its data (Zenodo, ESSD, a pub
 |---|---|
 | Anything derived from Copernicus DEM GLO-30 (H2 tables) | The licence Art. 6 notice: "produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved", plus the licence's no-liability sentence (D-091, D-101) |
 | `refs/caspcom_bulletin_levels.csv` | Short quotations with bulletin and page locations, cited |
+| `results/emergence/wdpa/` and the `h3.exposure.wdpa.*`, `h3.exposure.ramsar.*`, `h3sens.constant.exposure.*` metrics (derived counts and areas only; the layers and site lists stay in `data/interim/wdpa/`) | The WDPA citation with its release month (October 2026) and a link to www.protectedplanet.net; non-commercial use only (D-101, D-103) |
 
 ## Before any release
 
