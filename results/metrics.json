@@ -16936,6 +16936,531 @@
   "source": "emergence/main/run.json",
   "note": "scenario depths below the 2026 level (m)"
  },
+ "h3.transfer.etopo1.E1.emergence_corrected_better": {
+  "value": "yes",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.etopo1.E1.emergence_err_corrected_km2": {
+  "value": 63.8,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.etopo1.E1.emergence_err_uncorrected_km2": {
+  "value": 455.0,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.etopo1.E1.n_heldout_units": {
+  "value": 10,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.etopo1.E1.share_extrapolated": {
+  "value": 0.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.etopo1.E1.shift_error_median_m": {
+  "value": 0.96,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.etopo1.E2.emergence_corrected_better": {
+  "value": "yes",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.etopo1.E2.emergence_err_corrected_km2": {
+  "value": 305.0,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.etopo1.E2.emergence_err_uncorrected_km2": {
+  "value": 1019.8,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.etopo1.E2.n_heldout_units": {
+  "value": 11,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.etopo1.E2.share_extrapolated": {
+  "value": 0.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.etopo1.E2.shift_error_median_m": {
+  "value": -0.01,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.etopo1.E3.emergence_corrected_better": {
+  "value": "no",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.etopo1.E3.emergence_err_corrected_km2": {
+  "value": 3289.0,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.etopo1.E3.emergence_err_uncorrected_km2": {
+  "value": 672.9,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.etopo1.E3.n_heldout_units": {
+  "value": 22,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.etopo1.E3.share_extrapolated": {
+  "value": 0.41,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.etopo1.E3.shift_error_median_m": {
+  "value": -1.27,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.etopo2022.E1.emergence_corrected_better": {
+  "value": "yes",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.etopo2022.E1.emergence_err_corrected_km2": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.etopo2022.E1.emergence_err_uncorrected_km2": {
+  "value": 350.6,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.etopo2022.E1.n_heldout_units": {
+  "value": 10,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.etopo2022.E1.share_extrapolated": {
+  "value": 0.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.etopo2022.E1.shift_error_median_m": {
+  "value": -0.43,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.etopo2022.E2.emergence_corrected_better": {
+  "value": "yes",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.etopo2022.E2.emergence_err_corrected_km2": {
+  "value": 3.6,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.etopo2022.E2.emergence_err_uncorrected_km2": {
+  "value": 352.3,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.etopo2022.E2.n_heldout_units": {
+  "value": 11,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.etopo2022.E2.share_extrapolated": {
+  "value": 0.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.etopo2022.E2.shift_error_median_m": {
+  "value": -0.57,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.etopo2022.E3.emergence_corrected_better": {
+  "value": "no",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.etopo2022.E3.emergence_err_corrected_km2": {
+  "value": 2596.4,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.etopo2022.E3.emergence_err_uncorrected_km2": {
+  "value": 369.0,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.etopo2022.E3.n_heldout_units": {
+  "value": 22,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.etopo2022.E3.share_extrapolated": {
+  "value": 1.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.etopo2022.E3.shift_error_median_m": {
+  "value": -0.6,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.gebco2022.E1.emergence_corrected_better": {
+  "value": "yes",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.gebco2022.E1.emergence_err_corrected_km2": {
+  "value": 264.6,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.gebco2022.E1.emergence_err_uncorrected_km2": {
+  "value": 426.3,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.gebco2022.E1.n_heldout_units": {
+  "value": 10,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.gebco2022.E1.share_extrapolated": {
+  "value": 0.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.gebco2022.E1.shift_error_median_m": {
+  "value": 1.34,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.gebco2022.E2.emergence_corrected_better": {
+  "value": "yes",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.gebco2022.E2.emergence_err_corrected_km2": {
+  "value": 625.9,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.gebco2022.E2.emergence_err_uncorrected_km2": {
+  "value": 1239.5,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.gebco2022.E2.n_heldout_units": {
+  "value": 11,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.gebco2022.E2.share_extrapolated": {
+  "value": 0.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.gebco2022.E2.shift_error_median_m": {
+  "value": 0.17,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.gebco2022.E3.emergence_corrected_better": {
+  "value": "no",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.gebco2022.E3.emergence_err_corrected_km2": {
+  "value": 2837.6,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.gebco2022.E3.emergence_err_uncorrected_km2": {
+  "value": 917.5,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.gebco2022.E3.n_heldout_units": {
+  "value": 22,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.gebco2022.E3.share_extrapolated": {
+  "value": 0.09,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.gebco2022.E3.shift_error_median_m": {
+  "value": -1.4,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.gebco2026.E1.emergence_corrected_better": {
+  "value": "yes",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.gebco2026.E1.emergence_err_corrected_km2": {
+  "value": 274.2,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.gebco2026.E1.emergence_err_uncorrected_km2": {
+  "value": 433.7,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.gebco2026.E1.n_heldout_units": {
+  "value": 10,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.gebco2026.E1.share_extrapolated": {
+  "value": 0.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.gebco2026.E1.shift_error_median_m": {
+  "value": 1.18,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.gebco2026.E2.emergence_corrected_better": {
+  "value": "yes",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.gebco2026.E2.emergence_err_corrected_km2": {
+  "value": 611.4,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.gebco2026.E2.emergence_err_uncorrected_km2": {
+  "value": 1206.3,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.gebco2026.E2.n_heldout_units": {
+  "value": 11,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.gebco2026.E2.share_extrapolated": {
+  "value": 0.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.gebco2026.E2.shift_error_median_m": {
+  "value": -0.06,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.gebco2026.E3.emergence_corrected_better": {
+  "value": "no",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.gebco2026.E3.emergence_err_corrected_km2": {
+  "value": 2804.7,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.gebco2026.E3.emergence_err_uncorrected_km2": {
+  "value": 1620.4,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.gebco2026.E3.n_heldout_units": {
+  "value": 22,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.gebco2026.E3.share_extrapolated": {
+  "value": 0.09,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.gebco2026.E3.shift_error_median_m": {
+  "value": -1.37,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.srtm15p.E1.emergence_corrected_better": {
+  "value": "yes",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.srtm15p.E1.emergence_err_corrected_km2": {
+  "value": 276.7,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.srtm15p.E1.emergence_err_uncorrected_km2": {
+  "value": 433.7,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.srtm15p.E1.n_heldout_units": {
+  "value": 10,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.srtm15p.E1.share_extrapolated": {
+  "value": 0.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.srtm15p.E1.shift_error_median_m": {
+  "value": 0.81,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.srtm15p.E2.emergence_corrected_better": {
+  "value": "yes",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.srtm15p.E2.emergence_err_corrected_km2": {
+  "value": 573.1,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.srtm15p.E2.emergence_err_uncorrected_km2": {
+  "value": 1206.3,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.srtm15p.E2.n_heldout_units": {
+  "value": 11,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.srtm15p.E2.share_extrapolated": {
+  "value": 0.0,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.srtm15p.E2.shift_error_median_m": {
+  "value": 0.67,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
+ "h3.transfer.srtm15p.E3.emergence_corrected_better": {
+  "value": "no",
+  "unit": "text",
+  "source": "emergence/main/transfer.csv"
+ },
+ "h3.transfer.srtm15p.E3.emergence_err_corrected_km2": {
+  "value": 3776.5,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "median absolute emergence error of the corrected product at the held-out epoch's scored units"
+ },
+ "h3.transfer.srtm15p.E3.emergence_err_uncorrected_km2": {
+  "value": 2202.5,
+  "unit": "km2",
+  "source": "emergence/main/transfer.csv",
+  "note": "the same for the uncorrected product"
+ },
+ "h3.transfer.srtm15p.E3.n_heldout_units": {
+  "value": 22,
+  "unit": "units",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out usable units of the fold"
+ },
+ "h3.transfer.srtm15p.E3.share_extrapolated": {
+  "value": 0.36,
+  "unit": "fraction",
+  "source": "emergence/main/transfer.csv",
+  "note": "held-out units deeper than the fold's training range"
+ },
+ "h3.transfer.srtm15p.E3.shift_error_median_m": {
+  "value": -1.33,
+  "unit": "m",
+  "source": "emergence/main/transfer.csv",
+  "note": "median predicted minus held-out matching shift"
+ },
  "h3.verdict.etopo1": {
   "value": "partial",
   "unit": "text",

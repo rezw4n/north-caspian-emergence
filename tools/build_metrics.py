@@ -383,6 +383,21 @@ def h3_metrics(m: dict, tag: str) -> None:
                 what + "; lo/hi at the equivalent levels of the area-interval bounds")
             if r.rule == "length":
                 m[f"{b}.{name}"]["decimals"] = 1   # km to 0.1; areas follow the km2 convention (0 dp)
+    tr = pd.read_csv(em / "transfer.csv")       # PREREG section 10 leave-one-epoch-out transfer test
+    ft = f"emergence/{tag}/transfer.csv"
+    for r in tr[(tr["region"] == "domain") & (tr["form"] == "linear_hold")].itertuples():
+        b = f"h3.transfer.{PRODUCT_KEY[r.product]}.{r.fold}"
+        put(m, f"{b}.n_heldout_units", int(r.n_heldout_usable), "units", ft, "held-out usable units of the fold")
+        put(m, f"{b}.shift_error_median_m", round(float(r.shift_transfer_median_m), 2), "m", ft,
+            "median predicted minus held-out matching shift")
+        put(m, f"{b}.share_extrapolated", round(float(r.share_extrapolated), 2), "fraction", ft,
+            "held-out units deeper than the fold's training range")
+        put(m, f"{b}.emergence_err_corrected_km2", round(float(r.emergence_median_abs_corrected_km2), 1), "km2", ft,
+            "median absolute emergence error of the corrected product at the held-out epoch's scored units")
+        put(m, f"{b}.emergence_err_uncorrected_km2", round(float(r.emergence_median_abs_uncorrected_km2), 1), "km2",
+            ft, "the same for the uncorrected product")
+        put(m, f"{b}.emergence_corrected_better", "yes" if r.emergence_median_abs_corrected_km2
+            < r.emergence_median_abs_uncorrected_km2 else "no", "text", ft)
     sd = pd.read_csv(em / "scenario_dates.csv")
     fs = f"emergence/{tag}/scenario_dates.csv"
     for r in sd.itertuples():
