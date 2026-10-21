@@ -269,9 +269,12 @@ def results_metrics(m: dict, tag: str = "main") -> None:
         lb = lb[lb.variant == "shape"]
         names = {"(-29.0, -28.3]": "below_m28p3", "(-28.3, -27.7]": "m28p3_m27p7", "(-27.7, -27.0]": "m27p7_m27p0",
                  "(-27.0, -26.3]": "m27p0_m26p3", "(-26.3, -25.5]": "above_m26p3"}
-        for r in lb.itertuples():
+        # records, not itertuples: itertuples renames the column "srtm15p_v2.7" (not an
+        # identifier), which silently dropped SRTM15+ from these keys
+        for r in lb.to_dict("records"):
             for p, k in PRODUCT_KEY.items():
-                put(m, f"h1.disp_band.{names.get(r.band, r.band)}.{k}_km", round(getattr(r, p) / 1000, 2) if hasattr(r, p) else None,
+                put(m, f"h1.disp_band.{names.get(r['band'], r['band'])}.{k}_km",
+                    round(float(r[p]) / 1000, 2) if p in r and pd.notna(r[p]) else None,
                     "km", f"hindcast/{tag}/displacement_by_level_band.csv")
         es = load(f"hindcast/{tag}/etopo2022_sources_emerged_band.json")
         for name, share in es.get("share", {}).items():
