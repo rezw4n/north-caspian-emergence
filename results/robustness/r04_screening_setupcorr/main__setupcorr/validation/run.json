@@ -1,0 +1,15 @@
+{
+ "check": "r04_screening_setupcorr",
+ "variant": "main__setupcorr",
+ "main": "main",
+ "created": "2026-10-21T03:07:15Z",
+ "note": "r04_screening_setupcorr",
+ "sources": {
+  "ATL08": {
+   "n_main_points": 470645,
+   "n_alt_points": 470645,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 470645
+  }
+ }
+}

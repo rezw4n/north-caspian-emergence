@@ -1,0 +1,151 @@
+{
+ "check": "r06_datums_sectorshape",
+ "created": "2026-10-21T08:30:27Z",
+ "by_product": {
+  "etopo1|shape": {
+   "mispredicts_in_primary": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ],
+   "mispredicts_in_variant": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ],
+   "changed_sectors": [],
+   "block_test_main_fixed": {
+    "statistic_m": 4621.687301408234,
+    "p": 0.0166983301669833,
+    "significant": true
+   },
+   "block_test_alt": {
+    "statistic_m": 6588.467666396044,
+    "p": 9.999000099990002e-05,
+    "significant": true
+   }
+  },
+  "etopo_2022|shape": {
+   "mispredicts_in_primary": [
+    "ural"
+   ],
+   "mispredicts_in_variant": [
+    "ural"
+   ],
+   "changed_sectors": [],
+   "block_test_main_fixed": {
+    "statistic_m": -1812.935287911408,
+    "p": 1.0,
+    "significant": false
+   },
+   "block_test_alt": {
+    "statistic_m": -1239.9576338613574,
+    "p": 0.9972002799720028,
+    "significant": false
+   }
+  },
+  "gebco_2022|shape": {
+   "mispredicts_in_primary": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ],
+   "mispredicts_in_variant": [
+    "interfluve",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ],
+   "changed_sectors": [
+    "komsomolets"
+   ],
+   "block_test_main_fixed": {
+    "statistic_m": 3799.914475768837,
+    "p": 0.0097990200979902,
+    "significant": true
+   },
+   "block_test_alt": {
+    "statistic_m": 8020.824701171758,
+    "p": 9.999000099990002e-05,
+    "significant": true
+   }
+  },
+  "gebco_2026|shape": {
+   "mispredicts_in_primary": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ],
+   "mispredicts_in_variant": [
+    "interfluve",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ],
+   "changed_sectors": [
+    "komsomolets"
+   ],
+   "block_test_main_fixed": {
+    "statistic_m": 4253.503739916909,
+    "p": 0.0062993700629937,
+    "significant": true
+   },
+   "block_test_alt": {
+    "statistic_m": 7519.934131022868,
+    "p": 9.999000099990002e-05,
+    "significant": true
+   }
+  },
+  "srtm15p_v2.7|shape": {
+   "mispredicts_in_primary": [
+    "interfluve",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ],
+   "mispredicts_in_variant": [
+    "interfluve",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ],
+   "changed_sectors": [],
+   "block_test_main_fixed": {
+    "statistic_m": 1925.9621253192072,
+    "p": 0.1397860213978602,
+    "significant": false
+   },
+   "block_test_alt": {
+    "statistic_m": 7344.389235206587,
+    "p": 0.0002999700029997,
+    "significant": true
+   }
+  }
+ },
+ "source": "results/hindcast/main_sectorshape",
+ "note": "per-sector D-070 constants (red team); its 'total' rows against the primary's shape rows"
+}

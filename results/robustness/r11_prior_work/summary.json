@@ -1,0 +1,115 @@
+{
+ "check": "r11_prior_work",
+ "created": "2026-10-21T01:10:01Z",
+ "main": "main",
+ "published": {
+  "key": "lit.akbari2020.nc_area_per_m_km2",
+  "value_km2_per_m": 7103.0,
+  "range_m": [
+   -29.0,
+   -26.0
+  ]
+ },
+ "ours": {
+  "n_units": 3,
+  "n_left_out": 34,
+  "slope_km2_per_m": 28623.599999999762,
+  "ci_low": 6739.127999999436,
+  "ci_high": 50508.07200000712,
+  "level_range_m": [
+   -26.55,
+   -26.35
+  ],
+  "sector": "all",
+  "sample": "full",
+  "area_col": "area_sea_km2"
+ },
+ "caveats": [
+  "different regions (their Northern Caspian, our domain)",
+  "their area is the flooded part of the 1977-1995 band; ours the sea-connected observed water",
+  "levels: theirs BHS (instrumental), ours DAHITI; a constant offset does not change a slope"
+ ],
+ "ours_by_epoch": {
+  "E1": {
+   "n_units": 2,
+   "n_left_out": 4,
+   "slope_km2_per_m": NaN
+  },
+  "E2": {
+   "n_units": 3,
+   "n_left_out": 6,
+   "slope_km2_per_m": 28623.599999999762,
+   "ci_low": 6739.127999999436,
+   "ci_high": 50508.07200000712,
+   "level_range_m": [
+    -26.55,
+    -26.35
+   ],
+   "sector": "all",
+   "sample": "full",
+   "area_col": "area_sea_km2"
+  },
+  "E3": {
+   "n_units": 7,
+   "n_left_out": 15,
+   "slope_km2_per_m": 5691.050370629296,
+   "ci_low": 4118.941317073179,
+   "ci_high": 6977.513425843495,
+   "level_range_m": [
+    -28.55,
+    -26.95
+   ],
+   "sector": "all",
+   "sample": "full",
+   "area_col": "area_sea_km2"
+  }
+ },
+ "ours_sea_plus_unknown": {
+  "n_units": 3,
+  "n_left_out": 34,
+  "slope_km2_per_m": 17922.473999999846,
+  "ci_low": 10816.451999999155,
+  "ci_high": 25028.496000003324,
+  "level_range_m": [
+   -26.55,
+   -26.35
+  ],
+  "sector": "all",
+  "sample": "full",
+  "area_col": "area_sea_plus_unknown_km2"
+ },
+ "ours_no_valid_filter": {
+  "n_units": 37,
+  "n_left_out": 0,
+  "slope_km2_per_m": -301.6669623387484,
+  "ci_low": -7539.189349061568,
+  "ci_high": 6048.407477637891,
+  "level_range_m": [
+   -28.75,
+   -26.05
+  ],
+  "sector": "all",
+  "sample": "full",
+  "area_col": "area_sea_km2"
+ },
+ "dem_hypsometry_km2_per_m": {
+  "range_-29.0_-26.0": {
+   "area_all_dem_km2": 80041.76100000003,
+   "area_emerged_band_km2": 34002.874800000005,
+   "km2_per_m_emerged_band": 11334.291600000002
+  },
+  "range_-29.5_-26.5": {
+   "area_all_dem_km2": 47872.6038,
+   "area_emerged_band_km2": 21674.0277,
+   "km2_per_m_emerged_band": 7224.675899999999
+  },
+  "range_-28.5_-25.5": {
+   "area_all_dem_km2": 68979.95100000002,
+   "area_emerged_band_km2": 31833.225,
+   "km2_per_m_emerged_band": 10611.074999999999
+  },
+  "emerged_band_dem_cells_km2": 34042.0626
+ },
+ "dem_hypsometry_note": "DEM area between the heights divided by the height range; DAHITI reference, so the range is also shifted by +-0.5 m for an unknown DAHITI - BHS offset; the DEM covers the emerged band only (TIN hull within the stage-2 cover)",
+ "sources": "refs/literature_values.csv (verbatim quote, Table 1 of Akbari et al. 2020); no new citation"
+}

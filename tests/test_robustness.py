@@ -812,3 +812,130 @@ def test_r00_pipeline_dem_difference(tmp_path, monkeypatch):
     assert t.loc["overall", "n_cells"] == n * n - 5 and t.loc["overall", "cells_only_main"] == 5
     assert t.loc["overall", "mean_m"] == pytest.approx(0.05, abs=1e-6)
     assert t.loc["overall", "median_m"] == pytest.approx(0.05, abs=1e-3)
+
+
+def _main_like_plan(seed=13):
+    acq, _ = _acquisitions(n=40, seed=seed)
+    plan = _plan_from_acq(acq, scenes_per_acq=2)
+    rng = np.random.default_rng(seed)
+    for s in SECTOR_ORDER:
+        plan[f"setup_{s}_m"] = rng.normal(0, 0.15, len(plan))
+    plan["threshold"] = 0.2
+    plan["sectors"], plan["mask_mode"] = "", "exclude"
+    plan["sensor"] = np.where(np.arange(len(plan)) % 3 == 0, "TM_L5", "ETM_L7")
+    plan["t"] = plan["t"].astype(str)
+    return plan
+
+
+def test_r18_build_plan_alternatives():
+    r18 = _script("r18_rblock_export")
+    plan = _main_like_plan()
+    f0 = r18.build_plan("fixed_mndwi0", plan)
+    assert (f0["rows"]["threshold"] == 0.0).all() and f0["kind"] == "full" and f0["region"] == "R"
+    assert (plan["threshold"] == 0.2).all()                       # the main plan is not modified
+    t = r18.build_plan("tau015", plan)
+    ex = R.exclusion(plan, 0.15)
+    assert t["kind"] == "sub" and len(t["rows"]) == int(ex.any(axis=1).sum())
+    assert (t["rows"]["mask_mode"] == "include").all()
+    tm = r18.build_plan("sub_tm", plan)
+    assert set(tm["rows"]["sensor"]) == {"TM_L5"} and (tm["rows"]["mask_mode"] == "exclude").all()
+    b5 = r18.build_plan("bins005", plan)
+    fine = b5["rows"]["group"].str.extract(r"_b(\d{3})_")[0].astype(int)
+    assert ((fine // 2) == b5["rows"]["bin"]).all()               # 0.05 m bins nest in the 0.10 m bins
+    plan.loc[:5, "epoch"] = "E1"
+    plan.loc[:5, "t"] = "1995-07-10 06:30:00"
+    k1 = r18.build_plan("e1_end_k1", plan)
+    assert k1["n_window_scenes"] == 6 and k1["rows_add"]["group"].str.startswith("E2_").all()
+    with pytest.raises(SystemExit):
+        r18.build_plan("bogus", plan)
+
+
+def test_r00_pipeline_epoch_filter_and_main_files(tmp_path, monkeypatch):
+    import json
+    P = _script("r00_pipeline")
+    d = tmp_path / "validation" / "m"
+    d.mkdir(parents=True)
+    pd.DataFrame({"scope": ["overall"], "model": ["dem"], "n": [10], "bias": [0.1], "rmse": [0.2], "nmad": [0.3],
+                  "p05": [-0.1], "p95": [0.4]}).to_csv(d / "ATL06_accuracy.csv", index=False)
+    pd.DataFrame({"scope": ["overall"], "coverage": [0.9], "ci_low": [0.8], "ci_high": [0.95], "n": [10]}).to_csv(
+        d / "ATL06_coverage.csv", index=False)
+    pd.DataFrame({"scope": ["overall"], "product": ["x"], "variant": ["matched"], "metric": ["nmad"], "diff": [-0.1],
+                  "ci_low": [-0.2], "ci_high": [0.0]}).to_csv(d / "ATL06_paired_bootstrap.csv", index=False)
+    (d / "ATL06_datum_constant.json").write_text(json.dumps({"constant": {"constant_m": 0.7}}), encoding="utf-8")
+    monkeypatch.setattr(P, "RESULTS", tmp_path)
+    r = P.main_from_files("m", "ATL06")
+    h = R.validation_headline(r)
+    assert h.loc[(h["table"] == "accuracy") & (h["quantity"] == "nmad"), "value"].iloc[0] == 0.3
+    assert h.loc[h["table"] == "constant", "value"].iloc[0] == 0.7
+
+
+def test_r19_rebin_streaming_equals_build(tmp_path, monkeypatch):
+    r19 = _script("r19_local_runs")
+    C = r19.P.script("r00_counts")
+    acq, masks = _acquisitions(n=40, seed=21)
+    _write_main_tag(tmp_path, acq, masks, tag="m")
+    monkeypatch.setattr(r19, "INTERIM", tmp_path.parent)
+    stage = tmp_path.parent / "stage2"
+    stage.mkdir(exist_ok=True)
+    import shutil
+    shutil.copytree(tmp_path / "m", stage / "m", dirs_exist_ok=True)
+    r19.rebin_streaming("m", "m_bw", 2)
+    C.build("m_bw_ref", ["m"], bin_factor=2, root=stage)
+    _, a = R.load_tile(stage / "m_bw" / "tile_0_0.npz")
+    _, b = R.load_tile(stage / "m_bw_ref" / "tile_0_0.npz")
+    assert set(a) == set(b) and all(np.array_equal(a[k], b[k]) for k in b)
+    assert C.bin_width_of("m_bw", stage) == pytest.approx(0.20)
+
+
+def test_r19_main_window_assembles_adjacent_tiles(tmp_path, monkeypatch):
+    r19 = _script("r19_local_runs")
+    st = tmp_path / "stage2" / "main"
+    a = np.zeros((4, 6), np.uint16)
+    a[:, :5] = 3                      # tile A covers columns 0-4 (column 5 outside its region)
+    b = np.zeros((4, 6), np.uint16)
+    b[:, 1:] = 5                      # tile B starts at column 5 of A's grid (shared column 5)
+    R.write_tile(st / "tile_0_0.npz", [60, 0, 0, 0, -60, 240], {"v_E3_b010_p0": a})
+    R.write_tile(st / "tile_1_0.npz", [60, 0, 240, 0, -60, 240], {"v_E3_b010_p0": b})
+    monkeypatch.setattr(r19, "INTERIM", tmp_path)
+    w = r19.main_window([60, 0, 120, 0, -60, 240], (6, 4), ["v_E3_b010_p0"])["v_E3_b010_p0"]
+    # block columns 0-2 are A's columns 2-4 (3), block column 3 is A's 5 / B's 1 (5), then B (5)
+    assert w[0].tolist() == [3, 3, 3, 5, 5, 5]
+
+
+def test_r19_vegetation_streaming_equals_build(tmp_path, monkeypatch):
+    r19 = _script("r19_local_runs")
+    C = r19.P.script("r00_counts")
+    acq, masks = _acquisitions(n=40, seed=23)
+    arrays = _write_main_tag(tmp_path, acq, masks, tag="m")
+    monkeypatch.setattr(r19, "INTERIM", tmp_path.parent)
+    stage = tmp_path.parent / "stage2"
+    stage.mkdir(exist_ok=True)
+    import shutil
+    shutil.copytree(tmp_path / "m", stage / "m", dirs_exist_ok=True)
+    for mode in ("as_dry", "as_water"):
+        rec = r19.vegetation_streaming("m", f"m_{mode}", mode)
+        C.build(f"m_{mode}_ref", ["m"], vegetation=mode, root=stage)
+        _, a = R.load_tile(stage / f"m_{mode}" / "tile_0_0.npz")
+        _, b = R.load_tile(stage / f"m_{mode}_ref" / "tile_0_0.npz")
+        assert set(a) == set(b) and all(np.array_equal(a[k], b[k]) for k in b)
+        o = sum(int(v.sum()) for k, v in arrays.items() if k.startswith("o_"))
+        v = sum(int(x.sum()) for k, x in arrays.items() if k.startswith("v_"))
+        assert rec["share_observations_vegetation"] == pytest.approx((o - v) / o)
+        assert C.bin_width_of(f"m_{mode}", stage) == pytest.approx(0.10)
+
+
+def test_r20_verdict_records_why():
+    r20 = _script("r20_verdicts")
+    same = {"primary": "not supported", "variant": "not supported",
+            "sectors_supported_primary": ["west"], "sectors_supported_variant": ["west"]}
+    h2 = {"ATL08": {"dem": {"overall|nmad": [0.30, 0.31], "overall|bias": [0.02, 0.03]},
+                    "coverage": {}, "h2_matched": same, "h2_total": same}}
+    v, n, why = r20.h2_variant(h2)
+    assert v == "robust" and why == [] and n["atl08.dem_nmad_m"] == 0.31
+    h2["ATL08"]["dem"]["overall|nmad"] = [0.30, 0.36]
+    h2["ATL08"]["h2_total"] = {**same, "sectors_supported_variant": []}
+    v, n, why = r20.h2_variant(h2)
+    assert v == "partly sensitive" and len(why) == 2 and "+20%" in why[0]
+    h2["ATL08"]["h2_matched"] = {**same, "variant": "supported"}
+    v, _, why = r20.h2_variant(h2)
+    assert v == "sensitive" and any("not supported -> supported" in x for x in why)

@@ -1,0 +1,30 @@
+{
+ "main": "main",
+ "published": {
+  "key": "lit.akbari2020.nc_area_per_m_km2",
+  "value_km2_per_m": 7103.0,
+  "range_m": [
+   -29.0,
+   -26.0
+  ]
+ },
+ "ours": {
+  "n_units": 3,
+  "n_left_out": 34,
+  "slope_km2_per_m": 28623.599999999762,
+  "ci_low": 6739.127999999436,
+  "ci_high": 50508.07200000712,
+  "level_range_m": [
+   -26.55,
+   -26.35
+  ],
+  "sector": "all",
+  "sample": "full",
+  "area_col": "area_sea_km2"
+ },
+ "caveats": [
+  "different regions (their Northern Caspian, our domain)",
+  "their area is the flooded part of the 1977-1995 band; ours the sea-connected observed water",
+  "levels: theirs BHS (instrumental), ours DAHITI; a constant offset does not change a slope"
+ ]
+}

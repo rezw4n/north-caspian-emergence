@@ -315,6 +315,14 @@ METRIC_INPUTS := $(INV_META) results/study_area/sector_areas.json results/study_
                  results/levels/screening_sensitivity.json results/levels/dahiti_bhs_offset.json \
                  results/generality/great_salt_lake/h1_decision.json results/generality/great_salt_lake/status.json \
                  results/generality/lake_urmia/status.json
+METRIC_INPUTS += results/robustness/verdicts.json
+
+# Robustness verdicts (brief section 10; rule D-092) from the per-check summaries that
+# scripts/r19_local_runs.py writes (the R-block ones after the scripts/r18_rblock_export.py
+# exports). Only the verdict step runs here: the checks themselves are heavy or need EE.
+ROB_SUMMARIES := $(wildcard results/robustness/*/summary.json)
+results/robustness/verdicts.json: scripts/r20_verdicts.py $(ROB_SUMMARIES) | $(VERIFIED)
+	$(PYTHON) scripts/r20_verdicts.py
 
 # DAHITI -> BHS-77 offset from the CASPCOM post levels (PREREG section 5; D-093). The script
 # stops if $(CASPCOM) differs from its acquisition record. Also writes the annual differences.

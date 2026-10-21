@@ -1,0 +1,21 @@
+{
+ "check": "r12_static_rule",
+ "variant": "main__nostatic",
+ "main": "main",
+ "created": "2026-10-21T06:03:37Z",
+ "note": "r12_static_rule (added source)",
+ "sources": {
+  "ATL08": {
+   "n_main_points": 470645,
+   "n_alt_points": 470645,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 470645
+  },
+  "ATL06": {
+   "n_main_points": 4948820,
+   "n_alt_points": 4948820,
+   "block_size_m": 50000.0,
+   "n_alt_with_dem": 4948820
+  }
+ }
+}

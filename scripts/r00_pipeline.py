@@ -154,6 +154,56 @@ def main_validation(main_tag: str, source: str, n_boot: int = design.BOOTSTRAP_N
     return _MAIN_RUNS[key]
 
 
+LIGHT_COLUMNS = ("lat", "lon", "time", "h_orth", "x", "y", "dem_h", "interp_dist", "slope", "contour_density")
+
+
+def load_points_light(tag: str, source: str, population: str = "bare", chunk: int = 1_000_000,
+                      row_filter=None) -> pd.DataFrame:
+    """The rows of scripts/a6_validate_dem._load_points(tag, source, population), read in
+    chunks with only the columns validation.run and the robustness variants use (the
+    coordinates, time, reference height, the DEM columns and the product heights), so a
+    10-million-row table fits in little memory. Needs the D-084 annotation cache
+    (<source>_annotations.npz) of the primary, checked against the row count.
+    ``row_filter(chunk) -> bool array`` keeps a further subset (e.g. some blocks)."""
+    a6v = script("a6_validate_dem")
+    path = a6v._cache(tag, source)
+    ann = np.load(INTERIM / "validation" / tag / f"{source}_annotations.npz")
+    in_band, veg = ann["in_band"], ann["veg_share"]
+    head = pd.read_csv(path, nrows=0).columns
+    cols = [c for c in head if c in LIGHT_COLUMNS or c.startswith("prod:")]
+    parts, k = [], 0
+    for d in pd.read_csv(path, usecols=cols, chunksize=chunk):
+        n = len(d)
+        ib, vs = in_band[k:k + n], veg[k:k + n]
+        if population == "bare":
+            keep = ib & (vs < a6v.VEG_CELL_SHARE)
+        elif population == "vegetated":
+            keep = ib & (vs >= a6v.VEG_CELL_SHARE)
+        elif population == "all":
+            keep = np.ones(n, bool)
+        else:
+            raise ValueError(population)
+        if row_filter is not None:
+            keep = keep & np.asarray(row_filter(d), bool)
+        parts.append(d.loc[keep].assign(in_band=ib[keep], veg_share=vs[keep]))
+        k += n
+    if k != len(in_band):
+        raise ValueError(f"{source}: the annotation cache has {len(in_band)} rows, the table {k}")
+    out = pd.concat(parts, ignore_index=True)
+    out["time"] = pd.to_datetime(out["time"], format="ISO8601").to_numpy().astype("datetime64[ns]")
+    return out
+
+
+def main_from_files(main_tag: str, source: str) -> dict:
+    """The primary validation result of one source as written by scripts/a6_validate_dem.py
+    evaluate (results/validation/<main>/), in the form robustness.validation_headline
+    reads, so that the primary is compared as registered and not recomputed."""
+    d = _need(RESULTS / "validation" / main_tag, "the primary validation results")
+    return {"accuracy": pd.read_csv(d / f"{source}_accuracy.csv"), "coverage": pd.read_csv(d / f"{source}_coverage.csv"),
+            "paired_bootstrap": pd.read_csv(d / f"{source}_paired_bootstrap.csv"),
+            "constant": json.loads((d / f"{source}_datum_constant.json").read_text(encoding="utf-8"))["constant"]}
+
+
 def variant_dem_points(variant: str):
     """Callable for compare_validation: the DEM columns from the variant DEM and contours."""
     def f(points: pd.DataFrame, source: str) -> pd.DataFrame:
@@ -174,7 +224,7 @@ def _write_result(d: Path, prefix: str, r: dict) -> None:
 
 def compare_validation(check: str, variant: str, main_tag: str, *, sources=("ATL06", "ATL08"), alt_points=None,
                        alt_block_size: float | None = None, alt_blocks: pd.DataFrame | None = None, post_blocks=None,
-                       alt_run=None, n_boot: int = design.BOOTSTRAP_N, note: str = "") -> dict:
+                       alt_run=None, n_boot: int = design.BOOTSTRAP_N, note: str = "", main_from: str = "files") -> dict:
     """Validation of a variant, paired with the main run on the same ICESat-2 points.
 
     ``alt_points(points, source)`` returns the variant's point table (default:
@@ -183,13 +233,18 @@ def compare_validation(check: str, variant: str, main_tag: str, *, sources=("ATL
     ``alt_blocks`` a block table of that size (e.g. reassigned splits);
     ``post_blocks(points)`` edits the table after the blocks are attached (split swap,
     Amendment 8 exclusion); ``alt_run(points, products)`` replaces validation.run (e.g.
-    robustness.run_fixed for check 6). ATL06 and ATL08 are never pooled (D-069)."""
+    robustness.run_fixed for check 6). ATL06 and ATL08 are never pooled (D-069).
+    ``main_from``: "files" compares with the primary tables as written (default), or
+    "recompute" reruns validation.run on the primary points with this n_boot."""
     out = out_dir(check, variant) / "validation"
     a6v = script("a6_validate_dem")
     rec = {"check": check, "variant": variant, "main": main_tag, "created": _now(), "note": note, "sources": {}}
     for source in sources:
-        main_pts, rm = main_validation(main_tag, source, n_boot)
-        base = a6v._load_points(main_tag, source)
+        base = load_points_light(main_tag, source)
+        if main_from == "files":
+            main_pts, rm = base, main_from_files(main_tag, source)
+        else:
+            main_pts, rm = main_validation(main_tag, source, n_boot)
         alt = alt_points(base, source) if alt_points else base
         size = float(alt_block_size or final_block_size(main_tag))
         alt = validation.attach_blocks(alt, a6v._blocks(size) if alt_blocks is None else alt_blocks, size)
@@ -202,8 +257,13 @@ def compare_validation(check: str, variant: str, main_tag: str, *, sources=("ATL
         ha.to_csv(out / f"{source}_headline_alt.csv", index=False)
         R.compare_headlines(hm, ha).to_csv(out / f"{source}_compare.csv", index=False)
         rec["sources"][source] = {"n_main_points": len(main_pts), "n_alt_points": len(alt), "block_size_m": size,
-                                  "n_alt_with_dem": int(np.isfinite(alt["dem_h"]).sum())}
+                                  "n_alt_with_dem": int(np.isfinite(alt["dem_h"]).sum()), "n_boot": n_boot,
+                                  "main_from": main_from}
         print(check, variant, source, "validated", flush=True)
+    prev = out / "run.json"
+    if prev.exists():                      # keep the sources of earlier calls (one source at a time)
+        old = json.loads(prev.read_text(encoding="utf-8"))
+        rec["sources"] = {**old.get("sources", {}), **rec["sources"]}
     (out / "run.json").write_text(json.dumps(rec, indent=1), encoding="utf-8")
     return rec
 
@@ -299,12 +359,17 @@ def _sha(path) -> str:
 def hindcast_step(check: str, variant: str, main_tag: str, *, stage2_tag: str | None = None,
                   vertical_correction: str | None = None, correction_is_variant: bool = False,
                   resampling: str | None = None, shape: str = "fit", bin_level=None, blocks_csv=None,
-                  block_m: float | None = None, sector_labels: str | None = None, note: str = "") -> Path:
+                  block_m: float | None = None, sector_labels: str | None = None, note: str = "",
+                  drop_epochs=(), envelope: bool = True) -> Path:
     """scripts/a7_hindcast.run for a variant, set up as the main run (see the module
     docstring), into results/robustness/<check>/<variant>/hindcast/, and the H1
     comparison. ``stage2_tag`` defaults to the variant (the main tag for variants of the
     products or the correction). ``bin_level(b)`` overrides the level of bin b (bin
-    width or level-shift variants)."""
+    width or level-shift variants). ``drop_epochs``: epochs left out of every unit,
+    product side and noise floor alike (E1 for the E2 + E3 check). ``envelope``: the
+    record-low water envelope of the primary (D-082), from the same stage-2 tag.
+    ``shape`` "loeo:<epoch>" takes the main run's leave-one-epoch-out shape constants
+    without that epoch, which equal a refit on the remaining epochs' units."""
     from caspian import h1, products
     from caspian.geography import DOMAIN
     a7 = script("a7_hindcast")
@@ -343,32 +408,57 @@ def hindcast_step(check: str, variant: str, main_tag: str, *, stage2_tag: str | 
         so = json.loads(_need(main_dir / "shape_offsets.json", "the main shape fit").read_text(encoding="utf-8"))
         shape_offsets = {p: {"offset_m": v["offset_m"], "source": f"main run {main_tag} (frozen)"}
                          for p, v in so["used_in_this_run"].items()}
+    elif shape.startswith("loeo:"):
+        ep = shape.split(":", 1)[1]
+        so = json.loads(_need(main_dir / "shape_offsets.json", "the main shape fit").read_text(encoding="utf-8"))
+        shape_offsets = {p: {"offset_m": v["leave_one_epoch_out"][ep]["offset_m"],
+                             "source": f"main run {main_tag}, leave-one-epoch-out refit without {ep}"}
+                         for p, v in so["products"].items()}
     elif shape == "none":
         shape_offsets = None
     else:
-        raise ValueError("shape must be fit, main or none")
+        raise ValueError("shape must be fit, main, loeo:<epoch> or none")
     po = run_rec["product_offsets"] if isinstance(run_rec["product_offsets"], dict) else {}
     out = out_dir(check, variant) / "hindcast"
     meta = {"robustness_check": check, "variant": variant, "main": main_tag, "note": note, "resampling": resampling,
             "tile": tile, "vertical_correction": corr_rec or "none", "block_m": bm,
-            "blocks": str(blocks_csv or a7.BLOCKS), "shape": shape}
+            "blocks": str(blocks_csv or a7.BLOCKS), "shape": shape, "drop_epochs": list(drop_epochs)}
     stage2 = INTERIM / "stage2" / (stage2_tag or variant)
+    a7.ENVELOPE = a7.record_low_water(a7.stage2_index(stage2), transform, shape_) if envelope else None
+    meta["envelope"] = ({"rule": "D-082, as the primary", "cells": int(a7.ENVELOPE.sum())} if envelope
+                        else "none (sensitivity)")
+    orig_index = a7.stage2_index
+    if drop_epochs:
+        def filtered(src, _orig=orig_index, _drop=set(drop_epochs)):
+            u = {b: {e: v for e, v in eps.items() if e not in _drop} for b, eps in _orig(src).items()}
+            return {b: eps for b, eps in u.items() if eps}
+        a7.stage2_index = filtered
     if bin_level is None:
         width = script("r00_counts").bin_width_of(stage2_tag or variant, INTERIM / "stage2")
         bin_level = lambda b: float(levels.bin_center(b, width, design.BIN_ORIGIN_M))  # noqa: E731
-    with bin_levels(a7, bin_level):
-        a7.run(stage2, out, static, heights, transform, level_datum_offset=float(run_rec["level_datum"]["offset_m"]),
-               level_datum_source=run_rec["level_datum"]["source"], product_offsets=po, shape_offsets=shape_offsets,
-               fit_region=fit_region, flood_maps=flood_maps, blocks=blocks, block_m=bm, tile=tile, meta=meta)
+    try:
+        with bin_levels(a7, bin_level):
+            a7.run(stage2, out, static, heights, transform,
+                   level_datum_offset=float(run_rec["level_datum"]["offset_m"]),
+                   level_datum_source=run_rec["level_datum"]["source"], product_offsets=po,
+                   shape_offsets=shape_offsets, fit_region=fit_region, flood_maps=flood_maps, blocks=blocks,
+                   block_m=bm, tile=tile, meta=meta)
+    finally:
+        a7.stage2_index = orig_index
+        a7.ENVELOPE = None
     hm, ha = R.h1_headline(main_dir), R.h1_headline(out)
     R.compare_h1(hm, ha).to_csv(out / "h1_compare.csv", index=False)
     hm["area"].merge(ha["area"], on=["product", "variant"], suffixes=("_main", "_alt")).to_csv(
         out / "area_compare.csv", index=False)
     if sector_labels:
+        # the primary block table of the first run carries the D-089 sentinel; compare with the
+        # fixed rerun (results/hindcast/<main>_fix) when it exists, else report the variant alone
         lab = pd.read_csv(sector_labels)
-        bt = []
-        for name, d in (("main", main_dir), ("alt", out)):
-            bt.append(h1.block_test(pd.read_csv(d / "block_h1.csv"), lab).assign(run=name))
+        fixed = RESULTS / "hindcast" / f"{main_tag}_fix"
+        if not (fixed / "block_h1.csv").exists() and (main_dir / "d089_rerun_comparison.json").exists():
+            fixed = main_dir                   # the D-089 rerun replaced the primary block table
+        runs = [("alt", out)] + ([("main_fixed", fixed)] if (fixed / "block_h1.csv").exists() else [])
+        bt = [h1.block_test(pd.read_csv(d / "block_h1.csv"), lab).assign(run=name) for name, d in runs]
         pd.concat(bt, ignore_index=True).to_csv(out / "block_test_compare.csv", index=False)
     print(check, variant, "hindcast compared ->", out, flush=True)
     return out
@@ -399,7 +489,7 @@ def add_common(ap: argparse.ArgumentParser) -> None:
     ap.add_argument("--steps", default=",".join(STEPS))
     ap.add_argument("--sources", default="ATL06,ATL08")
     ap.add_argument("--vertical-correction", default=None)
-    ap.add_argument("--shape", default="fit", choices=["fit", "main", "none"])
+    ap.add_argument("--shape", default="fit", help="fit | main | loeo:<epoch> | none")
     ap.add_argument("--sector-labels", default=None)
     ap.add_argument("--n-boot", type=int, default=design.BOOTSTRAP_N)
 

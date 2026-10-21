@@ -1,0 +1,925 @@
+{
+ "created": "2026-10-21T08:32:30Z",
+ "rule": "DECISIONS D-092",
+ "checks": {
+  "check04": {
+   "variants": {
+    "setup_correction": {
+     "verdict": "robust",
+     "metrics": {
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.371429065723962,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.1153026398315753,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": 0.0323267036802719,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104740.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7522245560435363,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1,
+      "shift_p05_m": -0.06928571428571427,
+      "shift_p95_m": 0.1241125
+     },
+     "source": "results/robustness/r04_screening_setupcorr/summary.json",
+     "why": []
+    },
+    "komsomolets_screening": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "tau005cm.screened.scatter_median_m": 231.85970703244948,
+      "tau005cm.screened.scatter_p90_m": 1669.5269280508264,
+      "tau005cm.unscreened.scatter_median_m": 120.0,
+      "tau005cm.unscreened.scatter_p90_m": 486.6259408800271,
+      "tau010cm.screened.scatter_median_m": 169.7056274847714,
+      "tau010cm.screened.scatter_p90_m": 1336.8353907805063,
+      "tau010cm.unscreened.scatter_median_m": 120.0,
+      "tau010cm.unscreened.scatter_p90_m": 486.6259408800271,
+      "tau015cm.screened.scatter_median_m": 134.1640786499874,
+      "tau015cm.screened.scatter_p90_m": 1146.9089933495338,
+      "tau015cm.unscreened.scatter_median_m": 120.0,
+      "tau015cm.unscreened.scatter_p90_m": 486.6259408800271,
+      "tau020cm.screened.scatter_median_m": 120.0,
+      "tau020cm.screened.scatter_p90_m": 844.695333483798,
+      "tau020cm.unscreened.scatter_median_m": 120.0,
+      "tau020cm.unscreened.scatter_p90_m": 486.6259408800271,
+      "tau030cm.screened.scatter_median_m": 120.0,
+      "tau030cm.screened.scatter_p90_m": 481.90119228657056,
+      "tau030cm.unscreened.scatter_median_m": 120.0,
+      "tau030cm.unscreened.scatter_p90_m": 486.6259408800271
+     },
+     "source": "results/robustness/r04_screening_komsomolets/summary.json",
+     "why": [
+      "screening lowers the p90 scatter at tau 0.30 m: 486.6 -> 481.9 m"
+     ]
+    },
+    "tau015_R": {
+     "verdict": "robust",
+     "metrics": {
+      "eecu_h_export": 4.984527777777777,
+      "atl06.dem_nmad_m_primary": 0.2875591884398585,
+      "atl06.dem_nmad_m": 0.29758801364127024,
+      "atl06.dem_rmse_m_primary": 0.7858131276812397,
+      "atl06.dem_rmse_m": 0.7822849757220505,
+      "atl06.min_product_nmad_m": 0.9686054120399978,
+      "atl06.n_points": 364168,
+      "atl06.dem_bias_m_primary": 0.29921619535580585,
+      "atl06.dem_bias_m": 0.31770577430914954,
+      "atl06.nmad_diff_ci95_low_m": -0.024988585912738902,
+      "atl06.nmad_diff_ci95_high_m": 0.04378870956908709,
+      "atl08.dem_nmad_m_primary": 0.28541453590739935,
+      "atl08.dem_nmad_m": 0.29389382414396586,
+      "atl08.dem_rmse_m_primary": 0.776658417058687,
+      "atl08.dem_rmse_m": 0.7709614043121901,
+      "atl08.min_product_nmad_m": 0.9280810614599971,
+      "atl08.n_points": 35491,
+      "atl08.dem_bias_m_primary": 0.2975628108584708,
+      "atl08.dem_bias_m": 0.31516644948802996,
+      "atl08.nmad_diff_ci95_low_m": -0.04377625248770934,
+      "atl08.nmad_diff_ci95_high_m": 0.04174470000033836,
+      "contour_offset_median_m": 24.81557276129666,
+      "share_bins_offset_above_noise": 0.12903225806451613
+     },
+     "source": "results/robustness/rblock_tau015/summary.json",
+     "why": []
+    }
+   },
+   "verdict": "partly sensitive"
+  },
+  "check01": {
+   "variants": {
+    "fixed_mndwi0_R": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "eecu_h_export": 8.639861111111113,
+      "atl06.dem_nmad_m_primary": 0.28741313384355616,
+      "atl06.dem_nmad_m": 0.2634149505061959,
+      "atl06.dem_rmse_m_primary": 0.7855843612254284,
+      "atl06.dem_rmse_m": 0.5377926489876851,
+      "atl06.min_product_nmad_m": 0.969267244679997,
+      "atl06.n_points": 364407,
+      "atl06.dem_bias_m_primary": 0.29903798744242926,
+      "atl06.dem_bias_m": 0.0592170573438349,
+      "atl06.nmad_diff_ci95_low_m": -0.4751958365660766,
+      "atl06.nmad_diff_ci95_high_m": 0.015480955251874746,
+      "atl08.dem_nmad_m_primary": 0.2853892227565723,
+      "atl08.dem_nmad_m": 0.2556302167531063,
+      "atl08.dem_rmse_m_primary": 0.7765159202371938,
+      "atl08.dem_rmse_m": 0.5223116155090912,
+      "atl08.min_product_nmad_m": 0.928283881139997,
+      "atl08.n_points": 35507,
+      "atl08.dem_bias_m_primary": 0.29743292098995655,
+      "atl08.dem_bias_m": 0.05873523882756155,
+      "atl08.nmad_diff_ci95_low_m": -0.5118437042006337,
+      "atl08.nmad_diff_ci95_high_m": 0.011321097710927465,
+      "contour_offset_median_m": 96.80481937497714,
+      "share_bins_offset_above_noise": 0.3225806451612903
+     },
+     "source": "results/robustness/rblock_fixed_mndwi0/summary.json",
+     "why": [
+      "atl06: DEM bias +0.299 -> +0.059 m",
+      "atl08: DEM NMAD 0.285 -> 0.256 m (-10%)",
+      "atl08: DEM bias +0.297 -> +0.059 m"
+     ]
+    },
+    "awei_sh_R": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "eecu_h_export": 8.916805555555555,
+      "atl06.dem_nmad_m_primary": 0.28751391884511207,
+      "atl06.dem_nmad_m": 0.254961235364113,
+      "atl06.dem_rmse_m_primary": 0.7856970138261945,
+      "atl06.dem_rmse_m": 0.5248020931638174,
+      "atl06.min_product_nmad_m": 0.9688441106400009,
+      "atl06.n_points": 364290,
+      "atl06.dem_bias_m_primary": 0.2991363920446918,
+      "atl06.dem_bias_m": 0.08841125739020306,
+      "atl06.nmad_diff_ci95_low_m": -0.5165494247363305,
+      "atl06.nmad_diff_ci95_high_m": 0.0010401029936096871,
+      "atl08.dem_nmad_m_primary": 0.2854090665214392,
+      "atl08.dem_nmad_m": 0.24896080444906638,
+      "atl08.dem_rmse_m_primary": 0.7765676617936521,
+      "atl08.dem_rmse_m": 0.5073903680173799,
+      "atl08.min_product_nmad_m": 0.9280289480699991,
+      "atl08.n_points": 35502,
+      "atl08.dem_bias_m_primary": 0.29747471920103535,
+      "atl08.dem_bias_m": 0.08510914835043841,
+      "atl08.nmad_diff_ci95_low_m": -0.580308839297182,
+      "atl08.nmad_diff_ci95_high_m": 0.000753863242379042,
+      "contour_offset_median_m": 49.98446432740361,
+      "share_bins_offset_above_noise": 0.06451612903225806
+     },
+     "source": "results/robustness/rblock_awei_sh/summary.json",
+     "why": [
+      "atl06: DEM NMAD 0.288 -> 0.255 m (-11%)",
+      "atl06: DEM bias +0.299 -> +0.088 m",
+      "atl08: DEM NMAD 0.285 -> 0.249 m (-13%)",
+      "atl08: DEM bias +0.297 -> +0.085 m"
+     ]
+    }
+   },
+   "verdict": "partly sensitive"
+  },
+  "check02": {
+   "variants": {
+    "sub_tm_R": {
+     "verdict": "robust",
+     "metrics": {
+      "eecu_h_export": 1.8930555555555557,
+      "atl06.dem_nmad_m_primary": 0.2875134443660599,
+      "atl06.dem_nmad_m": 0.3056956144921869,
+      "atl06.dem_rmse_m_primary": 0.7857004656750557,
+      "atl06.dem_rmse_m": 0.7861475006226433,
+      "atl06.min_product_nmad_m": 0.9685624166400036,
+      "atl06.n_points": 364203,
+      "atl06.dem_bias_m_primary": 0.2992615327166838,
+      "atl06.dem_bias_m": 0.2690936935255562,
+      "atl06.nmad_diff_ci95_low_m": -0.07247583361985104,
+      "atl06.nmad_diff_ci95_high_m": 0.13298912764245283,
+      "atl08.dem_nmad_m_primary": 0.2854323115068036,
+      "atl08.dem_nmad_m": 0.3029251302755224,
+      "atl08.dem_rmse_m_primary": 0.776593098458748,
+      "atl08.dem_rmse_m": 0.7714789380591477,
+      "atl08.min_product_nmad_m": 0.9280375471500022,
+      "atl08.n_points": 35498,
+      "atl08.dem_bias_m_primary": 0.2975316588800326,
+      "atl08.dem_bias_m": 0.26708424752151827,
+      "atl08.nmad_diff_ci95_low_m": -0.07667057104375773,
+      "atl08.nmad_diff_ci95_high_m": 0.16622756050669102,
+      "contour_offset_median_m": 4.369358066469431e-07,
+      "share_bins_offset_above_noise": 0.2413793103448276
+     },
+     "source": "results/robustness/rblock_sub_tm/summary.json",
+     "why": []
+    },
+    "sub_etm_R": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "eecu_h_export": 2.546666666666667,
+      "atl06.dem_nmad_m_primary": 0.2875078866068534,
+      "atl06.dem_nmad_m": 0.34114907722956883,
+      "atl06.dem_rmse_m_primary": 0.785676036396599,
+      "atl06.dem_rmse_m": 0.783559838309651,
+      "atl06.min_product_nmad_m": 0.968873391989998,
+      "atl06.n_points": 364316,
+      "atl06.dem_bias_m_primary": 0.29911306403595855,
+      "atl06.dem_bias_m": 0.3189639749886477,
+      "atl06.nmad_diff_ci95_low_m": -0.0328541299914,
+      "atl06.nmad_diff_ci95_high_m": 0.10623383761021721,
+      "atl08.dem_nmad_m_primary": 0.2854067840015481,
+      "atl08.dem_nmad_m": 0.3344655053535024,
+      "atl08.dem_rmse_m_primary": 0.7765576595373682,
+      "atl08.dem_rmse_m": 0.7669223788719668,
+      "atl08.min_product_nmad_m": 0.9280797271200026,
+      "atl08.n_points": 35503,
+      "atl08.dem_bias_m_primary": 0.2974599466478352,
+      "atl08.dem_bias_m": 0.32210229304021065,
+      "atl08.nmad_diff_ci95_low_m": -0.05061700124312641,
+      "atl08.nmad_diff_ci95_high_m": 0.10486445297667217,
+      "contour_offset_median_m": 51.15707101740846,
+      "share_bins_offset_above_noise": 0.3448275862068966
+     },
+     "source": "results/robustness/rblock_sub_etm/summary.json",
+     "why": [
+      "atl06: DEM NMAD 0.288 -> 0.341 m (+19%)",
+      "atl08: DEM NMAD 0.285 -> 0.334 m (+17%)",
+      "atl08 northeast: H2 ordering True -> False"
+     ]
+    },
+    "sub_slcoff_R": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "eecu_h_export": 2.248333333333333,
+      "atl06.dem_nmad_m_primary": 0.2875078866068534,
+      "atl06.dem_nmad_m": 0.3509358995260471,
+      "atl06.dem_rmse_m_primary": 0.785676036396599,
+      "atl06.dem_rmse_m": 0.7817867183717115,
+      "atl06.min_product_nmad_m": 0.968873391989998,
+      "atl06.n_points": 364316,
+      "atl06.dem_bias_m_primary": 0.29911306403595855,
+      "atl06.dem_bias_m": 0.3251269447504616,
+      "atl06.nmad_diff_ci95_low_m": -0.06871712921789609,
+      "atl06.nmad_diff_ci95_high_m": 0.15838103259143763,
+      "atl08.dem_nmad_m_primary": 0.2854067840015481,
+      "atl08.dem_nmad_m": 0.34222335290124356,
+      "atl08.dem_rmse_m_primary": 0.7765576595373682,
+      "atl08.dem_rmse_m": 0.7679381507625214,
+      "atl08.min_product_nmad_m": 0.9280797271200026,
+      "atl08.n_points": 35503,
+      "atl08.dem_bias_m_primary": 0.2974599466478352,
+      "atl08.dem_bias_m": 0.3266355954941124,
+      "atl08.nmad_diff_ci95_low_m": -0.0657446984929116,
+      "atl08.nmad_diff_ci95_high_m": 0.14539525714959586,
+      "contour_offset_median_m": 42.64581841271798,
+      "share_bins_offset_above_noise": 0.23333333333333334
+     },
+     "source": "results/robustness/rblock_sub_slcoff/summary.json",
+     "why": [
+      "atl06: DEM NMAD 0.288 -> 0.351 m (+22%)",
+      "atl06 northeast: H2 ordering True -> False",
+      "atl08: DEM NMAD 0.285 -> 0.342 m (+20%)",
+      "atl08 northeast: H2 ordering True -> False"
+     ]
+    },
+    "sub_oli_R": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "eecu_h_export": 2.8943888888888893,
+      "atl06.dem_nmad_m_primary": 0.28865660713194397,
+      "atl06.dem_nmad_m": 0.3901593967771094,
+      "atl06.dem_rmse_m_primary": 0.7861642090523793,
+      "atl06.dem_rmse_m": 0.8387864189585419,
+      "atl06.min_product_nmad_m": 0.9671948663999979,
+      "atl06.n_points": 363534,
+      "atl06.dem_bias_m_primary": 0.30031161596153666,
+      "atl06.dem_bias_m": 0.4216701230286836,
+      "atl06.nmad_diff_ci95_low_m": -0.1580742802737938,
+      "atl06.nmad_diff_ci95_high_m": 0.29316460069058786,
+      "atl08.dem_nmad_m_primary": 0.28692818378109625,
+      "atl08.dem_nmad_m": 0.378211917252221,
+      "atl08.dem_rmse_m_primary": 0.7773086237179241,
+      "atl08.dem_rmse_m": 0.8190431932761602,
+      "atl08.min_product_nmad_m": 0.9258095699999992,
+      "atl08.n_points": 35397,
+      "atl08.dem_bias_m_primary": 0.29899514017624557,
+      "atl08.dem_bias_m": 0.4058927267598315,
+      "atl08.nmad_diff_ci95_low_m": -0.14171450322795953,
+      "atl08.nmad_diff_ci95_high_m": 0.2578837176113679,
+      "contour_offset_median_m": 32.60542144766853,
+      "share_bins_offset_above_noise": 0.48
+     },
+     "source": "results/robustness/rblock_sub_oli/summary.json",
+     "why": [
+      "atl06: DEM NMAD 0.289 -> 0.390 m (+35%)",
+      "atl06: DEM bias +0.300 -> +0.422 m",
+      "atl06 west: H2 ordering True -> False",
+      "atl06 northeast: H2 ordering True -> False",
+      "atl06 komsomolets: H2 ordering False -> True",
+      "atl08: DEM NMAD 0.287 -> 0.378 m (+32%)",
+      "atl08: DEM bias +0.299 -> +0.406 m",
+      "atl08 west: H2 ordering True -> False",
+      "atl08 northeast: H2 ordering True -> False",
+      "atl08 komsomolets: H2 ordering False -> True"
+     ]
+    },
+    "s2_add_R": {
+     "verdict": "robust",
+     "metrics": {
+      "eecu_h_export": 7.933750000000001,
+      "atl06.dem_nmad_m_primary": 0.28741313384355616,
+      "atl06.dem_nmad_m": 0.28378942065663537,
+      "atl06.dem_rmse_m_primary": 0.7855843612254284,
+      "atl06.dem_rmse_m": 0.7860279027144483,
+      "atl06.min_product_nmad_m": 0.969267244679997,
+      "atl06.n_points": 364407,
+      "atl06.dem_bias_m_primary": 0.29903798744242926,
+      "atl06.dem_bias_m": 0.21568147689236383,
+      "atl06.nmad_diff_ci95_low_m": -0.06791080788826108,
+      "atl06.nmad_diff_ci95_high_m": 0.14434455474508812,
+      "atl08.dem_nmad_m_primary": 0.2853892227565723,
+      "atl08.dem_nmad_m": 0.2757482539679167,
+      "atl08.dem_rmse_m_primary": 0.7765159202371938,
+      "atl08.dem_rmse_m": 0.7781084396516347,
+      "atl08.min_product_nmad_m": 0.928283881139997,
+      "atl08.n_points": 35507,
+      "atl08.dem_bias_m_primary": 0.29743292098995655,
+      "atl08.dem_bias_m": 0.22616484195707692,
+      "atl08.nmad_diff_ci95_low_m": -0.06293383382103797,
+      "atl08.nmad_diff_ci95_high_m": 0.13794234145339535,
+      "contour_offset_median_m": 22.429904775321024,
+      "share_bins_offset_above_noise": 0.12903225806451613
+     },
+     "source": "results/robustness/rblock_s2_add/summary.json",
+     "why": []
+    }
+   },
+   "verdict": "partly sensitive"
+  },
+  "check03": {
+   "variants": {
+    "snow_all_months_R": {
+     "verdict": "robust",
+     "metrics": {
+      "eecu_h_export": 8.313805555555557,
+      "atl06.dem_nmad_m_primary": 0.28741313384355616,
+      "atl06.dem_nmad_m": 0.28762418141060897,
+      "atl06.dem_rmse_m_primary": 0.7855843612254284,
+      "atl06.dem_rmse_m": 0.8786172766170015,
+      "atl06.min_product_nmad_m": 0.969267244679997,
+      "atl06.n_points": 364407,
+      "atl06.dem_bias_m_primary": 0.29903798744242926,
+      "atl06.dem_bias_m": 0.34530380962528423,
+      "atl06.nmad_diff_ci95_low_m": -0.0034762118425864593,
+      "atl06.nmad_diff_ci95_high_m": 0.1484859861071976,
+      "atl08.dem_nmad_m_primary": 0.2853892227565723,
+      "atl08.dem_nmad_m": 0.28326105372458205,
+      "atl08.dem_rmse_m_primary": 0.7765159202371938,
+      "atl08.dem_rmse_m": 0.8581246685841576,
+      "atl08.min_product_nmad_m": 0.928283881139997,
+      "atl08.n_points": 35507,
+      "atl08.dem_bias_m_primary": 0.29743292098995655,
+      "atl08.dem_bias_m": 0.3385711972039159,
+      "atl08.nmad_diff_ci95_low_m": -0.0069953194725318815,
+      "atl08.nmad_diff_ci95_high_m": 0.17237050704352003,
+      "contour_offset_median_m": 4.5667704827449465e-07,
+      "share_bins_offset_above_noise": 0.06451612903225806
+     },
+     "source": "results/robustness/rblock_snow_all_months/summary.json",
+     "why": []
+    }
+   },
+   "verdict": "robust"
+  },
+  "check07": {
+   "variants": {
+    "bins005_R": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "eecu_h_export": 7.509861111111111,
+      "atl06.dem_nmad_m_primary": 0.28740574299568283,
+      "atl06.dem_nmad_m": 0.3264940549435918,
+      "atl06.dem_rmse_m_primary": 0.7856767184332745,
+      "atl06.dem_rmse_m": 0.7892507833318406,
+      "atl06.min_product_nmad_m": 0.9693394473000008,
+      "atl06.n_points": 364314,
+      "atl06.dem_bias_m_primary": 0.2990755301615981,
+      "atl06.dem_bias_m": 0.31097279430082697,
+      "atl06.nmad_diff_ci95_low_m": -0.0333847828412658,
+      "atl06.nmad_diff_ci95_high_m": 0.1184426732841078,
+      "atl08.dem_nmad_m_primary": 0.2853958335925139,
+      "atl08.dem_nmad_m": 0.32090365559104495,
+      "atl08.dem_rmse_m_primary": 0.7766087357078176,
+      "atl08.dem_rmse_m": 0.7761802253051356,
+      "atl08.min_product_nmad_m": 0.9284935207799976,
+      "atl08.n_points": 35498,
+      "atl08.dem_bias_m_primary": 0.2974721452666343,
+      "atl08.dem_bias_m": 0.3054697506090705,
+      "atl08.nmad_diff_ci95_low_m": -0.04759947911138302,
+      "atl08.nmad_diff_ci95_high_m": 0.12676450280842239
+     },
+     "source": "results/robustness/rblock_bins005/summary.json",
+     "why": [
+      "atl06: DEM NMAD 0.287 -> 0.326 m (+14%)",
+      "atl08: DEM NMAD 0.285 -> 0.321 m (+12%)",
+      "atl08 northeast: H2 ordering True -> False"
+     ]
+    },
+    "no_static_exclusion": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.3838271920338724,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.134188165620888,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": -0.0076767549418774,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 1103727.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.7673156496126307,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.370479702016093,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.151646650286027,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": -0.0109243937676553,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104740.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7751002482337216,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 2,
+      "dem_diff_mean_m": -0.06001429928761584,
+      "dem_diff_rms_m": 0.40410201539357116
+     },
+     "source": "results/robustness/r12_static_rule/summary.json",
+     "why": [
+      "atl06: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve']",
+      "atl06: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve']"
+     ]
+    }
+   },
+   "verdict": "partly sensitive"
+  },
+  "check09": {
+   "variants": {
+    "ndvi020_R": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "eecu_h_export": 8.407694444444445,
+      "atl06.dem_nmad_m_primary": 0.28752099693895167,
+      "atl06.dem_nmad_m": 0.3544187642470124,
+      "atl06.dem_rmse_m_primary": 0.7857023501405046,
+      "atl06.dem_rmse_m": 0.7999308945286725,
+      "atl06.min_product_nmad_m": 0.9685174938599949,
+      "atl06.n_points": 364205,
+      "atl06.dem_bias_m_primary": 0.29926176149764694,
+      "atl06.dem_bias_m": 0.31361917283618296,
+      "atl06.nmad_diff_ci95_low_m": -0.02180416999518531,
+      "atl06.nmad_diff_ci95_high_m": 0.15728347867635667,
+      "atl08.dem_nmad_m_primary": 0.28541134904133025,
+      "atl08.dem_nmad_m": 0.34945933748331903,
+      "atl08.dem_rmse_m_primary": 0.7765809437479793,
+      "atl08.dem_rmse_m": 0.7897857006020181,
+      "atl08.min_product_nmad_m": 0.9280146409800005,
+      "atl08.n_points": 35499,
+      "atl08.dem_bias_m_primary": 0.2975217942197882,
+      "atl08.dem_bias_m": 0.310247115693103,
+      "atl08.nmad_diff_ci95_low_m": -0.025912094368811936,
+      "atl08.nmad_diff_ci95_high_m": 0.15116717877567412,
+      "contour_offset_median_m": 22.806880273702212,
+      "share_bins_offset_above_noise": 0.1
+     },
+     "source": "results/robustness/rblock_ndvi020/summary.json",
+     "why": [
+      "atl06: DEM NMAD 0.288 -> 0.354 m (+23%)",
+      "atl06 northeast: H2 ordering True -> False",
+      "atl08: DEM NMAD 0.285 -> 0.349 m (+22%)",
+      "atl08 northeast: H2 ordering True -> False"
+     ]
+    },
+    "ndvi040_R": {
+     "verdict": "robust",
+     "metrics": {
+      "eecu_h_export": 8.589166666666666,
+      "atl06.dem_nmad_m_primary": 0.2874496610028955,
+      "atl06.dem_nmad_m": 0.2728265596451011,
+      "atl06.dem_rmse_m_primary": 0.7856106824356514,
+      "atl06.dem_rmse_m": 0.7981335429418774,
+      "atl06.min_product_nmad_m": 0.9691198001100017,
+      "atl06.n_points": 364382,
+      "atl06.dem_bias_m_primary": 0.29906301670071445,
+      "atl06.dem_bias_m": 0.2718031313411505,
+      "atl06.nmad_diff_ci95_low_m": -0.04581023066125245,
+      "atl06.nmad_diff_ci95_high_m": 0.08716338755001629,
+      "atl08.dem_nmad_m_primary": 0.2854090665214392,
+      "atl08.dem_nmad_m": 0.2756414212360831,
+      "atl08.dem_rmse_m_primary": 0.7765263926859389,
+      "atl08.dem_rmse_m": 0.7880671483549263,
+      "atl08.min_product_nmad_m": 0.9282545997899998,
+      "atl08.n_points": 35506,
+      "atl08.dem_bias_m_primary": 0.29744579560016,
+      "atl08.dem_bias_m": 0.27519767514639043,
+      "atl08.nmad_diff_ci95_low_m": -0.03955015425599001,
+      "atl08.nmad_diff_ci95_high_m": 0.09004983298996204,
+      "contour_offset_median_m": 17.866109906959366,
+      "share_bins_offset_above_noise": 0.06451612903225806
+     },
+     "source": "results/robustness/rblock_ndvi040/summary.json",
+     "why": []
+    }
+   },
+   "verdict": "partly sensitive",
+   "note": "NDVI 0.20 / 0.40 on the block sample R only; the as-dry / as-water bounds (o band) were not run"
+  },
+  "check05": {
+   "variants": {
+    "hydroweb_const": {
+     "verdict": "robust",
+     "metrics": {
+      "shift_p05_m": -0.057929518230849776,
+      "shift_p95_m": 0.05050188919689389,
+      "share_acq_rebin": 0.4762368998293931,
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.3563892445981592,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.122978458723102,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": 0.0202352523352958,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 104740.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.7619343135382852,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 1,
+      "dem_diff_rms_m": 0.03562667619108764
+     },
+     "source": "results/robustness/r05_levels/summary.json",
+     "why": []
+    },
+    "dahiti_pchip": {
+     "verdict": "robust",
+     "metrics": {
+      "shift_p05_m": -0.0037595470611871914,
+      "shift_p95_m": 0.0076979845317237,
+      "share_acq_rebin": 0.05630026809651475,
+      "note_not_rebuilt": 1
+     },
+     "source": "results/robustness/r05_levels/summary.json",
+     "why": []
+    },
+    "window1y": {
+     "verdict": "robust",
+     "metrics": {
+      "shift_p05_m": -0.0013085520925800174,
+      "shift_p95_m": 0.0002287500000002283,
+      "share_acq_rebin": 0.013161101632951498,
+      "note_not_rebuilt": 1
+     },
+     "source": "results/robustness/r05_levels/summary.json",
+     "why": []
+    }
+   },
+   "verdict": "robust"
+  },
+  "check06": {
+   "variants": {
+    "sector_shape_constants": {
+     "verdict": "sensitive",
+     "metrics": {
+      "etopo1.n_sectors_mispredict_primary": 7,
+      "etopo1.n_sectors_mispredict": 7,
+      "etopo1.block_test_p": 9.999000099990002e-05,
+      "etopo1.block_test_p_primary_fix": 0.0166983301669833,
+      "etopo_2022.n_sectors_mispredict_primary": 1,
+      "etopo_2022.n_sectors_mispredict": 1,
+      "etopo_2022.block_test_p": 0.9972002799720028,
+      "etopo_2022.block_test_p_primary_fix": 1.0,
+      "gebco_2022.n_sectors_mispredict_primary": 7,
+      "gebco_2022.n_sectors_mispredict": 6,
+      "gebco_2022.block_test_p": 9.999000099990002e-05,
+      "gebco_2022.block_test_p_primary_fix": 0.0097990200979902,
+      "gebco_2026.n_sectors_mispredict_primary": 7,
+      "gebco_2026.n_sectors_mispredict": 6,
+      "gebco_2026.block_test_p": 9.999000099990002e-05,
+      "gebco_2026.block_test_p_primary_fix": 0.0062993700629937,
+      "srtm15p_v2.7.n_sectors_mispredict_primary": 6,
+      "srtm15p_v2.7.n_sectors_mispredict": 6,
+      "srtm15p_v2.7.block_test_p": 0.0002999700029997,
+      "srtm15p_v2.7.block_test_p_primary_fix": 0.1397860213978602
+     },
+     "source": "results/robustness/r06_datums_sectorshape/summary.json",
+     "why": [
+      "gebco_2022: sector outcomes change in ['komsomolets'] (7 -> 6 mispredict)",
+      "gebco_2026: sector outcomes change in ['komsomolets'] (7 -> 6 mispredict)",
+      "srtm15p_v2.7: block test p 0.14 -> 0.0003 (significance changes)"
+     ]
+    }
+   },
+   "verdict": "sensitive",
+   "note": "per-sector datum constants only (the lead's red-team run); the D-074 total variant and c / product offsets at +-1 sigma / mean-tide recipes were not run; the DAHITI -> BHS-77 offset (D-093) cancels in every metric (reporting only)"
+  },
+  "check08": {
+   "variants": {
+    "block_12_5km": {
+     "verdict": "sensitive",
+     "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.4278392193600044,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 1.0712710885937833,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": 0.2229276804633206,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 879867.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.8254770323242036,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 1,
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.4255013815499975,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 1.0608088992382727,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": 0.2435178170845105,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 83540.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.8200263346899689,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 1,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 1,
+      "sources_evaluated": 2
+     },
+     "source": "results/robustness/r08_blocking/summary.json",
+     "why": [
+      "atl06: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve', 'northeast', 'open_shelf']",
+      "atl06: H2 (total) not supported -> supported",
+      "atl06: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve', 'northeast', 'open_shelf']",
+      "atl08: H2 (matched) not supported -> supported",
+      "atl08: H2 (total) not supported -> supported"
+     ]
+    },
+    "block_25km": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "atl06.dem_nmad_m_primary": 0.3850482699000024,
+      "atl06.dem_nmad_m": 0.2738454121200012,
+      "atl06.dem_rmse_m_primary": 1.1015576811563077,
+      "atl06.dem_rmse_m": 0.9765185109633238,
+      "atl06.dem_bias_m_primary": 0.029409148885576,
+      "atl06.dem_bias_m": 0.0282221619922392,
+      "atl06.dem_n_primary": 1103727.0,
+      "atl06.dem_n": 864153.0,
+      "atl06.coverage_primary": 0.7519042299409183,
+      "atl06.coverage": 0.8932457562491827,
+      "atl06.h2_matched_supported_primary": 0,
+      "atl06.h2_matched_supported": 0,
+      "atl06.h2_total_supported_primary": 0,
+      "atl06.h2_total_supported": 0,
+      "atl08.dem_nmad_m_primary": 0.3700959523799987,
+      "atl08.dem_nmad_m": 0.2648844294600058,
+      "atl08.dem_rmse_m_primary": 1.1213313505134612,
+      "atl08.dem_rmse_m": 0.9755499564770538,
+      "atl08.dem_bias_m_primary": 0.0275870213660518,
+      "atl08.dem_bias_m": 0.0292828673771835,
+      "atl08.dem_n_primary": 104740.0,
+      "atl08.dem_n": 83254.0,
+      "atl08.coverage_primary": 0.7563108649990452,
+      "atl08.coverage": 0.8896149133975545,
+      "atl08.h2_matched_supported_primary": 0,
+      "atl08.h2_matched_supported": 0,
+      "atl08.h2_total_supported_primary": 0,
+      "atl08.h2_total_supported": 0,
+      "sources_evaluated": 2
+     },
+     "source": "results/robustness/r08_blocking/summary.json",
+     "why": [
+      "atl06: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve', 'northeast', 'ural']",
+      "atl06: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve', 'northeast', 'ural']",
+      "atl08: sectors supporting H2 (matched) ['interfluve', 'open_shelf'] -> ['interfluve', 'northeast', 'ural']",
+      "atl08: sectors supporting H2 (total) ['interfluve', 'open_shelf'] -> ['interfluve', 'northeast', 'ural']"
+     ]
+    }
+   },
+   "verdict": "sensitive",
+   "note": "block size only (H2 at 25 and 12.5 km against 50 km); split reassignment not run"
+  },
+  "check10": {
+   "variants": {
+    "h1_e2e3_only": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "etopo1.n_sectors_mispredict_primary": 7,
+      "etopo1.n_sectors_mispredict": 7,
+      "etopo1.block_test_p": 0.0007999200079992,
+      "etopo1.block_test_p_primary_fix": 0.016698330166983303,
+      "etopo_2022.n_sectors_mispredict_primary": 1,
+      "etopo_2022.n_sectors_mispredict": 3,
+      "etopo_2022.block_test_p": 1.0,
+      "etopo_2022.block_test_p_primary_fix": 1.0,
+      "gebco_2022.n_sectors_mispredict_primary": 7,
+      "gebco_2022.n_sectors_mispredict": 7,
+      "gebco_2022.block_test_p": 0.0045995400459954,
+      "gebco_2022.block_test_p_primary_fix": 0.009799020097990201,
+      "gebco_2026.n_sectors_mispredict_primary": 7,
+      "gebco_2026.n_sectors_mispredict": 7,
+      "gebco_2026.block_test_p": 0.0013998600139986,
+      "gebco_2026.block_test_p_primary_fix": 0.006299370062993701,
+      "srtm15p_v2.7.n_sectors_mispredict_primary": 6,
+      "srtm15p_v2.7.n_sectors_mispredict": 7,
+      "srtm15p_v2.7.block_test_p": 0.0945905409459054,
+      "srtm15p_v2.7.block_test_p_primary_fix": 0.13978602139786023
+     },
+     "source": "results/robustness/h1_e2e3/summary.json",
+     "why": [
+      "etopo_2022: sector outcomes change in ['interfluve', 'komsomolets'] (1 -> 3 mispredict)",
+      "srtm15p_v2.7: sector outcomes change in ['komsomolets'] (6 -> 7 mispredict)"
+     ]
+    },
+    "h1_e2e3_only_total": {
+     "verdict": "robust",
+     "metrics": {
+      "etopo1.n_sectors_mispredict_primary": 7,
+      "etopo1.n_sectors_mispredict": 7,
+      "etopo1.block_test_p": 0.0046995300469953,
+      "etopo1.block_test_p_primary_fix": 0.0034996500349965005,
+      "etopo_2022.n_sectors_mispredict_primary": 7,
+      "etopo_2022.n_sectors_mispredict": 7,
+      "etopo_2022.block_test_p": 0.995000499950005,
+      "etopo_2022.block_test_p_primary_fix": 0.9921007899210079,
+      "gebco_2022.n_sectors_mispredict_primary": 7,
+      "gebco_2022.n_sectors_mispredict": 7,
+      "gebco_2022.block_test_p": 0.0333966603339666,
+      "gebco_2022.block_test_p_primary_fix": 0.016798320167983202,
+      "gebco_2026.n_sectors_mispredict_primary": 7,
+      "gebco_2026.n_sectors_mispredict": 7,
+      "gebco_2026.block_test_p": 0.0158984101589841,
+      "gebco_2026.block_test_p_primary_fix": 0.0187981201879812,
+      "srtm15p_v2.7.n_sectors_mispredict_primary": 7,
+      "srtm15p_v2.7.n_sectors_mispredict": 7,
+      "srtm15p_v2.7.block_test_p": 0.0015998400159984,
+      "srtm15p_v2.7.block_test_p_primary_fix": 0.0006999300069993001
+     },
+     "source": "results/robustness/h1_e2e3/summary.json",
+     "why": []
+    },
+    "morphology_table": {
+     "verdict": "robust",
+     "metrics": {
+      "etopo1.interfluve.n_levels_e1_better": 0,
+      "etopo1.interfluve.n_levels_shared": 4,
+      "etopo1.komsomolets.n_levels_e1_better": 1,
+      "etopo1.komsomolets.n_levels_shared": 4,
+      "etopo1.northeast.n_levels_e1_better": 3,
+      "etopo1.northeast.n_levels_shared": 4,
+      "etopo1.open_shelf.n_levels_e1_better": 2,
+      "etopo1.open_shelf.n_levels_shared": 4,
+      "etopo1.ural.n_levels_e1_better": 2,
+      "etopo1.ural.n_levels_shared": 4,
+      "etopo1.volga.n_levels_e1_better": 0,
+      "etopo1.volga.n_levels_shared": 4,
+      "etopo1.west.n_levels_e1_better": 2,
+      "etopo1.west.n_levels_shared": 3,
+      "etopo_2022.interfluve.n_levels_e1_better": 1,
+      "etopo_2022.interfluve.n_levels_shared": 3,
+      "etopo_2022.komsomolets.n_levels_e1_better": 1,
+      "etopo_2022.komsomolets.n_levels_shared": 4,
+      "etopo_2022.northeast.n_levels_e1_better": 2,
+      "etopo_2022.northeast.n_levels_shared": 4,
+      "etopo_2022.open_shelf.n_levels_e1_better": 0,
+      "etopo_2022.open_shelf.n_levels_shared": 2,
+      "etopo_2022.ural.n_levels_e1_better": 0,
+      "etopo_2022.ural.n_levels_shared": 2,
+      "etopo_2022.volga.n_levels_e1_better": 2,
+      "etopo_2022.volga.n_levels_shared": 3,
+      "etopo_2022.west.n_levels_e1_better": 1,
+      "etopo_2022.west.n_levels_shared": 2,
+      "gebco_2022.interfluve.n_levels_e1_better": 0,
+      "gebco_2022.interfluve.n_levels_shared": 4,
+      "gebco_2022.komsomolets.n_levels_e1_better": 1,
+      "gebco_2022.komsomolets.n_levels_shared": 4,
+      "gebco_2022.northeast.n_levels_e1_better": 2,
+      "gebco_2022.northeast.n_levels_shared": 4,
+      "gebco_2022.open_shelf.n_levels_e1_better": 2,
+      "gebco_2022.open_shelf.n_levels_shared": 3,
+      "gebco_2022.ural.n_levels_e1_better": 2,
+      "gebco_2022.ural.n_levels_shared": 4,
+      "gebco_2022.volga.n_levels_e1_better": 1,
+      "gebco_2022.volga.n_levels_shared": 4,
+      "gebco_2022.west.n_levels_e1_better": 2,
+      "gebco_2022.west.n_levels_shared": 4,
+      "gebco_2026.interfluve.n_levels_e1_better": 0,
+      "gebco_2026.interfluve.n_levels_shared": 4,
+      "gebco_2026.komsomolets.n_levels_e1_better": 1,
+      "gebco_2026.komsomolets.n_levels_shared": 4,
+      "gebco_2026.northeast.n_levels_e1_better": 1,
+      "gebco_2026.northeast.n_levels_shared": 4,
+      "gebco_2026.open_shelf.n_levels_e1_better": 3,
+      "gebco_2026.open_shelf.n_levels_shared": 4,
+      "gebco_2026.ural.n_levels_e1_better": 2,
+      "gebco_2026.ural.n_levels_shared": 4,
+      "gebco_2026.volga.n_levels_e1_better": 1,
+      "gebco_2026.volga.n_levels_shared": 4,
+      "gebco_2026.west.n_levels_e1_better": 2,
+      "gebco_2026.west.n_levels_shared": 4,
+      "srtm15p_v2.7.interfluve.n_levels_e1_better": 0,
+      "srtm15p_v2.7.interfluve.n_levels_shared": 4,
+      "srtm15p_v2.7.komsomolets.n_levels_e1_better": 1,
+      "srtm15p_v2.7.komsomolets.n_levels_shared": 4,
+      "srtm15p_v2.7.northeast.n_levels_e1_better": 1,
+      "srtm15p_v2.7.northeast.n_levels_shared": 4,
+      "srtm15p_v2.7.open_shelf.n_levels_e1_better": 3,
+      "srtm15p_v2.7.open_shelf.n_levels_shared": 4,
+      "srtm15p_v2.7.ural.n_levels_e1_better": 1,
+      "srtm15p_v2.7.ural.n_levels_shared": 4,
+      "srtm15p_v2.7.volga.n_levels_e1_better": 1,
+      "srtm15p_v2.7.volga.n_levels_shared": 4,
+      "srtm15p_v2.7.west.n_levels_e1_better": 1,
+      "srtm15p_v2.7.west.n_levels_shared": 4,
+      "share_levels_e1_better": 0.34615384615384615
+     },
+     "source": "results/robustness/r10_morphology/summary.json",
+     "why": []
+    }
+   },
+   "verdict": "partly sensitive"
+  },
+  "check11": {
+   "variants": {
+    "akbari2020_area_slope": {
+     "verdict": "partly sensitive",
+     "metrics": {
+      "published_km2_per_m": 7103.0,
+      "dem_band_range_-29.0_-26.0_km2_per_m": 11334.291600000002,
+      "dem_band_range_-29.5_-26.5_km2_per_m": 7224.675899999999,
+      "dem_band_range_-28.5_-25.5_km2_per_m": 10611.074999999999
+     },
+     "source": "results/robustness/r11_prior_work/summary.json",
+     "why": [
+      "datum reading range_-29.0_-26.0: 11334 vs published 7103 km2 per m (+60%)",
+      "datum reading range_-28.5_-25.5: 10611 vs published 7103 km2 per m (+49%)"
+     ]
+    }
+   },
+   "verdict": "partly sensitive"
+  }
+ },
+ "named": {
+  "emergence_lag_365d": {
+   "verdict": "robust",
+   "metrics": {
+    "atl06.dem_nmad_m_primary": 0.3850482699000024,
+    "atl06.dem_nmad_m": 0.3850900792199959,
+    "atl06.dem_rmse_m_primary": 1.1015576811563077,
+    "atl06.dem_rmse_m": 1.1096059765726651,
+    "atl06.dem_bias_m_primary": 0.029409148885576,
+    "atl06.dem_bias_m": 0.0319211021253085,
+    "atl06.dem_n_primary": 1103727.0,
+    "atl06.dem_n": 1028523.0,
+    "atl06.coverage_primary": 0.7519042299409183,
+    "atl06.coverage": 0.7535154780204235,
+    "atl06.h2_matched_supported_primary": 0,
+    "atl06.h2_matched_supported": 0,
+    "atl06.h2_total_supported_primary": 0,
+    "atl06.h2_total_supported": 0,
+    "atl08.dem_nmad_m_primary": 0.3700959523799987,
+    "atl08.dem_nmad_m": 0.3668330462999978,
+    "atl08.dem_rmse_m_primary": 1.1213313505134612,
+    "atl08.dem_rmse_m": 1.1273622899762323,
+    "atl08.dem_bias_m_primary": 0.0275870213660518,
+    "atl08.dem_bias_m": 0.0278522867236965,
+    "atl08.dem_n_primary": 104740.0,
+    "atl08.dem_n": 97958.0,
+    "atl08.coverage_primary": 0.7563108649990452,
+    "atl08.coverage": 0.7590906306784541,
+    "atl08.h2_matched_supported_primary": 0,
+    "atl08.h2_matched_supported": 0,
+    "atl08.h2_total_supported_primary": 0,
+    "atl08.h2_total_supported": 0,
+    "sources_evaluated": 2
+   },
+   "source": "results/robustness/r13_emergence_lag/summary.json",
+   "why": []
+  },
+  "products_nearest": {
+   "verdict": "robust",
+   "metrics": {
+    "atl08.dem_nmad_m_primary": 0.3700959523799987,
+    "atl08.dem_nmad_m": 0.3700959523799987,
+    "atl08.dem_rmse_m_primary": 1.1213313505134612,
+    "atl08.dem_rmse_m": 1.1213313505134612,
+    "atl08.dem_bias_m_primary": 0.0275870213660518,
+    "atl08.dem_bias_m": 0.0275870213660518,
+    "atl08.dem_n_primary": 104740.0,
+    "atl08.dem_n": 104740.0,
+    "atl08.coverage_primary": 0.7563108649990452,
+    "atl08.coverage": 0.7563108649990452,
+    "atl08.h2_matched_supported_primary": 0,
+    "atl08.h2_matched_supported": 0,
+    "atl08.h2_total_supported_primary": 0,
+    "atl08.h2_total_supported": 0,
+    "sources_evaluated": 1
+   },
+   "source": "results/robustness/r14_product_resampling/summary.json",
+   "why": []
+  }
+ }
+}
