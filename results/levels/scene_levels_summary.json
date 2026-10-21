@@ -29,7 +29,7 @@
   "filled_scenes_offset_sigma_p50_with_record_tau_m": 0.01842367743792271
  },
  "max_gap_days": 60.0,
- "max_gap_rule_provenance": "caspian.levels default (commit aabacee, before PREREG v1.0 and the DAHITI data); logged in D-018/D-020; not stated in PREREG",
+ "max_gap_rule_provenance": "caspian.levels default (commit aabacee, before PREREG v1.0 and the DAHITI data); not in PREREG v1.0; stated for the record in PREREG Amendment 4 item 2 (D-038)",
  "epoch_E1_end": "1995-07-16 15:29:42",
  "epoch_E1_end_rule": "maximum of the 3-point running median of DAHITI",
  "dahiti_smoothed_extremes": {

@@ -133,7 +133,8 @@ def levels_at(prep: dict, times) -> pd.DataFrame:
     out["level_source"] = np.select([use_d, use_h], ["dahiti", "hydroweb_shifted"], "none")
     out["hydroweb_offset_m"] = np.where(use_h, off_sc["offset_m"], np.nan)
     out["hydroweb_offset_tau_m"] = np.where(use_h, tau_sc, np.nan)
-    return out, {"ld": ld, "lh": lh, "use_d": use_d, "use_h": use_h, "off_sc": off_sc, "off_sigma": off_sigma}
+    return out, {"ld": ld, "lh": lh, "use_d": use_d, "use_h": use_h, "off_sc": off_sc, "off_sigma": off_sigma,
+                 "tau_loc": tau_loc}
 
 
 def main(out_dir=None) -> int:
@@ -146,7 +147,7 @@ def main(out_dir=None) -> int:
     for c in lv.columns:
         scenes[c] = lv[c].to_numpy()
     ld, lh, use_d, use_h = parts["ld"], parts["lh"], parts["use_d"], parts["use_h"]
-    off_sc, off_sigma = parts["off_sc"], parts["off_sigma"]
+    off_sc, off_sigma, tau_loc = parts["off_sc"], parts["off_sigma"], parts["tau_loc"]   # tau_loc: make-all fix
     tau_sc = scenes["hydroweb_offset_tau_m"].to_numpy()
 
     sm = levels.smoothed_extremes(d["time"], d["level_m"], k=SMOOTH_K)
