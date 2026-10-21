@@ -4,20 +4,22 @@
 % shared with the Letter through sections/erl_si_numbers.tex.
 % ERL asks each supplementary file to carry a title (at most 30 characters) and a description
 % (at most 30 words) inside it: see the first lines of the document.
-\documentclass[11pt]{article}
+% Template: IOP Publishing's iopjournal.cls at 12 pt, as the Letter (provenance in main_erl.tex and
+% the D-107 addendum). The class loads xcolor and hyperref itself, so the xcolor option is passed
+% and xr-hyper is loaded before it.
+\PassOptionsToPackage{table}{xcolor}
+\RequirePackage{xr-hyper}
+\documentclass[12pt]{iopjournal}
 \usepackage{fontspec}
 \usepackage{textcomp}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{array}
-\usepackage[table]{xcolor}
-\usepackage[a4paper,margin=22mm]{geometry}
+\usepackage{xcolor}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{microtype}
 \usepackage{xurl}
 \usepackage[font=small,labelfont=bf]{caption}  % legends smaller than the body text (D-107 addendum)
-\usepackage{xr-hyper}
-\usepackage[hidelinks]{hyperref}
 \input{numbers.tex}
 
 \newcommand{\kmsq}{km\textsuperscript{2}}
@@ -46,12 +48,15 @@
 % The Letter's labels, read last so that every macro its captions use is defined.
 \externaldocument[M-]{main_erl}
 
-\title{Supplementary information}
-\author{Rezwan Ahmed, Nusrat Jahan Zerin and Obaidur Rahman}
-\date{}
+% Running head (the class prints placeholders for the journal's own).
+\setlength{\headheight}{15pt}
+\fancyhead[L]{{\small\sffamily Supplementary information --- draft}}
+\fancyhead[R]{Ahmed \textit{et al}}
 
 \begin{document}
-\maketitle
+\title{Supplementary information}
+
+\author{Rezwan Ahmed, Nusrat Jahan Zerin and Obaidur Rahman}
 \begin{center}
 \begin{minipage}{0.85\linewidth}
 \noindent\textbf{Description.} Full methods, accuracy of the waterline elevation model, robustness checks, red-team tests, Great Salt Lake methods, near-term emergence sensitivities and deviations from the pre-registration.

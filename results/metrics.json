@@ -1503,6 +1503,38 @@
   "note": "minimum of h2.atl08.<p>.rmse_m over products",
   "decimals": 2
  },
+ "erl.text.h2.split.atl08.coverage_median_pct": {
+  "value": 87.58760196881836,
+  "unit": "%",
+  "source": "results/robustness/r08_blocking/summary.json",
+  "note": "median test-block coverage of the 90% intervals over the seeds",
+  "decimals": 1
+ },
+ "erl.text.h2.split.atl08.n_seeds_higher_coverage": {
+  "value": 18,
+  "unit": "seeds",
+  "source": "results/robustness/r08_blocking/summary.json",
+  "note": "seeds whose test-block coverage is above the registered draw's"
+ },
+ "erl.text.h2.split.atl08.n_seeds_lower_nmad": {
+  "value": 12,
+  "unit": "seeds",
+  "source": "results/robustness/r08_blocking/summary.json",
+  "note": "seeds whose test-block DEM NMAD is below the registered draw's"
+ },
+ "erl.text.h2.split.atl08.nmad_median_m": {
+  "value": 0.3005829911699991,
+  "unit": "m",
+  "source": "results/robustness/r08_blocking/summary.json",
+  "note": "median test-block DEM NMAD over the seeds",
+  "decimals": 3
+ },
+ "erl.text.h2.split.n_seeds": {
+  "value": 20,
+  "unit": "seeds",
+  "source": "results/robustness/r08_blocking/summary.json",
+  "note": "random reassignments of the 50 km blocks (ATL08)"
+ },
  "erl.text.h3.constant.e3_n_corrected_worse": {
   "value": 5,
   "unit": "products",
@@ -1781,6 +1813,168 @@
   "source": "results/metrics.json (derived from the keys named in the note)",
   "note": "primary pathways (h3.date.<id> notes)"
  },
+ "erl.text.h3.ramsar.1.constant.max_amount": {
+  "value": 2116.6,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.ramsar.etopo1.fused.1.amount (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.constant.max_hi": {
+  "value": 2140.9,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.ramsar.etopo1.fused.1.hi (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.constant.max_lo": {
+  "value": 1852.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.ramsar.etopo1.fused.1.lo (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.constant.max_product": {
+  "value": "ETOPO1",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.ramsar.1.constant.min_amount": {
+  "value": 1973.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.ramsar.srtm15p.fused.1.amount (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.constant.min_hi": {
+  "value": 1974.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.ramsar.srtm15p.fused.1.hi (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.constant.min_lo": {
+  "value": 1968.9,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.ramsar.srtm15p.fused.1.lo (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.constant.min_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.ramsar.1.registered.max_amount": {
+  "value": 1983.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.etopo2022.fused.1.amount (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.registered.max_hi": {
+  "value": 1985.2,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.etopo2022.fused.1.hi (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.registered.max_lo": {
+  "value": 1893.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.etopo2022.fused.1.lo (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.registered.max_product": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.ramsar.1.registered.min_amount": {
+  "value": 1573.6,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.etopo1.fused.1.amount (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.registered.min_hi": {
+  "value": 1937.7,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.etopo1.fused.1.hi (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.registered.min_lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.etopo1.fused.1.lo (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.registered.min_product": {
+  "value": "ETOPO1",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.ramsar.1.uncorrected.max_amount": {
+  "value": 4705.8,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.etopo2022.uncorrected.1.amount (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.uncorrected.max_hi": {
+  "value": 4735.8,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.etopo2022.uncorrected.1.hi (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.uncorrected.max_lo": {
+  "value": 4703.3,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.etopo2022.uncorrected.1.lo (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.uncorrected.max_product": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.ramsar.1.uncorrected.min_amount": {
+  "value": 937.4,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.srtm15p.uncorrected.1.amount (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.uncorrected.min_hi": {
+  "value": 950.8,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.srtm15p.uncorrected.1.hi (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.uncorrected.min_lo": {
+  "value": 934.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.ramsar.srtm15p.uncorrected.1.lo (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.ramsar.1.uncorrected.min_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
  "erl.text.h3.registered.0p5.unc_over_fused_max": {
   "value": 0.4693431435274046,
   "unit": "ratio",
@@ -2023,6 +2217,194 @@
   "source": "results/metrics.json (derived from the keys named in the note)",
   "note": "largest over smallest h3.emergence.<p>.uncorrected.2.estimate_km2",
   "decimals": 1
+ },
+ "erl.text.h3.wdpa.1.constant.max_amount": {
+  "value": 14095.8,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa.srtm15p.fused.1.amount (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.constant.max_hi": {
+  "value": 19155.8,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa.srtm15p.fused.1.hi (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.constant.max_lo": {
+  "value": 7795.9,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa.srtm15p.fused.1.lo (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.constant.max_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa.1.constant.min_amount": {
+  "value": 7867.1,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa.gebco2022.fused.1.amount (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.constant.min_hi": {
+  "value": 10914.2,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa.gebco2022.fused.1.hi (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.constant.min_lo": {
+  "value": 4192.1,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3sens.constant.exposure.wdpa.gebco2022.fused.1.lo (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.constant.min_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa.1.registered.max_amount": {
+  "value": 7950.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.etopo2022.fused.1.amount (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.registered.max_hi": {
+  "value": 10962.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.etopo2022.fused.1.hi (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.registered.max_lo": {
+  "value": 5241.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.etopo2022.fused.1.lo (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.registered.max_product": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa.1.registered.min_amount": {
+  "value": 3387.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.gebco2026.fused.1.amount (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.registered.min_hi": {
+  "value": 6395.3,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.gebco2026.fused.1.hi (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.registered.min_lo": {
+  "value": 0.0,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.gebco2026.fused.1.lo (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.registered.min_product": {
+  "value": "GEBCO_2026",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa.1.uncorrected.max_amount": {
+  "value": 16660.3,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.etopo2022.uncorrected.1.amount (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.uncorrected.max_hi": {
+  "value": 17182.5,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.etopo2022.uncorrected.1.hi (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.uncorrected.max_lo": {
+  "value": 16066.2,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.etopo2022.uncorrected.1.lo (max over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.uncorrected.max_product": {
+  "value": "ETOPO 2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa.1.uncorrected.min_amount": {
+  "value": 9129.1,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.gebco2022.uncorrected.1.amount (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.uncorrected.min_hi": {
+  "value": 11135.6,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.gebco2022.uncorrected.1.hi (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.uncorrected.min_lo": {
+  "value": 5529.9,
+  "unit": "km2",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.gebco2022.uncorrected.1.lo (min over products)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa.1.uncorrected.min_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.1.max_pct": {
+  "value": 85.95087230376697,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.gebco2022.uncorrected.1.amount / h3.emergence.gebco2022.uncorrected.1.estimate_km2 (max over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.1.max_product": {
+  "value": "GEBCO_2022",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
+ },
+ "erl.text.h3.wdpa_share.1.min_pct": {
+  "value": 61.82955883409708,
+  "unit": "%",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "h3.exposure.wdpa.srtm15p.uncorrected.1.amount / h3.emergence.srtm15p.uncorrected.1.estimate_km2 (min over products; approximate, D-103)",
+  "decimals": 0
+ },
+ "erl.text.h3.wdpa_share.1.min_product": {
+  "value": "SRTM15+",
+  "unit": "text",
+  "source": "results/metrics.json (derived from the keys named in the note)",
+  "note": "the product"
  },
  "erl.text.inventory.n_landsat": {
   "value": 23268,

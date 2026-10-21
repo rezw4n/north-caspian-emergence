@@ -1251,9 +1251,9 @@ def erl_text_metrics(m: dict) -> None:
     manuscript/supplementary_erl.tex; D-107) that no other function provides: ranges, counts,
     ratios and lists over keys set above, and copies of existing keys at the precision the prose
     quotes (erl.text.p4.*, erl.text.pct.*, erl.text.m0.*). Every value is derived from metrics
-    already in m, which come from the committed result files read above, except two values read
-    from committed result files directly: the ETOPO 2022 source share of the Great Salt Lake band
-    (its lineage table) and the block-test p-values of both runs around the D-089 fix.
+    already in m, which come from the committed result files read above, except values read
+    from committed result files directly: the ETOPO 2022 source share of the Great Salt Lake band,
+    the block-test p-values of both runs around the D-089 fix and the split-reassignment seeds of check 8.
     Nothing is refitted or recomputed from data."""
     import math
 
@@ -1526,6 +1526,65 @@ def erl_text_metrics(m: dict) -> None:
         if years:
             add(f"{T}.h3.paths.{sc}m.first_year", str(min(years)), "year", f"earliest such year (h3.date.<id>.{sc})")
             add(f"{T}.h3.paths.{sc}m.last_year", str(max(years)), "year", f"latest such year (h3.date.<id>.{sc})")
+
+    # protected areas (WDPA) and the Volga Delta Ramsar site at 1 m (D-103): range over the grids of
+    # the uncorrected, registered fused and constant-form fused surfaces, and the share of each grid's
+    # uncorrected 1 m emergence inside protected areas (approximate: D-103)
+    for lay in ("wdpa", "ramsar"):
+        for tag, pre, surf in (("uncorrected", "h3.exposure", "uncorrected"), ("registered", "h3.exposure", "fused"),
+                               ("constant", "h3sens.constant.exposure", "fused")):
+            am = {p: val(f"{pre}.{lay}.{p}.{surf}.1.amount") for p in prods}
+            if not all(num(x) for x in am.values()):
+                continue
+            for which, p in (("min", min(prods, key=lambda q: am[q])), ("max", max(prods, key=lambda q: am[q]))):
+                b = f"{T}.h3.{lay}.1.{tag}.{which}"
+                for part in ("amount", "lo", "hi"):
+                    k = f"{pre}.{lay}.{p}.{surf}.1.{part}"
+                    if k in m:
+                        add(f"{b}_{part}", val(k), "km2", f"{k} ({which} over products)", 0)
+                add(f"{b}_product", name[p], "text", "the product")
+    shares = {}
+    for p in prods:
+        a, e = val(f"h3.exposure.wdpa.{p}.uncorrected.1.amount"), val(f"h3.emergence.{p}.uncorrected.1.estimate_km2")
+        if num(a) and num(e) and e > 0:
+            shares[p] = 100.0 * a / e
+    if len(shares) == len(prods):
+        for which, p in (("min", min(shares, key=shares.get)), ("max", max(shares, key=shares.get))):
+            add(f"{T}.h3.wdpa_share.1.{which}_pct", shares[p], "%",
+                f"h3.exposure.wdpa.{p}.uncorrected.1.amount / h3.emergence.{p}.uncorrected.1.estimate_km2 "
+                f"({which} over products; approximate, D-103)", 0)
+            add(f"{T}.h3.wdpa_share.1.{which}_product", name[p], "text", "the product")
+
+    # H2 over 20 random reassignments of the 50 km blocks (D-104, check 8): medians over the seeds
+    # and where the registered draw falls among them (ATL08)
+    rb = load("robustness/r08_blocking/summary.json")
+    seeds = {k: v for k, v in (rb.get("splits") or {}).items() if k.startswith("split_seed")}
+    nm, cv = [], []
+    prim_nm = prim_cv = None
+    for k, v in sorted(seeds.items()):
+        a8 = v.get("ATL08") or {}
+        pair_n = (a8.get("dem") or {}).get("overall|nmad")
+        pair_c = (a8.get("coverage") or {}).get("overall")
+        if pair_n and pair_c and all(num(x) for x in pair_n + pair_c):
+            prim_nm, prim_cv = pair_n[0], pair_c[0]
+            nm.append(pair_n[1])
+            cv.append(pair_c[1])
+    if nm and len(nm) == len(seeds):
+        srcb = "results/robustness/r08_blocking/summary.json"
+        nm_s, cv_s = sorted(nm), sorted(cv)
+        mid = len(nm_s) // 2
+        med_n = nm_s[mid] if len(nm_s) % 2 else 0.5 * (nm_s[mid - 1] + nm_s[mid])
+        med_c = cv_s[mid] if len(cv_s) % 2 else 0.5 * (cv_s[mid - 1] + cv_s[mid])
+        add(f"{T}.h2.split.n_seeds", len(nm), "seeds", "random reassignments of the 50 km blocks (ATL08)",
+            source=srcb)
+        add(f"{T}.h2.split.atl08.nmad_median_m", med_n, "m", "median test-block DEM NMAD over the seeds", 3,
+            source=srcb)
+        add(f"{T}.h2.split.atl08.coverage_median_pct", 100.0 * med_c, "%",
+            "median test-block coverage of the 90% intervals over the seeds", 1, source=srcb)
+        add(f"{T}.h2.split.atl08.n_seeds_lower_nmad", sum(x < prim_nm for x in nm), "seeds",
+            "seeds whose test-block DEM NMAD is below the registered draw's", source=srcb)
+        add(f"{T}.h2.split.atl08.n_seeds_higher_coverage", sum(x > prim_cv for x in cv), "seeds",
+            "seeds whose test-block coverage is above the registered draw's", source=srcb)
 
     # exposure 1 m below 2026, the products as users apply them
     for lay in ("ports", "settlements", "channels", "worldcover"):
