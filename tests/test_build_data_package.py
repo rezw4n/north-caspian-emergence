@@ -51,4 +51,4 @@ def test_zip_is_byte_reproducible(tmp_path):
 def test_licence_text_is_cc_by_4():
     t = bdp.LICENCE_SRC.read_text(encoding="utf-8")
     assert "Creative Commons Attribution 4.0 International Public License" in t
-    assert bdp.sha256_bytes(bdp.LICENCE_SRC.read_bytes()) == bdp.LICENCE_SHA256
+    assert bdp.sha256_bytes(bdp.LICENCE_SRC.read_bytes().replace(b"\r\n", b"\n")) == bdp.LICENCE_SHA256

@@ -102,7 +102,6 @@ Pipeline entry points, grouped by pipeline step (the file-name prefix). `make al
 |---|---|
 | `a8_atl24_check.py` | Independent check: ICESat-2 ATL24 seabed heights against the near-term emergence |
 | `a8_atl24_fetch.py` | Independent check (PREREG section 2 "ATL24 bathymetry where available"; Amendment |
-| `a8_check_pathways.py` | Check every number of results/levels/projection_pathways.csv against the text |
 | `a8_emergence.py` | Near-term seabed emergence and exposure (H3; PREREG section 10). |
 | `a8_h3_decision.py` | The PREREG section 10 H3 decision (caspian.h3) from the frozen emergence table, |
 | `a8_osm_exposure.py` | Exposure input: OpenStreetMap infrastructure inside the study domain, via the Overpass |
@@ -154,7 +153,6 @@ Pipeline entry points, grouped by pipeline step (the file-name prefix). `make al
 
 | Script | Purpose |
 |---|---|
-| `check_quotes.py` | Re-run the check that every verbatim quote in the reading records matches the text |
 | `f1_erl_display.py` | Display preparations for the ERL main figures: the shorelines, product- |
 | `f2_erl_landsat.py` | Landsat "then and now" composites for the ERL satellite figure: true-colour |
 | `f3_erl_waterlines.py` | Observed level-binned waterlines for the ERL "Then and now" figure (figure 1, panel b). |
