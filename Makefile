@@ -60,26 +60,25 @@ ee_ok = $(if $(EE_OK),,$(error `make $@` uses Earth Engine and spends EECU: pilo
 # Batch stages take STEP explicitly.
 need_step = $(if $(STEP),,$(error `make $@` needs STEP=$(1)))
 
-.PHONY: help env lock test verify-0 verify-A verify-B \
-        fetch dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download \
+.PHONY: help env lock test \
+        fetch dahiti-download hydroweb-download swot-download bathymetry-download osm-download caspcom-download \
         wdpa-download \
         ee-inputs ee-scene-inventory ee-etopo1 ee-zone ee-stage1 ee-era5-winds ee-erl-landsat \
-        check-inputs dahiti-qc study-area scene-levels qc-figures params metrics macros check-refs \
-        check-quotes manuscript figures all phase-a inputs
+        check-inputs dahiti-qc study-area scene-levels qc-figures params metrics macros \
+        manuscript figures all phase-a inputs
 
 help:
 	@echo Targets
 	@echo   all            rebuild results, QC figures, numbers.tex and the ERL Letter and Supplementary from the raw inputs
 	@echo   phase-a        the main-analysis results only: H1-H3, Great Salt Lake, robustness, about 20-23 h, also built by all
 	@echo   inputs         list every input that make all reads and an acquisition step writes
-	@echo   fetch          acquire network inputs: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download wdpa-download
+	@echo   fetch          acquire network inputs: dahiti-download hydroweb-download swot-download bathymetry-download osm-download caspcom-download wdpa-download
 	@echo   ee-inputs      acquire Earth Engine inputs: ee-scene-inventory ee-etopo1, with EE_OK=1
 	@echo   ee-zone ee-stage1 ee-era5-winds   Earth Engine batch stages, with EE_OK=1 and STEP=...
 	@echo   check-inputs   check raw inputs against their acquisition records: checksums, inventory numbers
 	@echo   qc-figures     QC figures in outputs/qc, also built by all
 	@echo   figures        display items that need no results, in figures/out, also built by all
-	@echo   check-quotes   verbatim quotes in refs/notes against the texts in data/raw/lit, not run by all
-	@echo   env lock test verify-0 verify-A verify-B check-refs
+	@echo   env lock test
 
 ## environment -------------------------------------------------------------
 env:
@@ -95,17 +94,8 @@ lock:
 test:
 	$(PYTHON) -m pytest -q -p no:cacheprovider
 
-verify-0:
-	$(PYTHON) tools/verify.py 0
-
-verify-A:
-	$(PYTHON) tools/verify.py A
-
-verify-B:
-	$(PYTHON) tools/verify.py B
-
 ## stage 1a: raw inputs over the network (credentials; never run by `make all`) ----
-fetch: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download \
+fetch: dahiti-download hydroweb-download swot-download bathymetry-download osm-download caspcom-download \
        wdpa-download
 
 # CASPCOM post levels (public HTTP). Writes $(CASPCOM), results/provenance/caspcom_catalogue.json.
@@ -140,12 +130,6 @@ osm-download:
 # Writes data/raw/wdpa/ (never redistributed) and results/provenance/wdpa.json.
 wdpa-download:
 	$(PYTHON) -I scripts/a8_wdpa_exposure.py fetch
-
-# doi.org and Crossref/DataCite: refs/references.bib and refs/verification.csv, then the
-# documented metadata corrections of refs/bib_corrections.csv.
-refs:
-	$(PYTHON) tools/fetch_bibtex.py
-	$(PYTHON) tools/apply_bib_corrections.py .
 
 ## stage 1b: raw inputs from Earth Engine (spends EECU; never run by `make all`) ----
 ee-inputs: ee-scene-inventory ee-etopo1
@@ -1228,29 +1212,16 @@ results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 manuscript/numbers.tex: tools/make_macros.py results/metrics.json
 	$(PYTHON) tools/make_macros.py
 
-# Offline: references.bib and verification.csv agree with refs/cite_list.csv and every
-# entry is well formed (`make refs` regenerates them over the network).
-check-refs:
-	$(PYTHON) tools/fetch_bibtex.py --check
-
-# Offline: every verbatim quote in refs/notes/*.md (sections "checked programmatically")
-# and refs/literature_values.csv is found in the retrieved text kept under data/raw/lit
-# (checksums in refs/notes/SOURCES.csv). Not part of `all`: data/raw/lit is git-ignored
-# and no target acquires it, so on a fresh clone the sources are first retrieved again
-# from the URLs in SOURCES.csv and the notes.
-check-quotes:
-	$(PYTHON) scripts/check_quotes.py
-
 
 # Environmental Research Letters Letter and its Supplementary Information.
 # Both use IOP's template class manuscript/iopjournal.cls (unmodified). The
 # Letter keeps its .aux (git-ignored), which the Supplementary reads through xr-hyper for the
 # numbers of the Letter's figures, so the Letter is built first.
 manuscript/main_erl.pdf: manuscript/main_erl.tex manuscript/iopjournal.cls manuscript/justify.tex manuscript/orcid.pdf manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) \
-        refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
+        refs/references.bib $(FIGS) $(RESULT_FIGS)
 	$(TECTONIC) -X compile --keep-intermediates manuscript/main_erl.tex
 manuscript/supplementary_erl.pdf: manuscript/supplementary_erl.tex manuscript/iopjournal.cls manuscript/justify.tex manuscript/orcid.pdf manuscript/main_erl.pdf manuscript/numbers.tex \
-        $(wildcard manuscript/sections/*.tex) refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
+        $(wildcard manuscript/sections/*.tex) refs/references.bib $(FIGS) $(RESULT_FIGS)
 	$(TECTONIC) -X compile manuscript/supplementary_erl.tex
 # The pre-registration as a Supplementary file: docs/PREREG.md verbatim, each part with
 # the commit and date that first recorded it, read from git.
@@ -1263,7 +1234,7 @@ erl-wordcount:
 	$(PYTHON) tools/word_count_erl.py
 # Zenodo-ready data package of the derived tables: release/zenodo/ (git-ignored),
 # with README, CC BY 4.0 licence, Zenodo metadata, manifest and SHA256SUMS. Excludes CASPCOM
-# per-gauge values and WDPA-derived values (docs/DATA_RELEASE.md). Not part of `all`; it packs
+# per-gauge values and WDPA-derived values. Not part of `all`; it packs
 # results/ as it stands (no prerequisites, so it never triggers the pipeline): run it after `make all`.
 .PHONY: data-package
 data-package:

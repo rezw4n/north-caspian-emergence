@@ -46,7 +46,7 @@ REPO_URL = "https://github.com/rezw4n/north-caspian-emergence"
 LICENCE_SRC = ROOT / "tools" / "data_package" / "CC-BY-4.0-legalcode.txt"
 LICENCE_URL = "https://creativecommons.org/licenses/by/4.0/legalcode.txt"
 LICENCE_RETRIEVED = "2026-10-22"
-LICENCE_SHA256 = "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"
+LICENCE_SHA256 = "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411"  # of the text with LF line ends
 
 ZIP_DATE = (1980, 1, 1, 0, 0, 0)  # fixed member timestamps: the archives are byte-reproducible
 
@@ -441,7 +441,7 @@ def build(out: Path) -> dict:
     if RELEASE_DIR.resolve() not in out.parents:
         raise SystemExit(f"refusing to write outside {RELEASE_DIR}: {out}")
     lic = LICENCE_SRC.read_bytes()
-    if sha256_bytes(lic) != LICENCE_SHA256:
+    if sha256_bytes(lic.replace(b"\r\n", b"\n")) != LICENCE_SHA256:
         raise SystemExit(f"{rel(LICENCE_SRC)} differs from the legal code retrieved from {LICENCE_URL}")
     if out.exists():
         shutil.rmtree(out)

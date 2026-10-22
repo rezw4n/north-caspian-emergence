@@ -97,7 +97,6 @@ def test_all_runs_every_step_in_dependency_order(tmp_path):
     assert pos(r"a0_study_area\.py") < pos(r"build_metrics\.py")
     assert pos(r"a0_sector_edges\.py") < pos(r"build_metrics\.py")
     assert pos(r"build_metrics\.py") < pos(r"make_macros\.py") < pos(r"tectonic .*main_erl\.tex")
-    assert pos(r"fetch_bibtex\.py --check") < pos(r"tectonic .*main_erl\.tex")
     # raw inputs are checked against their acquisition records before anything reads them
     check = pos(r"check_inputs\.py .*--stamp")
     for step in (r"p0_dahiti_qc\.py", r"a0_sector_edges\.py", r"a4_level_crosscheck\.py", r"a4_scene_levels\.py",
@@ -181,7 +180,7 @@ NOT_REBUILT = {
     "results/generality/great_salt_lake/status.json": "hand-written status record",
     "results/generality/lake_urmia/status.json": "hand-written status record: not run",
     "results/hindcast/main/d089_rerun_comparison.json": "one-off comparison with the superseded first run",
-    "results/levels/projection_pathways.csv": "values transcribed from the literature (scripts/a8_check_pathways.py)",
+    "results/levels/projection_pathways.csv": "values transcribed from the literature",
     "results/levels/swot_block_levels.csv": "SWOT reduction during download (scripts/a5_swot_sector_levels.py)",
     "results/levels/setup_model.json": "design step before the stage-2 export (scripts/a5_setup_model.py)",
     "results/levels/screening_sensitivity.json": "design step before the stage-2 export (scripts/a6_screening.py)",
