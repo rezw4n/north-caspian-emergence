@@ -19,3 +19,6 @@
 \vskip\belowcaptionskip}
 \makeatother
 \AtBeginDocument{\justifying}
+% The template's ORCID icon (orcid.pdf from IOP's template zip), drawn with the original
+% \includegraphics so the documents' figure fallback and figure height do not apply to it.
+\renewcommand{\orcid}[1]{\href{https://orcid.org/#1}{\erlincludegraphics[width=8pt]{orcid.pdf}}}
