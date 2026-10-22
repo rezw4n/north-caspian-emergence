@@ -1,0 +1,21 @@
+﻿% Full justification (PI's request, 2026-10-22; D-135 addendum). iopjournal.cls sets \raggedright for the
+% whole document, the abstract and long figure captions; the body text, the abstract and the
+% captions are justified here. Headings, the title block and narrow table cells stay ragged.
+\usepackage{ragged2e}
+\makeatletter
+\renewenvironment{abstract}{%
+      \vspace{16pt plus3pt minus3pt}
+      {\color{gray}\hrule} \ \\
+      \noindent \fontsize{11}{12}\selectfont {\bfseries Abstract}\\
+	  \rm\ignorespaces \justifying}{\vspace{3mm} {\color{gray}\hrule}}
+\renewcommand{\@makecaption}[2]{\vskip\abovecaptionskip
+\sbox\@tempboxa{\fontsize{8}{10}\selectfont {\bfseries #1.} #2}%
+\ifdim \wd\@tempboxa >\hsize
+\justifying \fontsize{8}{10}\selectfont {\bfseries #1.} #2\par
+\else
+\global \@minipagefalse
+\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+\fi
+\vskip\belowcaptionskip}
+\makeatother
+\AtBeginDocument{\justifying}

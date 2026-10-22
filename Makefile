@@ -1051,10 +1051,10 @@ manuscript/main.pdf: manuscript/main.tex manuscript/numbers.tex $(wildcard manus
 # Both use IOP's template class manuscript/iopjournal.cls (unmodified; D-107 addendum). The
 # Letter keeps its .aux (git-ignored), which the Supplementary reads through xr-hyper for the
 # numbers of the Letter's figures, so the Letter is built first.
-manuscript/main_erl.pdf: manuscript/main_erl.tex manuscript/iopjournal.cls manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) \
+manuscript/main_erl.pdf: manuscript/main_erl.tex manuscript/iopjournal.cls manuscript/justify.tex manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) \
         refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
 	$(TECTONIC) -X compile --keep-intermediates manuscript/main_erl.tex
-manuscript/supplementary_erl.pdf: manuscript/supplementary_erl.tex manuscript/iopjournal.cls manuscript/main_erl.pdf manuscript/numbers.tex \
+manuscript/supplementary_erl.pdf: manuscript/supplementary_erl.tex manuscript/iopjournal.cls manuscript/justify.tex manuscript/main_erl.pdf manuscript/numbers.tex \
         $(wildcard manuscript/sections/*.tex) refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
 	$(TECTONIC) -X compile manuscript/supplementary_erl.tex
 # Main-text word count of the Letter as ERL defines it (excluding title, abstract, captions,
