@@ -1,0 +1,70 @@
+{
+ "tag": "main",
+ "bins": [
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43
+ ],
+ "c_all_m": {
+  "gebco_2026": -1.48,
+  "etopo_2022": -1.49,
+  "srtm15p_v2.7": -1.28,
+  "gebco_2022": -1.45,
+  "etopo1": -1.38
+ },
+ "c_e12_m": {
+  "gebco_2026": -1.99,
+  "etopo_2022": -1.96,
+  "srtm15p_v2.7": -1.9,
+  "gebco_2022": -1.99,
+  "etopo1": -1.99
+ },
+ "validated_sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "open_shelf"
+ ],
+ "band": "D-071: extents_v6_250m.npz high == 1 and low == 0, nearest onto the 60 m grid, inside the domain",
+ "band_cells": 10272062,
+ "regions": {
+  "1": "train_validated",
+  "2": "train_other",
+  "3": "calibtest_validated",
+  "4": "calibtest_other",
+  "5": "no_block"
+ },
+ "envelope_cells": 11051231,
+ "test_blocks": 68,
+ "seconds": 4572.9,
+ "decisions": "D-114"
+}

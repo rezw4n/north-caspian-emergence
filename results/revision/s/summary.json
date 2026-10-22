@@ -1,0 +1,19 @@
+{
+ "decisions": [
+  "D-113",
+  "D-114",
+  "D-115"
+ ],
+ "seed": 20261022,
+ "n_boot": 2000,
+ "block_levels": 3,
+ "validated_sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "open_shelf"
+ ],
+ "rasters_used": true,
+ "domain_cells": 61434814,
+ "domain_km2_from_grid": 221165.3
+}

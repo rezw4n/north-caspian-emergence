@@ -1,0 +1,12 @@
+what,bin,level_center_m,bin_low_m,bin_high_m,n_scenes,n_acquisitions,first,last,months,years,sector
+record-low bin,12,-28.75,-28.8,-28.7,77.0,31.0,2025-09-30,2026-04-24,4+9+10,2025+2026,
+record-low bin,13,-28.65,-28.7,-28.6,95.0,45.0,2024-10-24,2026-10-11,4+5+9+10,2024+2025+2026,
+record-low bin,14,-28.55,-28.6,-28.5,379.0,154.0,2024-04-01,2026-10-10,4+5+7+8+9+10,2024+2025+2026,
+lowest evaluable level,13,-28.65,,,,,,,,,interfluve
+lowest evaluable level,14,-28.55,,,,,,,,,komsomolets
+lowest evaluable level,14,-28.55,,,,,,,,,northeast
+lowest evaluable level,14,-28.55,,,,,,,,,open_shelf
+lowest evaluable level,13,-28.65,,,,,,,,,ural
+lowest evaluable level,14,-28.55,,,,,,,,,volga
+lowest evaluable level,14,-28.55,,,,,,,,,west
+lowest observed level (any sector),12,-28.75,,,,,,,,,

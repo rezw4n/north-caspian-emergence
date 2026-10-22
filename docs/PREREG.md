@@ -739,3 +739,5 @@ The Caspian H1 result (D-087) was known. That is why every rule below is the Cas
 - **ETOPO 2022:**
   - displacement split by the source of the predicted shoreline cell (FABDEM or lake depth) at matched levels;
   - the floor per level band.
+
+**Erratum to Amendment 18, item 5 (2026-10-22, found while the analysis was run; D-115).** The text says the smallest attainable one-sided p of the sector-level test is 1/35. With the Eq. S12 statistic on medians of 3 against 4 sectors, the most extreme labelling always ties with one other, so the smallest attainable p is 2/35 ≈ 0.057. At seven sectors this test therefore cannot reject at 0.05. The test is run as registered and reported with this property stated. Its rank-sum version is reported as a labelled sensitivity (D-115).
