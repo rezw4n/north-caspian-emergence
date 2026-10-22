@@ -1,0 +1,20 @@
+{
+ "source": "ATL06",
+ "scale_model": {
+  "split": "train",
+  "terms": [
+   "intercept",
+   "log1p_interp_dist",
+   "contour_density",
+   "slope"
+  ],
+  "beta": [
+   -1.4596233488887138,
+   0.067387963565368,
+   -0.0014836562998405828,
+   98.04058649975497
+  ],
+  "n_points": 2270250,
+  "floor_m": 0.001
+ }
+}

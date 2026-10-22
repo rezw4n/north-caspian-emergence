@@ -1,0 +1,41 @@
+{
+ "status": "exploratory, descriptive (D-129); the registered H2 verdict (D-086) stands",
+ "decision_both_sources": {
+  "matched": "not supported",
+  "total": "not supported"
+ },
+ "by_source": {
+  "ATL06": {
+   "matched": {
+    "overall": "not supported",
+    "sectors_supported": [
+     "interfluve",
+     "open_shelf"
+    ]
+   },
+   "total": {
+    "overall": "not supported",
+    "sectors_supported": [
+     "interfluve",
+     "open_shelf"
+    ]
+   }
+  },
+  "ATL08": {
+   "matched": {
+    "overall": "not supported",
+    "sectors_supported": [
+     "interfluve",
+     "open_shelf"
+    ]
+   },
+   "total": {
+    "overall": "not supported",
+    "sectors_supported": [
+     "interfluve",
+     "open_shelf"
+    ]
+   }
+  }
+ }
+}

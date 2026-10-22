@@ -1,0 +1,14 @@
+{
+ "n_points": 4058174,
+ "n_outside_block_table": 77745,
+ "n_test_points": 880824,
+ "n_test_blocks": 14,
+ "test_by_sector": {
+  "interfluve": 36362,
+  "komsomolets": 120137,
+  "northeast": 599356,
+  "open_shelf": 98230,
+  "volga": 25776,
+  "west": 963
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "source": "ATL08",
+ "product_offsets": {
+  "gebco_2026": {
+   "split": "train",
+   "offset_m": 0.9709002999999967,
+   "sigma_boot_m": 0.09641467228254945,
+   "n_points": 230197,
+   "n_blocks": 36
+  },
+  "etopo_2022": {
+   "split": "train",
+   "offset_m": 0.769978499999997,
+   "sigma_boot_m": 0.30688780325510406,
+   "n_points": 230197,
+   "n_blocks": 36
+  },
+  "srtm15p_v2.7": {
+   "split": "train",
+   "offset_m": 1.0211656999999974,
+   "sigma_boot_m": 0.18005230838932468,
+   "n_points": 230197,
+   "n_blocks": 36
+  },
+  "gebco_2022": {
+   "split": "train",
+   "offset_m": 0.7858540999999981,
+   "sigma_boot_m": 0.10183215249859995,
+   "n_points": 230197,
+   "n_blocks": 36
+  },
+  "etopo1": {
+   "split": "train",
+   "offset_m": 0.7783431999999983,
+   "sigma_boot_m": 0.15676203945797582,
+   "n_points": 230197,
+   "n_blocks": 36
+  }
+ }
+}

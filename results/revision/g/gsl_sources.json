@@ -1,0 +1,372 @@
+{
+ "rule": "emerged band = near-maximum and not near-minimum water inside the arm (250 m; scripts/g1_static.py, as scripts/g1_lineage.py); nearest native cell at each band cell centre",
+ "status": "exploratory, post-review (PREREG Amendment 18 item 11); descriptive",
+ "code_grids": {
+  "gebco_2026": "GEBCO type identifier; 0 = 'Land' (GEBCO grid documentation, Table 2)",
+  "gebco_2022": "GEBCO type identifier; 0 = 'Land' (GEBCO grid documentation, Table 2)",
+  "etopo_2022": "ETOPO 2022 source ID; 10 = FABDEM, 11 = GEBCO Lake Depths (MacFerrin et al. 2025, Table 1)",
+  "srtm15p_v2.7": "SRTM15+ source ID; a cell constrained by a sounding holds the sounding's index, other cells 0 (Tozer et al. 2019, section 5.1)"
+ },
+ "arms": {
+  "north": {
+   "band_cells_250m": 13299,
+   "band_km2": 831.2,
+   "navd88_minus_egm2008_m": {
+    "median": 0.784,
+    "min": 0.668,
+    "max": 0.822
+   },
+   "products": {
+    "gebco_2026": {
+     "heights_reference": "EGM2008 as read (D-070)",
+     "n_finite": 13299,
+     "modal_height_egm2008_m": 1282.0,
+     "modal_share": 0.5655,
+     "modal_height_navd88_m": 1282.78,
+     "share_within_0p5m_of_mode": 0.5655,
+     "whole_metre_share": 1.0,
+     "n_distinct_heights": 63,
+     "p05_navd88_m": 1281.75,
+     "p50_navd88_m": 1282.79,
+     "p95_navd88_m": 1287.75,
+     "land_source": "SRTM (via SRTM15+)",
+     "gauge_during_land_source_navd88": {
+      "window": [
+       "2000-02-11",
+       "2000-02-22"
+      ],
+      "n_values": 12,
+      "mean_m": 1281.837,
+      "min_m": 1281.761,
+      "max_m": 1281.882,
+      "record_low_m": 1277.585,
+      "record_low_date": "2022-11-01"
+     },
+     "share_below_record_low_gauge": 0.0009,
+     "code_layer": "tid",
+     "code_shares": {
+      "0": 1.0
+     },
+     "code_meaning": {
+      "0": "Land"
+     },
+     "any_sounding_code": false
+    },
+    "gebco_2022": {
+     "heights_reference": "EGM2008 as read (D-070)",
+     "n_finite": 13299,
+     "modal_height_egm2008_m": 1282.0,
+     "modal_share": 0.6451,
+     "modal_height_navd88_m": 1282.78,
+     "share_within_0p5m_of_mode": 0.6451,
+     "whole_metre_share": 1.0,
+     "n_distinct_heights": 62,
+     "p05_navd88_m": 1282.75,
+     "p50_navd88_m": 1282.79,
+     "p95_navd88_m": 1287.76,
+     "land_source": "SRTM (via SRTM15+)",
+     "gauge_during_land_source_navd88": {
+      "window": [
+       "2000-02-11",
+       "2000-02-22"
+      ],
+      "n_values": 12,
+      "mean_m": 1281.837,
+      "min_m": 1281.761,
+      "max_m": 1281.882,
+      "record_low_m": 1277.585,
+      "record_low_date": "2022-11-01"
+     },
+     "share_below_record_low_gauge": 0.0009,
+     "code_layer": "tid",
+     "code_shares": {
+      "0": 1.0
+     },
+     "code_meaning": {
+      "0": "Land"
+     },
+     "any_sounding_code": false
+    },
+    "etopo_2022": {
+     "heights_reference": "EGM2008 as read (D-070)",
+     "n_finite": 13299,
+     "modal_height_egm2008_m": 1276.0,
+     "modal_share": 0.2776,
+     "modal_height_navd88_m": 1276.78,
+     "share_within_0p5m_of_mode": 0.329,
+     "whole_metre_share": 0.2962,
+     "n_distinct_heights": 1005,
+     "p05_navd88_m": 1276.75,
+     "p50_navd88_m": 1280.47,
+     "p95_navd88_m": 1284.52,
+     "land_source": "FABDEM (Copernicus DEM, TanDEM-X)",
+     "gauge_during_land_source_navd88": {
+      "window": [
+       "2011-01-01",
+       "2015-12-31"
+      ],
+      "n_values": 1826,
+      "mean_m": 1279.459,
+      "min_m": 1278.213,
+      "max_m": 1280.532,
+      "record_low_m": 1277.585,
+      "record_low_date": "2022-11-01"
+     },
+     "share_below_record_low_gauge": 0.3439,
+     "code_layer": "source_id",
+     "code_shares": {
+      "10": 1.0
+     },
+     "code_meaning": {
+      "10": "FABDEM (land topography)"
+     },
+     "any_sounding_code": false
+    },
+    "srtm15p_v2.7": {
+     "heights_reference": "EGM2008 as read (D-070)",
+     "n_finite": 13299,
+     "modal_height_egm2008_m": 1282.0,
+     "modal_share": 0.5917,
+     "modal_height_navd88_m": 1282.78,
+     "share_within_0p5m_of_mode": 0.6451,
+     "whole_metre_share": 0.8967,
+     "n_distinct_heights": 448,
+     "p05_navd88_m": 1282.74,
+     "p50_navd88_m": 1282.79,
+     "p95_navd88_m": 1287.78,
+     "land_source": "SRTM CGIAR-CSI V4.1",
+     "gauge_during_land_source_navd88": {
+      "window": [
+       "2000-02-11",
+       "2000-02-22"
+      ],
+      "n_values": 12,
+      "mean_m": 1281.837,
+      "min_m": 1281.761,
+      "max_m": 1281.882,
+      "record_low_m": 1277.585,
+      "record_low_date": "2022-11-01"
+     },
+     "share_below_record_low_gauge": 0.0009,
+     "code_layer": "source_id",
+     "code_shares": {
+      "0": 1.0
+     },
+     "code_meaning": {
+      "0": "no sounding (land or predicted)"
+     },
+     "any_sounding_code": false
+    },
+    "etopo1": {
+     "heights_reference": "EGM2008 as read (D-070)",
+     "n_finite": 13299,
+     "modal_height_egm2008_m": 1282.0,
+     "modal_share": 0.6508,
+     "modal_height_navd88_m": 1282.78,
+     "share_within_0p5m_of_mode": 0.6508,
+     "whole_metre_share": 1.0,
+     "n_distinct_heights": 54,
+     "p05_navd88_m": 1282.75,
+     "p50_navd88_m": 1282.79,
+     "p95_navd88_m": 1289.79,
+     "land_source": "not documented in the sources read (SRTM era assumed for the comparison only)",
+     "gauge_during_land_source_navd88": {
+      "window": [
+       "2000-02-11",
+       "2000-02-22"
+      ],
+      "n_values": 12,
+      "mean_m": 1281.837,
+      "min_m": 1281.761,
+      "max_m": 1281.882,
+      "record_low_m": 1277.585,
+      "record_low_date": "2022-11-01"
+     },
+     "share_below_record_low_gauge": 0.0,
+     "code_layer": null,
+     "code_shares": "no source grid distributed"
+    }
+   }
+  },
+  "south": {
+   "band_cells_250m": 23857,
+   "band_km2": 1491.1,
+   "navd88_minus_egm2008_m": {
+    "median": 0.779,
+    "min": 0.631,
+    "max": 0.873
+   },
+   "products": {
+    "gebco_2026": {
+     "heights_reference": "EGM2008 as read (D-070)",
+     "n_finite": 23857,
+     "modal_height_egm2008_m": 1282.0,
+     "modal_share": 0.429,
+     "modal_height_navd88_m": 1282.78,
+     "share_within_0p5m_of_mode": 0.429,
+     "whole_metre_share": 1.0,
+     "n_distinct_heights": 380,
+     "p05_navd88_m": 1281.79,
+     "p50_navd88_m": 1282.84,
+     "p95_navd88_m": 1293.8,
+     "land_source": "SRTM (via SRTM15+)",
+     "gauge_during_land_source_navd88": {
+      "window": [
+       "2000-02-11",
+       "2000-02-22"
+      ],
+      "n_values": 12,
+      "mean_m": 1282.026,
+      "min_m": 1281.99,
+      "max_m": 1282.051,
+      "record_low_m": 1277.632,
+      "record_low_date": "2022-11-07"
+     },
+     "share_below_record_low_gauge": 0.0,
+     "code_layer": "tid",
+     "code_shares": {
+      "0": 1.0
+     },
+     "code_meaning": {
+      "0": "Land"
+     },
+     "any_sounding_code": false
+    },
+    "gebco_2022": {
+     "heights_reference": "EGM2008 as read (D-070)",
+     "n_finite": 23857,
+     "modal_height_egm2008_m": 1282.0,
+     "modal_share": 0.5257,
+     "modal_height_navd88_m": 1282.78,
+     "share_within_0p5m_of_mode": 0.5257,
+     "whole_metre_share": 1.0,
+     "n_distinct_heights": 379,
+     "p05_navd88_m": 1282.74,
+     "p50_navd88_m": 1282.85,
+     "p95_navd88_m": 1294.76,
+     "land_source": "SRTM (via SRTM15+)",
+     "gauge_during_land_source_navd88": {
+      "window": [
+       "2000-02-11",
+       "2000-02-22"
+      ],
+      "n_values": 12,
+      "mean_m": 1282.026,
+      "min_m": 1281.99,
+      "max_m": 1282.051,
+      "record_low_m": 1277.632,
+      "record_low_date": "2022-11-07"
+     },
+     "share_below_record_low_gauge": 0.0,
+     "code_layer": "tid",
+     "code_shares": {
+      "0": 1.0
+     },
+     "code_meaning": {
+      "0": "Land"
+     },
+     "any_sounding_code": false
+    },
+    "etopo_2022": {
+     "heights_reference": "EGM2008 as read (D-070)",
+     "n_finite": 23857,
+     "modal_height_egm2008_m": 1278.0,
+     "modal_share": 0.2823,
+     "modal_height_navd88_m": 1278.78,
+     "share_within_0p5m_of_mode": 0.3284,
+     "whole_metre_share": 0.3194,
+     "n_distinct_heights": 1753,
+     "p05_navd88_m": 1278.75,
+     "p50_navd88_m": 1281.48,
+     "p95_navd88_m": 1290.24,
+     "land_source": "FABDEM (Copernicus DEM, TanDEM-X)",
+     "gauge_during_land_source_navd88": {
+      "window": [
+       "2011-01-01",
+       "2015-12-31"
+      ],
+      "n_values": 1826,
+      "mean_m": 1279.783,
+      "min_m": 1278.793,
+      "max_m": 1280.817,
+      "record_low_m": 1277.632,
+      "record_low_date": "2022-11-07"
+     },
+     "share_below_record_low_gauge": 0.0005,
+     "code_layer": "source_id",
+     "code_shares": {
+      "10": 1.0
+     },
+     "code_meaning": {
+      "10": "FABDEM (land topography)"
+     },
+     "any_sounding_code": false
+    },
+    "srtm15p_v2.7": {
+     "heights_reference": "EGM2008 as read (D-070)",
+     "n_finite": 23857,
+     "modal_height_egm2008_m": 1282.0,
+     "modal_share": 0.4849,
+     "modal_height_navd88_m": 1282.78,
+     "share_within_0p5m_of_mode": 0.5257,
+     "whole_metre_share": 0.9252,
+     "n_distinct_heights": 832,
+     "p05_navd88_m": 1282.74,
+     "p50_navd88_m": 1282.86,
+     "p95_navd88_m": 1294.76,
+     "land_source": "SRTM CGIAR-CSI V4.1",
+     "gauge_during_land_source_navd88": {
+      "window": [
+       "2000-02-11",
+       "2000-02-22"
+      ],
+      "n_values": 12,
+      "mean_m": 1282.026,
+      "min_m": 1281.99,
+      "max_m": 1282.051,
+      "record_low_m": 1277.632,
+      "record_low_date": "2022-11-07"
+     },
+     "share_below_record_low_gauge": 0.0,
+     "code_layer": "source_id",
+     "code_shares": {
+      "0": 1.0
+     },
+     "code_meaning": {
+      "0": "no sounding (land or predicted)"
+     },
+     "any_sounding_code": false
+    },
+    "etopo1": {
+     "heights_reference": "EGM2008 as read (D-070)",
+     "n_finite": 23857,
+     "modal_height_egm2008_m": 1282.0,
+     "modal_share": 0.5323,
+     "modal_height_navd88_m": 1282.78,
+     "share_within_0p5m_of_mode": 0.5323,
+     "whole_metre_share": 1.0,
+     "n_distinct_heights": 170,
+     "p05_navd88_m": 1282.74,
+     "p50_navd88_m": 1282.85,
+     "p95_navd88_m": 1300.77,
+     "land_source": "not documented in the sources read (SRTM era assumed for the comparison only)",
+     "gauge_during_land_source_navd88": {
+      "window": [
+       "2000-02-11",
+       "2000-02-22"
+      ],
+      "n_values": 12,
+      "mean_m": 1282.026,
+      "min_m": 1281.99,
+      "max_m": 1282.051,
+      "record_low_m": 1277.632,
+      "record_low_date": "2022-11-07"
+     },
+     "share_below_record_low_gauge": 0.0,
+     "code_layer": null,
+     "code_shares": "no source grid distributed"
+    }
+   }
+  }
+ }
+}

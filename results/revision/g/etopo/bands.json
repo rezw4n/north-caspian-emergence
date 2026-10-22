@@ -1,0 +1,169 @@
+{
+ "rule": "D-130: D-087 bands; shape variant; evaluable levels of h1_mispredicts_detail.csv; floor = pooled-level 95th percentile of noise_floor.csv",
+ "below_-27.7_majority_exceeds": {
+  "etopo1": {
+   "interfluve (-28.3, -27.7]": "2/4",
+   "interfluve (-29.0, -28.3]": "4/4",
+   "komsomolets (-28.3, -27.7]": "4/4",
+   "komsomolets (-29.0, -28.3]": "3/3",
+   "northeast (-28.3, -27.7]": "3/5",
+   "northeast (-29.0, -28.3]": "3/3",
+   "open_shelf (-28.3, -27.7]": "3/5",
+   "open_shelf (-29.0, -28.3]": "3/3",
+   "ural (-28.3, -27.7]": "3/5",
+   "ural (-29.0, -28.3]": "2/4",
+   "volga (-28.3, -27.7]": "2/5",
+   "volga (-29.0, -28.3]": "3/3",
+   "west (-28.3, -27.7]": "3/5",
+   "west (-29.0, -28.3]": "3/3"
+  },
+  "etopo_2022": {
+   "interfluve (-28.3, -27.7]": "2/4",
+   "interfluve (-29.0, -28.3]": "4/4",
+   "komsomolets (-28.3, -27.7]": "4/4",
+   "komsomolets (-29.0, -28.3]": "3/3",
+   "northeast (-28.3, -27.7]": "3/5",
+   "northeast (-29.0, -28.3]": "3/3",
+   "open_shelf (-28.3, -27.7]": "3/5",
+   "open_shelf (-29.0, -28.3]": "1/3",
+   "ural (-28.3, -27.7]": "3/5",
+   "ural (-29.0, -28.3]": "2/4",
+   "volga (-28.3, -27.7]": "2/5",
+   "volga (-29.0, -28.3]": "3/3",
+   "west (-28.3, -27.7]": "3/5",
+   "west (-29.0, -28.3]": "3/3"
+  },
+  "gebco_2022": {
+   "interfluve (-28.3, -27.7]": "2/4",
+   "interfluve (-29.0, -28.3]": "4/4",
+   "komsomolets (-28.3, -27.7]": "4/4",
+   "komsomolets (-29.0, -28.3]": "3/3",
+   "northeast (-28.3, -27.7]": "3/5",
+   "northeast (-29.0, -28.3]": "3/3",
+   "open_shelf (-28.3, -27.7]": "3/5",
+   "open_shelf (-29.0, -28.3]": "1/3",
+   "ural (-28.3, -27.7]": "3/5",
+   "ural (-29.0, -28.3]": "2/4",
+   "volga (-28.3, -27.7]": "2/5",
+   "volga (-29.0, -28.3]": "3/3",
+   "west (-28.3, -27.7]": "3/5",
+   "west (-29.0, -28.3]": "3/3"
+  },
+  "gebco_2026": {
+   "interfluve (-28.3, -27.7]": "2/4",
+   "interfluve (-29.0, -28.3]": "4/4",
+   "komsomolets (-28.3, -27.7]": "4/4",
+   "komsomolets (-29.0, -28.3]": "3/3",
+   "northeast (-28.3, -27.7]": "3/5",
+   "northeast (-29.0, -28.3]": "3/3",
+   "open_shelf (-28.3, -27.7]": "3/5",
+   "open_shelf (-29.0, -28.3]": "1/3",
+   "ural (-28.3, -27.7]": "3/5",
+   "ural (-29.0, -28.3]": "2/4",
+   "volga (-28.3, -27.7]": "2/5",
+   "volga (-29.0, -28.3]": "3/3",
+   "west (-28.3, -27.7]": "3/5",
+   "west (-29.0, -28.3]": "3/3"
+  },
+  "srtm15p_v2.7": {
+   "interfluve (-28.3, -27.7]": "3/4",
+   "interfluve (-29.0, -28.3]": "4/4",
+   "komsomolets (-28.3, -27.7]": "4/4",
+   "komsomolets (-29.0, -28.3]": "3/3",
+   "northeast (-28.3, -27.7]": "3/5",
+   "northeast (-29.0, -28.3]": "3/3",
+   "open_shelf (-28.3, -27.7]": "3/5",
+   "open_shelf (-29.0, -28.3]": "3/3",
+   "ural (-28.3, -27.7]": "3/5",
+   "ural (-29.0, -28.3]": "4/4",
+   "volga (-28.3, -27.7]": "4/5",
+   "volga (-29.0, -28.3]": "3/3",
+   "west (-28.3, -27.7]": "4/5",
+   "west (-29.0, -28.3]": "3/3"
+  }
+ },
+ "etopo_lower_DQ_share_by_band": {
+  "(-26.3, -25.5]": {
+   "n_pairs": 28,
+   "share_etopo_lower": 1.0
+  },
+  "(-27.0, -26.3]": {
+   "n_pairs": 28,
+   "share_etopo_lower": 1.0
+  },
+  "(-27.7, -27.0]": {
+   "n_pairs": 28,
+   "share_etopo_lower": 1.0
+  },
+  "(-28.3, -27.7]": {
+   "n_pairs": 28,
+   "share_etopo_lower": 0.75
+  },
+  "(-29.0, -28.3]": {
+   "n_pairs": 28,
+   "share_etopo_lower": 0.786
+  }
+ },
+ "below_-27.7_sectors_majority_exceeds": {
+  "etopo1": {
+   "n_sectors": 7,
+   "of": 7,
+   "not_majority": []
+  },
+  "etopo_2022": {
+   "n_sectors": 6,
+   "of": 7,
+   "not_majority": [
+    "open_shelf"
+   ]
+  },
+  "gebco_2022": {
+   "n_sectors": 6,
+   "of": 7,
+   "not_majority": [
+    "open_shelf"
+   ]
+  },
+  "gebco_2026": {
+   "n_sectors": 6,
+   "of": 7,
+   "not_majority": [
+    "open_shelf"
+   ]
+  },
+  "srtm15p_v2.7": {
+   "n_sectors": 7,
+   "of": 7,
+   "not_majority": []
+  }
+ },
+ "above_-27.7_sectors_majority_exceeds": {
+  "etopo1": {
+   "n_sectors": 6,
+   "of": 7
+  },
+  "etopo_2022": {
+   "n_sectors": 1,
+   "of": 7
+  },
+  "gebco_2022": {
+   "n_sectors": 6,
+   "of": 7
+  },
+  "gebco_2026": {
+   "n_sectors": 6,
+   "of": 7
+  },
+  "srtm15p_v2.7": {
+   "n_sectors": 6,
+   "of": 7
+  }
+ },
+ "floor_by_band_median_over_sectors_m": {
+  "(-26.3, -25.5]": 2918.4,
+  "(-27.0, -26.3]": 678.8,
+  "(-27.7, -27.0]": 1121.5,
+  "(-28.3, -27.7]": 2091.1,
+  "(-29.0, -28.3]": 1316.2
+ }
+}

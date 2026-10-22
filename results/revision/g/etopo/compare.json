@@ -1,0 +1,207 @@
+{
+ "rule": "D-130: per (product, sector, level), epochs pooled; matched levels have >= 20 distances from both sources; each distance takes the ETOPO 2022 source ID of its predicted waterline cell",
+ "products": {
+  "etopo_2022": {
+   "n_levels_matched": 87,
+   "n_levels_total": 124,
+   "by_sector": {
+    "interfluve": {
+     "n_matched_levels": 11,
+     "median_fabdem_m": 432.7,
+     "median_lake_depth_m": 670.8,
+     "share_levels_fabdem_smaller": 0.455
+    },
+    "komsomolets": {
+     "n_matched_levels": 11,
+     "median_fabdem_m": 1332.2,
+     "median_lake_depth_m": 1920.0,
+     "share_levels_fabdem_smaller": 0.545
+    },
+    "northeast": {
+     "n_matched_levels": 12,
+     "median_fabdem_m": 422.1,
+     "median_lake_depth_m": 1092.7,
+     "share_levels_fabdem_smaller": 0.75
+    },
+    "open_shelf": {
+     "n_matched_levels": 15,
+     "median_fabdem_m": 247.4,
+     "median_lake_depth_m": 247.4,
+     "share_levels_fabdem_smaller": 0.467
+    },
+    "ural": {
+     "n_matched_levels": 12,
+     "median_fabdem_m": 426.4,
+     "median_lake_depth_m": 768.0,
+     "share_levels_fabdem_smaller": 0.75
+    },
+    "volga": {
+     "n_matched_levels": 11,
+     "median_fabdem_m": 300.0,
+     "median_lake_depth_m": 240.0,
+     "share_levels_fabdem_smaller": 0.273
+    },
+    "west": {
+     "n_matched_levels": 15,
+     "median_fabdem_m": 189.7,
+     "median_lake_depth_m": 134.2,
+     "share_levels_fabdem_smaller": 0.4
+    }
+   },
+   "by_band": {
+    "(-26.3, -25.5]": {
+     "n_matched_levels": 21,
+     "median_fabdem_m": 432.7,
+     "median_lake_depth_m": 254.6,
+     "share_levels_fabdem_smaller": 0.19
+    },
+    "(-27.0, -26.3]": {
+     "n_matched_levels": 28,
+     "median_fabdem_m": 322.6,
+     "median_lake_depth_m": 302.9,
+     "share_levels_fabdem_smaller": 0.429
+    },
+    "(-27.7, -27.0]": {
+     "n_matched_levels": 28,
+     "median_fabdem_m": 408.4,
+     "median_lake_depth_m": 725.4,
+     "share_levels_fabdem_smaller": 0.679
+    },
+    "(-28.3, -27.7]": {
+     "n_matched_levels": 8,
+     "median_fabdem_m": 357.8,
+     "median_lake_depth_m": 2470.4,
+     "share_levels_fabdem_smaller": 1.0
+    },
+    "(-29.0, -28.3]": {
+     "n_matched_levels": 2,
+     "median_fabdem_m": 180.0,
+     "median_lake_depth_m": 2126.3,
+     "share_levels_fabdem_smaller": 1.0
+    }
+   },
+   "all_matched": {
+    "median_fabdem_m": 384.2,
+    "median_lake_depth_m": 480.0,
+    "share_levels_fabdem_smaller": 0.517
+   }
+  },
+  "gebco_2022": {
+   "n_levels_matched": 104,
+   "n_levels_total": 124,
+   "by_sector": {
+    "interfluve": {
+     "n_matched_levels": 17,
+     "median_fabdem_m": 4978.6,
+     "median_lake_depth_m": 3837.2,
+     "share_levels_fabdem_smaller": 0.176
+    },
+    "komsomolets": {
+     "n_matched_levels": 10,
+     "median_fabdem_m": 21074.8,
+     "median_lake_depth_m": 1277.0,
+     "share_levels_fabdem_smaller": 0.3
+    },
+    "northeast": {
+     "n_matched_levels": 14,
+     "median_fabdem_m": 3284.6,
+     "median_lake_depth_m": 4076.8,
+     "share_levels_fabdem_smaller": 0.714
+    },
+    "open_shelf": {
+     "n_matched_levels": 16,
+     "median_fabdem_m": 354.9,
+     "median_lake_depth_m": 607.5,
+     "share_levels_fabdem_smaller": 0.562
+    },
+    "ural": {
+     "n_matched_levels": 17,
+     "median_fabdem_m": 4830.3,
+     "median_lake_depth_m": 2497.0,
+     "share_levels_fabdem_smaller": 0.235
+    },
+    "volga": {
+     "n_matched_levels": 13,
+     "median_fabdem_m": 2596.7,
+     "median_lake_depth_m": 4133.0,
+     "share_levels_fabdem_smaller": 0.538
+    },
+    "west": {
+     "n_matched_levels": 17,
+     "median_fabdem_m": 1288.3,
+     "median_lake_depth_m": 2223.2,
+     "share_levels_fabdem_smaller": 0.647
+    }
+   },
+   "by_band": {
+    "(-26.3, -25.5]": {
+     "n_matched_levels": 21,
+     "median_fabdem_m": 6092.0,
+     "median_lake_depth_m": 1705.5,
+     "share_levels_fabdem_smaller": 0.286
+    },
+    "(-27.0, -26.3]": {
+     "n_matched_levels": 28,
+     "median_fabdem_m": 7158.6,
+     "median_lake_depth_m": 1598.2,
+     "share_levels_fabdem_smaller": 0.143
+    },
+    "(-27.7, -27.0]": {
+     "n_matched_levels": 27,
+     "median_fabdem_m": 2596.7,
+     "median_lake_depth_m": 2909.2,
+     "share_levels_fabdem_smaller": 0.778
+    },
+    "(-28.3, -27.7]": {
+     "n_matched_levels": 19,
+     "median_fabdem_m": 2358.8,
+     "median_lake_depth_m": 3434.7,
+     "share_levels_fabdem_smaller": 0.579
+    },
+    "(-29.0, -28.3]": {
+     "n_matched_levels": 9,
+     "median_fabdem_m": 3931.9,
+     "median_lake_depth_m": 3087.2,
+     "share_levels_fabdem_smaller": 0.556
+    }
+   },
+   "all_matched": {
+    "median_fabdem_m": 3843.6,
+    "median_lake_depth_m": 2403.8,
+    "share_levels_fabdem_smaller": 0.452
+   }
+  }
+ },
+ "shoreline_fabdem_share_by_band": {
+  "etopo_2022": {
+   "(-26.3, -25.5]": 0.9011,
+   "(-27.0, -26.3]": 0.6968,
+   "(-27.7, -27.0]": 0.146,
+   "(-28.3, -27.7]": 0.0025,
+   "(-29.0, -28.3]": 0.0008
+  },
+  "gebco_2022": {
+   "(-26.3, -25.5]": 0.8714,
+   "(-27.0, -26.3]": 0.7759,
+   "(-27.7, -27.0]": 0.1317,
+   "(-28.3, -27.7]": 0.0231,
+   "(-29.0, -28.3]": 0.0075
+  }
+ },
+ "median_all_sources_by_band_m": {
+  "etopo_2022": {
+   "(-26.3, -25.5]": 494.8,
+   "(-27.0, -26.3]": 300.0,
+   "(-27.7, -27.0]": 553.2,
+   "(-28.3, -27.7]": 3544.6,
+   "(-29.0, -28.3]": 4120.8
+  },
+  "gebco_2022": {
+   "(-26.3, -25.5]": 5765.0,
+   "(-27.0, -26.3]": 5202.0,
+   "(-27.7, -27.0]": 3189.3,
+   "(-28.3, -27.7]": 3601.8,
+   "(-29.0, -28.3]": 5227.9
+  }
+ }
+}

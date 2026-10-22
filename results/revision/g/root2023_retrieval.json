@@ -1,0 +1,130 @@
+{
+ "created": "2026-10-21T22:08:38Z",
+ "doi": "10.5066/P9DGG75W",
+ "items": {
+  "release": "64595c00d34ec179a8368788",
+  "geotiff": "646d0ed2d34ee02593fb50a7"
+ },
+ "requests": [
+  {
+   "method": "GET",
+   "url": "https://doi.org/10.5066/P9DGG75W",
+   "time_utc": "2026-10-21T22:08:32Z",
+   "status": 403,
+   "final_url": "https://www.sciencebase.gov/catalog/item/64595c00d34ec179a8368788",
+   "content_type": "text/html; charset=UTF-8",
+   "content_length": null,
+   "server": "cloudflare",
+   "cf_mitigated": "challenge",
+   "redirects": [
+    "https://www.sciencebase.gov/catalog/item/64595c00d34ec179a8368788"
+   ],
+   "body_head": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+  },
+  {
+   "method": "GET",
+   "url": "https://www.sciencebase.gov/catalog/item/64595c00d34ec179a8368788?format=json",
+   "time_utc": "2026-10-21T22:08:33Z",
+   "status": 403,
+   "final_url": "https://www.sciencebase.gov/catalog/item/64595c00d34ec179a8368788?format=json",
+   "content_type": "text/html; charset=UTF-8",
+   "content_length": null,
+   "server": "cloudflare",
+   "cf_mitigated": "challenge",
+   "redirects": [],
+   "body_head": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+  },
+  {
+   "method": "GET",
+   "url": "https://www.sciencebase.gov/catalog/item/64595c00d34ec179a8368788?format=json&fields=files,title,distributionLinks",
+   "time_utc": "2026-10-21T22:08:34Z",
+   "status": 403,
+   "final_url": "https://www.sciencebase.gov/catalog/item/64595c00d34ec179a8368788?format=json&fields=files,title,distributionLinks",
+   "content_type": "text/html; charset=UTF-8",
+   "content_length": null,
+   "server": "cloudflare",
+   "cf_mitigated": "challenge",
+   "redirects": [],
+   "body_head": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+  },
+  {
+   "method": "GET",
+   "url": "https://www.sciencebase.gov/catalog/item/646d0ed2d34ee02593fb50a7?format=json",
+   "time_utc": "2026-10-21T22:08:35Z",
+   "status": 403,
+   "final_url": "https://www.sciencebase.gov/catalog/item/646d0ed2d34ee02593fb50a7?format=json",
+   "content_type": "text/html; charset=UTF-8",
+   "content_length": null,
+   "server": "cloudflare",
+   "cf_mitigated": "challenge",
+   "redirects": [],
+   "body_head": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+  },
+  {
+   "method": "GET",
+   "url": "https://www.sciencebase.gov/catalog/item/646d0ed2d34ee02593fb50a7?format=json&fields=files,title,distributionLinks",
+   "time_utc": "2026-10-21T22:08:35Z",
+   "status": 403,
+   "final_url": "https://www.sciencebase.gov/catalog/item/646d0ed2d34ee02593fb50a7?format=json&fields=files,title,distributionLinks",
+   "content_type": "text/html; charset=UTF-8",
+   "content_length": null,
+   "server": "cloudflare",
+   "cf_mitigated": "challenge",
+   "redirects": [],
+   "body_head": "<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scal"
+  },
+  {
+   "method": "GET",
+   "url": "https://api.datacite.org/dois/10.5066/P9DGG75W",
+   "time_utc": "2026-10-21T22:08:36Z",
+   "status": 200,
+   "final_url": "https://api.datacite.org/dois/10.5066/P9DGG75W",
+   "content_type": "application/json; charset=utf-8",
+   "content_length": null,
+   "server": "nginx/1.24.0 + Phusion Passenger(R) 6.1.2",
+   "cf_mitigated": null,
+   "redirects": [],
+   "title": [
+    "Half-meter topobathymetric elevation model and elevation-area-volume tables for Great Salt Lake, Utah, 2002-2016"
+   ],
+   "sizes": [],
+   "formats": [],
+   "landing_url": "https://www.sciencebase.gov/catalog/item/64595c00d34ec179a8368788",
+   "publisher": "U.S. Geological Survey",
+   "published": 2023
+  }
+ ],
+ "files": [],
+ "heads": [
+  {
+   "file": "Great_Salt_Lake_TBDEM.tif (S3 publish bucket)",
+   "method": "HEAD",
+   "url": "https://prod-is-usgs-sb-prod-publish.s3.amazonaws.com/64595c00d34ec179a8368788/Great_Salt_Lake_TBDEM.tif",
+   "time_utc": "2026-10-21T22:08:37Z",
+   "status": 403,
+   "final_url": "https://prod-is-usgs-sb-prod-publish.s3.amazonaws.com/64595c00d34ec179a8368788/Great_Salt_Lake_TBDEM.tif",
+   "content_type": "application/xml",
+   "content_length": null,
+   "server": "AmazonS3",
+   "cf_mitigated": null,
+   "redirects": []
+  },
+  {
+   "file": "Great_Salt_Lake_TBDEM.tif (S3 publish bucket)",
+   "method": "HEAD",
+   "url": "https://prod-is-usgs-sb-prod-publish.s3.amazonaws.com/646d0ed2d34ee02593fb50a7/Great_Salt_Lake_TBDEM.tif",
+   "time_utc": "2026-10-21T22:08:38Z",
+   "status": 403,
+   "final_url": "https://prod-is-usgs-sb-prod-publish.s3.amazonaws.com/646d0ed2d34ee02593fb50a7/Great_Salt_Lake_TBDEM.tif",
+   "content_type": "application/xml",
+   "content_length": null,
+   "server": "AmazonS3",
+   "cf_mitigated": null,
+   "redirects": []
+  }
+ ],
+ "download_limit_gb": 15.0,
+ "files_over_limit": [],
+ "any_file_served_to_a_script": false,
+ "note": "No challenge was circumvented; nothing beyond JSON records and headers was downloaded."
+}

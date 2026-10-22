@@ -1,0 +1,28 @@
+{
+ "source": "ATL08",
+ "rule": "D-129: observed dry in the E3 extent of the level bin of the granule date (no DEM); bare population; 50 km blocks",
+ "counts": {
+  "granules": 1612,
+  "granules_without_level": 0,
+  "granules_bin_without_e3_extent": 43,
+  "points_quality": 2247176,
+  "points_in_band": 848768,
+  "points_in_band_bin_without_extent": 10078,
+  "points_in_band_cell_not_valid": 169143,
+  "points_in_band_observed_water": 228185,
+  "points_in_band_observed_dry": 441362,
+  "files_missing_or_incomplete": 0,
+  "points_observed_dry_bare": 413428,
+  "points_observed_dry_bare_with_dem": 410884
+ },
+ "seconds": 189.5,
+ "agreement_in_band_testable": {
+  "dem_dry_no__observed_dry_no": 183184,
+  "dem_dry_no__observed_dry_yes": 35499,
+  "dem_dry_yes__observed_dry_no": 45001,
+  "dem_dry_yes__observed_dry_yes": 405863
+ },
+ "bare_points_also_dem_dry": 379919,
+ "bare_points": 413428,
+ "max_granules": null
+}

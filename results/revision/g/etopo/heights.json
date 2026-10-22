@@ -1,0 +1,8 @@
+{
+ "rule": "D-130: emerged-band 250 m cells (extents_v6_250m.npz), nearest ETOPO 2022 cell and the GEBCO_2022 cell nearest its centre; band from the waterline DEM height",
+ "grid_alignment": {
+  "etopo_lon_step": 0.0041666666666699825,
+  "gebco_lon_step": 0.004166666666662877,
+  "max_centre_offset_deg": 1.4210854715202004e-14
+ }
+}

@@ -1,0 +1,9 @@
+scope,k,n,coverage,ci_low,ci_high,n_excluded,n_points,n_no_prediction,frac_no_prediction,consistent_with_nominal,boot_low,boot_high,n_blocks,q,used_pooled,source,block_size_m,interval_status,clopper_pearson_note
+overall,308342,387009,0.7967,0.7955,0.7980,0,387009,0,0.0000,False,0.4806,0.9442,13,,,GEDI,50000.0000,estimated,treats dependent points as independent; not an interval for this design
+west,354,464,0.7629,0.7215,0.8009,0,464,0,0.0000,False,,,1,2.8031,False,GEDI,50000.0000,not estimable (1 block),treats dependent points as independent; not an interval for this design
+volga,28546,30667,0.9308,0.9279,0.9337,0,30667,0,0.0000,False,0.8669,0.9981,3,15.8070,False,GEDI,50000.0000,estimated,treats dependent points as independent; not an interval for this design
+interfluve,23408,24559,0.9531,0.9504,0.9557,0,24559,0,0.0000,False,,,1,1.7019,False,GEDI,50000.0000,not estimable (1 block),treats dependent points as independent; not an interval for this design
+ural,0,0,,,,0,0,0,,,,,0,2.1754,False,GEDI,50000.0000,no block,treats dependent points as independent; not an interval for this design
+northeast,219443,230843,0.9506,0.9497,0.9515,0,230843,0,0.0000,False,0.9470,0.9551,2,2.4731,False,GEDI,50000.0000,estimated,treats dependent points as independent; not an interval for this design
+komsomolets,12097,69835,0.1732,0.1704,0.1761,0,69835,0,0.0000,False,0.1546,0.1858,2,2.5141,True,GEDI,50000.0000,estimated,treats dependent points as independent; not an interval for this design
+open_shelf,24494,30641,0.7994,0.7949,0.8039,0,30641,0,0.0000,False,0.5936,0.8114,4,2.0264,False,GEDI,50000.0000,estimated,treats dependent points as independent; not an interval for this design

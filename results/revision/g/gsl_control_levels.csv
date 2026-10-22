@@ -1,0 +1,23 @@
+arm,product,variant,control_bins,n_control_levels,n_evaluable,n_exceeding,mispredicts_at_control_levels,mispredicts_pooled_floor_at_control_levels,median_displacement_m,median_floor_p95_m,n_evaluable_all_levels,n_exceeding_all_levels
+north,etopo1,shape,77-143,49,49,40,True,True,1500.0,323.1,50,41
+north,etopo1,total,77-143,49,49,49,True,True,inf,323.1,50,50
+north,etopo_2022,shape,77-143,49,49,29,True,False,420.0,323.1,50,30
+north,etopo_2022,total,77-143,49,49,29,True,False,365.0,323.1,50,30
+north,gebco_2022,shape,77-143,49,49,40,True,True,1928.4,323.1,50,41
+north,gebco_2022,total,77-143,49,49,49,True,True,inf,323.1,50,50
+north,gebco_2026,shape,77-143,49,49,40,True,True,1061.5,323.1,50,41
+north,gebco_2026,total,77-143,49,49,49,True,True,inf,323.1,50,50
+north,srtm15p_v2.7,shape,77-143,49,49,40,True,True,1932.1,323.1,50,41
+north,srtm15p_v2.7,total,77-143,49,49,49,True,True,inf,323.1,50,50
+north,dep3 (control substitute),shape,77-143,49,49,1,False,,84.9,323.1,49,1
+south,etopo1,shape,87-138,38,38,38,True,True,1545.7,120.0,49,48
+south,etopo1,total,87-138,38,38,38,True,True,inf,120.0,49,49
+south,etopo_2022,shape,87-138,38,38,36,True,True,761.3,120.0,49,46
+south,etopo_2022,total,87-138,38,38,32,True,True,228.2,120.0,49,43
+south,gebco_2022,shape,87-138,38,38,37,True,True,1867.8,120.0,49,48
+south,gebco_2022,total,87-138,38,38,37,True,True,inf,120.0,49,48
+south,gebco_2026,shape,87-138,38,38,37,True,True,1676.4,120.0,49,47
+south,gebco_2026,total,87-138,38,38,37,True,True,inf,120.0,49,48
+south,srtm15p_v2.7,shape,87-138,38,38,37,True,True,1875.7,120.0,49,47
+south,srtm15p_v2.7,total,87-138,38,38,37,True,True,inf,120.0,49,48
+south,dep3 (control substitute),shape,87-138,38,38,0,False,,60.0,120.0,38,0
