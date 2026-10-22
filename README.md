@@ -2,7 +2,7 @@
 
 Code, data products and the full audit trail for the paper *Four decades of retreating shorelines audit projected seabed emergence in the North Caspian Sea* (working title), prepared for *Environmental Research Letters*.
 
-**Authors:** Rezwan Ahmed (Department of Geography and Environment, University of Dhaka), Nusrat Jahan Zerin (Department of Geography, University of California, Santa Barbara; corresponding author, njarin@umail.ucsb.edu) and Obaidur Rahman (Department of Geography, Oklahoma State University).
+**Authors:** Rezwan Ahmed (Department of Geography and Environment, University of Dhaka), Nusrat Zahan Jarin (Department of Geography, University of California, Santa Barbara; corresponding author, njarin@umail.ucsb.edu) and Obaidur Rahman (Department of Geography, Oklahoma State University).
 
 ## What the study does
 
