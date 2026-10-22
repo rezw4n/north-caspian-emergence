@@ -1,5 +1,4 @@
-"""Revision, workstream V: decomposition of the ICESat-2 constant c_ref (R1 minor 7,
-R2.M3(b); D-122).
+"""Revision analysis V: decomposition of the ICESat-2 constant c_ref.
 
 c = median over training points of (DEM - H), with the DEM on the DAHITI datum and
 H = h_WGS84 - N(EIGEN-6C4, ICGEM, tide-free, GM zero-degree term on). So c measures how

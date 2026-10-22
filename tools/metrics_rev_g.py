@@ -1,4 +1,4 @@
-"""Metrics of revision workstream G (PREREG Amendment 18 item 11; D-128 to D-130): Great Salt
+"""Metrics of revision analysis G (PREREG Amendment 18 item 11): Great Salt
 Lake, H2 and ETOPO 2022. Loaded by tools/build_metrics.revision_metrics, which calls
 add(m). Every key starts with ``rev.g.``; each record is {"value", "unit", "source",
 "note"?}, as put() in tools/build_metrics.py. A missing input file adds nothing.

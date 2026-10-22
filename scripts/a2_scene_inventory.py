@@ -1,4 +1,4 @@
-"""A2: inventory of every Landsat C2 L2 (Tier 1) and Sentinel-2 L2A scene that
+"""Inventory of every Landsat C2 L2 (Tier 1) and Sentinel-2 L2A scene that
 intersects the study domain, 1984-2026, from scene metadata only (no pixels).
 
 Outputs
@@ -8,7 +8,8 @@ Outputs
   results/inventory/inventory_meta.json                committed
 
 Cloud cover here is the scene-level property (whole scene), not the fraction
-over the domain; the domain-level clear fraction comes from the A2 pilot.
+over the domain; the domain-level clear fraction comes from the Earth Engine cost pilot
+(scripts/a2_eecu_pilot.py).
 """
 
 from __future__ import annotations

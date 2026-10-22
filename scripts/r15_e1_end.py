@@ -1,4 +1,4 @@
-"""Robustness (PREREG Amendment 4 item 1; D-037): every E1-based result with E1 ending
+"""Robustness (PREREG Amendment 4 item 1): every E1-based result with E1 ending
 on other running-median maxima (k = 1, 5, 7, 9; k = 1, 5 and 7 share one date). No
 Earth Engine, given a main export split with the E1-end window tokens
 (scripts/r16_split_plan.py --e1-windows).

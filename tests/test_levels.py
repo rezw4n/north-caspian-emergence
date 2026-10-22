@@ -62,7 +62,7 @@ def test_empirical_sigma_recovers_white_noise():
     assert np.mean(est) == pytest.approx(0.05, rel=0.04)
 
 
-# --- joint noise and diffusion (review finding 28) -------------------------------------
+# --- joint noise and diffusion ---------------------------------------------------------
 
 SIG_TRUE, Q_TRUE = 0.05, 3e-4
 
@@ -128,7 +128,7 @@ def test_neighbour_zscores_are_standard_under_the_model():
     assert np.mean(np.abs(z) > 2.5) == pytest.approx(0.0124, abs=0.006)
 
 
-# --- fractional gaps (review findings 29, 47) -----------------------------------------
+# --- fractional gaps ------------------------------------------------------------------
 
 def test_gap_days_keeps_fractional_days():
     t = pd.to_datetime(["2024-01-17 01:43:48", "2024-05-24 23:24:38", "2024-06-03 21:23:00"])
@@ -137,7 +137,7 @@ def test_gap_days_keeps_fractional_days():
     assert g[1] == pytest.approx(9.9155, abs=1e-3)       # .dt.days would give 9
 
 
-# --- robust extremes (review finding 8) -----------------------------------------------
+# --- robust extremes ------------------------------------------------------------------
 
 def test_smoothed_extremes_ignore_a_single_spike():
     days = np.arange(300, 800, 10.0)
@@ -165,7 +165,7 @@ def test_running_median_requires_odd_window():
     assert list(levels.running_median([0.0, 5.0, 0.0, 0.0], k=3)) == [2.5, 0.0, 0.0, 0.0]
 
 
-# --- gap-fill offset (review finding 7) -----------------------------------------------
+# --- gap-fill offset ------------------------------------------------------------------
 
 def test_pair_series_interpolates_bracketing_records():
     tr = pd.to_datetime(["2020-01-05", "2020-01-20", "2020-03-01"])
@@ -229,7 +229,7 @@ def test_interpolate_shifted_offset_error_is_common_not_shrunk():
     assert per_rec["sigma_m"].iloc[0] == pytest.approx(0.03 / np.sqrt(2))
 
 
-# --- era-local offset error and exported sigma parts (review finding 7, second pass) ----
+# --- era-local offset error and exported sigma parts ------------------------------------
 
 def _era_pairs(seed, tau_late=0.04, from_year=2016, n=1200):
     """Drifting offset (0.14 -> 0.08 m) with year-to-year effects of sd ``tau_late`` only

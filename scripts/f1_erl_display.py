@@ -1,4 +1,4 @@
-"""Display preparations for the ERL main figures (D-100, D-102): the shorelines, product-
+"""Display preparations for the ERL main figures: the shorelines, product-
 agreement counts and arrows that figures/erl_fig*.py draw, rebuilt with the hindcast's and
 the H3 driver's own functions from their own inputs, and cross-checked against the frozen
 result tables. Nothing here is a new result: every count and distance is checked against
@@ -6,11 +6,11 @@ results/hindcast/<tag>/ or results/emergence/<tag>/, and the run stops on any di
 
 Commands
   caspian   (1) Hero map (figure A). For two hindcast units, the observed extent exactly as
-            scripts/a7_hindcast.py builds it (observed_raw with the record-low envelope of
-            D-082, classify with the D-033 sea connection and the D-083 outside states) and
+            scripts/a7_hindcast.py builds it (observed_raw with the record-low envelope,
+            classify with the sea connection and the outside states) and
             the shape-variant prediction of GEBCO_2026, ETOPO 2022 and SRTM15+ (the
             product's flood-level map from the hindcast cache, thresholded at the bin
-            centre plus its D-070 constant, results/hindcast/<tag>/shape_offsets.json).
+            centre plus its shape constant, results/hindcast/<tag>/shape_offsets.json).
             The per-sector median displacement of every (unit, product) is recomputed with
             caspian.hindcast_tiled and must equal displacement.csv. For each zoom inset
             and product, one arrow: from the observed waterline cell inside the inset,
@@ -70,18 +70,17 @@ RES = a7.RES
 CELL_KM2 = a7.CELL_KM2
 FACTOR = 4                       # main-map display grid: 4 x 60 m = 240 m
 CORRECTION = RESULTS / "study_area" / "geoid_correction_primary.npz"
-PLAN = INTERIM / "stage2" / "plan_main_tau9900cm_landsat.csv"     # the main stage-2 plan (D-077, D-079)
+PLAN = INTERIM / "stage2" / "plan_main_tau9900cm_landsat.csv"     # the main stage-2 plan
 
 # Figure A. Two units on either side of the -27.7 m band edge, below which ETOPO 2022's
-# emerged band comes from GEBCO lake depths and above which from FABDEM (D-087): the E3
+# emerged band comes from GEBCO lake depths and above which from FABDEM: the E3
 # bins nearest -28.0 m and -27.0 m. E2 has no fully observed bin near -27.0 m: bin 31
 # (-26.85 m) has no valid cell, and bin 32 (-26.75 m) 39 % of the valid area of bin 33
-# (observed.csv), with unobserved levels in two sectors; so both units are E3 (deviation from
-# the display plan's "E2 near -27.0 m", D-102).
+# (observed.csv), with unobserved levels in two sectors; so both units are E3.
 HERO_UNITS = (("E3", 19), ("E3", 29))
 HERO_PRODUCTS = ("gebco_2026", "etopo_2022", "srtm15p_v2.7")
 # Zoom insets (equal-area metres, x0, y0, x1, y1) and the sector whose arrows they carry,
-# chosen on quick looks of the observed shorelines (cartographic choice, D-102). The 60 m
+# chosen on quick looks of the observed shorelines (cartographic choice). The 60 m
 # rasters are kept for a larger region around each inset.
 INSETS = {
     "volga": {"sector": "volga", "box": (-170_000.0, -40_000.0, -90_000.0, 30_000.0),
@@ -417,7 +416,7 @@ def _g1():
 
 
 def gsl_unit(d: Path, arms) -> tuple[tuple[str, int], dict]:
-    """The representative unit (a display choice, D-102): among the (epoch, bin) units at
+    """The representative unit (a display choice): among the (epoch, bin) units at
     which, in both arms, every global product and the 3DEP control has a finite positive
     shape-variant median displacement at an observed level, the one whose medians are
     closest to the summary medians of the audit (h1_decision.json: per arm, the median

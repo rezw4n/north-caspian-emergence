@@ -1,4 +1,4 @@
-"""Stamp files for the `make all` steps whose outputs are many git-ignored files (D-110).
+"""Stamp files for the `make all` steps whose outputs are many git-ignored files.
 
 A step such as the waterline DEM writes dozens of tiles under data/ and no single file
 that could stand for all of them, so its make target is a stamp file. The stamp is
@@ -18,9 +18,9 @@ current inputs:
 --clean removes a folder only if its path lies under data/interim or data/processed of
 this repository (derived data; never data/raw or results/), the folder itself is not a
 link, and nothing inside it is a link or junction (so the removal never reaches outside
-the folder). The path is checked as written, not resolved: in verify-B's fresh clone
-(tools/verify.py, VB.14) data/interim/<name> is a junction to the working copy's folder,
-and the folders a step writes are reached through it.
+the folder). The path is checked as written, not resolved: in a fresh verification clone,
+data/interim/<name> can be a junction to the working copy's folder, and the folders a
+step writes are reached through it.
 """
 
 from __future__ import annotations

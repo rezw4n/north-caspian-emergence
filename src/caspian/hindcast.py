@@ -1,4 +1,4 @@
-"""A7: hindcast audit of bathymetry products.
+"""Hindcast audit of bathymetry products.
 
 For an observed water level, a product's predicted water extent is the set of
 cells below that level that are hydrologically connected to the open sea (seed
@@ -11,8 +11,8 @@ unknown, unless the caller supplies a logically known state (``outside_state``:
 1 = water, 0 = land, NaN = unknown), for example open sea seaward of the active
 zone and land beyond the high-stand shoreline (``outside_state_from_zone``, which
 needs the domain mask because the zone is clipped to the domain). Cells beyond
-the domain edge are unknown unless an independent ``beyond_state`` is supplied
-(D-050), so that a product flooding land beyond the domain is not censored;
+the domain edge are unknown unless an independent ``beyond_state`` is supplied,
+so that a product flooding land beyond the domain is not censored;
 ``nearest_region`` attributes such cells to the adjacent sector.
 A product's predicted state is known wherever ``pred_valid`` (default: every
 cell, since a flood fill is defined on the whole grid). Water masks are boolean
@@ -114,11 +114,11 @@ def outside_state_from_zone(zone, sea_seed, land_seed, *, domain, connectivity: 
     NaN unknown) gives the state of the cells outside the domain and in its rim
     (outside the zone), which are otherwise unknown. Without it, a product that
     floods land beyond the domain edge is not scored there: its predicted water is
-    counted only as unmeasured (D-039 found GEBCO_2022, GEBCO_2026 and SRTM15+
+    counted only as unmeasured (GEBCO_2022, GEBCO_2026 and SRTM15+ were found
     flooding land north of 47.35 N at the record-maximum level). It must come from
     observations independent of the products and hold at every evaluated level,
     e.g. land where a cell lies farther than the zone dilation from the observed
-    near-maximum 1995-96 water extent (D-050; PREREG Amendment 10). It needs
+    near-maximum 1995-96 water extent (PREREG Amendment 10). It needs
     ``domain``.
 
     Raises ValueError if no sea seed or no land seed lies outside the zone inside
@@ -126,14 +126,14 @@ def outside_state_from_zone(zone, sea_seed, land_seed, *, domain, connectivity: 
     does not separate the open sea from the land on this grid, which happens, for
     example, when the grid is larger than the domain and ``domain`` is not passed.
 
-    Validity: zone v6 (D-029; its predecessor v5, D-027, had neither the sea
+    Validity: zone v6 (its predecessor v5 had neither the sea
     connection nor the dark-water rule) is the sea-connected band between the near-maximum 1995-96 extent
     and the near-minimum 2025-26 extent, dilated by 2 km. So the sea component is
     water, and the seeded hinterland land, for sea-connected water at levels between
     the 2025-26 low stand and the 1995-96 high stand. The low-stand extent is built
     from May-September 2025-26 scenes (levels down to about -28.71 m), while
     levelled scenes reach -28.905 m; a check at -28.80 to -28.86 m found about 1% of
-    the 2 km band seaward of the zone classified as land (D-049). Pass as ``zone``
+    the 2 km band seaward of the zone classified as land. Pass as ``zone``
     the footprint over which water frequencies were actually computed (the stage-2
     tile cover, buffered), not zone v6 itself, so that such waterlines are observed
     rather than labelled. The states do not hold in scenes affected by surges.
@@ -182,7 +182,7 @@ def outside_state_from_zone(zone, sea_seed, land_seed, *, domain, connectivity: 
 
 
 def beyond_land_state(high, observed, pixel_size: float, dilate_m: float):
-    """Beyond-domain state supplying land only (D-067): 0 where an observed cell lies
+    """Beyond-domain state supplying land only: 0 where an observed cell lies
     farther than ``dilate_m`` from every water cell of ``high`` (the observed
     near-maximum extent), NaN elsewhere. Unobserved cells count as possible water, so
     that a gap in the observations never creates land; water is never assigned."""
@@ -201,7 +201,7 @@ def nearest_region(labels, domain):
     """Region labels (e.g. sectors) extended to every cell outside ``domain``: such a
     cell takes the label of the nearest cell inside the domain (Euclidean distance on
     the grid). Used with ``beyond_state`` so that product errors beyond the domain
-    edge are attributed to the adjacent sector in the per-sector metrics (D-050);
+    edge are attributed to the adjacent sector in the per-sector metrics;
     cells inside the domain keep their own label."""
     lab = np.asarray(labels)
     dom = np.asarray(domain, bool)

@@ -1,8 +1,8 @@
-"""Phase 0: parse the DAHITI Caspian series, summarise it and plot it for QC.
+"""Input check: parse the DAHITI Caspian series, summarise it and plot it for QC.
 
 Gaps are in fractional days. Extremes are given twice: the single raw records and
 the extremes of a 3-point running median (caspian.levels.smoothed_extremes), which a
-single noisy record cannot set (D-021 correction).
+single noisy record cannot set.
 
 Inputs : the single series file in data/raw/dahiti/
 Outputs: results/qc/dahiti_summary.json (committed)
@@ -24,7 +24,7 @@ from caspian import levels, plotting
 from caspian.config import OUTPUTS, RAW, RESULTS
 from caspian.io import find_dahiti_file, read_dahiti
 
-SMOOTH_K = 3  # running-median length for the robust extremes (D-021 correction)
+SMOOTH_K = 3  # running-median length for the robust extremes
 
 
 def main() -> int:
@@ -56,7 +56,7 @@ def main() -> int:
         "level_max_m": float(d["level_m"].max()),
         "time_of_min": d.loc[d["level_m"].idxmin(), "time"].isoformat(),
         "time_of_max": d.loc[d["level_m"].idxmax(), "time"].isoformat(),
-        # extremes of the k-point running median (D-021 correction): robust to one noisy record
+        # extremes of the k-point running median: robust to one noisy record
         "smoothed": {"rule": f"{SMOOTH_K}-point running median of consecutive records",
                      "k": sm["k"], "level_max_m": round(sm["max_m"], 4),
                      "time_of_max": sm["time_of_max"].isoformat(), "level_min_m": round(sm["min_m"], 4),

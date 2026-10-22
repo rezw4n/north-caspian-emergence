@@ -37645,6 +37645,18 @@
   "source": "doi:10.1007/s00382-024-07548-w (Abstract)",
   "decimals": 0
  },
+ "lit.hoseini2025.q25_pct": {
+  "value": 25,
+  "unit": "percentile (lower quantile stated)",
+  "source": "doi:10.1007/s00382-024-07548-w (Abstract)",
+  "decimals": 0
+ },
+ "lit.hoseini2025.q75_pct": {
+  "value": 75,
+  "unit": "percentile (upper quantile stated)",
+  "source": "doi:10.1007/s00382-024-07548-w (Abstract)",
+  "decimals": 0
+ },
  "lit.samant2023.pe_ssp245_m": {
   "value": 3.79,
   "unit": "m (additional decline, best-fit P-E trend)",
@@ -37930,6 +37942,11 @@
   "source": "caspian.validation.GROSS_ERROR_M",
   "decimals": 0
  },
+ "params.gsl_max_gap_days": {
+  "value": 16,
+  "unit": "days",
+  "source": "caspian.generality.MAX_GAP_DAYS"
+ },
  "params.h1_min_block_n": {
   "value": 20,
   "unit": "distances",
@@ -38098,6 +38115,12 @@
   "value": 4,
   "unit": "bins",
   "source": "scripts/a6_waterlines._rho (run on a test stack)"
+ },
+ "params.robust_fixed_mndwi": {
+  "value": 0.0,
+  "unit": "MNDWI",
+  "source": "scripts/r18_rblock_export.build_plan (fixed_mndwi0 threshold)",
+  "decimals": 0
  },
  "params.s2_cloudscore_threshold": {
   "value": 0.6,

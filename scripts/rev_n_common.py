@@ -1,9 +1,9 @@
-"""Shared set-up of the workstream N revision scripts (PREREG Amendment 18 item 10;
-D-123 to D-127). Not an entry point.
+"""Shared set-up of the rev_n revision scripts (PREREG Amendment 18 item 10). Not an
+entry point.
 
 Everything is read from the registered runs and their caches; nothing is refitted:
-- the hindcast run (results/hindcast/main/run.json): grid, products, shape constants
-  (D-070), the vertical correction;
+- the hindcast run (results/hindcast/main/run.json): grid, products, shape constants,
+  the vertical correction;
 - the static layers and the record-low envelope as scripts/f1_erl_display.py caches them;
 - the uncorrected flood-level maps (hindcast cache) and the registered fused maps
   (`linear_hold`, H3 cache; scripts/a8_wdpa_exposure.fused_cache);
@@ -68,7 +68,7 @@ def to_regions(arr) -> np.ndarray:
 
 def setup(tile: int = 2048, fused: bool = True, heights: bool = False, fused_form: str = "linear_hold") -> dict:
     """The registered inputs (module docstring) as a dict; ``fused_form`` "constant" reads the
-    D-081/D-096 constant-form fused maps instead (D-123 addendum)."""
+    constant-form fused maps instead."""
     f1 = load_script("f1_erl_display")
     wd = load_script("a8_wdpa_exposure")
     a7 = f1.a7
@@ -88,7 +88,7 @@ def setup(tile: int = 2048, fused: bool = True, heights: bool = False, fused_for
            "scenarios": [float(d) for d in erun["scenarios_m"]], "K": len(SECTOR_ORDER), "tile": tile}
     if fused:
         out["fused_form"] = fused_form
-        if fused_form == "composite":           # D-123 addendum 2 (scripts/rev_n_baseline.py)
+        if fused_form == "composite":           # composite observed baseline (scripts/rev_n_baseline.py)
             out["fused_files"] = {p: WORK / "composite_baseline.npy" for p in names}
         else:
             out["fused_files"] = {p: wd.fused_cache(fused_form, p) for p in names}

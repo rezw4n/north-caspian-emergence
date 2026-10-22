@@ -1,4 +1,4 @@
-"""Fig. 5: the next metres (H3; D-081, D-090).
+"""Fig. 5: the next metres (H3).
 
 All values are read from the frozen tables in results/emergence/main/ (scripts/
 a8_emergence.py; caspian.h3); nothing is recomputed.

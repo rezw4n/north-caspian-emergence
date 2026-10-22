@@ -1,28 +1,28 @@
-"""ERL figure "Where the first metre emerges" (D-100, D-102; revised D-141 after workstream
-N, D-123; 15 cm wide).
+"""ERL figure "Where the first metre emerges" (revised after the near-term revision
+analysis; 15 cm wide).
 
 For every 60 m cell of the study domain, the number of the five audited grids that place it
 in the seabed emerging in the first metre of fall below the 2026 level (h3.level_2026_m),
-on the two surfaces of workstream N (scripts/f4_erl_nearterm_map.py, which checks every
-grid's band against N's curves):
-(a) the composite observed baseline (D-123 addendum 2): the observed 2026 sea that grid p
+on the two surfaces of the near-term revision analysis (scripts/f4_erl_nearterm_map.py,
+which checks every grid's band against its curves, results/revision/n/):
+(a) the composite observed baseline: the observed 2026 sea that grid p
     puts above the water 1 m lower;
-(b) the grids shifted by their H1 shape constant (D-070): L26 + c - 1 <= F < L26 + c.
+(b) the grids shifted by their H1 shape constant: L26 + c - 1 <= F < L26 + c.
 Drawn on a 240 m display grid (the most frequent count among the 16 cells of each block).
 Cells that a majority of the grids (3 of 5 or more) place in the band are hatched; the
-earlier "all five" hatch was barely visible (internal review R1 minor 23). The thick black
+earlier "all five" hatch was barely visible. The thick black
 line is the outline of the composite baseline, the observed 2025-26 sea (zone-v6 extent
 where the lowest audited level was unobserved), at 0.5 of the baseline share per 240 m block;
-it is not drawn within RIM_KM of the domain edge, where the D-083 rim takes the beyond-domain
-state and would trace the edge, and pieces shorter than MIN_PIECE_KM are dropped. Background: the D-029 open sea of the
+it is not drawn within RIM_KM of the domain edge, where the domain rim takes the beyond-domain
+state and would trace the edge, and pieces shorter than MIN_PIECE_KM are dropped. Background: the open sea of the
 2025-26 low stand and land, for orientation.
 (c) Per grid, the share of its 1 m band that is already dry in the observed 2025-26 extent
     (zone v6), for the grids as users apply them (uncorrected; filled) and after the shift
     (open): results/revision/n/already_dry.csv through metrics rev.n.already_dry.*.
 
 The OpenStreetMap symbols of the earlier version are dropped: almost all "ports" are river
-piers (workstream N, D-126), and the symbols drawn near any grid's 2 m band overstated the
-exposure (R2 minor 14).
+piers, and the symbols drawn near any grid's 2 m band overstated the
+exposure.
 
 Numbers: results/metrics.json (rev.fig.f5.*, rev.n.already_dry.*, h3.level_2026_m).
 Output: figures/out/erl_fig_agreement.{pdf,tif,png}
@@ -41,7 +41,7 @@ EXTENT = (-272_000.0, 312_000.0, -142_000.0, 194_000.0)
 SEA, LAND = "#d9e8f3", "#ecebe7"
 PRODS = ("gebco_2026", "gebco_2022", "etopo_2022", "etopo1", "srtm15p_v2.7")
 SURF = (("composite", "Observed 2026 sea as the baseline"), ("shifted", "Grids after the vertical shift"))
-RIM_KM = 3.0          # outline not drawn this close to the domain edge (the D-083 rim is 2 km)
+RIM_KM = 3.0          # outline not drawn this close to the domain edge (the domain rim is 2 km)
 MIN_PIECE_KM = 5.0    # outline pieces shorter than this are not drawn
 
 
@@ -82,7 +82,7 @@ def main() -> int:
     xs = ext[0] + (np.arange(nx) + 0.5) * (ext[1] - ext[0]) / nx
     ys = ext[3] - (np.arange(ny) + 0.5) * (ext[3] - ext[2]) / ny
     base = z["baseline"].astype(np.float32)
-    # the outline is not drawn within RIM_KM of the domain edge, where the D-083 rim takes the
+    # the outline is not drawn within RIM_KM of the domain edge, where the domain rim takes the
     # beyond-domain state and would trace the edge; pieces shorter than MIN_PIECE_KM are dropped
     core = ndimage.binary_erosion(np.isfinite(base), iterations=int(np.ceil(RIM_KM * 1000.0 / ((ext[1] - ext[0]) / nx))))
     shore = shore_lines(np.where(core, base, np.nan), ext)

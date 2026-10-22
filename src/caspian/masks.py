@@ -14,8 +14,8 @@ Snow and ice (PREREG section 3): a pixel is excluded if the product QA flags it
 the conservative pass-1 snow test of the Theia LIS algorithm, NDSI > 0.400 and red
 reflectance > 0.200 (Gascoin et al. 2019, ESSD 11, Eq. 2 and Table 1). The red
 criterion is the one LIS uses to avoid false snow on turbid water. Two diagnostic
-bands are kept for the stage-1 accounting, both masked to cloud-free pixels (D-030+;
-run 1 counted cloud, shadow and cirrus pixels too): ``qa_snow`` (1 = excluded as
+bands are kept for the stage-1 accounting, both masked to cloud-free pixels
+(run 1 counted cloud, shadow and cirrus pixels too): ``qa_snow`` (1 = excluded as
 snow or ice: QA flag, or the NDSI test in NDSI_MONTHS) and ``qa_snow_ndsi`` (the
 NDSI test alone, in every month) and ``qa_snow_qa`` (the product QA flag alone, in
 every month), so that false positives in summer can be
@@ -24,7 +24,7 @@ checked.
 Every image carries the properties ``sensor``, ``cloud_scene`` (scene cloud
 percentage from the product metadata) and ``acq`` (acquisition key: sensor, orbit
 and date for Landsat, sensor and datatake for Sentinel-2). Overlapping scenes of
-one acquisition share ``acq`` and are mosaicked before counting (D-027).
+one acquisition share ``acq`` and are mosaicked before counting.
 """
 
 from __future__ import annotations
@@ -52,11 +52,11 @@ CLASSIFY_BANDS = ["green", "red", "nir", "swir1"]
 NDSI_SNOW = 0.400
 RED_SNOW = 0.200
 # Months in which snow/ice exclusion applies to the NDSI test (both sensors) and to the
-# Sentinel-2 SCL flag; the Landsat CFMask snow bit applies in every month (D-063). PREREG
+# Sentinel-2 SCL flag; the Landsat CFMask snow bit applies in every month. PREREG
 # Amendment 3 rule for the NDSI test, extended to the QA flags by Amendment 9:
 # cloud-masked test batches flag 1.2% (Landsat NDSI), 3.1% (Sentinel-2 NDSI) and 1.9%
 # (Sentinel-2 SCL class 11) of clear in-zone pixels in July; the rule is evaluated on
-# the full stage-1 run 2 (D-030+).
+# the full stage-1 run 2.
 NDSI_MONTHS = (11, 12, 1, 2, 3, 4)
 
 # Landsat 7 Scan Line Corrector failure (USGS): ETM+ scenes after this date are SLC-off.
@@ -85,7 +85,7 @@ def ndsi_snow(sr, time_start=None):
 
     from .water import ee_nd
     # not normalizedDifference: it masks negative inputs, and a masked snow flag masks the
-    # pixel itself in landsat()/sentinel2(), in every month (D-068)
+    # pixel itself in landsat()/sentinel2(), in every month
     ndsi = ee_nd(sr, "green", "swir1")
     flag = ndsi.gt(NDSI_SNOW).And(sr.select("red").gt(RED_SNOW))
     if time_start is None:
@@ -118,8 +118,8 @@ def landsat(sensor: str, region, start: str, end: str, bands=COMMON, ids=None):
         snow_ndsi = ndsi_snow(sr)                                   # every month (diagnostic)
         snow_qa = qa.bitwiseAnd(1 << 5).neq(0)                       # every month (diagnostic)
         cold = _cold(img.get("system:time_start"))
-        # PREREG Amendments 3 and 9, evaluated on stage-1 run 2 (results/qc/snow_rules_run2.json,
-        # D-063): the CFMask snow bit flags at most 0.22% of clear in-zone pixels in May-September,
+        # PREREG Amendments 3 and 9, evaluated on stage-1 run 2 (results/qc/snow_rules_run2.json):
+        # the CFMask snow bit flags at most 0.22% of clear in-zone pixels in May-September,
         # so it applies in every month; the NDSI test (3.69%) only in NDSI_MONTHS.
         snow = snow_qa.Or(snow_ndsi.And(cold))
         cloud_free = bad.Not()

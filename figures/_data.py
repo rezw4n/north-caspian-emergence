@@ -12,7 +12,7 @@ selected columns).
   or the emergence date ("emergence", days since 1970) on one grid at res_m metres,
   from data/processed/dem/main/ (60 km tiles at 30 m; height and distance averaged,
   emergence date by nearest pixel).
-- icesat2_test(source): the ICESat-2 points of the H2 population (D-084: in the
+- icesat2_test(source): the ICESat-2 points of the H2 population (in the
   emerged band and E3 vegetation share below 0.5, from the cached annotations of
   scripts/a6_validate_dem.py) in the 50 km test blocks (results/study_area/
   blocks_50km.csv), with the reference height on the DEM reference (H + c, the
@@ -180,7 +180,7 @@ def _wl_blocks_build():
 
 def waterlines_by_block() -> pd.DataFrame:
     """E2 + E3 waterline points per 25 km block: n (used by the DEM), n_bins (distinct
-    level bins among them) and n_static (removed by the static-contour rule, D-034)."""
+    level bins among them) and n_static (removed by the static-contour rule)."""
     z = _cached("waterlines_by_block25", [WL], _wl_blocks_build)
     return pd.DataFrame(z)
 
@@ -200,7 +200,7 @@ def waterlines_in_box(x0: float, y0: float, x1: float, y1: float) -> pd.DataFram
 
 
 def emerged_band(extent, shape) -> np.ndarray:
-    """The D-071 emerged band (water in the 1995-96 and not water in the 2025-26 zone-v6
+    """The emerged band (water in the 1995-96 and not water in the 2025-26 zone-v6
     extent; results/study_area/extents_v6_250m.npz), by nearest 250 m cell, on a grid of
     ``shape`` covering ``extent`` = [x0, x1, y0, y1] (north up)."""
     ex = np.load(RESULTS / "study_area" / "extents_v6_250m.npz")

@@ -8,11 +8,11 @@ a, the daily basin level on the DAHITI reference, as used to date emergence
 b, c, levelled scenes per calendar month (data/interim/levels/scene_levels.csv,
    epochs E1-E3): Landsat (b) and Sentinel-2 granules (c), each on its own axis,
    split into the open-water months that can enter stage 2 and the ice season, which
-   stage 2 excludes (D-062; scripts/a3_thresholds.ICE_MONTHS).
+   stage 2 excludes (scripts/a3_thresholds.ICE_MONTHS).
 
 Epoch limits come from results/metrics.json (levels.epoch_E1_end, params.e2_end), so
 the figure and the text use the same dates; the script checks them against the epoch
-labels in scene_levels.csv. No result is shown: these are the inputs of A4.
+labels in scene_levels.csv. No result is shown: these are the inputs of the per-scene level step.
 
 Output: figures/out/fig1_levels.{pdf,tif,png}
 

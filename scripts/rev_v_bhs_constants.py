@@ -1,11 +1,10 @@
-"""Revision, workstream V: the fitted product constants expressed in BHS-77 (R2.M3
-request (i)), and the mean depth of the North Caspian at the 2026 level (R2 minor 5);
-D-122.
+"""Revision analysis V: the fitted product constants expressed in BHS-77, and the mean
+depth of the North Caspian at the 2026 level.
 
 Constants in BHS-77. The shape variant floods z + dN - c, with z the product height as
 distributed, dN = N(EGM2008, NGA) - N(EIGEN-6C4) per cell (the primary correction) and c
-the D-070 constant on the DAHITI datum. A level H_D on the DAHITI datum is H_D + delta in
-BHS-77 (D-093). So the product's heights as distributed become BHS-77 heights by adding
+the area constant on the DAHITI datum. A level H_D on the DAHITI datum is H_D + delta in
+BHS-77. So the product's heights as distributed become BHS-77 heights by adding
     k = mean(dN) - c + delta,
 with mean(dN) over the cells the constant was fitted on (the domain's training-block
 cells for the domain constant; a sector's training cells for the R2 sector constants).

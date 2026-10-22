@@ -1,6 +1,6 @@
 """Spatial blocking for validation and calibration (PREREG section 6).
 
-Blocks are squares on the equal-area grid (D-002), aligned to multiples of the block
+Blocks are squares on the equal-area grid, aligned to multiples of the block
 size. Each block takes the sector that contains its centre. Blocks are randomly
 assigned to training, calibration and test, stratified by sector, with the
 pre-registered seed. The block size is checked before any test-block evaluation
@@ -131,7 +131,7 @@ def fit_exponential(vario: pd.DataFrame) -> dict:
 
 def spatial_structure_test(x, y, r, short_lag: float, max_lag: float, n_perm: int = 999,
                            max_pairs: int = 2_000_000, alpha: float = 0.05, seed: int = design.SEED) -> dict:
-    """Permutation test for spatial autocorrelation of residuals ``r`` (D-069).
+    """Permutation test for spatial autocorrelation of residuals ``r``.
 
     T = mean semivariance of pairs closer than ``short_lag`` divided by the mean
     semivariance of all pairs up to ``max_lag``. Without spatial structure T is near

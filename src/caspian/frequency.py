@@ -1,4 +1,4 @@
-"""A6: water frequency from stage-2 counts.
+"""Water frequency from stage-2 counts.
 
 Stage 2 exports, per group g (epoch x level bin x acquisition parity), the number of
 acquisitions that saw a pixel as water (w_g) and as water or dry (v_g; emergent
@@ -42,7 +42,7 @@ def water_frequency(w, v, min_valid: int = design.MIN_VALID_OBS) -> np.ndarray:
 
 
 def vegetation_share(o, v, min_valid: int = design.MIN_VALID_OBS) -> np.ndarray:
-    """Emergent-vegetation share (o - v) / o of the classified acquisitions (D-071),
+    """Emergent-vegetation share (o - v) / o of the classified acquisitions,
     where o >= min_valid; NaN elsewhere. ``o`` counts every classified acquisition
     (water, dry or vegetated), ``v`` the water-or-dry ones."""
     o, v = np.asarray(o, float), np.asarray(v, float)

@@ -1,12 +1,12 @@
-"""A8 independent check (PREREG section 2 "ATL24 bathymetry where available"; Amendment
-17; D-095): ICESat-2 ATL24 v002 bathymetry photons over the North Caspian domain.
+"""Independent check (PREREG section 2 "ATL24 bathymetry where available"; Amendment
+17): ICESat-2 ATL24 v002 bathymetry photons over the North Caspian domain.
 
 NASA Earthdata (CMR search and HTTPS range reads through earthaccess and h5py; the token
 comes from caspian.credentials and is never printed). The 995 granules that CMR lists
-for the domain's bounding box total about 65,600 MB (CMR sizes), above the lead's 60 GB download
+for the domain's bounding box total about 65,600 MB (CMR sizes), above a 60 GB download
 limit, and each covers a whole ATL03 region, so most of a granule lies outside the
 domain (the Persian Gulf, the Middle and South Caspian). Each granule is therefore read
-in place and subset by space (D-095):
+in place and subset by space:
 1. ``metadata/extent`` (the granule's data-extent polygon) is read; a granule whose
    extent misses the domain's bounding box is recorded with no photons and not read
    further;

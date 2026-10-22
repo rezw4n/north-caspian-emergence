@@ -1,4 +1,4 @@
-"""Split conformal prediction intervals (brief section 9, PREREG section 8).
+"""Split conformal prediction intervals (PREREG section 8).
 
 Locally normalised split conformal (Lei et al. 2018): with calibration residuals
 r_i = |y_i - ŷ_i| / s_i for a scale model s (interpolation distance, contour

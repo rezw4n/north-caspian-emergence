@@ -1,5 +1,4 @@
-"""Workstream R metrics (PREREG Amendment 18 items 3, 6 and 7; R1.M1(d), R1.M3, R1.M4(c)-(d),
-R2.M1(b)-(d), R2.M4(a)-(b), R3 minor 2; DECISIONS D-116 to D-119).
+"""Metrics of revision analysis R (PREREG Amendment 18 items 3, 6 and 7).
 
 Loaded by tools/build_metrics.revision_metrics, which calls add(m). Every key starts with
 "rev.r."; each record is {"value", "unit", "source", "note"?} as put() in

@@ -1,4 +1,4 @@
-"""A3 water classification.
+"""Water classification.
 
 Per scene: MNDWI (Xu 2006) and AWEI_sh (Feyisa et al. 2014) from harmonised
 reflectance; a per-scene threshold by Otsu's method (Otsu 1979), computed from an
@@ -17,7 +17,7 @@ from __future__ import annotations
 import numpy as np
 
 WATER, DRY, VEG = 1, 0, 2
-NDVI_VEG = 0.30          # emergent-vegetation NDVI threshold (sensitivity in brief section 10, check 9)
+NDVI_VEG = 0.30          # emergent-vegetation NDVI threshold (sensitivity in robustness check 9)
 OTSU_BINS = 256
 MNDWI_RANGE = (-1.0, 1.0)
 
@@ -26,7 +26,7 @@ MNDWI_RANGE = (-1.0, 1.0)
 
 def nd(a, b):
     """Normalized difference (a - b) / (a + b) with negative reflectance taken as 0,
-    so the index lies in [-1, 1]; NaN where both inputs are at most 0 (D-068).
+    so the index lies in [-1, 1]; NaN where both inputs are at most 0.
     Surface reflectance of clear water is often slightly negative in NIR and SWIR1;
     Earth Engine's normalizedDifference masks such pixels (documented), which drops
     water observations. ee_nd is the same definition server side."""
@@ -93,7 +93,7 @@ def otsu_from_histogram(counts, centers) -> float:
 def classify(mndwi_img, ndvi_img, threshold: float, ndvi_veg: float = NDVI_VEG):
     """Water / dry / emergent-vegetation classes; NaN where unobserved. Water needs
     only MNDWI; a pixel that is not water needs NDVI as well, to tell dry from
-    vegetated (D-068)."""
+    vegetated."""
     m = np.asarray(mndwi_img, float)
     n = np.asarray(ndvi_img, float)
     out = np.full(m.shape, np.nan)

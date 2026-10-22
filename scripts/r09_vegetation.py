@@ -1,13 +1,13 @@
-"""Robustness check 9 (brief section 10): reed-bed handling. No Earth Engine.
+"""Robustness check 9: reed-bed handling. No Earth Engine.
 
 PREREG section 3 counts emergent vegetation (NDVI > 0.30 while not water) as not
-observed. The main export carries the observed count o (D-071), so two bounding rules
+observed. The main export carries the observed count o, so two bounding rules
 follow from the counts alone (robustness.vegetation_variant):
   as_dry    vegetation counted as land   (w, o)
   as_water  vegetation counted as water  (w + o - v, o): flooded reeds
 Each variant tag is built with scripts/r00_counts.py --vegetation, then every downstream
 step and the paired comparison runs (scripts/r00_pipeline.py). Other NDVI thresholds
-change the classification itself and need Earth Engine (docs/ROBUSTNESS_PLAN.md).
+change the classification itself and need Earth Engine.
 
 Usage:
   python scripts/r09_vegetation.py --main <tag> --name as_dry|as_water [--from <tag>[,<tag>]]

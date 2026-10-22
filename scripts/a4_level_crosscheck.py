@@ -1,4 +1,4 @@
-"""A4 / robustness check 5: DAHITI (target 39) versus Hydroweb (L_caspian).
+"""Water-level cross-check / robustness check 5: DAHITI (target 39) versus Hydroweb (L_caspian).
 
 For each DAHITI epoch, Hydroweb is linearly interpolated between its two nearest
 records if both lie within +/-5 days. Differences (DAHITI - Hydroweb) give the
@@ -6,7 +6,7 @@ reference-surface offset, its drift and the robust scatter, overall and by perio
 Also tabulates records per year in each series and the median difference per year.
 Pairing is caspian.levels.pair_series. With a window argument (e.g. 20) the outputs
 carry a _w<N>d suffix; the +/-20-day pair table is the input of the moving-median
-gap-fill offset in a4_scene_levels.py (D-020 correction).
+gap-fill offset in a4_scene_levels.py.
 
 Outputs (committed): results/qc/level_crosscheck[_w<N>d].json,
                      results/qc/level_crosscheck_pairs[_w<N>d].csv,

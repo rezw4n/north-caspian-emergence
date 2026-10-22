@@ -1,5 +1,4 @@
-"""Render the pre-registration as a Supplementary file of the ERL Letter (D-138; reviews R1
-minor 17, R2.M12, R3.M7).
+"""Render the pre-registration as a Supplementary file of the ERL Letter.
 
 Reads docs/PREREG.md and writes manuscript/supplementary_prereg.md: the registration (version
 1.0) and every dated amendment and erratum, reproduced verbatim, each preceded by the commit that

@@ -1,15 +1,15 @@
-"""Revision R: diagnostics for reviewer comments (D-119).
+"""Revision R: further diagnostics.
 
-  season       R2.M1(c): the share of May-July Landsat acquisitions per (epoch, level bin)
+  season       the share of May-July Landsat acquisitions per (epoch, level bin)
                of the main stage-2 plan, and its Spearman correlation with the per-unit
                displacement residuals (unit D minus the median D of the product's units in
                the sector; primary shape variant) in the Volga and Ural deltas, per product;
                Holm over the 10 tests. A per-level version (epochs pooled) is reported beside it.
-  komsomolets  R1.M1 (last bullet): GEBCO_2026, GEBCO_2022 and SRTM15+ native cells in
+  komsomolets  GEBCO_2026, GEBCO_2022 and SRTM15+ native cells in
                Komsomolets Bay (one 15" grid): identical values, differences; the shape
                constants; the shelf gradient; and, if the constant search has run, the
                sector median displacement against c for the three grids.
-  nmad         R1.M4(d): ICESat-2 NMAD (test blocks, matched variant) per sector and grid,
+  nmad         ICESat-2 NMAD (test blocks, matched variant) per sector and grid,
                converted to an expected horizontal displacement with the sector gradient
                (NMAD / g), against the audited sector median displacement; rank agreement.
 Outputs: results/revision/r/diagnostics/<command>_*.csv and <command>.json

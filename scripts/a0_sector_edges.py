@@ -1,13 +1,13 @@
-"""Where the frozen reporting sectors (caspian.geography, D-014) lie relative to the
+"""Where the frozen reporting sectors (caspian.geography) lie relative to the
 present shoreline, measured in each locally held 15-arc-second relief grid.
 
-Replaces the hand-typed "25-60 km offshore" of the first Methods draft (review
-finding 18): the sector edges were drawn by eye, so their distance from the coast
-is a measured property of the polygons and must come from a script.
+Replaces the hand-typed "25-60 km offshore" of the first Methods draft: the sector
+edges were drawn by eye, so their distance from the coast is a measured property
+of the polygons and must come from a script.
 
 Definitions (all fixed here, before any hindcast metric is computed):
   * levels are read from the SMOOTH_K-point running median of the DAHITI series
-    (caspian.levels.running_median; the D-021 correction, so that one noisy record
+    (caspian.levels.running_median, so that one noisy record
     cannot set a level). No datum offset is applied: the product-to-DAHITI offset is
     unknown and is what PREREG section 5 estimates.
   * present level  L_now: the running median at the most recent DAHITI record.
@@ -64,7 +64,7 @@ GRIDS = {
 }
 EDGE_STEP_KM = 1.0
 DENSIFY_DEG = 0.01
-SMOOTH_K = 3  # as in scripts/p0_dahiti_qc.py and scripts/a4_scene_levels.py (D-021 correction)
+SMOOTH_K = 3  # as in scripts/p0_dahiti_qc.py and scripts/a4_scene_levels.py
 
 _to_laea = pyproj.Transformer.from_crs(config.CRS_EXCHANGE, config.CRS_EQUAL_AREA, always_xy=True)
 

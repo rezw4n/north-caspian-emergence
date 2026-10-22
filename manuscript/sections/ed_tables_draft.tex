@@ -5,7 +5,7 @@
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\caption{\textbf{Accuracy of the waterline DEM and of the products by sector (H2).} Test blocks of \metric{h2.block_size_km}~km, H2 population (emerged seabed with an E3 emergent-vegetation share below \metric{params.veg_cell_share}). Errors are model minus ICESat-2 (m); products in the matched variant (product plus its training-block offset). $n$, test-block points (blocks in parentheses). Coverage: share of test points inside the \metric{params.conformal_level} conformal interval, with the test-block bootstrap 95\% interval. Ural has no test block at this size.}
+\caption{\textbf{Accuracy of the waterline DEM and of the products by sector (H2).} Test blocks of \metric{h2.block_size_km}~km, H2 population (emerged seabed with an E3 emergent-vegetation share below \metric{params.veg_cell_share}). Errors are model minus ICESat-2 (m); products in the matched variant (product plus its training-block offset). $n$, test-block points (blocks in parentheses). Coverage: share of test points inside the \metric{params.conformal_level} conformal interval, with the test-block bootstrap \metric{params.ci_pct}\% interval. Ural has no test block at this size.}
 \label{tab:ed_h2_sectors}
 \begin{tabular}{llrrrrrr}
 \hline
@@ -84,7 +84,7 @@ Ural delta & \multicolumn{7}{l}{no test block} \\
 \centering
 \scriptsize
 \setlength{\tabcolsep}{2.5pt}
-\caption{\textbf{Shoreline displacement of the products by sector (H1), shape variant (the product shifted by its fitted constant; deciding variant).} For each product: the number of evaluable levels whose median displacement exceeds the sector noise floor, of the evaluable levels, and the median over those evaluable levels of the per-level median displacement (km; epochs pooled). Noise floor: the median over levels of the 95th percentile of the distances between the two acquisition halves (km). Bold: the product mispredicts the sector (more than half of its evaluable levels exceed the noise floor).}
+\caption{\textbf{Shoreline displacement of the products by sector (H1), shape variant (the product shifted by its fitted constant; deciding variant).} For each product: the number of evaluable levels whose median displacement exceeds the sector noise floor, of the evaluable levels, and the median over those evaluable levels of the per-level median displacement (km; epochs pooled). Noise floor: the median over levels of the \metric{params.err_pct_hi}th percentile of the distances between the two acquisition halves (km). Bold: the product mispredicts the sector (more than half of its evaluable levels exceed the noise floor).}
 \label{tab:ed_h1_sectors_shape}
 \begin{tabular}{lrrrrrrrrrrr}
 \hline
@@ -106,7 +106,7 @@ Open shelf & \textbf{\metric{h1.n_exceeding.shape.gebco2026.open_shelf}/\metric{
 \centering
 \scriptsize
 \setlength{\tabcolsep}{2.5pt}
-\caption{\textbf{Shoreline displacement of the products by sector (H1), total variant (the product on the DAHITI reference by the per-cell geoid correction, no constant).} For each product: the number of evaluable levels whose median displacement exceeds the sector noise floor, of the evaluable levels, and the median over those evaluable levels of the per-level median displacement (km; epochs pooled). Noise floor: the median over levels of the 95th percentile of the distances between the two acquisition halves (km). Bold: the product mispredicts the sector (more than half of its evaluable levels exceed the noise floor).}
+\caption{\textbf{Shoreline displacement of the products by sector (H1), total variant (the product on the DAHITI reference by the per-cell geoid correction, no constant).} For each product: the number of evaluable levels whose median displacement exceeds the sector noise floor, of the evaluable levels, and the median over those evaluable levels of the per-level median displacement (km; epochs pooled). Noise floor: the median over levels of the \metric{params.err_pct_hi}th percentile of the distances between the two acquisition halves (km). Bold: the product mispredicts the sector (more than half of its evaluable levels exceed the noise floor).}
 \label{tab:ed_h1_sectors_total}
 \begin{tabular}{lrrrrrrrrrrr}
 \hline

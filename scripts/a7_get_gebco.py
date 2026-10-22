@@ -1,5 +1,5 @@
 """Subset a GEBCO grid (default GEBCO_2026; argument "2022" for GEBCO_2022) (elevation and Type Identifier grids) over the study domain by
-HTTP range requests on CEDA's files, without a full download (D-016). Both files
+HTTP range requests on CEDA's files, without a full download. Both files
 store the grid contiguously, so each row of the window is one small range request.
 
 Outputs (git-ignored): data/raw/bathymetry/gebco_2026_ncaspian.nc

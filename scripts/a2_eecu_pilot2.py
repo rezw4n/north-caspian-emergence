@@ -1,9 +1,9 @@
-"""A2 pilot, redesigned pipeline (D-015): stage-2 aggregation for Landsat 8 path 165
+"""Earth Engine cost pilot, redesigned pipeline: stage-2 aggregation for Landsat 8 path 165
 row 28, 2020, using the stage-1 thresholds already exported
 (assets/caspian/pilot_L8_165028_2020_v2_thr) and the stage-0 active zone.
 As in the first pilot, grouping is by calendar month (a cost proxy only).
 
-Two variants over the same export footprint (D-024 decision rule):
+Two variants over the same export footprint:
   full    : the whole v3 zone
   quarter : the v3 zone cut to the footprint's south-west quadrant
 If cost scales with zone area, quarter costs about a quarter of full.

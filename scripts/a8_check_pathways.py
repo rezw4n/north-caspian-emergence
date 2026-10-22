@@ -1,5 +1,5 @@
-"""A8: check every number of results/levels/projection_pathways.csv against the text
-that was actually retrieved (CLAUDE.md, Citations; the projection pathways that map
+"""Check every number of results/levels/projection_pathways.csv against the text
+that was actually retrieved (the projection pathways that map
 the H3 scenarios to dates, PREREG section 10: "verified before they are used").
 
 For each row: its ``verbatim_quote`` must be found (scripts/check_quotes.py matching:

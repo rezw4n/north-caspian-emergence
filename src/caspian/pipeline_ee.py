@@ -1,10 +1,10 @@
-"""Cost-efficient Earth Engine pipeline for A3/A6 (D-015, D-027 to D-029).
+"""Cost-efficient Earth Engine pipeline for water classification and water frequency.
 
-Stage 0  active zone (v6, D-029): the sea-connected band between the near-maximum
+Stage 0  active zone (v6): the sea-connected band between the near-maximum
          1995-96 and the near-minimum 2025-26 water extents, dilated by 2 km at 250 m
-         on the equal-area grid (D-002). Its 5 km tile cover clips stage-1 and
+         on the equal-area grid. Its 5 km tile cover clips stage-1 and
          stage-2 inputs, so that computation outside the zone is skipped.
-Stage 1  per-scene table (D-028): fixed-bin MNDWI histogram of clear in-zone pixels
+Stage 1  per-scene table: fixed-bin MNDWI histogram of clear in-zone pixels
          (240 m, native projection), Otsu threshold, the histogram itself, and in-zone
          clear / snow-ice counts. One reduceRegion per scene, run as profiled
          interactive batches (scripts/a3_stage1_interactive.py).
@@ -25,20 +25,20 @@ from .config import CRS_EQUAL_AREA
 from .geography import DOMAIN
 
 LOWSTAND = ("2025-05-01", "2026-09-30")
-HIGHSTAND = ("1995-05-01", "1996-09-30")   # around the record maximum (D-024)
+HIGHSTAND = ("1995-05-01", "1996-09-30")   # around the record maximum
 ZONE_DILATE_M = 2000
-OCC_LO, OCC_HI = 2, 98   # GSW occurrence (%) band that marks a changing water status (D-023)
+OCC_LO, OCC_HI = 2, 98   # GSW occurrence (%) band that marks a changing water status
 ZONE_SCALE = 250   # zone mask grid (m)
 ZONE_TILE_M = 5000  # tile cover of the zone used to clip stage-2 inputs (m)
 HIST_SCALE = 240   # per-scene MNDWI histogram sampling for Otsu (m); 240 m matches 60 m
-                   # thresholds to <= 2 bins on 19 test scenes at 1/16 of the cost (D-028)
-HIGH_PCT, LOW_PCT = 90, 10   # extreme-extent composites (D-027)
+                   # thresholds to <= 2 bins on 19 test scenes at 1/16 of the cost
+HIGH_PCT, LOW_PCT = 90, 10   # extreme-extent composites
 MIN_OBS_HIGH = 3   # fewer clear 1995-96 observations than this: use GSW max_extent instead
 HIGH_MIN_FRAC, LOW_MIN_FRAC = 0.10, 0.90   # zone v6 extents: share of clear observations that are water
-DARK_WATER = 0.03  # zone composites: NIR and SWIR1 both below this = clear deep water (D-029)
+DARK_WATER = 0.03  # zone composites: NIR and SWIR1 both below this = clear deep water
 CONN_SCALE = 1000  # grid of the sea-connectivity pass (m)
 SEA_RADIUS_M, SEA_MIN_FRAC = 20_000, 0.80   # open sea: 2025-26 water whose 20 km surroundings are >= 80% water
-CONN_MAX_M = 200_000   # cumulativeCost reach from the open sea through 1995-96 water (D-029)
+CONN_MAX_M = 200_000   # cumulativeCost reach from the open sea through 1995-96 water
 GSW = "JRC/GSW1_4/GlobalSurfaceWater"
 
 # Earth Engine parses WKT1 (GDAL flavour), not the WKT2 that pyproj writes by default
@@ -46,7 +46,7 @@ LAEA_WKT = pyproj.CRS(CRS_EQUAL_AREA).to_wkt(version="WKT1_GDAL")
 
 
 def laea(scale: float):
-    """The D-002 equal-area projection at ``scale`` metres."""
+    """The equal-area projection at ``scale`` metres."""
     return ee.Projection(LAEA_WKT).atScale(scale)
 
 
@@ -95,7 +95,7 @@ def highstand_water(region=None):
 
 
 def active_zone(region=None, scale: float = 250):
-    """Zone v3 (D-023), on an EPSG:4326 grid; kept for reproducing that asset."""
+    """Zone v3, on an EPSG:4326 grid; kept for reproducing that asset."""
     region = region or domain_geometry()
     proj = ee.Projection("EPSG:4326").atScale(scale)
     occ = ee.Image(GSW).select("occurrence").unmask(0).reproject(proj)
@@ -108,7 +108,7 @@ def active_zone(region=None, scale: float = 250):
 
 
 def active_zone_v4(region=None, scale: float = 250):
-    """Zone v4 (D-024), on an EPSG:4326 grid; superseded by v5 (D-027)."""
+    """Zone v4, on an EPSG:4326 grid; superseded by v5."""
     region = region or domain_geometry()
     proj = ee.Projection("EPSG:4326").atScale(scale)
     hi = highstand_water(region).unmask(0).reproject(proj)
@@ -153,7 +153,7 @@ def lowstand_extent(region=None, scale: float = ZONE_SCALE):
 
 
 def active_zone_v5(region=None, scale: float = ZONE_SCALE):
-    """Zone v5 (D-027): pixels inside the near-maximum 1995-96 extent but outside the
+    """Zone v5: pixels inside the near-maximum 1995-96 extent but outside the
     near-minimum 2025-26 extent, plus both shorelines, dilated by ZONE_DILATE_M on
     the equal-area grid (an isotropic kernel, unlike v3/v4 on EPSG:4326).
     Bands: zone (1 inside, masked outside) and filled (GSW gap fill used)."""
@@ -174,8 +174,7 @@ def active_zone_v5(region=None, scale: float = ZONE_SCALE):
 def zone_water(img):
     """Water indicator for the zone composites only (not the classification):
     MNDWI > 0, or NIR and SWIR1 both below DARK_WATER. Clear deep water in the south
-    of the domain has near-zero NIR and SWIR1 and an MNDWI that scatters around 0
-    (D-029)."""
+    of the domain has near-zero NIR and SWIR1 and an MNDWI that scatters around 0."""
     m = water.ee_nd(img, "green", "swir1")
     dark = img.select("nir").lt(DARK_WATER).And(img.select("swir1").lt(DARK_WATER))
     return m.gt(0).Or(dark).rename("w")
@@ -222,7 +221,7 @@ def sea_connected(high, low, scale: float = CONN_SCALE):
 
 
 def active_zone_v6(extents, region=None, scale: float = ZONE_SCALE):
-    """Zone v6 (D-029) from the exported extents_v6 image: the sea-connected band
+    """Zone v6 from the exported extents_v6 image: the sea-connected band
     between the 1995-96 near-maximum and the 2025-26 near-minimum water extents,
     dilated by ZONE_DILATE_M on the equal-area grid. Bands: zone (1 inside, masked
     outside), filled (GSW gap fill)."""
@@ -263,12 +262,12 @@ def scene_table(col, zone, scale: float = HIST_SCALE, min_samples: int = 300, cl
     histogram of clear in-zone pixels, the binning of water.otsu_threshold) and the
     in-zone pixel counts used for screening. One reduceRegion per scene, in the
     scene's native projection (reprojecting to the equal-area grid cost a fifth of
-    the total in the profiler, D-028). Counts are of ``scale``-metre pixels:
+    the total in the profiler). Counts are of ``scale``-metre pixels:
     zone_px (zone), zone_clear (clear, i.e. counted in the histogram), zone_snow
     (QA or NDSI snow/ice), zone_snow_ndsi (NDSI test alone)."""
     z = zone.select(0).unmask(0).gt(0)
     if clip is not None:
-        # skip the footprint outside the zone cover: 35% cheaper, same thresholds (D-028)
+        # skip the footprint outside the zone cover: 35% cheaper, same thresholds
         col = col.map(lambda im: im.clip(clip))
     reducer = (water.ee_histogram_reducer().combine(ee.Reducer.count(), "", True)
                .combine(ee.Reducer.count().setOutputs(["zone_snow"]), "", False)
@@ -287,7 +286,7 @@ def scene_table(col, zone, scale: float = HIST_SCALE, min_samples: int = 300, cl
         n = ee.Number(ee.Algorithms.If(r.get("count"), r.get("count"), 0))
         ok = n.gte(min_samples)
         thr = ee.Algorithms.If(ok, water.ee_otsu_fixed(r.get(hist_key)), None)
-        # the 256 bucket counts, so threshold rules can be evaluated locally (D-030+)
+        # the 256 bucket counts, so threshold rules can be evaluated locally
         hist = ee.Algorithms.If(n.gt(0), ee.Array(r.get(hist_key)).slice(1, 1, 2).project([0]).toList(), None)
         return ee.Feature(geom.centroid(100), {
             "scene": img.get("system:index"), "sensor": img.get("sensor"), "acq": img.get("acq"),
@@ -307,7 +306,7 @@ def classify_with_threshold(img, threshold, ndvi_veg: float = water.NDVI_VEG):
     n = water.ee_nd(img, "nir", "red")
     w = m.gt(ee.Number(threshold))
     veg = w.Not().And(n.gt(ndvi_veg).unmask(0))
-    known = w.Or(n.mask())          # water needs only MNDWI; dry or vegetated needs NDVI (D-068)
+    known = w.Or(n.mask())          # water needs only MNDWI; dry or vegetated needs NDVI
     return (ee.Image(water.DRY).where(veg, water.VEG).where(w, water.WATER)
             .updateMask(m.mask()).updateMask(known).uint8().rename("class"))
 
@@ -316,9 +315,9 @@ def water_valid(img, threshold, ndvi_veg: float = water.NDVI_VEG, observed: bool
     """Stage-2 per-scene [w, v] pair: w = water, v = water or dry (emergent
     vegetation is not a valid observation, PREREG section 3); masked = unobserved.
     Same classes as classify_with_threshold, in the form the counts need. All bands
-    carry one mask, so w <= v in every image and every per-acquisition mosaic (D-068:
-    a separate NDVI mask on v gave w > v). With ``observed``, a third band o = 1
-    wherever the pixel was classified, so o - v counts emergent vegetation (D-071)."""
+    carry one mask, so w <= v in every image and every per-acquisition mosaic (a
+    separate NDVI mask on v gave w > v). With ``observed``, a third band o = 1
+    wherever the pixel was classified, so o - v counts emergent vegetation."""
     m = water.ee_nd(img, "green", "swir1")
     n = water.ee_nd(img, "nir", "red")
     w = m.gt(ee.Number(threshold))

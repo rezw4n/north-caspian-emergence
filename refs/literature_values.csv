@@ -19,6 +19,8 @@ lit.hoseini2025.medium_q75_m,3.1,m (75th percentile),hoseini2025,10.1007/s00382-
 lit.hoseini2025.high_median_m,-4.4,"m (change 2021-2100, median)",hoseini2025,10.1007/s00382-024-07548-w,Abstract,(same quote)
 lit.hoseini2025.high_q25_m,-11,m (25th percentile),hoseini2025,10.1007/s00382-024-07548-w,Abstract,(same quote)
 lit.hoseini2025.high_q75_m,1.6,m (75th percentile),hoseini2025,10.1007/s00382-024-07548-w,Abstract,(same quote)
+lit.hoseini2025.q25_pct,25,percentile (lower quantile stated),hoseini2025,10.1007/s00382-024-07548-w,Abstract,(same quote)
+lit.hoseini2025.q75_pct,75,percentile (upper quantile stated),hoseini2025,10.1007/s00382-024-07548-w,Abstract,(same quote)
 lit.akbari2020.nc_area_per_m_km2,7103,km2 per m,akbari2020,10.1088/1748-9326/abaad8,Table 1 p. 10,Northern Caspian CVA = 7103 × SWL + 208261 0.90
 lit.akbari2020.fit_swl_lo_m,-29,m (SWL),akbari2020,10.1088/1748-9326/abaad8,§3.2 p. 10,"Linear approximations in table 1 are restricted to a period from 1977 to 2018 ( −29 < SWL < −26) so, based on assumptions in regression models, any extrapolation of a fitted regression equation beyond the range of SWL can lead to biased estimates."
 lit.akbari2020.fit_swl_hi_m,-26,m (SWL),akbari2020,10.1088/1748-9326/abaad8,§3.2 p. 10,(same quote)

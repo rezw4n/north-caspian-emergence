@@ -1,4 +1,4 @@
-"""Supplementary Figure: calibration of the wind-setup model (A5; D-065, D-066).
+"""Supplementary Figure: calibration of the wind-setup model.
 
 From results/levels/setup_model.json (scripts/a5_setup_model.py), per sector:
 a, the calibration R^2 of the fitted model, on calibration blocks that the fit never

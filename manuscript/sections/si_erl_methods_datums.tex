@@ -1,6 +1,6 @@
-% Supplementary Information of the ERL Letter (D-107): copy of methods_datums.tex, adapted (ICESat-2
-% through EIGEN-6C4, D-078; GLO-30 and GEDI, D-091; the BHS-77 offset, D-093).
-% Methods: the vertical datum chain (docs/DATUMS.md). Design: D-069, D-070, D-073, D-074;
+% Supplementary Information of the ERL Letter: copy of methods_datums.tex, adapted (ICESat-2
+% through EIGEN-6C4; GLO-30 and GEDI; the BHS-77 offset).
+% Methods: the vertical datum chain (docs/DATUMS.md). Design:
 % PREREG section 5 and Amendment 11. Every number comes from \metric{...}.
 
 \subsection*{Vertical datums}
@@ -9,7 +9,7 @@
 \emph{Relief grids.} For the total error of the hindcast audit, the grids were read as heights above the EGM2008 geoid\citep{pavlis2012}. ETOPO~2022 is documented as referenced to it\citep{macferrin2025}; GEBCO and ETOPO1 describe their heights as referred to sea level\citep{gebco2026,amante2009}; the SRTM15+ paper references only its onshore heights to a geoid and states no reference for soundings or inland seas\citep{tozer2019}, and the V2.7 files we used state none; so for these grids the EGM2008 reading is an assumption. Each grid was brought to the DAHITI reference by adding, cell by cell, $N_{\mathrm{EGM2008}} - N_{\mathrm{EIGEN\text{-}6C4}}$, computed from the two tide-free spherical-harmonic models with the calculation service of the International Centre for Global Earth Models\citep{ince2019}. Over the domain the difference ranges from \metric{datum.dN_min_m} to \metric{datum.dN_max_m}~m (standard deviation \metric{datum.dN_sd_m}~m). The widely distributed realisation of EGM2008, which ETOPO~2022's geoid layer reproduces, carries a further constant of \metric{datum.nga_offset_m}~m against the evaluation of the same coefficients by the calculation service, which handles the zero-degree term differently\citep{geographiclib_gravity,icgem_faq}; the total error uses it, and the total error without it is a sensitivity. The shape error fits its own constant and depends on neither choice.
 
 \emph{Lidar.} ICESat-2 ATL06 and ATL08 heights (Release~007) are tide-free ellipsoidal heights on WGS84 in the ITRF2020 frame\citep{atl06_v7,atl08_v7,is2_compguide_r007}. For an ellipsoidal height $h$, the reference height on the working datum is
-% src/caspian/validation.py: EigenGeoid, orthometric (H = h - N; D-078), fit_datum_constant (c = median of
+% src/caspian/validation.py: EigenGeoid, orthometric (H = h - N), fit_datum_constant (c = median of
 % DEM - H over training-block points), apply_datum_constant (y = H + c)
 \begin{equation}
   H = h - N_{\mathrm{EIGEN\text{-}6C4}}(\varphi, \lambda) , \qquad y = H + c_{\mathrm{ref}} , \qquad
@@ -20,7 +20,7 @@ with $N_{\mathrm{EIGEN\text{-}6C4}}$ interpolated bilinearly at latitude $\varph
 
 \emph{Reporting datum.} Levels are reported in the Baltic Height System of 1977 (BHS-77) through the offset $\delta = H_{\mathrm{BHS}} - H_{\mathrm{DAHITI}}$, estimated from the official monthly levels of the CASPCOM General Catalogue\citep{caspcom2026} at the \metric{datum.bhs.n_posts} ``century'' posts from which CASPCOM forms its sea-mean level, over the \metric{datum.bhs.n_years} complete years between \metric{datum.bhs.first_year} and \metric{datum.bhs.last_year} that both series cover (\metric{datum.bhs.n_post_years} post-years). With $\bar{H}_{p,t}$ the annual mean level of post $p$ in year $t$ (years with all twelve monthly means), $\bar{H}^{\mathrm{D}}_{t}$ the annual mean of DAHITI, $\mathcal{Y}_p$ the overlap years of post $p$ and $P$ the number of posts,
 % src/caspian/gauges.py: annual_means, post_offsets, offset; scripts/a7_dahiti_bhs_offset.py: annual_diffs
-% (mean over posts of the per-post mean difference); delta is reported for levels only (D-093)
+% (mean over posts of the per-post mean difference); delta is reported for levels only
 \begin{equation}
   H_{\mathrm{BHS}} = H_{\mathrm{DAHITI}} + \delta , \qquad
   \delta = \frac{1}{P} \sum_{p=1}^{P} \frac{1}{\lvert \mathcal{Y}_p \rvert} \sum_{t \in \mathcal{Y}_p}

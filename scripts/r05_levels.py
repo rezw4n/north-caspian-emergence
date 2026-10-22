@@ -1,5 +1,5 @@
-"""Robustness check 5 (brief section 10): altimetry series and time-interpolation
-method, to first order and without Earth Engine (docs/ROBUSTNESS_PLAN.md).
+"""Robustness check 5: altimetry series and time-interpolation method, to first order
+and without Earth Engine.
 
 An alternative level for every scene of the main plan gives, per (epoch, bin), the
 mean shift of its acquisitions' levels (robustness.group_level_shift). Each contour
@@ -13,13 +13,13 @@ Alternatives (--name):
   hydroweb_const   Hydroweb (Theia) interpolated to the scene times with the same
                    Brownian-bridge machinery, shifted onto the DAHITI reference by ONE
                    constant (the median of all +-20-day pair differences), so that the
-                   drift between the two products enters the levels (D-036 corrected
-                   for it with a moving median)
+                   drift between the two products enters the levels (the main run
+                   corrects for it with a moving median)
   dahiti_pchip     DAHITI with monotone cubic (PCHIP) instead of linear interpolation in
                    time, where the bracketing records are at most 60 days apart (the
                    Brownian-bridge mean is the linear interpolant)
-  window1y         the D-036 gap-fill offset with a +-1 year moving-median window
-                   instead of +-2 years (the candidate variant D-036 names)
+  window1y         the gap-fill offset with a +-1 year moving-median window
+                   instead of +-2 years (the candidate variant)
   external         another series (--series CSV with time, level_m; e.g. G-REALM when
                    downloaded), interpolated linearly and shifted by one constant
                    (median of the +-20-day differences from DAHITI)

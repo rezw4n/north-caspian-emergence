@@ -1,5 +1,5 @@
 """Revision R: the A18 item 3 and item 6 audits that reuse the hindcast's units with the
-waterline engine of caspian.rev_r (D-117, D-118, D-119).
+waterline engine of caspian.rev_r.
 
 One pass over the level bins of a stage-2 tag rebuilds the observed extents exactly as
 scripts/a7_hindcast.py does (observed_raw with the record-low envelope, classify) and
@@ -8,7 +8,7 @@ feeds them to "configs":
   replica  the primary audit at each product's area constant c_area (shape variant) and
            the primary floor; must reproduce results/hindcast/main exactly (checked by
            `decide`)
-  static   the static-contour filter (D-034/D-075 rule, rho* of
+  static   the static-contour filter (the registered rule, rho* of
            results/levels/static_contour_rule.json) removes static cells from every
            observed waterline (full extents, halves, E1 and E2 + E3) before distances
   res      observed extents (full and halves) aggregated by majority to each product's
@@ -16,7 +16,7 @@ feeds them to "configs":
   cd       the displacement-fitted constant search: c = c_area + 0.10 k, k = -10..10;
            per unit the median |d| of the measured cells in training blocks (domain and
            split == train), and per level and sector the pooled median
-  variant  (R1.M1(d)) another stage-2 tag at c_area. With --hybrid (the R-block
+  variant  another stage-2 tag at c_area. With --hybrid (the R-block
            threshold variants): the variant's counts inside its tiles, the primary's
            elsewhere, and only cells inside the variant's tiles measured; the primary on
            the same footprint is computed beside it ("primary_fp")
@@ -221,7 +221,7 @@ def train_median(cells, train) -> tuple[int, float]:
 def run_pass(a) -> int:
     global K_GRID, C_STEP
     t0 = time.time()
-    if a.c_step:                       # D-118 addendum: coarser search, same +-1.0 m range
+    if a.c_step:                       # coarser search, same +-1.0 m range
         C_STEP = float(a.c_step)
         n = int(round(1.0 / C_STEP))
         K_GRID = np.arange(-n, n + 1)
@@ -263,7 +263,7 @@ def run_pass(a) -> int:
             r[footprint] = rv[footprint]
         return r
 
-    # record-low water (D-082) exactly as a7_hindcast.record_low_water: the counts of the
+    # record-low water exactly as a7_hindcast.record_low_water: the counts of the
     # lowest E3 bins pooled into one extent; for a hybrid, each footprint from its own tag
     env = {"variant": a7.record_low_water(units_main if hybrid else units, transform, shape)}
     if hybrid:
@@ -283,7 +283,7 @@ def run_pass(a) -> int:
     names = [p for p in a.products.split(",") if p]
     corr, _ = products.correction(CORRECTION, transform, shape)
     fmaps, finite = {}, {}
-    if a.surfaces == "controls":            # D-116 addendum: the control surfaces at given constants
+    if a.surfaces == "controls":            # the control surfaces at given constants
         C = _load("rev_r_control")
         surf, flood, _ = C.build(transform, shape, static, units_main)
         cj = json.loads(Path(a.constants).read_text(encoding="utf-8"))

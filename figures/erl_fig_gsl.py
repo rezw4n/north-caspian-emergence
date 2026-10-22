@@ -1,14 +1,14 @@
-"""ERL figure "Great Salt Lake" (generality test A9; D-094, D-100, D-102, D-141; 15 cm wide).
+"""ERL figure "Great Salt Lake" (generality test; 15 cm wide).
 
 (a) Both arms of Great Salt Lake at one representative hindcast unit (the unit whose
     per-arm median displacements are closest to the audit's summary medians, chosen by
     scripts/f1_erl_display.py gsl; level in metrics erl.gsl.level_navd88_m, NAVD 88): the
     observed state of every 60 m cell (sea-connected open water, land, not determined),
     the observed shoreline (solid black), the shape-variant shorelines of GEBCO_2026, ETOPO
-    2022 and SRTM15+ (each with its per-arm D-070 constant), and that of the USGS 3DEP
-    control, mostly 2016 lidar (grey; workstream G, D-128: legacy non-lidar DEMs in part
-    of the south arm). The unit is the one chosen by the second rule of D-102; the first
-    rule picked an atypical unit (DECISIONS.md, the Great Salt Lake unit). Static layers, envelope, heights and flood fills are those of
+    2022 and SRTM15+ (each with its per-arm constant), and that of the USGS 3DEP
+    control, mostly 2016 lidar (grey; legacy non-lidar DEMs in part
+    of the south arm). The unit is the one chosen by a second selection rule; the first
+    rule picked an atypical unit. Static layers, envelope, heights and flood fills are those of
     scripts/g1_hindcast.py; every per-arm median of the unit equals the arm's
     displacement.csv.
 (b) Per arm, the median over evaluable levels of each surface's per-level median shoreline
@@ -18,9 +18,9 @@
     H1 rule of PREREG section 9, Amendment 16); open: it does not.
 (c) Per arm, the heights of the arm's emerged band in each grid (share of the band's 250 m
     cells per 0.5 m bin, NAVD 88; results/revision/g/gsl_band_height_histograms.csv,
-    workstream G, D-128): the spike is the grid's flat lake surface. Dotted line, the gauge
+    Great Salt Lake revision analysis): the spike is the grid's flat lake surface. Dotted line, the gauge
     level of the arm in February 2000 (rev.g.gsl.<arm>.gauge_feb2000_navd88_m), the month
-    of the SRTM acquisition (internal review R1 minor 22; D-141).
+    of the SRTM acquisition.
 
 Numbers: results/metrics.json (generality.great_salt_lake.*, erl.gsl.*, rev.g.gsl.*).
 Output: figures/out/erl_fig_gsl.{pdf,tif,png}

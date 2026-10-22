@@ -1,11 +1,11 @@
-"""Study-area map (Supplementary Figure; brief section 12): the domain, the seven
+"""Study-area map (Supplementary Figure): the domain, the seven
 reporting sectors, the stage-2 computation cover and the 25 km validation blocks.
 
-a, domain and sectors (results/study_area/sectors.geojson, D-014), the stage-2
+a, domain and sectors (results/study_area/sectors.geojson), the stage-2
    cover (results/study_area/zone_v6_cover_buffered.geojson: the 5 km tile cover of
-   active zone v6, extended seaward by one cell; D-029, D-060) and, for orientation,
+   active zone v6, extended seaward by one cell) and, for orientation,
    the open sea of the 2025-26 low stand (results/study_area/sea_mask_1km.npz, the
-   D-029 open-sea definition from Landsat; it is not a product under audit).
+   open-sea definition from Landsat; it is not a product under audit).
 b, the 25 km blocks (results/study_area/blocks_25km.csv; PREREG section 6), coloured
    by split, with the sector outlines.
 

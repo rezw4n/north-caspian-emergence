@@ -1,11 +1,11 @@
 """Revision R, A18 item 7: shelf gradients, vertical equivalents, the vertical error budget
-and the augmented floor (D-119).
+and the augmented floor.
 
 1. Gradient g per sector: the median |grad z| (m per km) of the waterline DEM (main, 30 m
    tiles) over the cells in the 1995-2026 band (zone-v6 extents: water at the 1995-96
    high stand, not water at the 2025-26 low stand), the sector of each cell taken from
    the hindcast's sector raster. The mean, quartiles and the share of exact flats are
-   reported beside it (R2.M4(b) asks for sector means).
+   reported beside it.
 2. Vertical equivalents: D*g and Q*g (m) per product, sector and level (primary shape
    variant, epochs pooled; the primary floor).
 3. Budget (1 sigma, m) per sector and level, in quadrature:

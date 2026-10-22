@@ -5,7 +5,7 @@
 #   1. Raw inputs. Acquired once by the named targets below; never run by `make all`.
 #        make fetch       network, with credentials: DAHITI_API_KEY, HYDROWEB_API_KEY
 #        make ee-inputs   Earth Engine; spends EECU, so it refuses to run without
-#                         EE_OK=1 (pilot first and check the budget: CLAUDE.md)
+#                         EE_OK=1 (pilot first and check the budget)
 #      They write git-ignored files under data/ and committed acquisition records
 #      (results/provenance/*.json with each raw file's SHA-256; for the scene
 #      inventory results/inventory/inventory_meta.json, the summary_*.csv tables and
@@ -18,7 +18,7 @@
 #      under `make -j`, and only out-of-date steps rerun; `make -B all` forces a full
 #      rebuild. A missing raw input stops the build with the name of the target that
 #      acquires it.
-#      `make all` includes the Phase A pipeline (stage 2b: H1-H3, the Great Salt Lake test,
+#      `make all` includes the main analysis pipeline (stage 2b: H1-H3, the Great Salt Lake test,
 #      the robustness checks), about 20-23 h on one machine; `make -n -B all` lists every
 #      step in order, and `make inputs` every input that an acquisition step writes.
 
@@ -69,8 +69,8 @@ need_step = $(if $(STEP),,$(error `make $@` needs STEP=$(1)))
 
 help:
 	@echo Targets
-	@echo   all            rebuild results, QC figures, numbers.tex and manuscript/main.pdf from the raw inputs
-	@echo   phase-a        the Phase A results only: H1-H3, Great Salt Lake, robustness, about 20-23 h, also built by all
+	@echo   all            rebuild results, QC figures, numbers.tex and the ERL Letter and Supplementary from the raw inputs
+	@echo   phase-a        the main-analysis results only: H1-H3, Great Salt Lake, robustness, about 20-23 h, also built by all
 	@echo   inputs         list every input that make all reads and an acquisition step writes
 	@echo   fetch          acquire network inputs: dahiti-download hydroweb-download swot-download bathymetry-download osm-download refs caspcom-download wdpa-download
 	@echo   ee-inputs      acquire Earth Engine inputs: ee-scene-inventory ee-etopo1, with EE_OK=1
@@ -136,13 +136,13 @@ bathymetry-download:
 osm-download:
 	$(PYTHON) scripts/a8_osm_exposure.py
 
-# WDPA country downloads (Protected Planet public file store; non-commercial terms, D-101, D-103).
+# WDPA country downloads (Protected Planet public file store; non-commercial terms).
 # Writes data/raw/wdpa/ (never redistributed) and results/provenance/wdpa.json.
 wdpa-download:
 	$(PYTHON) -I scripts/a8_wdpa_exposure.py fetch
 
 # doi.org and Crossref/DataCite: refs/references.bib and refs/verification.csv, then the
-# documented metadata corrections of refs/bib_corrections.csv (D-131, D-134).
+# documented metadata corrections of refs/bib_corrections.csv.
 refs:
 	$(PYTHON) tools/fetch_bibtex.py
 	$(PYTHON) tools/apply_bib_corrections.py .
@@ -163,7 +163,7 @@ ee-etopo1:
 	$(ee_ok)
 	$(PYTHON) scripts/a7_get_etopo1.py
 
-# Batch stages (D-015); each is submitted, monitored and fetched by its own script.
+# Batch stages; each is submitted, monitored and fetched by its own script.
 ee-zone:
 	$(ee_ok)
 	$(call need_step,submit or area)
@@ -244,12 +244,11 @@ QC_FIGS := outputs/qc/gebco_2026_tid.pdf
 outputs/qc/gebco_2026_tid.pdf: figures/qc_gebco_tid.py $(BATHY)/gebco_2026_ncaspian.nc $(PKG) | $(VERIFIED)
 	$(PYTHON) figures/qc_gebco_tid.py $(BATHY)/gebco_2026_ncaspian.nc
 
-## stage 2b: the Phase A pipeline (D-110) ------------------------------------------
+## stage 2b: the main analysis pipeline ---------------------------------------------
 # Every committed result from the stage-2 counts on: the DEM and H2 (validation), H1 (the
 # hindcast and its red-team runs), H3 (near-term emergence, WDPA exposure, the ATL24 check),
 # the Great Salt Lake test, the robustness checks and their verdicts. Commands and arguments
-# are the ones that produced the committed outputs (their run.json records; DECISIONS D-069
-# to D-104). Steps that write many git-ignored files (DEM tiles, emergence dates, the
+# are the ones that produced the committed outputs (their run.json records). Steps that write many git-ignored files (DEM tiles, emergence dates, the
 # robustness splits) have a stamp file as their target, data/interim/.stamp_<step>
 # (tools/make_stamp.py), written only after the step succeeded.
 #
@@ -266,7 +265,7 @@ outputs/qc/gebco_2026_tid.pdf: figures/qc_gebco_tid.py $(BATHY)/gebco_2026_ncasp
 need_acq = $(if $(wildcard $(1)),,$(error missing input $(1): it is acquired by $(2), never by `make all`))
 STAMP := data/interim/.stamp_
 # Stage-2 counts (scripts/a6_stage2_export.py, Earth Engine): the main Landsat export mainL
-# (D-079; results/inventory/stage2_mainL.json, which names the plan it ran with), the D-064
+# (results/inventory/stage2_mainL.json, which names the plan it ran with), the
 # screening sample sensB, and the R-block alternatives (scripts/r18_rblock_export.py;
 # results/inventory/stage2_<tag>.json).
 STAGE2_DIR  ?= data/interim/stage2
@@ -286,7 +285,7 @@ GEDI_DIR    ?= data/interim/gedi
 OSM_DIR     ?= data/raw/osm
 HABITAT_DIR ?= data/raw/habitat
 WDPA_DIR    ?= data/raw/wdpa
-# Great Salt Lake (D-094): downloads (scripts/g1_data.py levels, osm, vdatum, products;
+# Great Salt Lake: downloads (scripts/g1_data.py levels, osm, vdatum, products;
 # results/provenance/generality_great_salt_lake_*.json) and Earth Engine outputs
 # (scripts/g1_ee.py extents, scenes, stage1, dep3, stage2; results/generality/great_salt_lake/
 # extents.json, scene_inventory.json; results/inventory/generality_great_salt_lake_stage2_main.json)
@@ -320,19 +319,19 @@ $(GSL_EE):
 	$(call need_acq,$@,scripts/g1_ee.py extents|scenes|stage1|dep3|stage2 great_salt_lake (Earth Engine))
 
 # --- stage-2 counts, vegetation labels, waterlines, DEM, emergence dates ------------------
-# Main stage-2 counts (D-076, D-079): the Landsat export as the tag `main`, one source tag
+# Main stage-2 counts: the Landsat export as the tag `main`, one source tag
 # (5 min). Writes data/interim/stage2/main/tile_*.npz.
 S2MAIN := results/provenance/stage2_main_combine.json
 $(S2MAIN): scripts/a6_stage2_combine.py $(STAGE2_DIR)/mainL $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a6_stage2_combine.py main mainL
 
-# Vegetation fraction of the emerged band and the vegetated-sector labels of H1 (D-071).
+# Vegetation fraction of the emerged band and the vegetated-sector labels of H1.
 results/levels/vegetation_fraction.json results/levels/sector_labels.csv &: scripts/a6_vegetation.py $(S2MAIN) \
         results/study_area/extents_v6_250m.npz $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a6_vegetation.py main
 
-# Waterlines of every (epoch, level bin) (PREREG section 4), then the static-contour rule
-# (D-075), which rewrites the point table with its `static` column: one recipe, so the
+# Waterlines of every (epoch, level bin) (PREREG section 4), then the static-contour rule,
+# which rewrites the point table with its `static` column: one recipe, so the
 # table is never used without that column (8 min). Writes
 # data/interim/waterlines/main/points.csv.gz.
 results/levels/static_contour_rule.json: scripts/a6_waterlines.py scripts/a6_static_rule.py $(S2MAIN) $(STAGE2_PLAN) \
@@ -340,7 +339,7 @@ results/levels/static_contour_rule.json: scripts/a6_waterlines.py scripts/a6_sta
 	$(PYTHON) scripts/a6_waterlines.py main $(STAGE2_PLAN)
 	$(PYTHON) scripts/a6_static_rule.py main
 
-# Waterline DEM, TIN at 30 m in 60 km tiles (PREREG section 4; D-069; 8 min):
+# Waterline DEM, TIN at 30 m in 60 km tiles (PREREG section 4; 8 min):
 # data/processed/dem/main/dem_*.tif.
 DEM_MAIN := $(STAMP)dem_main
 $(DEM_MAIN): scripts/a6_dem.py results/levels/static_contour_rule.json \
@@ -348,7 +347,7 @@ $(DEM_MAIN): scripts/a6_dem.py results/levels/static_contour_rule.json \
 	$(PYTHON) scripts/a6_dem.py main
 	$(PYTHON) tools/make_stamp.py $@ data/processed/dem/main --pattern "dem_*.tif"
 
-# Emergence date of every DEM pixel from the daily level record (D-069), through the
+# Emergence date of every DEM pixel from the daily level record, through the
 # scene-level code path: data/processed/dem/main/emergence/.
 EMERGENCE_DIR := data/processed/dem/main/emergence
 EMERGENCE_MAIN := $(STAMP)emergence_main
@@ -357,7 +356,7 @@ $(EMERGENCE_MAIN): scripts/a6_emergence.py scripts/a4_scene_levels.py $(DEM_MAIN
 	$(PYTHON) scripts/a6_emergence.py main
 	$(PYTHON) tools/make_stamp.py $@ $(EMERGENCE_DIR) --pattern "emergence_*.tif"
 
-# --- H2: the DEM against ICESat-2, GLO-30 and GEDI (PREREG sections 5-8; D-084 to D-091) ---
+# --- H2: the DEM against ICESat-2, GLO-30 and GEDI (PREREG sections 5-8) ------------------
 VAL  := results/validation/main
 VALV := results/validation/main_vegetated
 VALG := results/validation/main_glo30
@@ -369,19 +368,19 @@ val_vario = $(foreach s,$(1),$(2)/$(s)_semivariogram.csv $(2)/$(s)_semivariogram
 PRODUCT_GRIDS := $(GRIDS) $(ETOPO1)
 CORRECTION := results/study_area/geoid_correction_primary.npz
 H2_DEM := $(DEM_MAIN) $(EMERGENCE_MAIN) results/levels/static_contour_rule.json
-# prepare: the ICESat-2 quality steps, geoid (EIGEN-6C4, D-078), dryness test, and the DEM
+# prepare: the ICESat-2 quality steps, geoid (EIGEN-6C4), dryness test, and the DEM
 # and the five products at each point (20 min). Writes data/interim/validation/main/.
 $(VAL)/prepare.json $(VAL)/ATL06_filter_cascade.csv $(VAL)/ATL08_filter_cascade.csv &: scripts/a6_validate_dem.py \
         $(H2_DEM) $(ICESAT2)/ATL06 $(ICESAT2)/ATL08 results/provenance/icesat2_atl06.json \
         results/provenance/icesat2_atl08.json results/study_area/geoid_egm2008_minus_eigen6c4.npz $(PRODUCT_GRIDS) \
         $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a6_validate_dem.py main prepare --emergence $(EMERGENCE_DIR)
-# blocksize: semivariograms on the training blocks; the final size, 50 km (D-084, D-085).
-# Also the point annotations (emerged band, vegetation share; D-084), about 30 min.
+# blocksize: semivariograms on the training blocks; the final size, 50 km.
+# Also the point annotations (emerged band, vegetation share), about 30 min.
 $(VAL)/block_size_check.json $(call val_vario,ATL06 ATL08,$(VAL)) &: scripts/a6_validate_dem.py $(VAL)/prepare.json \
         $(S2MAIN) results/study_area/extents_v6_250m.npz results/study_area/blocks_25km.csv $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a6_validate_dem.py main blocksize
-# evaluate on the test blocks (blocks_50km.csv), and the 25 and 12.5 km block sensitivities (D-088).
+# evaluate on the test blocks (blocks_50km.csv), and the 25 and 12.5 km block sensitivities.
 $(call val_fits,ATL06 ATL08,$(VAL)) &: scripts/a6_validate_dem.py $(VAL)/block_size_check.json \
         results/study_area/blocks_50km.csv $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a6_validate_dem.py main evaluate
@@ -391,17 +390,17 @@ $(call val_fits,ATL06 ATL08,$(VAL)/sensitivity_25000m) &: scripts/a6_validate_de
 $(call val_fits,ATL06 ATL08,$(VAL)/sensitivity_12500m) &: scripts/a6_validate_dem.py $(VAL)/block_size_check.json \
         results/study_area/blocks_12km.csv $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a6_validate_dem.py main evaluate --block-size 12500
-# The vegetated population (brief section 10, check 9; D-084, D-088).
+# The vegetated population (robustness check 9).
 $(VALV)/block_size_check.json $(call val_vario,ATL06 ATL08,$(VALV)) &: scripts/a6_validate_dem.py $(VAL)/prepare.json \
         $(VAL)/block_size_check.json results/study_area/blocks_25km.csv $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a6_validate_dem.py main blocksize --population vegetated
 $(call val_fits,ATL06 ATL08,$(VALV)) &: scripts/a6_validate_dem.py $(VALV)/block_size_check.json \
         results/study_area/blocks_50km.csv $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a6_validate_dem.py main evaluate --population vegetated
-# The H2 decision (PREREG section 7; D-086).
+# The H2 decision (PREREG section 7).
 $(VAL)/h2_decision.json: scripts/a6_h2_decision.py $(VAL)/ATL06_paired_bootstrap.csv $(VAL)/ATL08_paired_bootstrap.csv $(PKG)
 	$(PYTHON) scripts/a6_h2_decision.py main
-# GLO-30 and GEDI, each alone on the H2 blocks, the block size inherited (D-091); the H2 rule
+# GLO-30 and GEDI, each alone on the H2 blocks, the block size inherited; the H2 rule
 # applied descriptively, and ETOPO 2022's source datasets at their test points.
 $(VALG)/prepare.json $(VALG)/GLO30_filter_cascade.csv &: scripts/a6_glo30.py scripts/a6_validate_dem.py $(H2_DEM) \
         $(GLO30_DIR) results/provenance/copernicus_glo30.json $(CORRECTION) $(PRODUCT_GRIDS) $(PKG) | $(VERIFIED)
@@ -444,7 +443,7 @@ H2_RESULTS := $(VAL)/prepare.json $(VAL)/block_size_check.json $(call val_fits,A
               $(call val_fits,GEDI,$(VALE)/subset_night) $(VALE)/GEDI_rule_check.json \
               $(VALE)/subset_night/GEDI_rule_check.json $(VALE)/GEDI_etopo2022_sources.json
 
-# --- H1: the hindcast audit (PREREG section 9; D-070, D-072, D-082, D-083, D-089) ---------
+# --- H1: the hindcast audit (PREREG section 9) ---------------------------------------------
 HC := results/hindcast
 hc_tables = $(addprefix $(1)/,extent.csv displacement.csv noise_floor.csv observed.csv block_h1.csv blocks.csv.gz run.json)
 h1_tables = $(addprefix $(1)/,h1_mispredicts.csv h1_mispredicts_pooled_floor.csv h1_mispredicts_detail.csv \
@@ -455,16 +454,16 @@ HC_INPUTS := scripts/a7_hindcast.py $(S2MAIN) $(PRODUCT_GRIDS) $(CORRECTION) res
 # HEAVY (6,540 s): the primary hindcast, total and shape variants.
 $(call hc_tables,$(HC)/main) $(HC)/main/shape_offsets.json &: $(HC_INPUTS) | $(VERIFIED)
 	$(PYTHON) scripts/a7_hindcast.py main --vertical-correction $(CORRECTION)
-# The H1 decisions (PREREG section 9; D-072), here and for both red-team runs.
+# The H1 decisions (PREREG section 9), here and for both red-team runs.
 $(call h1_tables,$(HC)/main) &: scripts/a7_h1_decision.py $(call hc_tables,$(HC)/main) results/levels/sector_labels.csv \
         $(PKG)
 	$(PYTHON) scripts/a7_h1_decision.py main
-# Displacement by level band and ETOPO 2022's sources over the emerged band (D-087, D-108).
+# Displacement by level band and ETOPO 2022's sources over the emerged band.
 $(HC)/main/displacement_by_level_band.csv $(HC)/main/etopo2022_sources_emerged_band.json \
         $(HC)/main/etopo2022_sources_by_level_band.csv &: scripts/a7_level_bands.py $(HC)/main/displacement.csv \
         $(BATHY)/etopo_2022_ncaspian.nc results/study_area/extents_v6_250m.npz $(DEM_MAIN) $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a7_level_bands.py main
-# Red team, HEAVY (7,485 s): without the record-low water envelope (D-082 sensitivity).
+# Red team, HEAVY (7,485 s): without the record-low water envelope (sensitivity).
 $(call hc_tables,$(HC)/main_noenv) $(HC)/main_noenv/shape_offsets.json &: $(HC_INPUTS) | $(VERIFIED)
 	$(PYTHON) scripts/a7_hindcast.py main --vertical-correction $(CORRECTION) --no-envelope --out-suffix _noenv
 $(call h1_tables,$(HC)/main_noenv) &: scripts/a7_h1_decision.py $(call hc_tables,$(HC)/main_noenv) \
@@ -484,7 +483,7 @@ H1_RESULTS := $(call hc_tables,$(HC)/main) $(HC)/main/shape_offsets.json $(call 
               $(call hc_tables,$(HC)/main_sectorshape) $(HC)/main_sectorshape/sector_offsets.json \
               $(call h1_tables,$(HC)/main_sectorshape)
 
-# --- H3: near-term emergence (PREREG section 10; D-081, D-090, D-095, D-096, D-103) --------
+# --- H3: near-term emergence (PREREG section 10) -------------------------------------------
 EM := results/emergence
 h3_tables = $(addprefix $(1)/,shifts.csv error_models.json loeo_errors.csv transfer.csv emergence.csv fused_summary.csv \
             exposure.csv scenario_dates.csv run.json)
@@ -499,13 +498,13 @@ $(call h3_tables,$(EM)/main) &: $(H3_INPUTS) | $(VERIFIED)
 	$(PYTHON) scripts/a8_emergence.py main --dem-tag main --vertical-correction $(CORRECTION)
 $(call h3_dec,$(EM)/main) &: scripts/a8_h3_decision.py $(EM)/main/run.json $(EM)/main/emergence.csv $(PKG)
 	$(PYTHON) scripts/a8_h3_decision.py main
-# HEAVY (8,131 s): the D-081 constant-form sensitivity (D-096).
+# HEAVY (8,131 s): the constant-form sensitivity of the error model.
 $(call h3_tables,$(EM)/main_constant) &: $(H3_INPUTS) | $(VERIFIED) $(EM)/main/run.json
 	$(PYTHON) scripts/a8_emergence.py main --dem-tag main --vertical-correction $(CORRECTION) --sensitivity-form constant
 $(call h3_dec,$(EM)/main_constant) &: scripts/a8_h3_decision.py $(EM)/main_constant/run.json \
         $(EM)/main_constant/emergence.csv $(PKG)
 	$(PYTHON) scripts/a8_h3_decision.py main_constant
-# WDPA protected areas and Ramsar sites as exposure layers (D-101, D-103): `layers` writes
+# WDPA protected areas and Ramsar sites as exposure layers: `layers` writes
 # data/interim/wdpa/; `exposure` (2,756 s) reads both runs' cached surfaces and checks
 # them against emergence.csv and exposure.csv before any WDPA number.
 $(EM)/wdpa/layers.json: scripts/a8_wdpa_exposure.py $(WDPA_DIR) results/provenance/wdpa.json $(PKG) | $(VERIFIED)
@@ -514,14 +513,14 @@ $(EM)/wdpa/exposure_main.csv $(EM)/wdpa/exposure_main_constant.csv $(EM)/wdpa/ru
         scripts/a8_emergence.py scripts/f1_erl_display.py $(EM)/wdpa/layers.json $(call h3_tables,$(EM)/main) \
         $(call h3_tables,$(EM)/main_constant) $(HC)/main/run.json $(OSM_DIR) $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a8_wdpa_exposure.py exposure
-# Sensitivity (D-103 addendum, 649 s): the protected areas without the Kazakh northern-Caspian
+# Sensitivity (649 s): the protected areas without the Kazakh northern-Caspian
 # reserved zone; after the registered tables (order-only: one heavy read at a time).
 $(EM)/wdpa/exposure_main_noksrz.csv $(EM)/wdpa/exposure_main_constant_noksrz.csv $(EM)/wdpa/run_noksrz.json &: \
         scripts/a8_wdpa_exposure.py scripts/a8_emergence.py scripts/f1_erl_display.py $(EM)/wdpa/layers.json \
         $(call h3_tables,$(EM)/main) $(call h3_tables,$(EM)/main_constant) $(HC)/main/run.json $(OSM_DIR) $(PKG) \
         | $(VERIFIED) $(EM)/wdpa/run.json
 	$(PYTHON) scripts/a8_wdpa_exposure.py exposure --layers wdpa_protected_areas_noksrz --suffix _noksrz
-# ATL24 check of the near-term surfaces (Amendment 17; D-095). ATL24 v002 has no photon over
+# ATL24 check of the near-term surfaces (Amendment 17). ATL24 v002 has no photon over
 # the domain (results/provenance/icesat2_atl24.json; nothing under data/raw/icesat2/atl24), so
 # the tables are written empty and the surface stage is verified on 300 random cells (153 s).
 ATL24_OUT := $(addprefix results/validation/atl24/,photon_cascade.csv granules.json celltracks_summary.csv \
@@ -537,10 +536,10 @@ H3_RESULTS := $(call h3_tables,$(EM)/main) $(call h3_dec,$(EM)/main) $(call h3_t
               $(EM)/wdpa/exposure_main_constant.csv $(EM)/wdpa/run.json $(EM)/wdpa/exposure_main_noksrz.csv \
               $(EM)/wdpa/exposure_main_constant_noksrz.csv $(EM)/wdpa/run_noksrz.json $(ATL24_OUT)
 
-# --- A9: Great Salt Lake (PREREG Amendment 16; D-094) --------------------------------------
+# --- Generality test: Great Salt Lake (PREREG Amendment 16) --------------------------------
 # The local steps, in the order they ran. The static layers, scene levels, thresholds and
 # plans were inputs of the basin's Earth Engine stage 1 and stage 2 as well; rebuilt here,
-# they must come out as committed (VB.15).
+# they must come out as committed.
 GSL := results/generality/great_salt_lake
 GSL_STATIC := $(addprefix $(GSL)/,arms_laea.geojson cover_laea.geojson ponds_laea.geojson zone_lonlat.geojson \
               cover_lonlat.geojson static.json)
@@ -556,7 +555,7 @@ $(GSL)/plan_main.json: scripts/g1_plan.py $(GSL)/scene_levels.json $(GSL)/thresh
 	$(PYTHON) scripts/g1_plan.py plan great_salt_lake main
 $(GSL)/plan_pilot.json: scripts/g1_plan.py $(GSL)/scene_levels.json $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/g1_plan.py plan great_salt_lake pilot --placeholder 0.2
-# Product lineage over each arm's emerged band (ETOPO 2022's FABDEM share; D-094, D-107).
+# Product lineage over each arm's emerged band (ETOPO 2022's FABDEM share).
 $(GSL)/lineage.json: scripts/g1_lineage.py $(GSL)/static.json $(GSL_RAW)/bathymetry $(GSL_INT)/dep3_60m.npy \
         $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/g1_lineage.py great_salt_lake
@@ -577,11 +576,11 @@ GSL_RESULTS := $(GSL_STATIC) $(GSL)/scene_levels.json $(GSL)/threshold_rule_summ
                $(GSL)/plan_pilot.json $(GSL)/lineage.json $(GSL)/blocks_25km.csv $(GSL_HC) $(GSL)/h1_mispredicts.csv \
                $(GSL)/h1_mispredicts_detail.csv $(GSL)/h1_decision.json
 
-# --- robustness checks (brief section 10; docs/ROBUSTNESS_PLAN.md; D-092, D-097, D-104) -----
+# --- robustness checks ---------------------------------------------------------------------
 # scripts/r19_local_runs.py runs each check locally (no Earth Engine: the R-block and sensB
 # counts are inputs). Several of its commands merge into the check's existing summary.json,
 # so each check's commands run in one recipe, in the order they were run, with the
-# bootstrap counts they used (D-097: 2,000 for ATL08 and the no-static ATL06 run; 1,000 for
+# bootstrap counts they used (2,000 for ATL08 and the no-static ATL06 run; 1,000 for
 # the rest). Variant counts and DEMs that r19 reuses when present are removed first. ATL06
 # validations take 15-20 min each; whole-variant runs 10-30 min.
 ROB := results/robustness
@@ -642,8 +641,8 @@ $(ROB)/r10_morphology/summary.json: $(ROB_CODE) $(ROB_MAIN) $(call hc_tables,$(H
 $(ROB)/r11_prior_work/summary.json: $(ROB_CODE) $(DEM_MAIN) $(HC)/main/observed.csv refs/literature_values.csv \
         results/study_area/extents_v6_250m.npz | $(VERIFIED)
 	$(R19) prior
-# The DEM without the static-contour rule (D-034), emergence + 365 days (D-069), nearest-
-# neighbour products (D-070).
+# The DEM without the static-contour rule, emergence + 365 days, nearest-neighbour
+# products.
 $(ROB)/r12_static_rule/summary.json: $(ROB_CODE) $(ROB_MAIN) | $(VERIFIED)
 	$(R19) nostatic --sources ATL08
 	$(R19) validate --check r12_static_rule --variant main__nostatic --summary-check r12_static_rule --summary-key h2 \
@@ -676,7 +675,7 @@ endef
 rb_field = $(word $(2),$(subst :, ,$(1)))
 rb_rule = $(call rblock_rule,$(call rb_field,$(1),1),$(call rb_field,$(1),2),$(call rb_field,$(1),3))
 $(foreach r,$(filter-out fixed_mndwi0:%,$(RBLOCKS)),$(eval $(call rb_rule,$(r))))
-# Stage-2 seam gaps (D-097 QC finding).
+# Stage-2 seam gaps (a QC finding).
 $(ROB)/r21_seam_gaps/summary.json: scripts/r21_seam_gaps.py $(S2MAIN) results/study_area/zone_v6_cover_buffered.geojson \
         $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/r21_seam_gaps.py
@@ -697,7 +696,7 @@ PHASE_A_RESULTS := $(S2MAIN) results/levels/vegetation_fraction.json results/lev
 # export_params.py imports or parses the scripts whose constants the Methods quote.
 PARAM_SCRIPTS := $(addprefix scripts/,a4_scene_levels.py a3_stage1_interactive.py a3_thresholds.py a5_setup_model.py a5_swot_sector_levels.py \
                  a5_sea_mask.py a6_screening.py a6_stage2_plan.py a6_stage2_export.py a6_static_rule.py \
-                 a6_waterlines.py a6_vegetation.py a6_dem.py a7_beyond_state.py a7_hindcast.py)
+                 a6_waterlines.py a6_vegetation.py a6_dem.py a7_beyond_state.py a7_hindcast.py r18_rblock_export.py)
 results/params.json: tools/export_params.py $(PARAM_SCRIPTS) figures/fig_study_area.py figures/_erl.py \
         figures/tab_report_card.py figures/erl_fig_then_now.py $(PKG)
 	$(PYTHON) tools/export_params.py
@@ -770,7 +769,7 @@ manuscript/sections/ed_tables_h3_draft.tex: figures/tab_h3.py figures/_common.py
         results/emergence/main/scenario_dates.csv refs/verification.csv
 	$(PYTHON) figures/tab_h3.py
 
-# ERL main display items (D-100, D-102). scripts/f1_erl_display.py rebuilds, with the
+# ERL main display items. scripts/f1_erl_display.py rebuilds, with the
 # hindcast's own functions, the shorelines and agreement counts the maps draw, checks every
 # recomputed median and area against the frozen tables, and writes the small summaries that
 # build_metrics reads (results/display/); it also reads git-ignored products (stage-2 tiles,
@@ -793,7 +792,7 @@ ERL_DEPS := figures/_erl.py $(FIG_DEPS)
 RESULT_FIGS += $(FIG_OUT)/erl_fig_then_now.pdf $(FIG_OUT)/erl_fig_shorelines.pdf $(FIG_OUT)/erl_fig_gsl.pdf \
                $(FIG_OUT)/erl_fig_agreement.pdf $(FIG_OUT)/erl_fig_timeline.pdf $(FIG_OUT)/erl_tab_report_card.pdf \
                $(FIG_OUT)/erl_fig_audit.pdf
-# The Letter's audit figure: the ERL version of fig4_audit, from the same hindcast tables (D-102 addendum).
+# The Letter's audit figure: the ERL version of fig4_audit, from the same hindcast tables.
 $(FIG_OUT)/erl_fig_audit.pdf: figures/erl_fig_audit.py $(ERL_DEPS) $(wildcard results/hindcast/main/*.csv) \
         results/revision/s/item2_dq.csv
 	$(PYTHON) figures/erl_fig_audit.py
@@ -834,7 +833,7 @@ METRIC_INPUTS := $(INV_META) results/study_area/sector_areas.json results/study_
                  results/generality/lake_urmia/status.json
 METRIC_INPUTS += results/robustness/verdicts.json
 
-# Robustness verdicts (brief section 10; rule D-092) from the per-check summaries, which
+# Robustness verdicts from the per-check summaries, which
 # stage 2b rebuilds (ROB_SUMMARIES), and their headline table.
 results/robustness/verdicts.json: scripts/r20_verdicts.py $(ROB_SUMMARIES) | $(VERIFIED)
 	$(PYTHON) scripts/r20_verdicts.py
@@ -844,35 +843,35 @@ results/robustness/headline_table.csv: scripts/r22_report_table.py results/robus
 # tools/build_metrics.py reads the H1-H3 tables of stage 2b directly.
 METRIC_INPUTS += $(PHASE_A_RESULTS)
 
-# DAHITI -> BHS-77 offset from the CASPCOM post levels (PREREG section 5; D-093). The script
+# DAHITI -> BHS-77 offset from the CASPCOM post levels (PREREG section 5). The script
 # stops if $(CASPCOM) differs from its acquisition record. Also writes the annual differences.
 results/levels/dahiti_bhs_offset.json: scripts/a7_dahiti_bhs_offset.py $(DAHITI) $(CASPCOM) \
         results/provenance/caspcom_catalogue.json refs/caspcom_bulletin_levels.csv $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/a7_dahiti_bhs_offset.py
 
-# ATL24 check of the near-term surfaces (PREREG Amendment 17, D-095): inputs read by build_metrics
+# ATL24 check of the near-term surfaces (PREREG Amendment 17): inputs read by build_metrics
 METRIC_INPUTS += results/provenance/icesat2_atl24.json results/validation/atl24/run.json \
                  results/validation/atl24/verdicts.json results/validation/atl24/water_surface_constant.json
 
-# Stage-2 seam-gap QC (robustness agent, scripts/r21_seam_gaps.py), read by build_metrics
+# Stage-2 seam-gap QC (robustness checks, scripts/r21_seam_gaps.py), read by build_metrics
 METRIC_INPUTS += results/robustness/r21_seam_gaps/summary.json
 
-# WDPA protected-area and Ramsar exposure (D-103): counts and areas from scripts/a8_wdpa_exposure.py
+# WDPA protected-area and Ramsar exposure: counts and areas from scripts/a8_wdpa_exposure.py
 # layers | exposure on the H3 runs' cached surfaces (stage 2b).
 METRIC_INPUTS += results/emergence/wdpa/layers.json results/emergence/wdpa/run.json results/emergence/wdpa/run_noksrz.json
 
 # ERL display summaries and the Landsat acquisition record (display_erl_metrics)
 METRIC_INPUTS += $(ERL_DISPLAY) results/provenance/erl_landsat.json
 
-# Values the ERL Letter quotes from committed result files (erl_text_metrics, D-107)
+# Values the ERL Letter quotes from committed result files (erl_text_metrics)
 METRIC_INPUTS += results/generality/great_salt_lake/lineage.json results/hindcast/main/d089_rerun_comparison.json \
                  results/robustness/r08_blocking/summary.json
 
-## Revision after the internal review (PREREG Amendment 18; D-112) ------------------------
-# Each workstream adds its metrics through tools/metrics_rev_<ws>.py (build_metrics.revision_metrics).
+## Revision analyses (PREREG Amendment 18) -------------------------------------------------
+# Each revision analysis adds its metrics through tools/metrics_rev_<ws>.py (build_metrics.revision_metrics).
 METRIC_INPUTS += $(wildcard tools/metrics_rev_*.py)
 
-# Workstream S, H1 statistics (D-113 to D-115). HEAVY (about 4,600 s): the raster part reads
+# Revision analysis S, H1 statistics. HEAVY (about 4,600 s): the raster part reads
 # the cached flood maps and stage-2 tiles and reproduces the registered tables first.
 REV_S_RASTERS := $(addprefix results/revision/s/rasters/,band_overlap.csv oos_area.csv test_displacement.csv \
   floor_e1_bins.csv checks.json run.json)
@@ -892,7 +891,7 @@ $(REV_S) &: scripts/rev_s_tables.py $(call h1_tables,$(HC)/main) $(call hc_table
 METRIC_INPUTS += $(REV_S)
 REVISION_RESULTS += $(REV_S_RASTERS) $(REV_S)
 
-# Workstream G, Great Salt Lake, H2 and ETOPO 2022 (D-128 to D-130). Exploratory post-review
+# Revision analysis G, Great Salt Lake, H2 and ETOPO 2022. Exploratory post-review
 # analyses of frozen outputs; seed 20261022. HEAVY: the ATL06 influence, Mondrian and block-size
 # stages (about 25 min together), the ICESat-2 and GEDI splits by ETOPO source (5 min), the
 # independent dryness test (ATL06 about 45 min, ATL08 about 6 min) and the ETOPO 2022
@@ -907,7 +906,7 @@ $(REV_G_GSL) &: scripts/rev_g_gsl.py scripts/g1_decide.py $(GSL)/static.json $(G
         $(GSL)/h1_mispredicts_detail.csv $(GSL_HC) $(GSL_RAW)/bathymetry $(GSL_RAW)/vdatum_navd88_minus_egm2008.npz \
         $(GSL_RAW)/levels/gsl_daily_levels.csv $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/rev_g_gsl.py
-# H2 from the frozen tables: the split draws (D-104), single-block intervals, RMSE beside NMAD.
+# H2 from the frozen tables: the split draws, single-block intervals, RMSE beside NMAD.
 REV_G_H2_TABLES := $(addprefix $(REV_G)/h2/,split_draws.csv split_draws.json)
 $(REV_G_H2_TABLES) &: scripts/rev_g_h2.py $(ROB_SPLITS) $(ROB)/r08_blocking/summary.json \
         $(VAL)/ATL08_accuracy.csv $(VAL)/ATL08_coverage.csv $(PKG)
@@ -943,7 +942,7 @@ $(call rev_g_blocksizes,ATL06) &: scripts/rev_g_h2.py scripts/a6_validate_dem.py
         $(foreach d,$(VAL) $(VAL)/sensitivity_25000m $(VAL)/sensitivity_12500m,$(call val_fits,ATL06,$(d))) \
         results/study_area/blocks_25km.csv results/study_area/blocks_12km.csv $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/rev_g_h2.py blocksizes --sources ATL06
-# The independent dryness test (R1 minor 8): every quality-passed ICESat-2 point, observed dry in
+# The independent dryness test: every quality-passed ICESat-2 point, observed dry in
 # the E3 extent of its acquisition's level bin; then the registered evaluation (descriptive).
 # prepare writes data/interim/revision_g/h2_dryness/<SOURCE>_points.csv.gz for evaluate.
 REV_G_DRY := $(REV_G)/h2_dryness
@@ -1028,9 +1027,9 @@ METRIC_INPUTS += $(REV_G_GSL) $(REV_G)/root2023_retrieval.json $(REV_G)/dep3_pro
   etopo_shoreline_edge_classes.csv bands.json above_below_by_sector.csv icesat2_by_etopo_source.csv gedi.json)
 REVISION_RESULTS += $(REV_G_GSL) $(REV_G_H2) $(REV_G_ETOPO)
 
-# Workstream V, water surface and datums (D-120 to D-122; PREREG Amendment 18 item 9).
+# Revision analysis V, water surface and datums (PREREG Amendment 18 item 9).
 REV_V := results/revision/v
-# SWOT sector departures from DAHITI (D-120); the setup model's block means and level path.
+# SWOT sector departures from DAHITI; the setup model's block means and level path.
 REV_V_DEP := $(addprefix $(REV_V)/,sector_departures.csv sector_departures_by_month.csv sector_departures.json)
 $(REV_V_DEP) &: scripts/rev_v_sector_departures.py scripts/a5_setup_model.py scripts/a4_scene_levels.py \
         results/levels/swot_block_levels.csv results/study_area/blocks_25km.csv \
@@ -1046,8 +1045,8 @@ $(REV_V_DEPAUDIT) &: scripts/rev_v_departure_audit.py scripts/a7_h1_decision.py 
 $(REV_V)/departure_audit_comparison.csv $(REV_V)/departure_audit_comparison.json &: scripts/rev_v_departure_audit.py \
         scripts/rev_v_planar.py $(REV_V_DEPAUDIT) $(call h1_tables,$(HC)/main) $(HC)/main/shape_offsets.json $(PKG)
 	$(PYTHON) scripts/rev_v_departure_audit.py compare
-# HEAVY: the planar field (D-121). masks (368 s) then the five fits (about 4,500 s); the audit
-# for GEBCO_2026 and ETOPO1 only (D-121 cut); the per-sector sensitivity (sector-all) was not run.
+# HEAVY: the planar field. masks (368 s) then the five fits (about 4,500 s); the audit
+# for GEBCO_2026 and ETOPO1 only (cut); the per-sector sensitivity (sector-all) was not run.
 V_PRODUCTS := gebco_2026 etopo_2022 srtm15p_v2.7 gebco_2022 etopo1
 REV_V_PLANAR_FIT := $(foreach p,$(V_PRODUCTS),$(addprefix $(REV_V)/planar/,fit_$(p).json search_coarse_$(p).csv \
   search_fine_$(p).csv))
@@ -1063,7 +1062,7 @@ $(REV_V)/planar_comparison.csv $(REV_V)/planar_comparison.json &: scripts/rev_v_
         $(REV_V_PLANAR_FIT) $(call h1_tables,$(HC)/main) $(call h1_tables,$(HC)/main_sectorshape) \
         $(call hc_tables,$(HC)/main) $(call hc_tables,$(HC)/main_sectorshape) $(PKG)
 	$(PYTHON) scripts/rev_v_planar.py compare
-# Light: posts, level statistics, the ICESat-2 constant, constants in BHS-77 and mean depth (D-122).
+# Light: posts, level statistics, the ICESat-2 constant, constants in BHS-77 and mean depth.
 $(REV_V)/caspcom_posts.csv $(REV_V)/caspcom_posts.json &: scripts/rev_v_posts.py scripts/a7_dahiti_bhs_offset.py \
         results/levels/dahiti_bhs_offset.json $(CASPCOM) $(DAHITI) $(PKG) | $(VERIFIED)
 	$(PYTHON) scripts/rev_v_posts.py
@@ -1088,12 +1087,12 @@ REV_V_ALL := $(REV_V_DEP) $(REV_V_DEPAUDIT) $(REV_V)/departure_audit_comparison.
 METRIC_INPUTS += $(REV_V_ALL)
 REVISION_RESULTS += $(REV_V_ALL)
 
-# Workstream N, near-term emergence (A18 item 10; D-123 to D-127 and their addenda). Exploratory,
-# except the registered common baseline and running-median L2026 (D-081). Reads the registered
+# Revision analysis N, near-term emergence (A18 item 10). Exploratory,
+# except the registered common baseline and running-median L2026. Reads the registered
 # caches (hindcast and H3 flood maps); nothing is refitted. Light steps run in seconds to 3 min;
 # rev_n_curves.py (800 s; it builds five no-constant flood maps, cached) and rev_n_envelopes.py
-# (915 s) are the longest; the exposure run (cut, D-126 addendum) and the simulation (cut,
-# D-125 addendum: 50 fields, 150 km, 480 m grid, 125 s) run as listed.
+# (915 s) are the longest; the exposure run (cut) and the simulation (cut:
+# 50 fields, 150 km, 480 m grid, 125 s) run as listed.
 REV_N := results/revision/n
 REV_N_CODE := scripts/rev_n_common.py scripts/f1_erl_display.py scripts/a8_wdpa_exposure.py scripts/a7_hindcast.py $(PKG)
 REV_N_H3 := $(call h3_tables,$(EM)/main) $(call h3_tables,$(EM)/main_constant) $(call hc_tables,$(HC)/main) \
@@ -1137,7 +1136,7 @@ REV_N_SIM := $(addprefix $(REV_N)/,sim_realisations.csv sim_groups.csv sim_summa
 $(REV_N_SIM) &: scripts/rev_n_simulate.py $(REV_N_CODE) $(REV_N_H3) $(VAL)/ATL08_accuracy.csv $(REV_N)/curves.csv \
         | $(VERIFIED)
 	$(PYTHON) scripts/rev_n_simulate.py --n 50 --ranges 150000 --block 8
-# The 50 km range sensitivity (D-125 addendum 2, 350 s): both ranges in one call, as D-125 seeds them;
+# The 50 km range sensitivity (350 s): both ranges in one call, as the seeding requires;
 # its 150 km half reproduces the run above.
 REV_N_SIM50 := $(addprefix $(REV_N)/,sim_realisations_range50.csv sim_groups_range50.csv sim_summary_range50.csv \
   sim_observed_240m_range50.csv run_simulate_range50.json)
@@ -1151,11 +1150,11 @@ REV_N_ALL := $(REV_N_CURVES) $(REV_N_BASE) $(REV_N_CONST) $(REV_N_COMP) $(REV_N_
 METRIC_INPUTS += $(REV_N_ALL)
 REVISION_RESULTS += $(REV_N_ALL)
 
-# Revised ERL figures 1, 3-6 (internal review R1 minor 19-24, R2 minor 12-15, R3.M4; D-140, D-141).
+# Revised ERL figures 1, 3-6.
 # Figure 1's shorelines are the observed extents of four E3 level bins, rebuilt with the
 # hindcast's functions as for figure 2 (reads stage-2 tiles; about 2 GB). Figure 5's counts are
-# rebuilt with workstream N's set-up (flood maps, composite baseline) and checked against N's
-# curves. tools/metrics_rev_fig.py reads both summaries, workstream S's item2_dq.csv, the H1
+# rebuilt with revision analysis N's set-up (flood maps, composite baseline) and checked against
+# its curves. tools/metrics_rev_fig.py reads both summaries, revision analysis S's item2_dq.csv, the H1
 # detail table and N's already_dry.csv.
 results/display/erl_nearterm_map.json: scripts/f4_erl_nearterm_map.py scripts/rev_n_common.py $(REV_N_CODE) \
         results/hindcast/main/run.json results/emergence/main/run.json $(REV_N_BASE) \
@@ -1171,7 +1170,7 @@ METRIC_INPUTS += results/display/erl_waterlines.json results/revision/s/item2_dq
         results/hindcast/main/h1_mispredicts_detail.csv
 REVISION_RESULTS += results/display/erl_waterlines.json
 
-# Workstream R, H1 rasters (D-116 to D-119; PREREG Amendment 18 items 3, 6 and 7). Exploratory
+# Revision analysis R, H1 rasters (PREREG Amendment 18 items 3, 6 and 7). Exploratory
 # post-review analyses. HEAVY: the perfect-but-degraded control (build about 20 min, audit
 # 4,974 s with scripts/a7_hindcast.run) and the audit pass (static filter, resolution-matched
 # floor, c_D search at 0.20 m; about 50 min). Intermediates in data/interim/rev_r/.
@@ -1242,12 +1241,9 @@ check-refs:
 check-quotes:
 	$(PYTHON) scripts/check_quotes.py
 
-manuscript/main.pdf: manuscript/main.tex manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) \
-        refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
-	$(TECTONIC) -X compile manuscript/main.tex
 
-# Environmental Research Letters Letter and its Supplementary Information (D-099, D-107).
-# Both use IOP's template class manuscript/iopjournal.cls (unmodified; D-107 addendum). The
+# Environmental Research Letters Letter and its Supplementary Information.
+# Both use IOP's template class manuscript/iopjournal.cls (unmodified). The
 # Letter keeps its .aux (git-ignored), which the Supplementary reads through xr-hyper for the
 # numbers of the Letter's figures, so the Letter is built first.
 manuscript/main_erl.pdf: manuscript/main_erl.tex manuscript/iopjournal.cls manuscript/justify.tex manuscript/orcid.pdf manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) \
@@ -1256,8 +1252,8 @@ manuscript/main_erl.pdf: manuscript/main_erl.tex manuscript/iopjournal.cls manus
 manuscript/supplementary_erl.pdf: manuscript/supplementary_erl.tex manuscript/iopjournal.cls manuscript/justify.tex manuscript/orcid.pdf manuscript/main_erl.pdf manuscript/numbers.tex \
         $(wildcard manuscript/sections/*.tex) refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
 	$(TECTONIC) -X compile manuscript/supplementary_erl.tex
-# The pre-registration as a Supplementary file (D-138): docs/PREREG.md verbatim, each part with
-# the commit and date that first recorded it, read from git (reviews R1 minor 17, R2.M12, R3.M7).
+# The pre-registration as a Supplementary file: docs/PREREG.md verbatim, each part with
+# the commit and date that first recorded it, read from git.
 manuscript/supplementary_prereg.md: tools/prereg_si.py docs/PREREG.md
 	$(PYTHON) tools/prereg_si.py
 # Main-text word count of the Letter as ERL defines it (excluding title, abstract, captions,
@@ -1265,7 +1261,7 @@ manuscript/supplementary_prereg.md: tools/prereg_si.py docs/PREREG.md
 .PHONY: erl-wordcount
 erl-wordcount:
 	$(PYTHON) tools/word_count_erl.py
-# Zenodo-ready data package of the derived tables (D-142): release/zenodo/ (git-ignored),
+# Zenodo-ready data package of the derived tables: release/zenodo/ (git-ignored),
 # with README, CC BY 4.0 licence, Zenodo metadata, manifest and SHA256SUMS. Excludes CASPCOM
 # per-gauge values and WDPA-derived values (docs/DATA_RELEASE.md). Not part of `all`; it packs
 # results/ as it stands (no prerequisites, so it never triggers the pipeline): run it after `make all`.
@@ -1285,7 +1281,7 @@ figures: $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex manuscri
 params: results/params.json
 metrics: results/metrics.json manuscript/numbers.tex
 macros: manuscript/numbers.tex
-manuscript: manuscript/main.pdf manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md
+manuscript: manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md
 phase-a: $(PHASE_A_RESULTS)
 # Every input `make all` reads that an acquisition step writes, one per line (stage 1 and 2b).
 inputs:
@@ -1299,5 +1295,5 @@ RESULTS_ALL := results/qc/dahiti_summary.json results/study_area/sector_areas.js
                results/params.json results/metrics.json
 
 all: $(VERIFIED) $(PHASE_A_RESULTS) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex \
-     manuscript/sections/ed_tables_h3_draft.tex manuscript/numbers.tex manuscript/main.pdf \
+     manuscript/sections/ed_tables_h3_draft.tex manuscript/numbers.tex \
      manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md

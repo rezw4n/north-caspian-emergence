@@ -1,4 +1,4 @@
-"""Robustness check 8 (brief section 10; PREREG section 6; Amendment 8): spatial
+"""Robustness check 8 (PREREG section 6; Amendment 8): spatial
 blocking and the conformal calibration split. No Earth Engine.
 
 Commands
@@ -8,14 +8,14 @@ Commands
               final size), paired on the same ICESat-2 points (scripts/r00_pipeline.py).
   hindcast    The H1 block values and permutation test with 12.5 and 50 km blocks: the
               hindcast rerun with that block table, which also sets the training blocks of
-              the shape-constant fit (D-070); --sector-labels for the block test.
+              the shape-constant fit; --sector-labels for the block test.
   splits      The calibration split: --n-seeds reassignments of the final-size blocks
               (seeds 1..N, same stratified rule and proportions), and the calibration /
               test swap. Run after the main evaluation is frozen: these reuse test blocks
               for fitting and are reported as a sensitivity, never as the result.
   amendment8  Only if PREREG section 6 enlarged the blocks: the headline recomputed
               without the calibration and test points that lie in training blocks of the
-              initial 25 km assignment (whose contour points fixed the static rule, D-075).
+              initial 25 km assignment (whose contour points fixed the static rule).
 
 Usage:
   python scripts/r08_blocking.py tables

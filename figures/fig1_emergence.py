@@ -4,10 +4,10 @@ a, year in which each pixel of the emerged band became permanently dry
    (data/processed/dem/main/emergence/emergence_*.tif, scripts/a6_emergence.py: the
    first day after the last day on which the basin level was at or above the pixel's
    waterline-DEM height), on a MAP_RES_M display grid (nearest 30 m pixel). Shown only
-   inside the D-071 emerged band (water in the 1995-96 and not water in the 2025-26
+   inside the emerged band (water in the 1995-96 and not water in the 2025-26
    zone-v6 extent; results/study_area/extents_v6_250m.npz): outside it the DEM is a
    triangulated extrapolation (river floodplains, open water), and a date there would
-   not be a seabed emergence. Background: the D-029 open sea of the 2025-26 low
+   not be a seabed emergence. Background: the open sea of the 2025-26 low
    stand, for orientation. Sector outlines (results/study_area/sectors.geojson,
    numbered as on the study-area figure), the two deltas, OpenStreetMap ports, piers
    and ferry terminals, and oil and gas platforms and wells (data/raw/osm/
@@ -17,7 +17,7 @@ b, the daily basin level used to date emergence (data/processed/dem/main/emergen
    (results/metrics.json: levels.epoch_E1_end, params.e2_end). The colour strip under
    it is the colour key of a, drawn on the same time axis.
 c, Landsat acquisitions per calendar month in the main stage-2 plan (data/interim/
-   stage2/plan_main_tau9900cm_landsat.csv; D-077, D-079), the scenes behind every
+   stage2/plan_main_tau9900cm_landsat.csv), the scenes behind every
    waterline.
 
 The emergence dates inherit the DEM's errors (Fig. 3: sector biases up to 1.7 m);

@@ -1,4 +1,4 @@
-"""Study domain and reporting sectors (brief section 6; D-014 in docs/DECISIONS.md).
+"""Study domain and reporting sectors.
 
 Defined once here, in WGS84 longitude/latitude, and frozen before any
 evaluation. Sectors partition the domain: coastal sectors are explicit polygons
@@ -31,7 +31,7 @@ DOMAIN = Polygon([
 ])
 
 # Coastal sectors (lon, lat), drawn by eye on the JRC Global Surface Water
-# transitions layer and frozen before any evaluation (D-014). Their offshore edges
+# transitions layer and frozen before any evaluation. Their offshore edges
 # (the parts shared with the open shelf) are not at a set distance from the coast.
 # scripts/a0_sector_edges.py measures them against the present shoreline traced in
 # each relief grid (results/study_area/sector_edges.json; study_area.layout.* in
@@ -39,7 +39,7 @@ DOMAIN = Polygon([
 # at Chechen Island, on the coast; the Volga delta and Komsomolets sectors reach
 # least far; and most of the Komsomolets edge runs over land. Part of the emerged
 # band therefore falls in the open shelf, which also holds the Buzachi coast and
-# Mangyshlak Bay. (Corrected 2026-10-20, review finding 18: this comment said the
+# Mangyshlak Bay. (Corrected 2026-10-20: this comment said the
 # edges sit roughly 25-60 km seaward, beyond the emerged band; that was never
 # measured, and it is not true of every sector.)
 _COASTAL = {

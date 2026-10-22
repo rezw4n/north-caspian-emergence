@@ -1,5 +1,5 @@
-"""A6/A7: vegetation fraction of the emerged band per sector, and the vegetated-sector
-labels for the H1 permutation test (PREREG section 2; D-071).
+"""Vegetation fraction of the emerged band per sector, and the vegetated-sector
+labels for the H1 permutation test (PREREG section 2).
 
 Emerged band: cells that are water in the 1995-96 near-maximum extent and not water
 in the 2025-26 near-minimum extent (zone v6 extents, Earth Engine asset extents_v6,
@@ -78,7 +78,7 @@ def main(tag: str) -> int:
             else:
                 v = a if v is None else v + a
         if o is None:
-            raise SystemExit(f"{f.name}: no observed-count bands (D-071 needs the main export)")
+            raise SystemExit(f"{f.name}: no observed-count bands (the vegetation fraction needs the main export)")
         t = z["transform"]
         rows, cols = np.indices(o.shape)
         x = t[2] + (cols + 0.5) * t[0]

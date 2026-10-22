@@ -1,16 +1,16 @@
-"""A6 stage 2 (D-015, D-027): per-pixel water and valid counts per group, exported
+"""Stage 2: per-pixel water and valid counts per group, exported
 as Earth Engine image assets per tile of the stage-2 cover, then fetched as arrays.
 
 Group = (epoch, level bin, acquisition parity) for the main export, or (bin, parity,
 setup class) for the screening-sensitivity export. For each group, the scenes in the
 plan are:
-1. masked as in stage 1 (caspian.masks, with the D-063 snow rules) and clipped to the
+1. masked as in stage 1 (caspian.masks, with the seasonal snow rules) and clipped to the
    tile's part of the cover;
 2. classified with their acquisition's threshold (pipeline_ee.water_valid);
 3. masked in the sectors where the plan excludes them (|setup| > tau);
 4. mosaicked per acquisition and summed (pipeline_ee.group_counts).
 
-Grid: the equal-area projection (D-002) at RES m, aligned to multiples of RES.
+Grid: the equal-area projection at RES m, aligned to multiples of RES.
 
 Usage:
   python scripts/a6_stage2_export.py upload <plan.csv> <tag>
@@ -77,7 +77,7 @@ def group_of(r, kind):
 def clean_part(part, min_area_m2: float = 1e4):
     """Polygon parts of an intersection of at least ``min_area_m2`` (1 ha), made
     valid. Intersections can return zero-area slivers, lines and points; Earth Engine
-    rejects a region holding a zero-area polygon in filterBounds (D-074)."""
+    rejects a region holding a zero-area polygon in filterBounds."""
     import shapely
     from shapely.ops import unary_union
 
@@ -94,11 +94,11 @@ def clean_part(part, min_area_m2: float = 1e4):
 def cover_laea():
     import shapely
     g = json.loads(COVER.read_text(encoding="utf-8"))["features"][0]["geometry"]
-    return shapely.make_valid(transform(FWD, shape(g)))     # the committed cover is invalid (D-080)
+    return shapely.make_valid(transform(FWD, shape(g)))     # the committed cover is invalid
 
 
 def block_tiles(n_per_sector: int):
-    """D-064: a stratified random sample of training blocks (n_per_sector per sector,
+    """A stratified random sample of training blocks (n_per_sector per sector,
     seed design.SEED), each clipped to the stage-2 cover and to its own sector (so one
     sector's setup classes apply to every pixel), as export regions."""
     from caspian import design
@@ -172,12 +172,12 @@ def build_image(tag: str, groups, region_ll, sector_code=None, observed: bool = 
     """Counts of the given groups over ``region_ll``, one collection per group. The
     scene lists, thresholds and sector masks come from the plan on the client (the CSV
     behind the uploaded plan tables) as literals, instead of server-side scans of the
-    plan tables (D-074). Routing scenes of one shared collection to groups by a
+    plan tables. Routing scenes of one shared collection to groups by a
     computed property is not used: Earth Engine then evaluates every scene once per
     group (it exceeded the memory limit in a pilot)."""
     plan = plan_table(tag)
     rows = plan[plan["group"].isin(set(groups))]
-    if sector_code is not None:   # D-064: a block lies in one sector; only rows that include it
+    if sector_code is not None:   # a block lies in one sector; only rows that include it
         rows = rows[rows["sectors"].fillna("").astype(str).str.contains(str(sector_code), regex=False)]
     sec = sector_image()
     kinds = ("w", "v", "o") if observed else ("w", "v")
@@ -228,14 +228,14 @@ def build_image(tag: str, groups, region_ll, sector_code=None, observed: bool = 
     # exceeds Python's recursion limit at about 400 groups
     names = [f"{p}_{g}" for g in groups for p in kinds]
     # one clip of the stacked counts, not one per scene: clipping each scene intersects its
-    # footprint with the region, which failed in one sub-block (D-074); the clip still
+    # footprint with the region, which failed in one sub-block; the clip still
     # bounds the computation to the region
     return ee.ImageCollection.fromImages(bands).toBands().rename(names).clip(region_ll)
 
 
 def targets(st: dict, blocks: int = 0, only=None):
     """Export targets: (key, part, region_ll, transform, dims, groups, sector_code, observed)
-    for the main tiles, or for the D-064 sample of training blocks."""
+    for the main tiles, or for the sample of training blocks."""
     plan_df = pd.read_csv(st["plan"]) if blocks else None
     for item in (block_tiles(blocks) if blocks else tiles()):
         i, j, part = item[:3]
@@ -253,7 +253,7 @@ def targets(st: dict, blocks: int = 0, only=None):
             groups = sorted(plan_df.loc[has, "group"].unique())
         else:
             groups = st["groups"]
-        observed = not blocks    # main export: also the observed count, for the vegetation fraction (D-071)
+        observed = not blocks    # main export: also the observed count, for the vegetation fraction
         yield key, part, region_ll, tr, dims, groups, code, observed
 
 
@@ -292,7 +292,7 @@ def interactive(tag: str, budget: float, only=None, blocks: int = 0, workers: in
     """The same counts as submit + fetch, computed with interactive computePixels
     requests (one spatial sub-block x one chunk of groups each) in parallel threads,
     metered by ee.profilePrinting against a hard EECU-s ``budget`` for the invocation
-    (D-074: batch image tasks ran two at a time). A failed request is retried as two
+    (batch image tasks ran two at a time). A failed request is retried as two
     half-size group chunks (memory or time limits only; other errors fail the target). A target is written only when all its requests succeed,
     in the format of fetch (tile_<key>.npz)."""
     import io
@@ -442,7 +442,7 @@ def main(argv) -> int:
     ap.add_argument("cmd")
     ap.add_argument("args", nargs="*")
     ap.add_argument("--tiles", default=None)
-    ap.add_argument("--blocks", type=int, default=0, help="D-064: sample this many training blocks per sector")
+    ap.add_argument("--blocks", type=int, default=0, help="sample this many training blocks per sector")
     ap.add_argument("--budget", type=float, default=0.0, help="interactive: hard EECU-s budget")
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--px", type=int, default=256)

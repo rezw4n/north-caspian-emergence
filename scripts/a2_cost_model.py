@@ -1,8 +1,8 @@
-"""Stage-2 cost model for the G2 memo (D-026 to D-028).
+"""Stage-2 Earth Engine cost model.
 
 For each Landsat path/row and Sentinel-2 MGRS tile with usable scenes (levelled,
 scene cloud < 60%), measure the area of the scene footprint that lies inside
-active zone v6 (D-029), multiply by the number of scenes, and convert to EECU with the
+active zone v6, multiply by the number of scenes, and convert to EECU with the
 rates measured in the 0.3-degree micro-pilot (results/inventory/stage2_micropilot.json):
 EECU-s per scene per km2 of computed area at each resolution. An overhead factor
 (computed area / zone area, from tile granularity) is reported as a range.
@@ -29,7 +29,7 @@ from caspian.config import EE_PROJECT, INTERIM, RESULTS
 ZONE = f"projects/{EE_PROJECT}/assets/caspian/active_zone_v6"
 MAX_CLOUD = 60
 OVERHEAD = (1.0, 1.5, 2.0)   # computed area / zone area: low, central, high
-COMMUNITY_EECU_H, CONTRIBUTOR_EECU_H, CAP = 150, 1000, 0.70   # D-009
+COMMUNITY_EECU_H, CONTRIBUTOR_EECU_H, CAP = 150, 1000, 0.70
 
 
 def profile_eecu(text: str) -> float:

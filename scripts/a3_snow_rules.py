@@ -1,5 +1,5 @@
 """PREREG Amendments 3 and 9: evaluate the seasonal snow/ice rules on stage-1 run 2, and
-tabulate the monthly snow/ice shares used for the ice season (D-062).
+tabulate the monthly snow/ice shares used for the ice season.
 
 For each test (the NDSI test; the product QA flag: Landsat CFMask snow bit or
 Sentinel-2 SCL class 11) and each sensor family, the share of clear in-zone pixels

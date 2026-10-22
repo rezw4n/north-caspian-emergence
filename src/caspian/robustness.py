@@ -1,17 +1,15 @@
-"""Robustness checks (brief section 10; PREREG section 11; the variants named in
-docs/DECISIONS.md): library functions for the checks that need no new Earth Engine
-run, and local plan builders for the checks that do. The plan, the cost arithmetic
-and the run order are in docs/ROBUSTNESS_PLAN.md.
+"""Robustness checks (PREREG section 11): library functions for the checks that need
+no new Earth Engine run, and local plan builders for the checks that do.
 
 Nothing here applies a decision rule to real data. The drivers (scripts/r*.py) write
-variant tables beside the main ones, for the G3 memo and Extended Data.
+variant tables beside the main ones, for the Extended Data.
 
 Sections
 --------
 count algebra   parse and merge the stage-2 count bands (w, v, o) of the main export:
                 coarser level bins (0.20 m from 0.10 m), finer bins from half-bin
                 classes (0.05 m), sums over or selections of group classes (sensor,
-                season, threshold source, E1-end window), vegetation variants (D-071)
+                season, threshold source, E1-end window), vegetation variants
 plan builders   compute-neutral group splits of the main export (one extra token per
                 class, every acquisition in one group), the Amendment 3 acquisition
                 sample, and screening deltas (main + ADD - SUB) for other screening
@@ -19,11 +17,11 @@ plan builders   compute-neutral group splits of the main export (one extra token
 level shifts    first-order effect of another level series, or of a setup correction,
                 on contour heights
 interpolation   ordinary kriging (a Gaussian process with an exponential covariance)
-                of contour points, the comparison method of brief section 10 check 7
+                of contour points, the comparison method of check 7
 validation      DEM-dependent columns from a variant DEM, the validation fits with
                 fixed constants (check 6), split reassignment (check 8), the
-                Amendment 8 exclusion, tide-system shifts (D-073), headline tables
-hindcast        geoid-correction files (D-074), H1 headline tables, the morphology
+                Amendment 8 exclusion, tide-system shifts, headline tables
+hindcast        geoid-correction files, H1 headline tables, the morphology
                 table (check 10), the area-level slope (check 11)
 sampling        the stratified robustness block sample used by every block-sample
                 Earth Engine alternative
@@ -54,8 +52,8 @@ KINDS = ("w", "v", "o")
 # known from the token alone
 SENSOR_CLASSES = ("TM", "E7on", "E7off", "OLI", "MSI")
 HALVES = ("lo", "hi")
-SEASONS = ("AMJ", "JASO")            # April-June, July-October (the open-water months, D-062)
-THRESHOLD_SOURCES = ("otsu", "fb")   # pooled Otsu valid, or the D-061 fallback
+SEASONS = ("AMJ", "JASO")            # April-June, July-October (the open-water months)
+THRESHOLD_SOURCES = ("otsu", "fb")   # pooled Otsu valid, or the fallback
 SAMPLE_TOKEN = "a3"                  # acquisitions of the Amendment 3 robustness sample
 WINDOW_PREFIX = "x"                  # E1-end window tokens x1, x2, ... (e1_window_index)
 SLC_OFF = "2003-05-31"               # caspian.masks.L7_SLC_OFF (tested equal)
@@ -167,7 +165,7 @@ def select_mapper(drop: Iterable[str] = (), keep_only: Iterable[str] | None = No
 
 
 def e1_end_mapper(ends_sorted, end_alt) -> Callable[[dict], dict]:
-    """Epoch of the E1-end window groups under another E1 end (Amendment 4, D-037).
+    """Epoch of the E1-end window groups under another E1 end (Amendment 4).
 
     ``ends_sorted``: the ascending E1-end times used to tag the plan
     (e1_window_index); ``end_alt`` one of them. A group with token x<j> holds
@@ -203,9 +201,9 @@ VEGETATION_MODES = ("not_observed", "as_dry", "as_water")
 
 
 def vegetation_variant(w, v, o, mode: str):
-    """(w', v') under a reed-bed rule (brief section 10 check 9), from the main
-    export's counts: w water, v water or dry, o water, dry or emergent vegetation
-    (D-071), so o - v acquisitions saw vegetation.
+    """(w', v') under a reed-bed rule (check 9), from the main
+    export's counts: w water, v water or dry, o water, dry or emergent vegetation,
+    so o - v acquisitions saw vegetation.
     - not_observed (PREREG section 3, the main rule): (w, v);
     - as_dry: vegetation counts as land, (w, o);
     - as_water: vegetation counts as water (flooded reeds), (w + o - v, o)."""
@@ -233,7 +231,7 @@ def vegetation_tile(arrays: Mapping[str, np.ndarray], mode: str) -> dict:
     out = {}
     for g, ks in sorted(groups.items()):
         if not {"w", "v", "o"} <= ks:
-            raise ValueError(f"group {g}: the vegetation variants need w, v and o (main export, D-071)")
+            raise ValueError(f"group {g}: the vegetation variants need w, v and o (main export)")
         w2, v2 = vegetation_variant(arrays[f"w_{g}"], arrays[f"v_{g}"], arrays[f"o_{g}"], mode)
         out[f"w_{g}"], out[f"v_{g}"] = w2.astype(np.uint16), v2.astype(np.uint16)
     return out
@@ -252,7 +250,7 @@ def write_tile(path, transform, arrays: Mapping[str, np.ndarray]) -> None:
 
 def sum_tiles(arrays_list) -> dict:
     """Band-wise sum of the counts of the same tile from several exports (e.g.
-    Landsat and Sentinel-2, D-064 step 3, or main + ADD - SUB with signs applied by
+    Landsat and Sentinel-2, or main + ADD - SUB with signs applied by
     the caller), int64."""
     out: dict = {}
     for arrays in arrays_list:
@@ -293,7 +291,7 @@ def substitute_window(main: Mapping[str, np.ndarray], main_transform, alt: Mappi
                       alt_transform, region) -> tuple[dict, int]:
     """Replace the main counts by an alternative's inside ``region`` (boolean on the alt
     grid): the hybrid mosaic of a block-sample Earth Engine alternative (the robustness
-    block sample R, docs/ROBUSTNESS_PLAN.md). Both grids must share the pixel size and
+    block sample R). Both grids must share the pixel size and
     be aligned (offsets a whole number of pixels); the alt window may extend beyond the
     main tile and is clipped. The alternative's bands must all be main bands; main bands
     it lacks (e.g. the observed count o, which no threshold changes) are kept. Returns
@@ -373,8 +371,8 @@ def e1_window_index(times, ends_sorted) -> np.ndarray:
 def split_groups(plan: pd.DataFrame, by: Iterable[str] = ("sensor", "half"), *, e1_ends=None,
                  sample_acqs=None, width: float = design.BIN_WIDTH_M, origin: float = design.BIN_ORIGIN_M,
                  time_col: str = "t") -> pd.DataFrame:
-    """The main plan with each group split into classes (docs/ROBUSTNESS_PLAN.md, main-
-    export design), for upload with scripts/a6_stage2_export.py.
+    """The main plan with each group split into classes (main-export design), for upload
+    with scripts/a6_stage2_export.py.
 
     Each scene is still in exactly one group, so the export computes every scene once,
     as before; only the number of bands grows. Every class is constant within an
@@ -385,7 +383,7 @@ def split_groups(plan: pd.DataFrame, by: Iterable[str] = ("sensor", "half"), *, 
     - "half": lo or hi half of the 0.10 m bin, from the acquisition's median level in the
       bin (the 0.05 m sensitivity, halves_to_fine_mapper);
     - "season": AMJ or JASO, from the acquisition date;
-    - "threshold": otsu or fb (D-061 threshold source of the acquisition);
+    - "threshold": otsu or fb (threshold source of the acquisition);
     - e1_ends: the ascending alternative E1 ends of Amendment 4; E1 and E2 acquisitions
       later than the earliest end and not later than the latest get token x<j>
       (e1_window_index, e1_end_mapper);
@@ -432,7 +430,7 @@ def split_groups(plan: pd.DataFrame, by: Iterable[str] = ("sensor", "half"), *, 
 def acquisition_sample(plan: pd.DataFrame, n_scenes_per_sensor: int = design.EDGE_OTSU_SAMPLE_N // 5,
                        seed: int = design.SEED) -> pd.DataFrame:
     """Amendment 3 robustness sample, drawn by whole acquisitions (the counting unit,
-    Amendment 3 item 3; thresholds are per acquisition, D-061). Within each sensor, in
+    Amendment 3 item 3; thresholds are per acquisition). Within each sensor, in
     sorted order, the acquisitions are permuted by one generator seeded once, and taken
     in that order until the sensor holds at least ``n_scenes_per_sensor`` scenes (100 per
     sensor: the 500 scenes of Amendment 3 over five sensors). Returns one row per
@@ -459,8 +457,8 @@ def setup_columns(plan: pd.DataFrame) -> list[str]:
 def exclusion(plan: pd.DataFrame, tau: float, *, unknown_excluded: bool = True, cols=None,
               exempt_sectors: Iterable[str] = ()) -> np.ndarray:
     """(scenes, sectors) boolean: scene excluded in sector (|setup| > tau; NaN setup is
-    excluded when ``unknown_excluded``, the main rule of D-066). Sectors in SECTOR_ORDER;
-    ``exempt_sectors`` are never excluded (e.g. Komsomolets without screening, D-066)."""
+    excluded when ``unknown_excluded``, the main rule). Sectors in SECTOR_ORDER;
+    ``exempt_sectors`` are never excluded (e.g. Komsomolets without screening)."""
     cols = cols or setup_columns(plan)
     a = plan[cols].to_numpy(float)
     ex = np.abs(a) > tau
@@ -511,7 +509,7 @@ def delta_cost_share(rows: pd.DataFrame, scene_km2: pd.Series, total_km2: float,
                      sector_weight: Mapping[str, float] | None = None) -> dict:
     """Cost of a delta export as a share of the main export, from scene-weighted areas.
     ``upper``: every delta scene computed over its whole footprint in the cover (the
-    sector mask is applied after the computation, D-026). ``per_sector``: the export split
+    sector mask is applied after the computation). ``per_sector``: the export split
     into sector regions, each scene computed only in its delta sectors, approximated with
     the sectors' shares of the cover (``sector_weight``, name -> share, summing to 1)."""
     km2 = scene_km2.reindex(rows.index).to_numpy(float)
@@ -528,12 +526,12 @@ def delta_cost_share(rows: pd.DataFrame, scene_km2: pd.Series, total_km2: float,
 
 def group_level_shift(plan: pd.DataFrame, alt_level, *, width: float = design.BIN_WIDTH_M,
                       origin: float = design.BIN_ORIGIN_M, by=("epoch", "bin")) -> pd.DataFrame:
-    """First-order effect of another level series on the contour heights (brief section
-    10 check 5): per group, the mean over its acquisitions of alt - main level (each
+    """First-order effect of another level series on the contour heights (check 5):
+    per group, the mean over its acquisitions of alt - main level (each
     acquisition the mean of its scenes). A contour keeps its location and takes the
     bin centre plus this shift. Second-order effects (acquisitions that would change
     bin, so the contour itself would change) are counted in ``n_acq_rebin``, with
-    ``share_rebin``; they need a re-binned export (docs/ROBUSTNESS_PLAN.md)."""
+    ``share_rebin``; they need a re-binned export."""
     d = plan.assign(_alt=np.asarray(alt_level, float))
     a = d.groupby([*by, "acq"]).agg(main=("level_m", "mean"), alt=("_alt", "mean")).reset_index()
     a["delta"] = a["alt"] - a["main"]
@@ -563,8 +561,8 @@ def shift_points(points: pd.DataFrame, shifts: pd.DataFrame, *, on=("epoch", "bi
 
 
 def setup_shift(plan: pd.DataFrame, excl: np.ndarray, *, by=("epoch", "bin")) -> pd.DataFrame:
-    """Setup correction instead of screening, first order (brief section 16 pivot;
-    check 4): per group and sector, the mean predicted setup over the acquisitions
+    """Setup correction instead of screening, first order (the fallback for
+    sparse bins; check 4): per group and sector, the mean predicted setup over the acquisitions
     included in that sector. A waterline seen under setup s lies at L + s, so the
     contour height becomes bin centre + this mean (``shift_m``). Groups with no
     included acquisition in a sector get NaN there."""
@@ -676,7 +674,7 @@ def ordinary_kriging(xy, z, qxy, *, sill: float, a: float, nugget: float = 0.0, 
 
 # --- validation ----------------------------------------------------------------------------
 
-DEM_TILE_M = 60_000      # scripts/a6_dem.py TILE_M (D-069 tiling fix)
+DEM_TILE_M = 60_000      # scripts/a6_dem.py TILE_M (tiling fix)
 
 
 def dem_columns(points: pd.DataFrame, dem_dir, contour_x, contour_y, tile_m: float = DEM_TILE_M) -> pd.DataFrame:
@@ -730,7 +728,7 @@ def shifted_offsets(offsets: dict, n_sigma: float) -> dict:
 def reassign_splits(blocks: pd.DataFrame, seed: int, proportions: dict = design.SPLIT) -> pd.DataFrame:
     """The block table with a new random train/calib/test assignment (same stratified
     rule, caspian.blocking.assign_splits, another seed or proportions). For the
-    calibration-split check of brief section 10 check 8, run after the main evaluation
+    calibration-split check (check 8), run after the main evaluation
     is frozen; it reuses test blocks for fitting and is reported as such."""
     return blocks.assign(split=blocking.assign_splits(blocks, proportions, seed).to_numpy())
 
@@ -746,7 +744,7 @@ def exclude_initial_training(points: pd.DataFrame, initial_blocks: pd.DataFrame,
                              initial_size: float = design.BLOCK_SIZE_M, splits=("calib", "test")) -> pd.DataFrame:
     """Amendment 8 clarification: drop the calibration and test points of the final
     assignment that lie in training blocks of the initial 25 km assignment, whose
-    contour points fixed the static-contour rule (D-075). Needed only when PREREG
+    contour points fixed the static-contour rule. Needed only when PREREG
     section 6 enlarged the blocks."""
     i, j = blocking.block_index(points["x"], points["y"], initial_size)
     tr = set(zip(initial_blocks.loc[initial_blocks["split"] == "train", "i"],
@@ -758,7 +756,7 @@ def exclude_initial_training(points: pd.DataFrame, initial_blocks: pd.DataFrame,
 
 def tide_system_shift(lat_deg, recipe: str) -> np.ndarray:
     """Change of an ICESat-2 orthometric height H = h - geoid_h (tide-free) under the
-    two mean-tide recipes of docs/DATUMS.md (D-073), from the product terms
+    two mean-tide recipes of docs/DATUMS.md, from the product terms
     geoid_free2mean = 0.1287 - 0.3848 sin^2(phi) and tide_earth_free2mean =
     0.06029 - 0.180873 sin^2(phi) (m):
     - "both_mean": h and N both to mean tide, dH = tide_earth_free2mean - geoid_free2mean;
@@ -811,7 +809,7 @@ def write_correction(geoid_npz, layer: str, out_path) -> dict:
     """A vertical-correction file for scripts/a7_hindcast.py --vertical-correction
     (caspian.products.load_correction: lon, lat, dN) from one layer of the geoid-
     difference file (results/study_area/geoid_egm2008_minus_eigen6c4.npz): dN_ngaEGM2008_m
-    for the main total error (D-074) or dN_m for the sensitivity without NGA's -0.41 m
+    for the main total error or dN_m for the sensitivity without NGA's -0.41 m
     height offset."""
     with np.load(geoid_npz) as z:
         if layer not in z.files:
@@ -829,8 +827,8 @@ def write_correction(geoid_npz, layer: str, out_path) -> dict:
 def h1_tables(displacement: pd.DataFrame, noise_floor: pd.DataFrame):
     """(product_levels, noise_levels, noise_pooled) for caspian.h1.mispredicts from the
     tables of scripts/a7_hindcast.py: the epoch-pooled product rows per sector and bin,
-    the per-level pooled noise floor, and the noise floor pooled over all levels (the
-    D-032 sensitivity)."""
+    the per-level pooled noise floor, and the noise floor pooled over all levels (a
+    sensitivity)."""
     pl = (displacement[(displacement["epoch"] == "pooled") & displacement["sector"].isin(SECTOR_ORDER)]
           .rename(columns={"median_m": "median"})[["product", "variant", "sector", "bin", "observed_level", "n",
                                                    "median"]])
@@ -972,7 +970,7 @@ def load_cover(path, crs: str | None = None):
 
 def block_sample(blocks: pd.DataFrame, cover_km2, *, split: str = "test", n_per_sector: int = 2,
                  min_km2: float = 100.0, seed: int = design.SEED) -> pd.DataFrame:
-    """The robustness block sample R (docs/ROBUSTNESS_PLAN.md): per sector, in sorted
+    """The robustness block sample R: per sector, in sorted
     order, ``n_per_sector`` blocks of ``split`` with at least ``min_km2`` inside the
     stage-2 cover, drawn by a permutation from one generator seeded once (as
     caspian.blocking); all of them when fewer qualify. Every block-sample Earth Engine

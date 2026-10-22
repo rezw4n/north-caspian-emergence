@@ -1,11 +1,11 @@
-"""Robustness (D-034, D-075; PREREG Amendment 8): the DEM without the static-contour
+"""Robustness (PREREG Amendment 8): the DEM without the static-contour
 exclusion. No Earth Engine.
 
 The main contour table (data/interim/waterlines/<main>/points.csv.gz, with the
 `static` column of scripts/a6_static_rule.py) is copied without that column to the tag
 <main>__nostatic, so that scripts/a6_dem.py keeps every point; then emergence and the
 paired validation (scripts/r00_pipeline.py). The §9 observed extents never used the
-rule (D-070), so the hindcast is unchanged and not rerun. The excluded fraction per
+rule, so the hindcast is unchanged and not rerun. The excluded fraction per
 sector, split and epoch is already reported by the main run (results/levels/
 static_contour_rule.json).
 

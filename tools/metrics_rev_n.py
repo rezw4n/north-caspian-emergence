@@ -1,5 +1,5 @@
-"""Metrics of workstream N (near-term emergence; PREREG Amendment 18 item 10; D-123 to
-D-127), loaded by tools/build_metrics.revision_metrics. Keys start with ``rev.n.``; each
+"""Metrics of revision analysis N (near-term emergence; PREREG Amendment 18 item 10),
+loaded by tools/build_metrics.revision_metrics. Keys start with ``rev.n.``; each
 record is {"value", "unit", "source", "note"?} as build_metrics.put writes them.
 
 Inputs: results/revision/n/*.csv and *.json written by scripts/rev_n_curves.py,
@@ -59,7 +59,7 @@ def _read(name):
     if p.suffix in (".csv", ".gz"):
         try:
             return pd.read_csv(p)
-        except pd.errors.EmptyDataError:          # a table written without rows (a step cut, D-126 addendum)
+        except pd.errors.EmptyDataError:          # a table written without rows (a step cut)
             return None
     return json.loads(p.read_text(encoding="utf-8"))
 
@@ -310,7 +310,7 @@ def envelopes(m):
 
 def simulation(m):
     _simulation(m, "", None)
-    _simulation(m, "_range50", 50000.0)          # D-125 addendum 2: the 50 km range ("sim.50km.*" keys)
+    _simulation(m, "_range50", 50000.0)          # the 50 km range ("sim.50km.*" keys)
 
 
 def _simulation(m, sfx, only_range):

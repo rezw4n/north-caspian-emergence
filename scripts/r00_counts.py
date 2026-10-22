@@ -1,11 +1,11 @@
-"""Robustness (docs/ROBUSTNESS_PLAN.md): build a variant stage-2 tag from existing
+"""Robustness: build a variant stage-2 tag from existing
 stage-2 tiles by count algebra alone (caspian.robustness), so that the downstream
 steps (scripts/r00_pipeline.py, scripts/a6_*.py, scripts/a7_hindcast.py) run on it
 unchanged. No Earth Engine.
 
 Order of operations, per tile key:
-1. sum the tiles of every --from tag band by band (e.g. Landsat + Sentinel-2, D-064
-   step 3; tiles must share the transform);
+1. sum the tiles of every --from tag band by band (e.g. Landsat + Sentinel-2;
+   tiles must share the transform);
 2. --add / --sub: screening deltas (main + ADD - SUB, robustness.apply_delta;
    scripts/r04_screening.py builds their plans);
 3. --substitute <tag>: inside each block of a block-sample Earth Engine alternative
@@ -14,7 +14,7 @@ Order of operations, per tile key:
    mosaic of the robustness block sample R; robustness.substitute_window). The block
    region is the stage-2 cover within the block square, and within the block's sector
    when the record names one, rasterised by cell centre on the block tile's grid;
-4. --vegetation as_dry | as_water (check 9; needs the observed count o, D-071);
+4. --vegetation as_dry | as_water (check 9; needs the observed count o);
 5. group mapping (robustness.merge_groups): --e1-end with --e1-ends (Amendment 4),
    --drop / --keep-only class tokens (sensor, season, threshold source; split plans,
    scripts/r16_split_plan.py), --fine-from-halves (0.05 m bins) and --bin-factor N

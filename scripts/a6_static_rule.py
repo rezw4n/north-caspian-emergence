@@ -1,4 +1,4 @@
-"""A6: the static-contour rule (D-034, fixed in D-075) on training blocks.
+"""The static-contour rule on training blocks.
 
 Contour points whose location does not move with level (channel banks, ponds) are
 flagged as static and excluded from the DEM (scripts/a6_dem.py reads the `static`
@@ -7,9 +7,9 @@ correlation, at the point's pixel, between water frequency and bin level over th
 epoch's valid bins. Sea-controlled shorelines get wetter as the level rises (rho
 near 1); channel banks do not (rho near 0).
 
-Rule (D-075): the threshold rho* is Otsu's split of the rho_level histogram (256 bins
+Rule: the threshold rho* is Otsu's split of the rho_level histogram (256 bins
 on [-1, 1], caspian.thresholds.diagnostics) of the E2 and E3 contour points in
-TRAINING blocks only. It is used if the split is valid by the D-061 rules (eta >=
+TRAINING blocks only. It is used if the split is valid by the threshold rules of a3_thresholds.py (eta >=
 0.70, valley ratio <= 0.50) and lies in [0.2, 0.8]; otherwise rho* = 0.5. A point
 is static if rho_level < rho*. Points without rho_level (fewer than 4 valid bins)
 are kept and counted.
@@ -34,7 +34,7 @@ from caspian import blocking, waterlines
 from caspian.config import INTERIM, RESULTS
 
 EPOCHS = ("E2", "E3")                  # the DEM epochs
-STEEP_M = 120.0                        # two 60 m cells (D-075 steep-slope check)
+STEEP_M = 120.0                        # two 60 m cells (steep-slope check)
 
 
 def main(argv) -> int:
@@ -50,7 +50,7 @@ def main(argv) -> int:
     summ = (p.assign(no_rho=~np.isfinite(p["rho_level"]))
             .groupby(["sector", "block_split", "epoch"], dropna=False)
             .agg(n=("static", "size"), static=("static", "mean"), no_rho=("no_rho", "mean")).reset_index())
-    # D-034 check: contours on real steep slopes must be kept. Steep = a training point
+    # steep-slope check: contours on real steep slopes must be kept. Steep = a training point
     # within STEEP_M of the contour of the next level bin (same epoch).
     from scipy.spatial import cKDTree
     steep = np.zeros(len(train), bool)

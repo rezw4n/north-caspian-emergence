@@ -54,9 +54,9 @@ manuscript/*.xdv
 manuscript/*.bbl
 manuscript/*.blg
 
-# Not redistributable (CASPCOM catalogue: "All Rights Reserved", no licence; D-101, docs/DATA_RELEASE.md).
+# Not redistributable (CASPCOM catalogue: "All Rights Reserved", no licence; docs/DATA_RELEASE.md).
 # Regenerated locally by scripts/a7_dahiti_bhs_offset.py.
 results/levels/dahiti_bhs_annual_diffs.csv
 
-# Built data package (tools/build_data_package.py, D-142); rebuilt by `make data-package`
+# Built data package (tools/build_data_package.py); rebuilt by `make data-package`
 release/

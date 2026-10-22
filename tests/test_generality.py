@@ -1,4 +1,4 @@
-"""caspian.generality: the A9 generality-test helpers (PREREG Amendment 16), on
+"""caspian.generality: the generality-test helpers (PREREG Amendment 16), on
 synthetic inputs only."""
 
 import math

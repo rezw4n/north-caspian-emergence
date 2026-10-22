@@ -1,16 +1,16 @@
-"""ERL figure "Then and now" (D-100, D-102; 15 cm wide).
+"""ERL figure "Then and now" (15 cm wide).
 
 (a) Landsat 5 TM, summer of the 1995-96 high stand, and (b) Landsat 8 and 9 OLI, summer of
     the 2025-26 low stand: true-colour median composites of Collection 2 Level-2 surface
     reflectance at 200 m on the analysis grid (scripts/f2_erl_landsat.py; cloud, shadow and
     saturated pixels masked; the adjacent summer fills pixels with no clear value). Both
     use the same linear stretch of reflectance (STRETCH, gamma GAMMA), so their colours
-    compare. On (b): the observed shoreline at four E3 level bins 0.6 m apart (D-140,
-    answering internal review R1 minor 19 and R2 minor 12): the 0.5 contour of the share
+    compare. On (b): the observed shoreline at four E3 level bins 0.6 m apart: the
+    0.5 contour of the share
     of sea-connected water per 240 m block of each bin's observed extent, built with the
     hindcast's functions (scripts/f3_erl_waterlines.py, data/interim/figures/erl/
     waterlines_main.npz), pieces shorter than MIN_LEN_KM dropped; coloured by level
-    (Crameri batlow). Until D-140 the lines were contours of the waterline DEM's emergence
+    (Crameri batlow). Earlier versions drew contours of the waterline DEM's emergence
     dates, which failed validation at the Volga delta front; they are no longer used.
 (c) The daily basin level (level_series_daily.csv: DAHITI, with Hydroweb shifted onto the
     DAHITI reference in its gaps), the summers of the two composites (shaded) and, for
@@ -169,7 +169,7 @@ def main() -> int:
     del halo
     paths = C.save(fig, "erl_fig_then_now")
     # the composites are photographs: JPEG inside the PDF keeps the Letter small; text, lines and
-    # fonts stay vector; the 600 dpi TIFF is written by C.save and not touched (D-102 addendum)
+    # fonts stay vector; the 600 dpi TIFF is written by C.save and not touched
     before, after = E.jpeg_images(paths[0])
     print(f"erl_fig_then_now.pdf: imagery as JPEG (quality {E.JPEG_QUALITY}), {before / 1e6:.1f} -> {after / 1e6:.1f} MB")
     plt.close(fig)

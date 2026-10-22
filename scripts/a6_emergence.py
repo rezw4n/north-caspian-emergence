@@ -1,4 +1,4 @@
-"""A6: emergence-date map on the DEM tiling (PREREG section 2; D-069), for the
+"""Emergence-date map on the DEM tiling (PREREG section 2), for the
 dryness test of the ICESat-2 validation (scripts/a6_validate_dem.py --emergence).
 
 The basin level is evaluated daily over the whole levelled record with the scene-

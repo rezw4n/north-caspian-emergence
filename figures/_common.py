@@ -1,11 +1,11 @@
 """Shared settings for the display-item scripts in figures/.
 
-Widths follow the Nature Communications author guidelines read on 2026-10-21
-(docs/journal_specs.md): single column 88 mm, double column 180 mm. They differ from
-the placeholders in caspian.plotting (89 and 183 mm), which are not used here. The
-venue is chosen at Gate G3; Communications Earth & Environment gives no width.
+Widths follow the Nature Communications author guidelines read on 2026-10-21:
+single column 88 mm, double column 180 mm. They differ from
+the placeholders in caspian.plotting (89 and 183 mm), which are not used here.
+Communications Earth & Environment gives no width.
 
-Text follows CLAUDE.md and the Nature Portfolio figure guide: sans-serif 5-7 pt,
+Text follows the Nature Portfolio figure guide: sans-serif 5-7 pt,
 lowercase bold 8 pt panel letters (caspian.plotting.use_style, panel_label). Files are
 saved at the exact figure size (no tight cropping, which would change the width):
 vector PDF with TrueType fonts, a 600 dpi LZW TIFF and a 200 dpi PNG preview, in
@@ -17,7 +17,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-import caspian  # noqa: F401  (before any GDAL-linked import; D-004)
+import caspian  # noqa: F401  (before any GDAL-linked import)
 import matplotlib as mpl
 
 from caspian import plotting
@@ -103,7 +103,7 @@ def scale_bar(ax, x0: float, y0: float, length_m: float, label: str, transform=N
                 path_effects=halo, zorder=9)
 
 
-# --- maps in the analysis projection (Lambert azimuthal equal area, D-002) ----------
+# --- maps in the analysis projection (Lambert azimuthal equal area) ----------------
 
 def projection():
     """(cartopy projection, lon/lat -> equal-area transform) for caspian.config.CRS_EQUAL_AREA."""
@@ -151,7 +151,7 @@ def graticule(ax, labels: bool = True, size: float = 5.5):
 
 
 def sea_mask():
-    """The D-029 open sea of the 2025-26 low stand (results/study_area/sea_mask_1km.npz) as
+    """The open sea of the 2025-26 low stand (results/study_area/sea_mask_1km.npz) as
     (mask, imshow extent); for orientation only, not a product under audit."""
     import numpy as np
 

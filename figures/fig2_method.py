@@ -6,11 +6,11 @@ a, schematic of the waterline-level pairing (no data): each cloud-free scene giv
 b, the waterlines of one illustrative 25 km block (data/interim/waterlines/main/
    points.csv.gz; scripts/a6_waterlines.py): E2 and E3 points used by the DEM,
    coloured by their level bin, and the points removed by the static-contour rule
-   (D-034, D-075) in grey. The block is chosen by a fixed rule, among blocks that
+   in grey. The block is chosen by a fixed rule, among blocks that
    are training blocks at both 25 km (blocks_25km.csv) and 50 km (blocks_50km.csv)
    in a sector labelled neither deltaic nor vegetated (results/levels/
    sector_labels.csv): the most distinct level bins, then the most points.
-c, the surge-screening sensitivity of D-077 (results/levels/screening_sensitivity.json):
+c, the surge-screening sensitivity (results/levels/screening_sensitivity.json):
    the pre-registered statistic S(tau) with its bootstrap SE, and, descriptive only,
    the mean and 90th percentile of the block-bin displacements.
 d, rising- against falling-limb waterlines at the levels both limbs observed

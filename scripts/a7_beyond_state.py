@@ -1,4 +1,4 @@
-"""A7: the beyond-domain state for the hindcast (D-050, D-067; PREREG Amendment 10).
+"""The beyond-domain state for the hindcast (PREREG Amendment 10).
 
 Cells outside the domain (and in its rim) are unknown in the hindcast unless an
 independent state is supplied. This script supplies land only:

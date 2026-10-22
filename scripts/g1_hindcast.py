@@ -1,22 +1,22 @@
-"""A9 generality test, the hindcast per arm (PREREG Amendment 16 items 7 and 8; D-094).
+"""Generality test, the hindcast per arm (PREREG Amendment 16 items 7 and 8).
 
 The Caspian driver (scripts/a7_hindcast.py: run, record_low_water, coast_band,
 train_mask) is called unchanged on the basin's own grid and static layers:
 - grid: 60 m on the basin's equal-area projection (caspian.generality.grid);
 - domain: the arm (scripts/g1_static.py), rasterised by cell centre; one sector;
 - zone for the outside states: the stage-2 cover in the arm plus the 2 km band around
-  the shorelines of the near-maximum and near-minimum extents (D-083);
+  the shorelines of the near-maximum and near-minimum extents;
 - open-water seed: the arm's largest open-water component inside the domain less its
   2 km rim (it may lie inside the stage-2 cover, which in these lakes takes in nearly
   all open water; the outside states then use its part outside the zone, or have no
   water state at all); land seed: cells more than 2 km from the near-maximum water
-  (hindcast.beyond_land_state, D-067), outside the zone and rim; no beyond-domain state;
+  (hindcast.beyond_land_state), outside the zone and rim; no beyond-domain state;
 - salt ponds: unknown, observed (counts zeroed) and outside states alike;
 - stage-2 counts: the arm's tiles, with counts zeroed outside the arm and in ponds;
-- record-low envelope (D-082) from the arm's three lowest E3 bins;
+- record-low envelope from the arm's three lowest E3 bins;
 - products: the five global grids, bilinear at cell centres, NaN outside the arm (so
   the flood fill stays in it); total variant + H(NAVD 88) - H(EGM2008) per cell (GSL);
-  shape variant: the D-070 fit on training-block cells (25 km blocks of the basin grid,
+  shape variant: the shape fit on training-block cells (25 km blocks of the basin grid,
   split 0.6/0.2/0.2 stratified by arm, seed 20261020);
 - positive-control substitute (GSL): 3DEP averaged to 60 m, on NAVD 88 (no correction),
   hindcast only at the bins whose lower edge lies at or above the arm's hydro-flattened
@@ -55,7 +55,7 @@ A7 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(A7)
 
 RES = 60.0
-RIM_M = 2000          # D-083
+RIM_M = 2000          # domain rim (m), as in a7_hindcast.py
 FILES = {"gebco_2026": ("gebco_2026.nc", "elevation"), "gebco_2022": ("gebco_2022.nc", "elevation"),
          "etopo_2022": ("etopo_2022.nc", "elevation"), "srtm15p_v2.7": ("srtm15p_v2.7.nc", "elevation"),
          "etopo1": ("etopo1.tif", "bedrock")}

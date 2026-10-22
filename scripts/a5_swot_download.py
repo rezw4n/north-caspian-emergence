@@ -1,6 +1,6 @@
-"""A5 input: SWOT L2 HR Raster (250 m) water-surface elevation granules over the
+"""Wind-setup input: SWOT L2 HR Raster (250 m) water-surface elevation granules over the
 North Caspian from hydroweb.next (collection SWOT_L2_HR_RASTER_250M; latest
-processing version only), for calibrating the wind-setup model (brief section 8 A5).
+processing version only), for calibrating the wind-setup model.
 
 Outputs (git-ignored): data/raw/swot/raster250m/<zip + extracted .nc>
 Provenance (committed): results/provenance/swot_raster250m.json

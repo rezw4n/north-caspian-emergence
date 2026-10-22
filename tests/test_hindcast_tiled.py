@@ -260,7 +260,7 @@ def test_pooled_summary_matches_the_concatenated_distances():
     assert np.isnan(empty["median"]) and empty["n"] == 0
 
 
-# --- sea connection of the observed extent (D-033) ---------------------------------------------
+# --- sea connection of the observed extent -----------------------------------------------------
 
 def _sea_case():
     shape = (30, 40)
@@ -309,7 +309,7 @@ def test_sea_classes(tile):
     assert np.all(c3[4:6, 7:] == -1)
 
 
-# --- flood-level map (D-070): F < L is the flood fill at L ------------------------------------
+# --- flood-level map: F < L is the flood fill at L --------------------------------------------
 
 @pytest.mark.parametrize("tile", [7, 16, 1000])
 @pytest.mark.parametrize("connectivity", [4, 8])

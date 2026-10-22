@@ -1,5 +1,5 @@
 """Spatial structure of the water surface and spatially varying product offsets
-(PREREG Amendment 18 item 9; D-120, D-121).
+(PREREG Amendment 18 item 9).
 
 1. SWOT water-surface elevation on the working datum. SWOT L2_HR_Raster ``wse`` is
    the height above the EGM2008 geoid "with a correction to refer the value to the
@@ -112,7 +112,7 @@ class ShiftedFloodMap:
         return np.asarray(self.F[key], np.float64) - self.lut[np.asarray(self.sector[key]).astype(np.int64)]
 
 
-# --- ellipsoids and zero-degree terms (c_ref decomposition, D-122) ---------------------------
+# --- ellipsoids and zero-degree terms (c_ref decomposition) ----------------------------------
 
 WGS84 = (6378137.0, 1 / 298.257223563)        # a (m), f; ICESat-2 Comparison Guide R007, Table 4.1
 TOPEX = (6378136.3, 1 / 298.257)              # T/P ellipsoid, same table
@@ -151,7 +151,7 @@ def zero_degree_term(gm_model: float, gm_ref: float, w0: float | None = None, u0
     return float(n0)
 
 
-# --- planar offset field (A18 item 9, D-121) -------------------------------------------
+# --- planar offset field (A18 item 9) --------------------------------------------------
 
 def plane_values(c0: float, a: float, b: float, x_km, y_km):
     """c(x, y) = c0 + a x + b y (m), x and y in km, a and b in m per km."""
@@ -168,7 +168,7 @@ def quantised_counts(q, weights_known, n_bins: int) -> np.ndarray:
 
 
 def profile_c0(bias: np.ndarray, c_grid) -> dict:
-    """The D-070 rule for the constant part: the c0 of ``c_grid`` minimising the sum
+    """The shape-offset rule for the constant part: the c0 of ``c_grid`` minimising the sum
     over units of |bias| (``bias`` [unit, c]); ties to the smallest |c0|, then the
     smaller c0."""
     c_grid = np.asarray(c_grid, float)

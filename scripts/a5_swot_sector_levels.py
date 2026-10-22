@@ -1,5 +1,5 @@
-"""A5 input: SWOT water-surface elevation per pass and 25 km block over the North
-Caspian, for calibrating the wind-setup model (brief section 8 A5; PREREG section 3).
+"""Wind-setup input: SWOT water-surface elevation per pass and 25 km block over the North
+Caspian, for calibrating the wind-setup model (PREREG section 3).
 Statistics are kept per block (results/study_area/blocks_25km.csv, PREREG section 6),
 so that the model is fitted on training blocks only and can be refitted if the
 blocks are enlarged (25 km blocks nest in larger aligned blocks).

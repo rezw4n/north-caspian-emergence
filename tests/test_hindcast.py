@@ -1,5 +1,5 @@
 """Hindcast metrics: waterlines next to unknown cells, censoring at the zone edge,
-symmetric displacement and the half-sample noise floor (review findings 2, 9, 10).
+symmetric displacement and the half-sample noise floor.
 
 Every case is synthetic with a known true displacement, so each assertion states
 what the pre-registered metric (PREREG section 9) must return.
@@ -354,7 +354,7 @@ def test_domain_margin_absorbs_one_pixel_rasterisation_mismatch():
 
 
 def _north_edge_case():
-    """Toy of the northern domain edge (D-039, D-050): rows 0-9 lie north of the
+    """Toy of the northern domain edge: rows 0-9 lie north of the
     domain, on land. The sea is on the left, the hinterland on the right, and the
     zone band runs north-south across the edge. A product too deep in the north
     floods land beyond the domain edge."""
@@ -382,7 +382,7 @@ def test_beyond_domain_land_scores_flooding_past_the_edge():
     obs = true_water & valid
     m0 = hindcast.extent_metrics(pred, obs, valid, outside_state=st0)
     m = hindcast.extent_metrics(pred, obs, valid, outside_state=st)
-    assert m0["area_fp_outside"] == 0.0         # the censoring of the review finding
+    assert m0["area_fp_outside"] == 0.0         # censored without the outside state
     assert m["area_fp_outside"] == 700.0 and m["area_bias_total"] == 700.0
     d0 = hindcast.shoreline_displacement(pred, obs, valid, outside_state=st0)
     d = hindcast.shoreline_displacement(pred, obs, valid, outside_state=st)
@@ -521,4 +521,4 @@ def test_beyond_land_state_works_with_outside_state_from_zone():
     assert np.all(np.isnan(st[12:17]))     # the zone
     assert np.all(st[17:] == 1)            # the open sea
     st0 = hindcast.outside_state_from_zone(zone, sea, land, domain=domain)
-    assert np.all(np.isnan(st0[:11]))      # without it, unknown (D-030 behaviour)
+    assert np.all(np.isnan(st0[:11]))      # without it, unknown (the earlier behaviour)

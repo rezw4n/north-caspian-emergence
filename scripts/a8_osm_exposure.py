@@ -1,4 +1,4 @@
-"""A8 input: OpenStreetMap infrastructure inside the study domain, via the Overpass
+"""Exposure input: OpenStreetMap infrastructure inside the study domain, via the Overpass
 API (data (c) OpenStreetMap contributors, ODbL 1.0).
 
 Layers: ports/harbours, piers and ferry terminals; settlements (place nodes);
@@ -7,8 +7,8 @@ major roads; protected areas (boundary=protected_area, leisure=nature_reserve,
 boundary=national_park) and wetlands (natural=wetland). Each layer is clipped to the
 domain polygon and saved as GeoPackage. OpenStreetMap is not an authoritative source
 for protected-area boundaries or habitats; the two added layers are an open-licence
-stand-in until the authoritative layers (WDPA, Ramsar) are obtained by the PI, and
-are labelled as such.
+stand-in until the authoritative layers (WDPA, Ramsar) are obtained, and are
+labelled as such.
 
 Multipolygon and boundary relations are assembled from their member ways (outer
 rings polygonised, inner rings removed); before 2026-10-21 relations without a

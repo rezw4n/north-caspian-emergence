@@ -36,7 +36,7 @@ def test_ee_otsu_matches_numpy(ee_mod):
 
 
 def test_ee_otsu_fixed_matches_numpy_reference(ee_mod):
-    # same 256 buckets over [-1, 1] as water.otsu_threshold (review finding 39)
+    # same 256 buckets over [-1, 1] as water.otsu_threshold
     rng = np.random.default_rng(5)
     sample = np.concatenate([rng.normal(-0.3, 0.12, 6000), rng.normal(0.25, 0.1, 2500)])
     ref = water.otsu_threshold(sample)

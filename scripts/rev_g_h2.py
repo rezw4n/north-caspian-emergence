@@ -1,7 +1,6 @@
-"""Revision workstream G (PREREG Amendment 18 item 11, H2; D-129; reviewer comments R3.M8,
-R3.M7, R1 minor 9, R3 minor 10). Exploratory, post-review analyses of the frozen H2
-validation (results/validation/main/); the registered verdict ("not supported", D-086)
-stands. Seed 20261022 for every new resampling, B = 2,000 (design.BOOTSTRAP_N).
+"""Revision analysis G (PREREG Amendment 18 item 11, H2). Exploratory, post-review analyses
+of the frozen H2 validation (results/validation/main/); the registered verdict ("not
+supported") stands. Seed 20261022 for every new resampling, B = 2,000 (design.BOOTSTRAP_N).
 
 Stages (outputs under results/revision/g/h2/):
   influence   Leave-one-test-block-out and leave-one-sector-out paired differences
@@ -14,12 +13,12 @@ Stages (outputs under results/revision/g/h2/):
   mondrian    q-hat, usable calibration points, the pooled fallback, and calibration
               blocks per sector (with >= 1 and >= 50 usable points).
   blocksizes  12.5, 25 and 50 km blocks on a common point set: points held out of fitting
-              at all three sizes (calibration or test blocks at each size; D-129). Each
+              at all three sizes (calibration or test blocks at each size). Each
               size's own registered fits; accuracy and paired differences with block-
               bootstrap intervals over that size's blocks.
   rmse        RMSE beside NMAD (Table 1, ICESat-2 column), overall and per sector, from the
               registered accuracy and paired-bootstrap tables.
-  splits      The H2 rule on each of the 20 seeded split reassignments of D-104 (ATL08)
+  splits      The H2 rule on each of the 20 seeded split reassignments (ATL08)
               and on the calibration/test swap.
 
 Usage: python scripts/rev_g_h2.py <stage> [--sources ATL08,ATL06]

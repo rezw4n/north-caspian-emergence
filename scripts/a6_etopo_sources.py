@@ -1,10 +1,10 @@
-"""A6 diagnostic (D-091): where ETOPO 2022's heights come from at the test-block points
+"""DEM validation diagnostic: where ETOPO 2022's heights come from at the test-block points
 of an additional independent source, and the error of the DEM and of ETOPO 2022 by that
 source.
 
 ETOPO 2022 fills the emerged band from FABDEM (source ID 10: the Copernicus DEM with
 forests and buildings removed) and GEBCO Lake Depths (ID 11) (MacFerrin et al. 2025,
-Table 1; D-087). Against GLO-30, the FABDEM part of ETOPO 2022 is not an independent
+Table 1). Against GLO-30, the FABDEM part of ETOPO 2022 is not an independent
 comparison: both rest on the same TanDEM-X acquisitions. The table says how much of the
 GLO-30 comparison that affects, and whether ETOPO 2022's advantage there is also seen
 against GEDI, which is independent of both. Descriptive; nothing is refitted (the

@@ -1,5 +1,5 @@
-"""Supplementary Figure (brief section 10 check 4): surge-screening sensitivity (A5;
-D-064, D-077).
+"""Supplementary Figure (robustness check 4): surge-screening sensitivity (setup
+screening).
 
 a, the pre-registered statistic S(tau) (median over block-bins of the median odd/even
    waterline displacement) with its bootstrap SE, and, descriptive only (not used for
@@ -11,7 +11,7 @@ d, the share of the Landsat acquisitions of the main stage-2 plan whose predicte
    setup in a sector exceeds each candidate threshold, i.e. the acquisitions that
    screening at that threshold would remove there (data/interim/stage2/
    plan_main_tau9900cm_landsat.csv, setup_<sector>_m from scripts/a5_setup_model.py;
-   the plan itself uses no screening, D-077). Komsomolets uses a borrowed model (D-066).
+   the plan itself uses no screening). Komsomolets uses a borrowed model.
 
 Output: figures/out/ed_screening.{pdf,tif,png}
 Usage: python figures/ed_screening.py

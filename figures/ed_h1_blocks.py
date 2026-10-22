@@ -1,7 +1,7 @@
 """Supplementary Figures: where each product misplaces the historic shorelines (H1).
 
 Per product, the median absolute shoreline displacement per 25 km block pooled over
-every (epoch, level) unit (results/hindcast/main/block_h1.csv; D-070), for the shape
+every (epoch, level) unit (results/hindcast/main/block_h1.csv), for the shape
 variant (ed_h1_blocks_shape) and the total variant (ed_h1_blocks_total). Blocks with
 fewer than params.h1_min_block_n distances are not drawn; rows whose committed median
 is negative (not a distance; see figures/fig4_audit.py) are hatched as undefined.

@@ -1,12 +1,12 @@
-"""A3 stage 1 (D-015, D-027): per-scene table of the Otsu MNDWI threshold (fixed-bin
-histogram inside active zone v6 (D-029) at pipeline_ee.HIST_SCALE, 240 m since D-028) and
+"""Water classification stage 1: per-scene table of the Otsu MNDWI threshold (fixed-bin
+histogram inside active zone v6 at pipeline_ee.HIST_SCALE, 240 m) and
 in-zone clear / snow-ice pixel counts,
 for every Landsat and Sentinel-2 scene over the domain. Snow and ice come from the
 product QA (Landsat QA_PIXEL bit 5, Sentinel-2 SCL class 11) or the LIS pass-1 NDSI
 test (caspian.masks); zone_snow_ndsi is the NDSI test alone. Exported as Earth
 Engine table assets in sensor x period chunks; fetched as CSV. Not used for production:
 batch table exports under-report EECU, so stage 1 runs as profiled interactive batches
-(scripts/a3_stage1_interactive.py, D-028).
+(scripts/a3_stage1_interactive.py).
 
 Usage: python scripts/a3_stage1_thresholds.py pilot | submit | status | fetch
   pilot  : Landsat-8 path 165 row 28, 2020 only (cost measurement)

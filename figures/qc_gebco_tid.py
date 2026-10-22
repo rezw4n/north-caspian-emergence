@@ -1,7 +1,7 @@
 """QC figure: GEBCO_2026 elevation and Type Identifier (TID) grid over the domain.
 
-Writes outputs/qc/gebco_2026_tid.{pdf,png}, the figure docs/DATUMS.md and
-refs/notes/gebco2026.md cite for the TID coding of the North Caspian. Input: the
+Writes outputs/qc/gebco_2026_tid.{pdf,png}, the figure docs/DATUMS.md
+cites for the TID coding of the North Caspian. Input: the
 GEBCO_2026 subset written by scripts/a7_get_gebco.py (`make bathymetry-download`),
 default data/raw/bathymetry/gebco_2026_ncaspian.nc, or the path given as argument.
 
@@ -26,7 +26,7 @@ import json
 import sys
 from pathlib import Path
 
-import caspian  # noqa: F401  (before any GDAL-linked import; D-004)
+import caspian  # noqa: F401  (before any GDAL-linked import)
 
 GLUED = "iceberg_groundinggrounded_Argo_float_derived"
 # Okabe-Ito colours, colour-blind safe, assigned to codes in ascending order.

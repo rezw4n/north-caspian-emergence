@@ -1,4 +1,4 @@
-"""The study domain and sectors must partition the domain exactly (brief section 6)."""
+"""The study domain and sectors must partition the domain exactly."""
 
 import itertools
 

@@ -1,5 +1,5 @@
-"""A6 validation input: ICESat-2 ATL06 and ATL08 heights over the stage-2 cover
-(PREREG section 2; brief section 8).
+"""DEM validation input: ICESat-2 ATL06 and ATL08 heights over the stage-2 cover
+(PREREG section 2).
 
 NASA Earthdata (CMR search, HTTPS range reads through earthaccess and h5py). The
 granules over the domain total about 515 GB (2,003 ATL06 + 1,990 ATL08, 2018-10 to

@@ -1,4 +1,4 @@
-"""A3 stage 1 run as profiled interactive requests (D-028).
+"""Water classification stage 1 run as profiled interactive requests.
 
 Batch table exports report almost no EECU (0.01 EECU-s for 20 scenes), while the
 Earth Engine profiler measures about 1-5 EECU-s per scene for the same computation.
@@ -12,7 +12,7 @@ MAX_CLOUD, from data/interim/levels/scene_levels.csv.
   run 1 : all months, no histogram column (data/interim/stage1/, log stage1_interactive_log.jsonl)
   run 2 : snow/ice diagnostics cloud-masked, NDSI test in the pixel mask only in
           November-April, histogram kept, all months, scenes that touch the zone in run 1
-          (data/interim/stage1_v2/, log stage1_v2_interactive_log.jsonl) (D-030+).
+          (data/interim/stage1_v2/, log stage1_v2_interactive_log.jsonl).
 Output (git-ignored): data/interim/stage1[_v2]/<sensor>.csv, one row per scene.
 
 Usage: python scripts/a3_stage1_interactive.py <budget_eecu_s> [sensor ...] [--batch N] [--workers K]
@@ -46,7 +46,7 @@ FIELDS = ["scene", "sensor", "acq", "time", "otsu_threshold", "otsu_n", "zone_px
 RUN1 = INTERIM / "stage1"
 OUT = STAGE1
 LOG = RESULTS / "inventory" / "stage1_v3_interactive_log.jsonl"
-MONTHS = range(4, 11)   # open-water months (run 3; ice months Nov-Mar are excluded, D-062, D-068)
+MONTHS = range(4, 11)   # open-water months (run 3; ice months Nov-Mar are excluded)
 _lock = Lock()
 
 

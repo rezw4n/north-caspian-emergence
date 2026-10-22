@@ -47,7 +47,7 @@ params = {
     "params.highstand_end": (pipeline_ee.HIGHSTAND[1], "date", "caspian.pipeline_ee.HIGHSTAND"),
     "params.lowstand_start": (pipeline_ee.LOWSTAND[0], "date", "caspian.pipeline_ee.LOWSTAND"),
     "params.lowstand_end": (pipeline_ee.LOWSTAND[1], "date", "caspian.pipeline_ee.LOWSTAND"),
-    # zone v6 (D-029), the zone used by stage 1 and stage 2: water in at least this
+    # zone v6, the zone used by stage 1 and stage 2: water in at least this
     # share of clear May-September observations (zone v5 used 100 - HIGH_PCT and
     # 100 - LOW_PCT, the same 10% and 90%, with MNDWI > 0 as the only water test)
     "params.high_extent_min_water_pct": (round(100 * pipeline_ee.HIGH_MIN_FRAC), "%",
@@ -69,13 +69,13 @@ params = {
     "params.ndsi_snow": (masks.NDSI_SNOW, "NDSI", "caspian.masks.NDSI_SNOW"),
     "params.red_snow": (masks.RED_SNOW, "reflectance", "caspian.masks.RED_SNOW"),
     "params.s2_scl_snow": (masks.S2_SCL_SNOW, "SCL class", "caspian.masks.S2_SCL_SNOW"),
-    # months in which snow/ice pixels are masked (PREREG Amendments 3 and 9; D-048)
+    # months in which snow/ice pixels are masked (PREREG Amendments 3 and 9)
     "params.snow_season_first_month": (calendar.month_name[masks.NDSI_MONTHS[0]], "month",
                                        "caspian.masks.NDSI_MONTHS"),
     "params.snow_season_last_month": (calendar.month_name[masks.NDSI_MONTHS[-1]], "month",
                                       "caspian.masks.NDSI_MONTHS"),
     "params.snow_rule_max_pct": (design.SNOW_RULE_MAX_PCT, "%", "caspian.design.SNOW_RULE_MAX_PCT", 0),
-    # D-002 equal-area projection centre
+    # equal-area projection centre
     "params.laea_lat0_deg": (_LAEA["lat_0"], "degrees N", "caspian.config.CRS_EQUAL_AREA", 1),
     "params.laea_lon0_deg": (_LAEA["lon_0"], "degrees E", "caspian.config.CRS_EQUAL_AREA"),
 }
@@ -106,8 +106,8 @@ params.update({
 })
 
 
-# --- Methods constants of A3 (threshold rule), A5 (setup screening), A6 (waterlines,
-# DEM, validation) and A7 (hindcast), read from the scripts and modules that apply
+# --- Methods constants of the threshold rule, the setup screening, the waterlines, DEM
+# and validation, and the hindcast, read from the scripts and modules that apply
 # them. Scripts that import Earth Engine or read data at import are parsed, not run.
 def _const(rel: str, name: str):
     """Module-level literal ``name`` of the script ``rel`` (parsed with ast, never executed)."""
@@ -167,7 +167,7 @@ _stage2_res = _const("scripts/a6_stage2_export.py", "RES")
 if _stage2_res != a7_hindcast.RES:
     raise SystemExit("stage-2 grid of a6_stage2_export.py and a7_hindcast.py differ")
 if (waterlines.STATIC_MIN_ETA, waterlines.STATIC_MAX_VALLEY) != (a3_thresholds.MIN_ETA, a3_thresholds.MAX_VALLEY):
-    raise SystemExit("static-contour split validity differs from the threshold rule (D-075 says they are equal)")
+    raise SystemExit("static-contour split validity differs from the threshold rule (they are defined to be equal)")
 if _const("scripts/a6_vegetation.py", "VEG_SECTOR_FRACTION") != design.VEGETATED_SECTOR_FRACTION:
     raise SystemExit("vegetated-sector fraction differs between a6_vegetation.py and caspian.design")
 _em = validation.error_metrics(np.arange(101.0))
@@ -180,7 +180,7 @@ _ci_pct = round(100 * _ci.pop())
 _win = surge.WINDOWS_H
 _cg = a7_hindcast.C_GRID
 params.update({
-    # A3 per-acquisition threshold rule (D-061) and ice season (D-062)
+    # per-acquisition threshold rule and ice season (scripts/a3_*)
     "params.thr_min_pixels": (a3_thresholds.MIN_N, "pixels", "scripts/a3_thresholds.MIN_N"),
     "params.thr_min_class_pct": (round(100 * a3_thresholds.MIN_SHARE), "%", "100 * scripts/a3_thresholds.MIN_SHARE"),
     "params.thr_min_eta": (a3_thresholds.MIN_ETA, "", "scripts/a3_thresholds.MIN_ETA", 2),
@@ -192,7 +192,7 @@ params.update({
                                "scripts/a3_thresholds.ICE_MONTHS"),
     "params.ice_last_month": (calendar.month_name[a3_thresholds.ICE_MONTHS[-1]], "month",
                               "scripts/a3_thresholds.ICE_MONTHS"),
-    # A5 setup model (D-065, D-066) and screening threshold (D-064)
+    # setup model and screening threshold (scripts/a5_*)
     "params.setup_windows_h": (_and_list([f"{a}--{b}" for a, b in _win]), "h", "caspian.surge.WINDOWS_H"),
     "params.setup_lag_max_h": (max(b for _, b in _win), "h", "caspian.surge.WINDOWS_H"),
     "params.setup_pressure_window_h": (_pressure_window_h(), "h", "caspian.surge.forcing_features (dp feature)"),
@@ -212,7 +212,7 @@ params.update({
     "params.sea_mask_res_km": (_const("scripts/a5_sea_mask.py", "SCALE") // 1000, "km", "scripts/a5_sea_mask.SCALE"),
     "params.tau_candidates_m": (_and_list([f"{t:.2f}" for t in _taus]), "m", "scripts/a6_screening.TAUS"),
     "params.tau_n_candidates": (len(_taus), "thresholds", "scripts/a6_screening.TAUS (finite values)"),
-    # A6 stage 2, waterlines, static-contour rule (D-075), DEM tiling (D-069)
+    # stage 2, waterlines, static-contour rule, DEM tiling (scripts/a6_*)
     "params.max_scene_cloud_pct": (_const("scripts/a3_stage1_interactive.py", "MAX_CLOUD"), "%",
                                    "scripts/a3_stage1_interactive.MAX_CLOUD (stage-1 scene selection, D-028)"),
     "params.stage2_res_m": (_stage2_res, "m", "scripts/a6_stage2_export.RES (= scripts/a7_hindcast.RES)"),
@@ -227,7 +227,7 @@ params.update({
                               "100 * caspian.design.VEGETATED_SECTOR_FRACTION (= scripts/a6_vegetation.VEG_SECTOR_FRACTION)"),
     "params.dem_tile_km": (a6_dem.TILE_M // 1000, "km", "scripts/a6_dem.TILE_M"),
     "params.dem_overlap_km": (a6_dem.OVERLAP_M // 1000, "km", "scripts/a6_dem.OVERLAP_M"),
-    # A6 validation (D-069; PREREG sections 2 and 5-8)
+    # DEM validation (PREREG sections 2 and 5-8)
     "params.gross_error_m": (validation.GROSS_ERROR_M, "m", "caspian.validation.GROSS_ERROR_M", 0),
     "params.dry_radius_px_atl06": (validation.DRY_RADIUS_PX["ATL06"], "pixels", "caspian.validation.DRY_RADIUS_PX"),
     "params.dry_radius_px_atl08": (validation.DRY_RADIUS_PX["ATL08"], "pixels", "caspian.validation.DRY_RADIUS_PX"),
@@ -244,9 +244,9 @@ params.update({
     "params.ci_pct": (_ci_pct, "%", "caspian.validation.percentile_interval and caspian.conformal.coverage (conf default)"),
     "params.structure_perm_n": (inspect.signature(blocking.spatial_structure_test).parameters["n_perm"].default,
                                 "permutations", "caspian.blocking.spatial_structure_test (n_perm default)"),
-    # robustness variant of the dryness test fixed in D-069; no code constant yet
+    # robustness variant of the dryness test; no code constant yet
     "params.emergence_lag_sens_days": (365, "days", "docs/DECISIONS.md D-069 (robustness check; not yet in code)"),
-    # A7 hindcast (D-067, D-070, D-072)
+    # hindcast (scripts/a7_*)
     "params.hindcast_margin_deg": (a7_hindcast.MARGIN_DEG, "degrees", "scripts/a7_hindcast.MARGIN_DEG", 1),
     "params.shape_step_m": (float(np.round(np.min(np.diff(_cg)), 6)), "m", "scripts/a7_hindcast.C_GRID", 2),
     "params.shape_max_m": (float(np.max(np.abs(_cg))), "m", "scripts/a7_hindcast.C_GRID", 0),
@@ -259,10 +259,10 @@ params.update({
     "params.fig_map_res_m": (_const("figures/_common.py", "MAP_RES_M"), "m", "figures/_common.MAP_RES_M"),
     "params.fig_min_bin_n": (_const("figures/fig3_dem_accuracy.py", "MIN_BIN_N"), "points",
                              "figures/fig3_dem_accuracy.MIN_BIN_N"),
-    # guards of the near-term error model (caspian.exposure.fit_model, fit_models; D-081)
+    # guards of the near-term error model (caspian.exposure.fit_model, fit_models)
     "params.h3_min_units": (exposure.MIN_UNITS, "units", "caspian.exposure.MIN_UNITS"),
     "params.h3_min_monotone": (exposure.MIN_MONOTONE, "", "caspian.exposure.MIN_MONOTONE", 1),
-    # display constants of the ERL main figures (figures/_erl.py; D-102)
+    # display constants of the ERL main figures (figures/_erl.py)
     "params.erl_fig_scale_map_km": (_const("figures/_erl.py", "SCALE_MAP_KM"), "km", "figures/_erl.SCALE_MAP_KM"),
     "params.erl_fig_scale_inset_km": (_const("figures/_erl.py", "SCALE_INSET_KM"), "km", "figures/_erl.SCALE_INSET_KM"),
     "params.erl_fig_scale_gsl_km": (_const("figures/_erl.py", "SCALE_GSL_KM"), "km", "figures/_erl.SCALE_GSL_KM"),
@@ -275,6 +275,33 @@ params.update({
                                      "figures/erl_fig_then_now.BLOCK (60 m cells per side of the display block whose water share is contoured; D-140)"),
     "params.erl_fig_contour_min_km": (_const("figures/erl_fig_then_now.py", "MIN_LEN_KM"), "km",
                                       "figures/erl_fig_then_now.MIN_LEN_KM (shorter contour pieces not drawn)"),
+})
+
+
+def _fixed_mndwi_threshold() -> float:
+    """The literal threshold that scripts/r18_rblock_export.build_plan assigns to every
+    scene of the fixed-MNDWI variant of robustness check 1 (parsed, never executed)."""
+    tree = ast.parse((ROOT / "scripts" / "r18_rblock_export.py").read_text(encoding="utf-8"))
+    fn = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == "build_plan")
+    for node in ast.walk(fn):
+        if (isinstance(node, ast.If) and isinstance(node.test, ast.Compare)
+                and isinstance(node.test.comparators[0], ast.Constant)
+                and node.test.comparators[0].value == "fixed_mndwi0"):
+            vals = [s.value.value for s in node.body
+                    if isinstance(s, ast.Assign) and isinstance(s.targets[0], ast.Subscript)
+                    and isinstance(s.targets[0].slice, ast.Constant) and s.targets[0].slice.value == "threshold"
+                    and isinstance(s.value, ast.Constant)]
+            if len(vals) == 1:
+                return vals[0]
+    raise KeyError("no fixed threshold in scripts/r18_rblock_export.build_plan")
+
+
+# constants quoted in the Supplementary (D-136 addendum)
+params.update({
+    "params.robust_fixed_mndwi": (_fixed_mndwi_threshold(), "MNDWI",
+                                  "scripts/r18_rblock_export.build_plan (fixed_mndwi0 threshold)", 0),
+    "params.gsl_max_gap_days": (_const("src/caspian/generality.py", "MAX_GAP_DAYS"), "days",
+                                "caspian.generality.MAX_GAP_DAYS"),
 })
 out = {}
 for k, rec in params.items():

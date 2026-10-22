@@ -1,4 +1,4 @@
-"""A5: wind-setup screening.
+"""Wind-setup screening.
 
 The water level at a North Caspian waterline differs from the basin-representative
 altimetry level by wind setup and the inverse-barometer effect. For each sector s

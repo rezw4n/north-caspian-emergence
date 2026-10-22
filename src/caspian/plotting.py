@@ -1,8 +1,8 @@
 """Shared figure style: sans-serif 5-7 pt text, thin recessive axes, embedded
 TrueType fonts, vector PDF plus 600 dpi TIFF output.
 
-Journal column widths are placeholders until docs/journal_specs.md records the
-chosen journal's live specification (Phase B).
+Default column widths, used by the QC figures; the ERL figures take their widths
+from figures/_erl.py.
 """
 
 from __future__ import annotations
@@ -13,7 +13,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 MM = 1 / 25.4  # inches per millimetre
-WIDTH_SINGLE_MM = 88.0     # Nature Portfolio (docs/journal_specs.md, read 2026-10-21)
+WIDTH_SINGLE_MM = 88.0     # Nature Portfolio (read 2026-10-21)
 WIDTH_DOUBLE_MM = 180.0
 
 INK = "#1f1f1f"       # primary text

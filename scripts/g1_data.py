@@ -1,4 +1,4 @@
-"""A9 generality test, inputs (PREREG Amendment 16 items 2, 4 and 7; D-094).
+"""Generality test, inputs (PREREG Amendment 16 items 2, 4 and 7).
 
 Commands (basin = great_salt_lake | lake_urmia):
   levels <basin>    GSL: USGS NWIS daily values (parameter 62614, ft above NGVD 29) of
@@ -13,7 +13,7 @@ Commands (basin = great_salt_lake | lake_urmia):
                     Causeway and salt-evaporation ponds from OpenStreetMap (Overpass).
   vdatum <basin>    GSL: H(NAVD 88) - H(EGM2008) on a 0.05 deg grid over the box, by
                     PROJ (EGM2008 -> WGS84 -> NAD83(2011) -> GEOID18; grids from the
-                    PROJ CDN). Urmia: not needed here (ICGEM grids, D-074).
+                    PROJ CDN). Urmia: not needed here (ICGEM grids).
 
 Raw files (git-ignored): data/raw/generality/<basin>/...
 Provenance (committed): results/provenance/generality_<basin>_<item>.json

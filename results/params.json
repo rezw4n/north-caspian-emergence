@@ -666,5 +666,16 @@
   "value": 6,
   "unit": "km",
   "source": "figures/erl_fig_then_now.MIN_LEN_KM (shorter contour pieces not drawn)"
+ },
+ "params.robust_fixed_mndwi": {
+  "value": 0.0,
+  "unit": "MNDWI",
+  "source": "scripts/r18_rblock_export.build_plan (fixed_mndwi0 threshold)",
+  "decimals": 0
+ },
+ "params.gsl_max_gap_days": {
+  "value": 16,
+  "unit": "days",
+  "source": "caspian.generality.MAX_GAP_DAYS"
  }
 }

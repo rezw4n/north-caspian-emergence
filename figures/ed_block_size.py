@@ -1,5 +1,4 @@
-"""Supplementary Figure (brief section 10 check 8): H2 block-size sensitivity (D-085,
-D-088).
+"""Supplementary Figure (robustness check 8): H2 block-size sensitivity.
 
 For the primary 50 km blocks (results/validation/main/) and the 25 km and 12.5 km
 sensitivities (results/validation/main/sensitivity_25000m/, sensitivity_12500m/), per
@@ -10,7 +9,7 @@ c, d, the DEM minus product difference in NMAD and RMSE with its paired test-blo
    bootstrap 95% interval (<source>_paired_bootstrap.csv, matched variant);
 e, empirical coverage of the 90% conformal intervals with the test-block bootstrap
    interval (<source>_coverage.csv).
-The primary verdict is the 50 km one (D-086); the others are reported, not used to
+The primary verdict is the 50 km one; the others are reported, not used to
 change it.
 
 Output: figures/out/ed_block_size.{pdf,tif,png}

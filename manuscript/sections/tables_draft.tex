@@ -1,8 +1,8 @@
-% Draft tables (main text or Methods per the journal's limits; venue decided at G3).
+% Draft tables (main text or Methods per the journal's limits).
 % Every number is a \metric{...} macro from results/metrics.json (manuscript/numbers.tex).
 % Identifiers (product versions, release numbers, DOIs) are not results and are typed;
 % each reference in the data-sources table is verified in refs/verification.csv
-% (citation workstream C, D-131: rows made consistent with the Supplementary Methods).
+% (rows made consistent with the Supplementary Methods).
 
 \begin{table}[!htbp]
 \centering
@@ -55,7 +55,7 @@ GLWD & Version 2 & Habitat stand-in (wetland classes) & -- & \citet{lehner2025} 
 \begin{tabular}{lrrrll}
 \hline
 \multicolumn{6}{l}{\textbf{a} \quad Primary analysis} \\
-Model & Bias & NMAD & RMSE & $\Delta$NMAD [95\% interval] & $\Delta$RMSE [95\% interval] \\
+Model & Bias & NMAD & RMSE & $\Delta$NMAD [\metric{params.ci_pct}\% interval] & $\Delta$RMSE [\metric{params.ci_pct}\% interval] \\
 \hline
 \multicolumn{6}{l}{ATL06: $n = \metric{h2.atl06.n_test_points}$ points in \metric{h2.atl06.n_test_blocks} test blocks} \\
 Waterline DEM & \metric{h2.atl06.dem.bias_m} & \metric{h2.atl06.dem.nmad_m} & \metric{h2.atl06.dem.rmse_m} & -- & -- \\
@@ -78,7 +78,7 @@ ETOPO1 & \metric{h2.atl08.etopo1.bias_m} & \metric{h2.atl08.etopo1.nmad_m} & \me
 \begin{tabular}{lrll}
 \hline
 \multicolumn{4}{l}{\textbf{b} \quad Conformal coverage (nominal \metric{params.conformal_level})} \\
-Sector & Test blocks & ATL06 [95\% interval] & ATL08 [95\% interval] \\
+Sector & Test blocks & ATL06 [\metric{params.ci_pct}\% interval] & ATL08 [\metric{params.ci_pct}\% interval] \\
 \hline
 All test blocks & \metric{h2.atl06.coverage.overall_n_blocks} & \metric{h2.atl06.coverage.overall} [\metric{h2.atl06.coverage.overall_boot_low}, \metric{h2.atl06.coverage.overall_boot_high}] & \metric{h2.atl08.coverage.overall} [\metric{h2.atl08.coverage.overall_boot_low}, \metric{h2.atl08.coverage.overall_boot_high}] \\
 Kizlyar Bay--Dagestan--Kalmyk coast & \metric{h2.atl06.coverage.west_n_blocks} & \metric{h2.atl06.coverage.west} [\metric{h2.atl06.coverage.west_boot_low}, \metric{h2.atl06.coverage.west_boot_high}] & \metric{h2.atl08.coverage.west} [\metric{h2.atl08.coverage.west_boot_low}, \metric{h2.atl08.coverage.west_boot_high}] \\
@@ -121,7 +121,7 @@ ETOPO1 & \metric{h2.sens12km.atl08.etopo1.nmad_m} & \metric{h2.sens25km.atl08.et
 \centering
 \scriptsize
 \setlength{\tabcolsep}{2.5pt}
-\caption{\textbf{Emerged area and exposure 1~m below the 2026 level (H3).} Domain; 2026 level \metric{h3.level_2026_m}~m on the DAHITI reference (mean of the \metric{h3.level_2026.n_records} DAHITI records of 2026). For each product: the fused surface (the waterline DEM inside the observed range, the product corrected by the hindcast error model below it) and the product as used (uncorrected). Estimate, with the \metric{params.conformal_level} split-conformal interval below it. Area intervals are calibrated on the absolute hindcast errors of held-out units (leave-one-epoch-out for the corrected product; \metric{h3.n_scores.gebco2026.fused} scores for GEBCO\_2026, for example) and clipped at zero; exposure intervals are the exposure at the levels at which the surface's emergence reaches the area-interval bounds. Each surface is referenced to its own 2026 shoreline, so exposure counts only features that the surface puts in the sea (or within the access distance of it) in 2026. Counts are features; lengths and areas are the parts that emerge. The wetland layer is an open-licence habitat stand-in, not an authoritative habitat map. The same at 2~m, and three further habitat stand-ins: Supplementary Tables~\ref{tab:ed_h3_2m} and~\ref{tab:ed_h3_habitat}. Data \textcopyright{} OpenStreetMap contributors (ODbL).}
+\caption{\textbf{Emerged area and exposure \metric{h3.scenario.1_m}~m below the 2026 level (H3).} Domain; 2026 level \metric{h3.level_2026_m}~m on the DAHITI reference (mean of the \metric{h3.level_2026.n_records} DAHITI records of 2026). For each product: the fused surface (the waterline DEM inside the observed range, the product corrected by the hindcast error model below it) and the product as used (uncorrected). Estimate, with the \metric{params.conformal_level} split-conformal interval below it. Area intervals are calibrated on the absolute hindcast errors of held-out units (leave-one-epoch-out for the corrected product; \metric{h3.n_scores.gebco2026.fused} scores for GEBCO\_2026, for example) and clipped at zero; exposure intervals are the exposure at the levels at which the surface's emergence reaches the area-interval bounds. Each surface is referenced to its own 2026 shoreline, so exposure counts only features that the surface puts in the sea (or within the access distance of it) in 2026. Counts are features; lengths and areas are the parts that emerge. The wetland layer is an open-licence habitat stand-in, not an authoritative habitat map. The same at \metric{h3.scenario.2_m}~m, and three further habitat stand-ins: Supplementary Tables~\ref{tab:ed_h3_2m} and~\ref{tab:ed_h3_habitat}. Data \textcopyright{} OpenStreetMap contributors (ODbL).}
 \label{tab:h3}
 \begin{tabular}{p{2.55cm}p{1.0cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.0cm}}
 \hline

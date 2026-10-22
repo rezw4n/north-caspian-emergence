@@ -1,4 +1,4 @@
-"""Robustness: the Earth Engine cost arithmetic of docs/ROBUSTNESS_PLAN.md, from
+"""Robustness: the Earth Engine cost arithmetic of the robustness plan, from
 committed inputs and input-level tables only (no stage-2 count, waterline, DEM or
 metric is read). Every number in the plan's cost table comes from the JSON this writes.
 
@@ -7,13 +7,13 @@ Inputs
         levelled scene with an acquisition threshold; the main plan at any tau has the
         same scenes, screening only masks sectors) with its setup predictions
   results/inventory/stage2_cost_model.json   zone area of each path/row or MGRS tile
-        (the G2 scene weight) and the micro-pilot rates per scene per km2
-  results/inventory/stage2_sensB.json        measured interactive cost of the D-064 block
+        (the stage-2 scene weight) and the micro-pilot rates per scene per km2
+  results/inventory/stage2_sensB.json        measured interactive cost of the screening block
         export (EECU-s and km2 per block, all Landsat scenes)
   results/inventory/stage1_v3_interactive_log.jsonl  measured stage-1 cost per scene
   results/study_area/blocks_25km.csv, zone_v6_cover_buffered.geojson  block areas
-  data/interim/levels/scene_levels.csv       November scenes (D-062 variant)
-  the lead's main-run estimates and the month's position (parameters below)
+  data/interim/levels/scene_levels.csv       November scenes (ice-season variant)
+  our main-run estimates and the month's position (parameters below)
 
 Output: results/robustness/cost_plan.json
 
@@ -33,15 +33,15 @@ from caspian import design, robustness as R
 from caspian.config import INTERIM, RESULTS
 from caspian.geography import SECTOR_ORDER
 
-# the lead's estimates and quota position (2026-10-21; docs/gates/G2.md for the S2 range)
+# our estimates and quota position (2026-10-21)
 MAIN_L_H = 110.0
 MAIN_S_H = {"low": 124.0, "central": 186.0, "high": 248.0}
 CAP_H = 700.0
 USED_BEFORE_MAIN_H = 140.0
 # assumptions, stated in the plan
 EDGE_FACTOR = 2.0            # edge-guided (Canny) pass over a plain histogram pass, to pilot
-S1_60M_FACTOR = 16.0         # D-028: 60 m stage-1 requests cost about 16x the 240 m ones
-TAUS = (0.30, 0.20, 0.15, 0.10, 0.05)    # D-064 candidates after no screening
+S1_60M_FACTOR = 16.0         # 60 m stage-1 requests cost about 16x the 240 m ones
+TAUS = (0.30, 0.20, 0.15, 0.10, 0.05)    # screening candidates after no screening
 
 
 def scene_units(df: pd.DataFrame, scene_col: str = "scene") -> list[str]:
@@ -152,7 +152,7 @@ def main() -> int:
         "sample scene-km2 x effective rate, per family")
     row("a3_sub_export", "1 (Amendment 3)", "same, at the main thresholds (free if the main plan tags the sample)",
         h(a3_add), "as a3_add_export", tier="if_untagged")
-    # D-028: 240 m vs 60 m thresholds, one Landsat acquisition per (epoch, bin)
+    # 240 m vs 60 m thresholds, one Landsat acquisition per (epoch, bin)
     lb = base[base["fam"] == "LANDSAT"]
     n_units = lb.groupby(["epoch", "bin"]).ngroups
     spa = lb.groupby("acq").size().mean()
@@ -208,7 +208,7 @@ def main() -> int:
         "each export clipped to the pair's overlap in the cover", h(ll + ls),
         f"4 x 20 x 2 x {akm2:.0f} km2 x {r_L:.5f} x {side:.2f} (WRS-2 sidelap at 46 N) + 3 x 10 x {akm2:.0f} x "
         f"({r_L:.5f} + {r_S['central']:.5f})")
-    # November (D-062 5% bar)
+    # November (5% ice bar)
     lv = pd.read_csv(INTERIM / "levels" / "scene_levels.csv", low_memory=False)
     nov = lv[lv["epoch"].isin(["E1", "E2", "E3"]) & (lv["month"] == 11) & (lv["cloud_scene_pct"] < 60)].copy()
     nov["unit"] = np.where(nov["sensor"] == "MSI_S2", "T" + nov["MGRS_TILE"].astype(str),
@@ -270,7 +270,7 @@ def main() -> int:
     out["screening_by_tau_main_landsat"] = by_tau
     # generality (assumptions stated in the plan)
     unit_zone = sum(u["zone_km2"] for u in cm["units"] if u["family"] == "LANDSAT")
-    zone_area = 67_011.1          # zone v6 area (D-029)
+    zone_area = 67_011.1          # zone v6 area
     years_caspian = 2026 - 1992 + 1
     dpr = S["LANDSAT"] / unit_zone / years_caspian
     dens = {"low": dpr, "high": S["LANDSAT"] / zone_area / years_caspian}

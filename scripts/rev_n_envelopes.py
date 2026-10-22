@@ -1,13 +1,12 @@
 """A18 item 10(f): hindcast error envelopes for near-term emergence, replacing the "90%
-intervals"; the 33 versus 34 pairs (R3 minor 4); and a paired difference for the H3
-comparison (R3 minor 5). DECISIONS D-124. Exploratory, except the lowest-epoch scores,
-which are the registered sensitivity (D-081).
+intervals"; the 33 versus 34 pairs; and a paired difference for the H3 comparison.
+Exploratory, except the lowest-epoch scores, which are the registered sensitivity.
 
 Pairs: the registered calibration pairs of scripts/a8_emergence.py (each epoch's highest
 unit u* against every other unit of the epoch); the scored set (observed levels, anchors
 excluded) is read from results/emergence/main/loeo_errors.csv. Counts over the cells known
 at both units (caspian.nearterm.pair_counts) on the uncorrected surface (c = 0) and the
-shifted product (F - c, D-070). Errors per surface (D-124):
+shifted product (F - c). Errors per surface:
   self-referenced (uncorrected, shifted): (p_top - p_u) - (w_top - w_u)
   common baseline, area version:          w_u - p_u
   common baseline, location version:      w_both - w_top_p_u
@@ -151,7 +150,7 @@ def main(argv) -> int:
     if qchk > 1e-6:
         raise SystemExit(f"check failed: the registered q-hat is not reproduced ({qchk} km2)")
     C.log("check passed: registered q-hat reproduced")
-    # envelopes on the curves; the composite observed baseline (D-123 addendum 2) takes the scores of
+    # envelopes on the curves; the composite observed baseline takes the scores of
     # the same hindcast functional (the observed anchor is the baseline there), under its own name
     cv = pd.read_csv(C.OUT / "curves.csv")
     cv = cv[cv["sensitivity"] == "main"]
@@ -194,7 +193,7 @@ def main(argv) -> int:
                                 "calibrated": bool(calibrated), "q_hat": q})
     pd.DataFrame(qrows).to_csv(C.OUT / "envelope_q.csv", index=False)
     pd.DataFrame(env).to_csv(C.OUT / "envelopes.csv", index=False)
-    # paired difference (R3 minor 5), descriptive
+    # paired difference, descriptive
     prow = []
     for tag, form in (("main", "linear_hold"), ("main_constant", "constant")):
         le = pd.read_csv(RESULTS / "emergence" / tag / "loeo_errors.csv")

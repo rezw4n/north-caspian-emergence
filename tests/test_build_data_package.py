@@ -1,4 +1,4 @@
-"""Release rules of the data package (tools/build_data_package.py, D-142)."""
+"""Release rules of the data package (tools/build_data_package.py)."""
 import importlib.util
 import re
 import zipfile

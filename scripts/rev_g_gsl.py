@@ -1,6 +1,6 @@
-"""Revision workstream G (PREREG Amendment 18 item 11, Great Salt Lake; reviewer comments
-R1.M5, R2.M11, R3.M9): two exploratory, post-review analyses of the frozen Great Salt
-Lake (GSL) outputs. No hindcast is rerun and no registered verdict is replaced.
+"""Revision analysis G (PREREG Amendment 18 item 11, Great Salt Lake): two exploratory,
+post-review analyses of the frozen Great Salt Lake (GSL) outputs. No hindcast is rerun
+and no registered verdict is replaced.
 
 1. sources  Where each global product's heights come from in each arm's emerged band
             (near-maximum but not near-minimum water inside the arm, the 250 m band of
@@ -30,7 +30,7 @@ Lake (GSL) outputs. No hindcast is rerun and no registered verdict is replaced.
             extents as the control's); the pooled-floor sensitivity likewise. Per level,
             the product's median displacement is paired with the control's.
 
-3. above_flat  (D-128 addendum) The registered per-level rows of each product split at the
+3. above_flat  The registered per-level rows of each product split at the
             level where its flood fill passes its flat surface (level + c above the flat
             height on NAVD 88): exceeding levels and median displacement in each part.
 
@@ -279,7 +279,7 @@ def control_levels():
 
 
 def above_flat() -> dict:
-    """D-128 addendum: the registered per-level rows (shape variant) split at the level at
+    """The registered per-level rows (shape variant) split at the level at
     which each product's flood fill passes its flat surface (flood level = level + c above
     the flat height on NAVD 88)."""
     B = G.BASINS[BASIN]

@@ -1,8 +1,8 @@
 """A18 item 10 (a)-(e) and (h): near-term emergence on the common baseline, the shifted
 products and the uncorrected surfaces, with the reference-level and datum sensitivities,
 the already-dry share, the observed band, dry seabed against isolated water, and the
-integer-contour diagnostics (DECISIONS D-123). Exploratory, except the common baseline
-and the running-median reference level, which are registered sensitivities (D-081).
+integer-contour diagnostics. Exploratory, except the common baseline
+and the running-median reference level, which are registered sensitivities.
 
 Inputs: the registered caches only (scripts/rev_n_common.py). The EGM2008-constant
 sensitivity needs five uncorrected flood maps on the no-constant chain; they are built
@@ -23,8 +23,8 @@ Outputs (results/revision/n/):
   shared_soundings.json native-lattice comparison of the products with GEBCO_2022
   run_curves.json       inputs, levels, checks, timing
 
-Option --fused-form constant (D-123 addendum): the common baseline from the constant-form
-fused maps; --fused-form composite (addendum 2): the composite observed baseline of
+Option --fused-form constant: the common baseline from the constant-form
+fused maps; --fused-form composite: the composite observed baseline of
 scripts/rev_n_baseline.py, not checked (no registered counterpart). Outputs carry the
 suffix _constfused or _composite (curves, curves_fine, already_dry,
 run_curves), checked against results/emergence/main_constant/emergence.csv; the
@@ -120,7 +120,7 @@ def curves(cnt, lv, lv_rm, Lb, c, cell, deltas):
         out[("common_area", sens)] = (base_area[:, None] - at(Fall, grid, L - d)) * cell
         out[("common_location", sens)] = (base_area[:, None] - at(Fbase, grid, L - d)) * cell
         if sens.startswith("egm"):
-            continue                    # the shape constant absorbs the datum constant (D-123)
+            continue                    # the shape constant absorbs the datum constant
         out[("shifted", sens)] = (at(Fall, grid, L + c) - at(Fall, grid, L + c - d)) * cell
         out[("shifted_common_area", sens)] = (base_area[:, None] - at(Fall, grid, L + c - d)) * cell
         out[("shifted_common_location", sens)] = (base_area[:, None] - at(Fbase, grid, L + c - d)) * cell
@@ -344,7 +344,7 @@ def main(argv) -> int:
     for p in S["names"]:
         if not np.isclose(lv, round(L26 + S["c"][p], 6), atol=1e-6).any():
             raise SystemExit(f"{p}: the level grid does not hold L2026 + c")
-    # observed 2025-26 extent (zone v6, D-029), nearest 250 m cell
+    # observed 2025-26 extent (zone v6), nearest 250 m cell
     zv = np.load(RESULTS / "study_area" / "extents_v6_250m.npz")
     a7.check_crs(str(zv["crs"]), "extents_v6_250m.npz")
     low = a7.nearest(zv["low"], zv["transform"], tr, shape, 255)

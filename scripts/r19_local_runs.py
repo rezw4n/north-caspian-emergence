@@ -1,25 +1,25 @@
-"""Robustness: the local checks of docs/ROBUSTNESS_PLAN.md on the primary outputs
-(tag main; D-077 to D-088), one command per check. No Earth Engine. Every command
+"""Robustness: the local checks on the primary outputs
+(tag main), one command per check. No Earth Engine. Every command
 reads the primary outputs, never writes into them, and writes its tables and a short
 summary.json to results/robustness/<check>/ (git-tracked folder; large intermediates
 go to data/, git-ignored).
 
-Primary inputs: data/interim/stage2/main (Landsat counts, D-079), data/interim/
+Primary inputs: data/interim/stage2/main (Landsat counts), data/interim/
 waterlines/main/points.csv.gz (with `static`), data/processed/dem/main (+ emergence),
-data/interim/validation/main (prepared ICESat-2 points and their D-084 annotations),
-results/validation/main (H2 at 50 km, D-085/D-086), results/hindcast/main (H1, D-087).
+data/interim/validation/main (prepared ICESat-2 points and their annotations),
+results/validation/main (H2 at 50 km), results/hindcast/main (H1).
 
-Commands (in the coordinator's priority order)
+Commands (in priority order)
   h1-e2e3      H1 hindcast on E2 + E3 only: E1 dropped from every unit, product side
                and noise floor alike; shape constants = the primary's leave-one-epoch-out
-               refit without E1 (equal to a refit on the E2 + E3 units); envelope D-082
-               and outside states D-083 as the primary
-  nostatic     DEM without the static-contour exclusion (D-034, D-075), and H2 at the
+               refit without E1 (equal to a refit on the E2 + E3 units); record-low envelope
+               and outside states as the primary
+  nostatic     DEM without the static-contour exclusion, and H2 at the
                final 50 km blocks, paired on the primary's points (bare population)
-  lag365       the ICESat-2 dryness test with emergence + 365 days (D-069)
-  nearest      products resampled by nearest neighbour (D-070): H2 (product heights at
+  lag365       the ICESat-2 dryness test with emergence + 365 days
+  nearest      products resampled by nearest neighbour: H2 (product heights at
                the points) and, with --hindcast, H1 (new heights and flood maps)
-  dn-total     H1 total variant with N(EGM2008) without NGA's -0.41 m offset (D-074);
+  dn-total     H1 total variant with N(EGM2008) without NGA's -0.41 m offset;
                the shape variant cannot change and is not rerun
   gp           TIN vs ordinary kriging (check 7) on a seeded subsample of 50 km
                training and test blocks
@@ -28,13 +28,13 @@ Commands (in the coordinator's priority order)
                constant offset, DAHITI with PCHIP, the +-1 year gap-fill window
   setupcorr    setup correction instead of screening, first order (check 4)
   komsomolets  Komsomolets waterline statistics with and without screening, from the
-               D-064 sensitivity blocks (local part of the D-066 check)
+               screening-sensitivity blocks (local part of the Komsomolets check)
   morphology   check 10: morphology table and the rising/falling-limb difference
   prior        check 11: the area-level slope against Akbari et al. (2020)
   rblock       an R-block alternative exported by scripts/r18_rblock_export.py: hybrid
                TIN on R and the R-local paired comparison (cmd_rblock)
   datums       check 6, validation side: c and the product offsets at +-1 sigma, and
-               the two mean-tide recipes of D-073
+               the two mean-tide recipes
   vegetation   check 9 bounds (--mode as_dry | as_water) from the o band: waterlines,
                DEM, H2
   validate     add a source to an existing variant's validation and summary
@@ -149,7 +149,7 @@ def h1_summary(variant_dir: Path) -> dict:
         b = pd.read_csv(bt)
         fixed = RESULTS / "hindcast" / MAIN
         if "main_fixed" not in set(b["run"]) and (fixed / "d089_rerun_comparison.json").exists():
-            from caspian import h1 as _h1   # primary block test from the D-089 rerun's block table
+            from caspian import h1 as _h1   # primary block test from the sentinel-fix rerun's block table
             b = pd.concat([b, _h1.block_test(pd.read_csv(fixed / "block_h1.csv"), pd.read_csv(LABELS))
                            .assign(run="main_fixed")], ignore_index=True)
             b.to_csv(bt, index=False)
@@ -231,11 +231,11 @@ def cmd_nostatic(a) -> int:
     return 0
 
 
-# --- results the lead ran, folded into the D-092 verdicts (read-only on them) ----------------------
+# --- results run separately, folded into the verdicts (read-only on them) ------------------------
 
 def h2_from_folders(main_dir: Path, alt_dir: Path) -> dict:
     """h2_summary's structure from two validation folders as written by
-    scripts/a6_validate_dem.py (e.g. the D-088 block-size sensitivities)."""
+    scripts/a6_validate_dem.py (e.g. the block-size sensitivities)."""
     out = {}
     for source in ("ATL06", "ATL08"):
         if not (alt_dir / f"{source}_accuracy.csv").exists():
@@ -288,12 +288,12 @@ def h1_from_folders(main_dir: Path, alt_dir: Path, main_variant: str, alt_varian
 
 
 def cmd_fold(a) -> int:
-    """Fold the lead's runs into robustness summaries, read-only on them:
-    check 8 from the D-088 block-size sensitivities (results/validation/main/
+    """Fold the separate runs into robustness summaries, read-only on them:
+    check 8 from the block-size sensitivities (results/validation/main/
     sensitivity_25000m, sensitivity_12500m; their test blocks differ from the 50 km
     ones, so the magnitude criterion does not apply); check 6 from the red-team
     per-sector datum run (results/hindcast/main_sectorshape; its "total" rows are the
-    sector-shape variant, compared with the primary's shape variant, D-072)."""
+    sector-shape variant, compared with the primary's shape variant)."""
     vmain = RESULTS / "validation" / MAIN
     dirs = {"block_25km": "sensitivity_25000m", "block_12_5km": "sensitivity_12500m"}
     h2 = {k: h2_from_folders(vmain, vmain / d) for k, d in dirs.items() if (vmain / d).exists()}
@@ -377,7 +377,7 @@ def _alt_fits(check: str, variant: str, source: str) -> dict:
 def cmd_datums(a) -> int:
     """Check 6, validation side (the design of scripts/r06_datums.py validation): the
     ICESat-2 -> DEM constant c at +-1 bootstrap sigma; the product offsets at +-1 sigma;
-    the ICESat-2 heights in a mean-tide system by either D-073 recipe. Paired on the
+    the ICESat-2 heights in a mean-tide system by either recipe. Paired on the
     primary's points (bare population, final blocks); the primary from its files. Writes
     results/robustness/r06_datums_validation/summary.json (dn-total keeps
     r06_datums/summary.json); the variant tables go to r06_datums/<variant>/validation."""
@@ -601,7 +601,7 @@ def vegetation_streaming(src_tag: str, variant: str, mode: str) -> dict:
                     np.lib.format.write_array(fh, np.asarray(z["transform"]))
                 for g, ks in sorted(groups.items()):
                     if not {"w", "v", "o"} <= ks:
-                        raise ValueError(f"{f.name} group {g}: the vegetation variants need w, v and o (D-071)")
+                        raise ValueError(f"{f.name} group {g}: the vegetation variants need w, v and o")
                     o = z[f"o_{g}"]
                     v = z[f"v_{g}"]
                     n_veg += int(o.sum(dtype=np.int64) - v.sum(dtype=np.int64))
@@ -696,7 +696,7 @@ def cmd_levels(a) -> int:
 def cmd_setupcorr(a) -> int:
     r04 = _load("r04_screening")
     plan = pd.read_csv(PLAN, low_memory=False)
-    excl = R.exclusion(plan, np.inf)            # tau = infinity (D-077): only unknown setup excluded
+    excl = R.exclusion(plan, np.inf)            # tau = infinity: only unknown setup excluded
     sh = R.setup_shift(plan, excl)
     d = ROB / "r04_screening"
     d.mkdir(parents=True, exist_ok=True)
@@ -748,7 +748,7 @@ def cmd_komsomolets(a) -> int:
     return 0
 
 
-TWO_LIMB_BAND_M = (-26.65, -25.82)   # levels crossed on both limbs, DAHITI reference (D-037)
+TWO_LIMB_BAND_M = (-26.65, -25.82)   # levels crossed on both limbs, DAHITI reference
 
 
 def cmd_morphology(a) -> int:

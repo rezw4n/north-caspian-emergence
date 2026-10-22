@@ -25,7 +25,7 @@ def test_cancels_when_over_budget(guard):
 
 
 def test_cancels_before_overshoot_at_high_burn_rate(guard):
-    # 20 EECU-s per second (the D-026 pilot) would pass 3,600 before the next poll
+    # 20 EECU-s per second (as in the pilot) would pass 3,600 before the next poll
     assert guard.should_cancel(used=3400, rate=20, limit=3600, poll_s=15)
 
 

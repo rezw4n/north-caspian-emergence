@@ -159,7 +159,7 @@ def test_downloaded_subsets_load_on_regular_grids(name):
     assert nat.lon[0] < 46.41 and nat.lon[-1] > 54.59 and nat.lat[0] < 43.98 and nat.lat[-1] > 47.34
 
 
-# --- the geoid-difference correction (total error, D-070) -------------------------------------
+# --- the geoid-difference correction (total error) --------------------------------------------
 
 def _dN(lon, lat):
     return 0.2 + 0.05 * (lon - 50.0) - 0.04 * (lat - 45.5)

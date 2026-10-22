@@ -1,11 +1,10 @@
-"""Revision statistics for the H1 audit (PREREG Amendment 18 items 1, 2, 4, 5 and 8;
-DECISIONS D-113 and D-114; workstream S).
+"""Revision statistics for the H1 audit (PREREG Amendment 18 items 1, 2, 4, 5 and 8).
 
 Pure functions on the frozen hindcast tables (and, for ``filter_cells``, on the
 waterline-cell records of caspian.hindcast_tiled). Nothing here reads files.
 
-- ``block_indices`` and ``mbb_mispredict``: the moving-block bootstrap over levels of
-  D-113 (blocks of consecutive evaluable levels, one set of uniform draws shared by
+- ``block_indices`` and ``mbb_mispredict``: the moving-block bootstrap over levels
+  (blocks of consecutive evaluable levels, one set of uniform draws shared by
   every cell of a resample).
 - ``ratio_summary``: median and quartiles of D/Q, infinite ratios kept and counted.
 - ``exact_group_test``: the Eq. S12 statistic (median of the group minus median of the
@@ -53,7 +52,7 @@ def block_indices(n: int, u, block: int = 3) -> np.ndarray:
 
 
 def mbb_mispredict(cells: dict, n_boot: int, seed: int, block: int = 3) -> tuple[pd.DataFrame, np.ndarray, list]:
-    """Moving-block bootstrap of the majority rule (D-113).
+    """Moving-block bootstrap of the majority rule.
 
     ``cells``: {key: boolean array of the "exceeds" flags of the cell's evaluable
     levels, in level order}. In each resample one vector of uniform numbers serves every
@@ -144,7 +143,7 @@ def exact_group_test(values: dict, group, tol: float = 1e-9) -> dict:
 
 def exact_rank_sum_test(values: dict, group) -> dict:
     """Exact one-sided rank-sum test over every labelling of len(group) of the units in
-    ``values`` (D-115 sensitivity): the statistic is the sum of the group's ranks (rank 1
+    ``values`` (a sensitivity): the statistic is the sum of the group's ranks (rank 1
     = smallest value, average ranks for ties); p = share of labellings with a rank sum at
     least the observed one."""
     from scipy.stats import rankdata
@@ -230,7 +229,7 @@ def majority_votes(df: pd.DataFrame, by, col: str) -> pd.Series:
     return vote.dropna().astype(bool)
 
 
-# --- D-114: waterline cells kept by a mask ----------------------------------------------------
+# --- waterline cells kept by a mask -----------------------------------------------------------
 
 def mask_labels(cells: dict, keep, off: int = 0) -> dict:
     """The waterline-cell record of hindcast_tiled.displacement_cells (or

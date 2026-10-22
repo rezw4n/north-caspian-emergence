@@ -1,6 +1,6 @@
 """PREREG section 6: the spatial block assignment, frozen before any evaluation.
 
-Square blocks on the equal-area grid (D-002), aligned to multiples of the block size;
+Square blocks on the equal-area grid, aligned to multiples of the block size;
 each block takes the sector that contains its centre; blocks are randomly assigned to
 train / calib / test (0.6 / 0.2 / 0.2), stratified by sector, with seed 20261020
 (caspian.blocking, caspian.design). The block-size check of section 6 (semivariogram of

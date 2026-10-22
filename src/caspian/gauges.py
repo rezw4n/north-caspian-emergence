@@ -3,8 +3,8 @@
 Source
 ------
 The CASPCOM General Catalogue of the Caspian Sea level, monthly data
-(http://www.caspcom.com, page "Уровень", archive ``Sea-Level-EN.zip``; docs/DATUMS.md,
-refs/notes/caspcom_catalogue.md). One legacy Excel workbook per post (``.xls``; one
+(http://www.caspcom.com, page "Уровень", archive ``Sea-Level-EN.zip``; docs/DATUMS.md).
+One legacy Excel workbook per post (``.xls``; one
 ``.xlsx``), each with a header block and a table of monthly mean levels:
 
     r2  Post ___Makhachkala___
@@ -18,8 +18,8 @@ Monthly values are centimetres above the post datum, so the level in the Baltic
 Height System is ``datum + value / 100`` m. Missing months are text ("-", "н.д.") or
 empty.
 
-Offset (PREREG section 5; D-093)
---------------------------------
+Offset (PREREG section 5)
+-------------------------
 DAHITI is averaged the way the posts are: the linear interpolant of the DAHITI
 records is evaluated daily, a calendar month is kept only if every day lies within a
 gap of at most ``max_gap_days`` between records, and a year only if all 12 months are

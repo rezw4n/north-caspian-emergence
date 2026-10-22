@@ -1,4 +1,4 @@
-"""caspian.nearterm (A18 item 10; D-123 to D-127) on synthetic grids."""
+"""caspian.nearterm (A18 item 10) on synthetic grids."""
 
 import numpy as np
 import pytest

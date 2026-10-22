@@ -1,9 +1,9 @@
-"""A18 item 10(e) and the composition of the common baseline (D-123 addendum, items 1-2).
+"""A18 item 10(e) and the composition of the common baseline.
 
 (e1) The observed seabed between E3 bin 13 (-28.65 m, the bin that holds L2026) or bin 14
 (-28.55 m) and bin 12 (-28.75 m, the lowest audited unit): cells observed at both units,
 sea-connected water at the higher and land at the lower. Computed on the observed extents
-without the record-low envelope (D-082 pools bins 12-14, so the enveloped extents cannot
+without the record-low envelope (the envelope pools bins 12-14, so the enveloped extents cannot
 differ there) and, for reference, with it.
 (e2) The waterline-DEM strip: cells of the fused baseline S_base (sea at L2026) observed as
 land at bin 12.
@@ -14,9 +14,9 @@ by the fused surface's source code).
 Band states: the uncorrected and shifted 1 m and 2 m bands of each product split by the
 observed state at bin 12 (known sea, known land, unobserved), by S_base (registered fused
 baseline) and by the zone-v6 2025-26 extent (water, not water, no value), to read the
-already-dry shares (D-123 (c)).
+already-dry shares (item 10(c)).
 
-Composite observed baseline (D-123 addendum 2): known sea at bin 12 (enveloped, as
+Composite observed baseline: known sea at bin 12 (enveloped, as
 registered) plus the cells unobserved at bin 12 that are water in the zone-v6 2025-26
 extent, kept where 8-connected to the open-sea seed; written as a flood-level-like map
 (-1000 m on the set, +inf elsewhere) to data/interim/revision_n/composite_baseline.npy.

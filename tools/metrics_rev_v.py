@@ -1,5 +1,4 @@
-"""Workstream V metrics: water surface and datums (PREREG Amendment 18 item 9; R2.M3,
-R2.M2, R1.M1(c), R1 minor 1 and 4-7, R2 minor 3 and 5, R3 minor 8; D-120 to D-122).
+"""Metrics of revision analysis V: water surface and datums (PREREG Amendment 18 item 9).
 
 Loaded by tools/build_metrics.revision_metrics, which calls add(m). Every key starts
 with "rev.v."; each record is {"value", "unit", "source", "note"?} as put() in

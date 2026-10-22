@@ -1,19 +1,19 @@
-"""Robustness check 11 (brief section 10): consistency with published Caspian results.
+"""Robustness check 11: consistency with published Caspian results.
 No Earth Engine.
 
 Quantitative comparison where a published value is directly comparable and recorded
 with its verbatim quote in refs/literature_values.csv:
-- Akbari et al. (2020; refs/notes/akbari2020.md): Northern Caspian flooded area against
+- Akbari et al. (2020): Northern Caspian flooded area against
   sea level, 7,103 km2 per m for -29 < SWL < -26 m (Table 1;
   lit.akbari2020.nc_area_per_m_km2, range lit.akbari2020.fit_swl_lo_m / _hi_m). Our
   slope: observed sea area against level over the same range of the main run's units
   (robustness.area_level_slope on results/hindcast/<main>/observed.csv, domain-wide row
   "all", full samples). A constant offset between DAHITI and BHS-77 does not change a
   slope. Their region is their own "Northern Caspian" and their area the flooded part
-  of the 1977-1995 band (refs/notes/akbari2020.md), so a difference can come from the
+  of the 1977-1995 band, so a difference can come from the
   regions as well as from the methods; both are stated.
 Every other prior shoreline result enters the paper qualitatively until its numbers are
-recorded in refs/literature_values.csv with quotes (refs/claims.csv).
+recorded in refs/literature_values.csv with quotes.
 
 Usage:
   python scripts/r11_prior_work.py --main <tag>

@@ -2,7 +2,7 @@
 
 In the text, a number is written as \\metric{levels.dahiti.n_records}. An unknown
 key stops LaTeX with an error, so no number can enter the manuscript except
-through metrics.json (CLAUDE.md integrity rule 2). Formatting: integers with thin
+through metrics.json. Formatting: integers with thin
 thousands separators; floats to the precision given in FORMATS by key, else in
 UNIT_FORMATS by the metric's unit, else 2 dp; separators on every numeric path.
 Negative numbers take \\textminus{} on every path (never an ASCII hyphen), and a

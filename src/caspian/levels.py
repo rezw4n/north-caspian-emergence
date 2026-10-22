@@ -1,4 +1,4 @@
-"""A4: water level at each acquisition time, with uncertainty.
+"""Water level at each acquisition time, with uncertainty.
 
 The level between two altimetry epochs is modelled as a Brownian bridge plus
 measurement error. For a query time between epochs i and j (gap Δt, fraction
@@ -11,7 +11,7 @@ where q (m² per day) is the effective diffusion rate of the interpolation error
 The record noise σ and q are estimated jointly (``estimate_noise_and_diffusion``)
 from the cross-validated residuals of this same linear interpolation, so the two
 are consistent with each other and with ``interpolate``. The seasonal cycle is
-kept in h (it adds contours, brief section 8 A4); q absorbs the sub-sampling
+kept in h (it adds contours); q absorbs the sub-sampling
 variability (including seasonal curvature between records), so it describes the
 interpolation error of this series, not the sea alone: a denser or smoother product
 has a different q (Hydroweb's own joint fit gives a much smaller q than DAHITI's;
@@ -58,7 +58,7 @@ def gap_days(times) -> np.ndarray:
 def estimate_diffusion(times, levels, sigmas, max_gap_days: float = 60.0) -> float:
     """Least-squares estimate of q from neighbour increments (m² per day), >= 0, given
     the per-record noise ``sigmas``. The pipeline uses ``estimate_noise_and_diffusion``
-    instead (D-018 correction): feeding this function a noise floor that already
+    instead: feeding this function a noise floor that already
     contains bridge variance biases q low."""
     d = _days(times)
     h = np.asarray(levels, float)
@@ -168,7 +168,7 @@ def empirical_sigma(times, levels, max_gap_days: float = 30.0) -> float:
     return _nmad(e)
 
 
-# --- joint estimate of record noise and diffusion (D-018 correction) -------------------
+# --- joint estimate of record noise and diffusion --------------------------------------
 
 class NoiseDiffusion(NamedTuple):
     sigma: float          # record noise, m
@@ -318,7 +318,7 @@ def neighbour_zscores(times, levels, sigma: float, q: float, max_gap_days: float
     return out
 
 
-# --- robust extremes (D-021 correction) ------------------------------------------------
+# --- robust extremes -------------------------------------------------------------------
 
 def running_median(values, k: int = 3) -> np.ndarray:
     """Centred running median over ``k`` consecutive records (k odd); the window is
@@ -342,7 +342,7 @@ def smoothed_extremes(times, levels, k: int = 3) -> dict:
             "time_of_min": t.iloc[j], "range_m": float(s[i] - s[j])}
 
 
-# --- secondary series onto the primary reference (D-020 correction) ----------------------
+# --- secondary series onto the primary reference -----------------------------------------
 
 def pair_series(t_ref, h_ref, t_other, h_other, max_half_gap_days: float) -> pd.DataFrame:
     """For each reference epoch, the other series linearly interpolated between its two

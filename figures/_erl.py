@@ -1,12 +1,11 @@
-"""Shared settings for the ERL main display items (figures/erl_fig*.py, tab_report_card.py;
-D-100, D-102).
+"""Shared settings for the ERL main display items (figures/erl_fig*.py, tab_report_card.py).
 
-Environmental Research Letters figure rules (docs/journal_specs.md): text 8-12 pt at final
+Environmental Research Letters figure rules: text 8-12 pt at final
 size, fonts restricted to Times, Helvetica, Courier or Symbol (here TeX Gyre Heros, a
 Helvetica clone; see FONT_FAMILY), widths 8.5 cm (single) and 15 cm
 (double column), vector PDF preferred, colour never the only means of conveying
 information, panels labelled (a), (b), ..., scale bars on maps. These take precedence over
-the project's 5-7 pt rule (CLAUDE.md, Figures; D-099). Text here is 8 pt or more, panel
+the project's 5-7 pt rule. Text here is 8 pt or more, panel
 labels bold "(a)". Files: vector PDF, 600 dpi TIFF and a PNG preview in figures/out/,
 written at the exact figure size by _common.save.
 
@@ -33,7 +32,7 @@ SCALE_GSL_KM = 10            # scale bar of the Great Salt Lake map
 GRATICULE_MAP_DEG = 1.0      # graticule of the whole-domain maps
 GRATICULE_ZOOM_DEG = 0.5     # graticule of the zooms and of the Great Salt Lake map
 NEAR_KM = 10                 # exposure features drawn within this distance of the 2 m band
-JPEG_QUALITY = 85            # photographic layers in the PDF (then-and-now composites), D-102 addendum
+JPEG_QUALITY = 85            # photographic layers in the PDF (then-and-now composites)
 FS = 8.0            # every text element
 FS_LABEL = 9.0      # panel labels
 INK, MUTED, GRID = plotting.INK, plotting.INK_MUTED, plotting.GRID
@@ -82,8 +81,8 @@ def value(m: dict, key: str) -> float:
     return float(m[key]["value"])
 
 
-# Typeface (D-102 addendum). IOP's figure guidelines: "Fonts used should be restricted to the
-# standard font families (Times, Helvetica, Courier or Symbol)" (docs/journal_specs.md). Arial is
+# Typeface. IOP's figure guidelines: "Fonts used should be restricted to the
+# standard font families (Times, Helvetica, Courier or Symbol)". Arial is
 # not one of them, and Helvetica itself cannot be embedded here, so the figures use TeX Gyre
 # Heros, the GUST Foundry's version of the URW Helvetica clone (GUST Font License), which
 # matplotlib embeds as a CID font. Its OpenType files come from tectonic's bundle cache (the

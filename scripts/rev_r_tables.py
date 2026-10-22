@@ -1,5 +1,5 @@
 """Revision R: H1 verdicts from the audit-pass tables of scripts/rev_r_audit.py (A18 items
-3 and 6; R1.M1(d); D-117, D-118, D-119).
+3 and 6).
 
 Commands (each reads results/revision/r/audit/<name>/ and results/hindcast/main/):
   replica   the pass's primary against results/hindcast/main: per-unit and per-level
@@ -158,7 +158,7 @@ def cmd_static(a) -> int:
     sh["share_static"] = sh["n_static"] / sh["n_cells"]
     sh_all = cells.groupby("sector")[["n_cells", "n_static"]].sum()
     sh_all["share_static"] = sh_all["n_static"] / sh_all["n_cells"]
-    # DEM contour points (D-075 rule): share flagged static per sector, E2 + E3, all splits
+    # DEM contour points (static-contour rule): share flagged static per sector, E2 + E3, all splits
     rule = json.loads((RESULTS / "levels" / "static_contour_rule.json").read_text(encoding="utf-8"))
     ex = pd.DataFrame(rule["excluded"])
     ex["n_static"] = ex["n"] * ex["static"]

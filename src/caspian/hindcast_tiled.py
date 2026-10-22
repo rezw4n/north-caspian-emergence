@@ -1,4 +1,4 @@
-"""A7: the hindcast metrics of caspian.hindcast, computed tile by tile on large grids.
+"""The hindcast metrics of caspian.hindcast, computed tile by tile on large grids.
 
 The 60 m hindcast grid (the product bounding box, about 11,250 x 6,700 cells) is too
 large for whole-array processing on the project laptop (15 GB): one call of
@@ -17,7 +17,7 @@ change only how they are computed:
   marked if any of its pieces holds a mark. This is exactly the whole-grid
   labelling; no margin is involved. Each tile is labelled twice (once to find the
   joins, once to write the result), so only seam lines are held in between.
-- Flood levels (D-070). ``flood_level_map`` gives every cell the level at which the
+- Flood levels. ``flood_level_map`` gives every cell the level at which the
   flood fill first reaches it (the minimax path height from the seed), so that the
   flood fill at any level is ``F < level``; tiles are reconstructed with a one-cell
   halo and redone until no tile edge changes, which is exact.
@@ -185,7 +185,7 @@ def flood_fill(elevation, level: float, seed, *, tile: int = TILE, connectivity:
 
 
 def flood_level_map(elevation, seed, *, tile: int = TILE, connectivity: int = 8, out=None) -> np.ndarray:
-    """The flood level F of every cell (D-070): the lowest level at which
+    """The flood level F of every cell: the lowest level at which
     hindcast.flood_fill(elevation, level, seed) floods it, i.e. the minimax path
     height from the seed (over paths of finite cells from a seed cell, the least
     possible highest elevation on the path, both ends included); +inf where no such
@@ -303,8 +303,8 @@ def outside_state(zone, sea_seed, land_seed, *, domain, connectivity: int = 8, d
 
 def sea_classes(water, valid, outside_state, sea_seed, *, shape=None, tile: int = TILE,
                 connectivity: int = 8) -> np.ndarray:
-    """The observed extent restricted to sea-connected water (PREREG Amendment 7, item 2;
-    D-033), as int8 codes: inside ``valid``, 1 = water 8-connected through known water
+    """The observed extent restricted to sea-connected water (PREREG Amendment 7, item 2),
+    as int8 codes: inside ``valid``, 1 = water 8-connected through known water
     to the open-sea seed, 0 = land (observed dry, or observed water whose component is
     bordered only by known land), -1 = unknown (observed water, not so connected, whose
     component touches a cell of unknown state, 8-neighbourhood); -2 outside ``valid``

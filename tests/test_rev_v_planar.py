@@ -1,5 +1,5 @@
 """scripts/rev_v_planar.py: the quantised (approximate-search) counts equal the exact
-D-070 counts of scripts/a7_hindcast.unit_counts, and the planar correction map."""
+shape-offset counts of scripts/a7_hindcast.unit_counts, and the planar correction map."""
 
 import importlib.util
 from pathlib import Path
@@ -57,7 +57,7 @@ def test_approx_counts_equal_exact_counts_of_the_shifted_map(tmp_path):
     for a, b in [(0.0, 0.0), (0.004, -0.003), (-0.01, 0.002)]:
         want = rp.exact_bias(fd, Fv - (a * fd.x + b * fd.y), finite, c)
         assert np.array_equal(ap.bias(a, b), want)
-    # the profile follows the D-070 rule (a7_hindcast.fit_offset on its own grid)
+    # the profile follows the shape-offset rule (a7_hindcast.fit_offset on its own grid)
     ap_full = rp.Approx(fd, Fv, finite, 1)
     assert ap_full.profile(0.0, 0.0)["c0_m"] == a7.fit_offset(rp.exact_bias(fd, Fv, finite), fd.epochs)["offset_m"]
 

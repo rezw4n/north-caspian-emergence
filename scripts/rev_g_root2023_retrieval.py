@@ -1,25 +1,24 @@
-"""Revision workstream G (PREREG Amendment 18 item 11, Great Salt Lake): retry the
+"""Revision analysis G (PREREG Amendment 18 item 11, Great Salt Lake): retry the
 scripted retrieval of the registered positive control, the USGS half-metre
 topobathymetric DEM of Great Salt Lake (Root 2023, doi:10.5066/P9DGG75W), from
 ScienceBase.
 
 Amendment 16 item 7 registered this DEM as the positive control. On 2026-10-21 every
-scripted request to ScienceBase met a browser challenge (HTTP 403; D-094,
-docs/gates/STOP-2026-10-21-generality.md). This script asks again, without trying to
-get round any challenge:
+scripted request to ScienceBase met a browser challenge (HTTP 403). This script asks
+again, without trying to get round any challenge:
 
 1. the DOI resolver (where doi.org sends the DOI);
 2. the ScienceBase catalogue JSON of the release item and of the GeoTIFF item (the two
-   item ids recorded in the STOP memo), which lists every file with its size;
+   item ids recorded at the first attempt), which lists every file with its size;
 3. a HEAD request (no body) on each file's download URL, and on the S3 URL if the
    catalogue gives one, to see whether it would be served to a script;
 4. two public routes outside ScienceBase's web front end: the DataCite record of the
    DOI (sizes and formats as registered) and a HEAD request on the public ScienceBase
-   S3 publish bucket at the GeoTIFF's file name from the STOP memo
+   S3 publish bucket at the GeoTIFF's file name recorded at the first attempt
    (Great_Salt_Lake_TBDEM.tif). An AccessDenied answer is recorded, not worked round.
 
 Nothing is downloaded beyond the JSON records and response headers. The download rule
-of the revision (D-112 workstream rules: log over 2 GB, never over 15 GB) is applied to
+of the revision (log over 2 GB, never over 15 GB) is applied to
 the sizes found: a file over 15 GB is not downloaded whatever the response.
 
 Output: results/revision/g/root2023_retrieval.json (every URL, the time, the HTTP
@@ -40,7 +39,7 @@ import requests
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results" / "revision" / "g" / "root2023_retrieval.json"
 DOI = "10.5066/P9DGG75W"
-ITEMS = {"release": "64595c00d34ec179a8368788", "geotiff": "646d0ed2d34ee02593fb50a7"}   # STOP memo of 2026-10-21
+ITEMS = {"release": "64595c00d34ec179a8368788", "geotiff": "646d0ed2d34ee02593fb50a7"}   # recorded on 2026-10-21
 LIMIT_GB = 15.0
 UA = "caspian-revision-g/1.0 (research script; contact rezwan490@gmail.com)"
 TIMEOUT = 60

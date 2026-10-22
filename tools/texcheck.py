@@ -1,11 +1,10 @@
-"""Pure helpers for the verify-B manuscript checks (tools/verify.py, brief section 15).
+"""Pure helpers for the manuscript checks.
 
 LaTeX reading (comments, \\input expansion, environments, sections, citations, metric
 keys, graphics), the number trace with its whitelist, the ERL word count, the colour-map
 scan of figure scripts, numeric comparison of rebuilt tables, and the parsing of the
-internal reviews and the submission-package list. Only ``expand_inputs`` touches the file
-system. The checks that use these helpers may not be weakened after their first commit
-without an entry in docs/DECISIONS.md (CLAUDE.md, integrity rule 5).
+review reports and the submission-package list. Only ``expand_inputs`` touches the file
+system.
 """
 
 from __future__ import annotations
@@ -447,7 +446,7 @@ def word_count(tex: str) -> int:
 def main_text_for_count(tex: str) -> str:
     """The part of a manuscript ERL counts toward the Letter limit: the document body
     without title and author block, abstract, figures, tables (floats and bare tabulars),
-    captions and the reference list (docs/journal_specs.md, ERL). Everything else counts,
+    captions and the reference list (ERL author guidelines). Everything else counts,
     section headings, acknowledgements and statements included."""
     body = document_body(tex)
     body = remove_environments(body, ("abstract", "thebibliography", *FLOATS, "tabular", "tabular*", "tabularx",
@@ -460,9 +459,9 @@ def main_text_for_count(tex: str) -> str:
 #
 # A numeral in the traced text passes only if it sits inside \metric{...} (it is then not
 # a numeral of the source at all) or matches one of the explicit patterns below. Each
-# pattern is a class the brief allows (section 15: "years, figure numbers, sample sizes
-# defined in Methods"; the lead's list adds table, section and equation numbers and the
-# D-/Amendment record numbers) or a name that merely contains digits. Nothing else is
+# pattern is an allowed class (years, figure, table, section and equation numbers, sample
+# sizes defined in Methods, and the D-/Amendment record numbers of the pre-registration)
+# or a name that merely contains digits. Nothing else is
 # whitelisted: a design constant (a scenario depth, a nominal coverage, a percentile)
 # is a number in the manuscript and goes through \metric like any result.
 
@@ -470,18 +469,19 @@ MONTHS = ("January|February|March|April|May|June|July|August|September|October|N
           "Jan\\.|Feb\\.|Mar\\.|Apr\\.|Jun\\.|Jul\\.|Aug\\.|Sep\\.|Sept\\.|Oct\\.|Nov\\.|Dec\\.")
 # not followed by a unit or a counted noun: such a numeral is a quantity, not a label
 _UNIT_AFTER = r"(?!\s*(?:%|m\b|km\b|cm\b|mm\b|km2\b|m2\b|per\s*cent|percent|EECU|pixels?\b|scenes?\b))"
-# a figure, table, section or equation number: 3, 3b, S2, (1), 2.3
-_REF_NUM = r"\(?S?\d{1,3}(?:\.\d{1,2})*[a-z]?\)?(?![\d.])" + _UNIT_AFTER
+# a figure, table, section or equation number: 3, 3b, S2, (1), 2.3; a full stop after it
+# ends the sentence ("checks 6 and 10."), a full stop and a digit would be a decimal
+_REF_NUM = r"\(?S?\d{1,3}(?:\.\d{1,2})*[a-z]?\)?(?!\d|\.\d)" + _UNIT_AFTER
 _RANGE = r"(?:\s*(?:,|and|or|to|--|\u2013|-)\s*" + _REF_NUM + r")*"
 
 WHITELIST: list[tuple[str, re.Pattern]] = [
     # cross-references written out: Figure 2b, Figs 2--4, Supplementary Table S1,
     # Section 2.3, Supplementary Note 4, Eq. (1), section 10 of the pre-registration, and
-    # the numbered robustness checks of brief section 10 ("checks 1, 2 and 9")
+    # the numbered robustness checks ("checks 1, 2 and 9")
     ("figure/table/section/equation/check number", re.compile(
         r"(?i)\b(?:Supplementary\s+|Suppl\.\s*)?(?:Figures?|Figs?\.?|Tables?|Sections?|Sects?\.?|Notes?|"
         r"Equations?|Eqs?\.?|(?:robustness\s+)?checks?)\s*" + _REF_NUM + _RANGE + r"|\u00a7\s*" + _REF_NUM + _RANGE)),
-    # project record numbers: decisions D-105, PREREG Amendments 12 and 17
+    # project record numbers: D-numbers, PREREG Amendments 12 and 17
     ("D-/Amendment number", re.compile(r"\bD-\d+\b|(?i:\bAmendments?)\s+\d+(?:\s*(?:,|and|--|\u2013)\s*\d+)*")),
     # calendar: 1 January, January 1st, the 21st century, 1985--2026, the 1990s (a
     # four-digit 1800-2100 number that is not followed by a unit). Month names are
@@ -494,9 +494,16 @@ WHITELIST: list[tuple[str, re.Pattern]] = [
     ("product, sensor or datum name", re.compile(
         r"\bLandsat\s+[4-9](?:\s*(?:,|and|or|/|--|\u2013|-)\s*[4-9])*\b|\bSentinel-[1-6][A-D]?\b|\bICESat-2\b"
         r"|\bGLO-(?:30|90)\b|\bWorldDEM-30\b|\bBHS-77\b|\bNAVD\s*88\b|\bOLI-2\b|\bTIRS-2\b|\bEIGEN-6C4\b"
-        r"|\bCollection\s+2\b|\bLevel-[123]\b|\bTier\s+[12]\b|\b[Vv]ersion\s+\d+(?:\.\d+)*\b|\b3D\s+Elevation\s+Program\b"
+        r"|\bCollection\s+2\b|\bLevel-[123]A?\b|\bTier\s+[12]\b|\b[Vv]ersion\s+\d+(?:\.\d+)*\b|\b3D\s+Elevation\s+Program\b"
         r"|\b3DEP\b"
-        r"|\bSSP[1-5]-\d\.\d\b|\bRCP\s*\d\.\d\b")),
+        r"|\bSSP[1-5]-\d\.\d\b|\bRCP\s*\d\.\d\b"
+        # D-136 addendum: the exact product, release, datum, licence, gauge, variable and
+        # pipeline-stage names of the data-sources table and the Supplementary (each
+        # value is part of the name, not a quantity of this study; tests/test_verify_b.py)
+        r"|\b(?:15|1/3)\s+arc-second\b(?:\s+\(10\s*m\)\s+DEM\b)?|\b1\s+arc-minute\b"
+        r"|\btopobathymetric\s+DEM\s*&\s*0\.5\s*m\b|\bHR\s+Raster,\s*250\s*m\b"
+        r"|\bRelease\s+0\d\d\b|\bVERTCON\s*3\.0\b|\bNGVD\s*29\b|\bODbL\s+1\.0\b|\bStage\s+[12]\b"
+        r"|\bNWIS\s+gauges?\s+\d{8}(?:\s*(?:,|and)\s*\d{8})*\b|(?<=\()10\s*m\s+wind\b")),
 ]
 
 # Sample sizes defined in Methods: (value, noun pattern, word form, what it is). A numeral
@@ -551,8 +558,8 @@ def untraced_numerals(tex: str, sample_sizes=()) -> list[tuple[str, str]]:
 
 # ============================================================================ colour maps
 
-# Rainbow-type maps (CLAUDE.md: never jet or rainbow) and every other matplotlib built-in:
-# CLAUDE.md asks for cmocean or Crameri maps. A ListedColormap of explicit colours is not a
+# Rainbow-type maps (never jet or rainbow) and every other matplotlib built-in: the
+# figures use cmocean or Crameri maps. A ListedColormap of explicit colours is not a
 # named map and passes; cmocean ("cmo.*") and Crameri ("cmc.*") registered names pass.
 RAINBOW = {"jet", "rainbow", "gist_rainbow", "hsv", "nipy_spectral", "gist_ncar", "turbo", "prism", "flag",
            "Spectral", "spectral", "gist_stern", "CMRmap", "gist_earth", "terrain", "brg"}
@@ -634,7 +641,7 @@ def compare_json(a, b, rel: float = REPRO_REL_TOL, abs_: float = REPRO_ABS_TOL, 
 
 
 # Run records (run.json, summary.json and the like) carry metadata of the run itself that a
-# rebuild cannot reproduce: when it ran, how long it took and where the files were (D-133).
+# rebuild cannot reproduce: when it ran, how long it took and where the files were.
 RUN_META_KEYS = frozenset({"created", "seconds", "elapsed_s", "wall_s", "started", "finished"})
 _ABS_PATH = re.compile(r"^(?:[A-Za-z]:[\\/]|/(?:tmp|home|Users|var|mnt|d|c)/)")
 
@@ -704,7 +711,7 @@ def compare_csv(a: str, b: str, rel: float = REPRO_REL_TOL, abs_: float = REPRO_
     return out
 
 
-# ============================================================================ internal review
+# ============================================================================ review reports
 
 def md_sections(md: str) -> list[tuple[int, str, str]]:
     """(level, heading, body) of every markdown heading; a body runs to the next heading

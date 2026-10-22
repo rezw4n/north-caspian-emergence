@@ -1,6 +1,6 @@
 """ICESat-2 ATL24 (coastal and nearshore bathymetry, v002) as an independent check of the
 near-term emergence surfaces (PREREG section 2 "ATL24 bathymetry where available",
-section 10 and Amendment 17; brief section 8 A8; DECISIONS D-095).
+section 10 and Amendment 17).
 
 Reading (scripts/a8_atl24_fetch.py)
 -----------------------------------
@@ -20,7 +20,7 @@ and are counted, not used. night_flag defines the night-only sensitivity.
 
 Datum (Amendment 17, item 2)
 ----------------------------
-    H     = ellipse_h - N(EIGEN-6C4)            (as ICESat-2 ATL06/ATL08, D-078)
+    H     = ellipse_h - N(EIGEN-6C4)            (as ICESat-2 ATL06/ATL08)
     y_ref = H + c                               (c: the ATL08 training-block constant)
 ellipse_h is the ATL03 photon height (tide-free, ITRF of the ATL03 release) with the
 refraction correction added; ATL24's own EGM08 orthometric heights are not used. The

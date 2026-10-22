@@ -1,4 +1,4 @@
-"""Tests of caspian.rev_g (workstream G, D-128 to D-130), on synthetic data."""
+"""Tests of caspian.rev_g (revision analysis G), on synthetic data."""
 
 import numpy as np
 import pandas as pd

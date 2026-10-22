@@ -1,5 +1,5 @@
-"""Metrics of the revised ERL figures 1, 3 and 4 (internal review R1 minor 19-22, R2 minor
-12, R3.M4; D-140, D-141). Loaded by tools/build_metrics.revision_metrics, which calls
+"""Metrics of the revised ERL figures 1, 3 and 4. Loaded by
+tools/build_metrics.revision_metrics, which calls
 add(m). Every key starts with ``rev.fig.``; each record is {"value", "unit", "source",
 "note"?, "decimals"?}, as put() in tools/build_metrics.py. A missing input file adds
 nothing. Years are stored as text so that the macros print them without a thousands
@@ -55,7 +55,7 @@ def fig1(m: dict) -> None:
 
 
 def fig3(m: dict) -> None:
-    """Figure 3(c): per-level D/Q (h1_mispredicts_detail.csv; workstream S's item2_dq.csv)."""
+    """Figure 3(c): per-level D/Q (h1_mispredicts_detail.csv; revision analysis S's item2_dq.csv)."""
     dq = RES / "revision" / "s" / "item2_dq.csv"
     det = RES / "hindcast" / "main" / "h1_mispredicts_detail.csv"
     if not (dq.exists() and det.exists()):
@@ -77,7 +77,7 @@ def fig3(m: dict) -> None:
 
 def fig5(m: dict) -> None:
     """Figure 5: where the first metre emerges (scripts/f4_erl_nearterm_map.py), and the
-    already-dry shares of workstream N in percent (results/revision/n/already_dry.csv)."""
+    already-dry shares of revision analysis N in percent (results/revision/n/already_dry.csv)."""
     p = RES / "display" / "erl_nearterm_map.json"
     if p.exists():
         src = "results/display/erl_nearterm_map.json"

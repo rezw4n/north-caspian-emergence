@@ -1,4 +1,4 @@
-"""A6: sub-pixel waterlines from water-frequency rasters (marching squares).
+"""Sub-pixel waterlines from water-frequency rasters (marching squares).
 
 A frequency raster f (fraction of valid observations classed as water within
 one level bin) is contoured at f = 0.5 with scikit-image's marching squares.
@@ -53,13 +53,13 @@ def contour_points(lines, spacing: float):
     return np.array(pts).reshape(-1, 2)
 
 
-STATIC_MIN_ETA, STATIC_MAX_VALLEY = 0.70, 0.50   # validity of the split, as for scene thresholds (D-061)
+STATIC_MIN_ETA, STATIC_MAX_VALLEY = 0.70, 0.50   # validity of the split, as for scene thresholds
 STATIC_RHO_RANGE = (0.2, 0.8)
 STATIC_RHO_FALLBACK = 0.5
 
 
 def static_threshold(rho) -> dict:
-    """Threshold rho* of the static-contour rule (D-034, D-075) from training-block
+    """Threshold rho* of the static-contour rule from training-block
     rho_level values: Otsu's split of their histogram (256 bins on [-1, 1]) when the
     split is valid (eta >= 0.70, valley ratio <= 0.50) and lies in [0.2, 0.8],
     otherwise 0.5. Contour points with rho_level < rho* are static."""

@@ -1,4 +1,4 @@
-"""A8: the pre-registered H3 decision rule, applied to emergence tables (PREREG
+"""The pre-registered H3 decision rule, applied to emergence tables (PREREG
 section 10).
 
 These functions only read tables written by scripts/a8_emergence.py (or synthetic
