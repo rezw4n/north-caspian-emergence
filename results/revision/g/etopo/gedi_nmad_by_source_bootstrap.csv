@@ -1,0 +1,8 @@
+series,statistic,value,ci_low,ci_high,n_boot,seed,n_blocks
+dem,nmad_fabdem,0.6328,0.4819,1.8983,2000,20261022,13
+dem,nmad_lake_depth,0.5953,0.3370,1.6870,2000,20261022,13
+dem,diff_lake_depth_minus_fabdem,-0.0374,-0.8179,0.9693,2000,20261022,13
+etopo_2022,nmad_fabdem,0.5221,0.4453,0.8439,2000,20261022,13
+etopo_2022,nmad_lake_depth,0.8743,0.4790,1.7615,2000,20261022,13
+etopo_2022,diff_lake_depth_minus_fabdem,0.3522,-0.0881,1.2085,2000,20261022,13
+etopo_2022 minus dem,diff_lake_depth_minus_fabdem,0.3897,0.1331,1.2233,2000,20261022,13

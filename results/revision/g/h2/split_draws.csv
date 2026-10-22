@@ -1,0 +1,22 @@
+variant,n_boot,seed,dem_nmad_m,coverage,n_test_blocks,h2_matched,h2_total
+split_seed01,1000,20261020,0.2932,0.8679,12,supported,supported
+split_seed02,1000,20261020,0.3079,0.9336,12,not supported,not supported
+split_seed03,1000,20261020,0.3217,0.8640,12,not supported,not supported
+split_seed04,1000,20261020,0.2921,0.9269,10,not supported,not supported
+split_seed05,1000,20261020,0.2303,0.9495,9,supported,supported
+split_seed06,1000,20261020,0.3705,0.8750,12,not supported,not supported
+split_seed07,1000,20261020,0.4744,0.7995,11,not supported,not supported
+split_seed08,1000,20261020,0.2377,0.7631,15,not supported,not supported
+split_seed09,1000,20261020,1.0321,0.4681,8,not supported,not supported
+split_seed10,1000,20261020,0.2406,0.8769,9,not supported,not supported
+split_seed11,1000,20261020,0.6193,0.8992,11,not supported,not supported
+split_seed12,1000,20261020,0.2764,0.9284,14,supported,supported
+split_seed13,1000,20261020,0.5967,0.7621,12,not supported,not supported
+split_seed14,1000,20261020,0.3809,0.8244,12,not supported,not supported
+split_seed15,1000,20261020,0.2156,0.9398,10,not supported,not supported
+split_seed16,1000,20261020,0.4895,0.8558,10,not supported,not supported
+split_seed17,1000,20261020,0.4826,0.7491,14,not supported,not supported
+split_seed18,1000,20261020,0.2551,0.8768,13,not supported,not supported
+split_seed19,1000,20261020,0.2698,0.8849,10,not supported,not supported
+split_seed20,1000,20261020,0.2190,0.9449,12,not supported,not supported
+split_swap_calib_test,1000,20261020,0.2380,0.8848,12,not supported,not supported

@@ -1,0 +1,275 @@
+{
+ "rule": "caspian.h1.mispredicts (shape variant decides) on each product's pooled-per-level rows restricted to the bins at which the 3DEP substitute is evaluable in the same arm; the product's own per-level floor; pooled-floor sensitivity reported",
+ "status": "exploratory, post-review (PREREG Amendment 18 item 11); the registered verdict ('recurs', D-094 addendum) stands",
+ "by_product": {
+  "gebco_2026": {
+   "shape": {
+    "arms_mispredicted": 2,
+    "arms_evaluable": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 40,
+      "n_evaluable": 49,
+      "median_displacement_m": 1061.5,
+      "pooled_floor_mispredicts": true
+     },
+     "south": {
+      "n_exceeding": 37,
+      "n_evaluable": 38,
+      "median_displacement_m": 1676.4,
+      "pooled_floor_mispredicts": true
+     }
+    }
+   },
+   "total": {
+    "arms_mispredicted": 2,
+    "arms_evaluable": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 49,
+      "n_evaluable": 49,
+      "median_displacement_m": "inf",
+      "pooled_floor_mispredicts": true
+     },
+     "south": {
+      "n_exceeding": 37,
+      "n_evaluable": 38,
+      "median_displacement_m": "inf",
+      "pooled_floor_mispredicts": true
+     }
+    }
+   }
+  },
+  "gebco_2022": {
+   "shape": {
+    "arms_mispredicted": 2,
+    "arms_evaluable": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 40,
+      "n_evaluable": 49,
+      "median_displacement_m": 1928.4,
+      "pooled_floor_mispredicts": true
+     },
+     "south": {
+      "n_exceeding": 37,
+      "n_evaluable": 38,
+      "median_displacement_m": 1867.8,
+      "pooled_floor_mispredicts": true
+     }
+    }
+   },
+   "total": {
+    "arms_mispredicted": 2,
+    "arms_evaluable": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 49,
+      "n_evaluable": 49,
+      "median_displacement_m": "inf",
+      "pooled_floor_mispredicts": true
+     },
+     "south": {
+      "n_exceeding": 37,
+      "n_evaluable": 38,
+      "median_displacement_m": "inf",
+      "pooled_floor_mispredicts": true
+     }
+    }
+   }
+  },
+  "etopo_2022": {
+   "shape": {
+    "arms_mispredicted": 2,
+    "arms_evaluable": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 29,
+      "n_evaluable": 49,
+      "median_displacement_m": 420.0,
+      "pooled_floor_mispredicts": false
+     },
+     "south": {
+      "n_exceeding": 36,
+      "n_evaluable": 38,
+      "median_displacement_m": 761.3,
+      "pooled_floor_mispredicts": true
+     }
+    }
+   },
+   "total": {
+    "arms_mispredicted": 2,
+    "arms_evaluable": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 29,
+      "n_evaluable": 49,
+      "median_displacement_m": 365.0,
+      "pooled_floor_mispredicts": false
+     },
+     "south": {
+      "n_exceeding": 32,
+      "n_evaluable": 38,
+      "median_displacement_m": 228.2,
+      "pooled_floor_mispredicts": true
+     }
+    }
+   }
+  },
+  "etopo1": {
+   "shape": {
+    "arms_mispredicted": 2,
+    "arms_evaluable": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 40,
+      "n_evaluable": 49,
+      "median_displacement_m": 1500.0,
+      "pooled_floor_mispredicts": true
+     },
+     "south": {
+      "n_exceeding": 38,
+      "n_evaluable": 38,
+      "median_displacement_m": 1545.7,
+      "pooled_floor_mispredicts": true
+     }
+    }
+   },
+   "total": {
+    "arms_mispredicted": 2,
+    "arms_evaluable": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 49,
+      "n_evaluable": 49,
+      "median_displacement_m": "inf",
+      "pooled_floor_mispredicts": true
+     },
+     "south": {
+      "n_exceeding": 38,
+      "n_evaluable": 38,
+      "median_displacement_m": "inf",
+      "pooled_floor_mispredicts": true
+     }
+    }
+   }
+  },
+  "srtm15p_v2.7": {
+   "shape": {
+    "arms_mispredicted": 2,
+    "arms_evaluable": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 40,
+      "n_evaluable": 49,
+      "median_displacement_m": 1932.1,
+      "pooled_floor_mispredicts": true
+     },
+     "south": {
+      "n_exceeding": 37,
+      "n_evaluable": 38,
+      "median_displacement_m": 1875.7,
+      "pooled_floor_mispredicts": true
+     }
+    }
+   },
+   "total": {
+    "arms_mispredicted": 2,
+    "arms_evaluable": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 49,
+      "n_evaluable": 49,
+      "median_displacement_m": "inf",
+      "pooled_floor_mispredicts": true
+     },
+     "south": {
+      "n_exceeding": 37,
+      "n_evaluable": 38,
+      "median_displacement_m": "inf",
+      "pooled_floor_mispredicts": true
+     }
+    }
+   }
+  }
+ },
+ "verdict_at_control_levels": {
+  "verdict": "recurs",
+  "n_mispredict": 5,
+  "n_evaluable": 5,
+  "n_global": 5,
+  "positive_control": "pass"
+ },
+ "per_level_ratio_product_to_control": {
+  "etopo1": {
+   "north": {
+    "median": 15.81,
+    "n_levels": 49,
+    "share_levels_product_larger": 1.0
+   },
+   "south": {
+    "median": 25.76,
+    "n_levels": 38,
+    "share_levels_product_larger": 1.0
+   }
+  },
+  "etopo_2022": {
+   "north": {
+    "median": 4.0,
+    "n_levels": 49,
+    "share_levels_product_larger": 0.959
+   },
+   "south": {
+    "median": 12.69,
+    "n_levels": 38,
+    "share_levels_product_larger": 1.0
+   }
+  },
+  "gebco_2022": {
+   "north": {
+    "median": 15.0,
+    "n_levels": 49,
+    "share_levels_product_larger": 1.0
+   },
+   "south": {
+    "median": 31.13,
+    "n_levels": 38,
+    "share_levels_product_larger": 1.0
+   }
+  },
+  "gebco_2026": {
+   "north": {
+    "median": 11.31,
+    "n_levels": 49,
+    "share_levels_product_larger": 1.0
+   },
+   "south": {
+    "median": 27.94,
+    "n_levels": 38,
+    "share_levels_product_larger": 1.0
+   }
+  },
+  "srtm15p_v2.7": {
+   "north": {
+    "median": 14.87,
+    "n_levels": 49,
+    "share_levels_product_larger": 1.0
+   },
+   "south": {
+    "median": 31.26,
+    "n_levels": 38,
+    "share_levels_product_larger": 1.0
+   }
+  }
+ }
+}

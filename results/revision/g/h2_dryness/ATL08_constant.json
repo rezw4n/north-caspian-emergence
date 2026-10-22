@@ -1,0 +1,13 @@
+{
+ "source": "ATL08",
+ "constant": {
+  "split": "train",
+  "estimator": "median of DEM - H_EGM2008",
+  "constant_m": 0.6925734999999982,
+  "sigma_boot_m": 0.2095739542393231,
+  "n_points": 228839,
+  "n_blocks": 36,
+  "n_boot": 2000,
+  "seed": 20261022
+ }
+}

@@ -1,0 +1,85 @@
+{
+ "rule": "D-130: GEDI test points (bare, 50 km blocks), ETOPO 2022 source ID of the nearest cell; block bootstrap B = 2000, seed 20261022; within-block contrast where each source has >= 50 points",
+ "n_points": 387009,
+ "n_blocks": 13,
+ "n_other_source_dropped": 0,
+ "bootstrap": [
+  {
+   "series": "dem",
+   "statistic": "nmad_fabdem",
+   "value": 0.6327758816609979,
+   "ci_low": 0.48190531735710174,
+   "ci_high": 1.8983218187356488,
+   "n_boot": 2000,
+   "seed": 20261022,
+   "n_blocks": 13
+  },
+  {
+   "series": "dem",
+   "statistic": "nmad_lake_depth",
+   "value": 0.595328734097995,
+   "ci_low": 0.33700861714012303,
+   "ci_high": 1.6869506107214254,
+   "n_boot": 2000,
+   "seed": 20261022,
+   "n_blocks": 13
+  },
+  {
+   "series": "dem",
+   "statistic": "diff_lake_depth_minus_fabdem",
+   "value": -0.037447147563002825,
+   "ci_low": -0.8179039860799496,
+   "ci_high": 0.9693075669522061,
+   "n_boot": 2000,
+   "seed": 20261022,
+   "n_blocks": 13
+  },
+  {
+   "series": "etopo_2022",
+   "statistic": "nmad_fabdem",
+   "value": 0.522102512231999,
+   "ci_low": 0.4452929436469439,
+   "ci_high": 0.8439210091131764,
+   "n_boot": 2000,
+   "seed": 20261022,
+   "n_blocks": 13
+  },
+  {
+   "series": "etopo_2022",
+   "statistic": "nmad_lake_depth",
+   "value": 0.8743301990639993,
+   "ci_low": 0.4789825512223534,
+   "ci_high": 1.761546110241751,
+   "n_boot": 2000,
+   "seed": 20261022,
+   "n_blocks": 13
+  },
+  {
+   "series": "etopo_2022",
+   "statistic": "diff_lake_depth_minus_fabdem",
+   "value": 0.35222768683200034,
+   "ci_low": -0.08814559972050377,
+   "ci_high": 1.2084616857946457,
+   "n_boot": 2000,
+   "seed": 20261022,
+   "n_blocks": 13
+  },
+  {
+   "series": "etopo_2022 minus dem",
+   "statistic": "diff_lake_depth_minus_fabdem",
+   "value": 0.38967483439500317,
+   "ci_low": 0.1331193900560943,
+   "ci_high": 1.2233091332715782,
+   "n_boot": 2000,
+   "seed": 20261022,
+   "n_blocks": 13
+  }
+ ],
+ "within_block": {
+  "n_blocks": 11,
+  "etopo_median_diff_lake_minus_fabdem_m": -0.01200354472799503,
+  "dem_median_diff_lake_minus_fabdem_m": -0.11766727547400635,
+  "n_blocks_etopo_fabdem_lower": 5,
+  "n_blocks_dem_fabdem_lower": 2
+ }
+}

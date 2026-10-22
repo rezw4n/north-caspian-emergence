@@ -199,6 +199,13 @@ NOT_REBUILT = {
     "results/study_area/geoid_*.npz": "geoid grids (scripts/a7_geoid_difference.py, a7_geoid_corrections.py)",
     "results/robustness/cost_plan.json": "Earth Engine cost plan (scripts/r17_cost_plan.py)",
     "results/robustness/r18_rblock_export/plan.json": "Earth Engine export plan (scripts/r18_rblock_export.py plan)",
+    "results/revision/g/root2023_retrieval.json": "network snapshot: the ScienceBase retry of 2026-10-22 "
+                                                  "(make revision-g-fetch; D-128)",
+    "results/revision/g/dep3_provenance.json": "network snapshot: USGS 3DEP metadata read on 2026-10-22 "
+                                               "(make revision-g-fetch; D-128)",
+    "results/revision/g/etopo_lake_passages.json": "network snapshot: ETOPO 2022 and HydroLAKES documents read on "
+                                                   "2026-10-22 (make revision-g-fetch; D-130)",
+    "results/revision/g/citation_requests.md": "hand-written document: workstream G's citation requests for workstream C",
 }
 # Files a rebuilt target's recipe also writes (prefix -> that target).
 SIDE_OUTPUTS = {

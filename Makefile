@@ -888,6 +888,142 @@ $(REV_S) &: scripts/rev_s_tables.py $(call h1_tables,$(HC)/main) $(call hc_table
 METRIC_INPUTS += $(REV_S)
 REVISION_RESULTS += $(REV_S_RASTERS) $(REV_S)
 
+# Workstream G, Great Salt Lake, H2 and ETOPO 2022 (D-128 to D-130). Exploratory post-review
+# analyses of frozen outputs; seed 20261022. HEAVY: the ATL06 influence, Mondrian and block-size
+# stages (about 25 min together), the ICESat-2 and GEDI splits by ETOPO source (5 min), the
+# independent dryness test (ATL06 about 45 min, ATL08 about 6 min) and the ETOPO 2022
+# displacement by source (770 s). The network snapshots are in `make revision-g-fetch` (not in
+# `all`): root2023_retrieval.json, dep3_provenance.json, etopo_lake_passages.json.
+REV_G := results/revision/g
+# Great Salt Lake: sources per arm, the split at each grid's flat surface, verdicts at the
+# control's levels (rev_g_gsl.py reads the static layers g1_static.py writes beside static.json).
+REV_G_GSL := $(addprefix $(REV_G)/,gsl_sources.json gsl_band_height_histograms.csv gsl_above_flat.json \
+  gsl_control_levels.csv gsl_control_levels.json gsl_control_levels_detail.csv)
+$(REV_G_GSL) &: scripts/rev_g_gsl.py scripts/g1_decide.py $(GSL)/static.json $(GSL)/h1_decision.json \
+        $(GSL)/h1_mispredicts_detail.csv $(GSL_HC) $(GSL_RAW)/bathymetry $(GSL_RAW)/vdatum_navd88_minus_egm2008.npz \
+        $(GSL_RAW)/levels/gsl_daily_levels.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_gsl.py
+# H2 from the frozen tables: the split draws (D-104), single-block intervals, RMSE beside NMAD.
+REV_G_H2_TABLES := $(addprefix $(REV_G)/h2/,split_draws.csv split_draws.json)
+$(REV_G_H2_TABLES) &: scripts/rev_g_h2.py $(ROB_SPLITS) $(ROB)/r08_blocking/summary.json \
+        $(VAL)/ATL08_accuracy.csv $(VAL)/ATL08_coverage.csv $(PKG)
+	$(PYTHON) scripts/rev_g_h2.py splits
+REV_G_INTERVALS := $(REV_G)/h2/intervals.json $(foreach s,ATL06 ATL08 GLO30 GEDI,$(addprefix $(REV_G)/h2/intervals_,\
+  paired_$(s).csv coverage_$(s).csv))
+$(REV_G_INTERVALS) &: scripts/rev_g_h2.py $(call val_fits,ATL06 ATL08,$(VAL)) $(call val_fits,GLO30,$(VALG)) \
+        $(call val_fits,GEDI,$(VALE)) $(PKG)
+	$(PYTHON) scripts/rev_g_h2.py intervals
+$(REV_G)/h2/rmse_beside_nmad.csv: scripts/rev_g_h2.py $(call val_fits,ATL06 ATL08,$(VAL)) $(PKG)
+	$(PYTHON) scripts/rev_g_h2.py rmse
+# H2 on the point tables, one source per run (the file names carry the source).
+REV_G_H2_POINTS := $(H2_DEM) $(VAL)/prepare.json $(VAL)/block_size_check.json results/study_area/blocks_50km.csv
+rev_g_influence = $(addprefix $(REV_G)/h2/influence_,summary_$(1).csv detail_$(1).csv check_$(1).csv)
+rev_g_blocksizes = $(addprefix $(REV_G)/h2/blocksizes_common_,accuracy_$(1).csv paired_$(1).csv $(1).json)
+$(call rev_g_influence,ATL08) &: scripts/rev_g_h2.py scripts/a6_validate_dem.py $(REV_G_H2_POINTS) \
+        $(call val_fits,ATL08,$(VAL)) $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_h2.py influence --sources ATL08
+$(call rev_g_influence,ATL06) &: scripts/rev_g_h2.py scripts/a6_validate_dem.py $(REV_G_H2_POINTS) \
+        $(call val_fits,ATL06,$(VAL)) $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_h2.py influence --sources ATL06
+$(REV_G)/h2/mondrian_ATL08.csv: scripts/rev_g_h2.py scripts/a6_validate_dem.py $(REV_G_H2_POINTS) \
+        $(call val_fits,ATL08,$(VAL)) $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_h2.py mondrian --sources ATL08
+$(REV_G)/h2/mondrian_ATL06.csv: scripts/rev_g_h2.py scripts/a6_validate_dem.py $(REV_G_H2_POINTS) \
+        $(call val_fits,ATL06,$(VAL)) $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_h2.py mondrian --sources ATL06
+$(call rev_g_blocksizes,ATL08) &: scripts/rev_g_h2.py scripts/a6_validate_dem.py $(REV_G_H2_POINTS) \
+        $(foreach d,$(VAL) $(VAL)/sensitivity_25000m $(VAL)/sensitivity_12500m,$(call val_fits,ATL08,$(d))) \
+        results/study_area/blocks_25km.csv results/study_area/blocks_12km.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_h2.py blocksizes --sources ATL08
+$(call rev_g_blocksizes,ATL06) &: scripts/rev_g_h2.py scripts/a6_validate_dem.py $(REV_G_H2_POINTS) \
+        $(foreach d,$(VAL) $(VAL)/sensitivity_25000m $(VAL)/sensitivity_12500m,$(call val_fits,ATL06,$(d))) \
+        results/study_area/blocks_25km.csv results/study_area/blocks_12km.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_h2.py blocksizes --sources ATL06
+# The independent dryness test (R1 minor 8): every quality-passed ICESat-2 point, observed dry in
+# the E3 extent of its acquisition's level bin; then the registered evaluation (descriptive).
+# prepare writes data/interim/revision_g/h2_dryness/<SOURCE>_points.csv.gz for evaluate.
+REV_G_DRY := $(REV_G)/h2_dryness
+rev_g_dry_eval = $(addprefix $(REV_G_DRY)/$(1)_,accuracy.csv accuracy_blocks.csv coverage.csv paired_bootstrap.csv \
+  constant.json product_offsets.json scale_model.json calibration.json counts.json)
+REV_G_DRY_IN := scripts/rev_g_h2_dryness.py scripts/a4_scene_levels.py scripts/a7_hindcast.py scripts/a6_validate_dem.py \
+        $(S2MAIN) $(H2_DEM) $(DAHITI) $(HYDROWEB) results/qc/level_crosscheck_w20d.json \
+        results/qc/level_crosscheck_pairs_w20d.csv results/study_area/extents_v6_250m.npz \
+        results/study_area/geoid_egm2008_minus_eigen6c4.npz $(PRODUCT_GRIDS) $(PKG)
+$(REV_G_DRY)/ATL08_prepare.json $(REV_G_DRY)/ATL08_granule_levels.csv &: $(REV_G_DRY_IN) $(ICESAT2)/ATL08 \
+        results/provenance/icesat2_atl08.json | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_h2_dryness.py prepare --sources ATL08
+$(REV_G_DRY)/ATL06_prepare.json $(REV_G_DRY)/ATL06_granule_levels.csv &: $(REV_G_DRY_IN) $(ICESAT2)/ATL06 \
+        results/provenance/icesat2_atl06.json | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_h2_dryness.py prepare --sources ATL06
+$(call rev_g_dry_eval,ATL08) &: scripts/rev_g_h2_dryness.py scripts/a6_validate_dem.py $(REV_G_DRY)/ATL08_prepare.json \
+        results/study_area/blocks_50km.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_h2_dryness.py evaluate --sources ATL08
+$(call rev_g_dry_eval,ATL06) &: scripts/rev_g_h2_dryness.py scripts/a6_validate_dem.py $(REV_G_DRY)/ATL06_prepare.json \
+        results/study_area/blocks_50km.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_h2_dryness.py evaluate --sources ATL06
+$(REV_G_DRY)/h2_decision.json: scripts/rev_g_h2_dryness.py $(REV_G_DRY)/ATL06_paired_bootstrap.csv \
+        $(REV_G_DRY)/ATL08_paired_bootstrap.csv $(PKG)
+	$(PYTHON) scripts/rev_g_h2_dryness.py decide
+REV_G_H2 := $(REV_G_H2_TABLES) $(REV_G_INTERVALS) $(REV_G)/h2/rmse_beside_nmad.csv \
+  $(foreach s,ATL06 ATL08,$(call rev_g_influence,$(s)) $(REV_G)/h2/mondrian_$(s).csv $(call rev_g_blocksizes,$(s)) \
+  $(REV_G_DRY)/$(s)_prepare.json $(REV_G_DRY)/$(s)_granule_levels.csv $(call rev_g_dry_eval,$(s))) \
+  $(REV_G_DRY)/h2_decision.json
+# ETOPO 2022: displacement by the source of the predicted shoreline cell (the main run's
+# machinery; it checks itself against the registered displacement.csv), then the comparisons;
+# the cache data/interim/revision_g/etopo/distances.csv.gz feeds the edge classes.
+REV_G_ET := $(REV_G)/etopo
+REV_G_ET_SOURCES := $(addprefix $(REV_G_ET)/,source_per_level.csv shoreline_cell_sources.csv sources_run.json)
+$(REV_G_ET_SOURCES) &: scripts/rev_g_etopo.py $(HC_INPUTS) $(HC)/main/run.json $(HC)/main/displacement.csv \
+        $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_etopo.py sources
+REV_G_ET_COMPARE := $(addprefix $(REV_G_ET)/,compare.json matched_levels.csv shoreline_cell_sources_by_band.csv)
+$(REV_G_ET_COMPARE) &: scripts/rev_g_etopo.py $(REV_G_ET)/source_per_level.csv $(REV_G_ET)/shoreline_cell_sources.csv \
+        $(PKG)
+	$(PYTHON) scripts/rev_g_etopo.py compare
+$(REV_G_ET)/etopo_shoreline_edge_classes.csv: scripts/rev_g_etopo.py scripts/a7_hindcast.py $(REV_G_ET_SOURCES) \
+        $(BATHY)/etopo_2022_ncaspian.nc $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_etopo.py edge
+REV_G_ET_BANDS := $(addprefix $(REV_G_ET)/,bands.json floor_by_band_sector.csv dq_by_band_sector.csv \
+  dq_within_sector_etopo_vs_others.csv above_below_by_sector.csv)
+$(REV_G_ET_BANDS) &: scripts/rev_g_etopo.py $(HC)/main/h1_mispredicts_detail.csv $(HC)/main/noise_floor.csv $(PKG)
+	$(PYTHON) scripts/rev_g_etopo.py bands
+$(REV_G_ET)/etopo_minus_gebco2022_by_band_source.csv $(REV_G_ET)/heights.json &: scripts/rev_g_etopo.py \
+        results/study_area/extents_v6_250m.npz $(BATHY)/etopo_2022_ncaspian.nc $(BATHY)/gebco_2022_ncaspian.nc \
+        $(DEM_MAIN) $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_etopo.py heights
+$(REV_G_ET)/lake_clamp.json: scripts/rev_g_etopo.py $(BATHY)/etopo_2022_ncaspian.nc $(BATHY)/gebco_2022_ncaspian.nc \
+        $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_etopo.py clamp
+$(REV_G_ET)/icesat2_by_etopo_source.csv: scripts/rev_g_etopo.py scripts/a6_validate_dem.py $(REV_G_H2_POINTS) \
+        $(call val_fits,ATL06 ATL08,$(VAL)) $(BATHY)/etopo_2022_ncaspian.nc $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_etopo.py is2
+$(addprefix $(REV_G_ET)/,gedi.json gedi_nmad_by_source_bootstrap.csv gedi_within_block.csv) &: scripts/rev_g_etopo.py \
+        scripts/a6_validate_dem.py $(H2_DEM) $(VALE)/prepare.json $(VALE)/block_size_check.json \
+        $(call val_fits,GEDI,$(VALE)) results/study_area/blocks_50km.csv $(BATHY)/etopo_2022_ncaspian.nc $(PKG) \
+        | $(VERIFIED)
+	$(PYTHON) scripts/rev_g_etopo.py gedi
+REV_G_ETOPO := $(REV_G_ET_SOURCES) $(REV_G_ET_COMPARE) $(REV_G_ET)/etopo_shoreline_edge_classes.csv $(REV_G_ET_BANDS) \
+  $(REV_G_ET)/etopo_minus_gebco2022_by_band_source.csv $(REV_G_ET)/heights.json $(REV_G_ET)/lake_clamp.json \
+  $(REV_G_ET)/icesat2_by_etopo_source.csv $(addprefix $(REV_G_ET)/,gedi.json gedi_nmad_by_source_bootstrap.csv \
+  gedi_within_block.csv)
+# Network snapshots (committed; not in `all`): the ScienceBase retry, the 3DEP provenance and the
+# ETOPO 2022 and HydroLAKES documents (raw copies in data/raw/revision_g/, git-ignored).
+REV_G_FETCHED := $(addprefix $(REV_G)/,root2023_retrieval.json dep3_provenance.json etopo_lake_passages.json)
+revision-g-fetch:
+	$(PYTHON) scripts/rev_g_root2023_retrieval.py
+	$(PYTHON) -I scripts/rev_g_3dep_provenance.py
+	$(PYTHON) -I scripts/rev_g_etopo_docs.py
+.PHONY: revision-g-fetch
+# tools/metrics_rev_g.py reads these.
+METRIC_INPUTS += $(REV_G_GSL) $(REV_G)/root2023_retrieval.json $(REV_G)/dep3_provenance.json \
+  $(REV_G_H2_TABLES) $(REV_G)/h2/intervals.json $(REV_G)/h2/rmse_beside_nmad.csv \
+  $(foreach s,ATL06 ATL08,$(REV_G)/h2/influence_summary_$(s).csv $(REV_G)/h2/mondrian_$(s).csv \
+  $(REV_G)/h2/blocksizes_common_accuracy_$(s).csv $(REV_G)/h2/blocksizes_common_$(s).json $(REV_G_DRY)/$(s)_prepare.json \
+  $(REV_G_DRY)/$(s)_accuracy.csv $(REV_G_DRY)/$(s)_coverage.csv) $(REV_G_DRY)/h2_decision.json \
+  $(addprefix $(REV_G_ET)/,etopo_minus_gebco2022_by_band_source.csv lake_clamp.json compare.json \
+  etopo_shoreline_edge_classes.csv bands.json above_below_by_sector.csv icesat2_by_etopo_source.csv gedi.json)
+REVISION_RESULTS += $(REV_G_GSL) $(REV_G_H2) $(REV_G_ETOPO)
+
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
 

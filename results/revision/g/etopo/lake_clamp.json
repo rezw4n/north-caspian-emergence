@@ -1,0 +1,48 @@
+{
+ "rule": "D-130 heights stage, whole lake-depth area of the subset (context)",
+ "documentation": "MacFerrin et al. 2025 describe GEBCO Lake Depths as GEBCO 2022 lake bathymetry included unchanged (MSL)",
+ "metrics": {
+  "n_lake_cells": {
+   "value": 700246,
+   "unit": "cells",
+   "note": "ETOPO 2022 source ID 11 in the subset"
+  },
+  "share_equal_gebco2022_pct": {
+   "value": 89.16,
+   "unit": "%"
+  },
+  "share_etopo_lower_pct": {
+   "value": 10.84,
+   "unit": "%"
+  },
+  "share_etopo_higher_pct": {
+   "value": 0.0,
+   "unit": "%"
+  },
+  "max_etopo_lake_m": {
+   "value": -28.0,
+   "unit": "m"
+  },
+  "share_gebco_above_m29_pct": {
+   "value": 10.84,
+   "unit": "%",
+   "note": "GEBCO_2022 higher than -29 m at ETOPO lake-depth cells"
+  },
+  "share_matching_min_rule_pct": {
+   "value": 100.0,
+   "unit": "%",
+   "note": "ETOPO 2022 = min(GEBCO_2022, -29 m)"
+  },
+  "share_matching_min_rule_where_gebco_above_m29_pct": {
+   "value": 99.97,
+   "unit": "%"
+  }
+ },
+ "difference_counts": {
+  "-4.0": 31,
+  "-3.0": 2319,
+  "-2.0": 2632,
+  "-1.0": 70880,
+  "0.0": 624364
+ }
+}

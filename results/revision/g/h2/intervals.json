@@ -1,0 +1,70 @@
+{
+ "ATL06": {
+  "paired_scopes_not_estimable": [
+   "interfluve",
+   "west"
+  ],
+  "coverage_scopes_not_estimable": [
+   "interfluve",
+   "west"
+  ],
+  "coverage_overall": {
+   "coverage": 0.7519042299409183,
+   "ci_low": 0.7510973519593027,
+   "ci_high": 0.7527097858006251,
+   "boot_low": 0.4908461271364708,
+   "boot_high": 0.8880925016194171
+  }
+ },
+ "ATL08": {
+  "paired_scopes_not_estimable": [
+   "interfluve",
+   "west"
+  ],
+  "coverage_scopes_not_estimable": [
+   "interfluve",
+   "west"
+  ],
+  "coverage_overall": {
+   "coverage": 0.7563108649990452,
+   "ci_low": 0.7536990954159277,
+   "ci_high": 0.7589084348892516,
+   "boot_low": 0.4698542674351068,
+   "boot_high": 0.8906291244900644
+  }
+ },
+ "GLO30": {
+  "paired_scopes_not_estimable": [
+   "interfluve",
+   "west"
+  ],
+  "coverage_scopes_not_estimable": [
+   "interfluve",
+   "west"
+  ],
+  "coverage_overall": {
+   "coverage": 0.8816121483295475,
+   "ci_low": 0.8800883361939286,
+   "ci_high": 0.883123289637515,
+   "boot_low": 0.8199748553075377,
+   "boot_high": 0.9670337458661464
+  }
+ },
+ "GEDI": {
+  "paired_scopes_not_estimable": [
+   "interfluve",
+   "west"
+  ],
+  "coverage_scopes_not_estimable": [
+   "interfluve",
+   "west"
+  ],
+  "coverage_overall": {
+   "coverage": 0.7967308253813219,
+   "ci_low": 0.7954594312430153,
+   "ci_high": 0.7979977752432622,
+   "boot_low": 0.4806470417948903,
+   "boot_high": 0.944157444899034
+  }
+ }
+}

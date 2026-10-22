@@ -1,0 +1,8 @@
+source,sector,q_hat,n_points,n_points_recount,used_pooled,n_blocks,n_blocks_ge_50_points,points_per_block_min,points_per_block_max,pooled_q_hat,pooled_n_points,min_n_points_rule
+ATL06,west,2.5047,36476,36476,False,2,2,8501,27975,2.0301,1018182,50
+ATL06,volga,13.8939,73705,73705,False,4,4,10655,39575,2.0301,1018182,50
+ATL06,interfluve,1.3999,238451,238451,False,1,1,238451,238451,2.0301,1018182,50
+ATL06,ural,2.2374,121693,121693,False,1,1,121693,121693,2.0301,1018182,50
+ATL06,northeast,1.5621,504413,504413,False,2,2,192345,312068,2.0301,1018182,50
+ATL06,komsomolets,2.0301,0,0,True,0,0,0,0,2.0301,1018182,50
+ATL06,open_shelf,1.6524,43444,43444,False,2,2,20280,23164,2.0301,1018182,50

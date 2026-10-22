@@ -1,0 +1,29 @@
+{
+ "source": "ATL08 only (the D-104 reassignments did not run ATL06)",
+ "n_seeds": 20,
+ "n_supported_matched": 3,
+ "n_supported_total": 3,
+ "n_not_supported_matched": 17,
+ "supported_seeds": [
+  "split_seed01",
+  "split_seed05",
+  "split_seed12"
+ ],
+ "registered_draw_dem_nmad_m": 0.3700959523799987,
+ "registered_draw_coverage": 0.7563108649990452,
+ "n_seeds_lower_dem_nmad_than_registered": 12,
+ "n_seeds_higher_coverage_than_registered": 18,
+ "swap": [
+  {
+   "variant": "split_swap_calib_test",
+   "n_boot": 1000,
+   "seed": 20261020,
+   "dem_nmad_m": 0.2380353588899994,
+   "coverage": 0.8847998710145512,
+   "n_test_blocks": 12,
+   "h2_matched": "not supported",
+   "h2_total": "not supported"
+  }
+ ],
+ "note": "the registered H2 decision needs both ATL06 and ATL08 (D-069); with ATL08 alone 'not supported' in a draw implies 'not supported' for that draw, while an ATL08 'supported' is at most 'partial support' until ATL06 is run"
+}

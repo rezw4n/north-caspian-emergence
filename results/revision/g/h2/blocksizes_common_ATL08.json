@@ -1,0 +1,30 @@
+{
+ "rule": "D-129: points held out of fitting at 12.5, 25 and 50 km; each size's own fits",
+ "meta": {
+  "ATL08": {
+   "n_common_points": 25434,
+   "n_blocks": {
+    "12500": 35,
+    "25000": 22,
+    "50000": 19
+   },
+   "n_test_all_three": 2074
+  }
+ },
+ "rule_outcome_descriptive": {
+  "ATL08": {
+   "12500": {
+    "matched": "not supported",
+    "total": "not supported"
+   },
+   "25000": {
+    "matched": "not supported",
+    "total": "not supported"
+   },
+   "50000": {
+    "matched": "not supported",
+    "total": "not supported"
+   }
+  }
+ }
+}

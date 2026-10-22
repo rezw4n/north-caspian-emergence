@@ -1,0 +1,180 @@
+{
+ "rule": "D-128 addendum: a level is above the flat surface when level + c exceeds the product's modal height on NAVD 88 (modal EGM2008 height + the arm's median NAVD 88 - EGM2008)",
+ "status": "exploratory, descriptive",
+ "arms": {
+  "north": {
+   "gebco_2026": {
+    "flat_navd88_m": 1282.78,
+    "shape_c_m": 3.13,
+    "level_where_flat_floods_navd88_m": 1279.65,
+    "above_flat": {
+     "n_evaluable": 30,
+     "n_exceeding": 22,
+     "majority": true,
+     "median_displacement_m": 963.7354648979131
+    },
+    "below_flat": {
+     "n_evaluable": 20,
+     "n_exceeding": 19,
+     "majority": true,
+     "median_displacement_m": "inf"
+    }
+   },
+   "gebco_2022": {
+    "flat_navd88_m": 1282.78,
+    "shape_c_m": 3.73,
+    "level_where_flat_floods_navd88_m": 1279.05,
+    "above_flat": {
+     "n_evaluable": 35,
+     "n_exceeding": 26,
+     "majority": true,
+     "median_displacement_m": 1178.81296226331
+    },
+    "below_flat": {
+     "n_evaluable": 15,
+     "n_exceeding": 15,
+     "majority": true,
+     "median_displacement_m": 27941.7751762482
+    }
+   },
+   "etopo_2022": {
+    "flat_navd88_m": 1276.78,
+    "shape_c_m": -0.13,
+    "level_where_flat_floods_navd88_m": 1276.91,
+    "above_flat": {
+     "n_evaluable": 50,
+     "n_exceeding": 30,
+     "majority": true,
+     "median_displacement_m": 454.627034993008
+    },
+    "below_flat": {
+     "n_evaluable": 0,
+     "n_exceeding": 0,
+     "majority": null,
+     "median_displacement_m": null
+    }
+   },
+   "etopo1": {
+    "flat_navd88_m": 1282.78,
+    "shape_c_m": 3.73,
+    "level_where_flat_floods_navd88_m": 1279.05,
+    "above_flat": {
+     "n_evaluable": 35,
+     "n_exceeding": 26,
+     "majority": true,
+     "median_displacement_m": 1116.0645142642966
+    },
+    "below_flat": {
+     "n_evaluable": 15,
+     "n_exceeding": 15,
+     "majority": true,
+     "median_displacement_m": "inf"
+    }
+   },
+   "srtm15p_v2.7": {
+    "flat_navd88_m": 1282.78,
+    "shape_c_m": 3.73,
+    "level_where_flat_floods_navd88_m": 1279.05,
+    "above_flat": {
+     "n_evaluable": 35,
+     "n_exceeding": 26,
+     "majority": true,
+     "median_displacement_m": 1178.81296226331
+    },
+    "below_flat": {
+     "n_evaluable": 15,
+     "n_exceeding": 15,
+     "majority": true,
+     "median_displacement_m": 24731.569682000256
+    }
+   }
+  },
+  "south": {
+   "gebco_2026": {
+    "flat_navd88_m": 1282.78,
+    "shape_c_m": 4.2,
+    "level_where_flat_floods_navd88_m": 1278.58,
+    "above_flat": {
+     "n_evaluable": 39,
+     "n_exceeding": 38,
+     "majority": true,
+     "median_displacement_m": 1698.1166037701887
+    },
+    "below_flat": {
+     "n_evaluable": 10,
+     "n_exceeding": 9,
+     "majority": true,
+     "median_displacement_m": 665.4101966249684
+    }
+   },
+   "gebco_2022": {
+    "flat_navd88_m": 1282.78,
+    "shape_c_m": 4.95,
+    "level_where_flat_floods_navd88_m": 1277.83,
+    "above_flat": {
+     "n_evaluable": 47,
+     "n_exceeding": 46,
+     "majority": true,
+     "median_displacement_m": 1951.6147160748712
+    },
+    "below_flat": {
+     "n_evaluable": 2,
+     "n_exceeding": 2,
+     "majority": true,
+     "median_displacement_m": 24819.76515409207
+    }
+   },
+   "etopo_2022": {
+    "flat_navd88_m": 1278.78,
+    "shape_c_m": 1.16,
+    "level_where_flat_floods_navd88_m": 1277.62,
+    "above_flat": {
+     "n_evaluable": 49,
+     "n_exceeding": 46,
+     "majority": true,
+     "median_displacement_m": 780.0
+    },
+    "below_flat": {
+     "n_evaluable": 0,
+     "n_exceeding": 0,
+     "majority": null,
+     "median_displacement_m": null
+    }
+   },
+   "etopo1": {
+    "flat_navd88_m": 1282.78,
+    "shape_c_m": 4.96,
+    "level_where_flat_floods_navd88_m": 1277.82,
+    "above_flat": {
+     "n_evaluable": 47,
+     "n_exceeding": 46,
+     "majority": true,
+     "median_displacement_m": 1556.5346125287415
+    },
+    "below_flat": {
+     "n_evaluable": 2,
+     "n_exceeding": 2,
+     "majority": true,
+     "median_displacement_m": "inf"
+    }
+   },
+   "srtm15p_v2.7": {
+    "flat_navd88_m": 1282.78,
+    "shape_c_m": 4.96,
+    "level_where_flat_floods_navd88_m": 1277.82,
+    "above_flat": {
+     "n_evaluable": 47,
+     "n_exceeding": 45,
+     "majority": true,
+     "median_displacement_m": 1920.0
+    },
+    "below_flat": {
+     "n_evaluable": 2,
+     "n_exceeding": 2,
+     "majority": true,
+     "median_displacement_m": 17730.26067348128
+    }
+   }
+  }
+ }
+}
