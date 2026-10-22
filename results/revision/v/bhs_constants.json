@@ -1,0 +1,284 @@
+{
+ "delta_m": -0.5729790453468183,
+ "delta_sigma_posts_years_m": 0.051758712908213815,
+ "mean_dN_fit_m": -0.4023251914515947,
+ "sd_dN_fit_m": 0.07197736530783946,
+ "mean_dN_fit_by_sector_m": {
+  "west": -0.35758496976164716,
+  "volga": -0.3868676081524486,
+  "interfluve": -0.4734542852972871,
+  "ural": -0.5544818531781692,
+  "northeast": -0.4026927808258594,
+  "komsomolets": -0.3715358080099545,
+  "open_shelf": -0.41339744981554255
+ },
+ "level_2026_dahiti_m": -28.619375,
+ "level_2026_bhs_m": -29.19235404534682,
+ "rule": "k = mean(dN) - c + delta: added to the product heights as distributed, they become BHS-77 heights",
+ "products": {
+  "gebco_2026": {
+   "c_domain_m": -1.48,
+   "k_bhs_m": 0.504695763201587,
+   "chart_zero_bhs_if_28m_shift_m": -27.495304236798415,
+   "chart_shift_documented": "GEBCO_2014 documentation (BODC Doc. 301801) Annex A.1: Hall's Caspian grid from 107 Russian charts, 28 m added to the depths; GEBCO_2026 codes the North Caspian TID 70 (pre-generated grid) and does not re-describe it",
+   "sector_constants_R2": {
+    "west": {
+     "c_m": -0.71,
+     "k_bhs_m": -0.22056401510846552
+    },
+    "volga": {
+     "c_m": -2.0,
+     "k_bhs_m": 1.040153346500733
+    },
+    "interfluve": {
+     "c_m": -1.86,
+     "k_bhs_m": 0.8135666693558946
+    },
+    "ural": {
+     "c_m": -2.22,
+     "k_bhs_m": 1.0925391014750128
+    },
+    "northeast": {
+     "c_m": -1.41,
+     "k_bhs_m": 0.43432817382732225
+    },
+    "komsomolets": {
+     "c_m": -1.88,
+     "k_bhs_m": 0.9354851466432271
+    },
+    "open_shelf": {
+     "c_m": -0.77,
+     "k_bhs_m": -0.21637649516236085
+    }
+   },
+   "k_bhs_range_over_sectors_m": [
+    -0.22056401510846552,
+    1.0925391014750128
+   ],
+   "mean_depth_2026": {
+    "shape": {
+     "flood_level_m": -30.099375000000002,
+     "sea_area_km2": 66920.1264,
+     "mean_depth_m": 4.092303907574099
+    },
+    "total": {
+     "flood_level_m": -28.619375,
+     "sea_area_km2": 78006.2652,
+     "mean_depth_m": 4.894562167214541
+    }
+   }
+  },
+  "etopo_2022": {
+   "c_domain_m": -1.49,
+   "k_bhs_m": 0.514695763201587,
+   "chart_zero_bhs_if_28m_shift_m": -27.485304236798413,
+   "chart_shift_documented": "GEBCO 2022 is the lake-bathymetry base in the Caspian (MacFerrin et al. 2025); workstream G finds the lake-depth cells equal min(GEBCO_2022, -29 m), an undocumented cap (results/revision/g/etopo/lake_clamp.json), so k is not a pure chart-datum offset",
+   "sector_constants_R2": {
+    "west": {
+     "c_m": -0.76,
+     "k_bhs_m": -0.17056401510846547
+    },
+    "volga": {
+     "c_m": -0.78,
+     "k_bhs_m": -0.17984665349926687
+    },
+    "interfluve": {
+     "c_m": -1.63,
+     "k_bhs_m": 0.5835666693558944
+    },
+    "ural": {
+     "c_m": -1.42,
+     "k_bhs_m": 0.2925391014750124
+    },
+    "northeast": {
+     "c_m": -1.81,
+     "k_bhs_m": 0.8343281738273224
+    },
+    "komsomolets": {
+     "c_m": -2.16,
+     "k_bhs_m": 1.2154851466432275
+    },
+    "open_shelf": {
+     "c_m": -0.79,
+     "k_bhs_m": -0.19637649516236083
+    }
+   },
+   "k_bhs_range_over_sectors_m": [
+    -0.19637649516236083,
+    1.2154851466432275
+   ],
+   "mean_depth_2026": {
+    "shape": {
+     "flood_level_m": -30.109375,
+     "sea_area_km2": 66885.894,
+     "mean_depth_m": 4.083256426529226
+    },
+    "total": {
+     "flood_level_m": -28.619375,
+     "sea_area_km2": 89804.9412,
+     "mean_depth_m": 4.353514204798557
+    }
+   }
+  },
+  "srtm15p_v2.7": {
+   "c_domain_m": -1.28,
+   "k_bhs_m": 0.3046957632015871,
+   "chart_zero_bhs_if_28m_shift_m": -27.695304236798414,
+   "chart_shift_documented": null,
+   "sector_constants_R2": {
+    "west": {
+     "c_m": -0.76,
+     "k_bhs_m": -0.17056401510846547
+    },
+    "volga": {
+     "c_m": -1.39,
+     "k_bhs_m": 0.4301533465007329
+    },
+    "interfluve": {
+     "c_m": -1.68,
+     "k_bhs_m": 0.6335666693558945
+    },
+    "ural": {
+     "c_m": -1.82,
+     "k_bhs_m": 0.6925391014750125
+    },
+    "northeast": {
+     "c_m": -0.91,
+     "k_bhs_m": -0.06567182617267775
+    },
+    "komsomolets": {
+     "c_m": -1.91,
+     "k_bhs_m": 0.9654851466432272
+    },
+    "open_shelf": {
+     "c_m": -0.18,
+     "k_bhs_m": -0.8063764951623609
+    }
+   },
+   "k_bhs_range_over_sectors_m": [
+    -0.8063764951623609,
+    0.9654851466432272
+   ],
+   "mean_depth_2026": {
+    "shape": {
+     "flood_level_m": -29.899375000000003,
+     "sea_area_km2": 57382.272,
+     "mean_depth_m": 3.9098440787167115
+    },
+    "total": {
+     "flood_level_m": -28.619375,
+     "sea_area_km2": 75967.092,
+     "mean_depth_m": 4.1557597911899125
+    }
+   }
+  },
+  "gebco_2022": {
+   "c_domain_m": -1.45,
+   "k_bhs_m": 0.474695763201587,
+   "chart_zero_bhs_if_28m_shift_m": -27.525304236798412,
+   "chart_shift_documented": "as GEBCO_2026",
+   "sector_constants_R2": {
+    "west": {
+     "c_m": -0.72,
+     "k_bhs_m": -0.2105640151084655
+    },
+    "volga": {
+     "c_m": -1.4,
+     "k_bhs_m": 0.4401533465007331
+    },
+    "interfluve": {
+     "c_m": -1.86,
+     "k_bhs_m": 0.8135666693558946
+    },
+    "ural": {
+     "c_m": -2.22,
+     "k_bhs_m": 1.0925391014750128
+    },
+    "northeast": {
+     "c_m": -1.19,
+     "k_bhs_m": 0.21432817382732228
+    },
+    "komsomolets": {
+     "c_m": -1.78,
+     "k_bhs_m": 0.8354851466432273
+    },
+    "open_shelf": {
+     "c_m": -0.77,
+     "k_bhs_m": -0.21637649516236085
+    }
+   },
+   "k_bhs_range_over_sectors_m": [
+    -0.21637649516236085,
+    1.0925391014750128
+   ],
+   "mean_depth_2026": {
+    "shape": {
+     "flood_level_m": -30.069375,
+     "sea_area_km2": 66941.4132,
+     "mean_depth_m": 4.1200034745426315
+    },
+    "total": {
+     "flood_level_m": -28.619375,
+     "sea_area_km2": 77946.48359999999,
+     "mean_depth_m": 4.896998332470769
+    }
+   }
+  },
+  "etopo1": {
+   "c_domain_m": -1.38,
+   "k_bhs_m": 0.40469576320158696,
+   "chart_zero_bhs_if_28m_shift_m": -27.595304236798412,
+   "chart_shift_documented": "Amante and Eakins (2009) sections 3.1.2 and 3.2.1: contours of the 1987 USSR navigation map referenced to local lake level, shifted 28 m; NOAA NCEI, ETOPO1 Data Sources (2023), p. 2: 'shifted 28-m vertically to be consistent with mean sea level'",
+   "sector_constants_R2": {
+    "west": {
+     "c_m": -1.06,
+     "k_bhs_m": 0.12943598489153463
+    },
+    "volga": {
+     "c_m": -1.41,
+     "k_bhs_m": 0.4501533465007329
+    },
+    "interfluve": {
+     "c_m": -1.64,
+     "k_bhs_m": 0.5935666693558944
+    },
+    "ural": {
+     "c_m": -1.92,
+     "k_bhs_m": 0.7925391014750124
+    },
+    "northeast": {
+     "c_m": -1.49,
+     "k_bhs_m": 0.5143281738273223
+    },
+    "komsomolets": {
+     "c_m": -1.96,
+     "k_bhs_m": 1.0154851466432273
+    },
+    "open_shelf": {
+     "c_m": -0.07,
+     "k_bhs_m": -0.9163764951623609
+    }
+   },
+   "k_bhs_range_over_sectors_m": [
+    -0.9163764951623609,
+    1.0154851466432273
+   ],
+   "mean_depth_2026": {
+    "shape": {
+     "flood_level_m": -29.999375,
+     "sea_area_km2": 64553.5188,
+     "mean_depth_m": 3.607335989892854
+    },
+    "total": {
+     "flood_level_m": -28.619375,
+     "sea_area_km2": 79923.9564,
+     "mean_depth_m": 4.1734920001749485
+    }
+   }
+  }
+ },
+ "mean_depth_2026_shape_range_m": [
+  3.607335989892854,
+  4.1200034745426315
+ ]
+}

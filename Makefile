@@ -794,19 +794,23 @@ RESULT_FIGS += $(FIG_OUT)/erl_fig_then_now.pdf $(FIG_OUT)/erl_fig_shorelines.pdf
                $(FIG_OUT)/erl_fig_agreement.pdf $(FIG_OUT)/erl_fig_timeline.pdf $(FIG_OUT)/erl_tab_report_card.pdf \
                $(FIG_OUT)/erl_fig_audit.pdf
 # The Letter's audit figure: the ERL version of fig4_audit, from the same hindcast tables (D-102 addendum).
-$(FIG_OUT)/erl_fig_audit.pdf: figures/erl_fig_audit.py $(ERL_DEPS) $(wildcard results/hindcast/main/*.csv)
+$(FIG_OUT)/erl_fig_audit.pdf: figures/erl_fig_audit.py $(ERL_DEPS) $(wildcard results/hindcast/main/*.csv) \
+        results/revision/s/item2_dq.csv
 	$(PYTHON) figures/erl_fig_audit.py
-$(FIG_OUT)/erl_fig_then_now.pdf: figures/erl_fig_then_now.py $(ERL_DEPS) results/provenance/erl_landsat.json $(STUDY_MAP)
+$(FIG_OUT)/erl_fig_then_now.pdf: figures/erl_fig_then_now.py $(ERL_DEPS) results/provenance/erl_landsat.json $(STUDY_MAP) \
+        results/display/erl_waterlines.json
 	$(PYTHON) figures/erl_fig_then_now.py
 $(FIG_OUT)/erl_fig_shorelines.pdf: figures/erl_fig_shorelines.py $(ERL_DEPS) results/display/erl_hero.json $(STUDY_MAP)
 	$(PYTHON) figures/erl_fig_shorelines.py
 $(FIG_OUT)/erl_fig_gsl.pdf: figures/erl_fig_gsl.py $(ERL_DEPS) results/display/erl_gsl.json \
-        results/generality/great_salt_lake/arms_laea.geojson
+        results/generality/great_salt_lake/arms_laea.geojson results/revision/g/gsl_band_height_histograms.csv
 	$(PYTHON) figures/erl_fig_gsl.py
-$(FIG_OUT)/erl_fig_agreement.pdf: figures/erl_fig_agreement.py $(ERL_DEPS) results/display/erl_agreement.json $(STUDY_MAP)
+$(FIG_OUT)/erl_fig_agreement.pdf: figures/erl_fig_agreement.py $(ERL_DEPS) results/display/erl_nearterm_map.json \
+        results/revision/n/already_dry.csv $(STUDY_MAP)
 	$(PYTHON) figures/erl_fig_agreement.py
 $(FIG_OUT)/erl_fig_timeline.pdf: figures/erl_fig_timeline.py $(ERL_DEPS) scripts/a8_emergence.py \
-        results/levels/projection_pathways.csv $(H3_TABLES)
+        results/levels/projection_pathways.csv $(H3_TABLES) results/revision/n/curves.csv \
+        results/revision/n/curves_composite.csv results/revision/n/envelopes.csv results/revision/n/run_envelopes.json
 	$(PYTHON) figures/erl_fig_timeline.py
 # The report card: Table 1 in tables_erl.tex (between its ERL-T1 markers) and a rendered preview.
 manuscript/sections/tables_erl.tex: figures/tab_report_card.py $(ERL_DEPS)
@@ -1024,6 +1028,201 @@ METRIC_INPUTS += $(REV_G_GSL) $(REV_G)/root2023_retrieval.json $(REV_G)/dep3_pro
   etopo_shoreline_edge_classes.csv bands.json above_below_by_sector.csv icesat2_by_etopo_source.csv gedi.json)
 REVISION_RESULTS += $(REV_G_GSL) $(REV_G_H2) $(REV_G_ETOPO)
 
+# Workstream V, water surface and datums (D-120 to D-122; PREREG Amendment 18 item 9).
+REV_V := results/revision/v
+# SWOT sector departures from DAHITI (D-120); the setup model's block means and level path.
+REV_V_DEP := $(addprefix $(REV_V)/,sector_departures.csv sector_departures_by_month.csv sector_departures.json)
+$(REV_V_DEP) &: scripts/rev_v_sector_departures.py scripts/a5_setup_model.py scripts/a4_scene_levels.py \
+        results/levels/swot_block_levels.csv results/study_area/blocks_25km.csv \
+        results/study_area/geoid_egm2008_minus_eigen6c4.npz $(DAHITI) $(HYDROWEB) results/qc/level_crosscheck_w20d.json \
+        results/qc/level_crosscheck_pairs_w20d.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_v_sector_departures.py
+# HEAVY (5,202 s): the audit with sector-shifted levels on the primary's cached flood-level maps.
+REV_V_DEPAUDIT := $(call hc_tables,$(REV_V)/hindcast_departure) $(REV_V)/hindcast_departure/shape_offsets.json \
+  $(call h1_tables,$(REV_V)/hindcast_departure)
+$(REV_V_DEPAUDIT) &: scripts/rev_v_departure_audit.py scripts/a7_h1_decision.py $(HC_INPUTS) $(HC)/main/run.json \
+        $(HC)/main/shape_offsets.json $(REV_V)/sector_departures.csv results/levels/sector_labels.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_v_departure_audit.py run --vertical-correction $(CORRECTION)
+$(REV_V)/departure_audit_comparison.csv $(REV_V)/departure_audit_comparison.json &: scripts/rev_v_departure_audit.py \
+        scripts/rev_v_planar.py $(REV_V_DEPAUDIT) $(call h1_tables,$(HC)/main) $(HC)/main/shape_offsets.json $(PKG)
+	$(PYTHON) scripts/rev_v_departure_audit.py compare
+# HEAVY: the planar field (D-121). masks (368 s) then the five fits (about 4,500 s); the audit
+# for GEBCO_2026 and ETOPO1 only (D-121 cut); the per-sector sensitivity (sector-all) was not run.
+V_PRODUCTS := gebco_2026 etopo_2022 srtm15p_v2.7 gebco_2022 etopo1
+REV_V_PLANAR_FIT := $(foreach p,$(V_PRODUCTS),$(addprefix $(REV_V)/planar/,fit_$(p).json search_coarse_$(p).csv \
+  search_fine_$(p).csv))
+$(REV_V_PLANAR_FIT) &: scripts/rev_v_planar.py $(HC_INPUTS) $(HC)/main/run.json $(HC)/main/shape_offsets.json $(PKG) \
+        | $(VERIFIED)
+	$(PYTHON) scripts/rev_v_planar.py masks
+	$(PYTHON) scripts/rev_v_planar.py fit
+REV_V_PLANAR_AUDIT := $(call hc_tables,$(REV_V)/hindcast_planar) $(call h1_tables,$(REV_V)/hindcast_planar)
+$(REV_V_PLANAR_AUDIT) &: scripts/rev_v_planar.py scripts/a7_h1_decision.py $(REV_V_PLANAR_FIT) \
+        results/levels/sector_labels.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_v_planar.py audit --products gebco_2026,etopo1
+$(REV_V)/planar_comparison.csv $(REV_V)/planar_comparison.json &: scripts/rev_v_planar.py $(REV_V_PLANAR_AUDIT) \
+        $(REV_V_PLANAR_FIT) $(call h1_tables,$(HC)/main) $(call h1_tables,$(HC)/main_sectorshape) \
+        $(call hc_tables,$(HC)/main) $(call hc_tables,$(HC)/main_sectorshape) $(PKG)
+	$(PYTHON) scripts/rev_v_planar.py compare
+# Light: posts, level statistics, the ICESat-2 constant, constants in BHS-77 and mean depth (D-122).
+$(REV_V)/caspcom_posts.csv $(REV_V)/caspcom_posts.json &: scripts/rev_v_posts.py scripts/a7_dahiti_bhs_offset.py \
+        results/levels/dahiti_bhs_offset.json $(CASPCOM) $(DAHITI) $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_v_posts.py
+REV_V_LEVELS := $(addprefix $(REV_V)/,level_stats.json annual_levels.csv e3_bin_level_control.csv)
+$(REV_V_LEVELS) &: scripts/rev_v_levels.py scripts/a4_scene_levels.py $(DAHITI) $(HYDROWEB) \
+        results/qc/level_crosscheck_w20d.json results/qc/level_crosscheck_pairs_w20d.csv results/qc/dahiti_summary.json \
+        results/levels/scene_levels_summary.json results/levels/dahiti_bhs_offset.json refs/caspcom_bulletin_levels.csv \
+        $(REV_V)/caspcom_bulletin31_2025.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_v_levels.py
+$(REV_V)/datum_terms.json: scripts/rev_v_datum_terms.py $(REV_V)/sector_departures.csv \
+        $(call val_fits,ATL06 ATL08,$(VAL)) $(call val_fits,GLO30,$(VALG)) $(call val_fits,GEDI,$(VALE)) $(PKG)
+	$(PYTHON) scripts/rev_v_datum_terms.py
+$(REV_V)/bhs_constants.json: scripts/rev_v_bhs_constants.py $(HC)/main/run.json $(HC)/main/shape_offsets.json \
+        $(HC)/main_sectorshape/sector_offsets.json $(EM)/main/run.json results/levels/dahiti_bhs_offset.json \
+        results/study_area/blocks_25km.csv $(CORRECTION) $(PRODUCT_GRIDS) $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_v_bhs_constants.py
+REV_V_ALL := $(REV_V_DEP) $(REV_V_DEPAUDIT) $(REV_V)/departure_audit_comparison.csv \
+  $(REV_V)/departure_audit_comparison.json $(REV_V_PLANAR_FIT) $(REV_V_PLANAR_AUDIT) $(REV_V)/planar_comparison.csv \
+  $(REV_V)/planar_comparison.json $(REV_V)/caspcom_posts.csv $(REV_V)/caspcom_posts.json $(REV_V_LEVELS) \
+  $(REV_V)/datum_terms.json $(REV_V)/bhs_constants.json
+# tools/metrics_rev_v.py reads most of these; all are listed so that `all` rebuilds them.
+METRIC_INPUTS += $(REV_V_ALL)
+REVISION_RESULTS += $(REV_V_ALL)
+
+# Workstream N, near-term emergence (A18 item 10; D-123 to D-127 and their addenda). Exploratory,
+# except the registered common baseline and running-median L2026 (D-081). Reads the registered
+# caches (hindcast and H3 flood maps); nothing is refitted. Light steps run in seconds to 3 min;
+# rev_n_curves.py (800 s; it builds five no-constant flood maps, cached) and rev_n_envelopes.py
+# (915 s) are the longest; the exposure run (cut, D-126 addendum) and the simulation (cut,
+# D-125 addendum: 50 fields, 150 km, 480 m grid, 125 s) run as listed.
+REV_N := results/revision/n
+REV_N_CODE := scripts/rev_n_common.py scripts/f1_erl_display.py scripts/a8_wdpa_exposure.py scripts/a7_hindcast.py $(PKG)
+REV_N_H3 := $(call h3_tables,$(EM)/main) $(call h3_tables,$(EM)/main_constant) $(call hc_tables,$(HC)/main) \
+            $(HC)/main/run.json $(PRODUCT_GRIDS) $(CORRECTION) results/study_area/geoid_correction_no_constant.npz \
+            results/study_area/extents_v6_250m.npz $(S2MAIN) $(DAHITI)
+REV_N_CURVES := $(addprefix $(REV_N)/,curves.csv curves_fine.csv.gz already_dry.csv observed_band.csv \
+  contour_classes.csv contour_positions.csv shared_soundings.json run_curves.json)
+$(REV_N_CURVES) &: scripts/rev_n_curves.py $(REV_N_CODE) $(REV_N_H3) | $(VERIFIED)
+	$(PYTHON) scripts/rev_n_curves.py
+REV_N_BASE := $(addprefix $(REV_N)/,observed_band_v2.csv baseline_composition.csv band_states.csv)
+$(REV_N_BASE) &: scripts/rev_n_baseline.py $(REV_N_CODE) $(REV_N_H3) | $(VERIFIED) $(REV_N)/run_curves.json
+	$(PYTHON) scripts/rev_n_baseline.py
+REV_N_CONST := $(addprefix $(REV_N)/,curves_constfused.csv curves_fine_constfused.csv.gz \
+  already_dry_constfused.csv run_curves_constfused.json)
+$(REV_N_CONST) &: scripts/rev_n_curves.py $(REV_N_CODE) $(REV_N_H3) $(REV_N)/run_curves.json | $(VERIFIED)
+	$(PYTHON) scripts/rev_n_curves.py --fused-form constant
+REV_N_COMP := $(addprefix $(REV_N)/,curves_composite.csv curves_fine_composite.csv.gz \
+  already_dry_composite.csv run_curves_composite.json)
+$(REV_N_COMP) &: scripts/rev_n_curves.py $(REV_N_CODE) $(REV_N_H3) $(REV_N)/run_curves.json \
+        $(REV_N)/baseline_composition.csv | $(VERIFIED)
+	$(PYTHON) scripts/rev_n_curves.py --fused-form composite
+REV_N_ENV := $(addprefix $(REV_N)/,pairs.csv scores.csv envelope_q.csv envelopes.csv paired_difference.csv \
+  run_envelopes.json)
+$(REV_N_ENV) &: scripts/rev_n_envelopes.py $(REV_N_CODE) $(REV_N_H3) $(call h3_dec,$(EM)/main) \
+        $(call h3_dec,$(EM)/main_constant) $(REV_N)/curves.csv $(REV_N)/curves_composite.csv | $(VERIFIED)
+	$(PYTHON) scripts/rev_n_envelopes.py
+REV_N_PATH := $(addprefix $(REV_N)/,pathways_matrix.csv pathways_variance.csv pathways_anchoring.csv \
+  trend_windows.csv run_pathways.json)
+$(REV_N_PATH) &: scripts/rev_n_pathways.py scripts/rev_n_common.py scripts/a8_emergence.py \
+        results/levels/projection_pathways.csv $(EM)/main/run.json $(DAHITI) $(REV_N)/curves_fine.csv.gz \
+        $(REV_N)/curves_fine_composite.csv.gz $(REV_N)/curves_fine_constfused.csv.gz $(PKG)
+	$(PYTHON) scripts/rev_n_pathways.py
+REV_N_EXP := $(addprefix $(REV_N)/,exposure_polygons.csv exposure_features.csv exposure_envelope.csv \
+  ports_summary.csv run_exposure.json)
+$(REV_N_EXP) &: scripts/rev_n_exposure.py scripts/a8_emergence.py $(REV_N_CODE) $(REV_N_H3) $(EM)/wdpa/layers.json \
+        $(HC)/main/h1_mispredicts_detail.csv $(REV_N)/baseline_composition.csv $(OSM_DIR) | $(VERIFIED)
+	$(PYTHON) scripts/rev_n_exposure.py --envelope-deltas= \
+	  --surfaces=uncorrected,shifted,common_location,common_location_composite
+REV_N_SIM := $(addprefix $(REV_N)/,sim_realisations.csv sim_groups.csv sim_summary.csv sim_observed_240m.csv \
+  run_simulate.json)
+$(REV_N_SIM) &: scripts/rev_n_simulate.py $(REV_N_CODE) $(REV_N_H3) $(VAL)/ATL08_accuracy.csv $(REV_N)/curves.csv \
+        | $(VERIFIED)
+	$(PYTHON) scripts/rev_n_simulate.py --n 50 --ranges 150000 --block 8
+# The 50 km range sensitivity (D-125 addendum 2, 350 s): both ranges in one call, as D-125 seeds them;
+# its 150 km half reproduces the run above.
+REV_N_SIM50 := $(addprefix $(REV_N)/,sim_realisations_range50.csv sim_groups_range50.csv sim_summary_range50.csv \
+  sim_observed_240m_range50.csv run_simulate_range50.json)
+$(REV_N_SIM50) &: scripts/rev_n_simulate.py $(REV_N_CODE) $(REV_N_H3) $(VAL)/ATL08_accuracy.csv $(REV_N)/curves.csv \
+        | $(VERIFIED)
+	$(PYTHON) scripts/rev_n_simulate.py --n 50 --ranges 150000,50000 --block 8 --suffix _range50
+REV_N_SIM += $(REV_N_SIM50)
+REV_N_ALL := $(REV_N_CURVES) $(REV_N_BASE) $(REV_N_CONST) $(REV_N_COMP) $(REV_N_ENV) $(REV_N_PATH) $(REV_N_EXP) \
+  $(REV_N_SIM)
+# tools/metrics_rev_n.py reads most of these; all are listed so that `all` rebuilds them.
+METRIC_INPUTS += $(REV_N_ALL)
+REVISION_RESULTS += $(REV_N_ALL)
+
+# Revised ERL figures 1, 3-6 (internal review R1 minor 19-24, R2 minor 12-15, R3.M4; D-140, D-141).
+# Figure 1's shorelines are the observed extents of four E3 level bins, rebuilt with the
+# hindcast's functions as for figure 2 (reads stage-2 tiles; about 2 GB). Figure 5's counts are
+# rebuilt with workstream N's set-up (flood maps, composite baseline) and checked against N's
+# curves. tools/metrics_rev_fig.py reads both summaries, workstream S's item2_dq.csv, the H1
+# detail table and N's already_dry.csv.
+results/display/erl_nearterm_map.json: scripts/f4_erl_nearterm_map.py scripts/rev_n_common.py $(REV_N_CODE) \
+        results/hindcast/main/run.json results/emergence/main/run.json $(REV_N_BASE) \
+        $(REV_N)/curves.csv $(REV_N)/curves_composite.csv | $(VERIFIED)
+	$(PYTHON) scripts/f4_erl_nearterm_map.py
+METRIC_INPUTS += results/display/erl_nearterm_map.json
+REVISION_RESULTS += results/display/erl_nearterm_map.json
+results/display/erl_waterlines.json: scripts/f3_erl_waterlines.py scripts/f1_erl_display.py scripts/a7_hindcast.py \
+        results/hindcast/main/run.json results/hindcast/main/observed.csv $(STUDY_MAP) \
+        results/study_area/zone_v6_cover_buffered.geojson $(S2MAIN) $(STAGE2_PLAN) $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/f3_erl_waterlines.py
+METRIC_INPUTS += results/display/erl_waterlines.json results/revision/s/item2_dq.csv \
+        results/hindcast/main/h1_mispredicts_detail.csv
+REVISION_RESULTS += results/display/erl_waterlines.json
+
+# Workstream R, H1 rasters (D-116 to D-119; PREREG Amendment 18 items 3, 6 and 7). Exploratory
+# post-review analyses. HEAVY: the perfect-but-degraded control (build about 20 min, audit
+# 4,974 s with scripts/a7_hindcast.run) and the audit pass (static filter, resolution-matched
+# floor, c_D search at 0.20 m; about 50 min). Intermediates in data/interim/rev_r/.
+REV_R := results/revision/r
+REV_R_CTRL_HC := $(call hc_tables,$(REV_R)/control/hindcast) $(REV_R)/control/hindcast/shape_offsets.json \
+  $(REV_R)/control/construction.json
+$(REV_R_CTRL_HC) &: scripts/rev_r_control.py scripts/a7_hindcast.py scripts/a8_emergence.py $(HC_INPUTS) $(DEM_MAIN) \
+        $(HC)/main/shape_offsets.json $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_r_control.py build
+	$(PYTHON) scripts/rev_r_control.py run
+REV_R_CTRL := $(addprefix $(REV_R)/control/,levels.csv excess.csv stop_rule.json)
+$(REV_R_CTRL) &: scripts/rev_r_control.py $(REV_R_CTRL_HC) $(call hc_tables,$(HC)/main) $(PKG)
+	$(PYTHON) scripts/rev_r_control.py decide
+REV_R_AUDIT := $(addprefix $(REV_R)/audit/main/,levels_D.csv.gz levels_Q.csv units_D.csv.gz cd_objective.csv \
+  static_cells.csv run.json)
+$(REV_R_AUDIT) &: scripts/rev_r_audit.py scripts/a7_hindcast.py scripts/a6_waterlines.py $(HC_INPUTS) \
+        $(HC)/main/shape_offsets.json $(HC)/main/run.json results/levels/static_contour_rule.json $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_r_audit.py prep
+	$(PYTHON) scripts/rev_r_audit.py pass --configs replica,static,res,cd --c-step 0.2 \
+	  --products gebco_2026,gebco_2022,etopo1,srtm15p_v2.7 --out main
+REV_R_TABLES := $(REV_R)/replica_main/summary.json \
+  $(addprefix $(REV_R)/static/,summary.json verdicts.csv detail.csv compare.csv effect.csv \
+    audit_cells_static_share.csv dem_points_static_share.csv) \
+  $(addprefix $(REV_R)/res/,summary.json verdicts.csv detail.csv compare.csv floor.csv) \
+  $(addprefix $(REV_R)/constants/,summary.json objective.csv verdicts_by_k.csv verdicts_at_c_D.csv \
+    compare_at_c_D.csv best_case.csv)
+$(REV_R_TABLES) &: scripts/rev_r_tables.py $(REV_R_AUDIT) $(call hc_tables,$(HC)/main) $(HC)/main/shape_offsets.json \
+        results/levels/static_contour_rule.json $(PKG)
+	$(PYTHON) scripts/rev_r_tables.py replica
+	$(PYTHON) scripts/rev_r_tables.py static
+	$(PYTHON) scripts/rev_r_tables.py res
+	$(PYTHON) scripts/rev_r_tables.py constants
+REV_R_BUDGET := $(addprefix $(REV_R)/budget/,summary.json gradients.csv sigma_by_bin.csv levels.csv verdicts.csv \
+  compare.csv sector_budget.csv vertical_equivalents.csv)
+$(REV_R_BUDGET) &: scripts/rev_r_budget.py scripts/rev_r_tables.py scripts/a7_hindcast.py $(DEM_MAIN) $(STAGE2_PLAN) \
+        $(call hc_tables,$(HC)/main) results/levels/scene_levels_summary.json results/levels/setup_model.json \
+        results/study_area/extents_v6_250m.npz $(REV_V)/sector_departures.csv $(PKG) | $(VERIFIED)
+	$(PYTHON) scripts/rev_r_budget.py
+REV_R_DIAG := $(addprefix $(REV_R)/diagnostics/,season.json season_shares.csv season_shares_by_bin.csv \
+  season_spearman_units.csv season_spearman_levels.csv komsomolets.json komsomolets_cells.csv \
+  komsomolets_D_vs_c.csv komsomolets_exceeding_vs_c.csv nmad.json nmad_by_sector.csv nmad_overall.csv \
+  nmad_rank_correlations.csv)
+$(REV_R_DIAG) &: scripts/rev_r_diagnostics.py scripts/rev_r_tables.py $(STAGE2_PLAN) $(call hc_tables,$(HC)/main) \
+        $(call h1_tables,$(HC)/main) $(HC)/main/shape_offsets.json $(REV_R_BUDGET) $(REV_R_AUDIT) $(REV_R_TABLES) \
+        $(wildcard results/validation/main/ATL0*_accuracy.csv) $(PRODUCT_GRIDS) $(PKG)
+	$(PYTHON) scripts/rev_r_diagnostics.py season
+	$(PYTHON) scripts/rev_r_diagnostics.py komsomolets
+	$(PYTHON) scripts/rev_r_diagnostics.py nmad
+METRIC_INPUTS += $(REV_R_CTRL) $(REV_R_TABLES) $(REV_R_BUDGET) $(REV_R_DIAG)
+REVISION_RESULTS += $(REV_R_CTRL_HC) $(REV_R_CTRL) $(REV_R_AUDIT) $(REV_R_TABLES) $(REV_R_BUDGET) $(REV_R_DIAG)
+
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
 
@@ -1057,11 +1256,22 @@ manuscript/main_erl.pdf: manuscript/main_erl.tex manuscript/iopjournal.cls manus
 manuscript/supplementary_erl.pdf: manuscript/supplementary_erl.tex manuscript/iopjournal.cls manuscript/justify.tex manuscript/orcid.pdf manuscript/main_erl.pdf manuscript/numbers.tex \
         $(wildcard manuscript/sections/*.tex) refs/references.bib $(FIGS) $(RESULT_FIGS) | check-refs
 	$(TECTONIC) -X compile manuscript/supplementary_erl.tex
+# The pre-registration as a Supplementary file (D-138): docs/PREREG.md verbatim, each part with
+# the commit and date that first recorded it, read from git (reviews R1 minor 17, R2.M12, R3.M7).
+manuscript/supplementary_prereg.md: tools/prereg_si.py docs/PREREG.md
+	$(PYTHON) tools/prereg_si.py
 # Main-text word count of the Letter as ERL defines it (excluding title, abstract, captions,
 # tables and references); also the abstract's length. Not part of `all`.
 .PHONY: erl-wordcount
 erl-wordcount:
 	$(PYTHON) tools/word_count_erl.py
+# Zenodo-ready data package of the derived tables (D-142): release/zenodo/ (git-ignored),
+# with README, CC BY 4.0 licence, Zenodo metadata, manifest and SHA256SUMS. Excludes CASPCOM
+# per-gauge values and WDPA-derived values (docs/DATA_RELEASE.md). Not part of `all`; it packs
+# results/ as it stands (no prerequisites, so it never triggers the pipeline): run it after `make all`.
+.PHONY: data-package
+data-package:
+	$(PYTHON) tools/build_data_package.py
 
 ## named steps -------------------------------------------------------------
 check-inputs: $(VERIFIED)
@@ -1075,7 +1285,7 @@ figures: $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex manuscri
 params: results/params.json
 metrics: results/metrics.json manuscript/numbers.tex
 macros: manuscript/numbers.tex
-manuscript: manuscript/main.pdf manuscript/main_erl.pdf manuscript/supplementary_erl.pdf
+manuscript: manuscript/main.pdf manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md
 phase-a: $(PHASE_A_RESULTS)
 # Every input `make all` reads that an acquisition step writes, one per line (stage 1 and 2b).
 inputs:
@@ -1090,4 +1300,4 @@ RESULTS_ALL := results/qc/dahiti_summary.json results/study_area/sector_areas.js
 
 all: $(VERIFIED) $(PHASE_A_RESULTS) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex \
      manuscript/sections/ed_tables_h3_draft.tex manuscript/numbers.tex manuscript/main.pdf \
-     manuscript/main_erl.pdf manuscript/supplementary_erl.pdf
+     manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md

@@ -1,0 +1,197 @@
+{
+ "tag": "../revision/v/hindcast_departure",
+ "deciding_variant": "shape (D-072)",
+ "mispredicts": {
+  "shape": {
+   "etopo1": {
+    "mispredicts_in": [
+     "interfluve",
+     "komsomolets",
+     "northeast",
+     "open_shelf",
+     "ural",
+     "volga",
+     "west"
+    ],
+    "not_in": [],
+    "not_evaluable": []
+   },
+   "etopo_2022": {
+    "mispredicts_in": [
+     "ural"
+    ],
+    "not_in": [
+     "interfluve",
+     "komsomolets",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "west"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2022": {
+    "mispredicts_in": [
+     "interfluve",
+     "komsomolets",
+     "northeast",
+     "open_shelf",
+     "ural",
+     "volga",
+     "west"
+    ],
+    "not_in": [],
+    "not_evaluable": []
+   },
+   "gebco_2026": {
+    "mispredicts_in": [
+     "interfluve",
+     "komsomolets",
+     "northeast",
+     "open_shelf",
+     "ural",
+     "volga",
+     "west"
+    ],
+    "not_in": [],
+    "not_evaluable": []
+   },
+   "srtm15p_v2.7": {
+    "mispredicts_in": [
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "ural",
+     "volga",
+     "west"
+    ],
+    "not_in": [
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   }
+  },
+  "total": {
+   "etopo1": {
+    "mispredicts_in": [
+     "interfluve",
+     "komsomolets",
+     "northeast",
+     "open_shelf",
+     "ural",
+     "volga",
+     "west"
+    ],
+    "not_in": [],
+    "not_evaluable": []
+   },
+   "etopo_2022": {
+    "mispredicts_in": [
+     "interfluve",
+     "komsomolets",
+     "northeast",
+     "ural"
+    ],
+    "not_in": [
+     "open_shelf",
+     "volga",
+     "west"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2022": {
+    "mispredicts_in": [
+     "interfluve",
+     "komsomolets",
+     "open_shelf",
+     "ural",
+     "volga",
+     "west"
+    ],
+    "not_in": [
+     "northeast"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2026": {
+    "mispredicts_in": [
+     "interfluve",
+     "komsomolets",
+     "northeast",
+     "open_shelf",
+     "ural",
+     "volga",
+     "west"
+    ],
+    "not_in": [],
+    "not_evaluable": []
+   },
+   "srtm15p_v2.7": {
+    "mispredicts_in": [
+     "interfluve",
+     "komsomolets",
+     "northeast",
+     "open_shelf",
+     "ural",
+     "volga",
+     "west"
+    ],
+    "not_in": [],
+    "not_evaluable": []
+   }
+  }
+ },
+ "block_test": {
+  "etopo1|shape": {
+   "statistic_m": 6692.79185917867,
+   "p": 0.00019998000199980003,
+   "significant": true
+  },
+  "etopo1|total": {
+   "statistic_m": 8867.509455970408,
+   "p": 9.999000099990002e-05,
+   "significant": true
+  },
+  "etopo_2022|shape": {
+   "statistic_m": -1796.128694554577,
+   "p": 1.0,
+   "significant": false
+  },
+  "etopo_2022|total": {
+   "statistic_m": -2435.697570842558,
+   "p": 1.0,
+   "significant": false
+  },
+  "gebco_2022|shape": {
+   "statistic_m": 5026.549084458271,
+   "p": 0.0005999400059994001,
+   "significant": true
+  },
+  "gebco_2022|total": {
+   "statistic_m": 7724.81324484984,
+   "p": 0.004399560043995601,
+   "significant": true
+  },
+  "gebco_2026|shape": {
+   "statistic_m": 5849.287612459544,
+   "p": 0.00029997000299970003,
+   "significant": true
+  },
+  "gebco_2026|total": {
+   "statistic_m": 10385.56085219387,
+   "p": 0.0005999400059994001,
+   "significant": true
+  },
+  "srtm15p_v2.7|shape": {
+   "statistic_m": 1312.5358632465723,
+   "p": 0.16618338166183383,
+   "significant": false
+  },
+  "srtm15p_v2.7|total": {
+   "statistic_m": 4011.5962796644626,
+   "p": 0.029697030296970302,
+   "significant": true
+  }
+ },
+ "group_sectors": "ural+volga+west"
+}

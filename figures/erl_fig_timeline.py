@@ -11,12 +11,19 @@
     2 m bands are shaded. Dots: where each pathway reaches 1 m and 2 m; their years are
     checked against results/metrics.json (h3.date.*). Pathways that leave the frame are
     labelled where they leave it.
-(b) How much: the emerged area of the domain below each product's own 2026 shoreline at the
-    five scenario depths, for the five products as users apply them (uncorrected), with
-    their split-conformal 90% intervals (results/emergence/main/emergence.csv through
-    metrics h3.emergence.*). Grey bars: the range of the five estimates (dark) and of their
-    intervals (light) at each depth. Only the scenario depths are computed; nothing joins
-    them. No error model is applied (D-100).
+    Revised (D-141; internal review R2 minor 15, R3 minor 9): the twelve range pathways
+    (role "range": inter-model ranges and quartiles) span a grey band, the y-axis holds
+    every drawn pathway to 2100 (no clipping), and the seven primary pathways are keyed in
+    a legend instead of labelled in the frame.
+(b) How much (D-141; R1 minor 24; workstream N, D-123, D-124): the emerged area of the
+    domain E(D) at N's 0.1 m steps of decline D below the 2026 level
+    (results/revision/n/), one colour per grid: solid, on the composite observed baseline
+    (curves_composite.csv, surface "common_location"); dashed, on the grids shifted by
+    their H1 shape constant (curves.csv, "shifted"); shading, N's decline-normalised
+    hindcast envelopes (envelopes.csv, all pairs, score "decline"), drawn up to the
+    largest decline of the hindcast pairs (rev.n.env.max_pair_decline_m), beyond which the
+    curves are uncalibrated; thin grey, the grids as distributed (curves.csv,
+    "uncorrected"). The script checks that the envelopes' estimates equal the curves.
 
 Output: figures/out/erl_fig_timeline.{pdf,tif,png}
 Usage: python figures/erl_fig_timeline.py
@@ -35,8 +42,9 @@ import pandas as pd
 from caspian import exposure as ex
 from caspian.config import DATA
 
-SCEN = (("0p5", 0.5), ("1", 1.0), ("2", 2.0), ("3", 3.0), ("5", 5.0))
-YLIM = (-34.6, -25.4)
+N_DIR = C.ROOT / "results" / "revision" / "n"
+PRODS = ("gebco_2026", "gebco_2022", "etopo_2022", "etopo1", "srtm15p_v2.7")
+ENV_PAIRS, ENV_SCORE = "all_pairs", "decline"     # N's decline-normalised envelopes, all hindcast pairs
 PATH_LABEL = {"SAM23-07": "Samant & Prange, SSP2-4.5", "SAM23-10": "Samant & Prange, SSP5-8.5",
               "SAM23-14": "Samant & Prange, trend",
               "HOS25-01": "Hoseini et al., low", "HOS25-04": "Hoseini et al., medium",
@@ -69,7 +77,9 @@ def main() -> int:
     mod = a8()
     pw = mod.read_pathways(mod.PATHWAYS)
     prim = [pid for pid, role, *_ in mod.DATE_PATHWAYS if role == "primary"]
-    curves = {k: v for k, v in ex.pathway_curves(pw).items() if k in prim}
+    rng = [pid for pid, role, *_ in mod.DATE_PATHWAYS if role == "range"]
+    allc = ex.pathway_curves(pw)
+    curves = {k: v for k, v in allc.items() if k in prim}
     if set(curves) != set(PATH_LABEL):
         raise SystemExit(f"primary pathways {sorted(curves)} differ from the labelled set")
     dates = ex.scenario_dates(curves, [1.0, 2.0], base_year=2026.0)
@@ -82,103 +92,116 @@ def main() -> int:
     lv = pd.read_csv(DATA / "processed" / "dem" / "main" / "emergence" / "level_series_daily.csv", parse_dates=["date"])
     tdec = lv["date"].dt.year + (lv["date"].dt.dayofyear - 0.5) / 365.2425
 
+    def path(pid):
+        yrs, ch = allc[pid]
+        t = np.r_[2026.0, yrs[yrs > 2026.0]]
+        c0 = float(np.interp(2026.0, yrs, ch))
+        return t, l26 + (np.interp(t, yrs, ch) - c0)
+
+    paths = {pid: path(pid) for pid in prim + rng}
+    lo_all = min(float(y.min()) for _, y in paths.values())
+    hi_all = max(max(float(y.max()) for _, y in paths.values()), float(lv["level_m"].max()))
+    ylim = (np.floor(lo_all) - 0.5, np.ceil(hi_all) + 1.5)
+
+    # workstream N's curves (km2), domain, main reference level
+    cv = pd.read_csv(N_DIR / "curves.csv")
+    cc = pd.read_csv(N_DIR / "curves_composite.csv")
+
+    def sel(d, surf):
+        return d[(d["surface"] == surf) & (d["sensitivity"] == "main") & (d["region"] == "domain")]
+
+    cur = {"composite": sel(cc, "common_location"), "shifted": sel(cv, "shifted"), "uncorrected": sel(cv, "uncorrected")}
+    for k, d in cur.items():
+        if not np.allclose(d["level_2026_m"], l26, atol=1e-4):
+            raise SystemExit(f"{k}: N's 2026 level differs from h3.level_2026_m")
+    calib = E.value(m, "rev.n.env.max_pair_decline_m")
+
     E.style()
     W = E.DOUBLE_MM
-    L, R, TOP = 15.0, 38.0, 4.0
-    HA, GAP, HB, BOT = 70.0, 17.0, 46.0, 10.0
+    L, R, TOP = 15.0, 56.0, 4.0
+    HA, GAP, HB, BOT = 76.0, 16.0, 56.0, 10.0
     H = TOP + HA + GAP + HB + BOT
     fig = plt.figure(figsize=(W * C.MM, H * C.MM))
     ax = E.mm_axes(fig, W, H, L, TOP, W - L - R, HA)
-    for (k, d) in SCEN:
-        y = l26 - d
-        if d in (1.0, 2.0):
-            ax.axhspan(l26 - d, l26 - d + 1.0, color="#eef3f8" if d == 1.0 else "#f6f6f2",
-                       lw=0, zorder=0)
-        ax.axhline(y, color=E.MUTED, lw=0.6, ls=(0, (2, 2)), zorder=1)
-        ax.text(1993.0, y + 0.06, f"{E.num(m, f'h3.scenario.{k}_m')} m below", ha="left", va="bottom", fontsize=E.FS,
-                color=E.MUTED)
+    for d in (1.0, 2.0):
+        ax.axhspan(l26 - d, l26 - d + 1.0, color="#eef3f8" if d == 1.0 else "#f6f6f2", lw=0, zorder=0)
+        ax.axhline(l26 - d, color=E.MUTED, lw=0.6, ls=(0, (2, 2)), zorder=1)
     ax.axhline(l26, color=E.INK, lw=0.6, zorder=1)
-    ax.text(1993.0, l26 + 0.06, "2026 level", ha="left", va="bottom", fontsize=E.FS, color=E.INK)
+    ax.text(1993.0, l26 + 0.15, "2026 level", ha="left", va="bottom", fontsize=E.FS, color=E.INK)
+    ax.text(1993.0, l26 - 2.0 - 0.15, f"{E.num(m, 'h3.scenario.1_m')} m and {E.num(m, 'h3.scenario.2_m')} m below",
+            ha="left", va="top", fontsize=E.FS, color=E.MUTED)
     ax.plot(tdec, lv["level_m"], color=E.INK, lw=0.9, zorder=4, solid_capstyle="butt")
     ax.axvline(2026.0, color=E.MUTED, lw=0.6, zorder=1)
-    ax.text(2025.0, YLIM[1] - 0.15, "observed", ha="right", va="top", fontsize=E.FS, color=E.INK)
-    ax.text(2027.0, YLIM[1] - 0.15, "published pathways, from the 2026 level", ha="left", va="top", fontsize=E.FS,
+    ax.text(2025.0, ylim[1] - 0.3, "observed", ha="right", va="top", fontsize=E.FS, color=E.INK)
+    ax.text(2027.0, ylim[1] - 0.3, "published pathways, from the 2026 level", ha="left", va="top", fontsize=E.FS,
             color=E.INK)
-    ends = []
+    tt = np.linspace(2026.0, 2100.0, 297)
+    yy = np.array([np.interp(tt, *paths[pid]) for pid in rng])
+    ax.fill_between(tt, yy.min(axis=0), yy.max(axis=0), color="#d9d9d9", alpha=0.6, lw=0, zorder=0.5)
     for pid in prim:
-        yrs, ch = curves[pid]
-        t = np.r_[2026.0, yrs[yrs > 2026.0]]
-        c0 = float(np.interp(2026.0, yrs, ch))
-        y = l26 + (np.interp(t, yrs, ch) - c0)
+        t, y = paths[pid]
         col, ls = PATH_STYLE[pid]
         ax.plot(t, y, color=col, lw=1.1, ls=ls, zorder=3)
         for r in dates[(dates["pathway_id"] == pid) & dates["reached"]].itertuples():
-            ax.plot(r.date, l26 - r.delta_m, "o", ms=4.0, mfc="white", mec=col, mew=1.0, zorder=5)
-        if y[-1] >= YLIM[0]:
-            ends.append([float(y[-1]), pid, "end"])
-        else:
-            tx = float(np.interp(YLIM[0], y[::-1], t[::-1]))
-            ends.append([YLIM[0], pid, tx])
-    # labels in the right margin, with leader lines from the line's end (2100) or from where it
-    # leaves the bottom of the frame; positions spread to a minimum gap, kept inside the frame
-    inner = [e for e in ends if e[2] != "end" and e[2] < 2075.0]     # leaves the frame early: labelled inside
-    for _, pid, x in inner:
-        ax.text(x - 1.5, YLIM[0] + 0.25, PATH_LABEL[pid], ha="right", va="center", fontsize=E.FS, color=E.INK, zorder=6,
-                bbox={"boxstyle": "square,pad=0.1", "fc": "white", "ec": "none"})
-    ends = [e for e in ends if e not in inner]
-    lab = sorted([(e[0], e[1], 2100.0 if e[2] == "end" else e[2]) for e in ends], key=lambda e: -e[0])
-    gap, lo = 0.52, YLIM[0] + 0.15
-    ypos = []
-    for y, _, _ in lab:
-        ypos.append(min(y, ypos[-1] - gap) if ypos else y)
-    for k in range(len(ypos) - 1, -1, -1):
-        floor = lo if k == len(ypos) - 1 else ypos[k + 1] + gap
-        ypos[k] = max(ypos[k], floor)
-    for (y, pid, x), yl in zip(lab, ypos):
-        ax.annotate(PATH_LABEL[pid], xy=(x, y), xytext=(2103.0, yl), textcoords="data", fontsize=E.FS, color=E.INK,
-                    va="center", ha="left", annotation_clip=False,
-                    arrowprops={"arrowstyle": "-", "color": E.MUTED, "lw": 0.5, "shrinkA": 0, "shrinkB": 0})
+            ax.plot(r.date, l26 - r.delta_m, "o", ms=3.6, mfc="white", mec=col, mew=0.9, zorder=5)
     ax.set_xlim(1992.0, 2100.0)
-    ax.set_ylim(*YLIM)
+    ax.set_ylim(*ylim)
     ax.set_xticks([2000, 2020, 2040, 2060, 2080, 2100])
     ax.set_ylabel("Basin level (m, DAHITI reference)")
     ax.set_xlabel("Year")
     E.label(ax, "a", x=-0.1, y=1.0)
-    ax.legend(handles=[Line2D([], [], color=E.INK, lw=0.9, label="Observed (altimetry)"),
-                       Line2D([], [], ls="none", marker="o", ms=4.0, mfc="white", mec=E.INK, mew=1.0,
-                              label="Pathway reaches 1 m or 2 m")],
-              loc="upper right", bbox_to_anchor=(1.0, 0.93), fontsize=E.FS, frameon=False, borderaxespad=0.3,
-              handlelength=1.6)
+    ph = [Line2D([], [], color=E.INK, lw=0.9, label="Observed (altimetry)")]
+    ph += [Line2D([], [], color=PATH_STYLE[pid][0], ls=PATH_STYLE[pid][1], lw=1.1, label=PATH_LABEL[pid])
+           for pid in sorted(prim, key=lambda q: (q[:3] != "SAM", q))]
+    ph += [Patch(fc="#d9d9d9", alpha=0.6, ec="none", label="Range pathways"),
+           Line2D([], [], ls="none", marker="o", ms=3.6, mfc="white", mec=E.INK, mew=0.9,
+                  label="Reaches 1 m or 2 m")]
+    ax.legend(handles=ph, loc="upper left", bbox_to_anchor=(1.02, 1.0), fontsize=E.FS, frameon=False, borderaxespad=0,
+              handlelength=2.2, labelspacing=0.45)
 
-    # (b) how much ---------------------------------------------------------------------------------
-    axb = E.mm_axes(fig, W, H, L, TOP + HA + GAP, W - L - R, HB)
-    offs = np.linspace(-0.15, 0.15, len(E.PK))
-    prods = ("gebco_2026", "gebco_2022", "etopo_2022", "etopo1", "srtm15p_v2.7")
-    for k, d in SCEN:
-        est = [E.value(m, f"h3.emergence.{E.PK[p]}.uncorrected.{k}.estimate_km2") / 1000 for p in prods]
-        lo = [E.value(m, f"h3.emergence.{E.PK[p]}.uncorrected.{k}.lo_km2") / 1000 for p in prods]
-        hi = [E.value(m, f"h3.emergence.{E.PK[p]}.uncorrected.{k}.hi_km2") / 1000 for p in prods]
-        axb.add_patch(plt.Rectangle((d - 0.21, min(lo)), 0.42, max(hi) - min(lo), fc="#ececec", ec="none", zorder=0))
-        axb.add_patch(plt.Rectangle((d - 0.21, min(est)), 0.42, max(est) - min(est), fc="#c9c9c9", ec="none", zorder=1))
-        for p, dx, e_, l_, h_ in zip(prods, offs, est, lo, hi):
-            axb.plot([d + dx, d + dx], [l_, h_], color=E.COLOURS[p], lw=0.9, zorder=3)
-            axb.plot(d + dx, e_, E.MARKERS[p], ms=4.5, mfc=E.COLOURS[p], mec="white", mew=0.5, zorder=4)
-    for d in (1.0, 2.0):
-        axb.axvspan(d - 0.25, d + 0.25, color="#eef3f8" if d == 1.0 else "#f6f6f2", lw=0, zorder=-1)
-    axb.set_xlim(0, 5.5)
-    axb.set_xticks([d for _, d in SCEN], [E.num(m, f"h3.scenario.{k}_m") for k, _ in SCEN])
-    axb.set_ylim(0, None)
-    axb.set_xlabel("Fall below the 2026 level (m)")
+    # (b) how much: E(D) curves with the decline-normalised envelopes ------------------------------
+    env = pd.read_csv(N_DIR / "envelopes.csv")
+    env = env[(env["region"] == "domain") & (env["pairs"] == ENV_PAIRS) & (env["score"] == ENV_SCORE)
+              & env["calibrated"] & env["lo_km2"].notna()]
+    envs = {"composite": env[env["surface"] == "common_location_composite"], "shifted": env[env["surface"] == "shifted"]}
+    for key, e in envs.items():         # the envelopes' estimates are N's curves
+        for p in PRODS:
+            a = e[e["product"] == p].set_index("delta_m")["estimate_km2"]
+            b = cur[key][cur[key]["product"] == p].set_index("delta_m")["E_km2"].reindex(a.index)
+            if not len(a) or not np.allclose(a.to_numpy(), b.to_numpy(), atol=0.01):
+                raise SystemExit(f"{key} {p}: envelopes.csv estimates differ from N's curves")
+    if not np.isclose(env["delta_m"].max(), calib):
+        raise SystemExit("the envelopes end at a decline other than rev.n.env.max_pair_decline_m")
+    yb = TOP + HA + GAP
+    axb = E.mm_axes(fig, W, H, L, yb, W - L - R, HB)
+    for p in PRODS:
+        u = cur["uncorrected"][cur["uncorrected"]["product"] == p].sort_values("delta_m")
+        axb.plot(u["delta_m"], u["E_km2"] / 1000, color="#a6a6a6", lw=0.6, zorder=2)
+    for key, ls in (("composite", "solid"), ("shifted", (0, (4.0, 1.6)))):
+        for p in PRODS:
+            e = envs[key][envs[key]["product"] == p].sort_values("delta_m")
+            axb.fill_between(e["delta_m"], e["lo_km2"] / 1000, e["hi_km2"] / 1000, color=E.COLOURS[p], alpha=0.12,
+                             lw=0, zorder=1)
+            d = cur[key][cur[key]["product"] == p].sort_values("delta_m")
+            axb.plot(d["delta_m"], d["E_km2"] / 1000, color=E.COLOURS[p], lw=1.2, ls=ls, zorder=3)
+    axb.axvline(calib, color=E.MUTED, lw=0.6, ls=(0, (2, 2)), zorder=1)
+    axb.text(calib + 0.06, 0.97, "uncalibrated beyond", transform=axb.get_xaxis_transform(), ha="left", va="top",
+             fontsize=E.FS, color=E.MUTED)
+    axb.set_xlim(0, 5.0)
+    axb.set_ylim(0, max(float(cur[k]["E_km2"].max()) for k in cur) / 1000 * 1.04)
+    axb.set_xticks([0, 1, 2, 3, 4, 5])
+    axb.set_xlabel("Decline below the 2026 level (m)")
     axb.set_ylabel("Emerged area (10³ km²)")
     axb.grid(axis="y", color=E.GRID, lw=0.4)
     axb.set_axisbelow(True)
     E.label(axb, "b", x=-0.1, y=1.0)
-    handles = [Line2D([], [], color=E.COLOURS[p], marker=E.MARKERS[p], ms=4.5, mfc=E.COLOURS[p], mec="white", lw=0.9,
-                      label=E.NAMES[p]) for p in prods]
-    handles += [Patch(fc="#c9c9c9", ec="none", label="Range of the estimates"),
-                Patch(fc="#ececec", ec="none", label="Range of 90% intervals")]
-    axb.legend(handles=handles, loc="upper left", bbox_to_anchor=(1.01, 1.0), fontsize=E.FS, frameon=False,
-               borderaxespad=0, handlelength=1.6, labelspacing=0.35)
+    handles = [Patch(fc=E.COLOURS[p], ec="none", label=E.NAMES[p]) for p in PRODS]
+    handles += [Line2D([], [], color=E.INK, lw=1.2, label="From the observed\n2026 shoreline"),
+                Line2D([], [], color=E.INK, lw=1.2, ls=(0, (4.0, 1.6)), label="Shifted grids"),
+                Patch(fc=E.INK, alpha=0.12, ec="none", label="Hindcast envelope"),
+                Line2D([], [], color="#a6a6a6", lw=0.6, label="As distributed")]
+    axb.legend(handles=handles, loc="upper left", bbox_to_anchor=(1.02, 1.0), fontsize=E.FS, frameon=False,
+               borderaxespad=0, handlelength=2.2, labelspacing=0.4)
     C.save(fig, "erl_fig_timeline")
     plt.close(fig)
     return 0

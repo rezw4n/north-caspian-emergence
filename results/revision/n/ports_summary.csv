@@ -1,0 +1,5 @@
+by,value,n,n_in_domain,n_within_10km,n_within_20km,n_within_50km,n_far_up_delta
+type,port_harbour,4,4,0,0,2,3
+type,pier_landing,583,583,7,45,267,536
+class,seaport_harbour,0,0,0,0,0,0
+class,river_pier_landing,587,587,7,45,269,539

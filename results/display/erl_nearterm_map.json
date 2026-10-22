@@ -1,0 +1,130 @@
+{
+ "level_2026_m": -28.6194,
+ "delta_m": 1.0,
+ "products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7",
+  "gebco_2022",
+  "etopo1"
+ ],
+ "shape_constants_m": {
+  "gebco_2026": -1.48,
+  "etopo_2022": -1.49,
+  "srtm15p_v2.7": -1.28,
+  "gebco_2022": -1.45,
+  "etopo1": -1.38
+ },
+ "composite_baseline": "data/interim/revision_n/composite_baseline.npy",
+ "checks": [
+  {
+   "surface": "composite",
+   "product": "gebco_2026",
+   "km2": 7529.447,
+   "curves_km2": 7529.447,
+   "rel_diff": 0.0,
+   "equal": true
+  },
+  {
+   "surface": "shifted",
+   "product": "gebco_2026",
+   "km2": 9908.024,
+   "curves_km2": 9908.024,
+   "rel_diff": 0.0,
+   "equal": true
+  },
+  {
+   "surface": "composite",
+   "product": "etopo_2022",
+   "km2": 7547.76,
+   "curves_km2": 7547.76,
+   "rel_diff": 0.0,
+   "equal": true
+  },
+  {
+   "surface": "shifted",
+   "product": "etopo_2022",
+   "km2": 9885.071,
+   "curves_km2": 9885.071,
+   "rel_diff": 0.0,
+   "equal": true
+  },
+  {
+   "surface": "composite",
+   "product": "srtm15p_v2.7",
+   "km2": 16647.743,
+   "curves_km2": 16647.743,
+   "rel_diff": 0.0,
+   "equal": true
+  },
+  {
+   "surface": "shifted",
+   "product": "srtm15p_v2.7",
+   "km2": 12066.336,
+   "curves_km2": 12066.336,
+   "rel_diff": 0.0,
+   "equal": true
+  },
+  {
+   "surface": "composite",
+   "product": "gebco_2022",
+   "km2": 7548.124,
+   "curves_km2": 7548.124,
+   "rel_diff": -0.0,
+   "equal": true
+  },
+  {
+   "surface": "shifted",
+   "product": "gebco_2022",
+   "km2": 9895.576,
+   "curves_km2": 9895.576,
+   "rel_diff": 0.0,
+   "equal": true
+  },
+  {
+   "surface": "composite",
+   "product": "etopo1",
+   "km2": 10066.514,
+   "curves_km2": 10066.514,
+   "rel_diff": 0.0,
+   "equal": true
+  },
+  {
+   "surface": "shifted",
+   "product": "etopo1",
+   "km2": 13336.438,
+   "curves_km2": 13336.438,
+   "rel_diff": 0.0,
+   "equal": true
+  }
+ ],
+ "surfaces": {
+  "composite": {
+   "area_km2_by_count": {
+    "0": 202244.2596,
+    "1": 8473.4064,
+    "2": 2871.5796,
+    "3": 66.74759999999999,
+    "4": 2623.9067999999997,
+    "5": 4885.4304
+   },
+   "area_km2_any": 18921.0708,
+   "area_km2_majority": 7576.0848000000005,
+   "area_km2_all": 4885.4304
+  },
+  "shifted": {
+   "area_km2_by_count": {
+    "0": 194255.3376,
+    "1": 13017.7008,
+    "2": 4077.1656,
+    "3": 5538.942,
+    "4": 4078.3356,
+    "5": 197.84879999999998
+   },
+   "area_km2_any": 26909.992799999996,
+   "area_km2_majority": 9815.1264,
+   "area_km2_all": 197.84879999999998
+  }
+ },
+ "seconds": 14.4
+}

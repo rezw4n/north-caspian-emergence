@@ -1,0 +1,20 @@
+post,name,century_post,north_caspian_set,position_as_printed,lat,lon,position_flag,in_study_domain,sector,n_years,first_year,last_year,offset_m,offset_minus_delta_m,trend_m_per_decade,n_months_warm,warm_minus_delta_m,n_months_cold,cold_minus_delta_m
+BAKU,Baku,True,False,"Position data:  latitude  40° 21′ , longitude 49° 50′",40.35,49.833,,False,,23,1993.0,2019.0,-0.423,0.15,0.117,197,0.13,138,0.19
+FORT,Fort-Shevchenko,True,False,"Position data:  latitude  44°33' , longitude 50°15'",44.55,50.25,,False,,23,1993.0,2021.0,-0.597,-0.024,0.031,208,-0.06,144,0.024
+KBG,Kara Bogaz Gol (Duzlybogaz),True,False,"Position data:  latitude  41о10 , longitude 52о90",41.167,53.5,minute field >= 60 as printed,False,,25,1993.0,2021.0,-0.654,-0.081,-0.057,207,-0.128,145,-0.069
+KRASN,Krasnovodsk (Turkmenbashi),True,False,"Position data:  latitude  40о00 , longitude 53о00",40.0,53.0,,False,,26,1993.0,2021.0,-0.715,-0.142,-0.013,209,-0.169,148,-0.115
+KUULI,Kuuli-beacon (Guvlymayak),True,False,"Position data:  latitude  40о15 , longitude 52о43",40.25,52.717,,False,,21,1993.0,2021.0,-0.748,-0.175,-0.05,197,-0.2,142,-0.156
+MAKH,Makhachkala,True,False,"Position data:  latitude  43о00, , longitude 47о30,",43.0,47.5,,False,,26,1993.0,2021.0,-0.5,0.073,0.014,210,0.037,148,0.134
+NKAMNI,N.KAMNI,True,False,"Position data:  latitude  40о20, , longitude 50о90,",40.333,51.5,minute field >= 60 as printed,False,,25,1993.0,2019.0,-0.375,0.198,0.065,202,0.168,142,0.231
+KUL,Kulaly,False,True,"Position data:  latitude  45°01' , longitude 55°02'",45.017,55.033,,False,,19,1995.0,2021.0,-0.583,-0.01,0.011,168,-0.063,113,0.059
+LAG,Kaspiysky /Lagan/,False,True,"Position data:  latitude  45о23, , longitude 47о22,",45.383,47.367,,True,west,23,1993.0,2021.0,-0.34,0.233,0.069,197,0.213,140,0.282
+PESH,Peshnoy,False,True,"Position data:  latitude  46°55' , longitude 51°41'",46.917,51.683,,True,ural,25,1993.0,2021.0,-0.637,-0.064,-0.002,210,-0.088,146,-0.034
+TUL,isl.Tyuleniy,False,True,"Position data:  latitude  44о28, , longitude 47о29,",44.467,47.483,,True,west,26,1993.0,2021.0,-0.576,-0.003,0.046,210,-0.038,148,0.056
+AKTAU,Aktau,False,False,"Position data:  latitude  43о36' , longitude 51о11'",43.6,51.183,,False,,26,1993.0,2021.0,-0.72,-0.147,-0.062,210,-0.201,148,-0.131
+BEK,Bekdash (Garabogaz),False,False,"Position data:  latitude  41о50 , longitude 52о60",41.833,53.0,minute field >= 60 as printed,False,,20,1994.0,2021.0,-0.594,-0.021,0.047,190,-0.077,129,0.019
+CHELEKEN,Cheleken,False,False,"Position data:  latitude  39о27 , longitude 53о07",39.45,53.117,,False,,8,2013.0,2021.0,,,0.334,70,0.026,51,0.076
+ISB,Isberg,False,False,"Position data:  latitude  42о33, , longitude 47о53,",42.55,47.883,,False,,0,,,,,,0,,0,
+JILOY (Chilov),Jiloy (Chilov),False,False,"Position data:  latitude  40о40, , longitude 50о60,",40.667,51.0,minute field >= 60 as printed,False,,25,1993.0,2019.0,-0.276,0.297,0.175,202,0.27,142,0.347
+LEN,Lenkoran,False,False,"Position data:  latitude  38о70, , longitude 48о80,",39.167,49.333,minute field >= 60 as printed,False,,21,1993.0,2017.0,-0.584,-0.011,-0.065,175,-0.017,125,0.052
+OGUR,Ogurchinsky (Ogrydzhali),False,False,"Position data:  latitude  39о10 , longitude 53о10",39.167,53.167,,False,,22,1993.0,2021.0,-0.628,-0.055,0.052,204,-0.078,141,-0.043
+SUMG,Sumgait,False,False,"Position data:  latitude  40о60, , longitude 49о60,",41.0,50.0,minute field >= 60 as printed,False,,17,1993.0,2018.0,-0.42,0.153,0.11,141,0.11,98,0.209

@@ -1,0 +1,129 @@
+{
+ "constants": {
+  "ATL06": {
+   "c_m": 0.7229551000000001,
+   "sigma_m": 0.1547443379274999,
+   "n_points": 2711463,
+   "source": "results/validation/main/ATL06_datum_constant.json"
+  },
+  "ATL08": {
+   "c_m": 0.7098306999999977,
+   "sigma_m": 0.1828731543584344,
+   "n_points": 255583,
+   "source": "results/validation/main/ATL08_datum_constant.json"
+  },
+  "GEDI": {
+   "c_m": 0.5127603000000001,
+   "sigma_m": 0.12115508589656787,
+   "n_points": 1023143,
+   "source": "results/validation/main_gedi/GEDI_datum_constant.json"
+  },
+  "GLO30": {
+   "c_m": 0.6237153999999983,
+   "sigma_m": 0.059064652140696706,
+   "n_points": 374665,
+   "source": "results/validation/main_glo30/GLO30_datum_constant.json"
+  }
+ },
+ "terms": {
+  "gm_zero_degree_if_dgfi_omits_m": -0.0048016773488208835,
+  "tide_if_dahiti_mean_tide_m": [
+   0.02988013540395385,
+   0.04190823712469915
+  ],
+  "frame_itrf2014_to_2020_m": [
+   0.0016,
+   0.0025
+  ],
+  "tp_ellipsoid_if_unreduced_m": [
+   0.7065821941941977,
+   0.7073892690241337
+  ],
+  "w0_term_iers2017_m": 0.17186608263604983,
+  "w0_term_pre2015_m": 0.4369922981622607,
+  "w0_term_nga_egm2008_m": 0.41,
+  "signs": "each value is the contribution to c = H_DAHITI - H(ICGEM EIGEN-6C4) if the stated condition holds; the GM term enters only if DGFI's geoid omits it (ICGEM includes it)",
+  "latitudes_deg": [
+   43.9677,
+   44.531416666666665,
+   45.09513333333334,
+   45.65885,
+   46.222566666666665,
+   46.78628333333334,
+   47.35
+  ]
+ },
+ "swot_check": {
+  "nga_realisation_m": 0.8345,
+  "icgem_realisation_m": 0.4288,
+  "meantide_working_m": 0.7994,
+  "note": "minus the all-block SWOT departure: how far DAHITI sits above the SWOT water surface on the working chain; no DEM involved"
+ },
+ "residuals_m": {
+  "ATL06": {
+   "documented_terms_only": {
+    "explained_max_m": 0.049209914473520036,
+    "residual_min_m": 0.67374518552648
+   },
+   "tp_ellipsoid": {
+    "tide_free": 0.0159691374228359,
+    "mean_tide": -0.019929133194122227
+   },
+   "w0_iers2017": 0.5510890173639502,
+   "w0_pre2015": 0.28596280183773937,
+   "w0_nga": 0.3129551000000001,
+   "sigma_m": 0.1547443379274999
+  },
+  "ATL08": {
+   "documented_terms_only": {
+    "explained_max_m": 0.049209914473520036,
+    "residual_min_m": 0.6606207855264776
+   },
+   "tp_ellipsoid": {
+    "tide_free": 0.002844737422833532,
+    "mean_tide": -0.033053533194124594
+   },
+   "w0_iers2017": 0.5379646173639479,
+   "w0_pre2015": 0.272838401837737,
+   "w0_nga": 0.29983069999999773,
+   "sigma_m": 0.1828731543584344
+  },
+  "GEDI": {
+   "documented_terms_only": {
+    "explained_max_m": 0.049209914473520036,
+    "residual_min_m": 0.46355038552648004
+   },
+   "tp_ellipsoid": {
+    "tide_free": -0.19422566257716412,
+    "mean_tide": -0.23012393319412225
+   },
+   "w0_iers2017": 0.3408942173639502,
+   "w0_pre2015": 0.07576800183773935,
+   "w0_nga": 0.10276030000000008,
+   "sigma_m": 0.12115508589656787
+  },
+  "GLO30": {
+   "documented_terms_only": {
+    "explained_max_m": 0.049209914473520036,
+    "residual_min_m": 0.5745054855264782
+   },
+   "tp_ellipsoid": {
+    "tide_free": -0.08327056257716592,
+    "mean_tide": -0.11916883319412405
+   },
+   "w0_iers2017": 0.4518493173639484,
+   "w0_pre2015": 0.18672310183773755,
+   "w0_nga": 0.21371539999999828,
+   "sigma_m": 0.059064652140696706
+  },
+  "SWOT_nga_realisation_m": {
+   "tp_ellipsoid": 0.12751403742283585,
+   "w0_nga": 0.42450000000000004
+  },
+  "SWOT_icgem_realisation_m": {
+   "tp_ellipsoid": -0.27818596257716416,
+   "w0_nga": 0.01880000000000004
+  }
+ },
+ "reading": "documented terms (GM, tide, frame) explain at most about 0.05 m of c; DGFI's ellipsoid and zero-degree handling are not documented in what was read"
+}

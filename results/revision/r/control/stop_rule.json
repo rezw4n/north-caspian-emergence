@@ -1,0 +1,76 @@
+{
+ "rule": "A18 item 6; deciding: rounded control, levels in the DEM's contour range (D-116)",
+ "deciding": {
+  "n_cases": 16,
+  "n_rows": 16,
+  "n_excess_holds": 14,
+  "n_excess_fails": 2,
+  "fires": false,
+  "fails": [
+   "gebco_2022|open_shelf",
+   "srtm15p_v2.7|open_shelf"
+  ]
+ },
+ "all": {
+  "rounded|dem_range": {
+   "n_cases": 16,
+   "n_rows": 16,
+   "n_excess_holds": 14,
+   "n_excess_fails": 2,
+   "fires": false,
+   "fails": [
+    "gebco_2022|open_shelf",
+    "srtm15p_v2.7|open_shelf"
+   ]
+  },
+  "rounded|all_levels": {
+   "n_cases": 16,
+   "n_rows": 16,
+   "n_excess_holds": 14,
+   "n_excess_fails": 2,
+   "fires": false,
+   "fails": [
+    "gebco_2022|open_shelf",
+    "srtm15p_v2.7|open_shelf"
+   ]
+  },
+  "unrounded|dem_range": {
+   "n_cases": 16,
+   "n_rows": 16,
+   "n_excess_holds": 16,
+   "n_excess_fails": 0,
+   "fires": false,
+   "fails": []
+  },
+  "unrounded|all_levels": {
+   "n_cases": 16,
+   "n_rows": 16,
+   "n_excess_holds": 16,
+   "n_excess_fails": 0,
+   "fires": false,
+   "fails": []
+  }
+ },
+ "top_dem_bin": 41,
+ "control_constants_m": {
+  "ctrl_r15_gebco": -0.06,
+  "ctrl_r15_srtm": -0.06,
+  "ctrl_r15_etopo22": -0.06,
+  "ctrl_u15": -0.09,
+  "ctrl_r60_etopo1": -0.06,
+  "ctrl_u60_etopo1": -0.07
+ },
+ "floor_reproduced_max_abs_diff_m": 0.0,
+ "products": [
+  "gebco_2026",
+  "gebco_2022",
+  "etopo1",
+  "srtm15p_v2.7"
+ ],
+ "sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "open_shelf"
+ ]
+}

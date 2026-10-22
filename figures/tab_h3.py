@@ -120,7 +120,7 @@ def t3_habitat(k: Keys) -> list[str]:
     out = ["\\begin{table}[!htbp]", "\\centering", "\\scriptsize", "\\setlength{\\tabcolsep}{2.5pt}",
            "\\caption{\\textbf{Further habitat stand-ins, 1~m and 2~m below the 2026 level (H3).} As Table~\\ref{tab:h3}, "
            "for the emerged area (km\\textsuperscript{2}) of three further open-licence wetland layers: OpenStreetMap "
-           "wetlands, GWL\\_FCS30 2020 wetland classes and GLWD v2 wetland classes (D-081). They are stand-ins, not "
+           "wetlands, GWL\\_FCS30 2020 wetland classes and GLWD v2 wetland classes. They are stand-ins, not "
            "authoritative habitat maps.}",
            "\\label{tab:ed_h3_habitat}"] + header()
     out += body(k, ROWS_ED, ["1", "2"])
@@ -144,10 +144,10 @@ def dates_table(k: Keys) -> list[str]:
            "\\caption{\\textbf{When published pathways reach each scenario depth.} Calendar year in which each "
            "pathway's own fall after 2026 first reaches the decline below the 2026 level (\\metric{h3.level_2026_m}~m, "
            "DAHITI reference); each pathway is linear between the points its source states, anchored at its reference "
-           "year at zero change, and never extrapolated beyond its last stated year (D-081). Primary pathways set the "
+           "year at zero change, and never extrapolated beyond its last stated year. Primary pathways set the "
            "dates quoted in the text; range and sensitivity pathways are reported beside them. --, not reached by "
            "the pathway's last stated year (2100)."
-           + (f" Pathways from sources not yet verified ({', '.join(left_out)}) are not shown." if left_out else "")
+           + (" Pathways from sources whose values we could not verify are not shown." if left_out else "")
            + "}",
            "\\label{tab:ed_scenario_dates}",
            "\\begin{tabular}{p{2.1cm}p{2.5cm}p{3.6cm}l" + "r" * len(scen) + "}", "\\hline",

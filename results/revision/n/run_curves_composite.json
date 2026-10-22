@@ -1,0 +1,22 @@
+{
+ "script": "scripts/rev_n_curves.py --fused-form composite",
+ "decision": "D-123 addenda",
+ "level_2026_m": -28.6194,
+ "reference_levels_m": {
+  "main": -28.6194,
+  "L26+0.3": -28.3194,
+  "L26-0.3": -28.9194,
+  "running_median": -28.6055
+ },
+ "fused_maps": {
+  "gebco_2026": "composite_baseline.npy",
+  "etopo_2022": "composite_baseline.npy",
+  "srtm15p_v2.7": "composite_baseline.npy",
+  "gebco_2022": "composite_baseline.npy",
+  "etopo1": "composite_baseline.npy"
+ },
+ "checks": {
+  "common_area_vs_emergence_csv_sea_area": "not applicable: no registered counterpart (D-123 addendum 2)"
+ },
+ "seconds": 144.5
+}

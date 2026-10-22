@@ -1,0 +1,185 @@
+{
+ "method": "expected horizontal displacement = vertical NMAD / sector median gradient g",
+ "overall": [
+  {
+   "source": "ATL06",
+   "product": "gebco_2026",
+   "nmad_m": 1.045,
+   "rmse_m": 1.0714,
+   "bias_m": -0.1039,
+   "n_sectors_mispredicted": 7,
+   "D_all_levels_median_km": 4.1228
+  },
+  {
+   "source": "ATL06",
+   "product": "etopo_2022",
+   "nmad_m": 0.9103,
+   "rmse_m": 1.0227,
+   "bias_m": -0.1298,
+   "n_sectors_mispredicted": 1,
+   "D_all_levels_median_km": 0.8743
+  },
+  {
+   "source": "ATL06",
+   "product": "srtm15p_v2.7",
+   "nmad_m": 1.1359,
+   "rmse_m": 1.1225,
+   "bias_m": -0.036,
+   "n_sectors_mispredicted": 6,
+   "D_all_levels_median_km": 5.401
+  },
+  {
+   "source": "ATL06",
+   "product": "gebco_2022",
+   "nmad_m": 1.028,
+   "rmse_m": 1.1696,
+   "bias_m": 0.264,
+   "n_sectors_mispredicted": 7,
+   "D_all_levels_median_km": 3.8409
+  },
+  {
+   "source": "ATL06",
+   "product": "etopo1",
+   "nmad_m": 0.838,
+   "rmse_m": 1.0969,
+   "bias_m": 0.2127,
+   "n_sectors_mispredicted": 7,
+   "D_all_levels_median_km": 5.3047
+  },
+  {
+   "source": "ATL08",
+   "product": "gebco_2026",
+   "nmad_m": 1.0189,
+   "rmse_m": 1.065,
+   "bias_m": -0.0998,
+   "n_sectors_mispredicted": 7,
+   "D_all_levels_median_km": 4.1228
+  },
+  {
+   "source": "ATL08",
+   "product": "etopo_2022",
+   "nmad_m": 0.873,
+   "rmse_m": 1.0219,
+   "bias_m": -0.1439,
+   "n_sectors_mispredicted": 1,
+   "D_all_levels_median_km": 0.8743
+  },
+  {
+   "source": "ATL08",
+   "product": "srtm15p_v2.7",
+   "nmad_m": 1.1123,
+   "rmse_m": 1.1063,
+   "bias_m": -0.0444,
+   "n_sectors_mispredicted": 6,
+   "D_all_levels_median_km": 5.401
+  },
+  {
+   "source": "ATL08",
+   "product": "gebco_2022",
+   "nmad_m": 1.0629,
+   "rmse_m": 1.1684,
+   "bias_m": 0.2654,
+   "n_sectors_mispredicted": 7,
+   "D_all_levels_median_km": 3.8409
+  },
+  {
+   "source": "ATL08",
+   "product": "etopo1",
+   "nmad_m": 0.8546,
+   "rmse_m": 1.1093,
+   "bias_m": 0.2133,
+   "n_sectors_mispredicted": 7,
+   "D_all_levels_median_km": 5.3047
+  }
+ ],
+ "rank_correlations": [
+  {
+   "source": "ATL06",
+   "sector": "interfluve",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.2
+  },
+  {
+   "source": "ATL06",
+   "sector": "komsomolets",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.671
+  },
+  {
+   "source": "ATL06",
+   "sector": "northeast",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.3
+  },
+  {
+   "source": "ATL06",
+   "sector": "open_shelf",
+   "n_products": 5,
+   "rho_nmad_vs_D": -0.2
+  },
+  {
+   "source": "ATL06",
+   "sector": "volga",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.5
+  },
+  {
+   "source": "ATL06",
+   "sector": "west",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.4
+  },
+  {
+   "source": "ATL08",
+   "sector": "interfluve",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.2
+  },
+  {
+   "source": "ATL08",
+   "sector": "komsomolets",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.671
+  },
+  {
+   "source": "ATL08",
+   "sector": "northeast",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.3
+  },
+  {
+   "source": "ATL08",
+   "sector": "open_shelf",
+   "n_products": 5,
+   "rho_nmad_vs_D": -0.1
+  },
+  {
+   "source": "ATL08",
+   "sector": "volga",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.1
+  },
+  {
+   "source": "ATL08",
+   "sector": "west",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.4
+  },
+  {
+   "source": "ATL06",
+   "sector": "overall",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.4
+  },
+  {
+   "source": "ATL08",
+   "sector": "overall",
+   "n_products": 5,
+   "rho_nmad_vs_D": 0.3
+  }
+ ],
+ "median_ratio_D_to_nmad_equiv": {
+  "ATL06": 2.016,
+  "ATL08": 1.898
+ }
+}

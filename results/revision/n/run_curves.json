@@ -1,0 +1,82 @@
+{
+ "script": "scripts/rev_n_curves.py",
+ "decision": "D-123",
+ "level_2026_m": -28.6194,
+ "level_2026_running_median": {
+  "level_m": -28.6055,
+  "method": "latest_running_median",
+  "n_records": 862,
+  "date": "2026-09-14",
+  "rounded_m": -28.6055
+ },
+ "reference_levels_m": {
+  "main": -28.6194,
+  "L26+0.3": -28.3194,
+  "L26-0.3": -28.9194,
+  "running_median": -28.6055
+ },
+ "shape_constants_m": {
+  "gebco_2026": -1.48,
+  "etopo_2022": -1.49,
+  "srtm15p_v2.7": -1.28,
+  "gebco_2022": -1.45,
+  "etopo1": -1.38
+ },
+ "level_grid": {
+  "below_m": 7.5,
+  "above_m": 0.8,
+  "step_m": 0.01
+ },
+ "fused_maps": {
+  "gebco_2026": "gebco_2026_linear_hold_fused_c6457e99853a.npy",
+  "etopo_2022": "etopo_2022_linear_hold_fused_8f6b2313a0fa.npy",
+  "srtm15p_v2.7": "srtm15p_v2.7_linear_hold_fused_830303487412.npy",
+  "gebco_2022": "gebco_2022_linear_hold_fused_941f23020a59.npy",
+  "etopo1": "etopo1_linear_hold_fused_3845c41eb0ca.npy"
+ },
+ "no_constant_correction": {
+  "file": "geoid_correction_no_constant.npz",
+  "sha256": "325595083e9313155ff3ae243aab683b6338299f6dd167594ae388e14fd2d7de",
+  "meaning": "N(EGM2008) - N(EIGEN-6C4), m, added to product heights",
+  "cache": "correction_32491925117b.npy"
+ },
+ "no_constant_flood_maps": {
+  "gebco_2026": "gebco_2026_1b0bb50afff9.npy",
+  "etopo_2022": "etopo_2022_15416be3b913.npy",
+  "srtm15p_v2.7": "srtm15p_v2.7_e754921be93d.npy",
+  "gebco_2022": "gebco_2022_57510c72da59.npy",
+  "etopo1": "etopo1_1fe43bbee5ad.npy"
+ },
+ "dN_over_domain": {
+  "dN_min_m": -0.5910554528236389,
+  "dN_max_m": -0.24268457293510437,
+  "dN_mean_m": -0.4015233338455963,
+  "n_cells": 61434814
+ },
+ "checks": {
+  "common_area_vs_emergence_csv_sea_area": {
+   "max_abs_diff_km2": 7.275957614183426e-12,
+   "n": 200
+  }
+ },
+ "zone_v6": "results/study_area/extents_v6_250m.npz layer low",
+ "regions": [
+  "west",
+  "volga",
+  "interfluve",
+  "ural",
+  "northeast",
+  "komsomolets",
+  "open_shelf",
+  "domain",
+  "validated"
+ ],
+ "validated": [
+  "west",
+  "interfluve",
+  "northeast",
+  "open_shelf"
+ ],
+ "cell_km2": 0.0036,
+ "seconds": 797.8
+}

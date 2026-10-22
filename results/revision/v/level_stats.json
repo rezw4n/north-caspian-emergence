@@ -1,0 +1,205 @@
+{
+ "delta_m": -0.5729790453468183,
+ "delta_sigma_posts_years_m": 0.051758712908213815,
+ "bhs_rule": "H_BHS-77 = H_DAHITI + delta (D-093); a basin-wide level in BHS carries sigma 0.05 m",
+ "fall": {
+  "raw_max_m": -25.672,
+  "raw_max_date": "1995-07-06",
+  "raw_min_m": -28.909,
+  "raw_min_date": "2026-01-29",
+  "raw_range_m": 3.2369999999999983,
+  "smoothed_max_m": -25.816,
+  "smoothed_max_date": "1995-07-16",
+  "smoothed_min_m": -28.87,
+  "smoothed_min_date": "2025-12-30",
+  "smoothed_range_m": 3.054000000000002,
+  "k": 3,
+  "smoothed_max_bhs_m": -26.38897904534682,
+  "smoothed_min_bhs_m": -29.44297904534682,
+  "raw_max_bhs_m": -26.24497904534682,
+  "raw_min_bhs_m": -29.48197904534682,
+  "note": "the 3.05 m is the range of the 3-record running median (D-021 rule), from its maximum (the E1 end) to its minimum; single records give the raw range"
+ },
+ "annual": {
+  "1995": {
+   "dahiti_gap60_bhs_m": -26.58160335451074,
+   "dahiti_nogap_bhs_m": -26.58160335451074,
+   "scene_path_bhs_m": -26.58100163406926,
+   "share_hydroweb_days": 0.0,
+   "records": 29.0
+  },
+  "2015": {
+   "dahiti_gap60_bhs_m": -27.888148724112536,
+   "dahiti_nogap_bhs_m": -27.888148724112536,
+   "scene_path_bhs_m": -27.887817143619497,
+   "share_hydroweb_days": 0.0,
+   "records": 26.0
+  },
+  "2021": {
+   "dahiti_gap60_bhs_m": -28.400911864001404,
+   "dahiti_nogap_bhs_m": -28.400911864001404,
+   "scene_path_bhs_m": -28.401194864671663,
+   "share_hydroweb_days": 0.0,
+   "records": 22.0
+  },
+  "2023": {
+   "dahiti_gap60_bhs_m": null,
+   "dahiti_nogap_bhs_m": -28.867346507554625,
+   "scene_path_bhs_m": -28.862241682807873,
+   "share_hydroweb_days": 0.273972602739726,
+   "records": 11.0
+  },
+  "2024": {
+   "dahiti_gap60_bhs_m": null,
+   "dahiti_nogap_bhs_m": -29.07959947300754,
+   "scene_path_bhs_m": -29.07421598581398,
+   "share_hydroweb_days": 0.7131147540983607,
+   "records": 8.0
+  },
+  "2025": {
+   "dahiti_gap60_bhs_m": null,
+   "dahiti_nogap_bhs_m": -29.205600172520498,
+   "scene_path_bhs_m": -29.204600601868528,
+   "share_hydroweb_days": 0.18356164383561643,
+   "records": 15.0
+  }
+ },
+ "annual_fall_1995_2025": {
+  "rule": "1995 from DAHITI with complete months (gap <= 60 d); 2025 from the first of: DAHITI gap <= 60 d, DAHITI no gap limit, the scene-level path, that has a complete year",
+  "1995_bhs_m": -26.58160335451074,
+  "2025_bhs_m": -29.205600172520498,
+  "fall_m": 2.6239968180097577,
+  "2025_alternatives_bhs_m": {
+   "dahiti_gap60_bhs_m": null,
+   "dahiti_nogap_bhs_m": -29.205600172520498,
+   "scene_path_bhs_m": -29.204600601868528,
+   "share_hydroweb_days": 0.18356164383561643,
+   "records": 15.0
+  }
+ },
+ "reference_2026": {
+  "level_m": -28.619375,
+  "level_bhs_m": -29.19235404534682,
+  "n_records": 24,
+  "first": "2026-01-09",
+  "last": "2026-09-14",
+  "jan_sep_minus_annual_mean_m": {
+   "median": 0.048064382897113234,
+   "q25": 0.033881345344279445,
+   "q75": 0.06116453130744581,
+   "n_years": 26,
+   "years": [
+    1993,
+    2021
+   ]
+  },
+  "jan_sep_2025": {
+   "dahiti_nogap_bhs_m": -29.15694769244399,
+   "scene_path_bhs_m": -29.155064929443864
+  },
+  "jan_sep_2026_scene_path_bhs_m": -29.190640546018944,
+  "dec_2024_scene_path_bhs_m": -29.27821325702564,
+  "dec_2024_share_hydroweb_days": 1.0,
+  "annual_2024_bhs_m": {
+   "dahiti_gap60_bhs_m": null,
+   "dahiti_nogap_bhs_m": -29.07959947300754,
+   "scene_path_bhs_m": -29.07421598581398,
+   "share_hydroweb_days": 0.7131147540983607,
+   "records": 8.0
+  },
+  "ginzburg2025_end2024_bhs_m": -29.34,
+  "ginzburg_source": "lit.ginzburg2025.level_end2024_bhs_m (abstract; its averaging is not stated there)",
+  "annual_equivalent_bhs_m": -29.240418428243935
+ },
+ "level_control": {
+  "dahiti_records_per_year": {
+   "2021": 22,
+   "2022": 11,
+   "2023": 11,
+   "2024": 8,
+   "2025": 15,
+   "2026": 24
+  },
+  "max_gap_days": 128.903,
+  "time_of_max_gap_start": "2024-01-17T01:43:48",
+  "gaps_over_60_days_by_year": {},
+  "gaps_over_60_days": [
+   {
+    "start": "1999-10-10",
+    "days": 89.2
+   },
+   {
+    "start": "2019-12-31",
+    "days": 69.4
+   },
+   {
+    "start": "2022-08-09",
+    "days": 99.2
+   },
+   {
+    "start": "2023-04-14",
+    "days": 99.2
+   },
+   {
+    "start": "2024-01-17",
+    "days": 128.9
+   },
+   {
+    "start": "2024-06-13",
+    "days": 99.2
+   },
+   {
+    "start": "2024-11-29",
+    "days": 99.2
+   }
+  ],
+  "e3_bins_below_minus_28": {
+   "note": "all April-October E3 scenes of the scene table (Landsat and Sentinel-2), per 0.10 m bin; the stage-2 plan of the audit is a subset",
+   "share_hydroweb_scenes": 0.3417012738556297,
+   "n_scenes": 21431
+  },
+  "hydroweb_shift": {
+   "hydroweb_offset": {
+    "method": "moving median of the 505 DAHITI - Hydroweb pairs within +/-20 d, window +/-730.5 d around each scene (>= 20 pairs, else the nearest 20)",
+    "half_window_days": 730.5,
+    "half_window_years": 2.0,
+    "min_pairs": 20,
+    "pooled_median_m": 0.11402966768490685,
+    "filled_scenes_offset_median_m": 0.078012,
+    "filled_scenes_offset_min_m": 0.06801650000000001,
+    "filled_scenes_offset_max_m": 0.15134,
+    "filled_scenes_offset_sigma_p50_m": 0.048035151816696826,
+    "pair_residual_nmad_m": 0.0681150918,
+    "excess_sd_tau_m": 0.011671270901256877,
+    "excess_sd_n_years": 34,
+    "tau_rule": "tau(t) = max(local, record-wide): local = method-of-moments excess over the years whose middle pair time is within +/-730.5 d of the scene (at least 5 years, else the nearest 5); offset 1-sigma = sqrt(SE_moving_median^2 + tau^2), common to the gap-filled scenes, added after interpolation",
+    "tau_min_years": 5,
+    "filled_scenes_tau_p50_m": 0.04630128753944927,
+    "filled_scenes_tau_min_m": 0.011671270901256877,
+    "filled_scenes_tau_max_m": 0.04630128753944927,
+    "n_filled_scenes_tau_at_record_floor": 1298,
+    "filled_scenes_offset_sigma_p50_with_record_tau_m": 0.01842367743792271
+   }
+  }
+ },
+ "caspcom_printed": {
+  "sea_mean": {
+   "2015": -27.98,
+   "2018": -28.03,
+   "2019": -28.2,
+   "2021": -28.43,
+   "2022": -28.7,
+   "2023": -28.99
+  },
+  "post_2024_mean_of_6_m": -29.185,
+  "post_2025_mean_of_6_m": -29.34,
+  "post_2025_posts": [
+   "MAKH",
+   "NKAMNI",
+   "FORT",
+   "KRASN",
+   "KUULI",
+   "KBG"
+  ]
+ }
+}

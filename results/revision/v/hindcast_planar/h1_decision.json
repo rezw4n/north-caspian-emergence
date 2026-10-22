@@ -1,0 +1,47 @@
+{
+ "tag": "../revision/v/hindcast_planar",
+ "deciding_variant": "shape (D-072)",
+ "mispredicts": {
+  "total": {
+   "etopo1": {
+    "mispredicts_in": [
+     "interfluve",
+     "komsomolets",
+     "northeast",
+     "open_shelf",
+     "ural",
+     "volga",
+     "west"
+    ],
+    "not_in": [],
+    "not_evaluable": []
+   },
+   "gebco_2026": {
+    "mispredicts_in": [
+     "interfluve",
+     "komsomolets",
+     "northeast",
+     "open_shelf",
+     "ural",
+     "volga",
+     "west"
+    ],
+    "not_in": [],
+    "not_evaluable": []
+   }
+  }
+ },
+ "block_test": {
+  "etopo1|total": {
+   "statistic_m": -1013.2534419433905,
+   "p": 0.5669433056694331,
+   "significant": false
+  },
+  "gebco_2026|total": {
+   "statistic_m": 791.1938697874357,
+   "p": 0.46285371462853714,
+   "significant": false
+  }
+ },
+ "group_sectors": "ural+volga+west"
+}

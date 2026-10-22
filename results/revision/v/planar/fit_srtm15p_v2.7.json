@@ -1,0 +1,49 @@
+{
+ "product": "srtm15p_v2.7",
+ "primary": {
+  "c_m": -1.28,
+  "objective_km2": 168030.3276
+ },
+ "units": 43,
+ "fit_region_cells": 35432933,
+ "approx_check_at_zero": {
+  "c0_m": -1.28,
+  "objective_km2_scaled": 168196.6656,
+  "subsample": 4
+ },
+ "coarse": {
+  "best": {
+   "a": 0.016,
+   "b": -0.02,
+   "c0_m": -1.54,
+   "objective_km2": 39531.5136
+  },
+  "extended": true,
+  "subsample": 4,
+  "on_edge": true
+ },
+ "fine": {
+  "best": {
+   "a": 0.0164,
+   "b": -0.021,
+   "c0_m": -1.51,
+   "objective_km2": 38918.4912
+  },
+  "subsample": 2
+ },
+ "approx_full_at_best": {
+  "c0_m": -1.51,
+  "objective_km2": 38888.748
+ },
+ "exact": {
+  "a_m_per_km": 0.0164,
+  "b_m_per_km": -0.021,
+  "c0_m": -1.58,
+  "objective_km2": 42239.628,
+  "n_tied_minima": 1,
+  "flood_map": "srtm15p_v2.7_planar (key in data/interim/hindcast/flood)",
+  "correction_cache": "planar_corr_srtm15p_v2.7_bd1a045acf2d.npy"
+ },
+ "objective_reduction_vs_primary_pct": 74.86,
+ "seconds": 1128.8
+}

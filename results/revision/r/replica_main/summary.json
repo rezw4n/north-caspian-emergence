@@ -1,0 +1,25 @@
+{
+ "levels_D_rows": 896,
+ "levels_D_max_abs_diff_m": [
+  0.0,
+  0
+ ],
+ "levels_D_n_max_abs_diff": [
+  0.0,
+  0
+ ],
+ "units_rows": 1204,
+ "units_max_abs_diff_m": [
+  0.0,
+  0
+ ],
+ "floor_rows": 224,
+ "floor_p95_max_abs_diff_m": [
+  0.0,
+  0
+ ],
+ "floor_n_max_abs_diff": [
+  0.0,
+  0
+ ]
+}
