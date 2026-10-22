@@ -1,17 +1,16 @@
-"""Revision, workstream V: the CASPCOM posts behind the DAHITI -> BHS-77 offset
-(R2.M3(a), R1 minor 6, R1.M1(c); D-122).
+"""Revision analysis V: the CASPCOM posts behind the DAHITI -> BHS-77 offset.
 
 Per Baltic-system post of the CASPCOM General Catalogue: the position as printed in
 the workbook header ("Position data: latitude ..., longitude ..."), whether that
 position lies in the study domain and in which sector, whether the post is one of the
-seven century posts behind delta (D-093), and derived offset statistics only:
+seven century posts behind delta, and derived offset statistics only:
 - m: the post's offset, mean over its overlap years of (post annual mean - DAHITI
-  annual mean), exactly as results/levels/dahiti_bhs_offset.json (D-093);
+  annual mean), exactly as results/levels/dahiti_bhs_offset.json;
 - m - delta: the post's departure from the seven-post offset;
 - warm and cold season: the mean of the monthly differences (post monthly mean -
   DAHITI monthly mean, both complete months, 1993 onward) over April-October and over
   November-March, minus delta.
-The per-year values are not written (D-101: the gauge annual means are not
+The per-year values are not written (the gauge annual means are not
 redistributed).
 
 Outputs: results/revision/v/caspcom_posts.csv and caspcom_posts.json.

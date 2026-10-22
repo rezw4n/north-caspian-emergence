@@ -1,6 +1,5 @@
-"""Workstream S, revision statistics from the frozen H1 tables (PREREG Amendment 18
-items 1, 2, 4, 5 and 8; R1, R2 and R3 comments on the H1 statistics; DECISIONS D-113,
-D-115). Reads the results of scripts/rev_s_rasters.py (D-114) where an item needs them,
+"""Revision analysis S: statistics from the frozen H1 tables (PREREG Amendment 18
+items 1, 2, 4, 5 and 8). Reads the results of scripts/rev_s_rasters.py where an item needs them,
 and skips those parts when that run is absent. No Earth Engine.
 
 Outputs (results/revision/s/): item1_counts.csv; item2_p_mispredict.csv,
@@ -142,7 +141,7 @@ def item4(ext: pd.DataFrame):
                                                                   "scope": "domain_validated_sectors",
                                                                   "source": "rasters/band_overlap.csv"}))
         for scope in ["band_domain", "band_validated"] + [f"band_{s}" for s in SECTOR_ORDER]:
-            g0 = bo[(bo["scope"] == scope) & (bo["area_obs_km2"] > 0)]     # units with observed water there (D-115 addendum)
+            g0 = bo[(bo["scope"] == scope) & (bo["area_obs_km2"] > 0)]     # units with observed water there
             for (p, v), g in g0.groupby(["product", "variant"]):
                 for metric in ("iou_total", "f1_total"):
                     ov.append({"product": p, "variant": v, "scope": scope, "metric": metric,
@@ -221,7 +220,7 @@ def item5(det: pd.DataFrame, blocks: pd.DataFrame, bt: pd.DataFrame, labels: pd.
     for c in ("sector_p", "ranksum_p", "block_p"):
         t[f"{c}_holm"] = rev_s.holm(t[c].to_numpy())
         t[f"{c}_holm_significant"] = t[f"{c}_holm"] <= design.ALPHA
-    # context only (D-115 addendum): Holm over the 5 products of one variant, the form of R3.M3's remark
+    # context only: Holm over the 5 products of one variant
     t["block_p_holm_within_variant"] = np.nan
     for v, idx in t.groupby("variant").groups.items():
         t.loc[idx, "block_p_holm_within_variant"] = rev_s.holm(t.loc[idx, "block_p"].to_numpy())
@@ -266,7 +265,7 @@ def item8(nf: pd.DataFrame):
                "e1_vs_later_p95_m": r.p95_m, "e1_vs_later_n": int(r.n), "flag_few": bool(r.n < 20)}
         for ep in ("E1", "E2"):
             h = hv[(hv["epoch"] == ep) & (hv["bin"] == r.bin) & (hv["sector"] == r.sector)]
-            ok = len(h) and float(h["n"].iloc[0]) >= 20          # as the 20-distance flag of D-113
+            ok = len(h) and float(h["n"].iloc[0]) >= 20          # the 20-distance flag
             row[f"halves_{ep}_median_m"] = float(h["median_m"].iloc[0]) if ok else np.nan
             row[f"halves_{ep}_p95_m"] = float(h["p95_m"].iloc[0]) if ok else np.nan
             row[f"halves_{ep}_n"] = int(h["n"].iloc[0]) if len(h) and float(h["n"].iloc[0]) > 0 else 0
@@ -281,7 +280,7 @@ def item8(nf: pd.DataFrame):
     return binom, hyst
 
 
-# --- R3.M4: held-out displacement and the floor without between-epoch distances ----------------
+# --- held-out displacement and the floor without between-epoch distances ----------------------
 
 def r3m4(det: pd.DataFrame):
     out_t, out_f = None, None
@@ -327,7 +326,7 @@ def r3m4(det: pd.DataFrame):
     return out_t, out_f
 
 
-# --- R3 minor 1, R1 minor 11, R2 minor 8 --------------------------------------------------------
+# --- further H1 table checks -------------------------------------------------------------------
 
 def r3minor1(nf: pd.DataFrame, nf0: pd.DataFrame, mp: pd.DataFrame, mp0: pd.DataFrame) -> pd.DataFrame:
     def pl(x):

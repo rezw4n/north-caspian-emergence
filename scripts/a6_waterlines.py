@@ -1,4 +1,4 @@
-"""A6: level-binned waterlines from stage-2 counts (PREREG section 4).
+"""Level-binned waterlines from stage-2 counts (PREREG section 4).
 
 For each fetched stage-2 tile (scripts/a6_stage2_export.py fetch) and each
 (epoch, level bin):
@@ -18,7 +18,7 @@ z_m, epoch, bin, tile, n_scenes_bin, level_sigma_p50_m (bin median of the scenes
 level 1-sigma), and rho_level: the Spearman correlation, at the point's pixel, between
 water frequency and bin level over the epoch's valid bins. Sea-controlled shorelines
 get wetter as the level rises (rho near 1); river and pond banks do not (rho near 0).
-The static-contour rule of D-034 is a threshold on rho_level, fixed on training blocks.
+The static-contour rule is a threshold on rho_level, fixed on training blocks.
 
 Usage: python scripts/a6_waterlines.py <tag> <plan.csv>
 """

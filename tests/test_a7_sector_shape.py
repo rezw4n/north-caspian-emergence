@@ -1,4 +1,4 @@
-"""scripts/a7_sector_shape.py: per-sector D-070 counts and the smoothed offset map."""
+"""scripts/a7_sector_shape.py: per-sector shape-offset counts and the smoothed offset map."""
 
 import importlib.util
 from pathlib import Path

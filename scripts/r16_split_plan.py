@@ -1,4 +1,4 @@
-"""Robustness (docs/ROBUSTNESS_PLAN.md, main-export design): the main stage-2 plan with
+"""Robustness (main-export design): the main stage-2 plan with
 its groups split into classes, so that several robustness checks become local count
 algebra (scripts/r00_counts.py) instead of new Earth Engine exports. Local; it only
 writes a plan CSV for scripts/a6_stage2_export.py upload, and reports how many groups
@@ -9,11 +9,11 @@ before; every class is constant within an acquisition, so the classes of a group
 back to the unsplit group exactly, including the per-acquisition mosaic
 (robustness.split_groups). What grows is the number of bands (3 per group: w, v, o)
 and the per-group overhead, to be measured on a 0.3 deg micro-pilot box before the
-lead adopts the design (D-026 rule).
+design is adopted (budget-guard rule).
 
 Classes (--by, in this order): sensor (TM, E7on, E7off, OLI, MSI: checks 2 and the
 SLC-off question), half (the 0.05 m bins of PREREG section 4), season (AMJ, JASO:
-check 3), threshold (otsu, fb: the D-061 fallback). Optional tags: --e1-windows (the
+check 3), threshold (otsu, fb: the fallback threshold). Optional tags: --e1-windows (the
 Amendment 4 E1-end windows, from results/levels/scene_levels_summary.json) and
 --a3-sample (the Amendment 3 acquisitions, scripts/r01_threshold.py sample).
 

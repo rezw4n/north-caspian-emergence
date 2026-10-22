@@ -1,22 +1,22 @@
-"""Workstream S, revision analyses that need the cached rasters (PREREG Amendment 18
-item 4; R3.M4; DECISIONS D-114). No Earth Engine.
+"""Revision analysis S: analyses that need the cached rasters (PREREG Amendment 18
+item 4). No Earth Engine.
 
 Reuses scripts/a7_hindcast.py unchanged (static layers, record-low envelope, cached
 flood-level maps, observed extents with their sea connection, waterline distances and
 cell counts) with the main run's shape constants, and computes per (epoch, level) unit:
 
-1. Out-of-sample area bias (A18 item 4): for E3 units, the known cells (the D-070 fit's
+1. Out-of-sample area bias (A18 item 4): for E3 units, the known cells (the area fit's
    definition, a7_hindcast.unit_counts) predicted and observed as sea, per region code
    (train or calibration/test blocks x validated or other sectors, inside the domain),
    at the all-epoch constant and at the constant fitted on E1 + E2 training-block units
    (shape_offsets.json -> leave_one_epoch_out.E3).
-2. Overlap in the emerged band (A18 item 4; R3 minor 14): extent counts and IoU/F1 (with
-   the known outside states) in the D-071 emerged band, per sector, over the domain band,
+2. Overlap in the emerged band (A18 item 4): extent counts and IoU/F1 (with
+   the known outside states) in the emerged band, per sector, over the domain band,
    the validated-sector band; and the area counts over the domain in the validated
    sectors (per-level area bias there) and over the domain (reproduction check).
-3. Held-out displacement (R3.M4): the waterline distances whose cells lie in test blocks,
-   per unit and sector, and pooled over the epochs of each level (D-032).
-4. Floor without between-epoch distances (R3.M4): at the bins crossed by E1, the pooled
+3. Held-out displacement: the waterline distances whose cells lie in test blocks,
+   per unit and sector, and pooled over the epochs of each level.
+4. Floor without between-epoch distances: at the bins crossed by E1, the pooled
    per-level floor of the parity halves only, beside the registered floor rebuilt with the
    E1-vs-(E2 + E3) distances.
 

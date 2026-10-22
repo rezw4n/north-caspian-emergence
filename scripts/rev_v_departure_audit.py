@@ -1,12 +1,12 @@
-"""Revision, workstream V: the H1 audit with each sector's levels shifted by its SWOT
-departure from DAHITI (PREREG Amendment 18 item 9, first bullet; D-120).
+"""Revision analysis V: the H1 audit with each sector's levels shifted by its SWOT
+departure from DAHITI (PREREG Amendment 18 item 9, first bullet).
 
 run:     the primary run's machinery (scripts/a7_hindcast.py: static layers, record-low
          envelope, units, cached corrected heights and cached flood-level maps; no new
          flood fill). A cell of sector k is predicted water at bin level L when
          F < L + d_k (caspian.watersurface.ShiftedFloodMap). d_k = departure_m of
          results/revision/v/sector_departures.csv; a sector without a value takes the
-         median of the reported sector departures (no relative shift; D-120). The D-070
+         median of the reported sector departures (no relative shift). The
          shape constant is refitted on the shifted maps; both variants are computed.
          Output: results/revision/v/hindcast_departure/ (the a7_hindcast tables), then
          the H1 rule (scripts/a7_h1_decision.py) on that directory.

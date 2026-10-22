@@ -1,4 +1,4 @@
-"""A4 cross-check and gap-fill source: Hydroweb operational lake water level for the
+"""Water-level cross-check and gap-fill source: Hydroweb operational lake water level for the
 Caspian Sea (hydroweb.next, collection HYDROWEB_LAKES_OPE, item L_caspian), via the
 official py_hydroweb client, authenticated with HYDROWEB_API_KEY (Windows user env
 or process env; never printed).

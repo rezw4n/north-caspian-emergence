@@ -1,14 +1,14 @@
-"""A6: the PREREG section 7 H2 decision from the frozen paired-bootstrap tables
+"""The PREREG section 7 H2 decision from the frozen paired-bootstrap tables
 (caspian.validation.h2_decision), per ICESat-2 source and variant, and the combined
-verdict of D-069 (supported only if supported on both ATL06 and ATL08; partial if on
+verdict (supported only if supported on both ATL06 and ATL08; partial if on
 one). Applied once, after the evaluate stage, to the tables as written.
 
 Output (committed): results/validation/<tag>/h2_decision.json
 Usage: python scripts/a6_h2_decision.py <tag>
 
-Additional independent sources (D-091): the same rule applied descriptively to GLO-30 or
+Additional independent sources: the same rule applied descriptively to GLO-30 or
 GEDI, reported beside the H2 decision and never replacing it (the decision was made on
-ICESat-2, D-086):
+ICESat-2):
   python scripts/a6_h2_decision.py <tag> --additional GLO30 [--subset night]
 writes results/validation/<tag>_<source lower>[/subset_<s>]/<SOURCE>_rule_check.json.
 """
@@ -47,7 +47,7 @@ def main(tag: str) -> int:
 
 
 def rule_check(tag: str, src: str, subset: str | None = None) -> int:
-    """PREREG section 7 rule on an additional source's paired-bootstrap table (D-091):
+    """PREREG section 7 rule on an additional source's paired-bootstrap table:
     descriptive, beside the ICESat-2 decision, which it does not change."""
     d = RESULTS / "validation" / f"{tag}_{src.lower()}"
     if subset:

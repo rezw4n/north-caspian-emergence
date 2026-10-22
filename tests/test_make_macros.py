@@ -1,4 +1,4 @@
-"""tools/make_macros.py: number formatting for manuscript/numbers.tex (review findings 43, 44)."""
+"""tools/make_macros.py: number formatting for manuscript/numbers.tex."""
 
 import json
 import re

@@ -1,15 +1,14 @@
-"""Observed level-binned waterlines for the ERL "Then and now" figure (figure 1, panel b;
-D-140, answering internal review R1 minor 19 and R2 minor 12).
+"""Observed level-binned waterlines for the ERL "Then and now" figure (figure 1, panel b).
 
 The figure's shorelines were contours of the waterline DEM's emergence dates, which failed
 validation at the Volga delta front. They are replaced by observed shorelines: for each of
 the E3 level bins in BINS, the observed extent exactly as scripts/a7_hindcast.py builds it
-(observed_raw with the D-082 record-low envelope, classify with the D-033 sea connection
-and the D-083 outside states; the same functions and cached static layers as
+(observed_raw with the record-low envelope, classify with the sea connection and the
+outside states; the same functions and cached static layers as
 scripts/f1_erl_display.py's hero map, figure 2), reduced to the share of sea-connected
 water per 240 m display block. Nothing here is a new result.
 
-Bin choice (D-140, a display rule fixed before any of these extents was drawn): four E3
+Bin choice (a display rule fixed before any of these extents was drawn): four E3
 bins 0.6 m apart spanning the E3 record, each fully observed (valid area of the domain at
 least 90% of the median over E3 bins, results/hindcast/main/observed.csv): bins 32, 26, 20
 and 14 (-26.75, -27.35, -27.95 and -28.55 m DAHITI). The partly observed bins (12, 13, 22,
@@ -43,7 +42,7 @@ _spec.loader.exec_module(f1)
 a7 = f1.a7
 
 EPOCH = "E3"
-BINS = (32, 26, 20, 14)          # high to low; D-140
+BINS = (32, 26, 20, 14)          # high to low
 COMPLETE_FRAC = 0.90             # domain valid area >= this share of the E3 median
 
 
@@ -64,7 +63,7 @@ def main(argv) -> int:
     comp = completeness(a.tag)
     bad = [b for b in BINS if not comp.get(b, {}).get("complete")]
     if bad:
-        raise SystemExit(f"bins {bad} are not fully observed (D-140 rule)")
+        raise SystemExit(f"bins {bad} are not fully observed")
     hrun = json.loads((f1.RESULTS / "hindcast" / a.tag / "run.json").read_text(encoding="utf-8"))
     transform, shape = f1.caspian_grid(hrun)
     static = f1.static_main(a.tag, transform, shape, a.tile)

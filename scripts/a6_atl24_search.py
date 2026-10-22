@@ -1,5 +1,5 @@
 """ATL24 (ICESat-2 near-shore bathymetry) availability over the North Caspian domain
-(PREREG section 2, "ATL24 bathymetry where available"; D-091). Search only: NASA CMR
+(PREREG section 2, "ATL24 bathymetry where available"). Search only: NASA CMR
 through earthaccess, the domain's bounding box, every ATL24 version CMR lists. Nothing
 is downloaded here.
 

@@ -1,17 +1,17 @@
-"""A7 red-team sensitivity: is the H1 error a spatially varying datum and not seabed
-shape? The D-070 shape constant is fitted per sector instead of once for the domain,
-and the hindcast is rerun with it (G3 memo, red team).
+"""Red-team sensitivity: is the H1 error a spatially varying datum and not seabed
+shape? The shape constant (PREREG 5b) is fitted per sector instead of once for the
+domain, and the hindcast is rerun with it.
 
-1. Per product and sector k: c_k is the D-070 fit (scripts/a7_hindcast.fit_offset) on
+1. Per product and sector k: c_k is the shape fit (scripts/a7_hindcast.fit_offset) on
    the training cells of sector k. It uses the same (epoch, level) units, record-low
    envelope and flood-level maps as the primary; within one sector a constant is a
-   threshold on the primary's flood-level map, as in D-070. The per-sector bias tables
+   threshold on the primary's flood-level map, as in the domain fit. The per-sector bias tables
    sum to the domain table, and the domain fit must reproduce the primary's constants
    exactly (checked).
 2. The offset map is c_k in sector k and the domain constant outside the sectors. It is
    smoothed by a Gaussian of SMOOTH_M on a COARSE-cell grid, so that no step at a sector
    edge acts as a dam or a breach, and interpolated bilinearly to the hindcast grid.
-3. The products, corrected as in the primary (the D-074 correction) and less the offset
+3. The products, corrected as in the primary (its vertical correction) and less the offset
    map, are flood-filled again and audited with scripts/a7_hindcast.run, total variant
    only. The run's "total" rows are therefore the sector-shape variant.
 

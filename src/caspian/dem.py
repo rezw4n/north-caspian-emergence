@@ -1,10 +1,9 @@
-"""A6: interpolate level-attributed contour points to a grid.
+"""Interpolate level-attributed contour points to a grid.
 
 TIN (Delaunay, linear) interpolation, plus the interpolation distance (distance
 from each grid cell to the nearest contour point), which is stored for every
 pixel and used as a scale variable for the conformal intervals. Gaussian-process
-or kriging interpolation is compared in the robustness checks (brief section 10,
-check 7).
+or kriging interpolation is compared in the robustness checks (check 7).
 """
 
 from __future__ import annotations
@@ -35,7 +34,7 @@ def interpolation_distance(points_xy, gx, gy):
 
 
 def emergence_days(z, t_days, level):
-    """Emergence date of seabed at height ``z`` (PREREG section 2; D-069): the first
+    """Emergence date of seabed at height ``z`` (PREREG section 2): the first
     date of the level series after the last date on which the level was at or above
     z, so the pixel stayed dry from then on. ``t_days`` (ascending, days since
     1970-01-01) and ``level`` are the basin-level series on the DEM's reference.

@@ -1,13 +1,13 @@
-"""Robustness verdicts per brief §10 check (01-11) and per named variant, from the
-summaries the robustness runs wrote (results/robustness/*/summary.json), by the rule of
-DECISIONS D-092. Writes results/robustness/verdicts.json, which tools/build_metrics.py
+"""Robustness verdicts per check (01-11) and per named variant, from the
+summaries the robustness runs wrote (results/robustness/*/summary.json), by the rule
+below. Writes results/robustness/verdicts.json, which tools/build_metrics.py
 (robustness_metrics) turns into metrics.json keys. Reads nothing else.
 
-Rule (D-092)
+Rule
 - Headline decisions compared:
   - H2: the overall status (supported / not supported) per source (ATL06, ATL08) and
     product variant (matched, total), validation.h2_decision on the paired tables;
-  - H1: per product (shape variant decides, D-072; total for the total-variant check),
+  - H1: per product (shape variant decides; total for the total-variant check),
     whether it mispredicts in a majority (>= 4) of the 7 sectors; and the deltaic-or-
     vegetated block test (significant at 0.05) where both runs have it.
 - Detail: the per-sector H1 outcomes and the per-sector H2 support.
@@ -70,9 +70,9 @@ def worst(vs):
 
 
 def h2_variant(h2: dict, magnitude: bool = True) -> tuple[str, dict, list]:
-    """Verdict, numbers and the D-092 criteria that fired ("why") of one H2 variant
+    """Verdict, numbers and the criteria that fired ("why") of one H2 variant
     (both sources where present). ``magnitude=False`` when the variant is evaluated on
-    other test points (block-size checks), where the D-092 magnitude criterion, defined
+    other test points (block-size checks), where the magnitude criterion, defined
     on the same points, does not apply; the numbers are still reported."""
     nums, head, detail, why = {}, False, False, []
     for src, r in h2.items():
@@ -239,12 +239,12 @@ def main() -> int:
             if h2:
                 v, n, w = h2_variant(h2)
                 add("check06", name, v, n, "results/robustness/r06_datums_validation/summary.json", w)
-    # check 06: the lead's per-sector datum run (red team; results/hindcast/main_sectorshape)
+    # check 06: the per-sector datum run (red team; results/hindcast/main_sectorshape)
     s = _load("r06_datums_sectorshape")
     if s and "by_product" in s:
         v, n, w = h1_variant(s, "shape")
         add("check06", "sector_shape_constants", v, n, "results/robustness/r06_datums_sectorshape/summary.json", w)
-    # check 08: block sizes 25 and 12.5 km (D-088 sensitivities; other test points)
+    # check 08: block sizes 25 and 12.5 km (sensitivities; other test points)
     s = _load("r08_blocking")
     if s and s.get("h2"):
         for name, h2 in sorted(s["h2"].items()):
@@ -292,7 +292,7 @@ def main() -> int:
                 if r.get("share_observations_vegetation") is not None:
                     n["share_observations_vegetation"] = r["share_observations_vegetation"]
                 add("check09", f"vegetation_{mode}", v, n, "results/robustness/r09_vegetation/summary.json", w)
-    # check 07: kriging, 0.20 m bins, no static exclusion (D-034)
+    # check 07: kriging, 0.20 m bins, no static exclusion
     s = _load("r07_interpolation")
     if s:
         n, ok, big, w = {}, [], [], []

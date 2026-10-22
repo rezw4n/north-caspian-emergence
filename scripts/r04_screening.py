@@ -1,15 +1,15 @@
-"""Robustness check 4 (brief section 10): surge screening threshold and setup-model
-form, plus the Komsomolets proxy (D-066). See docs/ROBUSTNESS_PLAN.md.
+"""Robustness check 4: surge screening threshold and setup-model form, plus the
+Komsomolets proxy.
 
 Commands
-  delta-plan       Local plan builder for an Earth Engine delta export (D-064 machinery,
+  delta-plan       Local plan builder for an Earth Engine delta export (the screening machinery,
                    robustness.screening_delta): alt = main + ADD - SUB, so only the
                    scene-sector pairs on which the two screening rules disagree are
                    exported. Alternatives (--alt):
                      tau:<m>                 another threshold (the next looser and
-                                             stricter candidates of D-064)
-                     komsomolets_unscreened  Komsomolets not screened (D-066 check)
-                     unknown_included        NaN setup counts as calm (D-066 rule)
+                                             stricter candidates)
+                     komsomolets_unscreened  Komsomolets not screened
+                     unknown_included        NaN setup counts as calm
                      setup:<csv>             another setup model's per-scene predictions
                                              (columns scene, setup_<sector>_m), same tau
                    Writes data/interim/stage2/plan_delta_<name>_{add,sub}.csv for
@@ -19,11 +19,11 @@ Commands
   variant          After the ADD/SUB exports: the variant tag (r00_counts --add/--sub),
                    then the downstream steps and the paired comparison.
   komsomolets      Local, from the screening-sensitivity export on training blocks (tag
-                   sensB, D-064): for the Komsomolets blocks, per block, epoch and bin,
+                   sensB): for the Komsomolets blocks, per block, epoch and bin,
                    the odd/even waterline displacement, the valid area and the waterline
                    length with and without screening at the main tau.
-  setup-correction Setup correction instead of screening, to first order (brief section
-                   16 pivot): each contour point's height + the mean predicted setup of
+  setup-correction Setup correction instead of screening, to first order (the planned
+                   fallback for screening): each contour point's height + the mean predicted setup of
                    its group's included acquisitions in its sector (robustness.setup_shift),
                    then DEM, emergence and the paired validation.
 
@@ -64,7 +64,7 @@ def _load(name):
 
 def scene_km2(plan: pd.DataFrame) -> pd.Series:
     """Zone area (km2) of each plan row's path/row or MGRS tile (results/inventory/
-    stage2_cost_model.json), the scene weight of the G2 cost model."""
+    stage2_cost_model.json), the scene weight of the stage-2 cost model."""
     cm = json.loads((RESULTS / "inventory" / "stage2_cost_model.json").read_text(encoding="utf-8"))
     zone = {u["unit"]: u["zone_km2"] for u in cm["units"]}
     unit = [s.split("_")[-1] if se == "MSI_S2" else s.split("_")[1] for s, se in zip(plan["scene"], plan["sensor"])]

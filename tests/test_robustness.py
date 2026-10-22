@@ -473,7 +473,7 @@ def test_dem_columns_from_variant_tiles(tmp_path):
 def test_tide_system_shift_matches_datums_numbers():
     lat = np.linspace(43.9, 47.5, 50)
     a, b = R.tide_system_shift(lat, "both_mean"), R.tide_system_shift(lat, "geoid_mean")
-    # docs/DATUMS.md (D-073): +0.030 to +0.042 m (spread 0.013), +0.056 to +0.081 m (spread 0.024)
+    # docs/DATUMS.md: +0.030 to +0.042 m (spread 0.013), +0.056 to +0.081 m (spread 0.024)
     assert a.min() > 0.029 and a.max() < 0.043 and np.ptp(a) < 0.014
     assert b.min() > 0.055 and b.max() < 0.082 and np.ptp(b) < 0.025
     with pytest.raises(ValueError):

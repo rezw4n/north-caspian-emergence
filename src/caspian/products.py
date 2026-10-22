@@ -1,4 +1,4 @@
-"""A7: the audited bathymetry products as heights on the hindcast grid (PREREG
+"""The audited bathymetry products as heights on the hindcast grid (PREREG
 sections 2, 5 and 9; Amendment 1).
 
 Products, as subset by scripts/a7_get_*.py into data/raw/bathymetry/ (provenance in
@@ -16,21 +16,21 @@ results/provenance/<name>.json):
 The first three are the current-product audit, the last two the grids of published
 Caspian studies (Amendment 1). GEBCO and ETOPO1 are distributed in whole metres.
 
-Vertical handling (PREREG section 5, docs/DATUMS.md, D-070). The working datum is
+Vertical handling (PREREG section 5, docs/DATUMS.md). The working datum is
 the DAHITI reference: the level bins, the waterlines and the hindcast all live on
 it (BHS-77 is the reporting datum; a constant DAHITI -> BHS offset cancels in every
 hindcast metric). Heights are read as distributed: metres, positive up, no shift.
 ETOPO 2022's `geoid_height` layer is not applied (it converts the EGM2008 heights to
 ellipsoidal heights).
 - Total error (PREREG 5a): the products are read as heights above EGM2008 (ETOPO
-  2022 documents it; GEBCO, SRTM15+ and ETOPO1 are assumed so, D-070) and brought to
+  2022 documents it; GEBCO, SRTM15+ and ETOPO1 are assumed so) and brought to
   the DAHITI reference cell by cell by adding N(EGM2008) - N(EIGEN-6C4)
   (``correction``, ``Corrected``). Constant offsets act on the level instead
   (``flood_level``): ``level_datum_offset_m`` (default 0 on the DAHITI working
   datum) and ``product_offset_m`` (default 0).
 - Shape error (PREREG 5b): after removing one constant c per product from its
   (corrected) heights; c is fitted by scripts/a7_hindcast.py on the flood-level map
-  (D-070) and enters here as ``shape_offset_m``.
+  and enters here as ``shape_offset_m``.
 
 Correction raster (the input that another process provides). The value to ADD to a
 product height above EGM2008 to obtain the height on the DAHITI reference, i.e.
@@ -60,7 +60,7 @@ the four surrounding native cell centres (default), or by nearest neighbour.
   read with the weights of its own grid.
 - A target cell whose four neighbours include a NaN, or that lies beyond the
   outermost native cell centres, is NaN (no product state; pass ``isfinite`` as
-  ``pred_valid``, D-030). For nearest neighbour, NaN beyond half a cell outside.
+  ``pred_valid``). For nearest neighbour, NaN beyond half a cell outside.
 - Nearest neighbour is kept as a sensitivity (``method="nearest"``).
 """
 
@@ -288,7 +288,7 @@ def flood_level(bin_level_m, level_datum_offset_m: float = 0.0, product_offset_m
 
     With h the observed level on the DAHITI scale (the stage-2 bin centres),
     delta_l = DAHITI -> working datum (``level_datum_offset_m``; 0 on the DAHITI
-    working datum, D-070), z the product height as read (as distributed, or
+    working datum), z the product height as read (as distributed, or
     ``Corrected`` to DAHITI cell by cell), delta_p = any further constant from the
     product's reference to the working datum (``product_offset_m``, default 0) and
     c the constant removed from the product's heights for the shape variant
@@ -297,7 +297,7 @@ def flood_level(bin_level_m, level_datum_offset_m: float = 0.0, product_offset_m
         z + delta_p - c < h + delta_l   <=>   z < h + delta_l - delta_p + c.
 
     So a product that is uniformly 0.3 m too high is matched by c = +0.3. ``shape_offset_m``
-    may be an array (the D-070 search grid); each element is computed in the same order
+    may be an array (the search grid); each element is computed in the same order
     of operations as the scalar case, so a fitted c gives bit-identical levels."""
     return (np.asarray(bin_level_m, float) + float(level_datum_offset_m) - float(product_offset_m)
             + np.asarray(shape_offset_m, float))

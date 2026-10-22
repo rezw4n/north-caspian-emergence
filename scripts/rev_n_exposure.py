@@ -2,9 +2,9 @@
 no count intervals; the protected-area share with and without WDPA record 342651; a
 location envelope from each product's band dilated and eroded by its validated-sector
 median displacement; and the OSM ports classified into seaports or harbours and river
-piers or landings (R2.M10(d)). DECISIONS D-126. Exploratory.
+piers or landings. Exploratory.
 
-Surfaces (D-123): uncorrected (registered, a check against results/emergence/main/
+Surfaces: uncorrected (registered, a check against results/emergence/main/
 exposure.csv), shifted (F - c), common_location (S_base and the uncorrected product),
 shifted_common_location (S_base and the shifted product).
 
@@ -44,7 +44,7 @@ POLY_LAYERS = ("wdpa_protected_areas", "wdpa_protected_areas_noksrz", "wdpa_rams
 FEATURE_LAYERS = ("osm_platforms", "osm_pipelines", "osm_channels", "osm_ports", "osm_settlements")
 SURFACES = ("uncorrected", "shifted", "common_location", "shifted_common_location", "common_location_composite",
             "shifted_common_location_composite")
-# D-126: displacement variant of the radius; the composite baseline is D-123 addendum 2
+# displacement variant of the radius; the composite baseline is from scripts/rev_n_baseline.py
 ENVELOPE_SURFACES = {"shifted": "shape", "common_location": "total", "common_location_composite": "total"}
 DELTA_CLASSES_KM = (10.0, 20.0, 50.0)
 FAR_KM = 20.0
@@ -84,7 +84,7 @@ def rasterise(geoms, transform, shape) -> np.ndarray:
 
 
 def radii(names) -> dict:
-    """D-126: per product and variant, the median of the per-level median displacements
+    """Per product and variant, the median of the per-level median displacements
     over the evaluable levels of the validated sectors (pooled epochs), m."""
     d = pd.read_csv(RESULTS / "hindcast" / "main" / "h1_mispredicts_detail.csv")
     d = d[(d["epoch"] == "pooled") & d["sector"].isin(C.VALIDATED) & d["evaluable"].astype(bool)]
@@ -109,10 +109,10 @@ def main(argv) -> int:
     import geopandas as gpd
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--tile", type=int, default=2048)
-    ap.add_argument("--envelope-deltas", default="1,2", help="empty: no location envelope (D-126 addendum)")
+    ap.add_argument("--envelope-deltas", default="1,2", help="empty: no location envelope")
     ap.add_argument("--surfaces", default=",".join(SURFACES))
     ap.add_argument("--polygons-only", action="store_true",
-                    help="only the polygon layers (protected areas, Ramsar, OSM wetlands); D-126 addendum 2")
+                    help="only the polygon layers (protected areas, Ramsar, OSM wetlands)")
     a = ap.parse_args(argv)
     t0 = time.time()
     S = C.setup(tile=a.tile, fused=True)
@@ -281,7 +281,7 @@ def main(argv) -> int:
     pd.DataFrame(feat_rows).to_csv(C.OUT / "exposure_features.csv", index=False)
     pd.DataFrame(env_rows).to_csv(C.OUT / "exposure_envelope.csv", index=False)
     # ports: distance of each feature to the observed 2026 sea (the composite observed
-    # baseline, D-123 addendum 2), on 240 m blocks (any cell), by the Euclidean distance
+    # baseline), on 240 m blocks (any cell), by the Euclidean distance
     # transform; the feature's distance is the smallest over its samples
     from scipy.ndimage import distance_transform_edt
     k4 = 4

@@ -1,11 +1,11 @@
-"""A6: waterline DEM (PREREG section 4): TIN interpolation of the E2 + E3 waterline
+"""Waterline DEM (PREREG section 4): TIN interpolation of the E2 + E3 waterline
 points to design.DEM_RES_M on the equal-area grid, with the interpolation distance
 (distance to the nearest point) stored for every pixel (the conformal scale
 variable, PREREG section 8).
 
 Processed in TILE_M tiles with an OVERLAP_M margin of points, so that triangles near
 a tile edge see their neighbours. Pixels outside the stage-2 cover are NaN. Points
-flagged as static contours (column `static`, D-034) are excluded when the column
+flagged as static contours (column `static`) are excluded when the column
 exists.
 
 Outputs: data/processed/dem/<tag>/dem_<i>_<j>.tif (band 1: height in m on the DAHITI
@@ -35,7 +35,7 @@ from shapely.ops import transform as shp_transform
 from caspian import dem, design
 from caspian.config import CRS_EQUAL_AREA, DATA, INTERIM, RESULTS
 
-TILE_M = design.DEM_TILE_M      # a whole number of 30 m pixels and of 60 m stage-2 cells (D-069)
+TILE_M = design.DEM_TILE_M      # a whole number of 30 m pixels and of 60 m stage-2 cells
 OVERLAP_M = 6_000
 
 
@@ -50,7 +50,7 @@ def main(argv) -> int:
     if "static" in p.columns:
         p = p[~p["static"].astype(bool)]
     fwd = pyproj.Transformer.from_crs("EPSG:4326", CRS_EQUAL_AREA, always_xy=True).transform
-    # the committed cover is an invalid MultiPolygon (self-touching parts): make it valid (D-080)
+    # the committed cover is an invalid MultiPolygon (self-touching parts): make it valid
     cov = shapely.make_valid(shp_transform(fwd, shape(json.loads((RESULTS / "study_area" / "zone_v6_cover_buffered.geojson")
                                                               .read_text(encoding="utf-8"))["features"][0]["geometry"])))
     out = DATA / "processed" / "dem" / a.tag

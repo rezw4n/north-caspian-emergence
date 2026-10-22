@@ -1,4 +1,4 @@
-"""A7: the two vertical-correction rasters for the hindcast's total error (D-074), in
+"""The two vertical-correction rasters for the hindcast's total error, in
 the input format of caspian.products.load_correction (npz: lon, lat, dN).
 
 - geoid_correction_primary.npz: dN = N(EGM2008, NGA/PROJ realisation, with its

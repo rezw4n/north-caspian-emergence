@@ -1,4 +1,4 @@
-"""A3: per-acquisition MNDWI thresholds from stage-1 run 2 histograms (local; D-061).
+"""Per-acquisition MNDWI thresholds from stage-1 run 2 histograms (local).
 
 For each acquisition (one overpass: Landsat sensor + path + date, Sentinel-2
 datatake), the 256-bucket in-zone histograms of its scenes are summed and Otsu's
@@ -12,7 +12,7 @@ is valid when all of:
   infrared (SWIR1 below green), so its MNDWI is positive, and a threshold below zero
   would class pixels with SWIR1 above green as water. Run 2 showed 15.5% of pooled
   thresholds below zero, many passing the bimodality tests, in overpasses whose
-  in-zone sample is mostly land: Otsu then splits dry from moist land (D-061).
+  in-zone sample is mostly land: Otsu then splits dry from moist land.
 
 Acquisitions that fail take the median of the valid thresholds of the same sensor
 and calendar month (the fallback); the source of every threshold is recorded.
@@ -38,13 +38,13 @@ import pandas as pd
 from caspian import thresholds
 from caspian.config import INTERIM, RESULTS, STAGE1
 
-# Rule constants, fixed from the run-2 diagnostics before stage 2 (D-061)
+# Rule constants, fixed from the run-2 diagnostics before stage 2
 MIN_N = 2000
 MIN_SHARE = 0.05
 MIN_ETA = 0.70
 MAX_VALLEY = 0.50
 THR_RANGE = (0.0, 0.5)
-ICE_MONTHS = (11, 12, 1, 2, 3)   # ice-affected, excluded from stage 2 (D-062; results/qc/snow_rules_run2.json)
+ICE_MONTHS = (11, 12, 1, 2, 3)   # ice-affected, excluded from stage 2 (results/qc/snow_rules_run2.json)
 
 
 def load() -> pd.DataFrame:
@@ -80,7 +80,7 @@ def main(argv) -> int:
                   f"valley_med={ow.loc[m, 'valley_ratio'].median():.3f}")
         return 0
     if MIN_ETA is None or MAX_VALLEY is None:
-        raise SystemExit("rule constants not fixed yet (D-061); run with --diagnose")
+        raise SystemExit("rule constants not fixed yet; run with --diagnose")
     valid = ((a["n"] >= MIN_N) & (a[["share_low", "share_high"]].min(axis=1) >= MIN_SHARE)
              & (a["eta"] >= MIN_ETA) & (a["valley_ratio"] <= MAX_VALLEY)
              & a["threshold"].between(*THR_RANGE))

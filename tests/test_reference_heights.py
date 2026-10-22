@@ -1,4 +1,4 @@
-"""Additional independent heights (D-091): the GLO-30 and GEDI helpers in
+"""Additional independent heights: the GLO-30 and GEDI helpers in
 caspian.validation, the point stages of scripts/a6_glo30.py and scripts/a6_gedi.py on
 synthetic files, and the additional-source handling of scripts/a6_validate_dem.py (the
 H2 block size inherited, results in their own folders, never pooled with ICESat-2)."""
@@ -39,7 +39,7 @@ def test_glo30_names_and_excluded_cells():
     assert validation.glo30_tile_id("N45E049") == "Copernicus_DSM_COG_10_N45_00_E049_00_DEM"
     with pytest.raises(ValueError):
         validation.glo30_tile_id("N45_E049")
-    assert validation.GLO30_EXCLUDED_TILES == ("N44E048", "N44E049")          # D-073
+    assert validation.GLO30_EXCLUDED_TILES == ("N44E048", "N44E049")
     assert str(validation.GLO30_WINDOW[0])[:10] == "2010-12-01"
     assert validation.DRY_RADIUS_PX["GLO30"] == validation.DRY_RADIUS_PX["GEDI"] == 1
 
@@ -209,7 +209,7 @@ def test_glo30_points_stage_on_synthetic_tiles(tmp_path, monkeypatch):
     row = np.round((45.6 - pts["lat"]) * 3600).astype(int)
     assert set(col % 4) == {2} and set(row % 3) == {1}
     assert np.allclose(pts["h"], -27.3 + 0.5 * (pts["lon"] - 50.0), atol=1e-5)
-    assert np.allclose(pts["h_orth"], pts["h"] + (-0.4 + 0.1 * (pts["lon"] - 50.0)), atol=1e-5)   # + dN (D-074)
+    assert np.allclose(pts["h_orth"], pts["h"] + (-0.4 + 0.1 * (pts["lon"] - 50.0)), atol=1e-5)   # + dN
     assert (pts["time"] == "2010-12-01").all() and (pts["source"] == "GLO30").all()
     assert np.allclose(pts["dem_h"], -27.0 + 1e-4 * (np.floor(pts["x"] / 30) * 30 + 15), atol=1e-4)
     assert {"interp_dist", "slope", "contour_density"} <= set(pts)

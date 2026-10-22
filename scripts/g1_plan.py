@@ -1,12 +1,12 @@
-"""A9 generality test, local scene levels, thresholds and stage-2 plans (PREREG
-Amendment 16 items 2, 5 and 6; D-094).
+"""Generality test, local scene levels, thresholds and stage-2 plans
+(PREREG Amendment 16 items 2, 5 and 6).
 
 Commands:
   levels <basin>      the level of each arm on each scene's acquisition date (UTC;
                       caspian.generality.level_on_dates), the arm's epoch and bin.
                       Output: data/interim/generality/<basin>/scene_levels.csv
   thresholds <basin>  per-acquisition MNDWI thresholds from the stage-1 histograms with
-                      the D-061 rule and fallback (scripts/a3_thresholds.py, unchanged
+                      the Caspian rule and fallback (scripts/a3_thresholds.py, unchanged
                       constants). Output: thresholds_by_acquisition.csv and
                       results/generality/<basin>/threshold_rule_summary.json
   plan <basin> <tag> [--placeholder THR]
@@ -32,7 +32,7 @@ from caspian import design, levels, thresholds
 from caspian import generality as G
 from caspian.config import INTERIM, RAW, RESULTS
 
-MIN_N, MIN_SHARE, MIN_ETA, MAX_VALLEY, THR_RANGE = 2000, 0.05, 0.70, 0.50, (0.0, 0.5)   # D-061
+MIN_N, MIN_SHARE, MIN_ETA, MAX_VALLEY, THR_RANGE = 2000, 0.05, 0.70, 0.50, (0.0, 0.5)   # as in a3_thresholds.py
 
 
 def d_int(basin):

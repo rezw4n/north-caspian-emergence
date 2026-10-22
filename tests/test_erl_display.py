@@ -1,4 +1,4 @@
-"""Display helpers of the ERL figures (D-100, D-102): the reductions of
+"""Display helpers of the ERL figures: the reductions of
 scripts/f1_erl_display.py (water share per display block, observed and predicted states,
 grid windows, the Great Salt Lake unit rule), the number formatting of figures/_erl.py
 (the text's macros, in Unicode), the report-card grades and the contour smoothing of the
@@ -112,8 +112,8 @@ def test_num_formats_as_the_text_does(figs):
         E.num(m, "missing")
 
 
-# The report card's grade shading was removed (R1 minor 25; D-139 addendum), and figure 1 now
-# draws observed waterlines instead of smoothed emergence dates (D-140), so their tests went too.
+# The report card's grade shading was removed, and figure 1 now
+# draws observed waterlines instead of smoothed emergence dates, so their tests went too.
 def test_iso_lines_keeps_long_lines_and_drops_short_pieces(figs):
     T = figs["then"]
     field = np.tile(np.linspace(0.0, 1.0, 20), (10, 1))   # values increase eastward

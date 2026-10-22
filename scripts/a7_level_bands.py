@@ -1,4 +1,4 @@
-"""A7 (interpretation, D-087): product shoreline displacement by level band, and the
+"""Hindcast interpretation: product shoreline displacement by level band, and the
 ETOPO 2022 source datasets over the emerged band.
 
 ETOPO 2022 (MacFerrin et al. 2025, Table 1) fills the emerged band from FABDEM (source
@@ -47,7 +47,7 @@ def main(tag: str) -> int:
         json.dumps({"cells_250m": int(n.sum()), "share": share, "source": "MacFerrin et al. 2025, Table 1"}, indent=1),
         encoding="utf-8")
     print(share)
-    # By level band (G3 review): each emerged-band cell takes the band of its observed seabed
+    # By level band: each emerged-band cell takes the band of its observed seabed
     # height (waterline DEM, DAHITI reference, sampled at the 250 m cell centre); the ETOPO 2022
     # source shares are tabulated per band. Cells without a DEM height are counted apart.
     from caspian import validation

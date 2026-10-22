@@ -1,5 +1,5 @@
 """GEDI L2A ground elevations as an additional independent height source for the
-waterline DEM (PREREG Amendment 2; D-091). Builds a point table in the format of
+waterline DEM (PREREG Amendment 2). Builds a point table in the format of
 scripts/a6_validate_dem.py, so that its ``blocksize`` and ``evaluate`` stages run on it
 with ``--sources GEDI`` (same blocks, metrics and sectors as GLO-30; never pooled with
 ICESat-2).
@@ -14,7 +14,7 @@ Stages
           Every request is logged; a part pilot's shots are kept as export's file.
   export  The plan (``plan``): for each monthly image, the 0.005-degree cells holding
           emerged-band cells (results/study_area/extents_v6_250m.npz) whose emergence
-          date (A6 raster) is before the end of that month minus 30 days, so that no
+          date (scripts/a6_emergence.py) is before the end of that month minus 30 days, so that no
           shot that could pass the dryness test is left out; grouped in 1-degree parts
           and clipped to the image's 6-degree zone. One single-pass reduceRegion per
           (image, part) returns the per-shot values as an aligned tuple list
@@ -29,7 +29,7 @@ Stages
           |elev_lowestmode - digital_elevation_model| <= 50 m), then a finite geoid
           and the dryness test (acquisition later than emergence + 30 days for every
           30 m DEM pixel within one pixel). Heights: h_orth = elev_lowestmode -
-          N(EIGEN-6C4) (validation.EigenGeoid, D-078, as for ICESat-2). Then the DEM
+          N(EIGEN-6C4) (validation.EigenGeoid, as for ICESat-2). Then the DEM
           height, interpolation distance, slope, contour density and the five product
           heights at each shot, as in a6_validate_dem.prepare. ``night`` (solar
           elevation < 0) is kept for the Amendment 2 night-only sensitivity.
@@ -79,7 +79,7 @@ SOURCE = "GEDI"
 RAW_DIR = INTERIM / "gedi"
 LOG = RESULTS / "inventory" / "gedi_interactive_log.jsonl"
 STATE = RESULTS / "inventory" / "gedi_export.json"
-HARD_BUDGET_EECU_S = 20 * 3600.0      # all GEDI work, pilot included (lead's instruction, 2026-10-21)
+HARD_BUDGET_EECU_S = 20 * 3600.0      # all GEDI work, pilot included
 CELL_DEG = 0.005                       # region cells (about 0.39 x 0.56 km)
 PART_DEG = 1.0                         # region parts: the cells inside one 1-degree box
 ROOT = Path(__file__).resolve().parents[1]
@@ -141,7 +141,7 @@ def shots_lists(image_id: str, rects):
     """The same shots as ``shots_fc`` as one reduceRegion with a tuple list (BANDS, then
     lon and lat of the 25 m pixel centre), aligned by pixel: the other bands are unmasked
     to -9999 so that no shot drops. A single pass: computeFeatures pages re-evaluated the
-    collection and cost 7 to 20 times more in the pilots (D-091)."""
+    collection and cost 7 to 20 times more in the pilots."""
     import ee
 
     src = ee.Image(image_id)
@@ -199,7 +199,7 @@ _BAND: dict = {}
 
 def _band_emergence():
     """lon, lat and emergence date (days since 1970) of every emerged-band cell centre
-    (D-071 band on the 250 m zone-v6 extents; A6 emergence raster), cached."""
+    (emerged band on the 250 m zone-v6 extents; emergence raster of a6_emergence.py), cached."""
     if not _BAND:
         import pyproj
 
@@ -225,7 +225,7 @@ def month_cut(image_id: str) -> float:
 
 
 def region_cells(e_max_days: float | None = None) -> list[list[float]]:
-    """[w, s, e, n] of the CELL_DEG cells that hold an emerged-band cell (D-071 band,
+    """[w, s, e, n] of the CELL_DEG cells that hold an emerged-band cell (emerged band,
     250 m) with a finite emergence date before ``e_max_days`` (default: the end of the
     last GEDI month, 2025-07, minus the 30-day lag). Only shots in such cells can be in
     the band and pass the dryness test, so no shot of the H2 population lies outside."""
@@ -422,7 +422,7 @@ def points(a) -> int:
 
     drv = _drv()
     if a.emergence is None or not any(Path(a.emergence).glob("emergence_*.tif")):
-        raise SystemExit("Amendment 2 needs the A6 emergence map: pass --emergence DIR")
+        raise SystemExit("Amendment 2 needs the emergence map of a6_emergence.py: pass --emergence DIR")
     files = sorted(RAW_DIR.glob("*.csv.gz"))
     if not files:
         raise SystemExit(f"no exported shots in {RAW_DIR}: run the export stage first")
@@ -471,7 +471,7 @@ def points(a) -> int:
     casc = pd.concat([casc, pd.DataFrame([{"step": "dry_at_acquisition", "n_remaining": int(dry.sum()),
                                            "n_fail_alone": int((~dry).sum())}])], ignore_index=True)
     d = d.loc[dry].assign(x=x[dry], y=y[dry]).reset_index(drop=True)
-    d["h_orth"] = validation.orthometric(d["elev_lowestmode"], d["geoid_h"])     # D-078 chain
+    d["h_orth"] = validation.orthometric(d["elev_lowestmode"], d["geoid_h"])     # EIGEN-6C4 chain
     d["night"] = (d["solar_elevation"] < 0).astype(int)                           # Amendment 2 sensitivity
     d["source"] = SOURCE
     names, sample = drv._product_sampler(a.products, a.no_products)

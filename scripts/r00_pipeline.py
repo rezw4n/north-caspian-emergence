@@ -1,4 +1,4 @@
-"""Robustness (docs/ROBUSTNESS_PLAN.md): the downstream steps of a variant, with the
+"""Robustness: the downstream steps of a variant, with the
 main run's frozen choices, and its paired comparison with the main run. No Earth
 Engine. Every step reads the main run's outputs and refuses to run before they exist.
 
@@ -6,13 +6,13 @@ Steps (run in this order; --steps selects):
   points     contour points of the variant's stage-2 tiles (scripts/a6_waterlines.
              tile_points), heights = bin centres at the variant's bin width
              (r00_counts.bin_width_of), static flag from the main rho* (results/levels/
-             static_contour_rule.json, D-075; frozen, not re-tuned on the variant)
+             static_contour_rule.json; frozen, not re-tuned on the variant)
   dem        TIN DEM of the E2 + E3 points (scripts/a6_dem.py on the variant tag: the
              same 60 km tiling, cover and interpolation-distance band)
   emergence  emergence dates of the variant DEM (scripts/a6_emergence.py)
   validate   the variant-minus-main DEM difference per sector (dem_difference), then,
              paired with the main run (compare_validation): the main prepared ICESat-2
-             point table (same points, same dryness selection; D-069), the DEM columns
+             point table (same points, same dryness selection), the DEM columns
              from the variant DEM and contours (robustness.dem_columns), blocks at the
              main final size (block_size_check.json), caspian.validation.run on both;
              headline tables and their difference
@@ -80,7 +80,7 @@ def _need(path: Path, what: str) -> Path:
 
 
 def main_static_rule(main_tag: str) -> dict:
-    r = json.loads(_need(RESULTS / "levels" / "static_contour_rule.json", "the static-contour rule (D-075)")
+    r = json.loads(_need(RESULTS / "levels" / "static_contour_rule.json", "the static-contour rule")
                    .read_text(encoding="utf-8"))
     if r.get("tag") != main_tag:
         raise SystemExit(f"the static-contour rule was fixed on tag {r.get('tag')!r}, not {main_tag!r}")
@@ -162,7 +162,7 @@ def load_points_light(tag: str, source: str, population: str = "bare", chunk: in
     """The rows of scripts/a6_validate_dem._load_points(tag, source, population), read in
     chunks with only the columns validation.run and the robustness variants use (the
     coordinates, time, reference height, the DEM columns and the product heights), so a
-    10-million-row table fits in little memory. Needs the D-084 annotation cache
+    10-million-row table fits in little memory. Needs the annotation cache
     (<source>_annotations.npz) of the primary, checked against the row count.
     ``row_filter(chunk) -> bool array`` keeps a further subset (e.g. some blocks)."""
     a6v = script("a6_validate_dem")
@@ -233,7 +233,7 @@ def compare_validation(check: str, variant: str, main_tag: str, *, sources=("ATL
     ``alt_blocks`` a block table of that size (e.g. reassigned splits);
     ``post_blocks(points)`` edits the table after the blocks are attached (split swap,
     Amendment 8 exclusion); ``alt_run(points, products)`` replaces validation.run (e.g.
-    robustness.run_fixed for check 6). ATL06 and ATL08 are never pooled (D-069).
+    robustness.run_fixed for check 6). ATL06 and ATL08 are never pooled.
     ``main_from``: "files" compares with the primary tables as written (default), or
     "recompute" reruns validation.run on the primary points with this n_boot."""
     out = out_dir(check, variant) / "validation"
@@ -374,7 +374,7 @@ def hindcast_step(check: str, variant: str, main_tag: str, *, stage2_tag: str | 
     products or the correction). ``bin_level(b)`` overrides the level of bin b (bin
     width or level-shift variants). ``drop_epochs``: epochs left out of every unit,
     product side and noise floor alike (E1 for the E2 + E3 check). ``envelope``: the
-    record-low water envelope of the primary (D-082), from the same stage-2 tag.
+    record-low water envelope of the primary, from the same stage-2 tag.
     ``shape`` "loeo:<epoch>" takes the main run's leave-one-epoch-out shape constants
     without that epoch, which equal a refit on the remaining epochs' units."""
     from caspian import h1, products
@@ -458,12 +458,12 @@ def hindcast_step(check: str, variant: str, main_tag: str, *, stage2_tag: str | 
     hm["area"].merge(ha["area"], on=["product", "variant"], suffixes=("_main", "_alt")).to_csv(
         out / "area_compare.csv", index=False)
     if sector_labels:
-        # the primary block table of the first run carries the D-089 sentinel; compare with the
+        # the primary block table of the first run carries the INT32_MIN sentinel; compare with the
         # fixed rerun (results/hindcast/<main>_fix) when it exists, else report the variant alone
         lab = pd.read_csv(sector_labels)
         fixed = RESULTS / "hindcast" / f"{main_tag}_fix"
         if not (fixed / "block_h1.csv").exists() and (main_dir / "d089_rerun_comparison.json").exists():
-            fixed = main_dir                   # the D-089 rerun replaced the primary block table
+            fixed = main_dir                   # the sentinel-fix rerun replaced the primary block table
         runs = [("alt", out)] + ([("main_fixed", fixed)] if (fixed / "block_h1.csv").exists() else [])
         bt = [h1.block_test(pd.read_csv(d / "block_h1.csv"), lab).assign(run=name) for name, d in runs]
         pd.concat(bt, ignore_index=True).to_csv(out / "block_test_compare.csv", index=False)

@@ -1,12 +1,12 @@
 """Copernicus DEM GLO-30 as an independent height source for the waterline DEM (PREREG
-section 2: "GLO-30 over pixels dry throughout its 2011-2015 acquisition window"; D-073,
-D-091). Builds a point table in the format of scripts/a6_validate_dem.py, so that its
+section 2: "GLO-30 over pixels dry throughout its 2011-2015 acquisition window").
+Builds a point table in the format of scripts/a6_validate_dem.py, so that its
 ``blocksize`` and ``evaluate`` stages run on it with ``--sources GLO30``.
 
 Stages
-  download  The 1-degree tiles that hold emerged-band cells (the D-071 band of
-            results/study_area/extents_v6_250m.npz), less N44E048 and N44E049 (D-073:
-            Caspian geocells not acquired by TanDEM-X), from the public AWS Open Data
+  download  The 1-degree tiles that hold emerged-band cells (the emerged band of
+            results/study_area/extents_v6_250m.npz), less N44E048 and N44E049
+            (Caspian geocells not acquired by TanDEM-X), from the public AWS Open Data
             bucket over HTTPS (no login, no click-through): the DEM, the editing,
             filling and water-body masks (EDM, FLM, WBM), the XML metadata and the
             Source Data Layer (SRC, kml), into data/raw/glo30/<tile>/. Every file is
@@ -17,8 +17,8 @@ Stages
   points    Per tile, the GLO-30 pixels on a thinned grid (every THIN_ROWS-th row and
             THIN_COLS-th column: about 93 m x 87 m), then ordered steps, each counted:
               dry_centre       the 30 m DEM pixel under the GLO-30 pixel emerged
-                               (A6 emergence raster) more than 30 days before the
-                               window start, 2010-12-01 (D-073 window);
+                               (emergence raster of a6_emergence.py) more than 30 days
+                               before the window start, 2010-12-01;
               height           finite GLO-30 height;
               wbm_no_water     WBM = 0;
               edm_not_edited   EDM = 1 (not edited: no infill, interpolation,
@@ -32,10 +32,10 @@ Stages
             Heights: h (EGM2008, NGA undulations, as distributed) is brought to the
             DAHITI (EIGEN-6C4) reference cell by cell as h_orth = h + dN, with dN =
             N_EGM2008(NGA) - N_EIGEN-6C4 bilinear from
-            results/study_area/geoid_correction_primary.npz (D-074, the products'
-            primary correction). The constant parts (NGA's -0.41 m, zero-degree and
+            results/study_area/geoid_correction_primary.npz (the products' primary
+            correction). The constant parts (NGA's -0.41 m, zero-degree and
             tide-system terms) are absorbed by the training-block constant c of
-            scripts/a6_validate_dem.py evaluate (PREREG section 5; D-078 for ICESat-2).
+            scripts/a6_validate_dem.py evaluate (PREREG section 5).
             Then the DEM height, interpolation distance, slope, contour density and
             the five product heights at each point, exactly as in
             a6_validate_dem.prepare. ``time`` is the window start (the date the
@@ -94,7 +94,7 @@ def _now() -> str:
 
 def band_tiles() -> list[str]:
     """Names (N44E050 form) of the 1-degree cells holding at least one emerged-band cell
-    (D-071 band on the 250 m zone-v6 extents), less validation.GLO30_EXCLUDED_TILES."""
+    (emerged band on the 250 m zone-v6 extents), less validation.GLO30_EXCLUDED_TILES."""
     import pyproj
 
     ex = np.load(RESULTS / "study_area" / "extents_v6_250m.npz")
@@ -280,7 +280,7 @@ def points(a) -> int:
 
     drv = _drv()
     if a.emergence is None or not any(Path(a.emergence).glob("emergence_*.tif")):
-        raise SystemExit("PREREG section 2 needs the A6 emergence map: pass --emergence DIR")
+        raise SystemExit("PREREG section 2 needs the emergence map of a6_emergence.py: pass --emergence DIR")
     prov = json.loads(PROV.read_text(encoding="utf-8"))
     tiles = [n for n, r in sorted(prov["tiles"].items()) if r.get("files") and n not in validation.GLO30_EXCLUDED_TILES]
     names, sample = drv._product_sampler(a.products, a.no_products)
@@ -323,7 +323,7 @@ def points(a) -> int:
     casc = pd.concat([casc, pd.DataFrame([{"step": "dry_throughout_window", "n_remaining": int(dry.sum()),
                                            "n_fail_alone": int((~dry).sum())}])], ignore_index=True)
     d = d.loc[dry].reset_index(drop=True)
-    d["h_orth"] = d["h"] + d["dN_geoid"]                      # EGM2008 (NGA) -> EIGEN-6C4 reference (D-074)
+    d["h_orth"] = d["h"] + d["dN_geoid"]                      # EGM2008 (NGA) -> EIGEN-6C4 reference
     d["time"] = pd.Series(np.full(len(d), t0)).dt.strftime("%Y-%m-%d")
     d["source"] = SOURCE
     cx, cy = drv._contour_points(a.tag, a.epochs.split(","))

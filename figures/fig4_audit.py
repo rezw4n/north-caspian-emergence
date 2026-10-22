@@ -1,9 +1,9 @@
-"""Fig. 4: auditing the maps behind projections (H1; D-070, D-072, D-087).
+"""Fig. 4: auditing the maps behind projections (H1).
 
 a, area bias of each product's predicted sea against the observed sea, per (epoch,
    level) unit, inside the domain and within the valid mask (results/hindcast/main/
    extent.csv, sector "domain", area_bias_rel; units with observed sea), for the shape
-   variant (the product shifted by its fitted constant, D-070; deciding variant, D-072)
+   variant (the product shifted by its fitted constant; deciding variant)
    and the total variant (the product on the DAHITI reference by the per-cell geoid
    correction, no constant).
 b, shoreline displacement by level band (results/hindcast/main/

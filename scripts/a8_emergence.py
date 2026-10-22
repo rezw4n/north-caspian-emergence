@@ -1,5 +1,5 @@
-"""A8: near-term seabed emergence and exposure (H3; PREREG section 10; brief section 8
-A8). Definitions and the proposed choices are in the docstring of caspian.exposure.
+"""Near-term seabed emergence and exposure (H3; PREREG section 10).
+Definitions and the proposed choices are in the docstring of caspian.exposure.
 
 Inputs (what this driver needs, and where it reads them):
 - the stage-2 counts the hindcast read: data/interim/stage2/<tag>/tile_*.npz (the
@@ -8,7 +8,7 @@ Inputs (what this driver needs, and where it reads them):
 - the hindcast run of the same tag, results/hindcast/<tag>/:
   * run.json: products, grid, vertical correction (file name and sha256, checked
     against --vertical-correction), level and product offsets (both must be 0, the
-    DAHITI working datum of D-070);
+    DAHITI working datum);
   * extent.csv: the total-variant area bias per product, unit and region; the
     "domain" rows are recomputed here and the largest difference is recorded
     (cross-check, expected 0);
@@ -25,7 +25,7 @@ Inputs (what this driver needs, and where it reads them):
 
 Steps:
 1. Shifts (pass 1). Per unit and product: the counts of known cells below L_u + c for
-   every c of the D-070 grid, per sector inside the domain, in one pass
+   every c of the shape-offset grid, per sector inside the domain, in one pass
    (exposure.unit_region_counts); the matching shift per sector and for the domain
    (exposure.shift_table) -> shifts.csv.
 2. Error models (exposure.fit_models): the final model on E2 + E3, and one per
@@ -201,7 +201,7 @@ def run(stage2_dir, out_dir, static: dict, heights: dict, transform, *, dem, lev
     ``fit_mask``: optional cells the shifts are counted on (e.g. training blocks; default
     every cell); ``extra_curves``: {id: {"curve": (years, change), "role", "source", ...}}
     dated beside ``pathways`` (eq1_curves). ``sensitivity``: allow a first (final) form other
-    than the primary, for the D-081 form sensitivities (written to a separate folder)."""
+    than the primary, for the form sensitivities (written to a separate folder)."""
     t_start = time.time()
     forms = tuple(forms)
     if forms[0] != ex.PRIMARY_FORM and not sensitivity:
@@ -715,7 +715,7 @@ def main(argv) -> int:
     ap.add_argument("--resampling", default="bilinear", choices=products.METHODS)
     ap.add_argument("--tile", type=int, default=ht.TILE)
     ap.add_argument("--sensitivity-form", default=None, choices=[f for f in ex.FORMS if f != ex.PRIMARY_FORM],
-                    help="D-081 sensitivity: this form is the final (fused) one; writes results/emergence/<tag>_<form>")
+                    help="sensitivity: this form is the final (fused) one; writes results/emergence/<tag>_<form>")
     a = ap.parse_args(argv)
     if a.sensitivity_form:
         a.forms = a.sensitivity_form
@@ -723,7 +723,7 @@ def main(argv) -> int:
     hrun = json.loads((hdir / "run.json").read_text(encoding="utf-8"))
     if float(hrun["level_datum"]["offset_m"]) != 0.0 or hrun.get("product_offsets") not in (None, {},
                                                                                              "none: no constant offset"):
-        raise SystemExit("the hindcast run used a level or product offset; H3 needs the DAHITI working datum (D-070)")
+        raise SystemExit("the hindcast run used a level or product offset; H3 needs the DAHITI working datum")
     if hrun.get("resampling", "bilinear") != a.resampling:
         raise SystemExit(f"the hindcast used {hrun.get('resampling')} resampling")
     names = a.products.split(",") if a.products else list(hrun["products"])
@@ -732,7 +732,7 @@ def main(argv) -> int:
     if [float(v) for v in transform[:6]] != hrun["grid"]["transform"][:6] or list(shape) != hrun["grid"]["shape"]:
         raise SystemExit("the hindcast grid differs from this one")
     static = a7.production_static(transform, shape, a.tile)
-    # the record-low water envelope of the hindcast's observed extents (D-082)
+    # the record-low water envelope of the hindcast's observed extents
     a7.ENVELOPE = a7.record_low_water(a7.stage2_index(INTERIM / "stage2" / a.tag), transform, shape)
     corr, corr_rec = None, None
     hcorr = hrun.get("vertical_correction")

@@ -1,11 +1,11 @@
-"""DAHITI -> BHS-77 offset (PREREG section 5; D-093).
+"""DAHITI -> BHS-77 offset (PREREG section 5).
 
 delta = H_BHS-77 - H_DAHITI, estimated from the CASPCOM General Catalogue of the
 Caspian Sea level (monthly means at the posts, Baltic Height System) over the years it
 overlaps DAHITI. Reported for levels only: a constant offset cancels in every hindcast
-and validation metric (D-070, D-074).
+and validation metric.
 
-Fixed before the offset was computed (D-093):
+Fixed before the offset was computed:
   * posts: the seven CASPCOM "century" posts from which CASPCOM computes the mean sea
     level (Bulletins No. 12, 25 and 27, footnote 1): Baku, Neft Dashlary (N.KAMNI),
     Makhachkala, Fort-Shevchenko, Guvlymayak (Kuuli-Mayak), Turkmenbashi (Krasnovodsk)

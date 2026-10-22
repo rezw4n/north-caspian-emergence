@@ -1,16 +1,16 @@
-"""A9 generality test, Earth Engine steps (PREREG Amendment 16 items 6 and 10; D-094).
+"""Generality test, Earth Engine steps (PREREG Amendment 16 items 6 and 10).
 
 Every request is an interactive computePixels or getInfo wrapped in
 ee.profilePrinting; its EECU-seconds are parsed, appended to the ledger
 results/inventory/generality_ee_ledger.jsonl, and checked against two limits before
 each step starts and while it runs:
 - the generality cap of Amendment 16 item 10 (30 EECU-h for both basins), and
-- the month rule of the task: October-to-date use (the baseline recorded in the
-  ledger header, plus the other agents' reservation) plus this step's planned spend
+- the monthly rule: October-to-date use (the baseline recorded in the
+  ledger header, plus the reservation for other analyses) plus this step's planned spend
   must stay under 640 EECU-h.
 
 Commands (basin = great_salt_lake | lake_urmia):
-  extents <basin>   near-maximum and near-minimum extents (zone v6 rules, D-029) at
+  extents <basin>   near-maximum and near-minimum extents (zone v6 rules) at
                     250 m on the basin grid, by computePixels; GSW max_extent at 250 m.
   scenes <basin>    Landsat scene inventory (metadata only) for the open-water months.
   stage1 <basin> --budget S [--max-scenes N]
@@ -48,12 +48,12 @@ from caspian.config import EE_PROJECT, INTERIM, RESULTS
 
 INVENTORY = RESULTS / "inventory"
 LEDGER = INVENTORY / "generality_ee_ledger.jsonl"
-CAP_EECU_S = 60 * 3600.0                 # D-094 addendum (lead decision): 60 EECU-h for GSL, spent included
-MONTH_LIMIT_H = 640.0                    # task rule: month-to-date + planned < 640 EECU-h
+CAP_EECU_S = 60 * 3600.0                 # 60 EECU-h for GSL, spent included
+MONTH_LIMIT_H = 640.0                    # monthly rule: month-to-date + planned < 640 EECU-h
 MONTH = "2026-10"
 SENSORS = ["TM_L5", "ETM_L7", "OLI_L8", "OLI_L9"]
 MAX_CLOUD = 60
-MONTHS = (4, 5, 6, 7, 8, 9, 10)          # November-March excluded (D-062)
+MONTHS = (4, 5, 6, 7, 8, 9, 10)          # November-March excluded
 _lock = threading.Lock()
 
 
@@ -133,7 +133,7 @@ def batch_s(month: str = MONTH) -> tuple[float, int, str]:
 
 
 def month_to_date(write: bool = True) -> dict:
-    """October-to-date use (D-094 addendum, lead item 2b): every interactive log and ledger in
+    """October-to-date use: every interactive log and ledger in
     results/inventory/ plus every batch task of the month. Interactive requests that no log
     recorded are not counted (the Earth Engine console figure stays authoritative)."""
     inter = interactive_logs_s()
@@ -417,7 +417,7 @@ def _partial_dir(out: Path, key: str) -> Path:
 
 
 def load_partials(out: Path, key: str, dims) -> tuple[dict, dict]:
-    """Checkpointed requests of one target (D-094 addendum): ({band: array of the target},
+    """Checkpointed requests of one target: ({band: array of the target},
     {(c0, r0): set of finished groups})."""
     arr, done = {}, {}
     d = _partial_dir(out, key)
@@ -440,7 +440,7 @@ def load_partials(out: Path, key: str, dims) -> tuple[dict, dict]:
 
 def save_partial(out: Path, key: str, c0: int, r0: int, chunk, arr) -> Path:
     """One finished request, written atomically, so that a budget stop or a crash loses at
-    most the requests in flight (D-094 addendum)."""
+    most the requests in flight."""
     d = _partial_dir(out, key)
     d.mkdir(parents=True, exist_ok=True)
     f = d / f"r{r0:05d}_c{c0:05d}_{chunk[0]}_{len(chunk):02d}.npz"
@@ -455,10 +455,10 @@ def run_counts(basin, plan, targets: dict, budget: float, step: str, px: int = 5
                workers: int = 8, out=None, request_fn=None, guard=None, guard_every: int = 10,
                first_guess: float = 250.0) -> dict:
     """Interactive computePixels over ``targets`` = {key: {"region": ee.Geometry, "transform",
-    "dims" (w, h), "groups"}} (D-079: 512 px x 16 groups per request), metered against a hard
+    "dims" (w, h), "groups"}} (512 px x 16 groups per request), metered against a hard
     ``budget`` (EECU-s).
 
-    Checkpointing (D-094 addendum): every finished request is saved under
+    Checkpointing: every finished request is saved under
     ``out``/partial/<key>/; a rerun loads those and requests only the missing groups of each
     sub-block. A target is written (tile_<key>.npz) when all its groups are in, and its
     partial files are then removed.
@@ -575,14 +575,14 @@ def run_counts(basin, plan, targets: dict, budget: float, step: str, px: int = 5
     return result
 
 
-BLOCK_PX = 512      # D-079: one request = one 512 px block x 16 groups
+BLOCK_PX = 512      # one request = one 512 px block x 16 groups
 
 
 def tile_targets(basin, plan_by_arm: dict, res: float = 60.0, only=None):
-    """Stage-2 targets: the 512 px blocks of the basin's 60 m grid (D-079) that meet the
+    """Stage-2 targets: the 512 px blocks of the basin's 60 m grid that meet the
     cover, one per block and arm, each clipped to cover and arm (Earth Engine reads whole
     scene tiles per request, so many small targets cost far more per km2; measured in the
-    first pilot, D-094). Groups are the arm's plan groups. ``only``: keys to keep."""
+    first pilot). Groups are the arm's plan groups. ``only``: keys to keep."""
     from shapely.geometry import box, shape
     from shapely.ops import transform as stransform
     from shapely.ops import unary_union

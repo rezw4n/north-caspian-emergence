@@ -1,4 +1,4 @@
-"""Open-sea mask at 1 km on the equal-area grid (D-029 definition): 2025-26
+"""Open-sea mask at 1 km on the equal-area grid: 2025-26
 near-minimum water whose 20 km surroundings are at least 80% water. It restricts
 SWOT pixels to the open sea in scripts/a5_swot_sector_levels.py.
 

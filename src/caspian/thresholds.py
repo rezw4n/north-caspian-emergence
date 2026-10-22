@@ -1,11 +1,11 @@
-"""A3: per-acquisition MNDWI thresholds from stage-1 histograms (local, NumPy).
+"""Per-acquisition MNDWI thresholds from stage-1 histograms (local, NumPy).
 
 Stage 1 (run 2) stores, for every scene, the 256-bucket histogram of clear in-zone
 MNDWI at 240 m (water.OTSU_BINS buckets on water.MNDWI_RANGE). Scenes of one
 acquisition (same overpass) share illumination and atmosphere, so their histograms
 are summed and one Otsu threshold is computed per acquisition from the larger sample.
 
-Diagnostics per histogram, used by the validity rule fixed in docs/DECISIONS.md:
+Diagnostics per histogram, used by the validity rule:
 - the Otsu threshold (water.otsu_from_histogram, the tested reference). When the
   valley between two clean modes is empty, the criterion is flat across it and the
   first bucket of the gap is returned, which is still a valid split;

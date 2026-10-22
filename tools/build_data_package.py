@@ -1,9 +1,9 @@
-"""Build the Zenodo-ready data package of the derived tables (D-142): release/zenodo/.
+"""Build the Zenodo-ready data package of the derived tables: release/zenodo/.
 
     python tools/build_data_package.py [--out release/zenodo]
 
-The package holds the small derived tables of `results/` that docs/DATA_RELEASE.md, D-101
-and D-109 allow to be released under CC BY 4.0, grouped into zip archives (Zenodo records
+The package holds the small derived tables of `results/` that docs/DATA_RELEASE.md allows
+to be released under CC BY 4.0, grouped into zip archives (Zenodo records
 are flat and hold at most 100 files), plus:
 
 - README.md: contents, provenance, datums, input licences, exclusions, how to cite;
@@ -14,7 +14,7 @@ are flat and hold at most 100 files), plus:
 - MANIFEST.csv: every archive member with its source path, size and SHA-256;
 - SHA256SUMS: every other file of the package.
 
-Never released (DATA_RELEASE.md, D-093, D-101): CASPCOM per-gauge values, and anything
+Never released (DATA_RELEASE.md): CASPCOM per-gauge values, and anything
 derived from the WDPA, whose terms (non-commercial use, no redistribution as files) are
 incompatible with CC BY 4.0. Both are excluded by explicit rules and by a content scan
 of every candidate file; the build lists what it excluded and why. Large rasters stay in
@@ -99,9 +99,9 @@ ARCHIVES = [
 TOP_LEVEL = ["results/params.json"]   # copied as they are (after the content scan)
 METRICS = "results/metrics.json"      # filtered, then written at the top level
 
-# Explicitly never released (docs/DATA_RELEASE.md; D-093, D-101).
+# Explicitly never released (docs/DATA_RELEASE.md).
 EXPLICIT_EXCLUDE = {
-    "results/levels/dahiti_bhs_annual_diffs.csv": "CASPCOM per-gauge annual means (D-093, D-101)",
+    "results/levels/dahiti_bhs_annual_diffs.csv": "CASPCOM per-gauge annual means (no licence; DATA_RELEASE.md)",
     "results/levels/dahiti_bhs_offset.json": "holds per-gauge CASPCOM values (per_post, all_baltic_posts); "
                                             "DATA_RELEASE.md item 1",
 }
@@ -165,8 +165,8 @@ def content_exclusion(rel: str, text: str, post_re: re.Pattern | None) -> str | 
 
 def metric_exclusion(key: str, entry, post_re: re.Pattern | None) -> str | None:
     """Why a metrics.json key may not be released, or None."""
-    # Basin-wide summaries over the posts (delta, its sigma, the between-post SD) are released
-    # (D-101); a value that belongs to one post is not. The build stops if a kept key still
+    # Basin-wide summaries over the posts (delta, its sigma, the between-post SD) are released;
+    # a value that belongs to one post is not. The build stops if a kept key still
     # names a post code or the WDPA (build(), "leftover").
     src = str(entry.get("source", "")) if isinstance(entry, dict) else ""
     if WDPA_RE.search(key) or WDPA_RE.search(src):
@@ -343,13 +343,13 @@ def readme(title: str, creators: list[dict], archives: list[dict], top: list[dic
           "system) is documented in `docs/DATUMS.md` of the repository: "
           f"{REPO_URL}/blob/main/docs/DATUMS.md",
           "- Horizontal coordinates are WGS84 (EPSG:4326). Areas are computed on an equal-area Lambert azimuthal "
-          "projection centred at 45.5 N, 50 E (`+proj=laea +lat_0=45.5 +lon_0=50`, `docs/DECISIONS.md` D-002) and, for "
+          "projection centred at 45.5 N, 50 E (`+proj=laea +lat_0=45.5 +lon_0=50`) and, for "
           "Great Salt Lake, a basin-centred one of the same kind (`run.json` of each arm); distances in metres.", "",
           "## Provenance", "",
           "- Pipeline: `make all` in the repository rebuilds every table from the raw inputs; acquisition steps "
           "(downloads and Earth Engine exports) run separately (`make fetch`, `make ee-inputs EE_OK=1`).",
           "- Input acquisition records (URLs, dates, SHA-256): `results/provenance/` of the repository.",
-          "- Choices and their reasons: `docs/DECISIONS.md`; the registered plan and its dated amendments: "
+          "- The registered plan and its dated amendments: "
           "`docs/PREREG.md`.", "",
           "## Licences of the inputs", "",
           "| Input | Terms |", "|---|---|"]

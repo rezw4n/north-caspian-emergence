@@ -1,4 +1,4 @@
-"""A6 validation: the waterline DEM against ICESat-2 (PREREG sections 2 and 5-8;
+"""DEM validation: the waterline DEM against ICESat-2 (PREREG sections 2 and 5-8;
 Amendments 2 and 5; caspian.validation).
 
 Three stages, run in order; each refuses to run before the one it needs.
@@ -14,7 +14,7 @@ Three stages, run in order; each refuses to run before the one it needs.
              product offsets, scale model β), q̂ on calibration blocks, then accuracy
              metrics, the paired block bootstrap and coverage on test blocks
              (caspian.validation.run). ATL06 and ATL08 are evaluated separately. The H2
-             decision rule is not applied here (validation.h2_decision, at G3).
+             decision rule is not applied here (validation.h2_decision, scripts/a6_h2_decision.py).
 
 Inputs
   data/interim/icesat2/<ATL06|ATL08>/<granule>.csv.gz (scripts/a6_icesat2.py): only granules
@@ -26,7 +26,7 @@ Inputs
       static-contour rule as scripts/a6_dem.py), for the contour density.
   --emergence DIR: emergence-date tiles emergence_<i>_<j>.tif on the DEM tiling; band 1 is the
       date the pixel became permanently dry, in days since 1970-01-01, NaN where it never
-      emerged or was never sea (the A6 emergence map; interface proposed here).
+      emerged or was never sea (the emergence map of scripts/a6_emergence.py).
   caspian.products: every product in PRODUCTS (or --products), read with load_native and
       interpolated bilinearly at the points with sample, as distributed (no offset);
       skipped with --no-products.
@@ -46,7 +46,7 @@ Usage:
   python scripts/a6_validate_dem.py <tag> blocksize [--sources ATL06,ATL08]
   python scripts/a6_validate_dem.py <tag> evaluate [--sources ATL06,ATL08] [--block-size M]
 
-Additional independent sources (D-091), one at a time, never pooled with ICESat-2: GLO30
+Additional independent sources, one at a time, never pooled with ICESat-2: GLO30
 (scripts/a6_glo30.py) and GEDI (scripts/a6_gedi.py) build the point table; then
   python scripts/a6_validate_dem.py <tag> blocksize --sources GLO30   (inherits the H2 size)
   python scripts/a6_validate_dem.py <tag> evaluate --sources GLO30
@@ -72,7 +72,7 @@ from caspian import design, frequency, validation
 from caspian.config import CRS_EQUAL_AREA, INTERIM, PROCESSED, RESULTS
 
 SOURCES = ("ATL06", "ATL08")
-# Additional independent sources (PREREG section 2 and Amendment 2; D-091). Their point
+# Additional independent sources (PREREG section 2 and Amendment 2). Their point
 # tables are built by scripts/a6_glo30.py and scripts/a6_gedi.py in the format of
 # ``prepare``; blocksize and evaluate then run on them one at a time, with results in
 # results/validation/<tag>_<source lower>/ and the H2 block size inherited (never refitted).
@@ -128,7 +128,7 @@ def load_icesat2(product: str, geoid_source: str = "eigen6c4") -> tuple[pd.DataF
         atl06 = {validation.granule_key(k): INTERIM / "icesat2" / "ATL06" / f"{k}.csv.gz"
                  for k in _recorded_granules("ATL06")}
     frames, cascades = [], []
-    # N(EIGEN-6C4) for both products (D-078); "atl06" keeps the D-069 chain (ATL06 geoid_h)
+    # N(EIGEN-6C4) for both products; "atl06" keeps the ATL06 geoid_h chain
     geoid = validation.EigenGeoid() if geoid_source == "eigen6c4" else None
     counts = {"recorded_with_points": len(rec), "read": 0, "missing_file": 0, "incomplete_file": 0,
               "atl08_without_atl06": 0}
@@ -221,7 +221,7 @@ def prepare(a) -> int:
     if not any(dem_dir.glob("dem_*.tif")):
         raise SystemExit(f"no DEM tiles in {dem_dir}")
     if a.emergence is None or not any(Path(a.emergence).glob("emergence_*.tif")):
-        raise SystemExit("PREREG section 2 needs the emergence date of each pixel (the A6 emergence map): "
+        raise SystemExit("PREREG section 2 needs the emergence date of each pixel (scripts/a6_emergence.py): "
                          "pass --emergence DIR with emergence_<i>_<j>.tif tiles")
     names, sample = _product_sampler(a.products, a.no_products)
     dem = validation.TileSet(dem_dir, "dem")
@@ -267,12 +267,12 @@ def prepare(a) -> int:
 
 
 POPULATIONS = ("bare", "vegetated", "all")
-VEG_CELL_SHARE = 0.5      # D-071: a cell is vegetated at an E3 emergent-vegetation share of at least 0.5
+VEG_CELL_SHARE = 0.5      # a cell is vegetated at an E3 emergent-vegetation share of at least 0.5
 
 
 def _annotations(tag: str, source: str, d: pd.DataFrame) -> pd.DataFrame:
-    """Per point (D-084): ``in_band``, inside the emerged band (water in the 1995-96 and
-    not water in the 2025-26 zone-v6 extent, the D-071 band); ``veg_share``, the E3
+    """Per point: ``in_band``, inside the emerged band (water in the 1995-96 and
+    not water in the 2025-26 zone-v6 extent); ``veg_share``, the E3
     emergent-vegetation share (o - v) / o of the point's 60 m stage-2 cell (NaN with
     fewer than design.MIN_VALID_OBS classified acquisitions). Cached next to the point
     table and checked against its row count."""
@@ -315,9 +315,9 @@ def _annotations(tag: str, source: str, d: pd.DataFrame) -> pd.DataFrame:
 
 
 def _load_points(tag: str, source: str, population: str = "bare") -> pd.DataFrame:
-    """The prepared points of one source, restricted to a reference population (D-084):
+    """The prepared points of one source, restricted to a reference population:
     ``bare``, emerged seabed that is not vegetated (the H2 population); ``vegetated``,
-    emerged seabed in vegetated cells (brief section 10, check 9); ``all``, no
+    emerged seabed in vegetated cells (robustness check 9); ``all``, no
     restriction (as prepared)."""
     p = _cache(tag, source)
     if not p.exists():
@@ -339,21 +339,21 @@ def _load_points(tag: str, source: str, population: str = "bare") -> pd.DataFram
 
 def _res_dir(a) -> Path:
     """Results folder of a stage: results/validation/<tag> for the H2 population, with a
-    suffix for the others (D-084). An additional source (EXTRA_SOURCES, run alone) gets
-    its own folder, results/validation/<tag>_<source lower>[_<population>] (D-091)."""
+    suffix for the others. An additional source (EXTRA_SOURCES, run alone) gets
+    its own folder, results/validation/<tag>_<source lower>[_<population>]."""
     extra = [s for s in getattr(a, "sources", []) if s in EXTRA_SOURCES]
     base = f"{a.tag}_{extra[0].lower()}" if extra else a.tag
     return RESULTS / "validation" / (base if a.population == "bare" else f"{base}_{a.population}")
 
 
 def _inherit_block_size(a) -> int:
-    """Additional sources (D-091): the H2 blocks are used as they are (Amendment 2: "the
+    """Additional sources: the H2 blocks are used as they are (Amendment 2: "the
     same blocks, metrics and sectors"). The block size is read from the ICESat-2 check
     of the same population and never refitted on these heights; the record says so."""
     h2_dir = _out(a.tag) if a.population == "bare" else RESULTS / "validation" / f"{a.tag}_{a.population}"
     p = h2_dir / "block_size_check.json"
     if not p.exists():
-        raise SystemExit(f"no H2 block-size check {p}: the additional sources inherit it (D-091)")
+        raise SystemExit(f"no H2 block-size check {p}: the additional sources inherit it")
     h2 = json.loads(p.read_text(encoding="utf-8"))
     if h2.get("final_block_size_m") is None:
         raise SystemExit(f"the H2 block-size check {p} is unresolved")
@@ -375,7 +375,7 @@ def _blocks(size_m: float) -> pd.DataFrame:
     p = RESULTS / "study_area" / f"blocks_{int(size_m / 1000)}km.csv"
     if not p.exists():
         raise SystemExit(f"no block table {p}: run `python scripts/a6_blocks.py {size_m:g}` (same code and seed) "
-                         "and log the size in docs/DECISIONS.md")
+                         "and record the size")
     return pd.read_csv(p)
 
 
@@ -391,7 +391,7 @@ def blocksize(a) -> int:
         rec, vario = validation.block_size_check(pts, base=base)
         vario.to_csv(_res_dir(a) / f"{source}_semivariogram.csv", index=False)
         if not rec["range_within_max_lag"]:
-            # D-084: no sill within the largest lag means a regional trend, not a stationary
+            # no sill within the largest lag means a regional trend, not a stationary
             # range; refit on residuals less each sector's training median
             raw = rec
             rec, vario = validation.block_size_check(pts, base=base, detrend="sector")
@@ -400,7 +400,7 @@ def blocksize(a) -> int:
             if not rec["range_within_max_lag"]:
                 rec["final_block_size_m"] = validation.BLOCK_SIZE_CAP_M
                 rec["capped"] = True
-                rec["range_within_max_lag"] = True     # resolved by the D-084 cap
+                rec["range_within_max_lag"] = True     # resolved by the cap
         recs[source] = rec
         print(source, "practical range", round(rec["fit"]["practical_range"]), "m ->",
               rec["final_block_size_m"], "m", "" if rec["range_within_max_lag"] else "(beyond the largest lag)",
@@ -413,11 +413,11 @@ def blocksize(a) -> int:
             "status": "resolved" if resolved else "unresolved: a fitted range lies beyond the largest lag",
             "base_block_size_m": base, "final_block_size_m": final, "sources": recs})
     if not resolved:
-        print("block size unresolved: a fitted practical range lies beyond the largest lag fitted. The lead decides "
-              "(docs/DECISIONS.md) before any test-block evaluation; evaluate refuses until then.")
+        print("block size unresolved: a fitted practical range lies beyond the largest lag fitted. A size must be "
+              "chosen and recorded before any test-block evaluation; evaluate refuses until then.")
         return 3
     print("final block size", final, "m" + ("" if final == base else
-          f": run `python scripts/a6_blocks.py {final:g}` and log it in docs/DECISIONS.md before evaluate"))
+          f": run `python scripts/a6_blocks.py {final:g}` and record it before evaluate"))
     return 0
 
 
@@ -473,14 +473,14 @@ def main(argv) -> int:
     ap.add_argument("tag")
     ap.add_argument("stage", choices=["prepare", "blocksize", "evaluate"])
     ap.add_argument("--population", choices=POPULATIONS, default="bare",
-                    help="reference population (D-084): bare emerged seabed (H2), vegetated (check 9), all")
+                    help="reference population: bare emerged seabed (H2), vegetated (check 9), all")
     ap.add_argument("--sources", default=",".join(SOURCES))
     ap.add_argument("--emergence", default=None)
     ap.add_argument("--products", default=None)
     ap.add_argument("--no-products", action="store_true")
     ap.add_argument("--epochs", default="E2,E3")
     ap.add_argument("--geoid", choices=["eigen6c4", "atl06"], default="eigen6c4",
-                    help="N for ICESat-2 heights: EIGEN-6C4 grid (D-078) or the ATL06 geoid_h chain (D-069)")
+                    help="N for ICESat-2 heights: EIGEN-6C4 grid or the ATL06 geoid_h chain")
     ap.add_argument("--block-size", type=float, default=None, help="sensitivity run (PREREG section 6)")
     ap.add_argument("--subset", default=None,
                     help="evaluate: keep points whose boolean column SUBSET is true (results in subset_<SUBSET>/)")
@@ -493,7 +493,7 @@ def main(argv) -> int:
         if len(a.sources) > 1:
             ap.error(f"run each of {EXTRA_SOURCES} alone (never pooled with ICESat-2, Amendment 2)")
         if a.stage == "prepare":
-            ap.error(f"{a.sources[0]} points are built by scripts/a6_{a.sources[0].lower()}.py (D-091)")
+            ap.error(f"{a.sources[0]} points are built by scripts/a6_{a.sources[0].lower()}.py")
     return {"prepare": prepare, "blocksize": blocksize, "evaluate": evaluate}[a.stage](a)
 
 

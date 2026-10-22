@@ -1,15 +1,15 @@
-"""A7: the PREREG section 9 H1 decisions from the frozen hindcast tables
+"""The PREREG section 9 H1 decisions from the frozen hindcast tables
 (caspian.h1), applied once after the hindcast run.
 
 1. "Mispredicts" per product, variant and sector: the product's median absolute
-   shoreline displacement (epochs pooled per level, D-070) exceeds the sector's
+   shoreline displacement (epochs pooled per level) exceeds the sector's
    noise-floor 95th percentile (pooled per level: both halves of every epoch, plus
    E1 against E2/E3) at the majority of the sector's evaluable observed levels.
    Sensitivity: the sector-wide pooled floor (all levels).
 2. "Largest in deltaic and vegetated sectors": one-sided block-level permutation
    test (10,000 permutations) of the median block displacement, deltaic-or-vegetated
-   sectors (results/levels/sector_labels.csv) against the rest (D-070, D-071).
-The shape variant decides (D-072); the total variant is reported beside it.
+   sectors (results/levels/sector_labels.csv) against the rest.
+The shape variant decides; the total variant is reported beside it.
 
 Outputs (committed): results/hindcast/<tag>/h1_mispredicts.csv,
 h1_mispredicts_pooled_floor.csv, h1_mispredicts_detail.csv, h1_block_test.csv, h1_decision.json

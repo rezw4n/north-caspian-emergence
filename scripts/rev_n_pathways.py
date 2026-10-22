@@ -1,11 +1,11 @@
 """A18 items 10(j) and 10(k): emerged area at 2035 and 2050 for every pathway x product on
 the common baseline (a) and the shifted products (b), the shares of the sum of squares
-from pathway, product and interaction, the range pathways (R3 minor 9), each pathway's
+from pathway, product and interaction, the range pathways, each pathway's
 2021-2026 change against the observed fall, and the observed-trend pathway over three
-windows (DECISIONS D-127). Exploratory.
+windows. Exploratory.
 
 Inputs: results/revision/n/curves_fine.csv.gz (scripts/rev_n_curves.py; with the
-composite and constant-form baselines of the D-123 addenda when present), the pathways as
+composite and constant-form baselines when present), the pathways as
 scripts/a8_emergence.py reads and dates them (read_pathways, exposure.pathway_curves),
 the DAHITI series, results/emergence/main/run.json (the 2026 level) and
 results/emergence/main/scenario_dates.csv (the range pathways' dates).
@@ -38,8 +38,8 @@ BASE = 2026.0
 SURFACES = ("common_area", "common_location", "shifted", "shifted_common_location", "uncorrected",
             "common_area_composite", "common_location_composite", "shifted_common_location_composite",
             "common_location_constfused")
-EXTRA = {"_composite": ("common_area", "common_location", "shifted_common_location"),      # D-123 addendum 2
-         "_constfused": ("common_location",)}                                               # D-123 addendum
+EXTRA = {"_composite": ("common_area", "common_location", "shifted_common_location"),      # composite baseline
+         "_constfused": ("common_location",)}                                               # constant-form
 WINDOWS = ((1996, 2021), (2006, 2025), (2016, 2025))
 HORIZON = 2100.0
 
@@ -94,7 +94,7 @@ def main(argv) -> int:
         tab = g.pivot(index="pathway_id", columns="product", values="E_km2").loc[primary, products]
         y_area = tab.to_numpy(float)
         if surf.startswith("common_area"):
-            y_area = np.maximum(y_area, 0.0)              # D-127: clipped at 0 for the decomposition
+            y_area = np.maximum(y_area, 0.0)              # clipped at 0 for the decomposition
         for scale, yy in (("area_km2", y_area), ("log10_area_plus_1", np.log10(y_area + 1.0))):
             if not np.isfinite(yy).all():
                 vrows.append({"surface": surf, "region": reg, "year": int(y), "scale": scale, "note": "non-finite cell"})

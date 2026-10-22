@@ -1,7 +1,6 @@
-"""A8 independent check: ICESat-2 ATL24 seabed heights against the near-term emergence
+"""Independent check: ICESat-2 ATL24 seabed heights against the near-term emergence
 surfaces (PREREG section 2 "ATL24 bathymetry where available", section 10 and Amendment
-17; brief section 8 A8, "Use ICESat-2 ATL24 as an independent check where turbidity
-allows"; D-095). Rules and definitions: caspian.atl24 and Amendment 17.
+17). Rules and definitions: caspian.atl24 and Amendment 17.
 
 Stages (one run does all three):
 1. photons: the class-40 photons saved by scripts/a8_atl24_fetch.py
@@ -19,7 +18,7 @@ Stages (one run does all three):
    the fused surface (exposure.FusedSurface with the DEM aggregated to 60 m as
    scripts/a8_emergence.dem_to_grid does, the observed unit at the lowest fitted level
    and the outside states, all rebuilt with the a7/a8 functions), the shape variant
-   (uncorrected minus the D-070 constant of results/hindcast/main/shape_offsets.json)
+   (uncorrected minus the shape constant of results/hindcast/main/shape_offsets.json)
    and the DEM. Check: the fused surface's cell counts per sector and source reproduce
    results/emergence/main/fused_summary.csv (fused_check.csv).
 3. evaluate: the populations of Amendment 17 item 4 on y_ref = H + c; per product the
@@ -73,7 +72,7 @@ OUT = RESULTS / "validation" / "atl24"
 CORRECTION = RESULTS / "study_area" / "geoid_correction_primary.npz"
 DAHITI = RAW / "dahiti" / "dahiti_39_caspian_sea_water_level.csv"
 LEVEL_GAP_DAYS = 60.0            # DAHITI interpolation for the water-surface constant (caspian.levels default)
-BLOCK_M = 50_000.0               # the H2 block lattice (D-085)
+BLOCK_M = 50_000.0               # the H2 block lattice
 PHOTON_VARIANTS = {"primary": {"strong_only": True, "night_only": False, "max_depth_m": atl24.MAX_DEPTH_M},
                    "night": {"strong_only": True, "night_only": True, "max_depth_m": atl24.MAX_DEPTH_M},
                    "all_beams": {"strong_only": False, "night_only": False, "max_depth_m": atl24.MAX_DEPTH_M},
@@ -202,7 +201,7 @@ def surfaces(cells: pd.DataFrame, transform, shape, tile: int, fused_check: bool
     """Stage 2 (module docstring). Returns (cells with surface columns, fused check table,
     record)."""
     a8 = _load("a8_emergence")
-    a7 = a8.a7      # the a7 instance a8.observed_unit reads (its ENVELOPE, D-082), not a second copy
+    a7 = a8.a7      # the a7 instance a8.observed_unit reads (its ENVELOPE), not a second copy
     hdir = RESULTS / "hindcast" / TAG
     hrun = json.loads((hdir / "run.json").read_text(encoding="utf-8"))
     if [float(v) for v in transform[:6]] != hrun["grid"]["transform"][:6] or list(shape) != hrun["grid"]["shape"]:
@@ -324,7 +323,7 @@ def evaluate(ct: pd.DataFrame, prods, c: float, level_2026: float, record_high: 
 
 def error_model_range(level_2026: float) -> pd.DataFrame:
     """Surface-only diagnostic of the H3 error models (no ATL24 involved; Amendment 17,
-    "What had been seen"; STOP memo of 2026-10-21): per product and region, the range of
+    "What had been seen"): per product and region, the range of
     the matching shifts the final model was fitted on (usable E2 + E3 units of
     results/emergence/main/shifts.csv), the number of distinct fitted depths, the shift
     the model applies to product heights in the near-term zone [L2026 - 5 m, L2026]

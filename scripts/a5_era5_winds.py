@@ -1,4 +1,4 @@
-"""A5 input: hourly ERA5 10 m wind (u, v) and mean sea-level pressure averaged over
+"""Wind-setup input: hourly ERA5 10 m wind (u, v) and mean sea-level pressure averaged over
 each frozen sector (caspian.geography), 1984-01-01 to the end of the ERA5 record in
 Earth Engine (ECMWF/ERA5/HOURLY; Hersbach et al. 2020). Exported as Earth Engine
 table assets in decade chunks; downloaded as CSV with `fetch`.

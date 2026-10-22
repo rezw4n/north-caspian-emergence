@@ -1,6 +1,6 @@
-"""Revision workstream G (PREREG Amendment 18 item 11, H2; D-129; R1 minor 8): H2 re-evaluated
+"""Revision analysis G (PREREG Amendment 18 item 11, H2): H2 re-evaluated
 with a dryness test that does not use the waterline DEM. Exploratory and descriptive; the
-registered H2 verdict ("not supported", D-086) stands.
+registered H2 verdict ("not supported") stands.
 
 The registered test (validation.dry_at_acquisition) keeps an ICESat-2 point only if the
 DEM's emergence dates say its pixels were dry at acquisition, so the reference set
@@ -8,7 +8,7 @@ depends on the DEM under test. Here a point is dry when its 60 m stage-2 cell is
 and observed dry in the E3 observed extent of the level bin of its acquisition date:
 
 1. every recorded granule of the source, through the registered quality steps
-   (validation.prepare_icesat2 with the EIGEN-6C4 geoid, D-078), as
+   (validation.prepare_icesat2 with the EIGEN-6C4 geoid), as
    scripts/a6_validate_dem.py prepare does, but without the DEM-based dry step;
 2. the basin level at the granule's start time (file name) from the scene-level function
    of scripts/a4_scene_levels.py (DAHITI; Hydroweb shifted onto DAHITI in DAHITI's gaps),
@@ -18,9 +18,9 @@ and observed dry in the E3 observed extent of the level bin of its acquisition d
    dry = valid and not water (caspian.rev_g.independent_dry). Points whose bin has no E3
    extent, or whose cell is not valid, are left out and counted;
 4. then as registered: in the emerged band and with an E3 vegetation share below 0.5
-   (the bare population, D-084), DEM and product heights, 50 km blocks, validation.run
-   (B = 2,000, seed 20261022), and the H2 rule (validation.h2_decision; both sources,
-   D-069).
+   (the bare population), DEM and product heights, 50 km blocks, validation.run
+   (B = 2,000, seed 20261022), and the H2 rule (validation.h2_decision; both
+   sources).
 
 The DEM-based flag is computed for the same in-band points, for a 2 x 2 agreement table.
 

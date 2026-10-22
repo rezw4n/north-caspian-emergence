@@ -1,6 +1,6 @@
-"""Earth Engine use, month to date, recomputed from every ledger (D-104): the EECU-seconds
+"""Earth Engine use, month to date, recomputed from every ledger: the EECU-seconds
 of every profiled interactive request in results/inventory/*.jsonl (interactive logs and
-the agents' ledgers; ee_guard_log.jsonl is left out, since it records cancelled batch
+the per-run ledgers; ee_guard_log.jsonl is left out, since it records cancelled batch
 tasks, which the batch total covers), plus the batch operations created this month from
 ee.data.listOperations (batchEecuUsageSeconds; metadata only, no computation). Writes
 results/inventory/ee_month_to_date.json.

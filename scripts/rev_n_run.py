@@ -1,6 +1,6 @@
-"""Run workstream N's revision steps in order, each as its own process, stopping at the
-first failure (A18 item 10; D-123 to D-127). Meant to be wrapped by tools/heavy_slot.py so
-that dependent steps hold one slot in turn instead of queueing separately.
+"""Run the rev_n revision steps in order, each as its own process, stopping at the
+first failure (A18 item 10). Meant to be run as one job so that dependent steps run in
+turn instead of queueing separately.
 
 Steps: curves (rev_n_curves.py), envelopes (rev_n_envelopes.py, reads curves.csv),
 pathways (rev_n_pathways.py, reads curves_fine.csv.gz), exposure (rev_n_exposure.py),

@@ -1,5 +1,5 @@
-"""Writer metrics of the revision (D-136): ranges and shares the Letter and the Supplementary
-quote that no workstream module states directly.
+"""Writer metrics of the revision: ranges and shares the Letter and the Supplementary
+quote that no other revision module states directly.
 
 Loaded by tools/build_metrics.revision_metrics, which calls add(m) after every other
 metrics_rev_<name>.py module (name order), so every key here is built only from keys those
@@ -157,7 +157,7 @@ def g_h2_etopo(m: dict) -> None:
 
 def g_etopo_cap(m: dict) -> None:
     """The level at which ETOPO 2022 caps GEBCO_2022's Caspian lake depths, as the rule that
-    workstream G tested and recorded in the note of its metric (matched at every cell)."""
+    revision analysis G tested and recorded in the note of its metric (matched at every cell)."""
     import re
 
     rec = m.get("rev.g.etopo.lake_clamp.share_matching_min_rule_pct")
@@ -171,7 +171,7 @@ def g_etopo_cap(m: dict) -> None:
 
 
 def s_bootstrap(m: dict) -> None:
-    """Design of workstream S's moving-block bootstrap of the verdicts (A18 item 2; D-113),
+    """Design of revision analysis S's moving-block bootstrap of the verdicts (A18 item 2),
     read from its run summary."""
     import json
     from pathlib import Path
@@ -202,7 +202,7 @@ def _pct(m: dict, key: str, keys: list[str], note: str, decimals: int = 0, scale
 
 
 def n_near(m: dict) -> None:
-    """Near-term (workstream N, A18 item 10): percentages, ranges over grids and text years."""
+    """Near-term (revision analysis N, A18 item 10): percentages, ranges over grids and text years."""
     n = "rev.n."
     _pct(m, "n.dry.unc1_pct", [n + "already_dry.uncorrected.1.share_zv6_min", n + "already_dry.uncorrected.1.share_zv6_max"],
          "share of each uncorrected grid's 1 m band not water in the 2025-26 extent")
@@ -303,7 +303,7 @@ def n_near(m: dict) -> None:
 
 
 def r_rasters(m: dict) -> None:
-    """Workstream R (A18 items 3, 6, 7): ranges over the four mispredicting grids and sectors."""
+    """Revision analysis R (A18 items 3, 6, 7): ranges over the four mispredicting grids and sectors."""
     r = "rev.r."
     for name, secs in (("coasts3", ("west", "interfluve", "northeast")), ("westinter", ("west", "interfluve")),
                        ("openshelf", ("openshelf",)), ("validated4", ("west", "interfluve", "northeast", "openshelf"))):
@@ -334,12 +334,12 @@ def r_rasters(m: dict) -> None:
 
 
 SECTORS_R = ["west", "volga", "ural", "interfluve", "northeast", "komsomolets", "openshelf"]
-POSTS_DELTA = ["baku", "fort", "kbg", "krasn", "kuuli", "makh", "nkamni"]   # the seven posts behind delta (D-093)
+POSTS_DELTA = ["baku", "fort", "kbg", "krasn", "kuuli", "makh", "nkamni"]   # the seven posts behind delta
 POSTS_NORTH = ["lag", "tul", "pesh", "kul"]                               # North Caspian posts, not used for delta
 
 
 def v_datums(m: dict) -> None:
-    """Workstream V (A18 item 9; D-120 to D-122): sums and ranges over grids, posts and terms."""
+    """Revision analysis V (A18 item 9): sums and ranges over grids, posts and terms."""
     import json
     from pathlib import Path
 

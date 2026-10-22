@@ -1,7 +1,7 @@
-% ERL Letter: Methods, concise (D-107; revised after the internal review, D-112, D-136). Full
+% ERL Letter: Methods, concise (revised after the internal review). Full
 % detail is in the Supplementary Information (supplementary_erl.tex, section \SImethods; the
 % revision analyses in \SIrevision). Every number is a \metric{} macro. Equations (1)-(3) were
-% checked against the functions named in the comment beside each (D-107 addendum).
+% checked against the functions named in the comment beside each.
 
 \subsection{Observed shorelines}
 The study domain is the North Caspian north of the line from Chechen Island to Cape Tyub-Karagan (\metric{study_area.domain_km2}~\kmsq{}, land included), divided before any evaluation into seven sectors: the Kizlyar Bay--Dagestan--Kalmyk coast (west), the Volga and Ural deltas, the Volga--Ural interfluve, the northeastern Kazakh coast, Komsomolets Bay and the open shelf.
@@ -48,4 +48,4 @@ where $A(L)$ is the area of the domain cells with $F_i < L$. The grids as distri
 We interpolated the E2 and E3 waterlines into a \metric{params.dem_res_m}~m elevation model of the emerged band and tested it, as registered, against ICESat-2 heights\citep{atl06_v7,atl08_v7,markus2017} over seabed already dry when measured, on held-out \metric{h2.block_size_km}~km blocks, with the Copernicus 30~m elevation model\citep{copdem,copdem_handbook_i5} and the Global Ecosystem Dynamics Investigation (GEDI)\citep{gedi_l2a_v2} as further checks (Supplementary section~\SIdem).
 
 \subsection{Pre-registration and reproducibility}
-The hypotheses, metrics, blocks and decision rules were registered before any hindcast, topography-accuracy or projection metric was computed (registration and amendments: Supplementary file; deviations: section~\SIdeviations). Confirmatory claims are the registered verdicts (H1 by equation~(\ref{eq:mispredicts}) in the seven sectors, H2 and H3) and their registered sensitivities. The analyses added after internal review, including the validated-sector headline, were registered as Amendment 18 before they were computed and are exploratory; Supplementary section~\SIrevision{} classifies every quantitative claim. Every analytical choice is logged in the repository's decision log (see also Use of generative AI).
+The hypotheses, metrics, blocks and decision rules were registered before any hindcast, topography-accuracy or projection metric was computed (registration and amendments: Supplementary file; deviations: section~\SIdeviations). Confirmatory claims are the registered verdicts (H1 by equation~(\ref{eq:mispredicts}) in the seven sectors, H2 and H3) and their registered sensitivities. The analyses added after internal review, including the validated-sector headline, were registered as Amendment 18 before they were computed and are exploratory; Supplementary section~\SIrevision{} classifies every quantitative claim.

@@ -1,5 +1,5 @@
-"""A7: the pre-registered H1 decision rule, applied to hindcast tables (PREREG
-section 9 with Amendments 6 and 7; D-030, D-032).
+"""The pre-registered H1 decision rule, applied to hindcast tables (PREREG
+section 9 with Amendments 6 and 7).
 
 These functions only read tables written by scripts/a7_hindcast.py (or synthetic
 ones); the driver never calls them, so no H1 outcome is computed as a side effect
@@ -22,12 +22,12 @@ a ``bin`` column).
 "Largest in deltaic and vegetated sectors" (``block_test``, ``permutation_test``): a
 one-sided block-level permutation test of the difference in median displacement
 between blocks of the deltaic or vegetated sectors and the other blocks. The block
-value (D-070) is, per block and product, the median of the absolute displacement
+value is, per block and product, the median of the absolute displacement
 distances pooled over all its (epoch, level) units (scripts/a7_hindcast.py writes it
 to block_h1.csv); blocks with fewer than 20 distances are left out and counted. A
 block belongs to the sector that contains its centre (results/study_area/
 blocks_25km.csv). The deltaic and vegetated labels are an input table: the vegetated
-set needs the A3 vegetation fraction, fixed before any hindcast metric.
+set needs the vegetation fraction of the water classification, fixed before any hindcast metric.
 """
 
 from __future__ import annotations
@@ -107,13 +107,13 @@ def permutation_test(blocks: pd.DataFrame, group_sectors, *, value: str = "value
     return {**out, "statistic": t, "p_value": p, "significant": bool(p <= alpha)}
 
 
-MIN_BLOCK_N = 20      # D-070
+MIN_BLOCK_N = 20
 
 
 def block_test(blocks: pd.DataFrame, sector_labels: pd.DataFrame, *, value: str = "median_abs_m",
                min_n: int = MIN_BLOCK_N, n_perm: int = design.PERMUTATIONS_N, seed: int = design.SEED,
                alpha: float = design.ALPHA) -> pd.DataFrame:
-    """``permutation_test`` per product and variant on the block table (D-070).
+    """``permutation_test`` per product and variant on the block table.
 
     ``blocks``: product, variant, block_sector, n (distances), and ``value``.
     ``sector_labels``: one row per sector with boolean ``deltaic`` and ``vegetated``;

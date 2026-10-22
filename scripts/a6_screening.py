@@ -1,4 +1,4 @@
-"""A5/A6: choose the surge-screening threshold tau (PREREG section 3; D-064).
+"""Choose the surge-screening threshold tau (PREREG section 3).
 
 Input: the screening-sensitivity export (scripts/a6_stage2_export.py, tag `sens`):
 counts per (epoch, bin, parity, setup class) over a stratified sample of training

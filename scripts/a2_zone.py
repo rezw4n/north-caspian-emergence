@@ -1,11 +1,11 @@
-"""Stage 0 (D-015, D-027, D-029): export the active zone (where 1992-2026 waterlines
+"""Stage 0: export the active zone (where 1992-2026 waterlines
 can occur) as an Earth Engine asset on the equal-area grid at 250 m, its 5 km tile
 cover as a table asset, and report areas.
 
 Usage: python scripts/a2_zone.py pilot | submit | tiles | area [pilot|submit|v6]
                                  extents | v6preview <png> | v6
   pilot, submit : zone v5 (1 x 1 degree NE box, or the domain)
-  extents       : the 1995-96 and 2025-26 extents of zone v6, exported once (D-029)
+  extents       : the 1995-96 and 2025-26 extents of zone v6, exported once
   v6preview     : 1 km thumbnail of zone v6 built from the extents asset (profiled)
   v6            : zone v6 at 250 m from the extents asset
 """

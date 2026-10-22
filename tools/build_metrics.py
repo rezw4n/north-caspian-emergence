@@ -1,5 +1,5 @@
-"""Assemble results/metrics.json, the single source of every number in the manuscript
-(CLAUDE.md integrity rule 2), from the committed result files.
+"""Assemble results/metrics.json, the single source of every number in the manuscript,
+from the committed result files.
 
 Each metric is {"value", "unit", "source", "note"?}. Keys are dotted paths
 (e.g. "levels.dahiti.n_records"). Rebuilt by `make metrics`; never edited by hand.
@@ -102,10 +102,10 @@ def study_area_metrics(m: dict) -> None:
 
 def input_stage_metrics(m: dict) -> None:
     """Input-level facts quoted in Methods, all fixed before any waterline, DEM or
-    hindcast quantity existed: the setup-model fit on SWOT (scripts/a5_setup_model.py;
-    D-065, D-066), the per-acquisition threshold rule's outcome (scripts/a3_thresholds.py;
-    D-061), the EGM2008 - EIGEN-6C4 geoid difference (scripts/a7_geoid_difference.py;
-    D-074) and the 25 km block assignment (scripts/a6_blocks.py; PREREG section 6)."""
+    hindcast quantity existed: the setup-model fit on SWOT (scripts/a5_setup_model.py),
+    the per-acquisition threshold rule's outcome (scripts/a3_thresholds.py), the
+    EGM2008 - EIGEN-6C4 geoid difference (scripts/a7_geoid_difference.py) and the 25 km
+    block assignment (scripts/a6_blocks.py; PREREG section 6)."""
     def put_dp(key, value, unit, source, note=None, dp=2):
         put(m, key, value, unit, source, note)
         if key in m:
@@ -177,8 +177,8 @@ def input_stage_metrics(m: dict) -> None:
 
 def datum_metrics(m: dict) -> None:
     """DAHITI -> BHS-77 offset from the CASPCOM post levels (scripts/a7_dahiti_bhs_offset.py;
-    PREREG section 5; D-093). Used only to report levels in BHS-77; it cancels in every
-    hindcast and validation metric (D-070, D-074)."""
+    PREREG section 5). Used only to report levels in BHS-77; it cancels in every
+    hindcast and validation metric."""
     r = load("levels/dahiti_bhs_offset.json")
     src = "results/levels/dahiti_bhs_offset.json"
     if not r:
@@ -384,7 +384,7 @@ def _and(items) -> str:
 
 def h3_metrics(m: dict, tag: str) -> None:
     """H3 values from the frozen tables of scripts/a8_emergence.py and caspian.h3
-    (results/emergence/<tag>/; D-081, D-090), read for Fig. 5 and Table 3: the 2026
+    (results/emergence/<tag>/), read for Fig. 5 and Table 3: the 2026
     level, the emerged area of each surface with its conformal interval (domain,
     "emergence" functional), the verdicts, exposure at every scenario and the scenario
     dates of every pathway. Direct reads; nothing is recomputed."""
@@ -409,7 +409,7 @@ def h3_metrics(m: dict, tag: str) -> None:
     if sc:
         put(m, "h3.scenarios_text", _and(f"{s:g}" for s in sc), "text", f"emergence/{tag}/run.json",
             "scenario depths below the 2026 level (m)")
-        for s_ in sc:     # each scenario depth, for labels (G3 memo)
+        for s_ in sc:     # each scenario depth, for labels
             put(m, f"h3.scenario.{_scen(s_)}_m", float(s_), "m", f"emergence/{tag}/run.json", "scenario depth below the 2026 level")
             m[f"h3.scenario.{_scen(s_)}_m"]["decimals"] = 0 if float(s_).is_integer() else 1
     e = pd.read_csv(em / "emergence.csv")
@@ -446,7 +446,7 @@ def h3_metrics(m: dict, tag: str) -> None:
         short, what = H3_LAYERS[lay]
         put(m, f"h3.exposure.{short}.n_features", int(g["n_features"].iloc[0]), "features", fx,
             "features of the layer inside the domain")
-    for r in x.itertuples():     # every scenario (brief section 15: exposure per scenario)
+    for r in x.itertuples():     # every scenario (exposure per scenario)
         short, what = H3_LAYERS[r.layer]
         count = r.rule in ("onshore", "access")
         b = f"h3.exposure.{short}.{PRODUCT_KEY[r.product]}.{r.surface}.{_scen(r.scenario_m)}"
@@ -491,8 +491,8 @@ def h3_metrics(m: dict, tag: str) -> None:
 def display_h2_metrics(m: dict, tag: str, src: str) -> None:
     """H2 values read for the display items (figures/fig3_dem_accuracy.py, figures/ed_*.py,
     manuscript/sections/tables_draft.tex): per-sector accuracy of every model, coverage
-    with its intervals, the training-block constants, and the vegetated population (brief
-    section 10 check 9). Direct reads of the committed tables; nothing is recomputed."""
+    with its intervals, the training-block constants, and the vegetated population
+    (robustness check 9). Direct reads of the committed tables; nothing is recomputed."""
     import pandas as pd
 
     val = RES / "validation" / tag
@@ -556,12 +556,12 @@ ADDITIONAL_SOURCES = (("GLO30", "glo30"), ("GEDI", "gedi"))
 
 
 def h2_additional_metrics(m: dict, tag: str) -> None:
-    """The additional independent checks of the waterline DEM (D-091): Copernicus GLO-30
+    """The additional independent checks of the waterline DEM: Copernicus GLO-30
     (PREREG section 2) and GEDI L2A (Amendment 2), evaluated on the H2 blocks with the H2
     metrics (results/validation/<tag>_glo30/, <tag>_gedi/, scripts/a6_validate_dem.py).
     Keys h2.glo30.* and h2.gedi.* mirror the h2.atl06/atl08 families, plus per-sector
     paired differences and the split counts; h2.gedi_night.* is the Amendment 2
-    night-only sensitivity. The H2 decision itself is ICESat-2's (D-086). Direct reads of
+    night-only sensitivity. The H2 decision itself is ICESat-2's. Direct reads of
     the committed tables; nothing is recomputed; NaN values are not written."""
     import math
 
@@ -622,7 +622,7 @@ def h2_additional_metrics(m: dict, tag: str) -> None:
             putf(f"h2.{s}.n_points_split.{sp}", by.get(sp), "points", fn)
             putf(f"h2.{s}.n_blocks_split.{sp}", cnt["n_blocks_with_points"].get(sp), "blocks", fn,
                  "blocks of the split holding points of this source")
-        es = d / f"{src}_etopo2022_sources.json"          # scripts/a6_etopo_sources.py (D-091)
+        es = d / f"{src}_etopo2022_sources.json"          # scripts/a6_etopo_sources.py
         if es.exists():
             fe = f"{rel}/{src}_etopo2022_sources.json"
             for name, r in json.loads(es.read_text(encoding="utf-8"))["by_etopo_source"].items():
@@ -693,7 +693,7 @@ def display_h1_metrics(m: dict, tag: str) -> None:
             "rows with a negative median_abs_m (not a distance)")
         put(m, f"h1.block_h1.n_undefined_used.{v}.{PRODUCT_KEY[p]}", int((bad & (g["n"] >= min_n)).sum()), "blocks",
             f"hindcast/{tag}/block_h1.csv", "the same, among blocks with at least params.h1_min_block_n distances")
-    if (hc / "d089_rerun_comparison.json").exists():       # D-089 follow-up
+    if (hc / "d089_rerun_comparison.json").exists():       # rerun after the block-median fix
         dc = load(f"hindcast/{tag}/d089_rerun_comparison.json")["block_h1"]
         put(m, "h1.block_h1.rows_changed_by_fix", int(dc["rows_dropped_int32_min"]) + int(dc["rows_changed_n_or_median"]),
             "blocks", f"hindcast/{tag}/d089_rerun_comparison.json",
@@ -722,7 +722,7 @@ def display_h1_metrics(m: dict, tag: str) -> None:
 
 
 def display_input_metrics(m: dict) -> None:
-    """The surge-screening sensitivity of D-077 (results/levels/screening_sensitivity.json),
+    """The surge-screening sensitivity (results/levels/screening_sensitivity.json),
     read for Fig. 2c and its Supplementary Figure."""
     ss = load("levels/screening_sensitivity.json")
     if not ss:
@@ -758,7 +758,7 @@ def _robustness_unit(metric: str) -> str:
 
 
 def robustness_metrics(m: dict) -> None:
-    """Brief section 10 robustness verdicts and the numbers behind them (D-092), from
+    """Robustness verdicts and the numbers behind them, from
     results/robustness/verdicts.json (scripts/r20_verdicts.py), and nothing else:
     robustness.checkNN.verdict ("robust", "partly sensitive", "sensitive", "not run: ...",
     "pending EE") and robustness.checkNN.<variant>.<metric> (variant values, with the
@@ -783,7 +783,7 @@ def robustness_metrics(m: dict) -> None:
 
 
 def generality_metrics(m: dict) -> None:
-    """A9 generality test (brief section 11; PREREG Amendment 16; D-094). From
+    """Generality test (PREREG Amendment 16). From
     results/generality/<basin>/h1_decision.json when the basin was run (scripts/g1_decide.py),
     and from its status.json (why it was not run, or the run's cost and inputs).
     The inputs are literal paths, so that tests/test_makefile.py checks that they are
@@ -868,7 +868,7 @@ def generality_metrics(m: dict) -> None:
 
 
 def h3_sensitivity_metrics(m: dict, tag: str = "main") -> None:
-    """D-081/D-096 H3 sensitivity forms run as the final form (scripts/a8_emergence.py
+    """H3 sensitivity forms run as the final form (scripts/a8_emergence.py
     --sensitivity-form; results/emergence/<tag>_<form>): domain emergence of each surface
     with its interval, the H3 verdict, and the leave-one-epoch-out transfer. Skipped when absent."""
     import math
@@ -911,8 +911,8 @@ WDPA_LAYERS = {"wdpa_protected_areas": ("wdpa", "WDPA protected area (dissolved 
 
 
 def wdpa_exposure_metrics(m: dict) -> None:
-    """WDPA protected areas and Ramsar sites as H3 exposure layers (D-101, D-103;
-    scripts/a8_wdpa_exposure.py; results/emergence/wdpa/), keyed as the exposure layers of
+    """WDPA protected areas and Ramsar sites as H3 exposure layers
+    (scripts/a8_wdpa_exposure.py; results/emergence/wdpa/), keyed as the exposure layers of
     h3_metrics: h3.exposure.{wdpa,ramsar}.<product>.<surface>.<scenario>.{amount,lo,hi}
     from the registered run (main), h3sens.constant.exposure.* from the constant-form
     sensitivity (main_constant), the layer counts, and h3.exposure.wdpa.release. The
@@ -973,7 +973,7 @@ def wdpa_exposure_metrics(m: dict) -> None:
 
 def wdpa_share_metrics(m: dict) -> None:
     """Share of each grid's emerged area that lies in WDPA protected areas, with and without
-    the Kazakh northern-Caspian State Reserved Zone (D-103 and its addendum), over the five
+    the Kazakh northern-Caspian State Reserved Zone, over the five
     products: erl.text.h3.<layer>_share.<scenario>[.<surface>].{min,max}_{pct,product}, for
     the uncorrected surface (no surface tag), the registered fused surface ("registered") and
     the constant-form fused surface ("constant"), at 1 and 2 m. A sibling of erl_text_metrics,
@@ -1018,7 +1018,7 @@ def wdpa_share_metrics(m: dict) -> None:
 
 
 def redteam_metrics(m: dict, tag: str = "main") -> None:
-    """The lead's red-team hindcast sensitivities (G3 memo): per-sector shape constants
+    """The red-team hindcast sensitivities: per-sector shape constants
     (scripts/a7_sector_shape.py -> results/hindcast/<tag>_sectorshape, whose "total" rows
     are the sector-shape variant) and the run without the record-low envelope
     (results/hindcast/<tag>_noenv). Direct reads of their H1 tables; skipped when absent."""
@@ -1065,7 +1065,7 @@ def redteam_metrics(m: dict, tag: str = "main") -> None:
 
 
 def atl24_metrics(m: dict) -> None:
-    """The ATL24 check of the near-term emergence surfaces (PREREG Amendment 17; D-095),
+    """The ATL24 check of the near-term emergence surfaces (PREREG Amendment 17),
     from results/validation/atl24/ (scripts/a8_atl24_check.py) and the fetch provenance
     (results/provenance/icesat2_atl24.json): granule and photon counts, per product the
     uncorrected and fused accuracy against ATL24 (near-term population, primary
@@ -1187,7 +1187,7 @@ def atl24_metrics(m: dict) -> None:
 
 
 def display_erl_metrics(m: dict) -> None:
-    """Numbers drawn on the ERL main display items (D-100, D-102) that no other function
+    """Numbers drawn on the ERL main display items that no other function
     provides. From the display preparations of scripts/f1_erl_display.py (each of them
     cross-checked there against the frozen hindcast and H3 tables), the Landsat acquisition
     record of scripts/f2_erl_landsat.py, and, for the report card, ranges over keys set
@@ -1282,7 +1282,7 @@ def display_erl_metrics(m: dict) -> None:
             "pilot and fetch, from results/inventory/erl_figures_ee_ledger.jsonl")
         dp("erl.landsat.eecu_h", 2)
 
-    # report card: the FABDEM share is quoted to 0.1 % as in D-087 and the G3 memo
+    # report card: the FABDEM share is quoted to 0.1 %
     for k in ("h1.etopo2022.source_share.fabdem", "h1.etopo2022.source_share.gebco_lake"):
         dp(k, 1)
     # report card: range of the per-sector median displacement (shape variant) per product
@@ -1298,12 +1298,12 @@ def display_erl_metrics(m: dict) -> None:
 
 def erl_text_metrics(m: dict) -> None:
     """Numbers the ERL Letter and its Supplementary Information quote (manuscript/main_erl.tex,
-    manuscript/supplementary_erl.tex; D-107) that no other function provides: ranges, counts,
+    manuscript/supplementary_erl.tex) that no other function provides: ranges, counts,
     ratios and lists over keys set above, and copies of existing keys at the precision the prose
     quotes (erl.text.p4.*, erl.text.pct.*, erl.text.m0.*). Every value is derived from metrics
     already in m, which come from the committed result files read above, except values read
     from committed result files directly: the ETOPO 2022 source share of the Great Salt Lake band,
-    the block-test p-values of both runs around the D-089 fix and the split-reassignment seeds of check 8.
+    the block-test p-values of both runs around the block-median fix and the split-reassignment seeds of check 8.
     Nothing is refitted or recomputed from data."""
     import math
 
@@ -1378,7 +1378,7 @@ def erl_text_metrics(m: dict) -> None:
     # -- H1: the audit -------------------------------------------------------------------------
     ns = {p: val(f"h1.mispredicts.shape.{p}.n_sectors") for p in prods}
     if all(num(x) for x in ns.values()):
-        maj = [p for p in prods if ns[p] > len(sectors) / 2]     # the D-092 headline: a majority of sectors
+        maj = [p for p in prods if ns[p] > len(sectors) / 2]     # the headline: a majority of sectors
         rest = [p for p in prods if p not in maj]
         add(f"{T}.h1.n_products", len(prods), "products", "products audited")
         add(f"{T}.h1.n_products_majority", len(maj), "products",
@@ -1439,7 +1439,7 @@ def erl_text_metrics(m: dict) -> None:
                         and val(f"redteam.noenv.shape.{p}.block_p") <= alpha]
                 add(f"{T}.redteam.noenv.n_still_significant", len(nsig), "products",
                     "of those products, the number still significant without the envelope")
-    # both runs of the block test around the D-089 fix (the Supplementary reports both)
+    # both runs of the block test around the block-median fix (the Supplementary reports both)
     d89 = load("hindcast/main/d089_rerun_comparison.json")
     short = {v_: k_ for k_, v_ in gname.items()}
     for r in d89.get("block_test") or []:
@@ -1577,9 +1577,9 @@ def erl_text_metrics(m: dict) -> None:
             add(f"{T}.h3.paths.{sc}m.first_year", str(min(years)), "year", f"earliest such year (h3.date.<id>.{sc})")
             add(f"{T}.h3.paths.{sc}m.last_year", str(max(years)), "year", f"latest such year (h3.date.<id>.{sc})")
 
-    # protected areas (WDPA) and the Volga Delta Ramsar site at 1 m (D-103): range over the grids of
+    # protected areas (WDPA) and the Volga Delta Ramsar site at 1 m: range over the grids of
     # the uncorrected, registered fused and constant-form fused surfaces, and the share of each grid's
-    # uncorrected 1 m emergence inside protected areas (approximate: D-103)
+    # uncorrected 1 m emergence inside protected areas (approximate)
     for lay in ("wdpa", "ramsar"):
         for tag, pre, surf in (("uncorrected", "h3.exposure", "uncorrected"), ("registered", "h3.exposure", "fused"),
                                ("constant", "h3sens.constant.exposure", "fused")):
@@ -1605,7 +1605,7 @@ def erl_text_metrics(m: dict) -> None:
                 f"({which} over products; approximate, D-103)", 0)
             add(f"{T}.h3.wdpa_share.1.{which}_product", name[p], "text", "the product")
 
-    # H2 over 20 random reassignments of the 50 km blocks (D-104, check 8): medians over the seeds
+    # H2 over 20 random reassignments of the 50 km blocks (check 8): medians over the seeds
     # and where the registered draw falls among them (ATL08)
     rb = load("robustness/r08_blocking/summary.json")
     seeds = {k: v for k, v in (rb.get("splits") or {}).items() if k.startswith("split_seed")}
@@ -1651,9 +1651,9 @@ def erl_text_metrics(m: dict) -> None:
 
 
 def revision_metrics(m: dict) -> None:
-    """Post-review revision analyses (PREREG Amendment 18; D-112). Each workstream
+    """Post-review revision analyses (PREREG Amendment 18). Each revision analysis
     adds its keys from its own module tools/metrics_rev_<name>.py, which defines add(m);
-    modules load in name order, so parallel workstreams never edit this file."""
+    modules load in name order, so the analyses never edit this file."""
     import importlib.util
 
     for path in sorted(Path(__file__).resolve().parent.glob("metrics_rev_*.py")):

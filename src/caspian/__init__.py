@@ -6,7 +6,7 @@ config       paths, projection definitions, study-area constants
 credentials  secret lookup (never prints or logs secret values)
 io           readers for the water-level series and other inputs
 masks, water, levels, surge, waterlines, dem, conformal, hindcast, exposure
-             Phase A modules (see docs/RESEARCH_BRIEF.md section 8)
+             analysis modules
 
 Import this package before rasterio (scripts and tests/conftest.py do).
 """
@@ -23,7 +23,7 @@ def _drop_foreign_gdal_from_path() -> None:
     gdal*.dll as a DLL search directory. A system-wide GDAL install (here
     OSGeo4W) then shadows the environment's own DLLs and rasterio fails with
     "The specified procedure could not be found". Remove such directories from
-    PATH for this process only (D-004 in docs/DECISIONS.md)."""
+    PATH for this process only."""
     if not _sys.platform.startswith("win") or "PATH" not in _os.environ:
         return
     prefix = _os.path.normcase(_os.path.abspath(_sys.prefix))

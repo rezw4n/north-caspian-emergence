@@ -1,9 +1,9 @@
-"""Robustness check 6 (brief section 10): sensitivity to each datum offset estimate.
-No Earth Engine (docs/ROBUSTNESS_PLAN.md; docs/DATUMS.md).
+"""Robustness check 6: sensitivity to each datum offset estimate.
+No Earth Engine (docs/DATUMS.md).
 
 Commands
   corrections  Write the two vertical-correction files of the total error (PREREG
-               section 5a; D-074): data/interim/robustness/correction_dN_ngaEGM2008_m.npz
+               section 5a): data/interim/robustness/correction_dN_ngaEGM2008_m.npz
                (the main choice) and correction_dN_m.npz (without NGA's -0.41 m height
                offset), from results/study_area/geoid_egm2008_minus_eigen6c4.npz, with
                the mean and sd of their difference. If that sd is below the 0.01 m grid
@@ -14,9 +14,9 @@ Commands
   validation   The H2 and coverage headline with (a) the ICESat-2 -> DEM constant c at
                +-1 bootstrap sigma (robustness.run_fixed), (b) the product offsets at
                +-1 sigma, (c) the ICESat-2 heights in a mean-tide system by either recipe
-               of D-073 (robustness.tide_system_shift; the constant part is absorbed by c,
+               (robustness.tide_system_shift; the constant part is absorbed by c,
                the north-south tilt remains). The DAHITI -> BHS-77 offset cancels in
-               every metric (D-070) and is not varied.
+               every metric and is not varied.
 
 Usage:
   python scripts/r06_datums.py corrections

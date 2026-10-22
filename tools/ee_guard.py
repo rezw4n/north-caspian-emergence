@@ -1,10 +1,10 @@
-"""Budget guard for Earth Engine batch tasks (D-019, D-026).
+"""Budget guard for Earth Engine batch tasks.
 
 Polls this project's running tasks every POLL_S seconds and cancels any task whose
 consumed EECU-seconds exceed its budget, or would exceed it before the next poll at
 its current burn rate. The predictive rule exists because a stage-2 pilot burned
 about 1,200 EECU-s per minute and overshot a 3,600 EECU-s budget by 2x between two
-60 s polls (D-026). Budgets come from results/inventory/ee_budgets.json
+60 s polls. Budgets come from results/inventory/ee_budgets.json
 ({"description prefix": max_eecu_s}); tasks not listed there get DEFAULT_BUDGET.
 Exits when no task is pending or running.
 

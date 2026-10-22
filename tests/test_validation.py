@@ -1,4 +1,4 @@
-"""A6 validation (caspian.validation) on synthetic data: datum chain, ICESat-2 and GEDI
+"""DEM validation (caspian.validation) on synthetic data: datum chain, ICESat-2 and GEDI
 steps, dryness, raster sampling, the training-only fits, the block bootstrap, conformal
 calibration and coverage, and the H2 decision rule (PREREG sections 2 and 5-8)."""
 
@@ -194,7 +194,7 @@ def test_icesat2_steps_atl08_flags_and_geoid():
     ref = pd.DataFrame({"time": _t(np.arange(-0.03, 0.1, 0.003)), "beam": "gt2r", "geoid_h": -15.2})
     kept, casc = validation.prepare_icesat2(d, "ATL08", ref)
     steps = casc.set_index("step")["n_fail_alone"]
-    assert "land_watermask" not in steps.index         # D-069: the static water flag is not a filter
+    assert "land_watermask" not in steps.index         # the static water flag is not a filter
     assert steps[["cloud_free", "no_multiple_scattering"]].tolist() == [1, 1]
     assert len(kept) == 3 and np.allclose(kept["h_orth"], -40.0 + 15.2)   # the watermask = 1 row is kept
     kept0, casc0 = validation.prepare_icesat2(d, "ATL08", None)    # no ATL06 of the same orbit

@@ -1,7 +1,6 @@
-"""Robustness: the Earth Engine export mode for the block-sample alternatives of
-docs/ROBUSTNESS_PLAN.md §2.3 (D-080), with a dry run that prints the plan and its cost.
-The robustness agent wrote this and did NOT run it against Earth Engine; running it
-needs the lead's go-ahead, a budget in results/inventory/ee_budgets.json and the guard.
+"""Robustness: the Earth Engine export mode for the block-sample alternatives, with a
+dry run that prints the plan and its cost. Running it against Earth Engine needs
+explicit approval, a budget in results/inventory/ee_budgets.json and the guard.
 
 Design
 - Region: the seeded robustness sample R (14 test blocks of results/study_area/
@@ -18,7 +17,7 @@ Design
   targets (the R blocks). Each invocation is its own process, so nothing leaks into
   other runs.
 - Execution: interactive computePixels, 512 px sub-blocks x 16 groups per request (the
-  D-079 setting), metered by ee.profilePrinting against --budget (EECU-s).
+  main-run setting), metered by ee.profilePrinting against --budget (EECU-s).
 - Output: data/interim/stage2/<tag>/tile_<i>_<j>.npz and results/inventory/
   stage2_<tag>.json (transform, dims, sector_code None per block), the format
   r00_counts.block_regions and --substitute read.
@@ -30,21 +29,21 @@ Alternatives (--alt) and what they change
   awei_sh          every scene, AWEI_sh > 0 (Feyisa et al. 2014 form, caspian.water.awei_sh)
   ndvi020, ndvi040 every scene, emergent vegetation at NDVI > 0.20 / 0.40 (check 9)
   snow_all_months  every scene, both snow tests in every month (Amendment 9)
-  november         ADD: the November scenes (D-062 5% bar); needs their stage-1
+  november         ADD: the November scenes (5% ice bar); needs their stage-1
                    thresholds (--november-plan CSV with scene, sensor, acq, threshold,
                    epoch, bin, parity); the dry run costs them from scene_levels.csv
-  tau015           SUB: the scene-sector pairs with |setup| > 0.15 m (main tau = inf, D-077)
+  tau015           SUB: the scene-sector pairs with |setup| > 0.15 m (main tau = inf)
   sub_tm, sub_etm, sub_slcoff, sub_oli   SUB: one Landsat sensor class (check 2)
   bins005          every scene regrouped in 0.05 m bins (PREREG section 4); analysed inside
                    R only (its groups differ from the main ones)
   e1_end_k1, e1_end_k9   whole cover: the E1-end window scenes under the E2 groups
                    (ADD) and under their E1 groups (SUB), Amendment 4
-  s2_add           ADD: the Sentinel-2 scenes of the main plan on R (D-079, if the quota allows)
+  s2_add           ADD: the Sentinel-2 scenes of the main plan on R (if the quota allows)
 
 Cost (dry run): rate x area x the alternative's share of the plan's scene-weighted zone
 area (results/inventory/stage2_cost_model.json units) x a band factor (AWEI_sh 1.5;
-Sentinel-2 4.5, the D-079 per-km2 ratio). Rate: 5.8 EECU-s per km2 of region for the full
-Landsat plan (D-079, 512 px x 16 groups), with 6.8 as the high bound.
+Sentinel-2 4.5, the measured per-km2 ratio). Rate: 5.8 EECU-s per km2 of region for the full
+Landsat plan (512 px x 16 groups), with 6.8 as the high bound.
 
 Usage:
   python scripts/r18_rblock_export.py plan --alt ALL|<alt>[,<alt>] [--dry-run]
@@ -70,8 +69,8 @@ from caspian.geography import SECTOR_ORDER
 
 PLAN_L = INTERIM / "stage2" / "plan_main_tau9900cm_landsat.csv"
 PLAN_S = INTERIM / "stage2" / "plan_main_tau9900cm_s2.csv"
-RATE = {"central": 5.8, "high": 6.8}            # EECU-s per km2 of region, full Landsat plan (D-079)
-S2_FACTOR = 4.5                                  # Sentinel-2 / Landsat cost per km2 (D-079)
+RATE = {"central": 5.8, "high": 6.8}            # EECU-s per km2 of region, full Landsat plan
+S2_FACTOR = 4.5                                  # Sentinel-2 / Landsat cost per km2
 AWEI_FACTOR = 1.5                                # blue and SWIR2 read in addition to 4 bands (assumed)
 ALTS = ("repro", "fixed_mndwi0", "awei_sh", "ndvi020", "ndvi040", "snow_all_months", "november", "tau015",
         "sub_tm", "sub_etm", "sub_slcoff", "sub_oli", "bins005", "e1_end_k1", "e1_end_k9", "s2_add")
@@ -208,7 +207,7 @@ def cost(alt: str, p: dict, plan: pd.DataFrame, total_km2: float, area_km2: dict
     return out
 
 
-# --- Earth Engine (not run by the robustness agent) ----------------------------------------
+# --- Earth Engine ----------------------------------------------------------------------------
 
 def patch_classifier(classifier: str):
     """Patch the Earth Engine graph functions for one alternative (this process only)."""
@@ -371,7 +370,7 @@ def main(argv) -> int:
         return 0
     if not a.i_have_approval or a.budget <= 0 or not a.tag or len(alts) != 1:
         raise SystemExit("run needs one --alt, a new --tag, --budget (EECU-s) and --i-have-approval (Earth Engine "
-                         "costs quota; the lead approves each item and its budget)")
+                         "costs quota; each item and its budget need approval)")
     return run(alts[0], a.tag, a.budget, a.blocks.split(",") if a.blocks else None, a.resume)
 
 

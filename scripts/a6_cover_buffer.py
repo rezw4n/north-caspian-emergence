@@ -1,7 +1,7 @@
-"""D-060: the stage-2 computation cover, the zone-v6 5 km tile cover extended by one
+"""The stage-2 computation cover, the zone-v6 5 km tile cover extended by one
 more 5 km cell on its seaward side only (into the open sea of
-results/study_area/sea_mask_1km.npz), as insurance for the lowest-level waterlines
-(D-049). Buffering every edge added 31% of area; the low-level waterlines can only lie
+results/study_area/sea_mask_1km.npz), as insurance for the lowest-level waterlines.
+Buffering every edge added 31% of area; the low-level waterlines can only lie
 seaward. Built locally on the equal-area grid; clipped to the domain.
 
 Output (committed): results/study_area/zone_v6_cover_buffered.geojson

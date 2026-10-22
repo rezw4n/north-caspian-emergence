@@ -1,4 +1,4 @@
-"""A5: empirical wind-setup model, calibrated on SWOT (PREREG section 3).
+"""Empirical wind-setup model, calibrated on SWOT (PREREG section 3).
 
 1. SWOT per-pass, per-block water-surface elevation (scripts/a5_swot_sector_levels.py)
    minus the basin level at the pass time (DAHITI, or Hydroweb shifted onto the DAHITI
@@ -12,12 +12,12 @@
 4. Per sector, the training anomalies are regressed on lagged ERA5 forcing
    (caspian.surge: |U|u and |U|v means over 0-6, 6-12, 12-24 and 24-48 h, and the
    0-6 h pressure anomaly), standardised on the training data. A ridge penalty is
-   chosen by 5-fold cross-validation over training passes grouped by calendar month
-   (D-065). The fit is evaluated on calibration blocks; test blocks are never used.
-Block-passes are quality-screened before averaging (D-065): within-block wse NMAD at
+   chosen by 5-fold cross-validation over training passes grouped by calendar month.
+   The fit is evaluated on calibration blocks; test blocks are never used.
+Block-passes are quality-screened before averaging: within-block wse NMAD at
 most MAX_BLOCK_NMAD, and within MAX_ROBUST_Z robust z of the block's median anomaly.
 5. The fitted model predicts setup for every levelled scene and sector. A sector with
-   no SWOT open-sea pixels uses the model of the neighbour in PROXY (D-066).
+   no SWOT open-sea pixels uses the model of the neighbour in PROXY.
 
 Outputs:
 - results/levels/setup_model.json (coefficients, fit and calibration statistics; committed);
@@ -47,7 +47,7 @@ MAX_BLOCK_NMAD = 0.5      # m
 MAX_ROBUST_Z = 5.0
 RIDGE_GRID = (0.0, 0.3, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0)
 N_FOLDS = 5
-# sectors with no SWOT open-sea pixels take a neighbour's model (D-066)
+# sectors with no SWOT open-sea pixels take a neighbour's model
 PROXY = {"komsomolets": "northeast"}
 
 

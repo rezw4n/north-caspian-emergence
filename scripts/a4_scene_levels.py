@@ -1,5 +1,4 @@
-"""A4: water level and 1-sigma for every inventoried scene (D-018, D-020, D-021 and
-their review corrections).
+"""Water level and 1-sigma for every inventoried scene.
 
 Primary: DAHITI target 39. Record noise sigma and the Brownian-bridge diffusion q are
 estimated jointly from cross-validated linear-interpolation residuals
@@ -9,7 +8,7 @@ sqrt(wse_u^2 + sigma^2).
 Gap-fill: Hydroweb L_caspian, used for scenes outside the DAHITI record and where
 DAHITI's bracketing gap exceeds MAX_GAP_DAYS (60 days: the default of caspian.levels,
 fixed in commit aabacee before PREREG v1.0 and before the DAHITI data arrived; not in
-PREREG v1.0, stated for the record in PREREG Amendment 4 item 2; D-038). Hydroweb is shifted onto the DAHITI reference by a moving median
+PREREG v1.0, stated for the record in PREREG Amendment 4 item 2). Hydroweb is shifted onto the DAHITI reference by a moving median
 of the +/-20-day DAHITI - Hydroweb pair differences within +/-OFFSET_HALF_WINDOW_DAYS
 of each scene, because the difference drifts (period medians 0.14 -> 0.08 m). Per-record
 random 1-sigma = sqrt(noise^2 + NMAD^2 of the pair residuals about the moving median);
@@ -18,10 +17,10 @@ It combines the SE of the moving median with tau(t), the year-to-year variabilit
 the offset beyond sampling noise in the years within the same +/-2-year window
 (at least TAU_MIN_YEARS years; caspian.levels.local_excess_sd), floored at the
 record-wide tau. A single record-wide tau would average years in which the offset is
-stable within its sampling noise with the more variable gap-fill years (second D-020
-correction). The two parts of each scene's 1-sigma are exported (sigma_random_m,
-sigma_offset_m; sigma_m^2 = sum of squares) so that A6 can treat the offset part as
-common to all gap-filled scenes of a period.
+stable within its sampling noise with the more variable gap-fill years. The two parts
+of each scene's 1-sigma are exported (sigma_random_m, sigma_offset_m; sigma_m^2 = sum of
+squares) so that later steps can treat the offset part as common
+to all gap-filled scenes of a period.
 
 Hydroweb's record noise is estimated with q fixed to DAHITI's, and the Hydroweb bridge
 uses that q. This is a choice, not a property of the sea: Hydroweb's own joint fit gives
@@ -56,10 +55,10 @@ from caspian.config import INTERIM, RAW, RESULTS
 from caspian.io import read_dahiti, read_hydroweb
 
 MAX_GAP_DAYS = 60.0
-OFFSET_HALF_WINDOW_DAYS = 730.5   # +/-2 years (D-020 correction)
+OFFSET_HALF_WINDOW_DAYS = 730.5   # +/-2 years
 OFFSET_MIN_PAIRS = 20
-TAU_MIN_YEARS = 5                 # years in the local tau window (second D-020 correction)
-SMOOTH_K = 3                      # running median for the date of the maximum (D-021 correction)
+TAU_MIN_YEARS = 5                 # years in the local tau window
+SMOOTH_K = 3                      # running median for the date of the maximum
 SMOOTH_K_SENSITIVITY = (1, 3, 5, 7, 9)   # E1-end sensitivity, reported only
 N_BOOT = 200                      # moving-block bootstrap for the SE of sigma and q
 SEED = 0
@@ -109,7 +108,7 @@ def prepare() -> dict:
 def levels_at(prep: dict, times) -> pd.DataFrame:
     """Level, 1-sigma (with its random and common-offset parts), gap and source at
     arbitrary times: DAHITI where its bracketing records are at most MAX_GAP_DAYS
-    apart, otherwise Hydroweb shifted onto the DAHITI reference (D-036)."""
+    apart, otherwise Hydroweb shifted onto the DAHITI reference."""
     d, hw, pairs, excess = prep["d"], prep["hw"], prep["pairs"], prep["excess"]
     times = pd.Series(pd.to_datetime(times)).reset_index(drop=True)
     out = pd.DataFrame(index=times.index)

@@ -1,4 +1,4 @@
-"""A8 exposure layers from the WDPA (DECISIONS D-101, D-103): protected areas and Ramsar
+"""Exposure layers from the WDPA: protected areas and Ramsar
 sites as "area" layers of the H3 exposure framework (scripts/a8_emergence.py,
 exposure_table), computed on the H3 runs' own cached surfaces. H3 is not rerun, and
 nothing under results/emergence/<tag>/ is written.
@@ -6,7 +6,7 @@ nothing under results/emergence/<tag>/ is written.
 Data: UNEP-WCMC and IUCN (2026), Protected Planet: The World Database on Protected Areas
 (WDPA) and World Database on Other Effective Area-based Conservation Measures (WD-OECM)
 [Online], October 2026, Cambridge, UK: UNEP-WCMC and IUCN. Available at:
-www.protectedplanet.net. Used under its terms (non-commercial research, D-101): the
+www.protectedplanet.net. Used under its terms (non-commercial research): the
 polygons and attributes stay in data/ (git-ignored) and are never redistributed
 (docs/DATA_RELEASE.md); only derived counts and areas are committed.
 
@@ -26,7 +26,7 @@ Commands
             and points_in_domain.csv (git-ignored) and the counts-only
             results/emergence/wdpa/layers.json.
   exposure  per H3 run (--tags; default main, the registered linear_hold form, and
-            main_constant, the D-081 constant-form sensitivity): the uncorrected flood-
+            main_constant, the constant-form sensitivity): the uncorrected flood-
             level maps from the hindcast cache and the fused ones from the H3 cache
             (stops if one is missing: no map is built here), and the interval bounds
             (equivalent levels) from the run's emergence.csv. Two checks stop the run on
@@ -36,7 +36,7 @@ Commands
             Then a8_emergence.exposure_table on the WDPA layers ->
             results/emergence/wdpa/exposure_<tag>.csv and run.json.
 
-            Sensitivity (D-103 addendum): --layers wdpa_protected_areas_noksrz --suffix _noksrz
+            Sensitivity: --layers wdpa_protected_areas_noksrz --suffix _noksrz
             (the protected areas without the Kazakh northern-Caspian reserved zone) ->
             exposure_<tag>_noksrz.csv and run_noksrz.json.
 
@@ -87,7 +87,7 @@ PROV = RESULTS / "provenance" / "wdpa.json"
 CITATION = ("UNEP-WCMC and IUCN (2026), Protected Planet: The World Database on Protected Areas (WDPA) and World "
             "Database on Other Effective Area-based Conservation Measures (WD-OECM) [Online], October 2026, "
             "Cambridge, UK: UNEP-WCMC and IUCN. Available at: www.protectedplanet.net.")
-# Record selection (proposed, D-103). Status: records "Proposed" or "Not Reported" are left
+# Record selection. Status: records "Proposed" or "Not Reported" are left
 # out (the WDPA manual 1.6, section on the STATUS field, describes this choice; "Established"
 # sites are kept, as it advises for sites that meet the protected-area definition). Only
 # protected areas (SITE_TYPE "PA"); OECMs are counted, not used (none in this release for
@@ -102,13 +102,13 @@ LAYERS = {"wdpa_protected_areas": "protected areas (WDPA, every designated prote
           "wdpa_ramsar": "Ramsar sites (WDPA international designation; polygons; dissolved)",
           "wdpa_protected_areas_noksrz": "protected areas without the Kazakh State Reserved Zone in the northern "
                                          "Caspian (sensitivity, D-103 addendum; dissolved)"}
-# Sensitivity (D-103 addendum): the Kazakh "State Reserved Zone in Northern part of Caspian Sea"
+# Sensitivity: the Kazakh "State Reserved Zone in Northern part of Caspian Sea"
 # is drawn as a 63,077 km2 polygon against a reported area of 6,626.3 km2 and dominates the
 # protected-area layer; the sensitivity layer leaves out this one record. layers stops unless
 # exactly one record in the domain has this id and its name names the reserved zone.
 KSRZ_SITE_ID = 342651
 KSRZ_NAME_KEY = "Reserved Zone"
-# the exposure command's default layers: the two of the registered D-103 tables
+# the exposure command's default layers: the two registered tables
 PRIMARY_LAYERS = ("wdpa_protected_areas", "wdpa_ramsar")
 DOC_FILES = ("Resources_in_English/WDPA_WDOECM_Manual_1_6.pdf", "Resources_in_English/WDPA_WDOECM_Metadata_1_6.pdf",
              "Resources_in_English/Summary_table_WDPA_WDOECM_attributes.pdf", "Shapefile_splitting_README.txt",
@@ -237,7 +237,7 @@ def _col(g, *names):
 
 
 def select(g) -> dict:
-    """Boolean masks of the D-103 rules over a WDPA polygon table."""
+    """Boolean masks of the record-selection rules over a WDPA polygon table."""
     status, desig = g[_col(g, "STATUS")].astype(str), g[_col(g, "DESIG_ENG")].astype(str)
     site_type = g[_col(g, "SITE_TYPE", "PA_DEF")].astype(str)
     is_pa = site_type.isin(["PA", "1", "Protected Area", "protected area"])

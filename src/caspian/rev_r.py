@@ -1,10 +1,10 @@
-"""Revision workstream R (PREREG Amendment 18 items 3, 6 and 7; D-116 to D-119): the
-raster-side analyses of the H1 hindcast after the internal review.
+"""Raster-side revision analyses of the H1 hindcast (PREREG Amendment 18 items 3, 6
+and 7).
 
 Functions here are pure (arrays in, arrays out) and tested in tests/test_rev_r.py.
 The drivers are scripts/rev_r_*.py.
 
-1. "Perfect but degraded" control (A18 item 6; D-116). The waterline DEM is degraded the
+1. "Perfect but degraded" control (A18 item 6). The waterline DEM is degraded the
    way a product stores the seabed: put into the product's vertical frame, averaged to
    the product's native cell, rounded to whole metres where the product stores whole
    metres, and sampled back to the 60 m grid as caspian.products samples the products.

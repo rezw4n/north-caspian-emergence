@@ -1,5 +1,5 @@
-"""Supplementary Figure (brief section 10 check 9): the waterline DEM and the products
-on bare against vegetated emerged seabed (D-084, D-088 addendum).
+"""Supplementary Figure (robustness check 9): the waterline DEM and the products
+on bare against vegetated emerged seabed.
 
 Test-block accuracy (scope "overall", matched variant for the products) of every model
 on the H2 population (bare emerged seabed: E3 emergent-vegetation share below 0.5;

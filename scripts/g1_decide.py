@@ -1,9 +1,9 @@
-"""A9 generality test, the decision (PREREG Amendment 16 items 8 and 9; D-094), applied
+"""Generality test, the decision (PREREG Amendment 16 items 8 and 9), applied
 once to the frozen tables of scripts/g1_hindcast.py.
 
 Per arm and product (global products and, for GSL, the 3DEP substitute):
 - caspian.h1.mispredicts on the pooled-per-level displacement rows and the per-level
-  noise floor (shape variant decides, D-072; total variant and the pooled-floor
+  noise floor (shape variant decides; total variant and the pooled-floor
   sensitivity reported);
 - the 3DEP substitute only on its bins (lower edge at or above the arm's hydro-flattened
   2016 surface; scripts/g1_hindcast.py already restricts its run to them).
@@ -11,7 +11,7 @@ Per basin: a product "mispredicts in the basin" in a majority of evaluable arms
 (caspian.generality.in_basin); the verdict (caspian.generality.verdict).
 Descriptive (not deciding): median of the per-level displacement medians and of the
 per-level noise-floor 95th percentiles; ETOPO 2022's displacement above and below the
-arm's level on 2013-07-01 (D-087 mechanism).
+arm's level on 2013-07-01 (the level-band mechanism of scripts/a7_level_bands.py).
 
 Outputs: results/generality/<basin>/{h1_mispredicts.csv, h1_mispredicts_detail.csv,
 h1_decision.json}

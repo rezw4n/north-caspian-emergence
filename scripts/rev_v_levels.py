@@ -1,11 +1,11 @@
-"""Revision, workstream V: level statistics asked for by the reviewers (R2 minor 3,
-R1 minor 1, 4 and 5, R3 minor 8; D-122). Every number comes from the level files.
+"""Revision analysis V: further level statistics. Every number comes from the level
+files.
 
 1. The fall quoted in the abstract: the range of the 3-record running median of DAHITI
-   (the D-021 rule that sets the end of E1), against the range of the single records.
-2. Annual means on the DAHITI datum and in BHS-77 (H_BHS = H_DAHITI + delta, D-093):
+   (the rule that sets the end of E1), against the range of the single records.
+2. Annual means on the DAHITI datum and in BHS-77 (H_BHS = H_DAHITI + delta):
    (a) DAHITI only, the daily linear interpolant with gaps of at most 60 days, months
-       and years complete (the D-093 averaging);
+       and years complete (the offset's averaging);
    (b) DAHITI with no gap limit;
    (c) the scene-level path (DAHITI, Hydroweb shifted onto DAHITI in gaps over 60
        days; scripts/a4_scene_levels.levels_at) evaluated daily at 12:00.

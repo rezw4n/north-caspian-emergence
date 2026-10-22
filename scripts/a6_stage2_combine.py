@@ -1,4 +1,4 @@
-"""A6: sum stage-2 counts of several exports into one tag (D-076).
+"""Sum stage-2 counts of several exports into one tag.
 
 The main export runs per sensor family (tags mainL for Landsat, mainS for
 Sentinel-2) from one plan, whose level bins and acquisition parities were assigned

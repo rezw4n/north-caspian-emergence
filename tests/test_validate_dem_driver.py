@@ -152,7 +152,7 @@ def test_driver_stages(tmp_path, monkeypatch, drv):
     assert drv.main(["syn", "prepare", "--emergence", em, "--geoid", "atl06"]) == 0
 
     out = tmp_path / "results" / "validation" / "syn"
-    res = tmp_path / "results" / "validation" / "syn_all"   # the all population (D-084)
+    res = tmp_path / "results" / "validation" / "syn_all"   # the all population
     meta = json.loads((out / "prepare.json").read_text())
     for product in ("ATL06", "ATL08"):
         g = meta["sources"][product]["granules"]

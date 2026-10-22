@@ -1,14 +1,14 @@
-"""A18 item 10(g): vertical-error simulation of the near-term emergence (DECISIONS D-125).
+"""A18 item 10(g): vertical-error simulation of the near-term emergence.
 Exploratory.
 
 Per product and range (150 km primary, 50 km sensitivity), 200 Gaussian random fields with
 exponential covariance (sill = the product's ATL08 test-block NMAD squared; practical
 range R), simulated on a 2 km grid by circulant embedding and interpolated bilinearly to
-a 240 m flood grid (4 x 4 blocks of the 60 m hindcast grid; the cut of D-125). Each field
+a 240 m flood grid (4 x 4 blocks of the 60 m hindcast grid, for run time). Each field
 is added to the block-mean total-variant heights and the flood level is recomputed from
 the open-sea seed (caspian.nearterm.minimax_flood). From each realisation:
 - E(1 m) and E(2 m), self-referenced, on the uncorrected surface (F) and on the shifted
-  product (F - c, D-070), and the location version of the common baseline (D-123) on both;
+  product (F - c), and the location version of the common baseline on both;
 - for the agreement reference, the bands at 1 m and 2 m of five consecutive realisations
   (1-5, 6-10, ...; 40 disjoint groups) give one all-five / any ratio per group.
 The unperturbed 240 m values and the observed five-product agreement at 240 m are computed
@@ -62,8 +62,8 @@ def main(argv) -> int:
     ap.add_argument("--ranges", default="150000,50000")
     ap.add_argument("--products", default=None)
     ap.add_argument("--tile", type=int, default=2048)
-    ap.add_argument("--suffix", default="", help="appended to every output name (D-125 addendum 2: _range50)")
-    ap.add_argument("--block", type=int, default=K, help="flood-grid block factor (4: 240 m; 8: 480 m, D-125 addendum)")
+    ap.add_argument("--suffix", default="", help="appended to every output name (e.g. _range50)")
+    ap.add_argument("--block", type=int, default=K, help="flood-grid block factor (4: 240 m; 8: 480 m)")
     a = ap.parse_args(argv)
     k = a.block
     t0 = time.time()

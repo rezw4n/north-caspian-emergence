@@ -1,4 +1,4 @@
-"""A9 generality test (brief section 11; PREREG Amendment 16; D-094): the Caspian
+"""Generality test (PREREG Amendment 16): the Caspian
 hindcast audit applied, lighter-weight, to other shrinking closed basins.
 
 Only what the Caspian code does not already provide lives here: the basin
@@ -48,8 +48,8 @@ BASINS = {
     },
 }
 GLOBAL_PRODUCTS = ["gebco_2026", "gebco_2022", "etopo_2022", "etopo1", "srtm15p_v2.7"]
-OPEN_WATER_RADIUS_M = 5000       # Amendment 16 item 6 (Caspian D-029: 20 km)
-OPEN_WATER_MIN_FRAC = 0.80       # D-029, unchanged
+OPEN_WATER_RADIUS_M = 5000       # Amendment 16 item 6 (Caspian: 20 km)
+OPEN_WATER_MIN_FRAC = 0.80       # as for the Caspian
 MAX_GAP_DAYS = 16                # Amendment 16 item 2 and addendum: gauge gaps bridged linearly
 
 
@@ -137,7 +137,7 @@ def disk(radius_px: int) -> np.ndarray:
 
 
 def open_water(low, radius_px: int, min_frac: float = OPEN_WATER_MIN_FRAC) -> np.ndarray:
-    """D-029 open-water mask: cells of the near-minimum extent whose surroundings
+    """Open-water mask (as for the Caspian): cells of the near-minimum extent whose surroundings
     within ``radius_px`` are at least ``min_frac`` water (cells beyond the array count
     as not water)."""
     lo = np.asarray(low, bool)
@@ -158,7 +158,7 @@ def largest_component(mask) -> np.ndarray:
 
 def lake_connected(high, seed) -> np.ndarray:
     """Cells of the near-maximum extent (or the seed) 8-connected to the seed through
-    near-maximum water: the sea connection of zone v6 (D-029), at the zone grid."""
+    near-maximum water: the sea connection of zone v6, at the zone grid."""
     m = np.asarray(high, bool) | np.asarray(seed, bool)
     lab, _ = ndimage.label(m, structure=np.ones((3, 3), bool))
     ids = np.unique(lab[np.asarray(seed, bool)])
@@ -166,7 +166,7 @@ def lake_connected(high, seed) -> np.ndarray:
 
 
 def zone_v6(high, low, seed, dilate_px: int) -> np.ndarray:
-    """Zone v6 (D-029) on a local grid: the band in the near-maximum but not the
+    """Zone v6 on a local grid: the band in the near-maximum but not the
     near-minimum extent that is connected to open water, dilated by ``dilate_px`` (disk)."""
     band = np.asarray(high, bool) & ~np.asarray(low, bool) & lake_connected(high, seed)
     return ndimage.binary_dilation(band, structure=disk(dilate_px)) if band.any() else band
@@ -174,7 +174,7 @@ def zone_v6(high, low, seed, dilate_px: int) -> np.ndarray:
 
 def tile_cover(zone, transform, tile_m: float, buffer_tiles: int = 1):
     """Equal-area squares of ``tile_m`` (aligned to multiples of tile_m) that contain a
-    zone cell, plus ``buffer_tiles`` rings of neighbours (D-060). Returns a sorted
+    zone cell, plus ``buffer_tiles`` rings of neighbours. Returns a sorted
     list of (i, j) tile indices (x0 = i * tile_m, y0 = j * tile_m)."""
     a, _, c, _, e, f = (float(v) for v in transform[:6])
     rows, cols = np.nonzero(np.asarray(zone, bool))

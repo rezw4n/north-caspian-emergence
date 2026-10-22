@@ -1,5 +1,5 @@
-"""Workstream S metrics (PREREG Amendment 18 items 1, 2, 4, 5 and 8; R3.M4; R1, R2 and
-R3 minor comments on the H1 statistics; DECISIONS D-113 to D-115).
+"""Metrics of revision analysis S (PREREG Amendment 18 items 1, 2, 4, 5 and 8; the H1
+statistics).
 
 Loaded by tools/build_metrics.revision_metrics, which calls add(m). Every key starts
 with "rev.s."; each record is {"value", "unit", "source", "note"?} as put() in
@@ -212,7 +212,7 @@ def item5(m):
         _put(m, f"item5.{v}.sector.n_significant_holm", int(g["sector_p_holm_significant"].astype(bool).sum()), "products", src)
         _put(m, f"item5.{v}.sector.p_min", _r(g["sector_p"].min(), 3), "p", src, None, 3)
         _put(m, f"item5.{v}.sector.p_max", _r(g["sector_p"].max(), 3), "p", src, None, 3)
-        # Holm within one variant (5 tests): the form of R3.M3's remark, reported as context (D-115 addendum)
+        # Holm within one variant (5 tests), reported as context
         _put(m, f"item5.{v}.block.n_significant_holm_within_variant",
              int((g["block_p_holm_within_variant"] <= 0.05).sum()), "products", src,
              "block tests with Holm-adjusted p <= 0.05 over the 5 products of this variant only (context, not A18)")

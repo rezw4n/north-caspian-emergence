@@ -1,8 +1,8 @@
 """Makefile: `make all` rebuilds from raw inputs in dependency order, checks every raw
 input against its acquisition record first, never runs a network, credential or Earth
-Engine step, and stops with the acquiring target's name when a raw input is missing
-(review finding 19). It rebuilds every committed result under results/ except the ones
-declared in NOT_REBUILT with their reasons (D-110). Dry runs only (make -n).
+Engine step, and stops with the acquiring target's name when a raw input is missing.
+It rebuilds every committed result under results/ except the ones
+declared in NOT_REBUILT with their reasons. Dry runs only (make -n).
 
 Every case supplies its own stand-in raw files, so the result does not depend on
 whether data/ exists on this machine (it does not in a fresh clone)."""
@@ -22,7 +22,7 @@ pytestmark = pytest.mark.skipif(MAKE is None, reason="GNU make not on PATH (it i
 ACQUISITION = ["p0_dahiti_download.py", "a4_hydroweb_download.py", "a5_swot_download.py", "a2_scene_inventory.py",
                "a7_get_", "a8_osm_exposure.py", "a2_zone.py", "a3_stage1_thresholds.py", "a5_era5_winds.py",
                "a2_eecu_pilot", "--record-scenes", "a8_wdpa_exposure.py fetch",
-               # stage 2b's inputs (D-110): Earth Engine exports and downloads
+               # stage 2b's inputs: Earth Engine exports and downloads
                "a6_stage2_export.py", "r18_rblock_export.py", "a6_icesat2.py", "a6_glo30.py download",
                "a6_gedi.py pilot", "a6_gedi.py export", "a8_atl24_fetch.py", "a6_vegetation.py fetch-extents",
                "a7_beyond_state.py", "g1_data.py", "g1_ee.py", "f2_erl_landsat.py", "a6_atl24_search.py"]
@@ -34,7 +34,7 @@ OWN_STANDINS = {"DAHITI", "HYDROWEB", "SCENES", "CASPCOM", "BATHY", "VERIFIED", 
 
 def raw_inputs(tmp: Path, grids: bool = True) -> dict[str, str]:
     """Stand-in files for every raw input `make all` reads (contents irrelevant to make -n).
-    The inputs of stage 2b (D-110) that acquisition steps write: every other `?= data/...`
+    The inputs of stage 2b that acquisition steps write: every other `?= data/...`
     variable of the Makefile points into tmp, and each path `make inputs` then lists there
     gets a stand-in, a file if its name has a suffix, else a folder."""
     tmp.mkdir(parents=True, exist_ok=True)
@@ -96,8 +96,8 @@ def test_all_runs_every_step_in_dependency_order(tmp_path):
     assert pos(r"p0_dahiti_qc\.py") < pos(r"build_metrics\.py")
     assert pos(r"a0_study_area\.py") < pos(r"build_metrics\.py")
     assert pos(r"a0_sector_edges\.py") < pos(r"build_metrics\.py")
-    assert pos(r"build_metrics\.py") < pos(r"make_macros\.py") < pos(r"tectonic .*main\.tex")
-    assert pos(r"fetch_bibtex\.py --check") < pos(r"tectonic .*main\.tex")
+    assert pos(r"build_metrics\.py") < pos(r"make_macros\.py") < pos(r"tectonic .*main_erl\.tex")
+    assert pos(r"fetch_bibtex\.py --check") < pos(r"tectonic .*main_erl\.tex")
     # raw inputs are checked against their acquisition records before anything reads them
     check = pos(r"check_inputs\.py .*--stamp")
     for step in (r"p0_dahiti_qc\.py", r"a0_sector_edges\.py", r"a4_level_crosscheck\.py", r"a4_scene_levels\.py",
@@ -105,7 +105,7 @@ def test_all_runs_every_step_in_dependency_order(tmp_path):
         assert check < pos(step), step
 
 
-# Stage 2b (D-110): the Phase A pipeline, each chain in the order its steps read each other.
+# Stage 2b: the main-analysis pipeline, each chain in the order its steps read each other.
 PHASE_A_CHAINS = [
     [r"a6_stage2_combine\.py main mainL", r"a6_vegetation\.py main$", r"a7_h1_decision\.py main$"],
     [r"a6_stage2_combine\.py", r"a6_waterlines\.py main ", r"a6_static_rule\.py main", r"a6_dem\.py main",
@@ -169,7 +169,7 @@ def test_missing_phase_a_input_names_its_acquisition(tmp_path):
     assert "missing input" in r.stderr and "mainL" in r.stderr and "a6_stage2_export.py" in r.stderr, r.stderr
 
 
-# Committed files under results/ that `make all` does not rebuild, each with the reason (D-110).
+# Committed files under results/ that `make all` does not rebuild, each with the reason.
 # Everything else under results/ must be a target that `all` reaches, or a side output of one
 # (SIDE_OUTPUTS).
 NOT_REBUILT = {
@@ -177,10 +177,10 @@ NOT_REBUILT = {
     "results/provenance/*": "acquisition records (checksums of the raw files), except stage2_main_combine.json",
     "results/generality/great_salt_lake/extents.json": "Earth Engine record (scripts/g1_ee.py extents)",
     "results/generality/great_salt_lake/scene_inventory.json": "Earth Engine record (scripts/g1_ee.py scenes)",
-    "results/generality/great_salt_lake/run.json": "hand-written run record of the generality test (D-094)",
-    "results/generality/great_salt_lake/status.json": "hand-written status record (D-094)",
-    "results/generality/lake_urmia/status.json": "hand-written status record: not run (D-094)",
-    "results/hindcast/main/d089_rerun_comparison.json": "one-off comparison with the superseded first run (D-089)",
+    "results/generality/great_salt_lake/run.json": "hand-written run record of the generality test",
+    "results/generality/great_salt_lake/status.json": "hand-written status record",
+    "results/generality/lake_urmia/status.json": "hand-written status record: not run",
+    "results/hindcast/main/d089_rerun_comparison.json": "one-off comparison with the superseded first run",
     "results/levels/projection_pathways.csv": "values transcribed from the literature (scripts/a8_check_pathways.py)",
     "results/levels/swot_block_levels.csv": "SWOT reduction during download (scripts/a5_swot_sector_levels.py)",
     "results/levels/setup_model.json": "design step before the stage-2 export (scripts/a5_setup_model.py)",
@@ -200,15 +200,15 @@ NOT_REBUILT = {
     "results/robustness/cost_plan.json": "Earth Engine cost plan (scripts/r17_cost_plan.py)",
     "results/robustness/r18_rblock_export/plan.json": "Earth Engine export plan (scripts/r18_rblock_export.py plan)",
     "results/revision/g/root2023_retrieval.json": "network snapshot: the ScienceBase retry of 2026-10-22 "
-                                                  "(make revision-g-fetch; D-128)",
+                                                  "(make revision-g-fetch)",
     "results/revision/g/dep3_provenance.json": "network snapshot: USGS 3DEP metadata read on 2026-10-22 "
-                                               "(make revision-g-fetch; D-128)",
+                                               "(make revision-g-fetch)",
     "results/revision/g/etopo_lake_passages.json": "network snapshot: ETOPO 2022 and HydroLAKES documents read on "
-                                                   "2026-10-22 (make revision-g-fetch; D-130)",
-    "results/revision/g/citation_requests.md": "hand-written document: workstream G's citation requests for workstream C",
-    "results/revision/v/citation_requests.md": "hand-written document: workstream V's citation requests for workstream C",
+                                                   "2026-10-22 (make revision-g-fetch)",
+    "results/revision/g/citation_requests.md": "hand-written document: citation requests of revision analysis G",
+    "results/revision/v/citation_requests.md": "hand-written document: citation requests of revision analysis V",
     "results/revision/v/caspcom_bulletin31_2025.csv": "values transcribed with their quote from CASPCOM Bulletin 31 "
-                                                      "(input of scripts/rev_v_levels.py; D-122)",
+                                                      "(input of scripts/rev_v_levels.py)",
 }
 # Files a rebuilt target's recipe also writes (prefix -> that target).
 SIDE_OUTPUTS = {
@@ -264,8 +264,7 @@ def test_every_committed_result_is_rebuilt_or_declared(tmp_path):
         if side is None or side not in rebuilt:
             missing.append(f)
     assert not missing, (f"{len(missing)} committed results neither rebuilt by make all nor declared: {missing[:20]}. "
-                         "Give each a rule in stage 2b of the Makefile, or declare it in NOT_REBUILT with the reason "
-                         "(D-110).")
+                         "Give each a rule in stage 2b of the Makefile, or declare it in NOT_REBUILT with the reason.")
     # the declared ones really are not rebuilt (except the rebuilt provenance record of the combine step)
     stale = [f for f in tracked if f in rebuilt and any(fnmatch(f, p) for p in NOT_REBUILT)]
     assert stale == ["results/provenance/stage2_main_combine.json"], stale

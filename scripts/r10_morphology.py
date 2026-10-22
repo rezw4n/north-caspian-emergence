@@ -1,4 +1,4 @@
-"""Robustness check 10 (brief section 10; PREREG section 9): does seabed change between
+"""Robustness check 10 (PREREG section 9): does seabed change between
 epochs explain the hindcast errors? No Earth Engine.
 
 Two parts, from the main run's outputs:
@@ -8,7 +8,7 @@ Two parts, from the main run's outputs:
    E2/E3, whether it fits the older seabed better (sign test over levels), and the ratio
    of its E2/E3 displacement to the E1-vs-E2/E3 displacement (the measured seabed
    change at that level).
-2. The rising-versus-falling-limb difference map (brief A6 byproduct): a TIN DEM of the
+2. The rising-versus-falling-limb difference map (a by-product of the DEM step): a TIN DEM of the
    E1 contours (scripts/a6_dem.py --epochs E1 on a copied point table, tag <main>__e1)
    minus the main E2 + E3 DEM, where both have a height; summary per sector (median,
    p05, p95, cells) and the difference tiles in data/processed/dem/<main>__e1/diff/.

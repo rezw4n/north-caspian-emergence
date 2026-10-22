@@ -1,7 +1,7 @@
-"""Landsat "then and now" composites for the ERL satellite figure (D-100, D-102): true-colour
+"""Landsat "then and now" composites for the ERL satellite figure: true-colour
 median composites of Landsat Collection 2 Level-2 surface reflectance for one summer of the
 1995-96 high stand (Landsat 5 TM) and one of the 2025-26 low stand (Landsat 8 and 9 OLI),
-downsampled to 200 m on the analysis grid (Lambert azimuthal equal area, D-002).
+downsampled to 200 m on the analysis grid (Lambert azimuthal equal area).
 
 Composite: every scene of the collection that meets the map box between 1 June and 30
 September of the year; per scene, pixels flagged in QA_PIXEL as fill, dilated cloud, cloud

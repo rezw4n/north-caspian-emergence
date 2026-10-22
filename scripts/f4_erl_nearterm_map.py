@@ -1,16 +1,15 @@
-"""Display rasters for the revised ERL figure 5 (where the first metre emerges; D-141,
-answering internal review R1 minor 23 and the lead's request after workstream N, D-123).
+"""Display rasters for the revised ERL figure 5 (where the first metre emerges).
 
 For every 60 m cell of the study domain, the number of the five grids that place it in the
 seabed that emerges in the first metre of fall below the 2026 level L26, on the two
-surfaces that workstream N headlines (scripts/rev_n_curves.py, D-123 and its addenda):
-  (a) composite observed baseline (D-123 addendum 2, data/interim/revision_n/
+surfaces that the near-term emergence revision analysis headlines (scripts/rev_n_curves.py):
+  (a) composite observed baseline (data/interim/revision_n/
       composite_baseline.npy): the baseline sea (Fb < L26) that grid p puts above the
-      water at L26 - 1 m, i.e. Fb < L26 and not F_p < L26 - 1 (N's "common_location");
+      water at L26 - 1 m, i.e. Fb < L26 and not F_p < L26 - 1 (rev_n's "common_location");
   (b) shifted grids: L26 + c_p - 1 <= F_p < L26 + c_p, with c_p the H1 shape constant
-      (D-070; N's "shifted").
+      (rev_n's "shifted").
 F_p is the grid's flood-level map from the hindcast cache, read through
-scripts/rev_n_common.setup, so the inputs are N's. Each grid's band area must equal N's
+scripts/rev_n_common.setup, so the inputs are rev_n's. Each grid's band area must equal rev_n's
 domain E(1 m) (curves_composite.csv and curves.csv) to within 0.1% or the run stops. The
 outline of the composite baseline (the observed 2025-26 sea) is kept as the water share
 per 240 m block. Nothing here is a new result.
@@ -45,7 +44,7 @@ DELTA = 1.0
 FACTOR = 4                       # 4 x 60 m = 240 m display blocks
 CACHE = INTERIM / "figures" / "erl"
 OUT = RESULTS / "display" / "erl_nearterm_map.json"
-TOL = 0.001                      # relative tolerance of the per-grid check against N's curves
+TOL = 0.001                      # relative tolerance of the per-grid check against rev_n's curves
 
 
 def mode_blocks(count: np.ndarray, inside: np.ndarray, n: int) -> np.ndarray:
@@ -114,7 +113,7 @@ def main(argv) -> int:
             rec["checks"].append({"surface": surf, "product": p, "km2": round(got, 3), "curves_km2": round(want, 3),
                                   "rel_diff": round((got - want) / want, 6) if want else None, "equal": bool(ok)})
             if not ok:
-                raise SystemExit(f"{surf} {p}: {got:.1f} km2 differs from N's curves {want:.1f} km2")
+                raise SystemExit(f"{surf} {p}: {got:.1f} km2 differs from rev_n's curves {want:.1f} km2")
         N.log(p, "done")
     out = {}
     for surf, cnt in counts.items():

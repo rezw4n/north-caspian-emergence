@@ -1,5 +1,5 @@
-"""A9 generality test, descriptive product lineage over each arm's emerged band
-(PREREG Amendment 16 item 9, descriptive, not deciding; D-094).
+"""Generality test, descriptive product lineage over each arm's emerged band
+(PREREG Amendment 16 item 9, descriptive, not deciding).
 
 Emerged band: near-maximum but not near-minimum water (scripts/g1_static.py, 250 m),
 inside the arm. At each band cell centre (nearest native cell): the ETOPO 2022 source

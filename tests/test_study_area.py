@@ -96,7 +96,7 @@ def test_edge_points_lie_on_shared_boundary(edges):
     assert float(np.max(d)) < 1e-6
 
 
-# --- the two readings of the polygon edges (review: the geodesic reading of Earth Engine)
+# --- the two readings of the polygon edges (the geodesic reading of Earth Engine)
 
 def test_geodesic_reading_of_a_parallel_bows_poleward(sa):
     # An 8.2-degree edge along 47.35 N, as the domain's northern edge. On the sphere the

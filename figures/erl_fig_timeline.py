@@ -1,25 +1,25 @@
-"""ERL figure "When and how much" (D-100, D-102; 15 cm wide).
+"""ERL figure "When and how much" (15 cm wide).
 
 (a) When: the daily basin level 1992-2026 (data/processed/dem/main/emergence/
     level_series_daily.csv: DAHITI, with Hydroweb shifted onto the DAHITI reference in its
     gaps), joined at the 2026 level (h3.level_2026_m) to the seven primary published
     pathways to 2100 (scripts/a8_emergence.DATE_PATHWAYS, role "primary"; values from
-    results/levels/projection_pathways.csv, verified against their sources, D-081): each
+    results/levels/projection_pathways.csv, verified against their sources): each
     pathway's own change after 2026, as piecewise-linear knots (caspian.exposure.
     pathway_curves), the construction that dates the scenarios (scenario_dates, anchor
     "base"). Horizontal lines: the five scenario depths below the 2026 level; the 1 m and
     2 m bands are shaded. Dots: where each pathway reaches 1 m and 2 m; their years are
     checked against results/metrics.json (h3.date.*). Pathways that leave the frame are
     labelled where they leave it.
-    Revised (D-141; internal review R2 minor 15, R3 minor 9): the twelve range pathways
+    Revised: the twelve range pathways
     (role "range": inter-model ranges and quartiles) span a grey band, the y-axis holds
     every drawn pathway to 2100 (no clipping), and the seven primary pathways are keyed in
     a legend instead of labelled in the frame.
-(b) How much (D-141; R1 minor 24; workstream N, D-123, D-124): the emerged area of the
-    domain E(D) at N's 0.1 m steps of decline D below the 2026 level
+(b) How much (near-term revision analysis): the emerged area of the
+    domain E(D) at 0.1 m steps of decline D below the 2026 level
     (results/revision/n/), one colour per grid: solid, on the composite observed baseline
     (curves_composite.csv, surface "common_location"); dashed, on the grids shifted by
-    their H1 shape constant (curves.csv, "shifted"); shading, N's decline-normalised
+    their H1 shape constant (curves.csv, "shifted"); shading, the decline-normalised
     hindcast envelopes (envelopes.csv, all pairs, score "decline"), drawn up to the
     largest decline of the hindcast pairs (rev.n.env.max_pair_decline_m), beyond which the
     curves are uncalibrated; thin grey, the grids as distributed (curves.csv,
@@ -103,7 +103,7 @@ def main() -> int:
     hi_all = max(max(float(y.max()) for _, y in paths.values()), float(lv["level_m"].max()))
     ylim = (np.floor(lo_all) - 0.5, np.ceil(hi_all) + 1.5)
 
-    # workstream N's curves (km2), domain, main reference level
+    # near-term revision curves (km2), domain, main reference level
     cv = pd.read_csv(N_DIR / "curves.csv")
     cc = pd.read_csv(N_DIR / "curves_composite.csv")
 

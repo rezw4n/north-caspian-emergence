@@ -1,5 +1,5 @@
-"""Robustness check 3 (brief section 10): season and ice. Local parts; the November
-addition and the Amendment 9 variant need Earth Engine (docs/ROBUSTNESS_PLAN.md).
+"""Robustness check 3: season and ice. Local parts; the November addition and the
+Amendment 9 variant need Earth Engine.
 
 Commands
   variant    From tags split by season (scripts/r16_split_plan.py; tokens AMJ, JASO):
@@ -8,9 +8,9 @@ Commands
   offsets    the per-bin offsets between the AMJ and JASO waterlines (robustness.
              contour_offsets on the points of the two variants, after their points step),
              against the odd/even noise floor of the main run at the same bins.
-  november   The scenes the D-062 5% bar would add (November): levelled (E1-E3), scene
+  november   The scenes a 5% ice bar would add (November): levelled (E1-E3), scene
              cloud < 60%, in November, with a stage-1 run-2 zone count above zero where
-             run 2 has one (run 3 covers April-October only, D-068). They need stage 1
+             run 2 has one (run 3 covers April-October only). They need stage 1
              (thresholds) and a stage-2 ADD export before the variant can be built
              (r00_counts --add). Written to data/interim/robustness/november_scenes.csv.
 

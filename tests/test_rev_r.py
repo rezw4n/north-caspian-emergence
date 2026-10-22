@@ -1,4 +1,4 @@
-"""caspian.rev_r: the revision workstream R core functions (D-116 to D-119)."""
+"""caspian.rev_r: core functions of revision analysis R."""
 
 import numpy as np
 import pandas as pd

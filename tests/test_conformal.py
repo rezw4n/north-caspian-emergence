@@ -1,5 +1,5 @@
 """Conformal calibration: the pre-registered Mondrian fallback (PREREG section 8) and
-one inclusion rule for calibration and evaluation (review findings 11 and 31)."""
+one inclusion rule for calibration and evaluation."""
 
 import numpy as np
 import pytest

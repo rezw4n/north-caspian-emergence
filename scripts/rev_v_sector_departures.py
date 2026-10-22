@@ -1,5 +1,5 @@
-"""Revision, workstream V: each sector's departure of the water surface from the basin
-level (PREREG Amendment 18 item 9, first bullet; D-120).
+"""Revision analysis V: each sector's departure of the water surface from the basin
+level (PREREG Amendment 18 item 9, first bullet).
 
 1. SWOT block means before de-meaning, exactly as the setup model builds them
    (scripts/a5_setup_model.sector_anomalies: the same pass grouping, quality screens
@@ -9,7 +9,7 @@ level (PREREG Amendment 18 item 9, first bullet; D-120).
 2. To the project's datum chain (caspian.watersurface.swot_to_working): SWOT's geoid
    is EGM2008 in the mean tide system (JPL D-56416 Rev C). Primary: SWOT's EGM2008 is
    taken as NGA's realisation (with its -0.41 m zero-degree term; the realisation the
-   project uses for EGM2008 heights, D-074), the working datum as tide-free. Per block
+   project uses for EGM2008 heights), the working datum as tide-free. Per block
    the conversion is evaluated at the block centre from
    results/study_area/geoid_egm2008_minus_eigen6c4.npz.
 3. Per sector: the median over April-October passes of the pass's mean over the
@@ -44,7 +44,7 @@ from caspian.geography import SECTOR_ORDER
 
 OUT = RESULTS / "revision" / "v"
 MONTHS = (4, 5, 6, 7, 8, 9, 10)     # April-October: the months of the hindcast scenes
-MIN_BLOCKS, MIN_PASSES = 2, 20      # D-120: below either, the sector is "too thin"
+MIN_BLOCKS, MIN_PASSES = 2, 20      # below either, the sector is "too thin"
 GEOID = RESULTS / "study_area" / "geoid_egm2008_minus_eigen6c4.npz"
 
 

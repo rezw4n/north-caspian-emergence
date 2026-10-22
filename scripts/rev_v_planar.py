@@ -1,18 +1,18 @@
-"""Revision, workstream V: a planar offset field per product, c(x, y) = c0 + a x + b y,
+"""Revision analysis V: a planar offset field per product, c(x, y) = c0 + a x + b y,
 fitted on training-block units by the Eq. S11 criterion, and the H1 audit with it
-(PREREG Amendment 18 item 9, second bullet; D-121).
+(PREREG Amendment 18 item 9, second bullet).
 
-masks:   per (epoch, level) unit of the primary fit (the 43 units of D-070), the known
+masks:   per (epoch, level) unit of the primary fit (the 43 units), the known
          and water cells of the fit region (domain and training blocks), bit-packed,
          with the record-low envelope and sea connection exactly as
          scripts/a7_hindcast.unit_counts sees them. data/interim/revision_v/fit_masks.npz.
 fit:     per product, on the primary's cached flood-level map F (corrected heights):
-         0. check: exact counts on F reproduce the primary D-070 constant and objective;
-         1. search (a, b) with c0 profiled out (D-070 rule on the 0.01 m grid over
+         0. check: exact counts on F reproduce the primary area constant and objective;
+         1. search (a, b) with c0 profiled out (registered rule on the 0.01 m grid over
             +-5 m), using the threshold approximation F_ab ~ F - (a x + b y), on a coarse
             grid at 1/16 of the cells, then a finer grid at 1/4 of the cells;
          2. the exact flood-level map of the corrected heights less a x + b y at the
-            chosen (a, b), and the exact D-070 profile of c0 on it.
+            chosen (a, b), and the exact profile of c0 on it.
          results/revision/v/planar/fit_<product>.json; the exact map is cached under
          data/interim/hindcast/flood/.
 audit:   scripts/a7_hindcast.run on the exact maps with the constant c0 (as a product
@@ -24,7 +24,7 @@ compare: verdicts, sector medians and the Eq. S11 objective against the primary
 x and y are the equal-area grid coordinates in km (origin 45.5 N, 50 E); a and b in m
 per km. Usage: python scripts/rev_v_planar.py masks|fit|audit|compare|all|sector-all
 [--products p,...] [--criterion domain|sector]. all = fit, audit and compare in one process;
-sector-all = the per-sector sensitivity of the D-121 addendum (GEBCO_2026 and ETOPO1).
+sector-all = the per-sector sensitivity (GEBCO_2026 and ETOPO1).
 """
 
 from __future__ import annotations
@@ -55,7 +55,7 @@ CACHE = INTERIM / "revision_v"
 MASKS = CACHE / "fit_masks.npz"
 CORRECTION = RESULTS / "study_area" / "geoid_correction_primary.npz"
 VALIDATED = ["west", "interfluve", "northeast", "open_shelf"]
-# D-121 search: coarse grid, its one-time extension, and the refinement
+# search: coarse grid, its one-time extension, and the refinement
 COARSE_STEP, COARSE_MAX, COARSE_MAX_EXT, COARSE_SUB = 0.001, 0.010, 0.020, 4     # m/km; sub = every 4th row/col
 FINE_STEP, FINE_HALF, FINE_SUB = 0.0002, 0.001, 2
 
@@ -100,7 +100,7 @@ def masks(argv) -> int:
     ulist = [(b, ep) for b in sorted(units) for ep in sorted(units[b])]
     prim = json.loads((RESULTS / "hindcast" / "main" / "shape_offsets.json").read_text(encoding="utf-8"))
     if [(u["bin"], u["epoch"]) for u in prim["units"]] != ulist:
-        raise SystemExit("the units differ from the primary D-070 fit")
+        raise SystemExit("the units differ from the primary area fit")
     idx = np.flatnonzero(fit_region.ravel()).astype(np.int64)
     if idx.size != prim["fit_region_cells"]:
         raise SystemExit("the fit region differs from the primary")
@@ -165,7 +165,7 @@ def exact_bias(fd: FitData, Fv, finite, c_grid=a7.C_GRID) -> np.ndarray:
 
 def exact_bias_sector(fd: FitData, Fv, finite, sector, c_grid=a7.C_GRID) -> np.ndarray:
     """[unit, sector code, c]: exact_bias split by the sector code of each fit cell
-    (D-121 addendum); summed over sectors it equals exact_bias."""
+    (per-sector sensitivity); summed over sectors it equals exact_bias."""
     sector = np.asarray(sector, np.int64)
     ns = int(sector.max()) + 1
     out = np.zeros((len(fd.levels), ns, len(c_grid)), np.int64)
@@ -197,7 +197,7 @@ class Approx:
         self.qlo = min(int(m.min()) for m in self.m)
         self.qhi = max(int(m.max()) for m in self.m)
         self.scale = sub * sub
-        if self.s is not None:      # D-121 addendum: per-sector counts
+        if self.s is not None:      # per-sector counts
             self.ns = int(self.s.max()) + 1
             self.ws = [np.bincount(self.s[fd.unit(u, "water")[sel] & fin], minlength=self.ns)
                        for u in range(len(fd.levels))]
@@ -260,7 +260,7 @@ def _key(d) -> str:
 
 
 def _profile_exact(bx, epochs, criterion):
-    """c0 by the D-070 rule on exact counts: domain ([unit, c]) or per sector ([unit, sector, c])."""
+    """c0 by the registered rule on exact counts: domain ([unit, c]) or per sector ([unit, sector, c])."""
     if criterion == "domain":
         r = a7.fit_offset(bx, epochs)
         return r["offset_m"], r["objective_km2_at_offset"], r["n_tied_minima"]
@@ -272,7 +272,7 @@ def fit(argv) -> int:
     ap_ = argparse.ArgumentParser()
     ap_.add_argument("--products", default=None)
     ap_.add_argument("--criterion", default="domain", choices=["domain", "sector"],
-                     help="domain: the registered Eq. S11 (D-121); sector: the per-sector sensitivity (D-121 addendum)")
+                     help="domain: the registered Eq. S11; sector: the per-sector sensitivity")
     args = ap_.parse_args(argv)
     crit = args.criterion
     sfx = "" if crit == "domain" else "sec"
@@ -304,7 +304,7 @@ def fit(argv) -> int:
         for s0 in range(0, fd.n, 1 << 24):
             j = fd.idx[s0:s0 + (1 << 24)]
             finite[s0:s0 + j.size] = np.isfinite(flat_h[j].astype(np.float32) + flat_c[j].astype(np.float32))
-        # 0. exact counts on the primary map reproduce the primary D-070 fit
+        # 0. exact counts on the primary map reproduce the primary area fit
         b0 = exact_bias(fd, Fv, finite)
         r0 = a7.fit_offset(b0, fd.epochs)
         want = prim["products"][p]
@@ -499,11 +499,11 @@ def run_all(argv) -> int:
     return 0
 
 
-SENSITIVITY_PRODUCTS = "gebco_2026,etopo1"     # D-121 addendum
+SENSITIVITY_PRODUCTS = "gebco_2026,etopo1"     # per-sector sensitivity
 
 
 def run_sector(argv) -> int:
-    """The per-sector sensitivity (D-121 addendum): fit, audit and compare in one process."""
+    """The per-sector sensitivity: fit, audit and compare in one process."""
     args = ["--criterion", "sector", "--products", SENSITIVITY_PRODUCTS]
     for step in (fit, audit):
         rc = step(args)

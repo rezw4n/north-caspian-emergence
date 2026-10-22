@@ -7,7 +7,7 @@ longitude/latitude with straight edges in that plane, so the box sides follow
 parallels and meridians. Every edge is densified to DENSIFY_DEG before the vertices
 are projected to the equal-area CRS. Projecting the vertices alone turns the long
 box edges (8.2 degrees along 47.35 N) into chords, which made the domain about 1.3%
-larger than the sum of its sectors (review finding 36).
+larger than the sum of its sectors.
 
 Earth Engine reads the same GeoJSON polygons with geodesic edges: ee.Geometry(geojson)
 defaults to geodesic=True for EPSG:4326 (caspian.pipeline_ee.domain_geometry,

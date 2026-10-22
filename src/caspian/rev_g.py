@@ -1,8 +1,8 @@
-"""Revision workstream G (PREREG Amendment 18 item 11; D-128 to D-130): helpers for the
-post-review analyses of H2 and of ETOPO 2022. Additive; nothing in the registered
+"""Helpers for the revision analyses of H2 and of ETOPO 2022 (PREREG Amendment 18
+item 11). Additive; nothing in the registered
 pipeline calls them.
 
-H2 (D-129)
+H2
 - ``paired_diffs``: DEM-minus-product metric differences on one set of points.
 - ``leave_one_out``: those differences with each group (test block or sector) left
   out, and ``jackknife_se`` over the left-out values.
@@ -10,9 +10,9 @@ H2 (D-129)
   are replaced by NaN and labelled "not estimable".
 - ``cell_states``: the observed state (water, dry, not valid) of the 60 m stage-2 cell
   that holds each point, from an observed-extent code grid; ``independent_dry`` turns
-  it into the dryness test of R1 minor 8.
+  it into a dryness test.
 
-ETOPO 2022 (D-130)
+ETOPO 2022
 - ``attribute_sources``: the source of each waterline distance of a displacement run:
   a predicted waterline cell keeps its own source, an observed one takes the source of
   its nearest predicted waterline cell (the cell its distance is measured to).
@@ -125,7 +125,7 @@ def cell_states(x, y, code, transform) -> np.ndarray:
 
 
 def independent_dry(states) -> np.ndarray:
-    """R1 minor 8: dry only where the cell is valid and observed dry (code 0)."""
+    """Dry only where the cell is valid and observed dry (code 0)."""
     return np.asarray(states) == 0
 
 
@@ -136,7 +136,7 @@ def attribute_sources(cells: dict, pred_source) -> pd.DataFrame:
     with a source per distance. ``pred_source``: one code per predicted waterline cell.
     A predicted cell keeps its own source; an observed cell takes the source of its
     nearest predicted waterline cell. Known cells only; undefined (NaN) distances are
-    dropped (D-089). Returns columns kind ("pred"/"obs"), row, col, label, source,
+    dropped. Returns columns kind ("pred"/"obs"), row, col, label, source,
     abs_m."""
     p, o = cells["pred"], cells["obs"]
     src_p = np.asarray(pred_source)

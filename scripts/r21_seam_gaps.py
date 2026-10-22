@@ -1,4 +1,4 @@
-"""QC finding of the robustness runs (D-097): cells inside the stage-2 cover that no
+"""QC finding of the robustness runs: cells inside the stage-2 cover that no
 primary stage-2 tile observed, by distance to the seams of the 100 km export tiles.
 The export regions are lon/lat polygons with planar edges (a6_stage2_export.ee_planar),
 so a tile edge that is straight in the equal-area grid bows in the export, and the

@@ -1,4 +1,4 @@
-"""Robustness (D-069): the ICESat-2 dryness test with emergence + 365 days instead of
+"""Robustness: the ICESat-2 dryness test with emergence + 365 days instead of
 + 30 days (PREREG section 2). No Earth Engine.
 
 A point that passes the 365-day test passes the 30-day test, so the variant's points

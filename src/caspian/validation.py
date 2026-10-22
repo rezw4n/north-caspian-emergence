@@ -1,4 +1,4 @@
-"""A6 validation: the waterline DEM against independent heights (PREREG sections 2 and
+"""Validation of the waterline DEM against independent heights (PREREG sections 2 and
 5-8; Amendments 2 and 5).
 
 Reference heights
@@ -19,10 +19,10 @@ Datum chain (docs/DATUMS.md; PREREG section 5)
 The DEM is on the DAHITI reference (scripts/a6_dem.py), whose geoid is EIGEN-6C4
 (docs/DATUMS.md). N is EIGEN-6C4 at each point (``EigenGeoid``: the ICGEM tide-free grid
 in results/study_area/geoid_egm2008_minus_eigen6c4.npz, bilinear), for ATL06 and ATL08
-alike (D-078). The spatial part of the EGM2008 - EIGEN-6C4 difference (SD 0.075 m) would
+alike. The spatial part of the EGM2008 - EIGEN-6C4 difference (SD 0.075 m) would
 otherwise stay in the residuals; constant parts (zero-degree term, tide system) are
 absorbed by c. Without a geoid function, the ATL06 ``dem/geoid_h`` (EGM2008) is used and
-ATL08 takes it from the ATL06 of the same orbit (``geoid_along_track``), the D-069
+ATL08 takes it from the ATL06 of the same orbit (``geoid_along_track``), the earlier
 chain. c is the median of DEM - H over training-block points, with a block-bootstrap
 σ (``fit_datum_constant``). The
 DAHITI -> BHS-77 offset is common to the DEM, the products and the reference heights,
@@ -49,7 +49,7 @@ and one column per product height (native reference). ``y_ref`` is added by
 ``apply_datum_constant``. Errors are model minus reference (positive: model too high).
 
 The H2 decision rule (``h2_decision``) is a separate function. The validation driver
-(scripts/a6_validate_dem.py) does not call it; the claim is made at G3 from the frozen
+(scripts/a6_validate_dem.py) does not call it; the claim is made from the frozen
 tables.
 """
 
@@ -70,7 +70,7 @@ from .geography import SECTOR_ORDER
 SPLITS = ("train", "calib", "test")
 NMAD_SCALE = 1.4826
 
-# Defaults where the pre-registration is silent (proposed for docs/DECISIONS.md).
+# Defaults where the pre-registration is silent.
 GROSS_ERROR_M = 50.0            # |h - product reference DEM| bound; mirrors Amendment 2 (GEDI)
 GEOID_MAX_GAP_S = 0.1           # ATL06 geoid samples bracketing an ATL08 time (~0.7 km along track)
 DRY_RADIUS_PX = {"ATL06": 1, "ATL08": 2, "GEDI": 1, "GLO30": 1}   # segment half-length or footprint, in 30 m pixels
@@ -79,7 +79,7 @@ ABS_RESID_FLOOR_M = 1e-3        # |residual| floor before the log in the scale m
 VARIO_BIN_M = 2_500.0           # semivariogram bin width (PREREG section 6)
 VARIO_MAX_LAG_M = 150_000.0
 VARIO_MAX_PAIRS = 2_000_000
-VARIO_SHORT_LAG_M = 7_500.0        # short-lag window of the spatial-structure test (D-069)
+VARIO_SHORT_LAG_M = 7_500.0        # short-lag window of the spatial-structure test
 GEDI_EARLY_BEAMS = ("BEAM0000", "BEAM0001")
 GEDI_BEAM_FIX = np.datetime64("2020-02-06")        # Amendment 2: earlier shots of these beams dropped
 # Products whose vertical reference is documented as EGM2008 (docs/DATUMS.md); every other
@@ -184,7 +184,7 @@ def geoid_along_track(t, beam, ref_t, ref_beam, ref_geoid, max_gap_s: float = GE
 
 
 class EigenGeoid:
-    """N(EIGEN-6C4) at lon/lat, bilinear on the ICGEM grid (D-074, D-078)."""
+    """N(EIGEN-6C4) at lon/lat, bilinear on the ICGEM grid."""
 
     def __init__(self, path=None):
         from scipy.interpolate import RegularGridInterpolator
@@ -222,7 +222,7 @@ def icesat2_steps(d: pd.DataFrame, product: str) -> dict[str, np.ndarray]:
     Both: finite height; strong beam; finite geoid height; gross-error screen
     |h - dem_h| <= GROSS_ERROR_M (the product's reference DEM, ellipsoidal). ATL06:
     atl06_quality_summary = 0. ATL08 (atmospheric screens): msw_flag = 0,
-    cloud_flag_atm = 0. segment_watermask is not used (D-069): whether a point was dry
+    cloud_flag_atm = 0. segment_watermask is not used: whether a point was dry
     is decided by the dryness test against our own emergence dates (PREREG section 2),
     and a mask that does not follow the retreating shoreline would remove exactly the
     emerged seabed being validated. The height uncertainty is not screened (it is not
@@ -264,12 +264,12 @@ def gedi_time(delta_time) -> np.ndarray:
     return GEDI_EPOCH + np.round(s * 1e9).astype("int64").astype("timedelta64[ns]")
 
 
-# --- Copernicus DEM GLO-30 (D-073, D-091) ----------------------------------------------
+# --- Copernicus DEM GLO-30 -------------------------------------------------------------
 
 # Caspian geocells that "have not been acquired and produced as TanDEM-X DEM" (Product
-# Handbook v5.0 section 1.2.10) and intersect the domain (D-073): never used.
+# Handbook v5.0 section 1.2.10) and intersect the domain: never used.
 GLO30_EXCLUDED_TILES = ("N44E048", "N44E049")
-GLO30_WINDOW = (np.datetime64("2010-12-01", "ns"), np.datetime64("2015-01-31", "ns"))   # D-073
+GLO30_WINDOW = (np.datetime64("2010-12-01", "ns"), np.datetime64("2015-01-31", "ns"))
 GLO30_EDM_NOT_EDITED = 1        # Edit Data Mask: 1 = not edited (Handbook Table 6)
 GLO30_FLM_NOT_FILLED = 2        # Filling Mask: 2 = not edited / not filled (Table 7)
 GLO30_WBM_NO_WATER = 0          # Water Body Mask: 0 = no water (Table 8)
@@ -298,7 +298,7 @@ def thin_index(n: int, step: int) -> np.ndarray:
 
 
 def glo30_steps(h, wbm, edm, flm, dN) -> dict[str, np.ndarray]:
-    """GLO-30 pixel quality steps (D-091; the analogue of the ICESat-2 land-surface
+    """GLO-30 pixel quality steps (the analogue of the ICESat-2 land-surface
     flags): finite height; WBM no water; EDM not edited; FLM not filled; finite geoid
     difference. Dryness is a separate step (``dry_at_acquisition``)."""
     h = np.asarray(h, float)
@@ -312,8 +312,8 @@ def glo30_steps(h, wbm, edm, flm, dN) -> dict[str, np.ndarray]:
 class GridLookup:
     """Bilinear lookup of one [lat, lon] layer of an .npz with 1-D ``lat`` and ``lon``
     axes (cell centres, ascending), e.g. ``dN`` of
-    results/study_area/geoid_correction_primary.npz (N_EGM2008(NGA) - N_EIGEN-6C4,
-    D-074). NaN outside the grid."""
+    results/study_area/geoid_correction_primary.npz (N_EGM2008(NGA) - N_EIGEN-6C4).
+    NaN outside the grid."""
 
     def __init__(self, path, key: str):
         from scipy.interpolate import RegularGridInterpolator
@@ -340,7 +340,7 @@ def cascade(steps: dict[str, np.ndarray], n: int) -> tuple[np.ndarray, pd.DataFr
 
 def prepare_icesat2(d: pd.DataFrame, product: str, ref: pd.DataFrame | None = None, geoid=None):
     """Quality steps for one granule. With ``geoid`` (a callable lon, lat -> N, e.g.
-    ``EigenGeoid``), N comes from it for both products (D-078). Without it, for ATL08,
+    ``EigenGeoid``), N comes from it for both products. Without it, for ATL08,
     ``ref`` is the ATL06 granule of the same orbit (time, beam, geoid_h), or None if
     there is none (then no geoid, and every point fails the geoid step). Returns (kept
     points with h_orth, cascade table). The product's own reference DEM ``dem_h`` is
@@ -510,7 +510,7 @@ def percentile_interval(boot, conf: float = 0.95) -> tuple[float, float]:
 
 # --- fitted on training blocks --------------------------------------------------------
 
-BLOCK_SIZE_CAP_M = 50_000.0     # D-084: the largest size of the PREREG section 6 sensitivity set
+BLOCK_SIZE_CAP_M = 50_000.0     # the largest size of the PREREG section 6 sensitivity set
 
 
 def block_size_check(points: pd.DataFrame, base: float = design.BLOCK_SIZE_M, bin_width: float = VARIO_BIN_M,
@@ -527,7 +527,7 @@ def block_size_check(points: pd.DataFrame, base: float = design.BLOCK_SIZE_M, bi
     recorded to inform it."""
     tr = split_rows(points, "train")
     r = (tr["dem_h"] - tr["h_orth"]).to_numpy(float)
-    if detrend == "sector":       # D-084: residuals less each sector's training median
+    if detrend == "sector":       # residuals less each sector's training median
         med = pd.Series(r).groupby(tr["sector"].to_numpy()).transform("median").to_numpy()
         r = r - med
     elif detrend is not None:
@@ -537,7 +537,7 @@ def block_size_check(points: pd.DataFrame, base: float = design.BLOCK_SIZE_M, bi
                                              bin_width, max_lag, max_pairs, seed)
     fit = blocking.fit_exponential(vario)
     sill = fit["nugget"] + fit["partial_sill"]
-    # D-069: the fitted range sets the block size only if spatial structure is detected
+    # the fitted range sets the block size only if spatial structure is detected
     test = blocking.spatial_structure_test(tr["x"].to_numpy()[ok], tr["y"].to_numpy()[ok], r[ok],
                                            VARIO_SHORT_LAG_M, max_lag, max_pairs=max_pairs, seed=seed)
     final = blocking.block_size_for_range(fit["practical_range"], base) if test["detected"] else float(base)
@@ -781,7 +781,7 @@ def run(points: pd.DataFrame, products: dict[str, str], documented=DOCUMENTED_EG
             "points": pts}
 
 
-# --- H2 decision rule (synthetic use only until G3) -----------------------------------
+# --- H2 decision rule -----------------------------------------------------------------
 
 def h2_decision(comparisons: pd.DataFrame, products, metrics=("nmad", "rmse")) -> dict:
     """PREREG section 7 rule, applied per scope ("overall" and each sector) of a
@@ -792,7 +792,7 @@ def h2_decision(comparisons: pd.DataFrame, products, metrics=("nmad", "rmse")) -
     the DEM wins on every metric against every product in ``products``; "not supported"
     if it loses any evaluable comparison; otherwise "not evaluable" (a listed product or
     metric missing or NaN, so a product cannot drop out silently). Partial support (some
-    products) is reported. The brief section 16 pivot applies when "overall" is not
+    products) is reported. The fallback framing applies when "overall" is not
     supported."""
     products = list(products)
     scopes = {}

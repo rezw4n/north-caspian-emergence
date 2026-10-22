@@ -1,13 +1,13 @@
-"""Revision R, A18 item 6: the "perfect but degraded" control (D-116).
+"""Revision R, A18 item 6: the "perfect but degraded" control.
 
 The waterline DEM (main) is degraded as each product stores the seabed and audited
-exactly as the products are (scripts/a7_hindcast.run: its own D-070 area constant,
+exactly as the products are (scripts/a7_hindcast.run: its own area constant,
 total and shape variants, the same units, static layers, envelope and blocks).
 
-Construction (D-116), on the 60 m hindcast grid unless stated:
+Construction, on the 60 m hindcast grid unless stated:
 1. Working-frame surface. The DEM aggregated to 60 m (a8_emergence.dem_to_grid). Cells
    without a DEM value are filled so that the surface is defined wherever a product is:
-   LOW = lowest audited level - 1 m where the cell is water at the record low (D-082
+   LOW = lowest audited level - 1 m where the cell is water at the record low (record-low
    envelope) or outside-state water; HIGH = highest audited level + 1 m where it is land
    at the 1995-96 high stand (zone-v6 "high" extent) or outside-state land; elsewhere in
    the zone the nearest DEM value within 256 cells; NaN otherwise (unknown, as for a
@@ -19,7 +19,7 @@ Construction (D-116), on the 60 m hindcast grid unless stated:
    ETOPO1: every cell; ETOPO 2022: cells whose source is not FABDEM, source_id != 10;
    SRTM15+: cells whose stored value lies within 0.01 m of a whole metre). Skipped for the
    unrounded controls.
-5. Sampled back to 60 m bilinearly (caspian.products.to_grid, D-070) and the correction
+5. Sampled back to 60 m bilinearly (caspian.products.to_grid) and the correction
    added back (working frame).
 
 Distinct surfaces (the four 15" products share one native grid and one correction):
@@ -34,7 +34,7 @@ Commands:
   build    the surfaces and their flood-level maps (data/interim/rev_r/control/, flood/)
   run      the audit (scripts/a7_hindcast.run) -> results/revision/r/control/hindcast/
            [--pilot-bins N: only the N highest bins, to time it; output .../pilot/]
-  refit    D-116 addendum: each control's constant refitted on the units within the DEM's
+  refit    sensitivity: each control's constant refitted on the units within the DEM's
            range -> results/revision/r/control/refit_dem_range.json (audited by
            scripts/rev_r_audit.py pass --surfaces controls, out control_refit)
   decide   excess and stop rules against results/hindcast/main ->
@@ -280,7 +280,7 @@ def top_dem_bin() -> int:
 
 
 def cmd_refit(a) -> int:
-    """D-116 addendum sensitivity: each control's D-070 constant refitted on the units
+    """Sensitivity: each control's area constant refitted on the units
     within the DEM's range (bins up to the highest E2/E3 bin)."""
     transform, shape, static, units = setup()
     surfaces, flood, _ = build(transform, shape, static, units)
@@ -363,7 +363,7 @@ def cmd_decide(a) -> int:
     ex = pd.concat(ex_all, ignore_index=True)
     ex.to_csv(OUT / "excess.csv", index=False)
     sens = OUT.parent / "audit" / "control_refit" / "levels_D.csv.gz"
-    if sens.exists():                       # D-116 addendum: the controls at the refitted constant
+    if sens.exists():                       # sensitivity: the controls at the refitted constant
         L = pd.read_csv(sens)
         L = L[L["config"] == "replica"].rename(columns={"median_m": "D_control_refit", "product": "control"})
         nzr = pd.read_csv(RESULTS / "hindcast" / TAG / "noise_floor.csv")

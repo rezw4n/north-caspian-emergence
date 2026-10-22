@@ -1,6 +1,6 @@
 """Robustness: one table of the headline numbers of every completed variant against the
-primary, from results/robustness/verdicts.json (scripts/r20_verdicts.py), for the G3 memo
-and the plan's status section. Writes results/robustness/headline_table.csv.
+primary, from results/robustness/verdicts.json (scripts/r20_verdicts.py), for reporting.
+Writes results/robustness/headline_table.csv.
 
 Usage: python scripts/r22_report_table.py
 """

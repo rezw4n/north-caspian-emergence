@@ -1,4 +1,4 @@
-"""ATL24 check of the near-term emergence surfaces (PREREG Amendment 17, D-095):
+"""ATL24 check of the near-term emergence surfaces (PREREG Amendment 17):
 caspian.atl24 on synthetic photons and a synthetic ATL24 file."""
 
 import json

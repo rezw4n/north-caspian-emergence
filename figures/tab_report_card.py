@@ -1,5 +1,5 @@
-"""ERL Table 1, the product report card (D-100, D-102; revised after the internal review, D-139
-addendum): one row per audited product, every number a metrics key. Writes
+"""ERL Table 1, the product report card (revised version): one row per audited product,
+every number a metrics key. Writes
 
 - manuscript/sections/tables_erl.tex, between the markers "% BEGIN ERL-T1" and
   "% END ERL-T1" (the rest of the file is kept; the file is created if missing), as LaTeX
@@ -20,8 +20,8 @@ Columns (results/metrics.json):
    (rev.n.composite.E.common_location.<p>.1.domain_km2) and on the grid shifted by its
    hindcast constant (rev.n.E.shifted.<p>.1.domain_km2).
 
-The traffic-light shading of the first version is removed (reviews R1 minor 25, R2 minor 16,
-R3 minor 7): its cut-offs were set by the authors, not tested, and the columns describe
+The traffic-light shading of the first version is removed: its cut-offs were set by the
+authors, not tested, and the columns describe
 different populations. The Great Salt Lake column is removed: it was 2 for every grid.
 
 Usage: python figures/tab_report_card.py

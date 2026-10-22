@@ -1,11 +1,11 @@
-"""Robustness check 2 (brief section 10): sensor. Local parts; the same-day pair
-export is specified in docs/ROBUSTNESS_PLAN.md.
+"""Robustness check 2: sensor. Local parts; the same-day pair export runs in Earth
+Engine.
 
 Commands
   variant   Sensor variants from stage-2 tags, then the downstream steps and the paired
             comparison (scripts/r00_pipeline.py):
               landsat_only   the Landsat main tag alone (the main is Landsat +
-                             Sentinel-2 summed, D-064 step 3)
+                             Sentinel-2 summed)
             and, from tags split by sensor class (scripts/r16_split_plan.py):
               no_slcoff      without ETM+ SLC-off acquisitions (token E7off)
               no_tm, no_etm, no_oli, no_msi   leave one sensor family out

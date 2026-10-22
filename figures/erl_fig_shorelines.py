@@ -1,15 +1,15 @@
-"""ERL figure "Where the maps put the shoreline" (D-100, D-102; 15 cm wide).
+"""ERL figure "Where the maps put the shoreline" (15 cm wide).
 
 (a) The North Caspian at the hindcast unit E3, level bin nearest -28.0 m (DAHITI
     reference): the observed state of every cell (sea-connected water, land, or not
     determined) on a 240 m display grid (share of water among the known 60 m cells), the
     observed shoreline (solid black) and the shorelines that GEBCO_2026, ETOPO 2022 and
     SRTM15+ predict for the same level (dashed, dash-dot and dotted): each product's flood
-    fill from the open sea at the level plus its D-070 constant (the shape variant).
+    fill from the open sea at the level plus its constant (the shape variant).
 (b-d) Zooms at 60 m on the Volga delta front, the NE Kazakh coast and Komsomolets Bay, same
     unit; (e-g) the same zooms at the E3 unit nearest -27.0 m, above the -27.7 m edge below
-    which ETOPO 2022 errs by kilometres (D-087); each row states ETOPO 2022's FABDEM share in
-    its level band (D-108). Arrows: per
+    which ETOPO 2022 errs by kilometres; each row states ETOPO 2022's FABDEM share in
+    its level band. Arrows: per
     product, from the observed waterline cell of the zoom's sector whose distance to the
     product's nearest predicted waterline cell is closest to that sector's median
     displacement at the unit, to that cell; labels give the arrow's length.
@@ -161,7 +161,7 @@ def main() -> int:
     for r, u in enumerate(UNITS):
         lv = E.num(m, f"{ukey(u)}.level_m")
         yrs = f"{m[ukey(u) + '.first_year']['value']}–{m[ukey(u) + '.last_year']['value']}"
-        # ETOPO 2022's FABDEM share in this level's band (D-108), from metrics
+        # ETOPO 2022's FABDEM share in this level's band, from metrics
         bands = [(-29.0, -28.3, "below_m28p3"), (-28.3, -27.7, "m28p3_m27p7"), (-27.7, -27.0, "m27p7_m27p0"),
                  (-27.0, -26.3, "m27p0_m26p3"), (-26.3, -25.5, "above_m26p3")]
         bk = next(k for lo, hi, k in bands if lo < float(m[f"{ukey(u)}.level_m"]["value"]) <= hi)

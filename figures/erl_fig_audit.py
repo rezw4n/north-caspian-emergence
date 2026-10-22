@@ -1,18 +1,18 @@
-"""ERL figure "Auditing the bathymetry grids" (the Letter's audit figure; D-100, D-102
-addendum; 15 cm wide, text 8 pt or more). The ERL version of figures/fig4_audit.py, which
-stays the Supplementary/Phase A figure: the per-block maps (fig4_audit c) are left out here
+"""ERL figure "Auditing the bathymetry grids" (the Letter's audit figure; 15 cm wide, text
+8 pt or more). The ERL version of figures/fig4_audit.py, which
+stays the Supplementary figure: the per-block maps (fig4_audit c) are left out here
 (they are in the Supplementary), the other panels are kept and enlarged.
 
 (a) Area bias of each product's predicted sea against the observed sea, per (epoch, level)
     unit, inside the domain and within the valid mask (results/hindcast/main/extent.csv,
     sector "domain", area_bias_rel; units with observed sea): left, after each product's
-    best-fitting vertical constant (the shape variant, D-070, which decides; D-072); right,
+    best-fitting vertical constant (the shape variant, which decides); right,
     on the documented datum chain without a constant (the total variant).
-    Both halves share one y-range (internal review R1 minor 21; D-141).
+    Both halves share one y-range.
 (b) Shoreline displacement by level band, shape variant, split into the four sectors whose
     observations are validated (west, interfluve, northeast, open shelf; A18 item 1) and
-    the three that are not (Volga delta, Ural delta, Komsomolets Bay) (R1 minor 21;
-    D-141): per band, the median over the group's sectors and levels of the per-level
+    the three that are not (Volga delta, Ural delta, Komsomolets Bay):
+    per band, the median over the group's sectors and levels of the per-level
     median displacement, computed as scripts/a7_level_bands.py computes
     displacement_by_level_band.csv from displacement.csv (pooled epochs, observed levels,
     n > 0), which the script checks for all sectors together. Dashed line:
@@ -20,8 +20,8 @@ stays the Supplementary/Phase A figure: the per-block maps (fig4_audit c) are le
 (c) Per sector, validated sectors first, each product's per-level ratio D/Q of its median
     displacement to the noise floor (the 95th percentile of the half-against-half
     distances) at every evaluable level (h1_mispredicts_detail.csv, shape variant; dots),
-    with the median and quartiles over levels from workstream S's
-    results/revision/s/item2_dq.csv (R3.M4; D-141). The script checks that the medians of
+    with the median and quartiles over levels from the sector revision analysis,
+    results/revision/s/item2_dq.csv. The script checks that the medians of
     the dots equal item2_dq.csv. The H1 rule is that D/Q exceeds 1 at a majority of the
     levels; filled where the product mispredicts the sector (h1_mispredicts.csv). Ratios
     below the axis (zero displacements) are drawn on it.

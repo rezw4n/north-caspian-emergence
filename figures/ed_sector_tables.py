@@ -1,5 +1,5 @@
 """Supplementary Tables: the full sector tables of H1 and H2, as LaTeX that prints every
-number through \\metric{...} (CLAUDE.md integrity rule 2).
+number through \\metric{...}.
 
 Writes manuscript/sections/ed_tables_draft.tex:
 - H2 per sector (test blocks, H2 population, 50 km): n, and bias, NMAD and RMSE of the
@@ -8,7 +8,7 @@ Writes manuscript/sections/ed_tables_draft.tex:
 - H1 per sector, shape and total variants: evaluable levels whose median displacement
   exceeds the sector noise floor, of the evaluable levels, and the median over those
   levels of the per-level median displacement; the sector noise floor. Bold marks a
-  sector the product "mispredicts" (results/hindcast/main/h1_mispredicts.csv; D-072).
+  sector the product "mispredicts" (results/hindcast/main/h1_mispredicts.csv).
 
 Every key is checked against results/metrics.json; the script stops on a missing key,
 so the table cannot reference a number that the macros do not define.
@@ -55,7 +55,7 @@ def h2_table(k: Keys) -> list[str]:
            f"\\metric{{params.veg_cell_share}}). Errors are model minus ICESat-2 (m); products in the matched variant "
            "(product plus its training-block offset). $n$, test-block points (blocks in parentheses). Coverage: share of "
            f"test points inside the \\metric{{params.conformal_level}} conformal interval, with the test-block bootstrap "
-           "95\\% interval. Ural has no test block at this size.}",
+           f"{k('params.ci_pct')}\\% interval. Ural has no test block at this size.}}",
            "\\label{tab:ed_h2_sectors}",
            "\\begin{tabular}{llrrrrrr}", "\\hline",
            " & & \\multicolumn{3}{c}{ATL06} & \\multicolumn{3}{c}{ATL08} \\\\",
@@ -94,7 +94,8 @@ def h1_table(k: Keys, variant: str, mis: pd.Series) -> list[str]:
            f"\\caption{{\\textbf{{Shoreline displacement of the products by sector (H1), {label[variant]}.}} For each "
            "product: the number of evaluable levels whose median displacement exceeds the sector noise floor, of the "
            "evaluable levels, and the median over those evaluable levels of the per-level median displacement (km; "
-           "epochs pooled). Noise floor: the median over levels of the 95th percentile of the distances between the two "
+           f"epochs pooled). Noise floor: the median over levels of the {k('params.err_pct_hi')}th percentile of the "
+           "distances between the two "
            "acquisition halves (km). Bold: the product mispredicts the sector (more than half of its evaluable levels "
            "exceed the noise floor).}",
            f"\\label{{tab:ed_h1_sectors_{variant}}}",

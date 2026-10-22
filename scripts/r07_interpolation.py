@@ -1,5 +1,4 @@
-"""Robustness check 7 (brief section 10): interpolation method and bin width. No Earth
-Engine (docs/ROBUSTNESS_PLAN.md).
+"""Robustness check 7: interpolation method and bin width. No Earth Engine.
 
 Commands
   gp         The comparison method of PREREG section 4: ordinary kriging, i.e. a Gaussian

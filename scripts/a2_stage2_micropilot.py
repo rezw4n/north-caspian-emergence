@@ -1,4 +1,4 @@
-"""Stage-2 cost micro-pilot (D-026, D-027): the redesigned stage-2 graph
+"""Stage-2 cost micro-pilot: the redesigned stage-2 graph
 (caspian.pipeline_ee.water_valid, per-acquisition mosaics, one-pass uint16 counts,
 equal-area export grid) on a 0.3 x 0.3 degree box inside Landsat-8 path 165 row 28,
 2020, grouped by calendar month (a cost proxy, as in the earlier pilots).

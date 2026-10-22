@@ -1,4 +1,4 @@
-"""Revision statistics of workstream S (caspian.rev_s; PREREG Amendment 18, D-113, D-114)."""
+"""Revision statistics (caspian.rev_s; PREREG Amendment 18)."""
 
 import numpy as np
 import pandas as pd
@@ -75,7 +75,7 @@ def test_exact_rank_sum_reaches_one_in_35_and_matches_a_hand_count():
     vals = {s: float(v) for s, v in zip("abcdefg", [7, 6, 5, 4, 3, 2, 1])}
     top = rev_s.exact_rank_sum_test(vals, {"a", "b", "c"})
     assert top["statistic"] == 18 and top["p_value"] == pytest.approx(1 / 35)
-    # ranks 2, 4 and 6 of 7 counted from the top (R3's GEBCO_2026 illustration): rank sum
+    # ranks 2, 4 and 6 of 7 counted from the top (a GEBCO_2026 illustration): rank sum
     # 12 = the null expectation, and 20 of the 35 labellings reach it
     mid = rev_s.exact_rank_sum_test(vals, {"b", "d", "f"})
     assert mid["statistic"] == 12 == mid["expected"]

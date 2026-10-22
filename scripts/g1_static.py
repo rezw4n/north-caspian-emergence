@@ -1,4 +1,4 @@
-"""A9 generality test, local static layers (PREREG Amendment 16 items 4 and 6; D-094).
+"""Generality test, local static layers (PREREG Amendment 16 items 4 and 6).
 
 Great Salt Lake:
 1. Arms. The Union Pacific Lakeside Subdivision (OpenStreetMap) splits the box into a
@@ -15,8 +15,8 @@ Great Salt Lake:
    (north 1987, south 1986, from scripts/g1_ee.py extents), the near-minimum from the
    year of its lowest April-October level.
 4. Open water: near-minimum water whose 5 km surroundings are >= 80% water, per arm.
-5. Zone v6 (D-029): the band connected to open water, dilated 2 km, inside the arms;
-   cover: 5 km tiles containing a zone cell plus one ring (D-060).
+5. Zone v6: the band connected to open water, dilated 2 km, inside the arms;
+   cover: 5 km tiles containing a zone cell plus one ring.
 
 Outputs: results/generality/<basin>/{arms_laea,cover_laea,ponds_laea}.geojson,
 {zone,cover}_lonlat.geojson, static.json; data/interim/generality/<basin>/static_250m.npz
@@ -158,7 +158,7 @@ def gsl(basin: str) -> int:
     seed = np.zeros(shape_, bool)
     for k in (1, 2):
         # the arm's main water body: the largest component of its open-water mask, so that a
-        # walled evaporation pond large enough to pass the 5 km test is not a seed (D-094)
+        # walled evaporation pond large enough to pass the 5 km test is not a seed
         ow = G.open_water(low & (armlab == k), rad) & (armlab == k)
         seed |= G.largest_component(ow)
     zone = G.zone_v6(high, low, seed, int(round(2000 / RES))) & (armlab > 0)

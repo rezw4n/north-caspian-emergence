@@ -2,7 +2,7 @@
 
 One place for every number the pre-registration fixes, so code and Methods text
 (via tools/export_params.py and \\metric{params.*}) quote the same values. Changing
-any of these is a PREREG amendment, logged in docs/DECISIONS.md.
+any of these is a PREREG amendment.
 """
 
 from __future__ import annotations
@@ -14,7 +14,7 @@ BIN_ORIGIN_M = -30.00
 CONTOUR_LEVEL = 0.5            # water-frequency contour
 MIN_VALID_OBS = 5              # valid observations per pixel, bin and epoch
 DEM_RES_M = 30
-DEM_TILE_M = 60_000          # DEM tiles: a whole number of 30 m pixels and 60 m cells (D-069)
+DEM_TILE_M = 60_000          # DEM tiles: a whole number of 30 m pixels and 60 m cells
 E2_END = "2010-12-31"          # E2 ends; E3 starts 2011-01-01 (E1 ends at the level maximum)
 
 # section 2: independent heights

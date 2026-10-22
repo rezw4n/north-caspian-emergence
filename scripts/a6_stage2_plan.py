@@ -1,10 +1,10 @@
-"""A6: the stage-2 scene plan (local).
+"""The stage-2 scene plan (local).
 
 One row per scene that enters stage 2:
-- open-water months (D-062);
+- open-water months;
 - touches the zone (stage-1 zone_px > 0);
 - has a level (epochs E1-E3);
-- has an acquisition threshold (D-061).
+- has an acquisition threshold (scripts/a3_thresholds.py).
 
 Columns: scene, sensor, acq, time, threshold, threshold_source, level_m, sigma_m,
 epoch, bin, parity, the predicted setup in each sector (scripts/a5_setup_model.py),
@@ -35,8 +35,8 @@ from caspian import design, levels
 from caspian.config import INTERIM, STAGE1
 from caspian.geography import SECTOR_ORDER
 
-ICE_MONTHS = (11, 12, 1, 2, 3)          # D-062
-SETUP_CLASS_EDGES = (0.05, 0.10, 0.15, 0.20, 0.30)   # |setup| class edges, sensitivity export (m; D-064)
+ICE_MONTHS = (11, 12, 1, 2, 3)          # ice-affected, excluded
+SETUP_CLASS_EDGES = (0.05, 0.10, 0.15, 0.20, 0.30)   # |setup| class edges, sensitivity export (m)
 SECTOR_CODE = {s: i + 1 for i, s in enumerate(SECTOR_ORDER)}
 
 
@@ -77,7 +77,7 @@ def main(argv) -> int:
     if mode == "main":
         tau = float(argv[1])
         ex = []
-        # unknown setup (no ERA5 forcing yet) counts as exceeding tau (D-066)
+        # unknown setup (no ERA5 forcing yet) counts as exceeding tau
         for _, r in d[setup_cols].iterrows():
             ex.append(",".join(str(SECTOR_CODE[c[6:-2]]) for c in setup_cols
                                if not np.isfinite(r[c]) or abs(r[c]) > tau))

@@ -1,8 +1,8 @@
-"""Word count of the Environmental Research Letters Letter (manuscript/main_erl.tex; D-107).
+"""Word count of the Environmental Research Letters Letter (manuscript/main_erl.tex).
 
 ERL: a Letter has at most 4,000 words, excluding the title, abstract, figures, tables, captions
-and references; the abstract has at most 300 words (docs/journal_specs.md). The count is the
-one verify-B applies (VB.6, VB.7), from tools/texcheck.py, so the two cannot disagree:
+and references; the abstract has at most 300 words. The count uses the manuscript-check
+helpers of tools/texcheck.py, so the two cannot disagree:
 
 - the total is everything ERL does not exclude: the body without title and authors, abstract,
   floats (figures, tables, their captions) and references; section headings, keywords,
@@ -54,7 +54,7 @@ def main() -> int:
         for name, n in parts.items():
             print(f"{name:<13} {n:>5}")
         print(f"{'Sections':<13} {report['sections_without_statements']:>5}  (Introduction to Conclusion, headings included)")
-        print(f"{'Total':<13} {total:>5}  (limit {MAIN_LIMIT}; as verify-B VB.6: everything but title, abstract, "
+        print(f"{'Total':<13} {total:>5}  (limit {MAIN_LIMIT}; everything but title, abstract, "
               "floats, captions and references, statements and keywords included)")
         print(f"{'Abstract':<13} {abstract:>5}  (limit {ABSTRACT_LIMIT})")
         if missing:

@@ -1,9 +1,8 @@
-"""Revision workstream G (PREREG Amendment 18 item 11, ETOPO 2022; D-130; reviewer comments
-R1.M7, R3.M6, R2 minor 6). Exploratory, post-review analyses; the registered H1 result
-(D-087) stands.
+"""Revision analysis G (PREREG Amendment 18 item 11, ETOPO 2022). Exploratory, post-review
+analyses; the registered H1 result stands.
 
 Stages (each writes under results/revision/g/etopo/):
-  sources   HEAVY (run through tools/heavy_slot.py). The main run's machinery
+  sources   HEAVY. The main run's machinery
             (scripts/a7_hindcast.py, unchanged: static layers, record-low envelope, sea
             connection, the cached corrected heights and flood-level maps, the shape
             constants of results/hindcast/main/run.json) recomputes the waterline
@@ -14,12 +13,12 @@ Stages (each writes under results/revision/g/etopo/):
             |d|; the per-level medians over all sources are checked against the
             registered displacement.csv. --bins limits the run (pilot).
   compare   From the sources tables: matched levels (both sources >= 20 distances in
-            the sector), per sector and D-087 level band, and ETOPO 2022's shoreline
+            the sector), per sector and H1 level band, and ETOPO 2022's shoreline
             cell shares by source.
-  edge      (D-130 addendum) ETOPO 2022's predicted waterline cells in three classes: FABDEM,
+  edge      ETOPO 2022's predicted waterline cells in three classes: FABDEM,
             lake depth at the edge of the lake-depth area (an ETOPO cell with a FABDEM
             8-neighbour), lake depth inside; share and median |d| per level band and sector.
-  bands     The registered per-level floor (pooled-level rows) and D, Q, D/Q per D-087
+  bands     The registered per-level floor (pooled-level rows) and D, Q, D/Q per H1
             level band and sector, for every product (shape variant), with within-sector
             comparisons.
   heights   ETOPO 2022 minus GEBCO_2022 at the same 15" cells of the emerged band, by
@@ -61,9 +60,9 @@ OUT = RESULTS / "revision" / "g" / "etopo"
 CACHE = INTERIM / "revision_g" / "etopo"
 SEED = 20261022
 N_BOOT = 2000
-MIN_N = 20                     # D-070 minimum number of distances
+MIN_N = 20                     # registered minimum number of distances
 MIN_N_BLOCK = 50               # within-block contrast: points of each source per block
-BANDS = [-29.0, -28.3, -27.7, -27.0, -26.3, -25.5]   # D-087 (scripts/a7_level_bands.py)
+BANDS = [-29.0, -28.3, -27.7, -27.0, -26.3, -25.5]   # H1 level bands (scripts/a7_level_bands.py)
 SRC_NAME = {10: "fabdem", 11: "lake_depth"}
 CORRECTION = RESULTS / "study_area" / "geoid_correction_primary.npz"
 PRODS = ("etopo_2022", "gebco_2022")
@@ -468,9 +467,9 @@ def stage_clamp(a) -> int:
 
 
 def stage_edge(a) -> int:
-    """D-130 addendum: ETOPO 2022's predicted waterline cells of the full sources run in three
+    """ETOPO 2022's predicted waterline cells of the full sources run in three
     classes (FABDEM; lake depth at the edge of the lake-depth area, i.e. an ETOPO cell with a
-    FABDEM 8-neighbour; lake depth inside), per D-087 band and sector: share of cells and median
+    FABDEM 8-neighbour; lake depth inside), per H1 level band and sector: share of cells and median
     |d| of their predicted-to-observed distances."""
     from scipy import ndimage
     A7 = _load("a7_hindcast", "a7_hindcast.py")

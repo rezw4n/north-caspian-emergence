@@ -1,5 +1,5 @@
 """caspian.watersurface: SWOT heights on the working datum, sector departures, shifted
-flood-level maps and the planar offset helpers (A18 item 9; D-120, D-121)."""
+flood-level maps and the planar offset helpers (A18 item 9)."""
 
 import numpy as np
 import pandas as pd

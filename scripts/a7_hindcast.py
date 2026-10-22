@@ -1,5 +1,5 @@
-"""A7: hindcast audit driver, per-unit metrics for H1 (PREREG section 9 with
-Amendments 6, 7 and 10; D-030, D-032, D-033, D-050, D-067, D-070).
+"""Hindcast audit driver, per-unit metrics for H1 (PREREG section 9 with
+Amendments 6, 7 and 10).
 
 For each level bin in the stage-2 counts (data/interim/stage2/<tag>/tile_*.npz,
 scripts/a6_stage2_export.py):
@@ -9,7 +9,7 @@ scripts/a6_stage2_export.py):
    valid acquisitions and water where its frequency is >= design.CONTOUR_LEVEL
    (PREREG section 4). Each half alone, and E2 + E3 summed at bins shared with E1,
    are built the same way, each with its own valid mask (Amendment 7).
-2. Sea connection (Amendment 7 item 2, D-033; hindcast_tiled.sea_classes): observed
+2. Sea connection (Amendment 7 item 2; hindcast_tiled.sea_classes): observed
    water counts as water only if it is 8-connected through known water to the
    open-sea seed. Unconnected water is land if bordered only by known land, unknown
    if it touches an unknown cell. Class areas per sector go to observed.csv.
@@ -18,9 +18,9 @@ scripts/a6_stage2_export.py):
    fill at level L is exactly F < L) is thresholded at the bin centre on the
    product's scale (caspian.products.flood_level). Variant "total" (PREREG 5a): the
    heights brought to the DAHITI working datum by the per-cell geoid correction
-   (--vertical-correction; D-070), no constant. Variant "shape" (PREREG 5b): with the
-   constant c of D-070 (step 4), or one supplied with --shape-offsets.
-4. Shape offset (D-070, fit_shape): per product, c on a 0.01 m grid over +-5 m that
+   (--vertical-correction), no constant. Variant "shape" (PREREG 5b): with the
+   constant c of step 4, or one supplied with --shape-offsets.
+4. Shape offset (fit_shape): per product, c on a 0.01 m grid over +-5 m that
    minimises the sum over all (epoch, level) units of |area bias| (km2) over known
    cells inside the domain and in training blocks (blocks_25km.csv, split == train;
    a cell takes the 25 km block that contains its centre); ties go to the smallest
@@ -37,26 +37,26 @@ scripts/a6_stage2_export.py):
 6. Noise floor (noise_floor.csv): the two parity halves per epoch and bin (A =
    parity 0), and E1 vs E2 + E3 at shared bins (A = E1). A positive signed median
    means more water in A.
-7. Pooled rows (D-032): per bin, the epochs' distances pooled for each product, and
+7. Pooled rows: per bin, the epochs' distances pooled for each product, and
    the noise-floor distances (halves of every epoch, and E1 vs E2 + E3) pooled; per
    sector, the noise floor pooled over every level and epoch (the sensitivity).
-8. H1 block values (D-070; block_h1.csv): per product, variant and block, the median
+8. H1 block values (block_h1.csv): per product, variant and block, the median
    of the absolute displacement distances pooled over all units, with their number
    (caspian.h1.block_test applies the 20-distance minimum and the permutation test).
 
 Static layers, on the 60 m equal-area grid that covers the product subsets (DOMAIN
 bounds +- 0.1 deg; aligned to multiples of 60 m like the stage-2 tiles):
-- domain: DOMAIN with its lon/lat edges densified to 0.01 deg (D-039), rasterised
-  by cell centre; zone: the buffered stage-2 cover (D-060; straight edges in the
+- domain: DOMAIN with its lon/lat edges densified to 0.01 deg, rasterised
+  by cell centre; zone: the buffered stage-2 cover (straight edges in the
   equal-area CRS, as scripts/a6_stage2_export.py reads it), clipped to the domain;
 - sectors: caspian.geography, densified likewise, extended beyond the domain to
-  the nearest sector (nearest_region, D-050);
-- open-sea seed (D-070): the D-029 open-sea mask (results/study_area/
+  the nearest sector (nearest_region);
+- open-sea seed: the open-sea mask (results/study_area/
   sea_mask_1km.npz), nearest neighbour, outside the zone inside the domain less its
   one-cell rim;
 - beyond-domain state: results/study_area/beyond_state_250m.npz, nearest neighbour,
-  -1 -> unknown (D-067);
-- land seeds (D-070): the beyond-domain state's land cells inside the domain (its
+  -1 -> unknown;
+- land seeds: the beyond-domain state's land cells inside the domain (its
   5 km inner band), outside the zone and the rim;
 - outside states: hindcast_tiled.outside_state (= hindcast.outside_state_from_zone),
   which stops with an error if the open sea and a land seed connect outside the zone.
@@ -112,9 +112,9 @@ from caspian.geography import DOMAIN, SECTOR_ORDER, sectors
 BAND = re.compile(r"([wv])_(E[123])_b(\d{3})_p([01])$")
 RES = 60                  # stage-2 grid (scripts/a6_stage2_export.py)
 MARGIN_DEG = 0.1          # the product subsets' margin (scripts/a7_get_*.py)
-DENSIFY_DEG = 0.01        # D-039
+DENSIFY_DEG = 0.01        # densification step of lon/lat edges (deg)
 CELL_KM2 = RES * RES / 1e6
-C_GRID = np.round(np.arange(-500, 501) / 100.0, 2)    # D-070: shape offsets, 0.01 m over +-5 m
+C_GRID = np.round(np.arange(-500, 501) / 100.0, 2)    # shape offsets, 0.01 m over +-5 m
 DATUM_SOURCE = "DAHITI working datum (D-070): no level offset"
 STUDY = RESULTS / "study_area"
 COVER = STUDY / "zone_v6_cover_buffered.geojson"
@@ -139,7 +139,7 @@ def grid(bounds_lonlat, res: float = RES):
 
 def to_laea(geom_lonlat, densify_deg: float | None = DENSIFY_DEG):
     """A lon/lat geometry in the equal-area CRS. Densified first when its edges are
-    straight in lon/lat (DOMAIN and sectors, D-039); not when they are straight in the
+    straight in lon/lat (DOMAIN and sectors); not when they are straight in the
     equal-area CRS (the stage-2 cover)."""
     g = geom_lonlat.segmentize(densify_deg) if densify_deg else geom_lonlat
     return shapely.transform(g, lambda xy: np.column_stack(FWD.transform(xy[:, 0], xy[:, 1])))
@@ -191,13 +191,13 @@ def train_mask(blocks: pd.DataFrame, transform, shape, block_m: float = design.B
     return lut[(bj - bj.min())[:, None], (bi - bi.min())[None, :]]
 
 
-COAST_BAND_M = 2000     # D-083: shorelines of the zone-v6 extents dilated by the zone dilation
-RIM_M = 2000            # D-083: domain rim whose cells take the beyond-domain state
+COAST_BAND_M = 2000     # shorelines of the zone-v6 extents dilated by the zone dilation
+RIM_M = 2000            # domain rim whose cells take the beyond-domain state
 
 
 def coast_band(extents: dict, transform, shape, band_m: float = COAST_BAND_M) -> np.ndarray:
     """Cells within ``band_m`` of a shoreline of the 1995-96 or the 2025-26 zone-v6
-    extent (D-083). Added to the zone for the outside states only: where the sea meets
+    extent. Added to the zone for the outside states only: where the sea meets
     land outside the stage-2 cover (steep coasts whose shoreline barely moved, the
     cover's ends at the domain edge), the state is unknown rather than leaking sea into
     the hinterland. ``extents`` = {"high", "low", "transform"} (250 m grid)."""
@@ -220,7 +220,7 @@ def static_layers(transform, shape, *, domain, sector_polys: dict, cover, sea: d
     "transform"}. Sector codes are 1, 2, ... in the order of ``sector_polys``."""
     dom = burn([(domain, 1)], transform, shape) > 0
     zone = (burn([(cover, 1)], transform, shape) > 0) & dom
-    if coast is not None:                     # D-083: the coastal band joins the zone (outside states only)
+    if coast is not None:                     # the coastal band joins the zone (outside states only)
         zone |= np.asarray(coast, bool) & dom
     lab = burn([(g, k + 1) for k, g in enumerate(sector_polys.values())], transform, shape)
     lab[~dom] = 0
@@ -244,7 +244,7 @@ def static_layers(transform, shape, *, domain, sector_polys: dict, cover, sea: d
 
 
 def production_static(transform, shape, tile: int) -> dict:
-    # the committed cover is an invalid MultiPolygon: make each part valid first (D-080)
+    # the committed cover is an invalid MultiPolygon: make each part valid first
     cover = shapely.union_all([shapely.make_valid(as_shape(f["geometry"])) for f in
                                json.loads(COVER.read_text(encoding="utf-8"))["features"]])
     sea_npz, beyond_npz = np.load(SEA), np.load(BEYOND)
@@ -276,12 +276,12 @@ def stage2_index(src: Path) -> dict:
     return units
 
 
-ENVELOPE = None          # record-low water (D-082); set by main unless --no-envelope
+ENVELOPE = None          # record-low water; set by main unless --no-envelope
 ENVELOPE_LOW_BINS = 3    # the lowest E3 bins pooled for the record-low extent
 
 
 def record_low_water(units: dict, transform, shape) -> np.ndarray:
-    """Cells that are water at the record low (D-082): the observed extent of the
+    """Cells that are water at the record low: the observed extent of the
     ENVELOPE_LOW_BINS lowest E3 level bins, counts pooled over the bins and both halves.
     A cell under water at the lowest level of the record is under water at every higher
     level, so such a cell observed dry at a higher bin is an observation error (dark,
@@ -390,7 +390,7 @@ def encode(d, pixel: float = RES) -> np.ndarray:
     integer on the grid; +-INF for infinite), so that a pool over every level holds 4
     bytes per distance and decodes to the same float64 values."""
     d = np.asarray(d, float)
-    if np.isnan(d).any():   # NaN would cast to INT32_MIN and decode as a finite -2,780 km (D-089)
+    if np.isnan(d).any():   # NaN would cast to INT32_MIN and decode as a finite -2,780 km
         raise ValueError("NaN distance passed to encode(); drop undefined distances first")
     k = np.where(np.isinf(d), _INF, np.rint((np.where(np.isinf(d), 0, d) / pixel) ** 2))
     if np.any(k > _INF):
@@ -405,7 +405,7 @@ def decode(code, pixel: float = RES) -> np.ndarray:
 
 
 class Pool:
-    """Signed distances (encoded) and counts per key, for pooled summaries (D-032)."""
+    """Signed distances (encoded) and counts per key, for pooled summaries."""
 
     def __init__(self, pixel: float = RES):
         self.d: dict = {}
@@ -435,7 +435,7 @@ def _measured(cells: dict, transform, block_m: float):
     rows = np.r_[p["rows"][p["known"]], o["rows"][o["known"]]]
     cols = np.r_[p["cols"][p["known"]], o["cols"][o["known"]]]
     d = np.r_[cells["signed_p"][p["known"]], cells["signed_o"][o["known"]]]
-    ok = ~np.isnan(d)                      # undefined distances are left out (D-089); +-inf kept
+    ok = ~np.isnan(d)                      # undefined distances are left out; +-inf kept
     rows, cols, d = rows[ok], cols[ok], d[ok]
     return (np.floor((c + a * (cols + 0.5)) / block_m).astype(np.int64),
             np.floor((f + e * (rows + 0.5)) / block_m).astype(np.int64), d)
@@ -465,7 +465,7 @@ def median_from_counts(k, counts, pixel: float = RES) -> float:
 
 class BlockHist:
     """Per key (product, variant) and block, how often each distance occurs (as its
-    squared lattice length), summed over units: the exact pooled median of D-070
+    squared lattice length), summed over units: the exact pooled median
     without holding every distance."""
 
     def __init__(self, transform, block_m: float, pixel: float = RES):
@@ -491,7 +491,7 @@ class BlockHist:
         return pd.DataFrame(rows, columns=["product", "variant", "block_i", "block_j", "n", "median_abs_m"])
 
 
-# --- shape offset (PREREG 5b, D-070) -------------------------------------------------------
+# --- shape offset (PREREG 5b) --------------------------------------------------------------
 
 def unit_counts(F, code, outside, finite, region, thresholds, *, tile: int = ht.TILE):
     """For one unit and product: the number of known cells in ``region`` with F below
@@ -516,7 +516,7 @@ def unit_counts(F, code, outside, finite, region, thresholds, *, tile: int = ht.
 
 
 def fit_offset(bias, epochs, exclude: str | None = None) -> dict:
-    """D-070: the c of C_GRID that minimises the sum over units of |area bias| (cells;
+    """The c of C_GRID that minimises the sum over units of |area bias| (cells;
     ``bias`` [unit, c]), leaving out the units of epoch ``exclude``. Ties go to the
     smallest |c|, then to the smaller c."""
     use = np.array([e != exclude for e in epochs])
@@ -533,7 +533,7 @@ def fit_offset(bias, epochs, exclude: str | None = None) -> dict:
 def fit_shape(units, transform, static, flood_maps, finite, fit_region, *, level_datum_offset: float,
               product_offsets: dict, tile: int, log=print) -> tuple[dict, dict]:
     """Per product, the signed area bias (cells) of every (epoch, level) unit at every
-    c of C_GRID over the known cells of ``fit_region``, and the D-070 fit with its
+    c of C_GRID over the known cells of ``fit_region``, and the shape fit with its
     leave-one-epoch-out refits. Returns (record, {product: bias array})."""
     shape = static["sector"].shape
     ulist = [(b, ep) for b in sorted(units) for ep in sorted(units[b])]
@@ -577,7 +577,7 @@ def run(stage2_dir, out_dir, static: dict, heights: dict, transform, *, level_da
 
     ``heights``: {product: array, memory map or products.Corrected on the grid}.
     ``flood_maps``: their flood-level maps (computed here if None). ``product_offsets``:
-    {product: {"offset_m", "source"}}. ``shape_offsets``: "fit" (D-070, needs
+    {product: {"offset_m", "source"}}. ``shape_offsets``: "fit" (needs
     ``fit_region``, the domain and training-block mask; with ``fit_exclude_epoch``
     the shape variant uses the refit without that epoch), a dict like
     ``product_offsets``, or None (no shape variant)."""
@@ -773,18 +773,18 @@ def main(argv) -> int:
     ap.add_argument("--vertical-correction", default=None,
                     help="N(EGM2008) - N(EIGEN-6C4) raster (GeoTIFF or npz; caspian.products), added to the heights")
     ap.add_argument("--level-datum-offset", type=float, default=0.0,
-                    help="m added to the DAHITI-scale bin centres (default 0: DAHITI working datum, D-070)")
+                    help="m added to the DAHITI-scale bin centres (default 0: DAHITI working datum)")
     ap.add_argument("--level-datum-source", default=DATUM_SOURCE)
     ap.add_argument("--products", default=",".join(products.PRODUCTS))
     ap.add_argument("--product-offsets", default=None, help="JSON: constant product offsets (default none)")
-    ap.add_argument("--shape-offsets", default=None, help="JSON: shape constants instead of the D-070 fit")
+    ap.add_argument("--shape-offsets", default=None, help="JSON: shape constants instead of the fit")
     ap.add_argument("--no-shape", action="store_true", help="skip the shape variant")
     ap.add_argument("--fit-exclude-epoch", default=None, choices=["E1", "E2", "E3"],
-                    help="shape variant with the D-070 refit without this epoch")
+                    help="shape variant with the refit without this epoch")
     ap.add_argument("--resampling", default="bilinear", choices=products.METHODS)
     ap.add_argument("--tile", type=int, default=ht.TILE)
     ap.add_argument("--no-envelope", action="store_true",
-                    help="sensitivity: no record-low water envelope on the observed extents (D-082)")
+                    help="sensitivity: no record-low water envelope on the observed extents")
     ap.add_argument("--out-suffix", default="", help="write to results/hindcast/<tag><suffix> (sensitivity runs)")
     a = ap.parse_args(argv)
     w, s, e, n = DOMAIN.bounds

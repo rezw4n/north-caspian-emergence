@@ -1,5 +1,5 @@
-"""Robustness check 1 (brief section 10): the per-scene threshold method. Local parts
-only; the Earth Engine parts are specified in docs/ROBUSTNESS_PLAN.md.
+"""Robustness check 1: the per-scene threshold method. Local parts only; the Earth
+Engine parts run separately.
 
 Commands
   sample     The Amendment 3 robustness sample, by whole acquisitions, stratified by
@@ -12,7 +12,7 @@ Commands
              a3-tagged groups dropped (split main) or minus --a3-main-tag (unsplit main),
              plus the edge counts; then the downstream steps and the paired comparison
              (scripts/r00_pipeline.py).
-  fallback   With a main export split by threshold source: the variant without the D-061
+  fallback   With a main export split by threshold source: the variant without the
              fallback-threshold acquisitions (token fb), which bounds the effect of the
              fallback rule.
   block      A block-sample Earth Engine alternative (fixed MNDWI 0, AWEI_sh, ...; tag

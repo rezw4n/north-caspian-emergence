@@ -1,4 +1,4 @@
-"""scripts/g1_ee.py run_counts checkpointing (D-094 addendum) and the month-to-date sum,
+"""scripts/g1_ee.py run_counts checkpointing and the month-to-date sum,
 with a fake request function: no Earth Engine call is made."""
 
 import importlib.util

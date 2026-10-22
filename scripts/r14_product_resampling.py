@@ -1,4 +1,4 @@
-"""Robustness (D-070): product resampling by nearest neighbour instead of bilinear. No
+"""Robustness: product resampling by nearest neighbour instead of bilinear. No
 Earth Engine.
 
 - H1: the hindcast with every product resampled by nearest neighbour to the 60 m grid

@@ -1,7 +1,7 @@
-"""Fig. 3: seabed topography from waterlines and its accuracy (H2; D-084 to D-088).
+"""Fig. 3: seabed topography from waterlines and its accuracy (H2).
 
 a, the waterline DEM (data/processed/dem/main/dem_*.tif band 1, height on the DAHITI
-   reference; 30 m, averaged to the MAP_RES_M display grid), inside the D-071 emerged
+   reference; 30 m, averaged to the MAP_RES_M display grid), inside the emerged
    band only (as Fig. 1a), with the 50 km test blocks that hold ICESat-2 points of the
    H2 population (results/study_area/blocks_50km.csv).
 b, DEM height against the ICESat-2 ATL06 reference height (H + c, c the training-block
@@ -16,7 +16,7 @@ d, empirical coverage of the 90% conformal intervals on the test blocks, overall
    per sector, for ATL06 and ATL08 (results/validation/main/<source>_coverage.csv),
    with the test-block bootstrap 95% interval (boot_low, boot_high).
 
-Ural has no test block at 50 km (D-085) and so no sector value; its row says so.
+Ural has no test block at 50 km and so no sector value; its row says so.
 
 Output: figures/out/fig3_dem_accuracy.{pdf,tif,png}
 Usage: python figures/fig3_dem_accuracy.py

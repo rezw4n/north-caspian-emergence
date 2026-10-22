@@ -1,6 +1,6 @@
 """tools/check_inputs.py: raw inputs are verified against their acquisition records
 before `make all` builds on them, and the inventory numbers the Methods take from
-inventory_meta.json are recomputed from scenes.csv (review finding 19)."""
+inventory_meta.json are recomputed from scenes.csv."""
 
 import hashlib
 import json

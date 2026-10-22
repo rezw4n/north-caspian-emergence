@@ -271,7 +271,7 @@ def test_rule_applied_to_the_synthetic_driver_tables(tables):
     assert s.loc[("high", "total")].all()
 
 
-# --- the shape offset (D-070) ---------------------------------------------------------------
+# --- the shape offset -----------------------------------------------------------------------
 
 def test_shape_offset_fit_and_its_record(tables, tmp_path_factory):
     rec = tables["shape_offsets"]

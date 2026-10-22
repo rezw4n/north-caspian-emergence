@@ -1,4 +1,4 @@
-"""Revision analyses of near-term emergence (PREREG Amendment 18 item 10; D-123 to D-127).
+"""Revision analyses of near-term emergence (PREREG Amendment 18 item 10).
 
 Additive helpers for scripts/rev_n_*.py. Nothing here changes a registered result. The
 conventions are those of caspian.exposure and caspian.hindcast_tiled: F is a flood-level
@@ -6,15 +6,15 @@ map (a cell is sea at level L when F < L, compared in float64); grids may be arr
 memory maps or window-readable objects.
 
 Contents
-- surfaces: ``ShiftedSurface`` (F - c, the shifted products of D-123 (b)) and
-  ``BaselineSurface`` (the common baseline of D-123 (a), location version);
+- surfaces: ``ShiftedSurface`` (F - c, the shifted products) and
+  ``BaselineSurface`` (the common baseline, location version);
 - counts and curves: ``region_counts``, ``curve_from_counts``, ``isolated_from_counts``;
-- envelopes (D-124): ``pair_counts``, ``scale_scores``, ``relative_envelope``,
+- envelopes: ``pair_counts``, ``scale_scores``, ``relative_envelope``,
   ``decline_envelope``;
-- simulation (D-125): ``grf_exponential``, ``bilinear_to``, ``minimax_flood``,
+- simulation: ``grf_exponential``, ``bilinear_to``, ``minimax_flood``,
   ``block_mean``, ``block_all``, ``block_region_counts``, ``agreement_ratio``;
-- exposure (D-126): ``distance_masks``, ``port_type``;
-- pathways (D-127): ``two_way_shares``, ``pathway_fall``, ``ols_rate``.
+- exposure: ``distance_masks``, ``port_type``;
+- pathways: ``two_way_shares``, ``pathway_fall``, ``ols_rate``.
 """
 
 from __future__ import annotations
@@ -33,7 +33,7 @@ from .exposure import below_counts, float32_below, known_masks
 class ShiftedSurface:
     """F - c, window by window (float64): the flood level of the product's heights less a
     constant c. A constant shift commutes with the minimax flood fill, so this is the
-    flood-level map of the shifted heights (D-123 (b))."""
+    flood-level map of the shifted heights."""
 
     def __init__(self, F, c: float):
         self.F, self.c = F, float(c)
@@ -44,7 +44,7 @@ class ShiftedSurface:
 
 
 class BaselineSurface:
-    """The common-baseline surface G of D-126: on the baseline set (``F_base < level_2026``)
+    """The common-baseline surface G: on the baseline set (``F_base < level_2026``)
     G = min(F, the largest float32 below level_2026), elsewhere +inf. So G < level_2026 is
     the baseline set, and for L <= level_2026, G < L is the baseline set intersected with
     F < L. ``F`` may be a ShiftedSurface."""
@@ -85,7 +85,7 @@ def interp_counts(counts, levels, at) -> np.ndarray:
 def curve_from_counts(counts, levels, baseline_level: float, deltas, *, baseline_counts=None) -> np.ndarray:
     """Emerged cells E(D) = A(baseline) - A(baseline_level - D) for each D of ``deltas``,
     from counts of sea cells on a level grid (last axis). ``baseline_counts`` (same leading
-    shape) replaces A(baseline_level), e.g. the area of a common baseline (D-123 (a))."""
+    shape) replaces A(baseline_level), e.g. the area of a common baseline."""
     d = np.asarray(deltas, float)
     a = interp_counts(counts, levels, baseline_level - d)
     base = (interp_counts(counts, levels, [baseline_level])[..., 0] if baseline_counts is None
@@ -99,7 +99,7 @@ def isolated_from_counts(z_counts, f_counts, levels, at) -> np.ndarray:
     return interp_counts(z_counts, levels, at) - interp_counts(f_counts, levels, at)
 
 
-# --- envelopes (D-124) -----------------------------------------------------------------------------
+# --- envelopes -------------------------------------------------------------------------------------
 
 def pair_counts(F, level_top: float, level_u: float, code_top, code_u, outside, finite, labels,
                 n_regions: int, shifts=(0.0,), *, shape=None, tile: int = ht.TILE) -> dict:
@@ -137,7 +137,7 @@ def pair_counts(F, level_top: float, level_u: float, code_top, code_u, outside, 
 
 
 def scale_scores(errors, observed_change) -> np.ndarray:
-    """|error| / observed change (D-124): +inf where the observed change is not positive
+    """|error| / observed change: +inf where the observed change is not positive
     (a relative error is undefined there; infinite scores are kept by the quantile)."""
     e = np.abs(np.asarray(errors, float))
     o = np.asarray(observed_change, float)
@@ -168,7 +168,7 @@ def decline_envelope(estimate, q: float, delta) -> tuple:
     return (float(lo), float(hi)) if np.ndim(estimate) == 0 and np.ndim(delta) == 0 else (lo, hi)
 
 
-# --- simulation (D-125) ----------------------------------------------------------------------------
+# --- simulation ------------------------------------------------------------------------------------
 
 def _embedding_eigenvalues(ny: int, nx: int, dx: float, sill: float, practical_range: float):
     from scipy import fft
@@ -289,7 +289,7 @@ def agreement_ratio(bands, weights) -> float:
     return float(all_ / any_) if any_ > 0 else float("nan")
 
 
-# --- exposure (D-126) ------------------------------------------------------------------------------
+# --- exposure --------------------------------------------------------------------------------------
 
 def distance_masks(band, r_m: float, pixel: float, *, tile: int = 2048):
     """(dilated, eroded) copies of a boolean grid by a Euclidean distance r_m (m): dilated
@@ -318,8 +318,8 @@ def distance_masks(band, r_m: float, pixel: float, *, tile: int = 2048):
 def exposure_from_states(rule: str, samples, wet_ref, wet) -> "pd.DataFrame":
     """exposure.exposure_at for the "onshore", "length" and "area" rules from boolean sea
     states of each sample at the 2026 level (``wet_ref``) and at the scenario level
-    (``wet``) instead of flood levels, e.g. for bands dilated or eroded by a distance
-    (D-126). Same columns: fid, considered, changed, amount (count, km or km2)."""
+    (``wet``) instead of flood levels, e.g. for bands dilated or eroded by a distance.
+    Same columns: fid, considered, changed, amount (count, km or km2)."""
     import pandas as pd
     if rule not in ("onshore", "length", "area"):
         raise ValueError("rule must be onshore, length or area")
@@ -351,7 +351,7 @@ def port_type(tags) -> str:
     return "pier_landing"
 
 
-# --- pathways (D-127) ------------------------------------------------------------------------------
+# --- pathways --------------------------------------------------------------------------------------
 
 def two_way_shares(y) -> dict:
     """Shares of the total sum of squares of a two-way table without replication (rows:

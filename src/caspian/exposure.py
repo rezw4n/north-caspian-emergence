@@ -1,8 +1,8 @@
-"""A8 (H3): near-term seabed emergence and exposure (PREREG section 10; brief section 8 A8).
+"""H3: near-term seabed emergence and exposure (PREREG section 10).
 
 The functions here are applied by scripts/a8_emergence.py; the H3 decision rule is in
 caspian.h3 and is never called by the driver. Everything is on the DAHITI working
-datum of the hindcast (D-070): levels, product heights with the per-cell geoid
+datum of the hindcast: levels, product heights with the per-cell geoid
 correction (the a7 "total" variant) and the waterline DEM. Grids are the 60 m
 equal-area hindcast grid; inputs may be arrays, memory maps or window callables
 (caspian.hindcast_tiled conventions), so the whole grid is never held in float64.
@@ -13,11 +13,11 @@ are fixed before any hindcast or projection metric exists):
 1. Vertical error learned in section 9 (proposed). For product p, region r (a sector
    inside the domain, or the domain) and hindcast unit u (epoch, level bin, level
    L_u), the area-matching shift ``delta`` is the constant c of ``C_GRID`` (0.01 m over
-   +-5 m, as D-070) that minimises |area bias| of the flood fill at L_u + c over the
+   +-5 m, as for the shape offset) that minimises |area bias| of the flood fill at L_u + c over the
    unit's known cells in r. The bias is the section 9 total area bias, counted as in
    scripts/a7_hindcast.unit_counts (known: inside the valid mask with a known
    observed state, or outside it with a known outside state; finite product height).
-   Ties go to the smallest |c|, then the smaller c (D-072). Positive delta: the
+   Ties go to the smallest |c|, then the smaller c. Positive delta: the
    product is too high (too shallow). The shift is "matched" when the bias changes
    sign or reaches zero on the grid (otherwise it lies at a grid end), and "usable"
    when it is matched and the region holds both known water and known land at the
@@ -49,7 +49,7 @@ are fixed before any hindcast or projection metric exists):
    region's sea area (cells flooded from the open-sea seed) on surface S at the 2026
    level minus that at the scenario level, so each surface is referenced to its own
    2026 shoreline, as published projections are, and a constant datum offset of a
-   product largely cancels (the conservative reading, as D-072 for H1). Sensitivity
+   product largely cancels (the conservative reading, as for H1). Sensitivity
    ("sea_area"): the same with the fused surface's A(L26) as the baseline for every
    surface.
 6. Area intervals (PREREG section 10): split conformal on the absolute hindcast area
@@ -68,7 +68,7 @@ are fixed before any hindcast or projection metric exists):
    the area interval without any per-pixel interval.
 8. The 2026 level (proposed): the mean of the DAHITI records dated 2026
    (``reference_level``); sensitivity: the last value of the 3-record running median
-   (the "present level" of D-040).
+   (the "present level" of the sector-layout check).
 9. Scenario dates (proposed): each published pathway is linear between the points the
    paper states (its reference year at zero change, then each stated year), and the
    date of a scenario is when the pathway's own fall after 2026 reaches the scenario
@@ -88,7 +88,7 @@ from scipy import stats
 from . import conformal, design
 from . import hindcast_tiled as ht
 
-C_GRID = np.round(np.arange(-500, 501) / 100.0, 2)    # D-070 search grid (scripts/a7_hindcast.C_GRID)
+C_GRID = np.round(np.arange(-500, 501) / 100.0, 2)    # shape-offset search grid (scripts/a7_hindcast.C_GRID)
 FORMS = ("linear_hold", "constant", "linear")
 PRIMARY_FORM = "linear_hold"
 MIN_UNITS = 5             # proposed: matched units a sector needs for its own model
@@ -198,7 +198,7 @@ def pair_region_counts(F, level_top: float, level_u: float, code_top, code_u, ou
 
 def matching_shift(bias, c_grid=C_GRID) -> dict:
     """The c of ``c_grid`` minimising |bias| (cells, non-decreasing in c); ties to the
-    smallest |c|, then the smaller c (D-070, D-072). ``matched``: the bias reaches zero or
+    smallest |c|, then the smaller c. ``matched``: the bias reaches zero or
     changes sign on the grid."""
     b = np.asarray(bias, float)
     c = np.asarray(c_grid, float)
@@ -912,8 +912,8 @@ def scenario_dates(curves: dict, deltas, *, base_year: float = 2026.0, anchor: s
 
 def reference_level(times, levels_m, year: int = 2026, method: str = "annual_mean") -> dict:
     """The "2026 level" (proposed): the mean of the level records dated in ``year``
-    ("annual_mean"), or the last value of the 3-record running median, as D-040 took
-    the present level ("latest_running_median")."""
+    ("annual_mean"), or the last value of the 3-record running median, as the sector-layout
+    check took the present level ("latest_running_median")."""
     t = pd.to_datetime(pd.Series(times))
     v = np.asarray(levels_m, float)
     if method == "annual_mean":

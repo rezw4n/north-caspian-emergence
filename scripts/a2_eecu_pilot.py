@@ -1,9 +1,9 @@
-"""A2 pilot: run the A3 classification on one Landsat path/row-year and one
+"""Earth Engine cost pilot: run the water classification on one Landsat path/row-year and one
 Sentinel-2 tile-season as Earth Engine batch exports. Each finished task reports
-the EECU it consumed, which scales to the full-run estimate (G2).
+the EECU it consumed, which scales to the full-run estimate.
 
 The pilot aggregates per-scene classes by calendar month. The grouping is only a
-cost proxy for the level-bin aggregation of A6, which needs the DAHITI levels; no
+cost proxy for the level-bin aggregation of stage 2, which needs the DAHITI levels; no
 scientific result is drawn from the pilot rasters.
 
 Usage: python scripts/a2_eecu_pilot.py submit | status
