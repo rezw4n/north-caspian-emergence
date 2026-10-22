@@ -864,6 +864,30 @@ METRIC_INPUTS += $(ERL_DISPLAY) results/provenance/erl_landsat.json
 METRIC_INPUTS += results/generality/great_salt_lake/lineage.json results/hindcast/main/d089_rerun_comparison.json \
                  results/robustness/r08_blocking/summary.json
 
+## Revision after the internal review (PREREG Amendment 18; D-112) ------------------------
+# Each workstream adds its metrics through tools/metrics_rev_<ws>.py (build_metrics.revision_metrics).
+METRIC_INPUTS += $(wildcard tools/metrics_rev_*.py)
+
+# Workstream S, H1 statistics (D-113 to D-115). HEAVY (about 4,600 s): the raster part reads
+# the cached flood maps and stage-2 tiles and reproduces the registered tables first.
+REV_S_RASTERS := $(addprefix results/revision/s/rasters/,band_overlap.csv oos_area.csv test_displacement.csv \
+  floor_e1_bins.csv checks.json run.json)
+$(REV_S_RASTERS) &: scripts/rev_s_rasters.py scripts/a7_sector_shape.py $(HC_INPUTS) $(call hc_tables,$(HC)/main) \
+        $(HC)/main/shape_offsets.json | $(VERIFIED)
+	$(PYTHON) scripts/rev_s_rasters.py
+REV_S := $(addprefix results/revision/s/,item1_counts.csv item2_p_mispredict.csv item2_count_distribution.csv \
+  item2_dq.csv item4_area_bias.csv item4_oos.csv item4_overlap.csv item5_sector_values.csv item5_tests.csv \
+  item5_null.csv item5_block_groups.csv item8_binomial.csv item8_hysteresis.csv r3m4_test_blocks.csv \
+  r3m4_floor_halves.csv r3m4_floor_halves_levels.csv r3minor1_floor.csv r1minor11_medians.csv \
+  r2minor8_record_low.csv summary.json)
+$(REV_S) &: scripts/rev_s_tables.py $(call h1_tables,$(HC)/main) $(call hc_tables,$(HC)/main) \
+        $(call h1_tables,$(HC)/main_noenv) $(call hc_tables,$(HC)/main_noenv) $(call h1_tables,$(HC)/main_sectorshape) \
+        results/levels/sector_labels.csv results/robustness/r10_morphology/summary.json \
+        results/robustness/r10_morphology/morphology_detail.csv $(S2MAIN) $(REV_S_RASTERS) $(PKG)
+	$(PYTHON) scripts/rev_s_tables.py
+METRIC_INPUTS += $(REV_S)
+REVISION_RESULTS += $(REV_S_RASTERS) $(REV_S)
+
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
 

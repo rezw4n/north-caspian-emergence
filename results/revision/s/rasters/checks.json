@@ -1,0 +1,10 @@
+{
+ "displacement_compared": 3010,
+ "displacement_mismatch": [],
+ "domain_counts_compared": 430,
+ "domain_counts_mismatch": [],
+ "oos_total_compared": 110,
+ "oos_total_mismatch": [],
+ "floor_compared": 70,
+ "floor_mismatch": []
+}
