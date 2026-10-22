@@ -272,26 +272,9 @@ params.update({
                                           "figures/_erl.GRATICULE_ZOOM_DEG", 1),
     "params.erl_fig_near_km": (_const("figures/_erl.py", "NEAR_KM"), "km", "figures/_erl.NEAR_KM"),
     "params.erl_fig_contour_block": (_const("figures/erl_fig_then_now.py", "BLOCK"), "display cells",
-                                     "figures/erl_fig_then_now.BLOCK (block median before contouring)"),
+                                     "figures/erl_fig_then_now.BLOCK (60 m cells per side of the display block whose water share is contoured; D-140)"),
     "params.erl_fig_contour_min_km": (_const("figures/erl_fig_then_now.py", "MIN_LEN_KM"), "km",
                                       "figures/erl_fig_then_now.MIN_LEN_KM (shorter contour pieces not drawn)"),
-    # report-card shading cut-offs (figures/tab_report_card.py; D-102): (good, poor)
-    "params.erl_card_sectors_good": (_const("figures/tab_report_card.py", "CARD_SECTORS")[0], "sectors",
-                                     "figures/tab_report_card.CARD_SECTORS (good at most)"),
-    "params.erl_card_sectors_poor": (_const("figures/tab_report_card.py", "CARD_SECTORS")[1], "sectors",
-                                     "figures/tab_report_card.CARD_SECTORS (poor from)"),
-    "params.erl_card_km_good": (_const("figures/tab_report_card.py", "CARD_KM")[0], "km",
-                                "figures/tab_report_card.CARD_KM (good below)", 0),
-    "params.erl_card_km_poor": (_const("figures/tab_report_card.py", "CARD_KM")[1], "km",
-                                "figures/tab_report_card.CARD_KM (poor from)", 0),
-    "params.erl_card_nmad_good_m": (_const("figures/tab_report_card.py", "CARD_NMAD_M")[0], "m",
-                                    "figures/tab_report_card.CARD_NMAD_M (good below)", 1),
-    "params.erl_card_nmad_poor_m": (_const("figures/tab_report_card.py", "CARD_NMAD_M")[1], "m",
-                                    "figures/tab_report_card.CARD_NMAD_M (poor from)", 1),
-    "params.erl_card_arms_good": (_const("figures/tab_report_card.py", "CARD_ARMS")[0], "arms",
-                                  "figures/tab_report_card.CARD_ARMS (good)"),
-    "params.erl_card_arms_poor": (_const("figures/tab_report_card.py", "CARD_ARMS")[1], "arms",
-                                  "figures/tab_report_card.CARD_ARMS (poor)"),
 })
 out = {}
 for k, rec in params.items():

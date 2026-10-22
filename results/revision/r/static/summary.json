@@ -1,0 +1,175 @@
+{
+ "rho_star": 0.5,
+ "counts_primary": {
+  "etopo1": {
+   "all7": 7,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "etopo_2022": {
+   "all7": 1,
+   "validated4": 0,
+   "six_without_komsomolets": 1,
+   "sectors": [
+    "ural"
+   ]
+  },
+  "gebco_2022": {
+   "all7": 7,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "gebco_2026": {
+   "all7": 7,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "srtm15p_v2.7": {
+   "all7": 6,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  }
+ },
+ "counts_static": {
+  "etopo1": {
+   "all7": 7,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "gebco_2022": {
+   "all7": 7,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "gebco_2026": {
+   "all7": 7,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "srtm15p_v2.7": {
+   "all7": 6,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  }
+ },
+ "n_changed": 0,
+ "changed": [],
+ "audit_cells_static_share_by_sector": {
+  "interfluve": 0.1322,
+  "komsomolets": 0.0304,
+  "northeast": 0.0792,
+  "open_shelf": 0.1448,
+  "ural": 0.2354,
+  "volga": 0.385,
+  "west": 0.3297
+ },
+ "dem_points_static_share_by_sector": {
+  "interfluve": 0.0852,
+  "komsomolets": 0.2456,
+  "northeast": 0.0764,
+  "open_shelf": 0.6599,
+  "ural": 0.2138,
+  "volga": 0.3472,
+  "west": 0.1803
+ },
+ "floor_median_by_sector_m": {
+  "interfluve": {
+   "Q_median_primary_m": 853.8,
+   "Q_median_static_m": 848.5
+  },
+  "komsomolets": {
+   "Q_median_primary_m": 3727.7,
+   "Q_median_static_m": 3758.9
+  },
+  "northeast": {
+   "Q_median_primary_m": 2256.2,
+   "Q_median_static_m": 2237.2
+  },
+  "open_shelf": {
+   "Q_median_primary_m": 494.8,
+   "Q_median_static_m": 483.7
+  },
+  "ural": {
+   "Q_median_primary_m": 861.4,
+   "Q_median_static_m": 1015.7
+  },
+  "volga": {
+   "Q_median_primary_m": 2547.0,
+   "Q_median_static_m": 1892.2
+  },
+  "west": {
+   "Q_median_primary_m": 1121.5,
+   "Q_median_static_m": 974.1
+  }
+ }
+}

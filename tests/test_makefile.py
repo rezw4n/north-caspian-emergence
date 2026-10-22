@@ -206,6 +206,9 @@ NOT_REBUILT = {
     "results/revision/g/etopo_lake_passages.json": "network snapshot: ETOPO 2022 and HydroLAKES documents read on "
                                                    "2026-10-22 (make revision-g-fetch; D-130)",
     "results/revision/g/citation_requests.md": "hand-written document: workstream G's citation requests for workstream C",
+    "results/revision/v/citation_requests.md": "hand-written document: workstream V's citation requests for workstream C",
+    "results/revision/v/caspcom_bulletin31_2025.csv": "values transcribed with their quote from CASPCOM Bulletin 31 "
+                                                      "(input of scripts/rev_v_levels.py; D-122)",
 }
 # Files a rebuilt target's recipe also writes (prefix -> that target).
 SIDE_OUTPUTS = {

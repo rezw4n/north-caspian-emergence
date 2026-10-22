@@ -157,3 +157,34 @@ Pipeline entry points, grouped by step (prefix = step of `docs/RESEARCH_BRIEF.md
 | `check_quotes.py` | Re-run the check that every verbatim quote in the reading records matches the text |
 | `f1_erl_display.py` | Display preparations for the ERL main figures (D-100, D-102): the shorelines, product- |
 | `f2_erl_landsat.py` | Landsat "then and now" composites for the ERL satellite figure (D-100, D-102): true-colour |
+| `f3_erl_waterlines.py` | Observed level-binned waterlines for the ERL "Then and now" figure (figure 1, panel b; |
+| `f4_erl_nearterm_map.py` | Display rasters for the revised ERL figure 5 (where the first metre emerges; D-141, |
+| `rev_g_3dep_provenance.py` | Provenance of the USGS 3DEP 1/3 arc-second seamless DEM over Great Salt Lake (revision G, task A). |
+| `rev_g_etopo.py` | Revision workstream G (PREREG Amendment 18 item 11, ETOPO 2022; D-130; reviewer comments |
+| `rev_g_etopo_docs.py` | ETOPO 2022 and HydroLAKES documentation on lakes (revision G, task B). |
+| `rev_g_gsl.py` | Revision workstream G (PREREG Amendment 18 item 11, Great Salt Lake; reviewer comments |
+| `rev_g_h2.py` | Revision workstream G (PREREG Amendment 18 item 11, H2; D-129; reviewer comments R3.M8, |
+| `rev_g_h2_dryness.py` | Revision workstream G (PREREG Amendment 18 item 11, H2; D-129; R1 minor 8): H2 re-evaluated |
+| `rev_g_root2023_retrieval.py` | Revision workstream G (PREREG Amendment 18 item 11, Great Salt Lake): retry the |
+| `rev_n_baseline.py` | A18 item 10(e) and the composition of the common baseline (D-123 addendum, items 1-2). |
+| `rev_n_common.py` | Shared set-up of the workstream N revision scripts (PREREG Amendment 18 item 10; |
+| `rev_n_curves.py` | A18 item 10 (a)-(e) and (h): near-term emergence on the common baseline, the shifted |
+| `rev_n_envelopes.py` | A18 item 10(f): hindcast error envelopes for near-term emergence, replacing the "90% |
+| `rev_n_exposure.py` | A18 item 10(i): exposure on the common baseline (a) and the shifted products (b), with |
+| `rev_n_pathways.py` | A18 items 10(j) and 10(k): emerged area at 2035 and 2050 for every pathway x product on |
+| `rev_n_run.py` | Run workstream N's revision steps in order, each as its own process, stopping at the |
+| `rev_n_simulate.py` | A18 item 10(g): vertical-error simulation of the near-term emergence (DECISIONS D-125). |
+| `rev_r_audit.py` | Revision R: the A18 item 3 and item 6 audits that reuse the hindcast's units with the |
+| `rev_r_budget.py` | Revision R, A18 item 7: shelf gradients, vertical equivalents, the vertical error budget |
+| `rev_r_control.py` | Revision R, A18 item 6: the "perfect but degraded" control (D-116). |
+| `rev_r_diagnostics.py` | Revision R: diagnostics for reviewer comments (D-119). |
+| `rev_r_tables.py` | Revision R: H1 verdicts from the audit-pass tables of scripts/rev_r_audit.py (A18 items |
+| `rev_s_rasters.py` | Workstream S, revision analyses that need the cached rasters (PREREG Amendment 18 |
+| `rev_s_tables.py` | Workstream S, revision statistics from the frozen H1 tables (PREREG Amendment 18 |
+| `rev_v_bhs_constants.py` | Revision, workstream V: the fitted product constants expressed in BHS-77 (R2.M3 |
+| `rev_v_datum_terms.py` | Revision, workstream V: decomposition of the ICESat-2 constant c_ref (R1 minor 7, |
+| `rev_v_departure_audit.py` | Revision, workstream V: the H1 audit with each sector's levels shifted by its SWOT |
+| `rev_v_levels.py` | Revision, workstream V: level statistics asked for by the reviewers (R2 minor 3, |
+| `rev_v_planar.py` | Revision, workstream V: a planar offset field per product, c(x, y) = c0 + a x + b y, |
+| `rev_v_posts.py` | Revision, workstream V: the CASPCOM posts behind the DAHITI -> BHS-77 offset |
+| `rev_v_sector_departures.py` | Revision, workstream V: each sector's departure of the water surface from the basin |

@@ -102,3 +102,116 @@ From each height source to the working datum and to BHS-77:
 **Lake Urmia (not run):**
 - Working datum: DAHITI target 104 (EIGEN-6C4 normal heights, as DAHITI 39).
 - Products would be converted with N(EGM2008) − N(EIGEN-6C4) from ICGEM, as in D-074.
+
+## Revision additions (workstream V, 2026-10-22; D-120 to D-122)
+
+These add to the rows above and replace nothing. Numbers come from `results/revision/v/` (scripts `scripts/rev_v_*.py`), and their metric keys are `rev.v.*`. Sources read are listed in `results/revision/v/citation_requests.md`.
+
+### SWOT geoid: now documented
+
+- **Update to the SWOT row.** The SWOT row above says that SWOT's geoid model is not determinable. The L2_HR_Raster product description now settles it. JPL D-56416 Rev C (24 February 2025), PDF p. 23, says: "The geoid model is EGM2008 [9]. The geoid model includes a correction to refer the value to the mean tide system (i.e. it includes the zero-frequency permanent tide)". The solid-Earth tide removed from wse excludes the permanent part (PDF p. 24). SWOT's ellipsoid is WGS84 (ICESat-2 Comparison Guide R007, §3.2.2 and Table 4.1).
+- **Not documented:** which realisation of EGM2008 SWOT uses, NGA's with −0.41 m or a plain synthesis.
+- **Chain used for the sector departures (D-120):** H = wse + N_EGM2008(NGA) − N_EIGEN-6C4 + g(φ) − e(φ).
+  - g and e are the tide-free-to-mean-tide terms of the geoid and the surface (ICESat-2 parameters), about −0.035 m together at 45.5° N. They put the SWOT surface on the tide-free working datum.
+  - Without NGA's −0.41 m, every departure moves by +0.405 m.
+  - The setup model still uses de-meaned blocks (D-065, D-066), so it is unaffected.
+
+### The water surface against DAHITI (A18 item 9; D-120)
+
+- **Departures:** the April–October SWOT open-sea water surface, minus the basin level at the pass time, on the working datum. Values: west −0.90 m, Volga −0.66, interfluve −0.83, Ural −0.86, NE coast −0.85, open shelf −0.83; all blocks −0.83 m (365 passes, April 2023 to October 2026). Komsomolets Bay has no SWOT open-sea block and gets no value (`results/revision/v/sector_departures.csv`).
+- **The common part (−0.83 m)** is a property of the DAHITI reference (next section), up to SWOT's undocumented EGM2008 realisation (−0.43 m without the −0.41 m term). It cancels in the shape variant.
+- **The between-sector part** is +0.18 m in the Volga sector, −0.07 m in the west, and within ±0.03 m elsewhere. The Volga value varies by month from +0.04 to +0.34 m (`sector_departures_by_month.csv`).
+- **Where it is measured:** offshore water (pixels at least 90% water inside the D-029 sea mask), not the shoreline.
+
+### The ICESat-2 constant c_ref (R1 minor 7, R2.M3(b); D-122)
+
+c = median(DEM − H) on training points, with the DEM on the DAHITI datum and H = h_WGS84 − N(EIGEN-6C4, ICGEM, tide-free, GM part of the zero-degree term on). Values: ATL06 0.723 m (σ 0.155), ATL08 0.710 m (σ 0.183); GEDI 0.513, GLO-30 0.624. Each candidate term is listed as its contribution to c (`results/revision/v/datum_terms.json`):
+
+| Term | Contribution to c (m) | Status |
+|---|---|---|
+| GM part of the zero-degree term (GM of EIGEN-6C4 3.986004415e14, of WGS84 3.986004418e14; ICGEM FAQ Q16, Eq. 24) | −0.005, only if DGFI's geoid omits it | Documented formula; DGFI's practice not documented |
+| Permanent tide | +0.030 to +0.042 if DAHITI heights are mean-tide; 0 if tide-free | Formula documented (ICESat-2 R007 parameters); DAHITI's tide system not documented |
+| Frame, ITRF2014 versus ITRF2020 | +0.002 | Documented (row above) |
+| T/P ellipsoid: altimetric heights over the T/P ellipsoid, reduced by a geoid referred to WGS84/GRS80 | +0.707 (0.7066–0.7074 over 43.97–47.35° N) | Size documented: T/P is "∼70cm smaller than WGS84" (Comparison Guide R007, §3.2.3, Table 4.1; computed by the guide's two-step method, `caspian.watersurface.ellipsoid_height`, which reproduces the guide's worked example). Whether DGFI's heights carry it is **not documented** in what was read (Schwatke et al. 2015; DAHITI and OpenADB pages) |
+| A W0-type zero-degree term in DGFI's geoid, −(W0 − U0)/γ | +0.17 (W0 = 62,636,853.4 m² s⁻², IERS Conventions Table 1.1, 2017 update); +0.44 (W0 = 62,636,856.0); +0.41 (NGA's EGM2008 constant) | Sizes from documents; DGFI's practice not documented |
+
+**What is explained:**
+- **Documented terms:** they can explain at most 0.05 m of c, which leaves at least 0.67 m (ATL06) and 0.66 m (ATL08) **unexplained by documentation**.
+- **T/P-ellipsoid hypothesis:** the residual would be +0.02 m (ATL06) and +0.00 m (ATL08) if DAHITI is tide-free, and −0.02 m and −0.03 m if it is mean-tide, well inside σ.
+- **W0-type terms:** an NGA-type term would leave 0.30–0.31 m.
+
+**Independent check without the DEM:** the SWOT water surface on the same chain lies 0.83 m below DAHITI (0.43 m with an ICGEM-type SWOT geoid; previous section). So the offset belongs to the DAHITI reference, or to a constant that ICESat-2 and SWOT share, not to the waterline DEM.
+
+**Consequences:**
+- The "total" variant mixes this reference offset into the products' "datum error". With the SWOT departures applied, the domain constants become −0.45 to −0.74 m instead of −1.28 to −1.49 m (`results/revision/v/hindcast_departure/shape_offsets.json`).
+- The shape variant and the BHS-77 reporting are unaffected: δ is estimated against DAHITI directly.
+- The hypothesis can only be confirmed by DGFI. Contacting them is the PI's action.
+
+### The EGM2008 −0.41 m constant (R2.M3(c))
+
+- **Source:** NGA's realisation of EGM2008, which PROJ (`us_nga_egm08_25.tif`) and ETOPO 2022 use, adds −0.41 m. GeographicLib's documentation ("Gravity models": "HeightOffset -0.41"; "−0.41m is added to the geoid height") says it mimics NGA's synthesis program, and the PROJ grid was built with GeographicLib (PROJ-data `us_nga_README.txt`). Measured here as −0.405 m (SD 1.7 mm) against ICGEM's evaluation, which applies only the GM part of the zero-degree term (ICGEM FAQ Q16, Q18).
+- **Not a source:** NGA's own `README_WGS84_2.pdf` (2008) does not mention the term. Pavlis et al. (2012) was not readable, and NGA.STND.0036 was not retrievable.
+
+### CASPCOM posts (R2.M3(a), R1 minor 6; D-122)
+
+**Positions:** as printed in the catalogue headers ("Position data"). Several Azerbaijani and Turkmen sheets print minute fields of 60 or more (e.g. 52°90′), which are flagged.
+
+**Offsets:** m = the mean over a post's overlap years of (post annual mean − DAHITI annual mean) (D-093); m − δ with δ = −0.573 m; and the same for April–October months only. These are derived statistics. The per-year values are not released (D-101, D-122). File: `results/revision/v/caspcom_posts.csv`.
+
+| Post | Position (printed) | In the study domain | m (m) | m − δ | Apr–Oct, − δ |
+|---|---|---|---|---|---|
+| Baku | 40°21′ N, 49°50′ E | no (Absheron) | −0.423 | +0.15 | +0.13 |
+| Neft Dashlary (N. Kamni) | 40°20′ N, "50°90′" E | no (Absheron, offshore) | −0.375 | +0.20 | +0.17 |
+| Makhachkala | 43°00′ N, 47°30′ E | no (Dagestan, Middle Caspian) | −0.500 | +0.07 | +0.04 |
+| Fort-Shevchenko | 44°33′ N, 50°15′ E | no (just south of the Chechen Island–Cape Tyub-Karagan line) | −0.597 | −0.02 | −0.06 |
+| Guvlymayak (Kuuli-Mayak) | 40°15′ N, 52°43′ E | no | −0.748 | −0.18 | −0.20 |
+| Turkmenbashi | 40°00′ N, 53°00′ E | no | −0.715 | −0.14 | −0.17 |
+| Garabogaz / Duzlybogaz | 41°10′ N, "52°90′" E | no | −0.654 | −0.08 | −0.13 |
+| *North Caspian set (not in δ):* Lagan (Kaspiysky) | 45°23′ N, 47°22′ E | yes, west sector | −0.340 | +0.23 | +0.21 |
+| Tyuleniy Island | 44°28′ N, 47°29′ E | yes, west sector | −0.576 | −0.00 | −0.04 |
+| Peshnoy | 46°55′ N, 51°41′ E | yes, Ural sector | −0.637 | −0.06 | −0.09 |
+| Kulaly | 45°01′ N, 55°02′ E as printed | no as printed (55°02′ E is east of the domain's 54.6° E edge); the island post is in the North Caspian set of D-093, so the printed position is probably wrong | −0.583 | −0.01 | −0.06 |
+
+**None of the seven posts behind δ lies on the North Caspian shelf.** Three of the four North Caspian posts give offsets within ±0.07 m of δ; Lagan stands +0.23 m off. The post offsets include levelling errors of the post zeros and vertical land motion as well as sea-surface structure (D-093), so they bound, not measure, the shoreline departure.
+
+### Sources of the Caspian bathymetry in the grids, and the fitted constants in BHS-77 (R2.M3(d), request (i); D-122)
+
+**What the documentation says:**
+- **GEBCO:** GEBCO's Caspian grid (since GEBCO_08, October 2010) is J. K. Hall's compilation of "over 280,000 bathymetric soundings and points digitised from bathymetric contours, taken from 107 Russian hydrographic charts". "Due to the Caspian Sea's lower sea level stand, 28 m was added to the depths in the grid" (GEBCO_2014 documentation, BODC Document 301801, Annex A.1). No chart datum, survey epoch or level reduction is named. GEBCO_2022 and GEBCO_2026 code the North Caspian TID 70 (pre-generated grid) and do not re-describe it.
+- **ETOPO1:** its Caspian bathymetry comes from contours of "'The Navigation Map' published by the Navigation and Oceanography Department of the Defense Ministry of the USSR in 1987 at a scale of 1:1,000,000". These "were originally referenced relative to local lake level—approximately 28 meters below mean sea level. The grid was shifted 28 m vertically" (Amante and Eakins 2009, §3.1.2 and §3.2.1).
+- **ETOPO 2022** takes GEBCO 2022 in the Caspian (MacFerrin et al. 2025).
+- **SRTM15+:** no Caspian source or reference is documented.
+- **Not documented:** none of these documents gives the BHS level of the charts' zero.
+
+**The constants in BHS-77:** k = mean(dN) − c + δ, added to a product's heights as distributed, turns them into BHS-77 heights. mean(dN) = −0.402 m over the fit cells. The values are GEBCO_2026 +0.50 m, GEBCO_2022 +0.47, ETOPO 2022 +0.51, ETOPO1 +0.40 and SRTM15+ +0.30, each with δ's σ of 0.05 m.
+- **Chart zero, as a reading only:** for a grid built from chart depths shifted by 28 m, the charts' zero would then sit near −27.5 m BHS-77 (−27.6 m for ETOPO1), if all of k were a datum offset. This is a reading of the fitted constant, not a documented chart datum.
+- **Per sector:** with the R2 sector constants, k ranges from −0.22 m (west, open shelf) to +1.09 m (Ural) for GEBCO_2026. That is a spatial structure of about 1.3 m between the southern open shelf and the northern deltaic coasts (`results/revision/v/bhs_constants.json`).
+
+**Audit with sector-shifted levels (A18 item 9; D-120)**
+
+The run is in `results/revision/v/hindcast_departure/`; its comparison with the primary is in `departure_audit_comparison.csv`.
+
+- **How each sector was flooded:** at L + d_k, using the departures above. Komsomolets Bay took the median of the six measured departures, −0.84 m.
+- **Shape constants:** refitted, they become −0.74 m (GEBCO_2026), −0.63 (ETOPO 2022), −0.45 (SRTM15+), −0.74 (GEBCO_2022) and −0.53 (ETOPO1), against −1.28 to −1.49 m in the primary.
+- **Shape variant (the deciding one):** not one of the 35 product × sector verdicts changes. The number of exceeding levels moves by at most one per cell.
+- **Total variant:** this variant carries the common −0.83 m, which depends on SWOT's undocumented EGM2008 realisation. In it, ETOPO 2022 passes in the open shelf, the Volga and the west, and GEBCO_2022 passes on the NE coast.
+
+**Addition, after workstream G's findings (2026-10-22)**
+
+- **ETOPO1:** NOAA NCEI's *ETOPO1 Data Sources* (January 2023, PDF p. 2) confirms the 28 m shift: "This grid was shifted 28-m vertically to be consistent with mean sea level before use in building ETOPO1". It names no reference level in the Baltic system. The ETOPO1 row above treats ETOPO1 as EGM2008 heights; that stays an assumption, because "mean sea level" is not defined for the Caspian in either document.
+- **ETOPO 2022's lake depths are not plain GEBCO 2022.** Workstream G finds that ETOPO 2022's North Caspian lake-depth cells (source ID 11; 700,246 cells) equal min(GEBCO_2022, −29 m). This holds at all of them, and at 99.97% of the 10.84% where GEBCO_2022 lies above −29 m (`results/revision/g/etopo/lake_clamp.json`).
+  - **Status:** neither ETOPO 2022 document describes this cap. That −29 m is HydroLAKES' Caspian surface elevation, and that the lake mask is HydroLAKES' February 2000 outline, are G's inference (`docs/revision/report_g.md`).
+  - **Consequences here:**
+    - Where the cap applies, ETOPO 2022's lake bed lies 1–4 m below GEBCO_2022.
+    - ETOPO 2022's constant in BHS-77 (+0.51 m) therefore cannot be read as a chart-datum offset of GEBCO's soundings alone.
+    - The statement above that ETOPO 2022 "takes GEBCO 2022 in the Caspian" holds only below −29 m.
+
+**Planar offset field (A18 item 9; D-121 and its cut)**
+
+Files: `results/revision/v/planar/`, `planar_comparison.csv`.
+
+- **The registered fit:** by Eq. S11, the domain-total area criterion, it gives steep planes. GEBCO_2026: a = +0.0174, b = −0.0204 m/km, c0 = −2.32 m. ETOPO1: a = +0.0194, b = −0.0210 m/km, c0 = −1.98 m. The objective falls by 70–71%, below R2's.
+- **The audit (GEBCO_2026 and ETOPO1 only):**
+  - Every sector median displacement grows, by factors of 1.4 to 3.8 (GEBCO_2026 open shelf 0.60 → 5.00 km), and all 7 sectors stay mispredicted.
+  - So the fitted plane matches the area totals by trading errors between regions; it does not reduce the shape error.
+  - The plane is not a datum surface. The R2 sector constants imply a much gentler tilt, a ≈ 0 and b ≈ −0.005 m/km (lower to the north).

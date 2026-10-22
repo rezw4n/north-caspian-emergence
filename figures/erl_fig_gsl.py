@@ -1,13 +1,14 @@
-"""ERL figure "The same error at Great Salt Lake" (generality test A9; D-094, D-100, D-102;
-15 cm wide).
+"""ERL figure "Great Salt Lake" (generality test A9; D-094, D-100, D-102, D-141; 15 cm wide).
 
 (a) Both arms of Great Salt Lake at one representative hindcast unit (the unit whose
     per-arm median displacements are closest to the audit's summary medians, chosen by
     scripts/f1_erl_display.py gsl; level in metrics erl.gsl.level_navd88_m, NAVD 88): the
     observed state of every 60 m cell (sea-connected open water, land, not determined),
     the observed shoreline (solid black), the shape-variant shorelines of GEBCO_2026, ETOPO
-    2022 and SRTM15+ (each with its per-arm D-070 constant), and that of the USGS 3DEP 2016
-    lidar control (grey). Static layers, envelope, heights and flood fills are those of
+    2022 and SRTM15+ (each with its per-arm D-070 constant), and that of the USGS 3DEP
+    control, mostly 2016 lidar (grey; workstream G, D-128: legacy non-lidar DEMs in part
+    of the south arm). The unit is the one chosen by the second rule of D-102; the first
+    rule picked an atypical unit (DECISIONS.md, the Great Salt Lake unit). Static layers, envelope, heights and flood fills are those of
     scripts/g1_hindcast.py; every per-arm median of the unit equals the arm's
     displacement.csv.
 (b) Per arm, the median over evaluable levels of each surface's per-level median shoreline
@@ -15,8 +16,13 @@
     floor (median over the same levels of the 95th percentile of the displacement between
     independent halves of the observations). Filled: the surface mispredicts the arm (the
     H1 rule of PREREG section 9, Amendment 16); open: it does not.
+(c) Per arm, the heights of the arm's emerged band in each grid (share of the band's 250 m
+    cells per 0.5 m bin, NAVD 88; results/revision/g/gsl_band_height_histograms.csv,
+    workstream G, D-128): the spike is the grid's flat lake surface. Dotted line, the gauge
+    level of the arm in February 2000 (rev.g.gsl.<arm>.gauge_feb2000_navd88_m), the month
+    of the SRTM acquisition (internal review R1 minor 22; D-141).
 
-Numbers: results/metrics.json (generality.great_salt_lake.*, erl.gsl.*).
+Numbers: results/metrics.json (generality.great_salt_lake.*, erl.gsl.*, rev.g.gsl.*).
 Output: figures/out/erl_fig_gsl.{pdf,tif,png}
 Usage: python figures/erl_fig_gsl.py
 """
@@ -29,12 +35,16 @@ import sys
 import _common as C
 import _erl as E
 import numpy as np
+import pandas as pd
 
 SEA, LAND, UNKNOWN = "#cfe3f1", "#e9e6df", "#ffffff"
 MAP_PRODUCTS = ("gebco_2026", "etopo_2022", "srtm15p_v2.7")
 CHART = ("gebco_2026", "gebco_2022", "etopo_2022", "etopo1", "srtm15p_v2.7", "dep3")
 ARMS = (("north", "North arm"), ("south", "South arm"))
 LW = 1.1
+HIST = C.ROOT / "results" / "revision" / "g" / "gsl_band_height_histograms.csv"
+HIST_RANGE = (1276.0, 1296.0)      # m NAVD 88; holds every bin with more than 0.5 % of a band
+CONTROL_NAME = "3DEP control (mostly 2016 lidar)"
 
 
 def main() -> int:
@@ -78,10 +88,11 @@ def main() -> int:
 
     E.style()
     W = E.DOUBLE_MM
-    L, TOP = 9.0, 2.0
-    mw = 66.0
+    L, TOP = 11.0, 2.0
+    mw = 64.0
     mh = mw * (box[3] - box[2]) / (box[1] - box[0])
-    H = TOP + mh + 27.0
+    YC, HH = TOP + mh + 32.0, 26.0          # (c): top of its axes and their height
+    H = YC + HH + 10.0
     fig = plt.figure(figsize=(W * C.MM, H * C.MM))
     ax = E.mm_axes(fig, W, H, L, TOP, mw, mh)
     ax.set_facecolor("#f4f4f4")
@@ -113,7 +124,7 @@ def main() -> int:
             bbox={"boxstyle": "square,pad=0.25", "fc": "white", "ec": "none", "alpha": 0.9})
     lines = [Line2D([], [], color=E.OBS, lw=LW, label="Observed")]
     lines += [Line2D([], [], color=E.COLOURS[p], lw=LW, ls=E.DASHES[p], label=E.NAMES[p]) for p in MAP_PRODUCTS]
-    lines += [Line2D([], [], color=E.CONTROL, lw=LW, ls=E.CONTROL_DASH, label="3DEP lidar (control)")]
+    lines += [Line2D([], [], color=E.CONTROL, lw=LW, ls=E.CONTROL_DASH, label=CONTROL_NAME)]
     states = [Patch(fc=SEA, ec=E.MUTED, lw=0.4, label="Open water"), Patch(fc=LAND, ec=E.MUTED, lw=0.4, label="Land"),
               Patch(fc=UNKNOWN, ec=E.MUTED, lw=0.4, label="Not determined")]
     kw = {"fontsize": E.FS, "frameon": False, "borderaxespad": 0, "handletextpad": 0.5, "labelspacing": 0.3,
@@ -126,7 +137,7 @@ def main() -> int:
     cw = W - cx0 - 2.0
     ch = (mh - 8.0) / 2
     g = "generality.great_salt_lake"
-    names = {**E.NAMES, "dep3": "3DEP lidar (control)"}
+    names = {**E.NAMES, "dep3": "3DEP control"}
     for i, (arm, name) in enumerate(ARMS):
         axc = E.mm_axes(fig, W, H, cx0, TOP + 5.0 + i * (ch + 5.0), cw, ch - 2.0)
         rows = list(CHART)[::-1]
@@ -167,6 +178,42 @@ def main() -> int:
                                label="Does not")],
                loc="upper left", bbox_to_anchor=((cx0 - 4.0) / W, 1 - (TOP + mh + 9.5) / H), ncol=1, handlelength=1.4,
                **kw)
+
+    # (c) heights of the emerged band ------------------------------------------------------------
+    hist = pd.read_csv(HIST)
+    hx0 = L + 11.0
+    gap = 8.0
+    hw = (W - hx0 - 2.0 - gap) / 2
+    hist_products = ("gebco_2026", "gebco_2022", "etopo_2022", "etopo1", "srtm15p_v2.7")
+    for i, (arm, name) in enumerate(ARMS):
+        axh = E.mm_axes(fig, W, H, hx0 + i * (hw + gap), YC, hw, HH)
+        for p in hist_products:
+            h = hist[(hist["arm"] == arm) & (hist["product"] == p)].sort_values("bin_low_navd88_m")
+            edges = np.arange(HIST_RANGE[0], HIST_RANGE[1] + 0.25, 0.5)
+            share = np.zeros(edges.size - 1)
+            k = np.round((h["bin_low_navd88_m"].to_numpy(float) - HIST_RANGE[0]) / 0.5).astype(int)
+            ok = (k >= 0) & (k < share.size)
+            share[k[ok]] = 100.0 * h["share"].to_numpy(float)[ok]
+            axh.stairs(share, edges, color=E.COLOURS[p], lw=1.0, ls=E.DASHES[p], zorder=3)
+        gauge = E.value(m, f"rev.g.gsl.{arm}.gauge_feb2000_navd88_m")
+        axh.axvline(gauge, color=E.INK, lw=0.8, ls=(0, (1.0, 1.5)), zorder=2)
+        axh.text(gauge - 0.3, 66.0, "Gauge,\nFeb. 2000", ha="right", va="top", fontsize=E.FS, color=E.INK,
+                 linespacing=1.1)
+        axh.set_xlim(*HIST_RANGE)
+        axh.set_ylim(0, 70)
+        axh.set_yticks([0, 20, 40, 60])
+        axh.grid(axis="y", color=E.GRID, lw=0.4)
+        axh.set_axisbelow(True)
+        axh.set_xlabel("Grid height in the emerged band (m, NAVD 88)")
+        axh.text(0.98, 0.95, name, transform=axh.transAxes, ha="right", va="top", fontsize=E.FS, color=E.INK)
+        if i == 0:
+            axh.set_ylabel("Share of band (%)")
+            E.label(axh, "c", x=-0.17, y=1.03)
+        else:
+            axh.tick_params(labelleft=False)
+    hk = [Line2D([], [], color=E.COLOURS[p], lw=1.0, ls=E.DASHES[p], label=E.NAMES[p]) for p in hist_products]
+    fig.legend(handles=hk, loc="lower left", bbox_to_anchor=(hx0 / W, 1 - (YC - 1.2) / H), ncol=len(hk),
+               handlelength=2.2, **{**kw, "columnspacing": 0.8})
     C.save(fig, "erl_fig_gsl")
     plt.close(fig)
     return 0

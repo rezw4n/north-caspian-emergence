@@ -1,0 +1,298 @@
+{
+ "z": 1.645,
+ "common_gap_fill_sigma_m": 0.048035151816696826,
+ "setup_sd_m": {
+  "interfluve": 0.1634,
+  "northeast": 0.2264,
+  "open_shelf": 0.2129,
+  "ural": 0.1291,
+  "volga": 0.1614,
+  "west": 0.1015,
+  "komsomolets": 0.2264
+ },
+ "departures": "|departure_rel_all_m| from results/revision/v/sector_departures.csv; absent for komsomolets",
+ "departure_m": {
+  "west": 0.0669,
+  "volga": 0.179,
+  "interfluve": 0.005,
+  "ural": 0.0275,
+  "northeast": 0.0129,
+  "open_shelf": 0.0045
+ },
+ "gradients_m_per_km": {
+  "west": {
+   "g_median_m_per_km": 0.4082,
+   "g_mean_m_per_km": 1.3338,
+   "share_flat": 0.1877
+  },
+  "volga": {
+   "g_median_m_per_km": 1.082,
+   "g_mean_m_per_km": 2.7231,
+   "share_flat": 0.1166
+  },
+  "interfluve": {
+   "g_median_m_per_km": 0.3929,
+   "g_mean_m_per_km": 1.2105,
+   "share_flat": 0.2057
+  },
+  "ural": {
+   "g_median_m_per_km": 0.5012,
+   "g_mean_m_per_km": 1.7367,
+   "share_flat": 0.2056
+  },
+  "northeast": {
+   "g_median_m_per_km": 0.4233,
+   "g_mean_m_per_km": 1.0795,
+   "share_flat": 0.2622
+  },
+  "komsomolets": {
+   "g_median_m_per_km": 0.3068,
+   "g_mean_m_per_km": 1.1441,
+   "share_flat": 0.2651
+  },
+  "open_shelf": {
+   "g_median_m_per_km": 0.2015,
+   "g_mean_m_per_km": 0.7645,
+   "share_flat": 0.139
+  }
+ },
+ "counts_primary": {
+  "etopo1": {
+   "all7": 7,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "etopo_2022": {
+   "all7": 1,
+   "validated4": 0,
+   "six_without_komsomolets": 1,
+   "sectors": [
+    "ural"
+   ]
+  },
+  "gebco_2022": {
+   "all7": 7,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "gebco_2026": {
+   "all7": 7,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "srtm15p_v2.7": {
+   "all7": 6,
+   "validated4": 4,
+   "six_without_komsomolets": 6,
+   "sectors": [
+    "interfluve",
+    "northeast",
+    "open_shelf",
+    "ural",
+    "volga",
+    "west"
+   ]
+  }
+ },
+ "counts_augmented": {
+  "etopo1": {
+   "all7": 6,
+   "validated4": 3,
+   "six_without_komsomolets": 5,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "etopo_2022": {
+   "all7": 0,
+   "validated4": 0,
+   "six_without_komsomolets": 0,
+   "sectors": []
+  },
+  "gebco_2022": {
+   "all7": 5,
+   "validated4": 2,
+   "six_without_komsomolets": 4,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "gebco_2026": {
+   "all7": 6,
+   "validated4": 3,
+   "six_without_komsomolets": 5,
+   "sectors": [
+    "interfluve",
+    "komsomolets",
+    "northeast",
+    "ural",
+    "volga",
+    "west"
+   ]
+  },
+  "srtm15p_v2.7": {
+   "all7": 4,
+   "validated4": 2,
+   "six_without_komsomolets": 4,
+   "sectors": [
+    "interfluve",
+    "ural",
+    "volga",
+    "west"
+   ]
+  }
+ },
+ "n_changed": 7,
+ "changed": [
+  {
+   "product": "etopo1",
+   "sector": "open_shelf",
+   "mispredicts_primary": true,
+   "mispredicts_new": false,
+   "n_exceeding_new": 8,
+   "n_evaluable_new": 25
+  },
+  {
+   "product": "etopo_2022",
+   "sector": "ural",
+   "mispredicts_primary": true,
+   "mispredicts_new": false,
+   "n_exceeding_new": 8,
+   "n_evaluable_new": 26
+  },
+  {
+   "product": "gebco_2022",
+   "sector": "northeast",
+   "mispredicts_primary": true,
+   "mispredicts_new": false,
+   "n_exceeding_new": 13,
+   "n_evaluable_new": 26
+  },
+  {
+   "product": "gebco_2022",
+   "sector": "open_shelf",
+   "mispredicts_primary": true,
+   "mispredicts_new": false,
+   "n_exceeding_new": 0,
+   "n_evaluable_new": 25
+  },
+  {
+   "product": "gebco_2026",
+   "sector": "open_shelf",
+   "mispredicts_primary": true,
+   "mispredicts_new": false,
+   "n_exceeding_new": 0,
+   "n_evaluable_new": 25
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "sector": "northeast",
+   "mispredicts_primary": true,
+   "mispredicts_new": false,
+   "n_exceeding_new": 13,
+   "n_evaluable_new": 26
+  },
+  {
+   "product": "srtm15p_v2.7",
+   "sector": "open_shelf",
+   "mispredicts_primary": true,
+   "mispredicts_new": false,
+   "n_exceeding_new": 5,
+   "n_evaluable_new": 25
+  }
+ ],
+ "sector_budget": [
+  {
+   "sector": "interfluve",
+   "sigma_budget_median_m": 0.1706,
+   "sigma_budget_max_m": 0.1763,
+   "budget_horizontal_median_m": 714.2454,
+   "Q_median_m": 853.7987,
+   "Q_aug_median_m": 1566.7582
+  },
+  {
+   "sector": "komsomolets",
+   "sigma_budget_median_m": 0.2316,
+   "sigma_budget_max_m": 0.2358,
+   "budget_horizontal_median_m": 1241.9428,
+   "Q_median_m": 3727.7339,
+   "Q_aug_median_m": 4970.2743
+  },
+  {
+   "sector": "northeast",
+   "sigma_budget_median_m": 0.232,
+   "sigma_budget_max_m": 0.2362,
+   "budget_horizontal_median_m": 901.3664,
+   "Q_median_m": 2256.1714,
+   "Q_aug_median_m": 3159.7263
+  },
+  {
+   "sector": "open_shelf",
+   "sigma_budget_median_m": 0.2185,
+   "sigma_budget_max_m": 0.223,
+   "budget_horizontal_median_m": 1783.3916,
+   "Q_median_m": 494.7727,
+   "Q_aug_median_m": 2277.2093
+  },
+  {
+   "sector": "ural",
+   "sigma_budget_median_m": 0.1407,
+   "sigma_budget_max_m": 0.1476,
+   "budget_horizontal_median_m": 461.8974,
+   "Q_median_m": 861.354,
+   "Q_aug_median_m": 1334.6187
+  },
+  {
+   "sector": "volga",
+   "sigma_budget_median_m": 0.2459,
+   "sigma_budget_max_m": 0.2499,
+   "budget_horizontal_median_m": 373.8671,
+   "Q_median_m": 2546.9982,
+   "Q_aug_median_m": 2920.5758
+  },
+  {
+   "sector": "west",
+   "sigma_budget_median_m": 0.131,
+   "sigma_budget_max_m": 0.1384,
+   "budget_horizontal_median_m": 527.9463,
+   "Q_median_m": 1121.533,
+   "Q_aug_median_m": 1649.7301
+  }
+ ]
+}

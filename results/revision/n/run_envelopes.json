@@ -1,0 +1,20 @@
+{
+ "script": "scripts/rev_n_envelopes.py",
+ "decision": "D-124",
+ "alpha": 0.1,
+ "n_scored_pairs_by_epoch_domain": {
+  "E1": 5,
+  "E2": 8,
+  "E3": 21
+ },
+ "max_pair_decline_m": 2.1,
+ "checks": {
+  "uncorrected_errors_vs_loeo_errors_csv": {
+   "max_abs_diff_km2": 4.547473508864641e-13,
+   "n_rows": 1600
+  },
+  "registered_q_hat_reproduced_max_abs_diff_km2": 0.0
+ },
+ "scored_flag_source": "results/emergence/main/loeo_errors.csv (uncorrected, emergence); validated = any of the four",
+ "seconds": 6.5
+}

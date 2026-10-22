@@ -1,0 +1,78 @@
+{
+ "stage2": "main",
+ "hybrid": false,
+ "configs": [
+  "replica",
+  "static",
+  "res",
+  "cd"
+ ],
+ "products": [
+  "gebco_2026",
+  "gebco_2022",
+  "etopo1",
+  "srtm15p_v2.7"
+ ],
+ "bins": [
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43
+ ],
+ "surfaces": "products",
+ "constants_file": null,
+ "c_area_m": {
+  "gebco_2026": -1.48,
+  "etopo_2022": -1.49,
+  "srtm15p_v2.7": -1.28,
+  "gebco_2022": -1.45,
+  "etopo1": -1.38
+ },
+ "k_grid": [
+  -5,
+  -4,
+  -3,
+  -2,
+  -1,
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "c_step_m": 0.2,
+ "envelope_cells": {
+  "variant": 11051231
+ },
+ "footprint_cells": null,
+ "seconds": 2965.8
+}

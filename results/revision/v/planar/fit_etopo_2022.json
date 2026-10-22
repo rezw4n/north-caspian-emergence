@@ -1,0 +1,49 @@
+{
+ "product": "etopo_2022",
+ "primary": {
+  "c_m": -1.49,
+  "objective_km2": 78181.5744
+ },
+ "units": 43,
+ "fit_region_cells": 35432933,
+ "approx_check_at_zero": {
+  "c0_m": -1.49,
+  "objective_km2_scaled": 78273.4464,
+  "subsample": 4
+ },
+ "coarse": {
+  "best": {
+   "a": -0.005,
+   "b": 0.007,
+   "c0_m": -1.11,
+   "objective_km2": 33988.4352
+  },
+  "extended": false,
+  "subsample": 4,
+  "on_edge": false
+ },
+ "fine": {
+  "best": {
+   "a": -0.005,
+   "b": 0.0072,
+   "c0_m": -1.12,
+   "objective_km2": 33949.584
+  },
+  "subsample": 2
+ },
+ "approx_full_at_best": {
+  "c0_m": -1.12,
+  "objective_km2": 33945.8328
+ },
+ "exact": {
+  "a_m_per_km": -0.005,
+  "b_m_per_km": 0.0072,
+  "c0_m": -1.12,
+  "objective_km2": 34097.4828,
+  "n_tied_minima": 1,
+  "flood_map": "etopo_2022_planar (key in data/interim/hindcast/flood)",
+  "correction_cache": "planar_corr_etopo_2022_3059937b1c1f.npy"
+ },
+ "objective_reduction_vs_primary_pct": 56.39,
+ "seconds": 482.4
+}

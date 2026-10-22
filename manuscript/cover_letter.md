@@ -1,0 +1,38 @@
+<!-- Cover letter for the ERL submission (D-143). Source of manuscript/cover_letter.tex and
+     cover_letter.pdf; keep the three in step. One number appears, "four of the five grids":
+     results/metrics.json rev.s.item1.shape.validated4.n_products_all = 4. The title is read
+     from manuscript/main_erl.tex. -->
+
+Nusrat Zahan Jarin\
+Department of Geography, University of California, Santa Barbara, CA, USA\
+njarin@umail.ucsb.edu | ORCID 0000-0003-2657-8559
+
+22 October 2026
+
+The Editors\
+*Environmental Research Letters*\
+IOP Publishing
+
+**Submission of a Letter: "Four decades of retreating shorelines audit projected seabed emergence in the North Caspian Sea"**
+
+Dear Editors,
+
+On behalf of my co-authors, Rezwan Ahmed (University of Dhaka) and Obaidur Rahman (Oklahoma State University), I submit this manuscript for consideration as a Letter in *Environmental Research Letters*.
+
+As closed seas and saline lakes shrink, estimates of how much seabed will emerge, and of what it will expose, are built on global bathymetry grids. On a flat shelf a small vertical error in such a grid moves the predicted shoreline by kilometres, yet the grids are rarely tested against seabed that has already emerged. The falling North Caspian Sea allows that test. We paired three decades of Landsat waterlines with satellite-altimetry water levels and asked whether five global grids, flooded from the open sea at each observed level, reproduce the shorelines that were actually observed.
+
+They do not. In every sector where the observed waterlines are independently validated, four of the five grids misplace them, even after removing the vertical offset that best fits each grid's flooded area. The fifth, ETOPO 2022, comes close only where its shoreline is built from land heights acquired after the seabed emerged and from a lake outline of 2000. At Great Salt Lake, where none of the grids holds lake-bed soundings, the grids fail the same test, while a United States Geological Survey elevation model built mostly from lidar passes it. We then show how the choice of grid changes estimates of the seabed that the next metres of fall will expose. The findings bear on any decision that uses projected emergence, and the Great Salt Lake test illustrates how the same audit flags grids that hold no lake-bed data.
+
+We believe the Letter suits *Environmental Research Letters* because it addresses a current environmental change with direct consequences for people, infrastructure and habitats around the Caspian, and because its central lesson, that emergence projections inherit untested errors from global bathymetry, is general and policy-relevant. The hypotheses, metrics, spatial blocking and decision rules were pre-registered before any hindcast or projection metric was computed. The pre-registration and its dated amendments are provided as a Supplementary file; departures from it are reported in the Supplementary Information, and analyses added later are labelled exploratory. Results that did not support our hypotheses, including the registered expectation that errors would be largest in the deltas, are reported alongside those that did. Before submission the manuscript went through an internal review by three reviewers, and every major comment was answered with a change or a reasoned rebuttal.
+
+The main text is within the 4,000-word limit for Letters as ERL counts it, excluding the title, abstract, figures, tables, captions and references. The study involved no human participants, human data or animals, so no ethics approval was required; an ethics statement is included. This manuscript has not been published and is not under consideration for publication elsewhere. All authors have read and approved the submitted version and agree to its submission. The code, the derived data and the full audit trail are openly available at https://github.com/rezw4n/north-caspian-emergence; the input data are available from the providers cited in the manuscript. The study received no funding, and the authors declare no competing interests. The use of generative AI tools is disclosed in the manuscript, as IOP's policy encourages.
+
+[optional: suggested reviewers]
+
+Thank you for considering our manuscript.
+
+Yours sincerely,
+
+Nusrat Zahan Jarin\
+Corresponding author, on behalf of all authors\
+Department of Geography, University of California, Santa Barbara

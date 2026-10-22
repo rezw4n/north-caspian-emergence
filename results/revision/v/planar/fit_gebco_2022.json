@@ -1,0 +1,49 @@
+{
+ "product": "gebco_2022",
+ "primary": {
+  "c_m": -1.45,
+  "objective_km2": 123312.7224
+ },
+ "units": 43,
+ "fit_region_cells": 35432933,
+ "approx_check_at_zero": {
+  "c0_m": -1.45,
+  "objective_km2_scaled": 123351.84,
+  "subsample": 4
+ },
+ "coarse": {
+  "best": {
+   "a": 0.01,
+   "b": -0.016,
+   "c0_m": -1.69,
+   "objective_km2": 30755.0016
+  },
+  "extended": true,
+  "subsample": 4,
+  "on_edge": false
+ },
+ "fine": {
+  "best": {
+   "a": 0.0102,
+   "b": -0.0156,
+   "c0_m": -1.72,
+   "objective_km2": 30514.0896
+  },
+  "subsample": 2
+ },
+ "approx_full_at_best": {
+  "c0_m": -1.72,
+  "objective_km2": 30539.9376
+ },
+ "exact": {
+  "a_m_per_km": 0.0102,
+  "b_m_per_km": -0.0156,
+  "c0_m": -1.7,
+  "objective_km2": 31528.4652,
+  "n_tied_minima": 1,
+  "flood_map": "gebco_2022_planar (key in data/interim/hindcast/flood)",
+  "correction_cache": "planar_corr_gebco_2022_c09dabc414d2.npy"
+ },
+ "objective_reduction_vs_primary_pct": 74.43,
+ "seconds": 914.5
+}

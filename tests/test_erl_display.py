@@ -112,19 +112,13 @@ def test_num_formats_as_the_text_does(figs):
         E.num(m, "missing")
 
 
-def test_report_card_grades(figs):
-    g = figs["card"].grade
-    assert g(1, (1, 4), integer=True) == "good" and g(3, (1, 4), integer=True) == "fair"
-    assert g(4, (1, 4), integer=True) == "poor"
-    assert g(0.99, (1.0, 3.0)) == "good" and g(1.0, (1.0, 3.0)) == "fair" and g(3.0, (1.0, 3.0)) == "poor"
-
-
-def test_contour_smoothing_keeps_gaps_and_drops_short_pieces(figs):
+# The report card's grade shading was removed (R1 minor 25; D-139 addendum), and figure 1 now
+# draws observed waterlines instead of smoothed emergence dates (D-140), so their tests went too.
+def test_iso_lines_keeps_long_lines_and_drops_short_pieces(figs):
     T = figs["then"]
-    yr = np.tile(np.linspace(2000.0, 2030.0, 80), (40, 1))   # dates increase eastward
-    yr[:, :8] = np.nan
-    sm, ext = T.smoothed(yr, [0.0, 80 * 150.0, 0.0, 40 * 150.0], block=4, sigma=1.0)
-    assert sm.shape == (10, 20) and np.isnan(sm[:, :2]).all() and np.isfinite(sm[:, 2:]).all()
-    long_ = T.iso_lines(sm, ext, 2015.0, min_len_m=1000.0)
+    field = np.tile(np.linspace(0.0, 1.0, 20), (10, 1))   # values increase eastward
+    field[:, :2] = np.nan
+    ext = [0.0, 20 * 600.0, 0.0, 10 * 600.0]
+    long_ = T.iso_lines(field, ext, 0.5, min_len_m=1000.0)
     assert len(long_) == 1 and np.ptp(long_[0][:, 1]) > 4000.0     # one north-south line
-    assert T.iso_lines(sm, ext, 2015.0, min_len_m=1e6) == []
+    assert T.iso_lines(field, ext, 0.5, min_len_m=1e6) == []

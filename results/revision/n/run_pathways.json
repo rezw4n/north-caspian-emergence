@@ -1,0 +1,48 @@
+{
+ "script": "scripts/rev_n_pathways.py",
+ "decision": "D-127",
+ "years": [
+  2035.0,
+  2050.0
+ ],
+ "base_year": 2026.0,
+ "level_2026_m": -28.6194,
+ "primary": [
+  "HOS25-01",
+  "HOS25-04",
+  "HOS25-07",
+  "HOS25-10",
+  "SAM23-07",
+  "SAM23-10",
+  "SAM23-14"
+ ],
+ "range": [
+  "HOS25-02",
+  "HOS25-03",
+  "HOS25-05",
+  "HOS25-06",
+  "HOS25-08",
+  "HOS25-09",
+  "HOS25-11",
+  "HOS25-12",
+  "SAM23-08",
+  "SAM23-09",
+  "SAM23-11",
+  "SAM23-12"
+ ],
+ "products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7",
+  "gebco_2022",
+  "etopo1"
+ ],
+ "observed_fall_2021_2026_m": 0.8230363636363585,
+ "observed_fall_same_window_m": 0.9055249999999972,
+ "window_2026_records": [
+  "2026-01-09",
+  "2026-09-14"
+ ],
+ "anchoring_rule": "exposure.scenario_dates anchor 'base': fall after 2026 = c(2026) - c(t); calendar time kept (not re-anchored); the pathway's change before 2026 is dropped",
+ "seconds": 22.8
+}

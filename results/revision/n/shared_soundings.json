@@ -1,0 +1,84 @@
+{
+ "reference": "gebco_2022",
+ "lattice": "15 arc-second cell centres",
+ "products": {
+  "gebco_2026": {
+   "same_lattice": true,
+   "domain": {
+    "n_cells": 1474098,
+    "share_equal": 0.9130274920663348,
+    "modal_difference_m": 0.0,
+    "share_within_0p01_of_mode": 0.9130274920663348,
+    "median_difference_m": 0.0,
+    "p05_difference_m": -1.0,
+    "p95_difference_m": 0.0,
+    "share_product_integer": 1.0,
+    "share_reference_integer": 1.0
+   },
+   "domain_-34_to_-26m": {
+    "n_cells": 755677,
+    "share_equal": 0.9090524126048563,
+    "modal_difference_m": 0.0,
+    "share_within_0p01_of_mode": 0.9090524126048563,
+    "median_difference_m": 0.0,
+    "p05_difference_m": -1.0,
+    "p95_difference_m": 0.0,
+    "share_product_integer": 1.0,
+    "share_reference_integer": 1.0
+   }
+  },
+  "etopo_2022": {
+   "same_lattice": true,
+   "domain": {
+    "n_cells": 1474098,
+    "share_equal": 0.37301047827213657,
+    "modal_difference_m": 0.0,
+    "share_within_0p01_of_mode": 0.3745544733118151,
+    "median_difference_m": 0.11240005493164062,
+    "p05_difference_m": -1.0,
+    "p95_difference_m": 3.8392887115478516,
+    "share_product_integer": 0.43545340947481104,
+    "share_reference_integer": 1.0
+   },
+   "domain_-34_to_-26m": {
+    "n_cells": 755677,
+    "share_equal": 0.5559862216264356,
+    "modal_difference_m": 0.0,
+    "share_within_0p01_of_mode": 0.5571123641449984,
+    "median_difference_m": 0.0,
+    "p05_difference_m": -1.0,
+    "p95_difference_m": 3.353697967529295,
+    "share_product_integer": 0.6737296490431759,
+    "share_reference_integer": 1.0
+   }
+  },
+  "srtm15p_v2.7": {
+   "same_lattice": true,
+   "domain": {
+    "n_cells": 1474098,
+    "share_equal": 0.540785619409293,
+    "modal_difference_m": 0.0,
+    "share_within_0p01_of_mode": 0.5475002340414273,
+    "median_difference_m": 0.0,
+    "p05_difference_m": -1.0,
+    "p95_difference_m": 1.026476192474365,
+    "share_product_integer": 0.826976903842214,
+    "share_reference_integer": 1.0
+   },
+   "domain_-34_to_-26m": {
+    "n_cells": 755677,
+    "share_equal": 0.3454253603060567,
+    "modal_difference_m": 0.0,
+    "share_within_0p01_of_mode": 0.358249622523909,
+    "median_difference_m": 0.7692642211914062,
+    "p05_difference_m": -1.0,
+    "p95_difference_m": 1.0539924621582029,
+    "share_product_integer": 0.7480722583855272,
+    "share_reference_integer": 1.0
+   }
+  },
+  "etopo1": {
+   "same_lattice": false
+  }
+ }
+}

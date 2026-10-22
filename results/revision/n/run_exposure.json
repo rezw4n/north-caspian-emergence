@@ -1,0 +1,74 @@
+{
+ "script": "scripts/rev_n_exposure.py",
+ "decision": "D-126",
+ "level_2026_m": -28.6194,
+ "deltas_m": [
+  0.5,
+  1.0,
+  2.0,
+  3.0,
+  5.0
+ ],
+ "envelope_deltas_m": [],
+ "radii": {
+  "gebco_2026|shape": {
+   "radius_m": 2990.6625108603857,
+   "n_levels": 102
+  },
+  "gebco_2026|total": {
+   "radius_m": 12688.176685561437,
+   "n_levels": 102
+  },
+  "etopo_2022|shape": {
+   "radius_m": 546.5863337187866,
+   "n_levels": 102
+  },
+  "etopo_2022|total": {
+   "radius_m": 2539.665798557536,
+   "n_levels": 102
+  },
+  "srtm15p_v2.7|shape": {
+   "radius_m": 5350.747515703541,
+   "n_levels": 102
+  },
+  "srtm15p_v2.7|total": {
+   "radius_m": 8277.407873166514,
+   "n_levels": 102
+  },
+  "gebco_2022|shape": {
+   "radius_m": 3054.1062955056645,
+   "n_levels": 102
+  },
+  "gebco_2022|total": {
+   "radius_m": 12337.377614452356,
+   "n_levels": 102
+  },
+  "etopo1|shape": {
+   "radius_m": 4167.957992349423,
+   "n_levels": 102
+  },
+  "etopo1|total": {
+   "radius_m": 13406.169480255185,
+   "n_levels": 102
+  }
+ },
+ "polygon_cells": {
+  "wdpa_protected_areas": 22009227,
+  "wdpa_protected_areas_noksrz": 5263599,
+  "wdpa_ramsar": 2957511,
+  "osm_wetlands": 711917
+ },
+ "n_samples": {
+  "osm_platforms": 70,
+  "osm_pipelines": 185934,
+  "osm_channels": 120520,
+  "osm_ports": 1245,
+  "osm_settlements": 521
+ },
+ "checks": {
+  "uncorrected_features_vs_exposure_csv_max_abs_diff": 5.684341886080802e-14
+ },
+ "port_distance_note": "distance from the feature's cells to the nearest 240 m block holding a cell of the composite observed 2026 sea (D-123 addendum 2; Euclidean, block centres)",
+ "far_up_delta_km": 20.0,
+ "seconds": 638.6
+}

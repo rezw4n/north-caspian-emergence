@@ -1,0 +1,212 @@
+{
+ "within_epoch_share_vs_level": {
+  "E1": {
+   "n_bins": 10,
+   "rho_share_vs_level": 0.947804480540862,
+   "p": 3.048216604188109e-05
+  },
+  "E2": {
+   "n_bins": 11,
+   "rho_share_vs_level": 0.6241474051821412,
+   "p": 0.04012404790153548
+  },
+  "E3": {
+   "n_bins": 22,
+   "rho_share_vs_level": 0.531338226990401,
+   "p": 0.010937355669205435
+  }
+ },
+ "months": [
+  5,
+  6,
+  7
+ ],
+ "unit": "Landsat acquisitions (acq) of the main stage-2 plan",
+ "share_by_epoch": {
+  "E1": {
+   "min": 0.0,
+   "50%": 0.488,
+   "max": 1.0
+  },
+  "E2": {
+   "min": 0.0,
+   "50%": 0.312,
+   "max": 0.817
+  },
+  "E3": {
+   "min": 0.0,
+   "50%": 0.47,
+   "max": 1.0
+  }
+ },
+ "units": [
+  {
+   "sector": "volga",
+   "product": "gebco_2026",
+   "n_units": 36,
+   "rho": 0.1713,
+   "p": 0.3178,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "volga",
+   "product": "gebco_2022",
+   "n_units": 36,
+   "rho": 0.1888,
+   "p": 0.2701,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "volga",
+   "product": "etopo_2022",
+   "n_units": 35,
+   "rho": 0.0535,
+   "p": 0.7602,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "volga",
+   "product": "etopo1",
+   "n_units": 36,
+   "rho": 0.2212,
+   "p": 0.1947,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "volga",
+   "product": "srtm15p_v2.7",
+   "n_units": 36,
+   "rho": 0.1622,
+   "p": 0.3447,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "ural",
+   "product": "gebco_2026",
+   "n_units": 36,
+   "rho": 0.1152,
+   "p": 0.5035,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "ural",
+   "product": "gebco_2022",
+   "n_units": 36,
+   "rho": 0.0642,
+   "p": 0.7098,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "ural",
+   "product": "etopo_2022",
+   "n_units": 34,
+   "rho": -0.0766,
+   "p": 0.6668,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "ural",
+   "product": "etopo1",
+   "n_units": 36,
+   "rho": 0.065,
+   "p": 0.7065,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "ural",
+   "product": "srtm15p_v2.7",
+   "n_units": 36,
+   "rho": -0.1023,
+   "p": 0.5526,
+   "p_holm": 1.0
+  }
+ ],
+ "levels": [
+  {
+   "sector": "volga",
+   "product": "gebco_2026",
+   "n_levels": 30,
+   "rho": 0.1613,
+   "p": 0.3945,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "volga",
+   "product": "gebco_2022",
+   "n_levels": 30,
+   "rho": 0.1742,
+   "p": 0.3572,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "volga",
+   "product": "etopo_2022",
+   "n_levels": 30,
+   "rho": 0.0217,
+   "p": 0.9095,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "volga",
+   "product": "etopo1",
+   "n_levels": 30,
+   "rho": 0.2267,
+   "p": 0.2283,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "volga",
+   "product": "srtm15p_v2.7",
+   "n_levels": 30,
+   "rho": 0.2142,
+   "p": 0.2556,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "ural",
+   "product": "gebco_2026",
+   "n_levels": 30,
+   "rho": 0.2743,
+   "p": 0.1424,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "ural",
+   "product": "gebco_2022",
+   "n_levels": 30,
+   "rho": 0.2543,
+   "p": 0.1751,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "ural",
+   "product": "etopo_2022",
+   "n_levels": 30,
+   "rho": -0.0421,
+   "p": 0.8253,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "ural",
+   "product": "etopo1",
+   "n_levels": 30,
+   "rho": 0.2445,
+   "p": 0.1929,
+   "p_holm": 1.0
+  },
+  {
+   "sector": "ural",
+   "product": "srtm15p_v2.7",
+   "n_levels": 30,
+   "rho": -0.0336,
+   "p": 0.8601,
+   "p_holm": 1.0
+  }
+ ],
+ "n_p_below_0_05": 0,
+ "n_holm_below_0_05": 0,
+ "rho_range": [
+  -0.1023231870321426,
+  0.22124975912987813
+ ]
+}

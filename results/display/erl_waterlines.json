@@ -1,0 +1,152 @@
+{
+ "epoch": "E3",
+ "bins": [
+  {
+   "bin": 32,
+   "level_m": -26.75,
+   "n_acquisitions": 140,
+   "first_year": 2011,
+   "last_year": 2014,
+   "first_date": "2011-04-11",
+   "last_date": "2014-06-30",
+   "median_date": "2012-08-01",
+   "sea_km2": 46816.8,
+   "observed_csv_sea_km2": 46819.5,
+   "envelope_cells": 94332
+  },
+  {
+   "bin": 26,
+   "level_m": -27.35,
+   "n_acquisitions": 178,
+   "first_year": 2014,
+   "last_year": 2020,
+   "first_date": "2014-09-25",
+   "last_date": "2020-07-21",
+   "median_date": "2018-04-05",
+   "sea_km2": 42823.7,
+   "observed_csv_sea_km2": 42826.5,
+   "envelope_cells": 36124
+  },
+  {
+   "bin": 20,
+   "level_m": -27.95,
+   "n_acquisitions": 76,
+   "first_year": 2021,
+   "last_year": 2022,
+   "first_date": "2021-09-25",
+   "last_date": "2022-08-26",
+   "median_date": "2022-05-28",
+   "sea_km2": 38292.7,
+   "observed_csv_sea_km2": 38295.4,
+   "envelope_cells": 79851
+  },
+  {
+   "bin": 14,
+   "level_m": -28.55,
+   "n_acquisitions": 154,
+   "first_year": 2024,
+   "last_year": 2026,
+   "first_date": "2024-04-01",
+   "last_date": "2026-10-10",
+   "median_date": "2025-05-26",
+   "sea_km2": 36441.9,
+   "observed_csv_sea_km2": 36444.7,
+   "envelope_cells": 53460
+  }
+ ],
+ "display_res_m": 240,
+ "rule": "D-140: four fully observed E3 bins 0.6 m apart spanning E3; complete = domain valid area >= 90% of the median over E3 bins (observed.csv)",
+ "completeness": {
+  "12": {
+   "complete": false,
+   "valid_ratio": 0.371
+  },
+  "13": {
+   "complete": false,
+   "valid_ratio": 0.484
+  },
+  "14": {
+   "complete": true,
+   "valid_ratio": 1.051
+  },
+  "15": {
+   "complete": true,
+   "valid_ratio": 0.998
+  },
+  "16": {
+   "complete": true,
+   "valid_ratio": 0.988
+  },
+  "17": {
+   "complete": true,
+   "valid_ratio": 0.939
+  },
+  "18": {
+   "complete": true,
+   "valid_ratio": 1.002
+  },
+  "19": {
+   "complete": true,
+   "valid_ratio": 0.995
+  },
+  "20": {
+   "complete": true,
+   "valid_ratio": 0.943
+  },
+  "21": {
+   "complete": true,
+   "valid_ratio": 0.971
+  },
+  "22": {
+   "complete": false,
+   "valid_ratio": 0.415
+  },
+  "23": {
+   "complete": true,
+   "valid_ratio": 1.048
+  },
+  "24": {
+   "complete": true,
+   "valid_ratio": 1.043
+  },
+  "25": {
+   "complete": true,
+   "valid_ratio": 1.094
+  },
+  "26": {
+   "complete": true,
+   "valid_ratio": 1.103
+  },
+  "27": {
+   "complete": true,
+   "valid_ratio": 1.072
+  },
+  "28": {
+   "complete": true,
+   "valid_ratio": 1.06
+  },
+  "29": {
+   "complete": true,
+   "valid_ratio": 1.03
+  },
+  "30": {
+   "complete": true,
+   "valid_ratio": 1.094
+  },
+  "31": {
+   "complete": true,
+   "valid_ratio": 0.981
+  },
+  "32": {
+   "complete": true,
+   "valid_ratio": 1.015
+  },
+  "33": {
+   "complete": false,
+   "valid_ratio": 0.297
+  }
+ },
+ "plan": "plan_main_tau9900cm_landsat.csv",
+ "seconds": 30.4,
+ "hindcast_run": "results/hindcast/main/run.json"
+}

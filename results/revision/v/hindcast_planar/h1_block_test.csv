@@ -1,0 +1,3 @@
+product,variant,n_blocks,n_excluded_few,n_excluded_no_sector,min_n,group_sectors,n_group,n_rest,n_excluded_nan,n_perm,seed,alpha,statistic,p_value,significant
+etopo1,total,192,0,6,20,ural+volga+west,50,136,0,10000,20261020,0.05,-1013.2534419433905,0.5669433056694331,False
+gebco_2026,total,197,0,5,20,ural+volga+west,51,141,0,10000,20261020,0.05,791.1938697874357,0.46285371462853714,False

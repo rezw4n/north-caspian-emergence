@@ -1,0 +1,117 @@
+{
+ "base": {
+  "rule": "D-116 step 1",
+  "low_value_m": -29.75,
+  "high_value_m": -24.65,
+  "cells": {
+   "dem": 22303904,
+   "low_fill": 14728970,
+   "high_fill": 28939153,
+   "nearest_fill_needed": 723947,
+   "nearest_fill_left_nan": 0,
+   "finite_total": 66695974
+  }
+ },
+ "controls": {
+  "ctrl_r15_gebco": {
+   "control": "ctrl_r15_gebco",
+   "native_grid_of": "gebco_2026",
+   "rounding": "all",
+   "native_cells_with_value": 1602742,
+   "native_cells_rounded": 1602742,
+   "native_cells_round_mask": 1733760,
+   "native_shape": [
+    860,
+    2016
+   ],
+   "stands_for": [
+    "gebco_2026",
+    "gebco_2022"
+   ]
+  },
+  "ctrl_r15_srtm": {
+   "control": "ctrl_r15_srtm",
+   "native_grid_of": "srtm15p_v2.7",
+   "rounding": "srtm",
+   "native_cells_with_value": 1602742,
+   "native_cells_rounded": 1416493,
+   "native_cells_round_mask": 1502058,
+   "native_shape": [
+    860,
+    2016
+   ],
+   "stands_for": [
+    "srtm15p_v2.7"
+   ]
+  },
+  "ctrl_r15_etopo22": {
+   "control": "ctrl_r15_etopo22",
+   "native_grid_of": "etopo_2022",
+   "rounding": "etopo22",
+   "native_cells_with_value": 1602742,
+   "native_cells_rounded": 612396,
+   "native_cells_round_mask": 700298,
+   "native_shape": [
+    860,
+    2016
+   ],
+   "stands_for": [
+    "etopo_2022"
+   ]
+  },
+  "ctrl_u15": {
+   "control": "ctrl_u15",
+   "native_grid_of": "gebco_2026",
+   "rounding": "none",
+   "native_cells_with_value": 1602742,
+   "native_cells_rounded": 0,
+   "native_cells_round_mask": null,
+   "native_shape": [
+    860,
+    2016
+   ],
+   "stands_for": [
+    "gebco_2026",
+    "gebco_2022",
+    "srtm15p_v2.7",
+    "etopo_2022"
+   ]
+  },
+  "ctrl_r60_etopo1": {
+   "control": "ctrl_r60_etopo1",
+   "native_grid_of": "etopo1",
+   "rounding": "all",
+   "native_cells_with_value": 101327,
+   "native_cells_rounded": 101327,
+   "native_cells_round_mask": 109080,
+   "native_shape": [
+    216,
+    505
+   ],
+   "stands_for": [
+    "etopo1"
+   ]
+  },
+  "ctrl_u60_etopo1": {
+   "control": "ctrl_u60_etopo1",
+   "native_grid_of": "etopo1",
+   "rounding": "none",
+   "native_cells_with_value": 101327,
+   "native_cells_rounded": 0,
+   "native_cells_round_mask": null,
+   "native_shape": [
+    216,
+    505
+   ],
+   "stands_for": [
+    "etopo1"
+   ]
+  }
+ },
+ "correction": {
+  "file": "geoid_correction_primary.npz",
+  "sha256": "365eeb612a4bd88c828ad72c099b70bd776e293281e8b0b1d31e2376001358db",
+  "meaning": "N(EGM2008) - N(EIGEN-6C4), m, added to product heights",
+  "cache": "correction_5b893a9c2a4b.npy"
+ }
+}

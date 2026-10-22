@@ -62,9 +62,14 @@
 % Running head of the draft (the class prints placeholders for the journal's own); at 12 pt
 % fancyhdr needs a taller head than the class sets.
 \setlength{\headheight}{15pt}
-\fancyhead[L]{{\small\sffamily Draft --- not for circulation}}
+\fancyhead[L]{}
 \fancyhead[R]{Ahmed \textit{et al}}
+% The template's \articletype also prints the journal's placeholders ("Journal Name", the
+% Crossmark box and "dd Month yyyy" dates), which the journal fills at production; for the
+% submitted file it prints only the article type (R1.M10; D-137). The class file is unchanged.
+\renewcommand{\articletype}[1]{{\noindent\scriptsize\sffamily\bfseries\MakeUppercase{#1}}\par\vspace{4mm}}
 
+\input{justify}
 \begin{document}
 % Front matter in the template's commands, which print where they stand.
 \articletype{Letter}
@@ -72,7 +77,7 @@
 \title{Four decades of retreating shorelines audit projected seabed emergence in the North Caspian Sea}
 
 % Author order and corresponding author set by the PI on 2026-10-21 (D-099 addendum).
-\author{Rezwan Ahmed$^{1}$, Nusrat Jahan Zerin$^{2,*}$ and Obaidur Rahman$^{3}$}
+\author{Rezwan Ahmed$^{1}$\orcid{0009-0002-8003-099X}, Nusrat Zahan Jarin$^{2,*}$\orcid{0000-0003-2657-8559} and Obaidur Rahman$^{3}$\orcid{0009-0004-1781-5887}}
 
 \affil{$^{1}$Department of Geography and Environment, University of Dhaka, Dhaka, Bangladesh}
 
@@ -80,7 +85,7 @@
 
 \affil{$^{3}$Department of Geography, Oklahoma State University, Stillwater, OK, USA}
 
-\affil{$^{*}$Corresponding author: Nusrat Jahan Zerin, njarin@umail.ucsb.edu}
+\affil{$^{*}$Corresponding author: Nusrat Zahan Jarin, njarin@umail.ucsb.edu}
 
 \vspace{3mm}
 \keywords{Caspian Sea, Great Salt Lake, bathymetry, shoreline change, satellite altimetry, Landsat, closed-basin decline}
