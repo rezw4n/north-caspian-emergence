@@ -741,3 +741,100 @@ The Caspian H1 result (D-087) was known. That is why every rule below is the Cas
   - the floor per level band.
 
 **Erratum to Amendment 18, item 5 (2026-10-22, found while the analysis was run; D-115).** The text says the smallest attainable one-sided p of the sector-level test is 1/35. With the Eq. S12 statistic on medians of 3 against 4 sectors, the most extreme labelling always ties with one other, so the smallest attainable p is 2/35 ≈ 0.057. At seven sectors this test therefore cannot reject at 0.05. The test is run as registered and reported with this property stated. Its rank-sum version is reported as a labelled sensitivity (D-115).
+
+## Amendment 19 — 2026-10-23 (second review round, for the Remote Sensing of Environment version; before any analysis below was computed)
+
+**What had been seen.**
+- Everything up to commit beab36b: every result of Amendment 18, and the ERL Letter and Supplementary built from it.
+- Five new internal reviews (`docs/reviews/rse/review_{S,P,C,M,L}_*.md`).
+- Existing numbers that those reviews quote:
+  - the vertical equivalents of Amendment 18 item 7 (`results/revision/r/budget/vertical_equivalents.csv`);
+  - the ±0.3 m sensitivity of the 2026 reference level;
+  - the out-of-sample constants fitted on E1 + E2;
+  - the emerged areas at zero decline from the observed shoreline;
+  - the variance partitions for each baseline and scale;
+  - the five-way agreement on the observed-shoreline and shifted maps;
+  - the share of ETOPO 2022 shoreline cells on the 2000 outline.
+
+**Status of these analyses.**
+- All are post-review and exploratory.
+- None replaces a registered verdict: H1, H2, H3 and the generality verdict stand as decided and are reported as such.
+- Seed 20261023 for every new resampling.
+- Heavy runs go through `tools/heavy_slot.py`. Where a run must be cut back for time, the cut is logged in DECISIONS before the run.
+
+**1. Emergence from the observed shoreline, re-referenced at 2026.**
+- **Why:** the observed-shoreline estimate of Amendment 18 measured each product as distributed against the observed 2026 sea, so it mixed the product's vertical offset into "further fall".
+- **Constant:** with each product's area constant applied (shape variant), a second constant c26 is found by bisection (0.01 m) so that the product's sea area in the domain at L2026 equals the area of the composite observed sea S_obs.
+- **Reported:**
+  - the misfit M = |S_obs ∩ {product dry at L2026}|;
+  - the increment E(Δ) = |S_obs ∩ {product sea at L2026, dry at L2026 − Δ}| for Δ = 0.5, 1, 2 and 3 m.
+- **Sensitivities:**
+  - c26 fitted instead to the observed sea of the three lowest audited level bins (summed absolute area error);
+  - L2026 ± 0.3 m.
+- **Exposure:** the first-metre exposure counts (settlements, ports, channel length, protected-area share) are recomputed on this increment.
+- **Supersedes:** this estimate replaces the Amendment 18 observed-shoreline estimate in the text. The old one is reported in the Supplementary as a deviation.
+
+**2. Pathway and grid shares, complete.** The two-way partition of emerged area (pathway × grid) at 2035 and 2050 is reported:
+- for every baseline: as distributed, shifted, and observed re-referenced (item 1);
+- on the linear and the log scale;
+- with the grid factor taken as three depth-source lineages: GEBCO (GEBCO_2026, GEBCO_2022, ETOPO 2022), ETOPO1 and SRTM15+.
+
+At fixed declines of 0.5, 1 and 2 m, the ratio of largest to smallest emerged area across products is reported for each baseline.
+
+**3. Agreement references for the maps shown.**
+- **Computed:** the five-way agreement on the first metre, and its reference from perturbed copies of one product.
+- **Maps:** the observed re-referenced baseline and the shifted grids.
+- **Simulator:** the D-125 settings (150 km range, 480 m flood grid, 10 disjoint groups of five).
+
+**4. Vertical equivalents reported.** The item 7 quantities of Amendment 18 (D·g and Q·g per product, sector and level) are summarised in the main text by sector medians. This is reporting only.
+
+**5. Operating characteristic of the decision rule.**
+- **Construction:** the degraded control of Amendment 18 item 6, for each resolution class, plus a spatially correlated Gaussian vertical error field. The field uses the D-125 simulator's covariance, with σ = 0.10, 0.25, 0.50 and 1.00 m and a range of 150 km.
+- **Realisations:** R = 20 per σ (cut to 10 if a pilot exceeds 2 h per σ; logged before the run).
+- **Audit:** each realisation gets its own area constant and is audited in the four validated sectors exactly as the products are.
+- **Reported:** P(the rule flags the sector) against σ, and the σ at which it first exceeds 0.5.
+
+**6. Common-mode offset.**
+- **(a) Area constant by subset:** the area constant per epoch (E1, E2, E3) and per 0.5 m level band, on training-block units, for each product.
+- **(b) Cross-product correlations:** Pearson and Spearman correlations of the per-level signed median displacement (`h1_mispredicts_detail.csv`), in each validated sector.
+- **Reported:** both, with the spread across products.
+
+**7. Datum attribution.**
+- **(a) Total variant with the DAHITI constant:** the total variant is re-run with the documented DAHITI reference constant applied (c_ref of `docs/DATUMS.md`), and the verdict counts are reported.
+- **(b) Shape variant without the geoid field:** the shape variant is re-run without the cell-by-cell EGM2008 − EIGEN-6C4 field for GEBCO_2026, GEBCO_2022 and SRTM15+, with the constant refitted. The verdicts in the validated sectors are reported.
+
+**8. Unknown predicted cells.**
+- **Share reported:** per product and sector, the share of predicted shoreline cells dropped because the observed state is unknown.
+- **Displacement recomputed two ways:**
+  - (i) with those cells measured to the nearest observed waterline cell;
+  - (ii) dropping observed waterline cells within 2 cells (120 m) of unknown cells.
+- **Verdicts reported** in the validated sectors under both.
+
+**9. Systematic-budget Monte Carlo.**
+- **Draws:** B = 500. Each draw adds an offset δ ~ N(0, σ_budget) per sector and epoch, using the Amendment 18 item 7 budget (the sector–epoch median σ).
+- **Thresholds:** the existing flood maps are thresholded at L + c + δ.
+- **Recomputed:** D and the verdict, with Q unchanged.
+- **Reported:** P(mispredict) per product and validated sector.
+
+**10. Observation bias from all ICESat-2 blocks.**
+- **Computed:** the waterline DEM (main) minus ATL08 and ATL06, per sector, over all blocks (training, calibration and test), with the H2 point filters.
+- **Statistics:** mean, median, NMAD, RMSE and the number of blocks, each with a block-bootstrap 95% interval (B = 2,000).
+- **Status:** descriptive. The validated-sector rule of Amendment 18 item 1 is unchanged.
+
+**11. Observation variants through the hindcast.**
+- **All tiles:** observed extents from the `main__veg_as_dry` and `main__veg_as_water` stage-2 counts, audited for all products in all sectors (shape variant, product constants unchanged).
+- **R-block tiles:** AWEIsh and fixed MNDWI 0 on the 14 R-block tiles, with sector verdicts restricted to those tiles.
+- **Reported:** verdicts, with the validated sectors first.
+
+**12. Where ETOPO 2022's error changes.** A single changepoint is fitted in ETOPO 2022's per-level log(D/Q), pooled over sectors, by least squares over the bin edges. The level and the D/Q on either side are reported. This replaces the post-hoc band edge as the stated break.
+
+**13. A lake-bed control at Great Salt Lake.**
+- **Surface:** the sounding-based lake-bed elevation model of Great Salt Lake (HydroShare resource 582060f00f6b443bb26e896426d9f62a, `GSLDEM.tif`, CC BY), with its sources and dates taken from the resource's documentation.
+- **Datum:** converted from NGVD29 to NAVD88 as the gauge levels are.
+- **Audit:** in both arms, exactly as the 3DEP control.
+- **Status:** an additional, unregistered control. The registered verdict and the 3DEP substitute stand.
+
+**14. Depth sources.**
+- **Source types:** the shares of GEBCO_2026 source-type (TID) classes in the domain and in the emerged band, if the TID grid can be obtained by script at no cost.
+- **Shared values:** the share of domain cells where GEBCO_2026 equals GEBCO_2022, and where ETOPO 2022 equals GEBCO_2022 below the outline.
+- **Reporting:** verdicts are also given by lineage (item 2).
