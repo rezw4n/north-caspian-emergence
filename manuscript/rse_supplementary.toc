@@ -1,0 +1,10 @@
+\contentsline {section}{S1\hskip 1em\relax Full methods}{2}{section*.2}%
+\contentsline {section}{S2\hskip 1em\relax Accuracy of the waterline elevation model and conformal coverage}{22}{section*.23}%
+\contentsline {section}{S3\hskip 1em\relax The hindcast audit in detail}{29}{section*.35}%
+\contentsline {section}{S4\hskip 1em\relax Robustness checks}{33}{section*.46}%
+\contentsline {section}{S5\hskip 1em\relax Adversarial tests}{35}{section*.49}%
+\contentsline {section}{S6\hskip 1em\relax Generality: Great Salt Lake}{37}{section*.54}%
+\contentsline {section}{S7\hskip 1em\relax Near-term emergence: the registered correction and its sensitivity forms}{39}{section*.58}%
+\contentsline {section}{S8\hskip 1em\relax Deviations from the pre-registration}{44}{section*.70}%
+\contentsline {section}{S9\hskip 1em\relax Additional analyses (pre-registration Amendment 18)}{46}{section*.71}%
+\contentsline {section}{S10\hskip 1em\relax Additional analyses (pre-registration Amendment 19)}{52}{section*.75}%

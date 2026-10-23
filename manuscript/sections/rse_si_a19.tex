@@ -1,0 +1,143 @@
+% RSE Supplementary: the analyses of pre-registration Amendment 19 (exploratory; specified before
+% they were computed; docs/DECISIONS.md D-146 to D-150). Every number is a \metric{} macro.
+% Generated in phase 2 by the writer (tables built from the rev2.* metric keys).
+
+All analyses in this section were specified in Amendment 19 of the pre-registration before any of them was computed. They are exploratory, and none replaces a pre-specified verdict. Figure and section numbers refer to the main article.
+
+\subsection*{Audit variants on the observations and the datum chain}
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Checked sectors (of four) in which each grid fails the shoreline test, under each variant.} Variants of Amendment 19 items 7, 8 and 11; offset-corrected unless stated. --: not run (ETOPO~2022's EGM2008 reference is documented, so the geoid-difference variant does not apply). The matched floor measures the unknown cells of both halves and so becomes a coverage statistic (main article, Section~4.4).}
+\label{tab:a19_variants}
+\begin{tabular}{lccccc}
+\hline
+Variant & GEBCO\_2026 & GEBCO\_2022 & ETOPO~2022 & ETOPO1 & SRTM15+ \\
+\hline
+Primary (offset-corrected) & \metric{rev.s.item1.shape.gebco2026.validated4.n_mispredict} & \metric{rev.s.item1.shape.gebco2022.validated4.n_mispredict} & \metric{rev.s.item1.shape.etopo2022.validated4.n_mispredict} & \metric{rev.s.item1.shape.etopo1.validated4.n_mispredict} & \metric{rev.s.item1.shape.srtm15p.validated4.n_mispredict} \\
+As distributed, DAHITI reference offset removed & \metric{rev2.a.i7.total_cref.gebco2026.n_validated4} & \metric{rev2.a.i7.total_cref.gebco2022.n_validated4} & \metric{rev2.a.i7.total_cref.etopo2022.n_validated4} & \metric{rev2.a.i7.total_cref.etopo1.n_validated4} & \metric{rev2.a.i7.total_cref.srtm15p.n_validated4} \\
+Offset-corrected, no geoid-difference field & \metric{rev2.a.i7.nogeoid.gebco2026.n_validated4} & \metric{rev2.a.i7.nogeoid.gebco2022.n_validated4} & -- & \metric{rev2.a.i7.nogeoid.etopo1.n_validated4} & \metric{rev2.a.i7.nogeoid.srtm15p.n_validated4} \\
+Emergent vegetation as dry & \metric{rev2.a.i11.vegasdry.gebco2026.n_validated4} & \metric{rev2.a.i11.vegasdry.gebco2022.n_validated4} & \metric{rev2.a.i11.vegasdry.etopo2022.n_validated4} & \metric{rev2.a.i11.vegasdry.etopo1.n_validated4} & \metric{rev2.a.i11.vegasdry.srtm15p.n_validated4} \\
+Emergent vegetation as water & \metric{rev2.a.i11.vegaswater.gebco2026.n_validated4} & \metric{rev2.a.i11.vegaswater.gebco2022.n_validated4} & \metric{rev2.a.i11.vegaswater.etopo2022.n_validated4} & \metric{rev2.a.i11.vegaswater.etopo1.n_validated4} & \metric{rev2.a.i11.vegaswater.srtm15p.n_validated4} \\
+AWEI\textsubscript{sh} (robustness tiles) & \metric{rev2.a.i11.rRawei.gebco2026.n_validated4} & \metric{rev2.a.i11.rRawei.gebco2022.n_validated4} & \metric{rev2.a.i11.rRawei.etopo2022.n_validated4} & \metric{rev2.a.i11.rRawei.etopo1.n_validated4} & \metric{rev2.a.i11.rRawei.srtm15p.n_validated4} \\
+Fixed MNDWI threshold (robustness tiles) & \metric{rev2.a.i11.rRfixed0.gebco2026.n_validated4} & \metric{rev2.a.i11.rRfixed0.gebco2022.n_validated4} & \metric{rev2.a.i11.rRfixed0.etopo2022.n_validated4} & \metric{rev2.a.i11.rRfixed0.etopo1.n_validated4} & \metric{rev2.a.i11.rRfixed0.srtm15p.n_validated4} \\
+Unknown cells measured, original floor & \metric{rev2.a.i8.i.registered.gebco2026.n_validated4} & \metric{rev2.a.i8.i.registered.gebco2022.n_validated4} & \metric{rev2.a.i8.i.registered.etopo2022.n_validated4} & \metric{rev2.a.i8.i.registered.etopo1.n_validated4} & \metric{rev2.a.i8.i.registered.srtm15p.n_validated4} \\
+Unknown cells measured, matched floor & \metric{rev2.a.i8.i.matched.gebco2026.n_validated4} & \metric{rev2.a.i8.i.matched.gebco2022.n_validated4} & \metric{rev2.a.i8.i.matched.etopo2022.n_validated4} & \metric{rev2.a.i8.i.matched.etopo1.n_validated4} & \metric{rev2.a.i8.i.matched.srtm15p.n_validated4} \\
+Observed cells near unknown dropped, original floor & \metric{rev2.a.i8.ii.registered.gebco2026.n_validated4} & \metric{rev2.a.i8.ii.registered.gebco2022.n_validated4} & \metric{rev2.a.i8.ii.registered.etopo2022.n_validated4} & \metric{rev2.a.i8.ii.registered.etopo1.n_validated4} & \metric{rev2.a.i8.ii.registered.srtm15p.n_validated4} \\
+Observed cells near unknown dropped, matched floor & \metric{rev2.a.i8.ii.matched.gebco2026.n_validated4} & \metric{rev2.a.i8.ii.matched.gebco2022.n_validated4} & \metric{rev2.a.i8.ii.matched.etopo2022.n_validated4} & \metric{rev2.a.i8.ii.matched.etopo1.n_validated4} & \metric{rev2.a.i8.ii.matched.srtm15p.n_validated4} \\
+\hline
+\end{tabular}
+\end{table}
+
+Over the four checked sectors, the share of predicted shoreline cells dropped because their observed state is unknown (pooled over units) is given per grid and sector in the data release; on the Kizlyar--Dagestan and interfluve coasts it is \metric{rev2.a.i8.share.srtm15p.interfluve.pooled_pct}--\metric{rev2.a.i8.share.etopo2022.west.pooled_pct}\%. Without the geoid-difference field the refitted offsets change by \metric{rev2.a.i7.nogeoid.gebco2022.c_change_m}--\metric{rev2.a.i7.nogeoid.srtm15p.c_change_m}~m.
+
+\subsection*{The area-fitted offset by level band and by epoch}
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Area-fitted offset by half-metre level band and by epoch} (Amendment 19 item 6a): range over the five grids, in metres, on training-block cells; and the least-squares slope of the band offset against band mid-level, in metres per metre. Band edges are levels on the working datum, in metres (design values).}
+\label{tab:a19_const}
+\begin{tabular}{lccc}
+\hline
+Subset & Minimum (m) & Maximum (m) & Spread (m) \\
+\hline
+Band $-29.0$ to $-28.5$ & \metric{rev2.d.const.across.band_m29p0_m28p5.min_m} & \metric{rev2.d.const.across.band_m29p0_m28p5.max_m} & \metric{rev2.d.const.across.band_m29p0_m28p5.spread_m} \\
+Band $-28.5$ to $-28.0$ & \metric{rev2.d.const.across.band_m28p5_m28p0.min_m} & \metric{rev2.d.const.across.band_m28p5_m28p0.max_m} & \metric{rev2.d.const.across.band_m28p5_m28p0.spread_m} \\
+Band $-28.0$ to $-27.5$ & \metric{rev2.d.const.across.band_m28p0_m27p5.min_m} & \metric{rev2.d.const.across.band_m28p0_m27p5.max_m} & \metric{rev2.d.const.across.band_m28p0_m27p5.spread_m} \\
+Band $-27.5$ to $-27.0$ & \metric{rev2.d.const.across.band_m27p5_m27p0.min_m} & \metric{rev2.d.const.across.band_m27p5_m27p0.max_m} & \metric{rev2.d.const.across.band_m27p5_m27p0.spread_m} \\
+Band $-27.0$ to $-26.5$ & \metric{rev2.d.const.across.band_m27p0_m26p5.min_m} & \metric{rev2.d.const.across.band_m27p0_m26p5.max_m} & \metric{rev2.d.const.across.band_m27p0_m26p5.spread_m} \\
+Band $-26.5$ to $-26.0$ & \metric{rev2.d.const.across.band_m26p5_m26p0.min_m} & \metric{rev2.d.const.across.band_m26p5_m26p0.max_m} & \metric{rev2.d.const.across.band_m26p5_m26p0.spread_m} \\
+Band $-26.0$ to $-25.5$ & \metric{rev2.d.const.across.band_m26p0_m25p5.min_m} & \metric{rev2.d.const.across.band_m26p0_m25p5.max_m} & \metric{rev2.d.const.across.band_m26p0_m25p5.spread_m} \\
+Rising limb & \metric{rev2.d.const.across.E1.min_m} & \metric{rev2.d.const.across.E1.max_m} & \metric{rev2.d.const.across.E1.spread_m} \\
+Early fall & \metric{rev2.d.const.across.E2.min_m} & \metric{rev2.d.const.across.E2.max_m} & \metric{rev2.d.const.across.E2.spread_m} \\
+Late fall & \metric{rev2.d.const.across.E3.min_m} & \metric{rev2.d.const.across.E3.max_m} & \metric{rev2.d.const.across.E3.spread_m} \\
+All epochs & \metric{rev2.d.const.across.all.min_m} & \metric{rev2.d.const.across.all.max_m} & \metric{rev2.d.const.across.all.spread_m} \\
+\hline
+\end{tabular}
+
+\medskip
+\begin{tabular}{lccccc}
+\hline
+ & GEBCO\_2026 & GEBCO\_2022 & ETOPO~2022 & ETOPO1 & SRTM15+ \\
+\hline
+Slope of band offset (m per m) & \metric{rev2.d.const.gebco2026.band_slope} & \metric{rev2.d.const.gebco2022.band_slope} & \metric{rev2.d.const.etopo2022.band_slope} & \metric{rev2.d.const.etopo1.band_slope} & \metric{rev2.d.const.srtm15p.band_slope} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Bias of the waterline model over all ICESat-2 blocks}
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Waterline model minus ICESat-2 over all blocks} (training, calibration and test; Amendment 19 item 10), with block-bootstrap 95\% intervals of the mean (\metric{params.bootstrap_n} resamples). The datum constant is the pooled training-block median, so the overall median is near zero by construction and sector values are relative to it. Descriptive; the checked-sector criterion is unchanged.}
+\label{tab:a19_obs}
+\begin{tabular}{lrcccrc}
+\hline
+ & \multicolumn{3}{c}{ATL06} & & \multicolumn{2}{c}{ATL08} \\
+Sector & Blocks & Mean (m) [95\% interval] & NMAD (m) & & Blocks & Mean (m) \\
+\hline
+Kizlyar--Dagestan & \metric{rev2.d.obs.atl06.west.n_blocks} & \metric{rev2.d.obs.atl06.west.mean_m} [\metric{rev2.d.obs.atl06.west.mean_lo_m}, \metric{rev2.d.obs.atl06.west.mean_hi_m}] & \metric{rev2.d.obs.atl06.west.nmad_m} & & \metric{rev2.d.obs.atl08.west.n_blocks} & \metric{rev2.d.obs.atl08.west.mean_m} \\
+Interfluve & \metric{rev2.d.obs.atl06.interfluve.n_blocks} & \metric{rev2.d.obs.atl06.interfluve.mean_m} [\metric{rev2.d.obs.atl06.interfluve.mean_lo_m}, \metric{rev2.d.obs.atl06.interfluve.mean_hi_m}] & \metric{rev2.d.obs.atl06.interfluve.nmad_m} & & \metric{rev2.d.obs.atl08.interfluve.n_blocks} & \metric{rev2.d.obs.atl08.interfluve.mean_m} \\
+Northeastern coast & \metric{rev2.d.obs.atl06.northeast.n_blocks} & \metric{rev2.d.obs.atl06.northeast.mean_m} [\metric{rev2.d.obs.atl06.northeast.mean_lo_m}, \metric{rev2.d.obs.atl06.northeast.mean_hi_m}] & \metric{rev2.d.obs.atl06.northeast.nmad_m} & & \metric{rev2.d.obs.atl08.northeast.n_blocks} & \metric{rev2.d.obs.atl08.northeast.mean_m} \\
+Open shelf & \metric{rev2.d.obs.atl06.openshelf.n_blocks} & \metric{rev2.d.obs.atl06.openshelf.mean_m} [\metric{rev2.d.obs.atl06.openshelf.mean_lo_m}, \metric{rev2.d.obs.atl06.openshelf.mean_hi_m}] & \metric{rev2.d.obs.atl06.openshelf.nmad_m} & & \metric{rev2.d.obs.atl08.openshelf.n_blocks} & \metric{rev2.d.obs.atl08.openshelf.mean_m} \\
+Volga delta & \metric{rev2.d.obs.atl06.volga.n_blocks} & \metric{rev2.d.obs.atl06.volga.mean_m} [\metric{rev2.d.obs.atl06.volga.mean_lo_m}, \metric{rev2.d.obs.atl06.volga.mean_hi_m}] & \metric{rev2.d.obs.atl06.volga.nmad_m} & & \metric{rev2.d.obs.atl08.volga.n_blocks} & \metric{rev2.d.obs.atl08.volga.mean_m} \\
+Ural delta & \metric{rev2.d.obs.atl06.ural.n_blocks} & \metric{rev2.d.obs.atl06.ural.mean_m} [\metric{rev2.d.obs.atl06.ural.mean_lo_m}, \metric{rev2.d.obs.atl06.ural.mean_hi_m}] & \metric{rev2.d.obs.atl06.ural.nmad_m} & & \metric{rev2.d.obs.atl08.ural.n_blocks} & \metric{rev2.d.obs.atl08.ural.mean_m} \\
+Komsomolets Bay & \metric{rev2.d.obs.atl06.komsomolets.n_blocks} & \metric{rev2.d.obs.atl06.komsomolets.mean_m} [\metric{rev2.d.obs.atl06.komsomolets.mean_lo_m}, \metric{rev2.d.obs.atl06.komsomolets.mean_hi_m}] & \metric{rev2.d.obs.atl06.komsomolets.nmad_m} & & \metric{rev2.d.obs.atl08.komsomolets.n_blocks} & \metric{rev2.d.obs.atl08.komsomolets.mean_m} \\
+All sectors & \metric{rev2.d.obs.atl06.overall.n_blocks} & \metric{rev2.d.obs.atl06.overall.mean_m} [\metric{rev2.d.obs.atl06.overall.mean_lo_m}, \metric{rev2.d.obs.atl06.overall.mean_hi_m}] & \metric{rev2.d.obs.atl06.overall.nmad_m} & & \metric{rev2.d.obs.atl08.overall.n_blocks} & \metric{rev2.d.obs.atl08.overall.mean_m} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Great Salt Lake: the lake-bed control}
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Great Salt Lake lake-bed control} (Amendment 19 item 13; HydroShare model of Tarboton and Merck, sounded below 1,278~m NGVD~29 from USGS sonar surveys). Levels above the floor, of levels with both distances; median displacement $D$ and median floor $Q$ (95th percentile), in metres; offset-corrected.}
+\label{tab:a19_gsl}
+\begin{tabular}{llccc}
+\hline
+Surface and levels & Arm & Levels above floor & Median $D$ (m) & Median $Q$ (m) \\
+\hline
+Lake-bed model, all levels & north & \metric{rev2.g.lakebed.all.north.shape.n_exceeding} of \metric{rev2.g.lakebed.all.north.shape.n_evaluable} & \metric{rev2.g.lakebed.all.north.shape.median_displacement_m} & \metric{rev2.g.lakebed.all.north.shape.median_floor_p95_m} \\
+Lake-bed model, all levels & south & \metric{rev2.g.lakebed.all.south.shape.n_exceeding} of \metric{rev2.g.lakebed.all.south.shape.n_evaluable} & \metric{rev2.g.lakebed.all.south.shape.median_displacement_m} & \metric{rev2.g.lakebed.all.south.shape.median_floor_p95_m} \\
+Lake-bed model, sounded levels & north & \metric{rev2.g.lakebed.sounded.north.shape.n_exceeding} of \metric{rev2.g.lakebed.sounded.north.shape.n_evaluable} & \metric{rev2.g.lakebed.sounded.north.shape.median_displacement_m} & \metric{rev2.g.lakebed.sounded.north.shape.median_floor_p95_m} \\
+Lake-bed model, sounded levels & south & \metric{rev2.g.lakebed.sounded.south.shape.n_exceeding} of \metric{rev2.g.lakebed.sounded.south.shape.n_evaluable} & \metric{rev2.g.lakebed.sounded.south.shape.median_displacement_m} & \metric{rev2.g.lakebed.sounded.south.shape.median_floor_p95_m} \\
+3DEP lidar control & north & \metric{generality.great_salt_lake.control.north.n_exceeding_levels} of \metric{generality.great_salt_lake.control.north.n_evaluable_levels} & \metric{generality.great_salt_lake.control.north.median_displacement_m} & \metric{generality.great_salt_lake.control.north.median_noise_p95_m} \\
+3DEP lidar control & south & \metric{generality.great_salt_lake.control.south.n_exceeding_levels} of \metric{generality.great_salt_lake.control.south.n_evaluable_levels} & \metric{generality.great_salt_lake.control.south.median_displacement_m} & \metric{generality.great_salt_lake.control.south.median_noise_p95_m} \\
+\hline
+\end{tabular}
+
+\medskip
+\begin{tabular}{lccccc}
+\hline
+At the sounded levels & GEBCO\_2026 & GEBCO\_2022 & ETOPO~2022 & ETOPO1 & SRTM15+ \\
+\hline
+Median $D$, north arm (m) & -- & \metric{rev2.g.lakebed.grids_at_sounded.gebco2022.north.median_displacement_m} & \metric{rev2.g.lakebed.grids_at_sounded.etopo2022.north.median_displacement_m} & -- & \metric{rev2.g.lakebed.grids_at_sounded.srtm15p.north.median_displacement_m} \\
+Median $D$, south arm (m) & \metric{rev2.g.lakebed.grids_at_sounded.gebco2026.south.median_displacement_m} & \metric{rev2.g.lakebed.grids_at_sounded.gebco2022.south.median_displacement_m} & \metric{rev2.g.lakebed.grids_at_sounded.etopo2022.south.median_displacement_m} & \metric{rev2.g.lakebed.grids_at_sounded.etopo1.south.median_displacement_m} & \metric{rev2.g.lakebed.grids_at_sounded.srtm15p.south.median_displacement_m} \\
+Median ratio to lake-bed model, north & \metric{rev2.g.lakebed.ratio.gebco2026.north.median} & \metric{rev2.g.lakebed.ratio.gebco2022.north.median} & \metric{rev2.g.lakebed.ratio.etopo2022.north.median} & \metric{rev2.g.lakebed.ratio.etopo1.north.median} & \metric{rev2.g.lakebed.ratio.srtm15p.north.median} \\
+Median ratio to lake-bed model, south & \metric{rev2.g.lakebed.ratio.gebco2026.south.median} & \metric{rev2.g.lakebed.ratio.gebco2022.south.median} & \metric{rev2.g.lakebed.ratio.etopo2022.south.median} & \metric{rev2.g.lakebed.ratio.etopo1.south.median} & \metric{rev2.g.lakebed.ratio.srtm15p.south.median} \\
+\hline
+\end{tabular}
+\end{table}
+--: the median is not finite (the grid predicts no shoreline at some levels). The registered verdict with this control is ``\metric{rev2.g.lakebed.all.verdict_with_this_control}'' over all levels and ``\metric{rev2.g.lakebed.sounded.verdict_with_this_control}'' at the sounded levels.
+
+\subsection*{Near-term emergence re-referenced to the observed 2026 shoreline}
+\begin{table}[!htbp]
+\centering
+\small
+\caption{\textbf{Re-referenced first-metre emergence and its sensitivities} (Amendment 19 item 1), in km\textsuperscript{2}. $c_{26}$: second constant (m); $M$: observed 2026 sea the grid calls dry; $E(1)$: increment for a 1~m fall. Sensitivities: $L_{2026} \pm \metric{rev.w.n.sens.jitter_m}$~m with $c_{26}$ held, and $c_{26}$ fitted to the three lowest audited bins.}
+\label{tab:a19_nearterm}
+\begin{tabular}{lccccccc}
+\hline
+Grid & $c_{26}$ & $M$ & $E(1)$ & $E(1)$, $L+0.3$ & $E(1)$, $L-0.3$ & $c_{26}$, bins & $E(1)$, bins \\
+\hline
+GEBCO\_2026 & \metric{rev2.n.reref.area.gebco2026.c26_m} & \metric{rev2.n.reref.area.main.gebco2026.M_km2} & \metric{rev2.n.reref.area.main.gebco2026.E.1.domain_km2} & \metric{rev2.n.reref.area.Lp0p3.gebco2026.E.1.domain_km2} & \metric{rev2.n.reref.area.Lm0p3.gebco2026.E.1.domain_km2} & \metric{rev2.n.reref.bins.gebco2026.c26_m} & \metric{rev2.n.reref.bins.main.gebco2026.E.1.domain_km2} \\
+GEBCO\_2022 & \metric{rev2.n.reref.area.gebco2022.c26_m} & \metric{rev2.n.reref.area.main.gebco2022.M_km2} & \metric{rev2.n.reref.area.main.gebco2022.E.1.domain_km2} & \metric{rev2.n.reref.area.Lp0p3.gebco2022.E.1.domain_km2} & \metric{rev2.n.reref.area.Lm0p3.gebco2022.E.1.domain_km2} & \metric{rev2.n.reref.bins.gebco2022.c26_m} & \metric{rev2.n.reref.bins.main.gebco2022.E.1.domain_km2} \\
+ETOPO~2022 & \metric{rev2.n.reref.area.etopo2022.c26_m} & \metric{rev2.n.reref.area.main.etopo2022.M_km2} & \metric{rev2.n.reref.area.main.etopo2022.E.1.domain_km2} & \metric{rev2.n.reref.area.Lp0p3.etopo2022.E.1.domain_km2} & \metric{rev2.n.reref.area.Lm0p3.etopo2022.E.1.domain_km2} & \metric{rev2.n.reref.bins.etopo2022.c26_m} & \metric{rev2.n.reref.bins.main.etopo2022.E.1.domain_km2} \\
+ETOPO1 & \metric{rev2.n.reref.area.etopo1.c26_m} & \metric{rev2.n.reref.area.main.etopo1.M_km2} & \metric{rev2.n.reref.area.main.etopo1.E.1.domain_km2} & \metric{rev2.n.reref.area.Lp0p3.etopo1.E.1.domain_km2} & \metric{rev2.n.reref.area.Lm0p3.etopo1.E.1.domain_km2} & \metric{rev2.n.reref.bins.etopo1.c26_m} & \metric{rev2.n.reref.bins.main.etopo1.E.1.domain_km2} \\
+SRTM15+ & \metric{rev2.n.reref.area.srtm15p.c26_m} & \metric{rev2.n.reref.area.main.srtm15p.M_km2} & \metric{rev2.n.reref.area.main.srtm15p.E.1.domain_km2} & \metric{rev2.n.reref.area.Lp0p3.srtm15p.E.1.domain_km2} & \metric{rev2.n.reref.area.Lm0p3.srtm15p.E.1.domain_km2} & \metric{rev2.n.reref.bins.srtm15p.c26_m} & \metric{rev2.n.reref.bins.main.srtm15p.E.1.domain_km2} \\
+\hline
+\end{tabular}
+\end{table}
+
+The observed sea $S_{\mathrm{obs}}$ covers \metric{rev2.n.reref.S_obs_km2}~km\textsuperscript{2}. Over all sensitivities the first-metre increment spans \metric{rev2.n.reref.allsens.E.1.domain.min_km2}--\metric{rev2.n.reref.allsens.E.1.domain.max_km2}~km\textsuperscript{2}, and the half-metre increment \metric{rev2.n.reref.allsens.E.0p5.domain.min_km2}--\metric{rev2.n.reref.allsens.E.0p5.domain.max_km2}~km\textsuperscript{2}. The Amendment 18 observed-shoreline estimate, which mixed each grid's vertical offset into the further fall, is superseded by this estimate (section on deviations). For the operating characteristic of the decision rule (item 5), the degraded-DEM control of each resolution class was given spatially correlated vertical errors (range \metric{rev2.oc.i5.range_km}~km, \metric{rev2.oc.i5.R.c15s.s100} realisations per standard deviation) and audited as the grids are. The smallest standard deviation at which the rule flags the control in more than half of the realisations is, at 15\,arc-seconds, \metricdp{rev2.oc.i5.c15s.west.first_sigma_m}{2}~m (Kizlyar--Dagestan), \metricdp{rev2.oc.i5.c15s.interfluve.first_sigma_m}{2}~m (interfluve) and \metricdp{rev2.oc.i5.c15s.openshelf.first_sigma_m}{2}~m (open shelf), and none within the tested range on the northeastern coast; at 1\,arc-minute, \metricdp{rev2.oc.i5.c1m.west.first_sigma_m}{2}, \metricdp{rev2.oc.i5.c1m.interfluve.first_sigma_m}{2} and \metricdp{rev2.oc.i5.c1m.northeast.first_sigma_m}{2}~m, and on the open shelf the unperturbed control is already flagged. Per-realisation results and Clopper--Pearson intervals are in \texttt{results/revision2/oc/}.

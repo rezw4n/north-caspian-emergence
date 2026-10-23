@@ -1,0 +1,15 @@
+product,variant,block_i,block_j,n,median_abs_m,block_sector,split
+lakebed,shape,-2,0,48551,512.6402247190518,north,train
+lakebed,shape,-2,1,30020,216.33307652783935,north,train
+lakebed,shape,-2,2,4137,120.0,north,train
+lakebed,shape,-1,0,37887,120.0,north,calib
+lakebed,shape,-1,1,14584,134.1640786499874,north,train
+lakebed,shape,-1,2,2006,120.0,north,test
+lakebed,shape,0,0,89,120.0,,
+lakebed,total,-2,0,48149,967.4709297958259,north,train
+lakebed,total,-2,1,30096,134.1640786499874,north,train
+lakebed,total,-2,2,3850,189.73665961010278,north,train
+lakebed,total,-1,0,37743,60.0,north,calib
+lakebed,total,-1,1,13682,120.0,north,train
+lakebed,total,-1,2,1751,180.0,north,test
+lakebed,total,0,0,31,84.8528137423857,,

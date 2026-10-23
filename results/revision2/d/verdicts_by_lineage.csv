@@ -1,0 +1,4 @@
+lineage,products,n_products,validated_sectors_all_members_mispredict,validated_sectors_any_member_mispredicts,members_block_test_significant,members_mispredicting_in_all_validated
+gebco,"gebco_2026,gebco_2022,etopo_2022",3,0,4,2,2
+srtm15p,srtm15p_v2.7,1,4,4,0,1
+etopo1,etopo1,1,4,4,1,1

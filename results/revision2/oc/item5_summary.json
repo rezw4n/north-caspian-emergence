@@ -1,0 +1,142 @@
+{
+ "rule": "A19 item 5 (D-148)",
+ "classes": {
+  "15s": "ctrl_r15_gebco",
+  "1m": "ctrl_r60_etopo1"
+ },
+ "sigmas_m": [
+  0.1,
+  0.25,
+  0.5,
+  1.0
+ ],
+ "range_m": 150000.0,
+ "R_per_class_sigma": {
+  "15s|0.1": 20,
+  "15s|0.25": 20,
+  "15s|0.5": 20,
+  "15s|1.0": 20,
+  "1m|0.1": 20,
+  "1m|0.25": 20,
+  "1m|0.5": 20,
+  "1m|1.0": 20
+ },
+ "first_sigma_p_above_0.5": {
+  "15s|west": 1.0,
+  "15s|interfluve": 1.0,
+  "15s|northeast": null,
+  "15s|open_shelf": 0.25,
+  "1m|west": 0.5,
+  "1m|interfluve": 0.25,
+  "1m|northeast": 1.0,
+  "1m|open_shelf": 0.0
+ },
+ "sigma0": {
+  "15s": {
+   "control": "ctrl_r15_gebco",
+   "c_m": -0.06,
+   "c_d116_m": -0.06,
+   "constant_reproduced": true,
+   "objective_km2": 119439.8496,
+   "levels_not_identical": 0,
+   "max_abs_diff_m": 3.637978807091713e-12,
+   "seconds": 26.3,
+   "flag": [
+    false,
+    false,
+    false,
+    false
+   ],
+   "n_exceeding": [
+    6,
+    10,
+    7,
+    11
+   ],
+   "n_evaluable": [
+    25,
+    26,
+    26,
+    25
+   ],
+   "flag_dem": [
+    false,
+    false,
+    false,
+    false
+   ],
+   "n_exceeding_dem": [
+    6,
+    10,
+    7,
+    11
+   ],
+   "n_evaluable_dem": [
+    25,
+    26,
+    26,
+    25
+   ],
+   "sectors": [
+    "west",
+    "interfluve",
+    "northeast",
+    "open_shelf"
+   ]
+  },
+  "1m": {
+   "control": "ctrl_r60_etopo1",
+   "c_m": -0.06,
+   "c_d116_m": -0.06,
+   "constant_reproduced": true,
+   "objective_km2": 114410.3688,
+   "levels_not_identical": 0,
+   "max_abs_diff_m": 1.8189894035458565e-12,
+   "seconds": 25.6,
+   "flag": [
+    false,
+    false,
+    false,
+    true
+   ],
+   "n_exceeding": [
+    7,
+    12,
+    8,
+    14
+   ],
+   "n_evaluable": [
+    25,
+    26,
+    26,
+    25
+   ],
+   "flag_dem": [
+    false,
+    false,
+    false,
+    true
+   ],
+   "n_exceeding_dem": [
+    7,
+    12,
+    8,
+    14
+   ],
+   "n_evaluable_dem": [
+    25,
+    26,
+    26,
+    25
+   ],
+   "sectors": [
+    "west",
+    "interfluve",
+    "northeast",
+    "open_shelf"
+   ]
+  }
+ },
+ "negative_eigenvalue_share_max": -0.0,
+ "seconds_per_realisation_median": 122.69999999999999
+}

@@ -1,0 +1,75 @@
+% RSE: Section 2, Study areas and data (condensed from si_erl_methods_data.tex,
+% si_erl_methods_datums.tex, si_erl_generality.tex and docs/DATUMS.md; trimmed in phase 2).
+% Every number is a \metric{} macro; product names, versions, native grid spacings and
+% identifiers are typed. Tables: tab:datums (datum chain), tab:grids (grid properties).
+
+\subsection{North Caspian Sea}
+\label{sec:nc}
+The study domain is the North Caspian Sea north of the line from Chechen Island to Cape Tyub-Karagan, \metricsf{study_area.domain_km2}{3}~\kmsq{} including land (Fig.~\ref{fig:rse_study_area}). Before any evaluation we divided it into seven sectors, drawing the coastal ones on the Global Surface Water transitions layer \citep{pekel2016}. From west to east they are the Kizlyar--Dagestan coast (Kizlyar Bay to the Kalmyk coast), the Volga delta, the Volga--Ural interfluve coast, the Ural delta, the northeastern coast (Tengiz--Kashagan), and Komsomolets Bay with the Kaidak flats; the open shelf is the remainder. The two deltas are deltaic, and the deltas and the Kizlyar--Dagestan coast are vegetated (Section~\ref{sec:water}); reed beds there hide the water's edge from optical sensors. Severe storm surges change the Caspian's level by metres within days \citep{lahijani2023} and move the North Caspian shoreline by kilometres \citep{pavlova2020,yeltay2026}. The median seabed gradient in the emerged band ranges from \metricdp{rev.w.r.gmedian_min}{2}~m per km on the open shelf to \metricdp{rev.w.r.gmedian_max}{2}~m per km in the Volga delta.
+
+\subsection{Great Salt Lake as a positive control of the method}
+\label{sec:gsl}
+At Great Salt Lake, Utah, surfaces with real lake-bed heights exist, so we can ask whether the audit passes them. Its north and south arms, separated by a railway causeway, were audited as two sectors, with levels from the USGS gauges near Saline and at Saltair \citep{usgs_nwis} converted to NAVD~88 with VERTCON~3.0 \citep{noaa_ncat}. The planned control, the USGS topobathymetric model \citep{root2023_gsl_tbdem}, could not be downloaded by script, because its repository answers scripted requests with a browser challenge. We used the pre-specified alternative, the 3DEP 1/3 arc-second elevation model \citep{usgs_3dep10m}, which over the lake bed is mostly lidar flown in autumn 2016 \citep{quantumspatial2017_gsl,usgs_3dep13_tiles}; it is hydro-flattened \citep{archuleta2017}, so we used it only above its flattened surfaces. As an additional control we audited a lake-bed elevation model \citep{tarboton_gsl_bathymetry} that rests, below its upper sounding limit, on USGS sonar surveys of 2002--2004 (south arm) and 2006 (north arm), and above it on map contours \citep{baskin2005,baskin2006}; we converted it from NGVD~29 with each arm's gauge constant. Lake Urmia, the second planned basin, was not run within the available Earth Engine budget.
+
+\subsection{Landsat imagery}
+\label{sec:landsat}
+We used every Landsat~5 TM, 7 ETM+, 8 OLI and 9 OLI-2 Collection~2 Level-2 Tier~1 scene that intersects the domain \citep{usgs_l45tm_c2l2,usgs_l7etm_c2l2,usgs_l89oli_c2l2}: \metric{erl.text.inventory.n_landsat} scenes on \metric{inventory.n_landsat_path_rows} path/rows, processed in Google Earth Engine \citep{gorelick2017}. The \metric{levels.n_scenes_by_epoch.pre_altimetry} scenes from before the altimetry record have no level and were not used. We masked fill, cloud, cloud shadow, cirrus and saturated pixels, flagged snow and ice with the quality band and the Theia snow test \citep{gascoin2019}, and excluded the ice months \metric{params.ice_first_month} to \metric{params.ice_last_month}. Sentinel-2 entered only per-scene diagnostics and one robustness variant.
+
+\subsection{Water levels and the vertical datum chain}
+\label{sec:levels}
+Each scene takes the basin level at its acquisition time from the DAHITI altimetry series \citep{schwatke2015,dahiti_wl}, \metric{levels.dahiti.n_records} records from \metric{levels.dahiti.first} to \metric{levels.dahiti.last} with an empirical noise of \metric{levels.dahiti_noise_floor_m}~m. Gaps longer than \metric{params.max_gap_days}~days were filled from Hydroweb \citep{cretaux2011,hydrowebwl}, shifted to DAHITI by a moving median, and levels between records follow a Brownian bridge (median scene 1$\sigma$ \metric{levels.scene_sigma_p50_m}~m). The three-record running median peaks on \metric{levels.dahiti.smoothed.date_of_max}; annual means fell by \metric{rev.w.levels.annual_fall_m}~m from 1995 to 2025. The rising limb runs to \metric{levels.epoch_E1_end}, the early fall to \metric{params.e2_end}, and the late fall to the end of the record.
+
+All heights were compared on the working datum, the reference of the DAHITI series: normal heights over the EIGEN-6C4 quasi-geoid \citep{schwatke2015,dahiti_wl,forste2014} (Table~\ref{tab:datums}). Levels are reported in the Baltic Height System of 1977 (BHS-77) through an offset from the Caspian gauge posts \citep{caspcom2026}, which cancels in every comparison. We read the grids as EGM2008 heights \citep{pavlis2012}, documented only for ETOPO~2022 and assumed for the others, and converted them cell by cell with the EGM2008 minus EIGEN-6C4 geoid difference \citep{ince2019}, including the constant of the distributed EGM2008 realisation \citep{geographiclib_gravity,icgem_faq}. The working datum has its own offset: the constant tying ICESat-2 to the waterline model is \metric{rev.w.v.cref.c_m_min}--\metric{rev.w.v.cref.c_m_max}~m, largely unexplained by documented terms, and SWOT water surfaces lie \metric{rev.w.dep.common_m}~m from the DAHITI level \citep{swot_raster_d,swot_pdd_raster}. A grid read on the documented chain therefore carries an offset that partly belongs to DAHITI's reference, one reason why our verdicts use grids with a fitted offset.
+
+\begin{table}[!htbp]
+\centering
+\renewcommand{\baselinestretch}{1}\scriptsize
+\renewcommand{\arraystretch}{1.1}
+\caption{The vertical datum chain. Every height is compared on the working datum, the reference of the DAHITI altimetry series. Constants fitted on training blocks absorb any remaining constant offset of a reference source; the offset-corrected grids fit their own constant (Section~\ref{sec:hindcast}). Full documentation: Supplementary Material.}
+\label{tab:datums}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.0cm}}
+\toprule
+Source & Documented reference & Conversion to the working datum & Constant \\
+\midrule
+DAHITI level (working datum) & Normal heights; EIGEN-6C4 quasi-geoid \citep{schwatke2015,dahiti_wl} & None & -- \\
+Hydroweb level & Above the GGM02C geoid \citep{hydrowebwl} & Moving-median shift to DAHITI & Median common 1$\sigma$ \metric{levels.gapfill.offset_sigma_p50_m}~m \\
+CASPCOM gauge posts & Baltic Height System \citep{caspcom2026} & Offset $\delta$ added to levels for reporting only & $\delta$ = \metric{datum.bhs.delta_m}~m (1$\sigma$ \metric{datum.bhs.sigma_posts_years_m}~m) \\
+Global grids & EGM2008 (ETOPO~2022); ``sea level'' (GEBCO, ETOPO1); none for soundings (SRTM15+) & $+\,N_{\mathrm{EGM2008}} - N_{\mathrm{EIGEN\text{-}6C4}}$ per cell, \metric{datum.dN_min_m} to \metric{datum.dN_max_m}~m, plus the realisation constant & \metric{datum.nga_offset_m}~m; then $c = 0$ (as distributed) or the area-fitted $c$ \\
+ICESat-2 ATL06, ATL08 (Release~007) & WGS84 ellipsoid, ITRF2020, tide-free \citep{is2_compguide_r007} & $-\,N_{\mathrm{EIGEN\text{-}6C4}}$, then a training-block constant & ATL06 \metric{h2.atl06.datum_constant_m}~m; ATL08 \metric{h2.atl08.datum_constant_m}~m \\
+GEDI L2A & WGS84 ellipsoid \citep{gedi_l2a_v2} & As ICESat-2, own constant & Fitted \\
+Copernicus GLO-30 & EGM2008 \citep{copdem_handbook_i5} & As the grids, own constant & Fitted \\
+SWOT raster & EGM2008 geoid, mean tide; realisation not stated \citep{swot_pdd_raster} & Not converted; departures within blocks & Common departure \metric{rev.w.dep.common_m}~m \\
+Great Salt Lake gauges & NGVD~29 \citep{usgs_nwis} & VERTCON~3.0 to NAVD~88 \citep{noaa_ncat} & \metric{generality.great_salt_lake.north.ngvd29_to_navd88_m}~m (Saline), \metric{generality.great_salt_lake.south.ngvd29_to_navd88_m}~m (Saltair) \\
+3DEP lidar DEM & NAVD~88 \citep{usgs_3dep10m} & None & -- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{The five global grids}
+\label{sec:grids}
+We audited five global relief grids (Table~\ref{tab:grids}). GEBCO\_2022 \citep{gebco2022} is the grid behind the exposure assessment of \citet{court2025}, and ETOPO1 \citep{amante2009} the depth map of \citet{akbari2020}. NOAA now lists ETOPO1 as deprecated\footnote{NOAA National Centers for Environmental Information, ETOPO Global Relief Model, \url{https://www.ncei.noaa.gov/products/etopo-global-relief-model} (accessed 23 October 2026).}; we keep it because that study used it. GEBCO\_2026 \citep{gebco2026} and ETOPO~2022 \citep{etopo2022,macferrin2025} are the current releases of the two series, and SRTM15+ \citep{tozer2019} is the base grid of the GEBCO releases \citep{gebco2026}. We audited SRTM15+ V2.7, the latest version Scripps distributes as a separate grid\footnote{Scripps Institution of Oceanography, SRTM15+ distribution directory, \url{https://topex.ucsd.edu/pub/srtm15_plus/} (accessed 23 October 2026).}. GEBCO\_2026 uses V2.8, whose documented changes are new SWOT gravity data and machine-learning prediction of depths \citep{gebco2026}; we infer that they do not touch the shallow North Caspian, but no V2.8 change log exists to confirm this. No regional chart-based model of the North Caspian was openly accessible. We did not audit global lake-bathymetry products: 3D-LAKES pairs Landsat water occurrence with ICESat-2, the same kind of observation as our reference, and gives no bathymetry below the observed levels \citep{huang2025}; GLOBathy derives depth from distance to the shoreline, with no soundings \citep{khazaei2022}.
+
+The grids are not independent. ETOPO~2022 takes GEBCO\_2022 as its base for seas and large lakes \citep{macferrin2025}. In the North Caspian it holds GEBCO\_2022's depths capped at \metric{rev.w.g.etopo.cap_m}~m inside a lake outline, a cap neither ETOPO~2022 document states; it matches the Caspian surface elevation in HydroLAKES, whose outlines show the shorelines of February 2000 \citep{hydrolakes_doc,messager2016}. Landward of the outline it uses FABDEM, land heights from Copernicus radar data acquired after much of the seabed had emerged \citep{hawker2022,copdem_handbook_i5}. GEBCO\_2026 and SRTM15+ share many values with GEBCO\_2022 (Table~\ref{tab:grids}), so we treat the grids as at most three lineages: GEBCO (GEBCO\_2026, GEBCO\_2022, ETOPO~2022), ETOPO1 and SRTM15+. Most store depths in whole metres, which on this shelf means steps of kilometres.
+
+\begin{table}[!htbp]
+\centering
+\renewcommand{\baselinestretch}{1}\scriptsize
+\renewcommand{\arraystretch}{1.1}
+\caption{The five global grids audited. Cell: native grid spacing. Whole-metre share: the fraction of native cells stored as whole metres in the band of recent and near-term emergence (band definition in the Supplementary Material). n.c.: not computed. Sources: Section~\ref{sec:grids}.}
+\label{tab:grids}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.75cm}>{\raggedright\arraybackslash}p{0.7cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{2.45cm}}
+\toprule
+Grid & Cell & North Caspian depth source, as documented & Stated vertical reference & Whole-metre share & Lineage and notes \\
+\midrule
+GEBCO\_2026 & 15$''$ & Coded as predicted from satellite gravity or as a pre-generated grid of mixed sources; no direct measurement in the emerged band \citep{gebco2026} & Mean sea level; other datums in some shallow areas & \metric{rev.n.shared.gebco2026.band34_26.share_product_integer} & GEBCO; equals GEBCO\_2022 in a fraction \metric{rev.n.shared.gebco2026.all.share_equal} of domain cells \\
+GEBCO\_2022 & 15$''$ & As GEBCO\_2026; from 2010 until at least the 2014 release, a compilation of Russian hydrographic charts shifted by a constant, with no chart datum named \citep{gebco2014_doc} & As GEBCO\_2026 & \metric{rev.n.shared.gebco2026.band34_26.share_reference_integer} & GEBCO; used by \citet{court2025} \\
+ETOPO~2022 & 15$''$ & GEBCO\_2022 depths capped at \metric{rev.w.g.etopo.cap_m}~m inside the February 2000 lake outline; FABDEM land heights outside it \citep{macferrin2025} & EGM2008 & \metric{rev.n.shared.etopo2022.band34_26.share_product_integer} & GEBCO; the cap is not stated in its documentation \\
+SRTM15+ V2.7 & 15$''$ & Not documented \citep{tozer2019} & Onshore heights orthometric; none stated for soundings & \metric{rev.n.shared.srtm15p.band34_26.share_product_integer} & SRTM15+; equals GEBCO\_2022 in a fraction \metric{rev.n.shared.srtm15p.all.share_equal} of domain cells \\
+ETOPO1 (bedrock) & 1$'$ & Contours of a 1987 navigation map, referenced to the local sea level and shifted uniformly \citep{amante2009} & Sea level & n.c. & ETOPO1; used by \citet{akbari2020} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Independent heights}
+\label{sec:heights}
+The reference heights are ICESat-2 ATL06 and ATL08, Release~007 \citep{atl06_v7,atl08_v7,markus2017}, from strong beams with the products' quality flags and, for ATL08, no cloud or multiple scattering. We did not use the static ATL08 water mask, which would remove the seabed under test. A point enters only if the seabed was dry when measured, more than \metric{params.emergence_lag_days}~days after the emergence date of every nearby model cell, and if it lies on bare seabed. ATL06 and ATL08 largely share photons, so we evaluated them separately. The test blocks hold \metric{h2.atl08.n_test_points} ATL08 and \metric{h2.atl06.n_test_points} ATL06 points in \metric{h2.atl08.n_test_blocks} blocks. Copernicus GLO-30 \citep{copdem,copdem_handbook_i5}, over cells dry throughout its December 2010 to January 2015 acquisition, and GEDI L2A ground heights \citep{gedi_l2a_v2} are further checks. The planned test below the 2026 waterline with ICESat-2 nearshore bathymetry, ATL24 \citep{atl24_v2,is2_atl24_atbd_v2}, could not be done: of the \metric{h3.atl24.n_granules_found} granules listed for the domain's bounding box, the number whose data extent meets the box is \metric{h3.atl24.n_granules_extent_in_box}.

@@ -390,7 +390,7 @@ def readme(title: str, creators: list[dict], archives: list[dict], top: list[dic
           "Cite the dataset by the DOI that Zenodo assigns on deposit, and the paper:", "",
           f"- {'; '.join(c['name'] for c in creators)}. *{title}* (data set, version 1.0). Zenodo. "
           "doi:[assigned on deposit].",
-          f"- {'; '.join(c['name'] for c in creators)}. *{title}*. Environmental Research Letters (submitted).", "",
+          f"- {'; '.join(c['name'] for c in creators)}. *{title}*. Remote Sensing of Environment (submitted).", "",
           "Also cite the input products you rely on (the grids' DOIs are in `metadata.json`; the full reference "
           "list is in the paper), and keep the third-party notices above with any redistribution.", ""]
     return "\n".join(L)

@@ -12,6 +12,7 @@ value that rounds to zero is printed unsigned (no "-0.000").
 from __future__ import annotations
 
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -82,8 +83,20 @@ def main() -> int:
              "\\newcommand{\\metric}[1]{\\@ifundefined{metric@#1}"
              "{\\PackageError{metrics}{Unknown metric #1}{Add it to results/metrics.json}}"
              "{\\csname metric@#1\\endcsname}}"]
+    # Rounded forms for the text, from the same values (siunitx does the rounding):
+    # \metricsf{key}{n} to n significant figures, \metricdp{key}{n} to n decimal places.
+    lines += ["\\newcommand{\\metric@raw}[1]{\\@ifundefined{metricraw@#1}"
+              "{\\PackageError{metrics}{Metric #1 is not numeric or unknown}{Add it to results/metrics.json}}"
+              "{\\csname metricraw@#1\\endcsname}}",
+              "\\newcommand{\\metricsf}[2]{\\num[round-mode=figures,round-precision=#2,group-separator={\\,},"
+              "group-minimum-digits=4]{\\metric@raw{#1}}}",
+              "\\newcommand{\\metricdp}[2]{\\num[round-mode=places,round-precision=#2,group-separator={\\,},"
+              "group-minimum-digits=4]{\\metric@raw{#1}}}"]
     for k, rec in metrics.items():
         lines.append(f"\\@namedef{{metric@{k}}}{{{fmt(k, rec['value'], rec.get('decimals'), rec.get('unit'))}}}")
+        v = rec["value"]
+        if isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v):
+            lines.append(f"\\@namedef{{metricraw@{k}}}{{{v!r}}}")
     lines.append("\\makeatother")
     out = ROOT / "manuscript" / "numbers.tex"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")

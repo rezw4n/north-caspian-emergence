@@ -1,0 +1,13 @@
+set,arm,variant,n_evaluable,n_exceeding,mispredicts,mispredicts_pooled_floor,median_displacement_m,median_noise_p95_m,bins,shape_offset_m
+all,north,shape,50,14,False,False,169.706,314.526,76-143,0.330
+all,north,total,50,12,False,False,134.164,314.526,76-143,0.330
+all,south,shape,49,20,False,False,120.000,120.000,76-138,0.170
+all,south,total,49,22,False,False,134.164,120.000,76-138,0.170
+all_vcell,north,shape,50,13,False,False,169.706,314.526,76-143,0.380
+all_vcell,north,total,50,14,False,False,151.935,314.526,76-143,0.380
+all_vcell,south,shape,49,19,False,False,120.000,120.000,76-138,0.130
+all_vcell,south,total,49,21,False,False,134.164,120.000,76-138,0.130
+sounded,north,shape,16,9,True,False,189.737,193.019,76-91,0.410
+sounded,north,total,16,7,False,False,184.868,193.019,76-91,0.410
+sounded,south,shape,14,11,True,True,151.935,60.000,76-89,0.550
+sounded,south,total,14,10,True,True,254.164,60.000,76-89,0.550

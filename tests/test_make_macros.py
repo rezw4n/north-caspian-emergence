@@ -81,3 +81,15 @@ def test_no_ascii_minus_in_any_generated_number():
             s = fmt(k, r["value"], r.get("decimals"), r.get("unit"))
             s = re.sub(r"\^\{-?\d+\}", "", s)  # a math-mode exponent's '-' is a minus sign
             assert not re.search(r"(^|[^\\a-z])-\d", s), (k, s)
+
+
+def test_rounded_forms_have_raw_values_for_every_finite_number():
+    # \metricsf and \metricdp round the raw value in LaTeX; every finite numeric metric needs one.
+    tex = (ROOT / "manuscript" / "numbers.tex").read_text(encoding="utf-8")
+    assert r"\newcommand{\metricsf}[2]" in tex and r"\newcommand{\metricdp}[2]" in tex
+    raw = dict(re.findall(r"\\@namedef\{metricraw@([^}]*)\}\{([^}]*)\}", tex))
+    metrics = json.loads((ROOT / "results" / "metrics.json").read_text(encoding="utf-8"))
+    for k, rec in metrics.items():
+        v = rec["value"]
+        if isinstance(v, (int, float)) and not isinstance(v, bool) and v == v and abs(v) != float("inf"):
+            assert float(raw[k]) == pytest.approx(v), k

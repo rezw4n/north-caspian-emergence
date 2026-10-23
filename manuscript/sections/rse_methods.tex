@@ -1,0 +1,98 @@
+% RSE: Section 3, Methods (review P outline and P2; condensed from the ERL Supplementary methods and
+% PREREG Amendments 18 and 19; trimmed in phase 2 to fit the 15,000-word limit). Every number is a
+% \metric{} macro, except design constants defined in the pre-registration (the +-0.5 m
+% checked-sector tolerance and the operating-characteristic standard deviations), which are typed
+% (D-153 phase 2 addendum). Each test used in the Results is defined once here. "Registered" is
+% used only in Section 3.7. Equations were checked against the functions named beside each.
+
+Fig.~\ref{fig:rse_method} summarises the workflow.
+
+\subsection{Water classification and level-binned water frequency}
+\label{sec:water}
+We computed the modified normalised difference water index (MNDWI) \citep{xu2006}, after setting negative surface reflectances to zero so that Earth Engine does not mask clear water \citep{ee_normalizeddifference}. The water threshold was set once per acquisition by Otsu's method \citep{otsu1979}, from the histogram of clear pixels inside an active zone that contains the waterlines of the altimetry era. A threshold was accepted only if the histogram passed tests of sample size, class balance and bimodality; other acquisitions took the median accepted threshold of the same sensor and month. Pixels with a normalised difference vegetation index above \metric{params.ndvi_veg} that are not water are emergent vegetation, which hides the water's edge, and count as unobserved.
+
+Each acquisition was placed in a level bin \metric{params.bin_width_m}~m wide by its interpolated level, separately for each epoch, and acquisitions in each bin were assigned alternately to two halves. Earth Engine counted, on a \metric{params.stage2_res_m}~m grid in a Lambert azimuthal equal-area projection centred at \metric{params.laea_lat0_deg}\textdegree{}N, \metric{params.laea_lon0_deg}\textdegree{}E, how often each cell was water and how often it was observed. A cell is observed sea in a bin if its water frequency is at least \metric{params.contour_level} over at least \metric{params.min_valid_obs} valid acquisitions and it connects to the open sea; with fewer acquisitions it is unknown.
+
+Deep, clear water in the south of the domain is dark in both bands of the index, so some acquisitions call it dry. Our deep-water rule sets a cell to water at every level if it is water in the three lowest late-fall bins, because sea-connected water at the record low is water at every higher level. The rule applies to the observed extents and both halves alike. We adopted it after inspecting the water frequencies but before any hindcast metric existed, and we report the audit without it. A wind-setup model fitted to ERA5 winds \citep{hersbach2020} and SWOT heights was meant to screen out surges; its rule, set on training blocks, removed no scene. A sector is vegetated if emergent vegetation dominates at least \metric{params.veg_sector_pct}\% of the cells in its emerged band, the cells that were water in \metric{params.highstand_label} and not in \metric{params.lowstand_label}.
+
+\subsection{Observed shorelines and the observation noise floor}
+\label{sec:floor}
+A shoreline cell is known water with a known-land neighbour. We measure the distance between two shorelines symmetrically, pooling the distances from each cell of one to the nearest cell of the other in both directions, and leaving out cells whose state on the other extent is unknown. The observation noise floor $Q_{s,L}$ of sector $s$ at level $L$ is the \metric{params.err_pct_hi}th percentile of the distances between the shorelines of the two halves; at levels crossed on both limbs it also holds the distances between the rising-limb and later shorelines. The halves share one level series, threshold method and reed mask, so the floor captures random error but not errors common to both (Section~\ref{sec:sep}). Landsat shorelines are accurate to a fraction of a pixel on stable coasts \citep{pardopascual2012} and microtidal beaches \citep{vos2023}, but the reed-fringed, wind-driven North Caspian coasts are less well defined, so we measure the floor from our own data.
+
+\subsection{Waterline elevation model and its accuracy assessment}
+\label{sec:dem}
+For each epoch and level bin we traced the water-frequency contour \metric{params.contour_level} at sub-pixel precision by marching squares \citep{vanderwalt2014,skimage_find_contours}, and gave each point the bin's central level. This is the waterline method of intertidal mapping \citep{mason1995,mason1997}, with the basin level in place of the tide. Channel banks and ponds set the water's edge in parts of the deltas, and their contours stay in place from bin to bin. Our static channel-bank filter removes contour points whose water frequency does not rise with level (Spearman $\rho$ below a threshold set on training blocks). The retained early-fall and late-fall points were interpolated on their Delaunay triangulation to a \metric{params.dem_res_m}~m grid.
+
+We assessed the model against ICESat-2 on spatial blocks. \metric{params.block_size_km}~km blocks were assigned at random to training, calibration and test in proportions \metric{params.split_train}, \metric{params.split_calib} and \metric{params.split_test}, stratified by sector (seed \metric{params.seed}). Because the residual semivariogram showed no finite range, a rule fixed beforehand enlarged the blocks to \metric{h2.block_size_km}~km for this assessment; the hindcast keeps the \metric{params.block_size_km}~km blocks. Every fitted quantity comes from training blocks and every accuracy from test blocks. With errors $e_j$ (model minus reference), we report the bias, the root-mean-square error (RMSE) and
+% src/caspian/validation.py: nmad (NMAD_SCALE = 1.4826, params.nmad_scale), rmse, bias, error_metrics
+\begin{equation}
+  \mathrm{NMAD} = k_{\mathrm{N}} \, \operatorname*{median}_{j} \left\lvert e_j - \operatorname*{median}_{l} e_l \right\rvert , \qquad k_{\mathrm{N}} = \metric{params.nmad_scale} .
+  \label{eq:nmad}
+\end{equation}
+Each grid enters with one constant offset fitted on training blocks. H2 holds if the model's NMAD and RMSE are both lower than every grid's, with paired block-bootstrap \metric{params.ci_pct}\% intervals (\metric{params.bootstrap_n} resamples of test blocks) that exclude zero, against both ATL06 and ATL08.
+
+We call a sector checked if it holds a test block and the model's mean and median errors against both ATL06 and ATL08 lie within $\pm$0.5~m, half the grids' whole-metre step. We set this criterion after the per-sector results had been seen. It tests bias only, on bare seabed, and relative to the domain-wide ICESat-2 constant. Four sectors meet it: the Kizlyar--Dagestan coast, the Volga--Ural interfluve coast, the northeastern coast and the open shelf. The first two rest on \metric{h2.atl08.n_blocks.west} test block each, so we also report the bias over all ICESat-2 blocks (Section~\ref{sec:res_dem}). In the Volga delta, Komsomolets Bay and the Ural delta, grid error cannot be separated from observation error.
+
+\subsection{Hindcast audit}
+\label{sec:hindcast}
+Each grid was interpolated bilinearly onto the observation grid (nearest neighbour as a sensitivity). With $z_j$ the grid height of cell $j$ on the working datum and $S$ the open-sea seed cells, the flood level of cell $i$ is
+% src/caspian/hindcast_tiled.py: flood_level_map (minimax path height, 8-connected, finite cells);
+% src/caspian/products.py: flood_level (threshold L + c); scripts/a7_hindcast.py: fit_offset (c)
+\begin{equation}
+  F_i = \min_{\pi \in \Pi(S, i)} \; \max_{j \in \pi} z_j ,
+  \label{eq:floodlevel}
+\end{equation}
+where $\Pi(S, i)$ is the set of 8-connected paths of cells with finite heights from $S$ to $i$. $F_i$ is the lowest water level at which the sea reaches the cell. It equals the depression-filled height of priority-flood filling with the open sea as outlet \citep{barnes2014}; we compute it by grayscale reconstruction in scikit-image \citep{vanderwalt2014}. The connected fill matters, because bathtub extents depend on the connectivity rule and on resolution \citep{poulter2008}. Cell $i$ is predicted sea at level $L$ when $F_i < L + c$.
+
+We test each grid twice. As distributed, it is read on the documented datum chain with $c = 0$. Offset-corrected, it takes the area-fitted offset
+% scripts/a7_hindcast.py: unit_counts, fit_offset (argmin over C_GRID; ties to the smallest |c|, then the smaller c)
+\begin{equation}
+  c = \operatorname*{arg\,min}_{c'} \sum_{u} \Big\lvert \sum_{i \in \mathcal{K}_u} \big( \mathbf{1}\!\left[ F_i < L_u + c' \right] - W_{u,i} \big) \Big\rvert ,
+  \label{eq:offset}
+\end{equation}
+where $u$ runs over the observed units (epoch and level bin) with level $L_u$, $\mathcal{K}_u$ is the set of known training-block cells, and $W_{u,i} = 1$ for observed water. The search runs in \metric{params.shape_step_m}~m steps over $\pm$\metric{params.shape_max_m}~m. Verdicts use the offset-corrected grids, so a datum mismatch alone cannot make a grid fail. Because $c$ is fitted to area, it need not place the shoreline best.
+
+The displacement $D_{s,L}$ is the median distance between a grid's predicted shoreline and the observed one in sector $s$ at level $L$, pooled over epochs. A grid misplaces the shoreline in sector $s$, or fails the shoreline test there, if
+% src/caspian/h1.py: mispredicts (exceeds = median > p95_noise; mispredicts = n_exceeding > n_evaluable / 2)
+\begin{equation}
+  \sum_{L \in \mathcal{L}_s} \mathbf{1}\!\left[ D_{s,L} > Q_{s,L} \right] > \tfrac{1}{2}\,\lvert \mathcal{L}_s \rvert ,
+  \label{eq:rule}
+\end{equation}
+where $\mathcal{L}_s$ holds the sector's levels with both distances. We report $D/Q$ at each level and the level-resampling stability of each verdict: the share of moving-block bootstrap resamples of the levels (blocks of \metric{rev.w.s.boot.block_m}~m, \metric{rev.w.s.boot.n} resamples) in which Eq.~(\ref{eq:rule}) holds.
+
+For the second half of H1, a one-sided permutation test on blocks (\metric{params.permutations_n} permutations, $\alpha = \metric{params.alpha}$) compares the median displacement in the three deltaic and vegetated sectors with that in the rest. Because blocks within a sector are not exchangeable, we repeated the test at sector level; with \metric{rev.s.item5.sector.n_labellings} possible labellings its smallest attainable $p$ is \metric{rev.s.item5.sector.min_attainable_p}. We also applied Holm's adjustment over the ten block tests. We also report area bias, its Theil--Sen trend with level \citep{sen1968}, and an out-of-sample test of the offset (fitted on the rising limb and early fall, scored on the late fall). Great Salt Lake was audited with the same pipeline, with its arms as sectors; the 3DEP model and the lake-bed model were flooded like grids.
+
+\subsection{Separating grid error from observation error}
+\label{sec:sep}
+A grid can fail the shoreline test for reasons other than wrong depths. The following exploratory checks separate those reasons.
+
+\textit{Storage and resolution.} The degraded-DEM control is the waterline model rounded to whole metres where a grid stores whole metres, averaged to the grid's native cells, given its own offset and audited like the grid. A grid's error exceeds what storage and resolution explain if its $D$ exceeds both $Q$ and the control's $D$ at most levels. The control shares the observations, which favours it, but carries the model's interpolation error. The resolution-matched floor aggregates the observed extents to each grid's cells before distances are taken. The operating characteristic of the rule adds spatially correlated Gaussian errors (standard deviation 0.10, 0.25, 0.50 and 1.00~m; range \metric{rev.w.n.sim.range_primary_km}~km) to the control and reports how often the rule then flags a checked sector.
+
+\textit{Errors common to the observations.} The vertical equivalents $D\,g$ and $Q\,g$ convert distances to heights with each sector's median shelf gradient $g$. A systematic level-error budget $\sigma_{\mathrm{b}}$ combines the level uncertainty, the Hydroweb gap-fill error, the setup-model residual and the sector's water-surface departure. The augmented floor $Q + z_{0.95}\,\sigma_{\mathrm{b}}/g$ adds it linearly, which favours the grids. A Monte Carlo adds one offset per sector and epoch, drawn from $N(0, \sigma_{\mathrm{b}}^2)$ and shared by all grids, and recomputes $D$ and the verdict. We also re-ran the audit with each sector's levels shifted by its SWOT water-surface departure \citep{swot_raster_d,swot_raster_c,swot_pdd_raster}, with the static channel-bank filter applied to the observed shorelines, without the deep-water rule, with emergent vegetation counted as dry and as water, and, on robustness tiles, with AWEI\textsubscript{sh} \citep{feyisa2014} or a fixed MNDWI threshold of \metric{params.robust_fixed_mndwi}. Predicted shoreline cells whose observed state is unknown are dropped, while observed cells are always measured; we bounded this by measuring unknown cells to the nearest observed shoreline, and by also dropping observed cells next to unknown cells. Finally, we computed the model's bias against ICESat-2 over all blocks, with block-bootstrap intervals.
+
+\textit{Offsets and datums.} The displacement-fitted offset minimises displacement instead of area. The per-sector offset minimises the number of levels above the floor in each sector; if a majority remains, no single offset can make the grid pass. We refitted the area-fitted offset by epoch and by half-metre level band, and correlated the grids' signed displacements at each level. The as-distributed reading was repeated after removing DAHITI's reference offset (the ICESat-2 constant of Section~\ref{sec:levels}), and the offset-corrected reading without the cell-by-cell geoid difference for the grids whose EGM2008 reading is an assumption. For ETOPO~2022 we fitted a single changepoint in its per-level $\log(D/Q)$.
+
+\subsection{Near-term emergence}
+\label{sec:nearterm}
+The 2026 reference level $L_{2026}$ is \metric{h3.level_2026_m}~m on the working datum (\metric{erl.text.h3.level_2026_bhs_m}~m in BHS-77), the mean of the \metric{h3.level_2026.n_records} DAHITI records of January--September 2026. Our primary estimate starts from the observed shoreline. The observed sea $S_{\mathrm{obs}}$ is the observed extent at the lowest audited level, completed with the near-minimum extent of \metric{params.lowstand_label}. Each grid keeps its offset $c$ and takes a second constant $c_{26}$, found by bisection, that makes its sea area at $L_{2026}$ equal that of $S_{\mathrm{obs}}$. With $\tilde{F}_i = F_i - c - c_{26}$, the misfit and the emerged-area increment are
+% Amendment 19 item 1; scripts/rev2_n_reref.py (D-146)
+\begin{gather}
+  M = \left\lvert S_{\mathrm{obs}} \cap \{ i : \tilde{F}_i \ge L_{2026} \} \right\rvert , \label{eq:misfit} \\
+  E(\Delta) = \left\lvert S_{\mathrm{obs}} \cap \{ i : L_{2026} - \Delta \le \tilde{F}_i < L_{2026} \} \right\rvert ,
+  \label{eq:emerged_obs}
+\end{gather}
+where $\lvert\cdot\rvert$ is area and $\Delta$ is \metric{h3.scenario.0p5_m}, \metric{h3.scenario.1_m}, \metric{h3.scenario.2_m} or \metric{h3.scenario.3_m}~m. $M$ is observed 2026 sea that the grid calls dry; $E(\Delta)$ is observed sea that a uniform fall $\Delta$ would expose. As sensitivities, $c_{26}$ was fitted to the three lowest audited bins, and $L_{2026}$ was moved by $\pm$\metric{rev.w.n.sens.jitter_m}~m with $c_{26}$ held fixed. Alongside, the shifted-grid estimate references each grid to its own 2026 shoreline,
+% src/caspian/exposure.py: emerged_curve; scripts/a8_emergence.py (sea cells F < L in the domain)
+\begin{equation}
+  E_{\mathrm{grid}}(\Delta) = A(L_{2026}) - A(L_{2026} - \Delta) ,
+  \label{eq:emerged_grid}
+\end{equation}
+with $A(L)$ the area of domain cells with $F_i - c < L$. Both assume a static seabed and a flat water surface.
+
+To judge where the grids agree, we compared the share of the first-metre band on which all five agree with that among five copies of one grid perturbed by Gaussian random fields (exponential covariance, variance equal to the grid's squared NMAD against ATL08, range \metric{rev.w.n.sim.range_primary_km}~km). Exposure on the first metre uses OpenStreetMap \citep{osm} settlements within \metric{h3.coast_km}~km of the sea, ports within \metric{h3.port_access_km}~km and channels, and protected areas from the World Database on Protected and Conserved Areas \citep{wdpa}, with and without one Kazakh polygon (WDPA ID 342651) drawn about an order of magnitude larger than its reserve. Habitat layers \citep{worldcover2021,zhang2023,lehner2025} are in the Supplementary Material. Seven primary water-level pathways \citep{samant2023,hoseini2025}, applied from $L_{2026}$, turn declines into dates. At 2035 and 2050 we partitioned the variance of emerged area into pathway, grid and interaction shares, for each baseline and with the grids grouped into lineages.
+
+H3 used a per-sector Theil--Sen model \citep{sen1968} of the offset that matches each observed extent against depth below the lowest observed level. The correction is decision-relevant at a decline if the corrected area lies outside the \metric{erl.text.conformal_pct}\% split-conformal interval of the uncorrected one \citep{lei2018}, calibrated on leave-one-epoch-out hindcast errors, or the reverse. H3 holds for a grid if this happens at all three near-term declines, and partly if at some.
+
+\subsection{Pre-registration and statistics}
+\label{sec:prereg}
+We registered the hypotheses, data, sectors, spatial blocks, metrics and decision rules in the project repository before any hindcast, accuracy or projection metric was computed (Supplementary file \emph{Pre-registration record}). The confirmatory results are the pre-specified verdicts: H1 by Eq.~(\ref{eq:rule}) in seven sectors and the block test, H2 by the paired bootstrap, H3 by the interval rule, and at Great Salt Lake ``recurs'' if at least three grids fail a majority of arms. Every analysis added after these verdicts were known is exploratory, including the checked-sector criterion, every check of Section~\ref{sec:sep}, the sector-level test, Holm's adjustment, the re-referenced near-term estimate, the agreement simulation, the variance partition and the lake-bed control. Each was specified before it was computed, and none replaces a pre-specified verdict; deviations are listed in the Supplementary Material. Tests are judged at $\alpha = \metric{params.alpha}$, every random draw is seeded, and every number in the text is generated by script from one results file.

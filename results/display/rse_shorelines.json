@@ -1,0 +1,471 @@
+{
+ "rule_units": {
+  "west": {
+   "epoch": "E3",
+   "bin": 29,
+   "level_m": -27.05,
+   "score": 1.7310203004296953,
+   "runner_up_bin": 24,
+   "runner_up_score": 1.9464019477122967,
+   "n_candidates": 16,
+   "grid_medians_m": {
+    "gebco_2026": 3357.588323982707,
+    "gebco_2022": 3360.0,
+    "etopo_2022": 268.3281572999748,
+    "srtm15p_v2.7": 8030.5915099698595,
+    "etopo1": 5572.735240855151
+   },
+   "level_D_m": {
+    "gebco_2026": 1844.44700705564,
+    "gebco_2022": 1987.7122012476048,
+    "etopo_2022": 268.3281572999748,
+    "srtm15p_v2.7": 9027.358417610323,
+    "etopo1": 3413.9411785579514
+   }
+  },
+  "interfluve": {
+   "epoch": "E3",
+   "bin": 29,
+   "level_m": -27.05,
+   "score": 1.8864005135222461,
+   "runner_up_bin": 30,
+   "runner_up_score": 1.9569682113729576,
+   "n_candidates": 16,
+   "grid_medians_m": {
+    "gebco_2026": 4084.943543682449,
+    "gebco_2022": 4288.710550878798,
+    "etopo_2022": 561.1913231339407,
+    "srtm15p_v2.7": 7800.083079626787,
+    "etopo1": 5797.923682051185
+   },
+   "level_D_m": {
+    "gebco_2026": 2886.2432329933663,
+    "gebco_2022": 3048.212591011329,
+    "etopo_2022": 569.2099788303083,
+    "srtm15p_v2.7": 3600.4999652825995,
+    "etopo1": 8739.633859607622
+   }
+  },
+  "northeast": {
+   "epoch": "E3",
+   "bin": 29,
+   "level_m": -27.05,
+   "score": 1.4368307144263932,
+   "runner_up_bin": 27,
+   "runner_up_score": 1.6733745901351758,
+   "n_candidates": 16,
+   "grid_medians_m": {
+    "gebco_2026": 5010.0,
+    "gebco_2022": 4809.2745656069565,
+    "etopo_2022": 1432.7861340458312,
+    "srtm15p_v2.7": 3779.2155890999065,
+    "etopo1": 4674.939011076003
+   },
+   "level_D_m": {
+    "gebco_2026": 6348.527374054849,
+    "gebco_2022": 5348.420327535972,
+    "etopo_2022": 1164.989270336856,
+    "srtm15p_v2.7": 2910.463880552377,
+    "etopo1": 8739.839815465728
+   }
+  }
+ },
+ "units": [
+  {
+   "epoch": "E3",
+   "bin": 29,
+   "level_m": -27.05,
+   "n_acquisitions": 155,
+   "first_year": 2012,
+   "last_year": 2018,
+   "envelope_cells": 40594
+  }
+ ],
+ "products": [
+  "gebco_2026",
+  "gebco_2022",
+  "etopo_2022",
+  "srtm15p_v2.7",
+  "etopo1"
+ ],
+ "regions_m": {
+  "west": [
+   -300000.0,
+   -170000.0,
+   -160000.0,
+   0.0
+  ],
+  "interfluve": [
+   -30000.0,
+   90000.0,
+   110000.0,
+   210000.0
+  ],
+  "northeast": [
+   150000.0,
+   -20000.0,
+   300000.0,
+   170000.0
+  ]
+ },
+ "shape_offsets_m": {
+  "gebco_2026": -1.48,
+  "gebco_2022": -1.45,
+  "etopo_2022": -1.49,
+  "srtm15p_v2.7": -1.28,
+  "etopo1": -1.38
+ },
+ "checks": [
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "west",
+   "median_m": 1844.44700705564,
+   "displacement_csv_m": 1844.44700705564,
+   "n": 9208,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "volga",
+   "median_m": 4768.773427203268,
+   "displacement_csv_m": 4768.773427203268,
+   "n": 24316,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "interfluve",
+   "median_m": 2886.2432329933663,
+   "displacement_csv_m": 2886.2432329933663,
+   "n": 19552,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "ural",
+   "median_m": 5278.977173657791,
+   "displacement_csv_m": 5278.977173657791,
+   "n": 18096,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "northeast",
+   "median_m": 6348.527374054849,
+   "displacement_csv_m": 6348.527374054849,
+   "n": 40982,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "komsomolets",
+   "median_m": 13887.505175516586,
+   "displacement_csv_m": 13887.505175516586,
+   "n": 7781,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2026",
+   "sector": "open_shelf",
+   "median_m": 569.2099788303083,
+   "displacement_csv_m": 569.2099788303083,
+   "n": 24280,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2022",
+   "sector": "west",
+   "median_m": 1987.7122012476052,
+   "displacement_csv_m": 1987.7122012476048,
+   "n": 8664,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2022",
+   "sector": "volga",
+   "median_m": 4805.434390802666,
+   "displacement_csv_m": 4805.434390802666,
+   "n": 24376,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2022",
+   "sector": "interfluve",
+   "median_m": 3048.212591011329,
+   "displacement_csv_m": 3048.212591011329,
+   "n": 18145,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2022",
+   "sector": "ural",
+   "median_m": 5147.9510457497145,
+   "displacement_csv_m": 5147.9510457497145,
+   "n": 17380,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2022",
+   "sector": "northeast",
+   "median_m": 5348.420327535972,
+   "displacement_csv_m": 5348.420327535972,
+   "n": 40554,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2022",
+   "sector": "komsomolets",
+   "median_m": 13786.23205105678,
+   "displacement_csv_m": 13786.23205105678,
+   "n": 7796,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "gebco_2022",
+   "sector": "open_shelf",
+   "median_m": 590.9314681077662,
+   "displacement_csv_m": 590.9314681077662,
+   "n": 23354,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "west",
+   "median_m": 268.3281572999748,
+   "displacement_csv_m": 268.3281572999748,
+   "n": 7903,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "volga",
+   "median_m": 268.3281572999748,
+   "displacement_csv_m": 268.3281572999748,
+   "n": 31867,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "interfluve",
+   "median_m": 569.2099788303083,
+   "displacement_csv_m": 569.2099788303083,
+   "n": 15548,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "ural",
+   "median_m": 360.0,
+   "displacement_csv_m": 360.0,
+   "n": 16492,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "northeast",
+   "median_m": 1164.989270336856,
+   "displacement_csv_m": 1164.989270336856,
+   "n": 49181,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "komsomolets",
+   "median_m": 1965.4007224991037,
+   "displacement_csv_m": 1965.400722499104,
+   "n": 15573,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo_2022",
+   "sector": "open_shelf",
+   "median_m": 216.33307652783935,
+   "displacement_csv_m": 216.33307652783932,
+   "n": 24510,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "west",
+   "median_m": 9027.358417610325,
+   "displacement_csv_m": 9027.358417610323,
+   "n": 29885,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "volga",
+   "median_m": 3936.2926720456144,
+   "displacement_csv_m": 3936.2926720456144,
+   "n": 50900,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "interfluve",
+   "median_m": 3600.4999652825995,
+   "displacement_csv_m": 3600.4999652825995,
+   "n": 18560,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "ural",
+   "median_m": 2197.1800108320667,
+   "displacement_csv_m": 2197.1800108320667,
+   "n": 17827,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "northeast",
+   "median_m": 2910.463880552377,
+   "displacement_csv_m": 2910.463880552377,
+   "n": 49310,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "komsomolets",
+   "median_m": 2254.5953073667124,
+   "displacement_csv_m": 2254.5953073667124,
+   "n": 14887,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "srtm15p_v2.7",
+   "sector": "open_shelf",
+   "median_m": 1462.9410766571773,
+   "displacement_csv_m": 1462.9410766571773,
+   "n": 37076,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo1",
+   "sector": "west",
+   "median_m": 3413.9411785579514,
+   "displacement_csv_m": 3413.9411785579514,
+   "n": 6108,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo1",
+   "sector": "volga",
+   "median_m": 3348.1935427928893,
+   "displacement_csv_m": 3348.1935427928893,
+   "n": 24362,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo1",
+   "sector": "interfluve",
+   "median_m": 8739.633859607622,
+   "displacement_csv_m": 8739.633859607622,
+   "n": 12765,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo1",
+   "sector": "ural",
+   "median_m": 7927.042242285015,
+   "displacement_csv_m": 7927.042242285015,
+   "n": 13762,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo1",
+   "sector": "northeast",
+   "median_m": 8739.839815465728,
+   "displacement_csv_m": 8739.839815465728,
+   "n": 37319,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo1",
+   "sector": "komsomolets",
+   "median_m": 9872.507280321448,
+   "displacement_csv_m": 9872.507280321448,
+   "n": 7869,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "product": "etopo1",
+   "sector": "open_shelf",
+   "median_m": 1693.8713056191725,
+   "displacement_csv_m": 1693.8713056191723,
+   "n": 23112,
+   "equal": true
+  },
+  {
+   "unit": "E3_b029",
+   "what": "halves p95",
+   "sector": "interfluve",
+   "p95_m": 494.77267507411926,
+   "noise_floor_csv_m": 494.77267507411926,
+   "equal": true
+  }
+ ],
+ "method": {},
+ "hindcast_run": "results/hindcast/main/run.json",
+ "track": {
+  "granule": "ATL08_20251008222430_03722906_007_01.h5_KOiFgTqo",
+  "beam": "gt2r",
+  "n_points": 186,
+  "n_points_test_block": 98,
+  "n_candidate_beams": 75,
+  "datum_constant_m": 0.7098306999999977,
+  "time_first": "2025-10-08 22:27:59.641234432",
+  "test_blocks": [
+   "0_3"
+  ],
+  "origin_xy_m": [
+   44306.15979677419,
+   150166.61386021506
+  ],
+  "direction": [
+   0.08803688840009329,
+   0.9961172151312462
+  ],
+  "s0_m": -19248.4776797851,
+  "s1_m": 12589.677073036164,
+  "track_s_min_m": -11248.4776797851,
+  "track_s_max_m": 9589.677073036164,
+  "track_offset_abs_max_m": 4.266379821316654
+ },
+ "display_res_m": 240
+}

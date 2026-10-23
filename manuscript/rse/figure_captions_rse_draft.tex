@@ -1,0 +1,156 @@
+% Draft legends of the RSE main figures (figures/rse_fig_*.py, outputs in figures/out/rse_fig_*.pdf).
+% Plain, literal sentences; every symbol is defined in the legend that uses it; every number is a
+% \metric{...} macro from results/metrics.json (manuscript/numbers.tex). Numbers that the figures
+% themselves print (per-panel D and Q, counts per row) come from the results tables named in each
+% figure script's docstring.
+% NOTE (no metrics key yet, written literally; the metrics owner should add a params key):
+%   - the +-0.5 m tolerance of the validated-sector rule (PREREG Amendment 18 item 1);
+%   - the 80 km x 70 km size of the zooms in rse_fig_shorelines and the 10 km scale bar of rse_fig_method;
+%   - the distance classes of the shoreline colour key (0.5, 1, 2, 5 and 10 km) are printed on the key only.
+
+\begin{figure*}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/out/rse_fig_study_area.pdf}
+  \caption{\textbf{Study area.}
+  (a)~The North Caspian study domain (thick black outline) and its seven reporting sectors (thin outlines), each named on the map.
+  A sector is validated (bold name in a black box) when, in its ICESat-2 test blocks, the mean and the median of the waterline elevation model minus the ICESat-2 ATL08 heights, and the same two statistics against ATL06, all lie within $\pm0.5$~m.
+  The Volga delta and Komsomolets Bay fail this rule and the Ural delta has no test block; these three sectors are hatched and their names are set in italics.
+  Vermilion squares: the \metric{h2.atl08.n_test_blocks} test blocks of \metric{h2.block_size_km}~km that hold the ICESat-2 points used to test the elevation model.
+  Tan: seabed that emerged between the \metric{params.highstand_label} high stand and the \metric{params.lowstand_label} low stand (water in the Landsat extent of the first period and not in that of the second).
+  Light blue: the open sea of the \metric{params.lowstand_label} low stand, from Landsat.
+  Dash-dotted line: international boundary (Natural Earth).
+  Lambert azimuthal equal-area projection centred at \metric{params.laea_lat0_deg}\textdegree{}N, \metric{params.laea_lon0_deg}\textdegree{}E; graticule every \metric{params.fig_graticule_deg}\textdegree{}; scale bar \metric{params.fig_scale_bar_km}~km.
+  (b)~The study domain (vermilion outline) in the Caspian region (Natural Earth land, lakes and boundaries).}
+  \label{fig:rse_study_area}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/out/rse_fig_method.pdf}
+  \caption{\textbf{The hindcast audit, step by step, on one example.}
+  The example is the Volga--Ural interfluve coast, the grid GEBCO\_2026 and the level bin centred at \metric{erl.hero.e3_b029.level_m}~m (bins are \metric{params.bin_width_m}~m wide; levels on the DAHITI reference).
+  (a)~Left: daily basin level from satellite altimetry (grey line) and the \metric{erl.hero.e3_b029.n_acquisitions} Landsat acquisitions of \metric{erl.hero.e3_b029.first_year}--\metric{erl.hero.e3_b029.last_year} whose level falls in the bin (shaded band).
+  The acquisitions are split by their order into two interleaved halves (filled circles, half A; open circles, half B).
+  Right: water frequency, the share of the valid acquisitions in which a \metric{params.stage2_res_m}~m cell was classified as water (blank where fewer than \metric{params.min_valid_obs} acquisitions are valid).
+  The black line is the observed shoreline: the edge of the cells whose frequency is at least \metric{params.contour_level} and that connect to the open sea.
+  (b)~GEBCO\_2026 height minus the level, after the grid's vertical offset $c$ (\metric{h1.shape_offset.gebco2026_m}~m), which was fitted to the flooded area on training blocks.
+  The black line is the predicted shoreline: the edge of the area flooded from the open sea at the level.
+  A cell is flooded when a path from the open sea reaches it without crossing ground higher than the level.
+  Hatched: cells below the level that the flood does not reach.
+  (c)~Left: the predicted shoreline cells, coloured by their distance to the nearest observed shoreline cell; black, the observed shoreline; grey dashed and dotted lines, the shorelines observed by half A and by half B.
+  Right: cumulative distributions, over the whole sector at this level, of the distances between predicted and observed shoreline cells (blue; distances from both shorelines pooled) and of the distances between the shorelines of the two halves (grey).
+  The displacement $D$ is the median of the first set; the observation noise floor $Q$ is the \metric{params.err_pct_hi}th percentile of the second.
+  (d)~$D/Q$ at each of the \metric{h1.n_evaluable.shape.gebco2026.interfluve} levels at which both $D$ and $Q$ can be measured in this sector (filled, $D > Q$; open, $D \le Q$; ringed, the example level of a--c).
+  A grid fails the shoreline test in a sector when $D > Q$ at more than half of these levels; GEBCO\_2026 exceeds $Q$ at \metric{h1.n_exceeding.shape.gebco2026.interfluve} of them here.
+  Scale bars 10~km.}
+  \label{fig:rse_method}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/out/rse_fig_emergence.pdf}
+  \caption{\textbf{When the North Caspian seabed emerged.}
+  (a)~Year in which each pixel of the emerged seabed became permanently dry: the first day after the last day on which the basin level stood at or above the pixel's height in the waterline elevation model (\metric{params.dem_res_m}~m pixels, shown on a \metric{params.fig_map_res_m}~m display grid).
+  Colours are shown only on seabed that was water in \metric{params.highstand_label} and land in \metric{params.lowstand_label}; elsewhere the elevation model is an extrapolation and a date would not mark an emergence.
+  The dates inherit the errors of the elevation model (Fig.~\ref{fig:rse_dem_accuracy}).
+  Light blue: open sea of \metric{params.lowstand_label}. Circles: ports, piers and ferry terminals; triangles: oil and gas platforms and wells (both from OpenStreetMap); squares: cities.
+  Sector names as in Fig.~\ref{fig:rse_study_area}; graticule every \metric{params.fig_graticule_deg}\textdegree{}; scale bar \metric{params.fig_scale_bar_km}~km.
+  (b)~Daily basin level on the DAHITI reference (black; orange, Hydroweb shifted to DAHITI where DAHITI has gaps), with the three periods of the record: the rising limb to \metric{levels.epoch_E1_end} (E1), the early fall to \metric{params.e2_end} (E2) and the late fall after it (E3).
+  The colour strip under the curve is the colour key of a, on the same time axis.
+  (c)~Landsat acquisitions per calendar month in the main processing plan, the acquisitions behind every waterline.}
+  \label{fig:rse_emergence}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/out/rse_fig_dem_accuracy.pdf}
+  \caption{\textbf{Accuracy of the waterline elevation model against ICESat-2.}
+  (a)~The waterline elevation model (height on the DAHITI reference, \metric{params.dem_res_m}~m, shown on a \metric{params.fig_map_res_m}~m display grid) on the emerged seabed, with the \metric{h2.atl08.n_test_blocks} test blocks of \metric{h2.block_size_km}~km that hold ICESat-2 points (vermilion squares). Validated sectors are named in bold.
+  (b)~Model height against the ICESat-2 ATL08 height (orthometric height plus the datum constant of \metric{h2.atl08.datum_constant_m}~m fitted on training blocks) for the $n = \metric{h2.atl08.n_test_points}$ test-block points on bare emerged seabed; dashed line, one to one.
+  Mean error \metric{h2.atl08.dem.bias_m}~m, normalised median absolute deviation (NMAD) \metric{h2.atl08.dem.nmad_m}~m and root-mean-square error \metric{h2.atl08.dem.rmse_m}~m.
+  (c)~Error (model minus ICESat-2) per sector and over all test blocks.
+  Black circles, the elevation model against ATL08 (filled, mean; open, median); grey squares, the same against ATL06; coloured markers, the mean error of each grid against ATL08, after the grid's vertical offset fitted on training blocks.
+  Shaded, $\pm0.5$~m: a sector is validated when all four statistics of the elevation model lie within it.
+  A value beyond the axis is drawn on its edge and labelled.
+  (d)~NMAD (\metric{params.nmad_scale} times the median absolute deviation from the median) of the elevation model (black) and of each grid against ATL08, on a logarithmic axis.
+  Right, the number of ATL08 points and of test blocks per row; the west and interfluve sectors hold \metric{h2.atl08.n_blocks.west} test block each, so no interval can be estimated for them.}
+  \label{fig:rse_dem_accuracy}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/out/rse_fig_shorelines.pdf}
+  \caption{\textbf{Where the five grids put the shoreline.}
+  All panels show the level bin centred at \metric{erl.hero.e3_b029.level_m}~m (DAHITI reference), observed by \metric{erl.hero.e3_b029.n_acquisitions} Landsat acquisitions in \metric{erl.hero.e3_b029.first_year}--\metric{erl.hero.e3_b029.last_year}.
+  This bin was chosen by a fixed rule: in the three coasts of c--e, it is the late-fall bin at which the five grids' displacements are jointly closest to their medians over all levels.
+  (a)~Observed sea (blue), land (beige) and cells of undetermined state (white), the observed shoreline cells (black; the \metric{params.stage2_res_m}~m waterline cells from which the displacement is measured), the zooms of c--e and the transect of b (vermilion).
+  (b)~Profile along the transect, on the Volga--Ural interfluve coast, which follows one ICESat-2 ATL08 beam from the sea (left) to the land (right).
+  Coloured lines: heights of the five grids as the audit uses them (after each grid's vertical offset fitted to flooded area); black line: the waterline elevation model on the emerged seabed; grey dots: ICESat-2 ATL08 heights of the beam; dashed line: the level.
+  Ticks under the profile mark where the observed shoreline (black) and each grid's predicted shoreline (in the grid's colour) cross the transect at the level; dotted vertical lines repeat the observed crossings.
+  (c--e)~Zooms on the three validated coasts, one panel per grid: the observed shoreline cells (black) and every predicted shoreline cell, coloured by its distance to the nearest observed shoreline cell; grey cells are predicted shoreline cells where the observed state is unknown, which are left out of the displacement.
+  In each panel, $D$ is the grid's median displacement in the sector at this level (distances from both shorelines pooled) and $Q$, in the row heading, is the sector's observation noise floor at this level (the \metric{params.err_pct_hi}th percentile of the distances between the shorelines of two interleaved halves of the acquisitions).
+  Graticule every \metric{params.erl_fig_graticule_zoom_deg}\textdegree{}; zooms in one row share the scale of the \metric{params.erl_fig_scale_inset_km}~km bar.}
+  \label{fig:rse_shorelines}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/out/rse_fig_dq.pdf}
+  \caption{\textbf{Grid error against observation error, by sector and grid.}
+  For each grid and sector, the ratio $D/Q$ at every level at which both can be measured ($n = \metric{h1.n_evaluable.shape.gebco2026.west}$--\metric{h1.n_evaluable.shape.gebco2026.interfluve} levels per grid and sector).
+  $D$ is the grid's median shoreline displacement at the level, after the grid's vertical offset fitted to flooded area; $Q$ is the observation noise floor at the level, the \metric{params.err_pct_hi}th percentile of the distances between the shorelines of two interleaved halves of the acquisitions.
+  (a)~The four validated sectors; (b)~the three sectors whose observations are not validated.
+  Dots: one level each. Boxes: 25th to 75th percentile over levels. Large markers: the median; filled where the grid fails the shoreline test in the sector ($D > Q$ at more than half of the levels), open where it passes.
+  Grey, to the right of each grid: the degraded-elevation-model control of that grid, at the levels where both the grid and the control can be measured.
+  The control is the waterline elevation model put into the grid's vertical frame, rounded to whole metres where the grid stores whole metres, averaged to the grid's cell size and audited exactly as the grid; its ratio is $D_\mathrm{control}/Q$. The two GEBCO grids share one control.
+  Shaded: $D/Q < 1$, displacements within the noise floor. Ratios of zero are drawn on the lower edge. Logarithmic axis.}
+  \label{fig:rse_dq}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/out/rse_fig_area.pdf}
+  \caption{\textbf{Agreement in flooded area is not agreement in shoreline position.}
+  (a)~Area bias of each grid's predicted sea against the observed sea in the study domain, $100\times(\text{predicted} - \text{observed})/\text{observed}$, at every level and period of the record (\metric{rev.s.item4.area_bias.shape.gebco2026.domain.n_units} units per grid), after each grid's vertical offset fitted to flooded area (\metric{rev.w.s.oos.c_all_m_min} to \metric{rev.w.s.oos.c_all_m_max}~m).
+  One panel per period: rising limb (E1), early fall (E2) and late fall (E3). Errors on cells of known state outside the observed area are counted.
+  Values beyond the axis are drawn on its edge (open triangles) and listed in the panel.
+  (b)~Out-of-sample test of the offset: area bias in the late fall, in the calibration and test blocks, with the offset fitted on all periods' training blocks (open; \metric{rev.w.s.oos.c_all_m_min} to \metric{rev.w.s.oos.c_all_m_max}~m) and with the offset fitted on the rising limb and early fall only (filled; \metric{rev.w.s.oos.c_e12_m_min} to \metric{rev.w.s.oos.c_e12_m_max}~m).
+  Markers: the median over the $n = \metric{rev.s.item4.oos.gebco2026.calibtest.c_e12.n_units}$ late-fall levels; bars: 25th to 75th percentile.
+  (c)~Three ways of fitting a grid's vertical datum to flooded area on the training blocks: one offset for the domain (the main analysis), one offset per sector, and a planar offset field (an offset varying linearly with easting and northing).
+  Left: the summed absolute area error over the training-block units, the quantity each fit minimises; the planar field lowers it by \metric{rev.w.v.planar.reduction_pct_min}--\metric{rev.w.v.planar.reduction_pct_max}\% against one offset.
+  Right: the median over the seven sectors of each sector's median shoreline displacement.
+  The planar field was audited for GEBCO\_2026 and ETOPO1 only, whose displacement rises from \metric{rev.w.v.planar.gebco2026.before_km} to \metric{rev.w.v.planar.gebco2026.after_km}~km and from \metric{rev.w.v.planar.etopo1.before_km} to \metric{rev.w.v.planar.etopo1.after_km}~km.}
+  \label{fig:rse_area}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/out/rse_fig_gsl.pdf}
+  \caption{\textbf{The same audit at Great Salt Lake, Utah, with a lake-bed control from echo soundings.}
+  (a, b)~For the north and south arms, the shoreline displacement $D$ at each level bin (levels on NAVD~88), after each surface's vertical offset fitted to flooded area, against the observation noise floor $Q$ (grey area; the \metric{params.err_pct_hi}th percentile of the distances between the shorelines of two interleaved halves of the acquisitions).
+  Coloured lines: the five global grids; open markers on the top edge, levels at which a grid predicts no shoreline in the arm.
+  Grey dashed line: the 3DEP control, mostly 2016 lidar.
+  Black line: the lake-bed control, built from USGS single-beam echo soundings below the sounded top and from digitised map contours and the National Elevation Dataset above it (offset \metric{rev2.g.lakebed.all.north.shape_offset_m}~m north and \metric{rev2.g.lakebed.all.south.shape_offset_m}~m south); filled where $D > Q$ at the level.
+  Shaded columns: the sounded levels, bins \metric{rev2.g.lakebed.sounded.north.shape.bins} in the north arm (\metric{rev2.g.lakebed.coverage.north.sounded.level_low_navd88_m}--\metric{rev2.g.lakebed.coverage.north.sounded.level_high_navd88_m}~m) and \metric{rev2.g.lakebed.sounded.south.shape.bins} in the south arm (\metric{rev2.g.lakebed.coverage.south.sounded.level_low_navd88_m}--\metric{rev2.g.lakebed.coverage.south.sounded.level_high_navd88_m}~m).
+  With the offset fitted over all its levels, the lake-bed control exceeds $Q$ at \metric{rev2.g.lakebed.all.north.class.sounded.n_exceeding} of \metric{rev2.g.lakebed.all.north.class.sounded.n_evaluable} sounded levels in the north arm and \metric{rev2.g.lakebed.all.south.class.sounded.n_exceeding} of \metric{rev2.g.lakebed.all.south.class.sounded.n_evaluable} in the south arm.
+  (c)~For each arm and surface, the median of $D$ over the evaluable levels (marker) against the median $Q$ over the same levels (grey bar ending in a tick); filled where the surface fails the shoreline test in the arm ($D > Q$ at more than half of the levels).
+  The lake-bed control is shown over all its levels (\metric{rev2.g.lakebed.all.north.shape.n_evaluable} north, \metric{rev2.g.lakebed.all.south.shape.n_evaluable} south) and over the sounded levels alone, with its offset refitted on them; on the sounded levels it fails the test in both arms (\metric{rev2.g.lakebed.sounded.north.shape.n_exceeding} of \metric{rev2.g.lakebed.sounded.north.shape.n_evaluable} and \metric{rev2.g.lakebed.sounded.south.shape.n_exceeding} of \metric{rev2.g.lakebed.sounded.south.shape.n_evaluable} levels), so the control itself misplaces the sounded shorelines.
+  Logarithmic axes.
+  (d)~Heights of each grid over each arm's emerged band (share of the band's cells per half-metre bin of height); dotted line, the gauge level of February 2000 (\metric{rev.g.gsl.north.gauge_feb2000_navd88_m}~m north, \metric{rev.g.gsl.south.gauge_feb2000_navd88_m}~m south), when SRTM flew.}
+  \label{fig:rse_gsl}
+\end{figure*}
+
+\begin{figure*}[!htbp]
+  \centering
+  \includegraphics[width=\textwidth]{../figures/out/rse_fig_nearterm.pdf}
+  \caption{\textbf{The next metres, measured from the observed 2026 shoreline.}
+  Each grid is first offset so that its sea at the 2026 level (\metric{h3.level_2026_m}~m, DAHITI reference) has the area of the observed 2026 sea (\metricsf{rev2.n.reref.S_obs_km2}{3}~km\textsuperscript{2}); the observed sea that a grid still places on dry ground after this offset (the misfit) is \metricsf{rev2.n.reref.area.main.M.min_km2}{2}--\metricsf{rev2.n.reref.area.main.M.max_km2}{2}~km\textsuperscript{2} (\metricdp{rev2.n.reref.area.main.M.min_pct_of_S_obs}{1}--\metricdp{rev2.n.reref.area.main.M.max_pct_of_S_obs}{1}\%).
+  (a)~For each cell of the observed 2026 sea, the number of the five grids that place it in the first metre of further fall (most frequent count per display block; uncoloured, no grid).
+  At least one grid places \metricsf{rev2.n.agree60.observed_reref.1.any_km2}{3}~km\textsuperscript{2} there and all five agree on \metricsf{rev2.n.agree60.observed_reref.1.all_km2}{2}~km\textsuperscript{2} (\metricdp{rev2.n.agree60.observed_reref.1.all_pct_of_any}{1}\%).
+  Light blue: the open sea of \metric{params.lowstand_label} from Landsat. Scale bar \metric{params.fig_scale_bar_km}~km.
+  (b)~Emerging seabed $E(D)$, the area that emerges between the 2026 shoreline and a further fall $D$, for each grid: solid up to \metric{rev.n.env.max_pair_decline_m}~m, the largest fall covered by the hindcast, and dotted beyond it, where it is not calibrated.
+  Shading: the range of $E(D)$ when the 2026 level is raised or lowered by \metric{rev.w.n.sens.jitter_m}~m, computed at the reported falls and joined by straight lines.
+  At $D = \metric{h3.scenario.1_m}$~m the five grids give \metricsf{rev2.n.reref.area.main.E.1.domain.min_km2}{2}--\metricsf{rev2.n.reref.area.main.E.1.domain.max_km2}{3}~km\textsuperscript{2}.
+  (c)~Fall below the 2026 level from 2026 to 2070 for the seven primary published pathways (each pathway's own change after 2026); grey band, the range pathways (inter-model ranges and quartiles), clipped to the axis; dashed line, the calibrated limit of b.}
+  \label{fig:rse_nearterm}
+\end{figure*}

@@ -1,0 +1,95 @@
+{
+ "script": "scripts/rev2_n_reref.py",
+ "decision": "D-146",
+ "amendment": "PREREG Amendment 19 items 1 and 3",
+ "level_2026_m": -28.6194,
+ "shape_constants_m": {
+  "gebco_2026": -1.48,
+  "etopo_2022": -1.49,
+  "srtm15p_v2.7": -1.28,
+  "gebco_2022": -1.45,
+  "etopo1": -1.38
+ },
+ "S_obs_domain_km2": 73266.8112,
+ "S_obs_file": "data/interim/revision_n/composite_baseline.npy",
+ "bins": [
+  12,
+  13,
+  14
+ ],
+ "bin_levels_m": [
+  -28.75,
+  -28.65,
+  -28.55
+ ],
+ "c26_grid": {
+  "step_m": 0.01,
+  "range_m": [
+   -5,
+   5
+  ]
+ },
+ "thresholds_T_m": {
+  "gebco_2026": {
+   "area_match": -29.3494,
+   "bins": -28.6494
+  },
+  "etopo_2022": {
+   "area_match": -29.4594,
+   "bins": -29.4794
+  },
+  "srtm15p_v2.7": {
+   "area_match": -29.3094,
+   "bins": -28.6094
+  },
+  "gebco_2022": {
+   "area_match": -29.3494,
+   "bins": -28.6494
+  },
+  "etopo1": {
+   "area_match": -29.3494,
+   "bins": -29.0594
+  }
+ },
+ "level_grid": {
+  "below_m": 16.0,
+  "above_m": 5.0,
+  "step_m": 0.01
+ },
+ "checks": {
+  "refit_at_shifted_level_same_T": {
+   "gebco_2026": true,
+   "etopo_2022": true,
+   "srtm15p_v2.7": true,
+   "gebco_2022": true,
+   "etopo1": true
+  },
+  "bisection_equals_full_evaluation": {
+   "gebco_2026": true,
+   "etopo_2022": true,
+   "srtm15p_v2.7": true,
+   "gebco_2022": true,
+   "etopo1": true
+  },
+  "band_rasters_vs_counts_max_abs_diff_km2": 1.8189894035458565e-12,
+  "shifted_60m_vs_figure5_json": {
+   "all_km2": 197.84879999999998,
+   "any_km2": 26909.992799999996,
+   "abs_diff_all_km2": 0.0,
+   "abs_diff_any_km2": 3.637978807091713e-12
+  }
+ },
+ "regions": [
+  "west",
+  "volga",
+  "interfluve",
+  "ural",
+  "northeast",
+  "komsomolets",
+  "open_shelf",
+  "domain",
+  "validated"
+ ],
+ "cell_km2": 0.0036,
+ "seconds": 173.6
+}

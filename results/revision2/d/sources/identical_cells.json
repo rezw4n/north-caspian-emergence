@@ -1,0 +1,71 @@
+{
+ "gebco2026_eq_gebco2022": {
+  "domain": {
+   "n_cells": 1474098,
+   "share_equal": 0.913027,
+   "by_gebco2026_tid": {
+    "0 Land": {
+     "n_cells": 97401,
+     "share_equal": 0.967105
+    },
+    "40 predicted_altimetry": {
+     "n_cells": 766050,
+     "share_equal": 0.859175
+    },
+    "44 bathymetric_sounding": {
+     "n_cells": 15244,
+     "share_equal": 0.736486
+    },
+    "70 pre-generated_grid": {
+     "n_cells": 595403,
+     "share_equal": 0.977988
+    }
+   }
+  },
+  "emerged_band": {
+   "n_cells_250m": 593068,
+   "share_equal": 0.805665,
+   "by_sector": {
+    "west": 0.858559,
+    "volga": 0.892286,
+    "interfluve": 0.892545,
+    "ural": 0.879681,
+    "northeast": 0.692755,
+    "komsomolets": 0.737157,
+    "open_shelf": 0.885958
+   }
+  },
+  "tid_identical_domain_share": 0.99628,
+  "rule": "stored int16 elevations equal (m)"
+ },
+ "etopo2022_eq_gebco2022": {
+  "lake_depth_cells_domain": {
+   "n_cells": 619194,
+   "share_equal": 0.878019,
+   "share_etopo_lower": 0.121981
+  },
+  "fabdem_cells_domain": {
+   "n_cells": 854862,
+   "share_equal": 0.009901
+  },
+  "lake_depth_cells_emerged_band": {
+   "n_cells_250m": 321072,
+   "share_equal": 0.507842
+  },
+  "fabdem_cells_emerged_band": {
+   "n_cells_250m": 271996,
+   "share_equal": 0.045894
+  },
+  "all_domain_cells": {
+   "n_cells": 1474098,
+   "share_equal": 0.374554
+  },
+  "etopo_source_share_domain": {
+   "1": 1e-06,
+   "9": 2.7e-05,
+   "10": 0.579922,
+   "11": 0.420049
+  },
+  "rule": "|ETOPO 2022 - GEBCO_2022| < 0.01 m at the same cell centre; source ID 11 = GEBCO Lake Depths (inside ETOPO 2022's lake outline), 10 = FABDEM (MacFerrin et al. 2025, Table 1)"
+ }
+}

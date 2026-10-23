@@ -303,7 +303,8 @@ def cited_keys(tex: str) -> list[str]:
 
 
 def metric_keys(tex: str) -> list[str]:
-    return re.findall(r"\\metric\s*\{([^{}]*)\}", tex)
+    """Keys of \\metric{k} and of the rounded forms \\metricsf{k}{n} and \\metricdp{k}{n}."""
+    return re.findall(r"\\metric(?:sf|dp)?\s*\{([^{}]*)\}", tex)
 
 
 def graphics(tex: str) -> list[str]:
@@ -397,7 +398,8 @@ def to_plain(tex: str, mode: str = "numbers") -> str:
     mode "words": \\metric and \\ref-like commands become one word, citations nothing,
       each math group one word.
     """
-    t = re.sub(r"\\metric\s*\{[^{}]*\}", " METRICVAL ", tex)
+    t = re.sub(r"\\metric(?:sf|dp)\s*\{[^{}]*\}\s*\{\d+\}", " METRICVAL ", tex)  # rounded forms
+    t = re.sub(r"\\metric\s*\{[^{}]*\}", " METRICVAL ", t)
     t = _drop_env_specs(t)
     # math first, while \begin{equation} and its kin are still there
     if mode == "words":

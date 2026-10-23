@@ -1,0 +1,1068 @@
+{
+ "unknown_share_counts_equal_pass": true,
+ "counts": {
+  "registered_shape": {
+   "etopo1": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "etopo_2022": {
+    "all7": 1,
+    "validated4": 0,
+    "six_without_komsomolets": 1,
+    "sectors": [
+     "ural"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2022": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2026": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "srtm15p_v2.7": {
+    "all7": 6,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural"
+    ],
+    "not_evaluable": []
+   }
+  },
+  "shape_i__floor_registered": {
+   "etopo1": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "etopo_2022": {
+    "all7": 2,
+    "validated4": 1,
+    "six_without_komsomolets": 2,
+    "sectors": [
+     "interfluve",
+     "ural"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2022": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2026": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "srtm15p_v2.7": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   }
+  },
+  "shape_i__floor_matched": {
+   "etopo1": {
+    "all7": 0,
+    "validated4": 0,
+    "six_without_komsomolets": 0,
+    "sectors": [],
+    "not_evaluable": []
+   },
+   "etopo_2022": {
+    "all7": 0,
+    "validated4": 0,
+    "six_without_komsomolets": 0,
+    "sectors": [],
+    "not_evaluable": []
+   },
+   "gebco_2022": {
+    "all7": 0,
+    "validated4": 0,
+    "six_without_komsomolets": 0,
+    "sectors": [],
+    "not_evaluable": []
+   },
+   "gebco_2026": {
+    "all7": 0,
+    "validated4": 0,
+    "six_without_komsomolets": 0,
+    "sectors": [],
+    "not_evaluable": []
+   },
+   "srtm15p_v2.7": {
+    "all7": 0,
+    "validated4": 0,
+    "six_without_komsomolets": 0,
+    "sectors": [],
+    "not_evaluable": []
+   }
+  },
+  "shape_ii__floor_registered": {
+   "etopo1": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "etopo_2022": {
+    "all7": 1,
+    "validated4": 0,
+    "six_without_komsomolets": 1,
+    "sectors": [
+     "ural"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2022": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2026": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "srtm15p_v2.7": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   }
+  },
+  "shape_ii__floor_matched": {
+   "etopo1": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "etopo_2022": {
+    "all7": 1,
+    "validated4": 0,
+    "six_without_komsomolets": 1,
+    "sectors": [
+     "ural"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2022": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "gebco_2026": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   },
+   "srtm15p_v2.7": {
+    "all7": 7,
+    "validated4": 4,
+    "six_without_komsomolets": 6,
+    "sectors": [
+     "west",
+     "interfluve",
+     "northeast",
+     "open_shelf",
+     "volga",
+     "ural",
+     "komsomolets"
+    ],
+    "not_evaluable": []
+   }
+  }
+ },
+ "changed": {
+  "shape_i__floor_registered": [
+   {
+    "product": "etopo_2022",
+    "sector": "interfluve",
+    "validated": true,
+    "mispredicts_reference": false,
+    "mispredicts_new": true,
+    "n_exceeding_reference": 13,
+    "n_exceeding_new": 14,
+    "n_evaluable_new": 26
+   },
+   {
+    "product": "srtm15p_v2.7",
+    "sector": "komsomolets",
+    "validated": false,
+    "mispredicts_reference": false,
+    "mispredicts_new": true,
+    "n_exceeding_reference": 12,
+    "n_exceeding_new": 13,
+    "n_evaluable_new": 25
+   }
+  ],
+  "shape_i__floor_matched": [
+   {
+    "product": "etopo1",
+    "sector": "west",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 23,
+    "n_exceeding_new": 7,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "etopo1",
+    "sector": "interfluve",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 23,
+    "n_exceeding_new": 9,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "etopo1",
+    "sector": "northeast",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 18,
+    "n_exceeding_new": 12,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "etopo1",
+    "sector": "open_shelf",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 18,
+    "n_exceeding_new": 8,
+    "n_evaluable_new": 29
+   },
+   {
+    "product": "etopo1",
+    "sector": "volga",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 22,
+    "n_exceeding_new": 8,
+    "n_evaluable_new": 29
+   },
+   {
+    "product": "etopo1",
+    "sector": "ural",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 21,
+    "n_exceeding_new": 13,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "etopo1",
+    "sector": "komsomolets",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 15,
+    "n_exceeding_new": 11,
+    "n_evaluable_new": 26
+   },
+   {
+    "product": "etopo_2022",
+    "sector": "ural",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 14,
+    "n_exceeding_new": 9,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "gebco_2022",
+    "sector": "west",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 22,
+    "n_exceeding_new": 6,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "gebco_2022",
+    "sector": "interfluve",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 24,
+    "n_exceeding_new": 8,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "gebco_2022",
+    "sector": "northeast",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 18,
+    "n_exceeding_new": 12,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "gebco_2022",
+    "sector": "open_shelf",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 14,
+    "n_exceeding_new": 5,
+    "n_evaluable_new": 29
+   },
+   {
+    "product": "gebco_2022",
+    "sector": "volga",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 22,
+    "n_exceeding_new": 10,
+    "n_evaluable_new": 29
+   },
+   {
+    "product": "gebco_2022",
+    "sector": "ural",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 20,
+    "n_exceeding_new": 12,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "gebco_2022",
+    "sector": "komsomolets",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 14,
+    "n_exceeding_new": 11,
+    "n_evaluable_new": 26
+   },
+   {
+    "product": "gebco_2026",
+    "sector": "west",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 22,
+    "n_exceeding_new": 6,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "gebco_2026",
+    "sector": "interfluve",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 24,
+    "n_exceeding_new": 8,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "gebco_2026",
+    "sector": "northeast",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 20,
+    "n_exceeding_new": 12,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "gebco_2026",
+    "sector": "open_shelf",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 15,
+    "n_exceeding_new": 5,
+    "n_evaluable_new": 29
+   },
+   {
+    "product": "gebco_2026",
+    "sector": "volga",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 22,
+    "n_exceeding_new": 10,
+    "n_evaluable_new": 29
+   },
+   {
+    "product": "gebco_2026",
+    "sector": "ural",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 20,
+    "n_exceeding_new": 12,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "gebco_2026",
+    "sector": "komsomolets",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 13,
+    "n_exceeding_new": 11,
+    "n_evaluable_new": 26
+   },
+   {
+    "product": "srtm15p_v2.7",
+    "sector": "west",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 24,
+    "n_exceeding_new": 10,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "srtm15p_v2.7",
+    "sector": "interfluve",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 24,
+    "n_exceeding_new": 9,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "srtm15p_v2.7",
+    "sector": "northeast",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 19,
+    "n_exceeding_new": 12,
+    "n_evaluable_new": 28
+   },
+   {
+    "product": "srtm15p_v2.7",
+    "sector": "open_shelf",
+    "validated": true,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 16,
+    "n_exceeding_new": 8,
+    "n_evaluable_new": 29
+   },
+   {
+    "product": "srtm15p_v2.7",
+    "sector": "volga",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 22,
+    "n_exceeding_new": 13,
+    "n_evaluable_new": 29
+   },
+   {
+    "product": "srtm15p_v2.7",
+    "sector": "ural",
+    "validated": false,
+    "mispredicts_reference": true,
+    "mispredicts_new": false,
+    "n_exceeding_reference": 22,
+    "n_exceeding_new": 12,
+    "n_evaluable_new": 28
+   }
+  ],
+  "shape_ii__floor_registered": [
+   {
+    "product": "srtm15p_v2.7",
+    "sector": "komsomolets",
+    "validated": false,
+    "mispredicts_reference": false,
+    "mispredicts_new": true,
+    "n_exceeding_reference": 12,
+    "n_exceeding_new": 13,
+    "n_evaluable_new": 25
+   }
+  ],
+  "shape_ii__floor_matched": [
+   {
+    "product": "srtm15p_v2.7",
+    "sector": "komsomolets",
+    "validated": false,
+    "mispredicts_reference": false,
+    "mispredicts_new": true,
+    "n_exceeding_reference": 12,
+    "n_exceeding_new": 13,
+    "n_evaluable_new": 25
+   }
+  ]
+ },
+ "verdicts": {
+  "shape_i__floor_registered": {
+   "etopo1": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   },
+   "etopo_2022": {
+    "west": false,
+    "interfluve": true,
+    "northeast": false,
+    "open_shelf": false,
+    "volga": false,
+    "ural": true,
+    "komsomolets": false
+   },
+   "gebco_2022": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   },
+   "gebco_2026": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   },
+   "srtm15p_v2.7": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   }
+  },
+  "shape_i__floor_matched": {
+   "etopo1": {
+    "west": false,
+    "interfluve": false,
+    "northeast": false,
+    "open_shelf": false,
+    "volga": false,
+    "ural": false,
+    "komsomolets": false
+   },
+   "etopo_2022": {
+    "west": false,
+    "interfluve": false,
+    "northeast": false,
+    "open_shelf": false,
+    "volga": false,
+    "ural": false,
+    "komsomolets": false
+   },
+   "gebco_2022": {
+    "west": false,
+    "interfluve": false,
+    "northeast": false,
+    "open_shelf": false,
+    "volga": false,
+    "ural": false,
+    "komsomolets": false
+   },
+   "gebco_2026": {
+    "west": false,
+    "interfluve": false,
+    "northeast": false,
+    "open_shelf": false,
+    "volga": false,
+    "ural": false,
+    "komsomolets": false
+   },
+   "srtm15p_v2.7": {
+    "west": false,
+    "interfluve": false,
+    "northeast": false,
+    "open_shelf": false,
+    "volga": false,
+    "ural": false,
+    "komsomolets": false
+   }
+  },
+  "shape_ii__floor_registered": {
+   "etopo1": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   },
+   "etopo_2022": {
+    "west": false,
+    "interfluve": false,
+    "northeast": false,
+    "open_shelf": false,
+    "volga": false,
+    "ural": true,
+    "komsomolets": false
+   },
+   "gebco_2022": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   },
+   "gebco_2026": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   },
+   "srtm15p_v2.7": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   }
+  },
+  "shape_ii__floor_matched": {
+   "etopo1": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   },
+   "etopo_2022": {
+    "west": false,
+    "interfluve": false,
+    "northeast": false,
+    "open_shelf": false,
+    "volga": false,
+    "ural": true,
+    "komsomolets": false
+   },
+   "gebco_2022": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   },
+   "gebco_2026": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   },
+   "srtm15p_v2.7": {
+    "west": true,
+    "interfluve": true,
+    "northeast": true,
+    "open_shelf": true,
+    "volga": true,
+    "ural": true,
+    "komsomolets": true
+   }
+  }
+ },
+ "unknown_share_shape": {
+  "etopo1": {
+   "west": {
+    "pooled_pct": 56.29,
+    "unit_median_pct": 37.67,
+    "unit_q25_pct": 20.95,
+    "unit_q75_pct": 92.26
+   },
+   "interfluve": {
+    "pooled_pct": 26.1,
+    "unit_median_pct": 10.47,
+    "unit_q25_pct": 8.39,
+    "unit_q75_pct": 43.79
+   },
+   "northeast": {
+    "pooled_pct": 41.49,
+    "unit_median_pct": 5.19,
+    "unit_q25_pct": 2.82,
+    "unit_q75_pct": 89.08
+   },
+   "open_shelf": {
+    "pooled_pct": 45.87,
+    "unit_median_pct": 32.03,
+    "unit_q25_pct": 19.81,
+    "unit_q75_pct": 93.0
+   },
+   "volga": {
+    "pooled_pct": 66.91,
+    "unit_median_pct": 65.24,
+    "unit_q25_pct": 32.66,
+    "unit_q75_pct": 90.97
+   },
+   "ural": {
+    "pooled_pct": 36.99,
+    "unit_median_pct": 22.94,
+    "unit_q25_pct": 8.58,
+    "unit_q75_pct": 62.54
+   },
+   "komsomolets": {
+    "pooled_pct": 56.02,
+    "unit_median_pct": 11.35,
+    "unit_q25_pct": 0.1,
+    "unit_q75_pct": 82.17
+   }
+  },
+  "etopo_2022": {
+   "west": {
+    "pooled_pct": 66.45,
+    "unit_median_pct": 61.02,
+    "unit_q25_pct": 30.25,
+    "unit_q75_pct": 96.58
+   },
+   "interfluve": {
+    "pooled_pct": 48.24,
+    "unit_median_pct": 30.93,
+    "unit_q25_pct": 9.75,
+    "unit_q75_pct": 91.53
+   },
+   "northeast": {
+    "pooled_pct": 45.95,
+    "unit_median_pct": 29.83,
+    "unit_q25_pct": 11.08,
+    "unit_q75_pct": 91.62
+   },
+   "open_shelf": {
+    "pooled_pct": 48.89,
+    "unit_median_pct": 35.03,
+    "unit_q25_pct": 18.93,
+    "unit_q75_pct": 96.75
+   },
+   "volga": {
+    "pooled_pct": 68.31,
+    "unit_median_pct": 56.3,
+    "unit_q25_pct": 27.33,
+    "unit_q75_pct": 96.36
+   },
+   "ural": {
+    "pooled_pct": 52.87,
+    "unit_median_pct": 38.43,
+    "unit_q25_pct": 14.25,
+    "unit_q75_pct": 94.47
+   },
+   "komsomolets": {
+    "pooled_pct": 48.28,
+    "unit_median_pct": 11.97,
+    "unit_q25_pct": 5.54,
+    "unit_q75_pct": 85.19
+   }
+  },
+  "gebco_2022": {
+   "west": {
+    "pooled_pct": 57.61,
+    "unit_median_pct": 25.17,
+    "unit_q25_pct": 13.31,
+    "unit_q75_pct": 85.24
+   },
+   "interfluve": {
+    "pooled_pct": 25.9,
+    "unit_median_pct": 6.73,
+    "unit_q25_pct": 5.27,
+    "unit_q75_pct": 34.58
+   },
+   "northeast": {
+    "pooled_pct": 48.53,
+    "unit_median_pct": 7.36,
+    "unit_q25_pct": 4.07,
+    "unit_q75_pct": 86.43
+   },
+   "open_shelf": {
+    "pooled_pct": 48.02,
+    "unit_median_pct": 32.62,
+    "unit_q25_pct": 21.84,
+    "unit_q75_pct": 95.58
+   },
+   "volga": {
+    "pooled_pct": 73.09,
+    "unit_median_pct": 47.14,
+    "unit_q25_pct": 20.96,
+    "unit_q75_pct": 88.82
+   },
+   "ural": {
+    "pooled_pct": 40.7,
+    "unit_median_pct": 19.39,
+    "unit_q25_pct": 7.5,
+    "unit_q75_pct": 61.22
+   },
+   "komsomolets": {
+    "pooled_pct": 58.42,
+    "unit_median_pct": 13.64,
+    "unit_q25_pct": 1.26,
+    "unit_q75_pct": 89.03
+   }
+  },
+  "gebco_2026": {
+   "west": {
+    "pooled_pct": 57.47,
+    "unit_median_pct": 25.55,
+    "unit_q25_pct": 13.36,
+    "unit_q75_pct": 86.14
+   },
+   "interfluve": {
+    "pooled_pct": 26.09,
+    "unit_median_pct": 7.08,
+    "unit_q25_pct": 5.65,
+    "unit_q75_pct": 37.38
+   },
+   "northeast": {
+    "pooled_pct": 48.67,
+    "unit_median_pct": 8.45,
+    "unit_q25_pct": 4.08,
+    "unit_q75_pct": 86.17
+   },
+   "open_shelf": {
+    "pooled_pct": 47.1,
+    "unit_median_pct": 32.1,
+    "unit_q25_pct": 19.63,
+    "unit_q75_pct": 95.01
+   },
+   "volga": {
+    "pooled_pct": 74.23,
+    "unit_median_pct": 47.25,
+    "unit_q25_pct": 21.51,
+    "unit_q75_pct": 90.25
+   },
+   "ural": {
+    "pooled_pct": 39.33,
+    "unit_median_pct": 19.94,
+    "unit_q25_pct": 7.62,
+    "unit_q75_pct": 60.12
+   },
+   "komsomolets": {
+    "pooled_pct": 61.57,
+    "unit_median_pct": 13.87,
+    "unit_q25_pct": 2.15,
+    "unit_q75_pct": 89.61
+   }
+  },
+  "srtm15p_v2.7": {
+   "west": {
+    "pooled_pct": 49.24,
+    "unit_median_pct": 24.56,
+    "unit_q25_pct": 14.52,
+    "unit_q75_pct": 81.57
+   },
+   "interfluve": {
+    "pooled_pct": 23.31,
+    "unit_median_pct": 11.72,
+    "unit_q25_pct": 6.84,
+    "unit_q75_pct": 31.95
+   },
+   "northeast": {
+    "pooled_pct": 39.73,
+    "unit_median_pct": 5.71,
+    "unit_q25_pct": 2.1,
+    "unit_q75_pct": 64.84
+   },
+   "open_shelf": {
+    "pooled_pct": 40.4,
+    "unit_median_pct": 32.3,
+    "unit_q25_pct": 13.7,
+    "unit_q75_pct": 92.52
+   },
+   "volga": {
+    "pooled_pct": 72.35,
+    "unit_median_pct": 62.88,
+    "unit_q25_pct": 38.76,
+    "unit_q75_pct": 88.42
+   },
+   "ural": {
+    "pooled_pct": 34.89,
+    "unit_median_pct": 15.31,
+    "unit_q25_pct": 4.75,
+    "unit_q75_pct": 60.1
+   },
+   "komsomolets": {
+    "pooled_pct": 55.43,
+    "unit_median_pct": 13.18,
+    "unit_q25_pct": 4.4,
+    "unit_q75_pct": 87.42
+   }
+  }
+ }
+}

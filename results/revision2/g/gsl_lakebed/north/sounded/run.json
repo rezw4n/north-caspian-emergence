@@ -1,0 +1,637 @@
+{
+ "basin": "great_salt_lake",
+ "arm": "north",
+ "tag": "main",
+ "resampling": "area-weighted mean (GDAL average)",
+ "envelope": {
+  "rule": "D-082: cells water at the record low (3 lowest E3 bins) are water at every level",
+  "cells": 268113
+ },
+ "vertical_correction": {
+  "kind": "arm gauge constant, VERTCON 3.0 via NCAT (D-094)",
+  "delta_m": 0.93
+ },
+ "level_datum": {
+  "offset_m": 1300.0,
+  "source": "bins on NAVD 88 minus 1300.0 m (Amendment 16 item 5)",
+  "meaning": "added to the DAHITI-scale bin centres (working datum: DAHITI, D-070)"
+ },
+ "product": "Great Salt Lake lake-bed model (HydroShare 582060f00f6b443bb26e896426d9f62a, GSLDEM.tif; USGS soundings 2002-04 / 2006, map contours, NED), NGVD 29 -> NAVD 88",
+ "bins": "<= 91 (upper edge <= top of the soundings, 4194 ft NGVD 29 = 1279.2612 m NAVD 88)",
+ "decision": "D-150",
+ "ponds": "OpenStreetMap salt ponds + 120 m: unknown",
+ "stage2_dir": "D:\\Caspian\\data\\interim\\generality\\great_salt_lake\\stage2_main_north_masked",
+ "product_offsets": "none: no constant offset",
+ "shape_offsets": {
+  "lakebed": {
+   "offset_m": 0.41,
+   "source": "fitted in this run (D-070)"
+  }
+ },
+ "shape_fit": "shape_offsets.json",
+ "products": [
+  "lakebed"
+ ],
+ "grid": {
+  "transform": [
+   60.0,
+   0.0,
+   -56760.0,
+   0.0,
+   -60.0,
+   66900.0
+  ],
+  "shape": [
+   2300,
+   1906
+  ],
+  "crs": "+proj=laea +lat_0=41.2 +lon_0=-112.5 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +type=crs"
+ },
+ "static_counts": {
+  "domain": 997381,
+  "zone": 932252,
+  "sea_seed": 209379,
+  "land_seed": 43456,
+  "ponds_unknown": 33319,
+  "outside_water": 6889,
+  "outside_land": 43456,
+  "outside_unknown": 4333455
+ },
+ "units": [
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 76,
+   "level_m": -22.35,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 15,
+   "envelope_cells": 721
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 76,
+   "level_m": -22.35,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 8,
+   "envelope_cells": 226
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 76,
+   "level_m": -22.35,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 7,
+   "envelope_cells": 32
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 77,
+   "level_m": -22.25,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 52,
+   "envelope_cells": 2676
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 77,
+   "level_m": -22.25,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 26,
+   "envelope_cells": 1764
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 77,
+   "level_m": -22.25,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 30,
+   "envelope_cells": 3021
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 78,
+   "level_m": -22.15,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 45,
+   "envelope_cells": 555
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 78,
+   "level_m": -22.15,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 25,
+   "envelope_cells": 562
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 78,
+   "level_m": -22.15,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 25,
+   "envelope_cells": 1304
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 79,
+   "level_m": -22.05,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 24,
+   "envelope_cells": 2070
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 79,
+   "level_m": -22.05,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 14,
+   "envelope_cells": 1851
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 79,
+   "level_m": -22.05,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 11,
+   "envelope_cells": 728
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 80,
+   "level_m": -21.95,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 30,
+   "envelope_cells": 1558
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 80,
+   "level_m": -21.95,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 15,
+   "envelope_cells": 2052
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 80,
+   "level_m": -21.95,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 17,
+   "envelope_cells": 1047
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 81,
+   "level_m": -21.85,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 38,
+   "envelope_cells": 1425
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 81,
+   "level_m": -21.85,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 21,
+   "envelope_cells": 885
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 81,
+   "level_m": -21.85,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 20,
+   "envelope_cells": 1544
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 82,
+   "level_m": -21.75,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 36,
+   "envelope_cells": 1401
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 82,
+   "level_m": -21.75,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 18,
+   "envelope_cells": 1079
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 82,
+   "level_m": -21.75,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 19,
+   "envelope_cells": 1716
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 83,
+   "level_m": -21.65,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 56,
+   "envelope_cells": 1331
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 83,
+   "level_m": -21.65,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 31,
+   "envelope_cells": 3793
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 83,
+   "level_m": -21.65,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 29,
+   "envelope_cells": 1781
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 84,
+   "level_m": -21.55,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 45,
+   "envelope_cells": 2232
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 84,
+   "level_m": -21.55,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 26,
+   "envelope_cells": 2138
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 84,
+   "level_m": -21.55,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 21,
+   "envelope_cells": 2140
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 85,
+   "level_m": -21.45,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 43,
+   "envelope_cells": 2064
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 85,
+   "level_m": -21.45,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 23,
+   "envelope_cells": 2295
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 85,
+   "level_m": -21.45,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 21,
+   "envelope_cells": 2225
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 86,
+   "level_m": -21.35,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 66,
+   "envelope_cells": 2006
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 86,
+   "level_m": -21.35,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 34,
+   "envelope_cells": 2223
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 86,
+   "level_m": -21.35,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 34,
+   "envelope_cells": 1931
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 87,
+   "level_m": -21.25,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 72,
+   "envelope_cells": 2185
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 87,
+   "level_m": -21.25,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 38,
+   "envelope_cells": 2752
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 87,
+   "level_m": -21.25,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 36,
+   "envelope_cells": 1037
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 88,
+   "level_m": -21.15,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 81,
+   "envelope_cells": 1562
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 88,
+   "level_m": -21.15,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 42,
+   "envelope_cells": 1439
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 88,
+   "level_m": -21.15,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 45,
+   "envelope_cells": 1723
+  },
+  {
+   "epoch": "E2",
+   "sample": "full",
+   "bin": 89,
+   "level_m": -21.05,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 5,
+   "envelope_cells": 0
+  },
+  {
+   "epoch": "E2",
+   "sample": "p0",
+   "bin": 89,
+   "level_m": -21.05,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 3,
+   "envelope_cells": 0
+  },
+  {
+   "epoch": "E2",
+   "sample": "p1",
+   "bin": 89,
+   "level_m": -21.05,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 3,
+   "envelope_cells": 0
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 89,
+   "level_m": -21.05,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 57,
+   "envelope_cells": 2026
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 89,
+   "level_m": -21.05,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 31,
+   "envelope_cells": 2461
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 89,
+   "level_m": -21.05,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 30,
+   "envelope_cells": 1634
+  },
+  {
+   "epoch": "E2",
+   "sample": "full",
+   "bin": 90,
+   "level_m": -20.95,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 11,
+   "envelope_cells": 5983
+  },
+  {
+   "epoch": "E2",
+   "sample": "p0",
+   "bin": 90,
+   "level_m": -20.95,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 6,
+   "envelope_cells": 27
+  },
+  {
+   "epoch": "E2",
+   "sample": "p1",
+   "bin": 90,
+   "level_m": -20.95,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 5,
+   "envelope_cells": 9
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 90,
+   "level_m": -20.95,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 67,
+   "envelope_cells": 1359
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 90,
+   "level_m": -20.95,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 34,
+   "envelope_cells": 1254
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 90,
+   "level_m": -20.95,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 35,
+   "envelope_cells": 1322
+  },
+  {
+   "epoch": "E2",
+   "sample": "full",
+   "bin": 91,
+   "level_m": -20.85,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 18,
+   "envelope_cells": 2772
+  },
+  {
+   "epoch": "E2",
+   "sample": "p0",
+   "bin": 91,
+   "level_m": -20.85,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 9,
+   "envelope_cells": 318
+  },
+  {
+   "epoch": "E2",
+   "sample": "p1",
+   "bin": 91,
+   "level_m": -20.85,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 9,
+   "envelope_cells": 46
+  },
+  {
+   "epoch": "E3",
+   "sample": "full",
+   "bin": 91,
+   "level_m": -20.85,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 79,
+   "envelope_cells": 1843
+  },
+  {
+   "epoch": "E3",
+   "sample": "p0",
+   "bin": 91,
+   "level_m": -20.85,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 44,
+   "envelope_cells": 2939
+  },
+  {
+   "epoch": "E3",
+   "sample": "p1",
+   "bin": 91,
+   "level_m": -20.85,
+   "overlap_cells": 0,
+   "overlap_disagree": 0,
+   "max_valid_count": 40,
+   "envelope_cells": 1026
+  }
+ ],
+ "block_h1": {
+  "block_m": 25000,
+  "n_rows": 14
+ },
+ "seconds": 59.0
+}

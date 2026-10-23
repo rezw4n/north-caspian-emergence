@@ -1,0 +1,20 @@
+% Highlights for Remote Sensing of Environment: a separate editable file, 3 to 5 bullets of at most
+% 85 characters each, spaces included, as rendered (docs/journal_specs.md). Numbers come from
+% results/metrics.json through numbers.tex. Build from D:\Caspian:
+%   tectonic manuscript/rse_highlights.tex
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\input{numbers.tex}
+\pagestyle{empty}
+\begin{document}
+\section*{Highlights}
+\begin{itemize}
+  \item Altimetry-levelled Landsat waterlines record three decades of Caspian shorelines
+  \item Four of five global bathymetry grids misplace past shorelines by \metricsf{rev.s.headline.west.d_km_min}{1}--\metricsf{rev.s.headline.west.d_km_max}{1}~km
+  \item An offset fitted to flooded area does not correct the shoreline position
+  \item ETOPO 2022 passes only where it holds land heights measured after emergence
+  \item Emergence estimates should start from the latest observed shoreline
+\end{itemize}
+\end{document}

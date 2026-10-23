@@ -1,8 +1,8 @@
-# Four decades of retreating shorelines audit projected seabed emergence in the North Caspian Sea
+# Global bathymetry grids misplace the retreating North Caspian shoreline by kilometres
 
-Rezwan Ahmed (Department of Geography and Environment, University of Dhaka; ORCID 0009-0002-8003-099X), Nusrat Zahan Jarin (Department of Geography, University of California, Santa Barbara; ORCID 0000-0003-2657-8559; corresponding author, njarin@umail.ucsb.edu) and Obaidur Rahman (Department of Geography, Oklahoma State University; ORCID 0009-0004-1781-5887).
+Rezwan Ahmed, Department of Geography and Environment, University of Dhaka (ORCID 0009-0002-8003-099X; rezwan490@gmail.com).
 
-This repository holds the code, derived data and manuscript sources for the paper submitted to Environmental Research Letters. It contains the analysis package, the pipeline scripts, the figure and table scripts, the derived tables behind every figure and number in the paper, the pre-registration with its dated amendments, and the LaTeX sources of the Letter and its Supplementary Information. The numbers in the manuscript are not typed by hand: they are read from `results/metrics.json` and inserted as LaTeX macros (`manuscript/numbers.tex`).
+This repository holds the code, derived data and manuscript sources for the paper submitted to Remote Sensing of Environment. It contains the analysis package, the pipeline scripts, the figure and table scripts, the derived tables behind every figure and number in the paper, the pre-registration with its dated amendments, and the LaTeX sources of the article and its Supplementary material. The numbers in the manuscript are not typed by hand: they are read from `results/metrics.json` and inserted as LaTeX macros (`manuscript/numbers.tex`).
 
 ## Requirements
 
@@ -43,7 +43,7 @@ micromamba run -n caspian make all
 - `tools/`: metrics, LaTeX macros, input checks, reference retrieval and the data package builder.
 - `results/`: derived tables, run records, provenance records and `metrics.json`.
 - `outputs/`: quality-control figures.
-- `manuscript/`: LaTeX sources of the Letter (`main_erl.tex`) and the Supplementary Information (`supplementary_erl.tex`).
+- `manuscript/`: LaTeX sources of the article (`rse_main.tex`), its Supplementary material (`rse_supplementary.tex`), the highlights and the cover letter. `main_erl.tex` and `supplementary_erl.tex` are the earlier, shorter version of the paper; the Supplementary material reuses their section files.
 - `docs/`: the pre-registration (`PREREG.md`), the vertical datum chain (`DATUMS.md`) and the data release rules (`DATA_RELEASE.md`).
 - `refs/`: the bibliography and the list of verified references.
 - `tests/`: the pytest suite.

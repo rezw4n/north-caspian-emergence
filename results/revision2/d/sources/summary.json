@@ -1,0 +1,45 @@
+{
+ "rule": "A19 item 14 (D-149)",
+ "tid_source": "TID layer of data/raw/bathymetry/gebco_2026_ncaspian.nc (CEDA subset, results/provenance/gebco_2026.json)",
+ "tid_names_from_file": {
+  "0": "Land",
+  "10": "Singlebeam",
+  "11": "Multibeam",
+  "12": "Seismic",
+  "13": "Isolated_sounding",
+  "14": "ENC_sounding",
+  "15": "Lidar",
+  "16": "Optical",
+  "17": "Combined",
+  "40": "predicted_altimetry",
+  "41": "interpolated",
+  "42": "contour_charts",
+  "43": "contour_ENC",
+  "44": "bathymetric_sounding",
+  "45": "predicted_airborne",
+  "46": "iceberg_groundinggrounded_Argo_float_derived",
+  "47": "unnamed in file",
+  "48": "unnamed in file",
+  "70": "pre-generated_grid",
+  "71": "unknown",
+  "72": "steering_point"
+ },
+ "domain_cells": 1474098,
+ "band_cells_250m": 593068,
+ "band_cells_outside_domain": 1403,
+ "great_salt_lake": {
+  "subset_cells": 96552,
+  "subset_tid_shares": {
+   "0 Land": 1.0
+  },
+  "band_tid_shares_from_lineage_json": {
+   "north": {
+    "0": 1.0
+   },
+   "south": {
+    "0": 1.0
+   }
+  },
+  "note": "every cell of the basin subset has TID 0, so the emerged-band shares are 100% TID 0"
+ }
+}
