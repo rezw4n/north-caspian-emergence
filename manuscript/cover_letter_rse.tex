@@ -1,0 +1,27 @@
+% Cover letter for the Remote Sensing of Environment submission (D-145). Numbers come from
+% results/metrics.json through numbers.tex.
+\documentclass[11pt]{letter}
+\usepackage{fontspec}
+\usepackage{siunitx}
+\usepackage[margin=25mm]{geometry}
+\usepackage{xurl}
+\input{numbers.tex}
+\signature{Rezwan Ahmed\\Department of Geography and Environment, University of Dhaka\\Dhaka 1000, Bangladesh\\rezwan490@gmail.com \quad ORCID 0009-0002-8003-099X}
+\address{}
+\begin{document}
+\begin{letter}{The Editors\\Remote Sensing of Environment}
+\opening{Dear Editors,}
+
+Please consider the enclosed manuscript, ``Global bathymetry grids misplace the retreating North Caspian shoreline by kilometres'', for publication as a research article in \emph{Remote Sensing of Environment}.
+
+Projections of how much seabed a shrinking closed sea will expose rest on global bathymetry grids such as GEBCO, ETOPO and SRTM15+. On a flat shelf, a small vertical error in such a grid moves the predicted shoreline by kilometres, yet these grids have not been tested against seabed that has already emerged. The North Caspian Sea, whose level has fallen by more than two and a half metres since 1995, allows that test. We levelled three decades of Landsat waterlines with satellite altimetry and asked whether five global grids, flooded from the open sea to each observed level, put the shoreline where it was.
+
+On the coasts where ICESat-2 heights confirm the observed waterlines, four of the five grids misplace the shoreline by \metricdp{rev.w.h1.coasts3.d_km_min}{1}--\metricdp{rev.w.h1.coasts3.d_km_max}{1}~km, equivalent to vertical errors of \metricdp{rev2.d.vert.westinterfluve.four_Dg_min_m}{1}--\metricdp{rev2.d.vert.westinterfluve.four_Dg_max_m}{1}~m. This holds after a fitted vertical offset and under every observation and datum variant we tested. The error grows with level, so the grids misrepresent the slope of the shelf and no single offset corrects them. The fifth grid fits mainly where it holds a lake outline of 2000 and land heights measured after emergence. At Great Salt Lake, a sounding-based lake-bed model misses by hundreds of metres where the grids miss by kilometres. We also give near-term emergence measured from the observed 2026 shoreline.
+
+The paper is a remote-sensing accuracy assessment with a pre-registered design. The hypotheses and decision rules were registered before any metric was computed, and every later analysis is labelled exploratory. The failed tests are reported in the main text. All code and derived data are openly available, and every number in the text is generated from the results by script.
+
+The manuscript has not been published and is not under consideration elsewhere. I am the sole author, I declare no competing interests, and the work received no specific funding.
+
+\closing{Yours sincerely,}
+\end{letter}
+\end{document}

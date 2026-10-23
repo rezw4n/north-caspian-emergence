@@ -1,0 +1,830 @@
+{
+ "status": "exploratory, unregistered additional control (PREREG Amendment 19 item 13; D-150); the registered verdict ('recurs', D-094 addendum) and the 3DEP substitute stand",
+ "rule": "caspian.h1.mispredicts per arm (per-level floor; shape variant decides, total reported); the control mispredicts in the basin in a majority of arms (caspian.generality.in_basin)",
+ "boundaries_navd88_m": {
+  "south": {
+   "sounded_top_navd88_m": 1279.0034,
+   "contours_top_navd88_m": 1281.137
+  },
+  "north": {
+   "sounded_top_navd88_m": 1279.2612,
+   "contours_top_navd88_m": 1281.09
+  }
+ },
+ "gauge_delta_m": {
+  "south": 0.977,
+  "north": 0.93
+ },
+ "survey_windows": {
+  "south": [
+   "2002-09-01",
+   "2004-06-30",
+   "fall 2002, first half of 2003, spring 2004 (Baskin 2005)"
+  ],
+  "north": [
+   "2006-03-01",
+   "2006-07-31",
+   "spring and early summer 2006 (Baskin 2006)"
+  ]
+ },
+ "sets": {
+  "all": {
+   "arms": {
+    "north": {
+     "shape": {
+      "mispredicts": false,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 14,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 169.7056274847714,
+      "median_noise_p95_m": 314.5255296218187,
+      "bins": "76-143"
+     },
+     "total": {
+      "mispredicts": false,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 12,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 134.1640786499874,
+      "median_noise_p95_m": 314.5255296218187,
+      "bins": "76-143"
+     },
+     "at_3dep_levels": {
+      "shape": {
+       "n_evaluable": 49,
+       "n_exceeding": 13,
+       "majority": false,
+       "median_displacement_m": 169.7056274847714
+      },
+      "total": {
+       "n_evaluable": 49,
+       "n_exceeding": 11,
+       "majority": false,
+       "median_displacement_m": 134.1640786499874
+      }
+     },
+     "by_source_class": {
+      "sounded": {
+       "shape": {
+        "n_evaluable": 16,
+        "n_exceeding": 9,
+        "majority": true,
+        "median_displacement_m": 180.0
+       },
+       "total": {
+        "n_evaluable": 16,
+        "n_exceeding": 7,
+        "majority": false,
+        "median_displacement_m": 184.86832980505142
+       }
+      },
+      "map_contours": {
+       "shape": {
+        "n_evaluable": 17,
+        "n_exceeding": 0,
+        "majority": false,
+        "median_displacement_m": 180.0
+       },
+       "total": {
+        "n_evaluable": 17,
+        "n_exceeding": 0,
+        "majority": false,
+        "median_displacement_m": 180.0
+       }
+      },
+      "ned": {
+       "shape": {
+        "n_evaluable": 15,
+        "n_exceeding": 4,
+        "majority": false,
+        "median_displacement_m": 84.8528137423857
+       },
+       "total": {
+        "n_evaluable": 15,
+        "n_exceeding": 4,
+        "majority": false,
+        "median_displacement_m": 84.8528137423857
+       }
+      },
+      "mixed": {
+       "shape": {
+        "n_evaluable": 2,
+        "n_exceeding": 1,
+        "majority": false,
+        "median_displacement_m": 154.86832980505142
+       },
+       "total": {
+        "n_evaluable": 2,
+        "n_exceeding": 1,
+        "majority": false,
+        "median_displacement_m": 153.6931687685298
+       }
+      }
+     },
+     "dep3_registered": {
+      "mispredicts": false,
+      "n_evaluable": 49,
+      "n_exceeding": 1,
+      "median_displacement_m": 84.8528137423857,
+      "median_noise_p95_m": 323.10988842807024
+     },
+     "dep3_shape_offset_m": 0.25,
+     "survey": {
+      "window": [
+       "2006-03-01",
+       "2006-07-31"
+      ],
+      "wording": "spring and early summer 2006 (Baskin 2006)",
+      "gauge_min_navd88_m": 1279.816,
+      "gauge_max_navd88_m": 1280.255
+     }
+    },
+    "south": {
+     "shape": {
+      "mispredicts": false,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 20,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 120.0,
+      "median_noise_p95_m": 120.0,
+      "bins": "76-138"
+     },
+     "total": {
+      "mispredicts": false,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 22,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 134.1640786499874,
+      "median_noise_p95_m": 120.0,
+      "bins": "76-138"
+     },
+     "at_3dep_levels": {
+      "shape": {
+       "n_evaluable": 38,
+       "n_exceeding": 12,
+       "majority": false,
+       "median_displacement_m": 120.0
+      },
+      "total": {
+       "n_evaluable": 38,
+       "n_exceeding": 12,
+       "majority": false,
+       "median_displacement_m": 102.42640687119285
+      }
+     },
+     "by_source_class": {
+      "sounded": {
+       "shape": {
+        "n_evaluable": 14,
+        "n_exceeding": 8,
+        "majority": true,
+        "median_displacement_m": 179.72114354743712
+       },
+       "total": {
+        "n_evaluable": 14,
+        "n_exceeding": 10,
+        "majority": true,
+        "median_displacement_m": 254.1640786499874
+       }
+      },
+      "map_contours": {
+       "shape": {
+        "n_evaluable": 20,
+        "n_exceeding": 1,
+        "majority": false,
+        "median_displacement_m": 84.8528137423857
+       },
+       "total": {
+        "n_evaluable": 20,
+        "n_exceeding": 0,
+        "majority": false,
+        "median_displacement_m": 84.8528137423857
+       }
+      },
+      "ned": {
+       "shape": {
+        "n_evaluable": 13,
+        "n_exceeding": 10,
+        "majority": true,
+        "median_displacement_m": 120.0
+       },
+       "total": {
+        "n_evaluable": 13,
+        "n_exceeding": 12,
+        "majority": true,
+        "median_displacement_m": 134.1640786499874
+       }
+      },
+      "mixed": {
+       "shape": {
+        "n_evaluable": 2,
+        "n_exceeding": 1,
+        "majority": false,
+        "median_displacement_m": 102.42640687119285
+       },
+       "total": {
+        "n_evaluable": 2,
+        "n_exceeding": 0,
+        "majority": false,
+        "median_displacement_m": 90.0
+       }
+      }
+     },
+     "dep3_registered": {
+      "mispredicts": false,
+      "n_evaluable": 38,
+      "n_exceeding": 0,
+      "median_displacement_m": 60.0,
+      "median_noise_p95_m": 120.0
+     },
+     "dep3_shape_offset_m": 0.08,
+     "survey": {
+      "window": [
+       "2002-09-01",
+       "2004-06-30"
+      ],
+      "wording": "fall 2002, first half of 2003, spring 2004 (Baskin 2005)",
+      "gauge_min_navd88_m": 1279.616,
+      "gauge_max_navd88_m": 1280.552
+     }
+    }
+   },
+   "shape_offsets": {
+    "north": {
+     "offset_m": 0.33,
+     "loeo_m": {
+      "E1": 0.33,
+      "E2": 0.21,
+      "E3": 0.43
+     }
+    },
+    "south": {
+     "offset_m": 0.17,
+     "loeo_m": {
+      "E1": 0.17,
+      "E2": 0.26,
+      "E3": 0.17
+     }
+    }
+   },
+   "in_basin_shape": false,
+   "in_basin_total": false,
+   "control_result": "pass",
+   "verdict_with_this_control": {
+    "verdict": "recurs",
+    "n_mispredict": 5,
+    "n_evaluable": 5,
+    "n_global": 5,
+    "positive_control": "pass"
+   },
+   "verdict_total_variant_with_this_control": {
+    "verdict": "recurs",
+    "n_mispredict": 5,
+    "n_evaluable": 5,
+    "n_global": 5,
+    "positive_control": "pass"
+   }
+  },
+  "all_vcell": {
+   "arms": {
+    "north": {
+     "shape": {
+      "mispredicts": false,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 13,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 169.7056274847714,
+      "median_noise_p95_m": 314.5255296218187,
+      "bins": "76-143"
+     },
+     "total": {
+      "mispredicts": false,
+      "n_observed_levels": 56,
+      "n_evaluable": 50,
+      "n_exceeding": 14,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 151.9348530673794,
+      "median_noise_p95_m": 314.5255296218187,
+      "bins": "76-143"
+     }
+    },
+    "south": {
+     "shape": {
+      "mispredicts": false,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 19,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 120.0,
+      "median_noise_p95_m": 120.0,
+      "bins": "76-138"
+     },
+     "total": {
+      "mispredicts": false,
+      "n_observed_levels": 57,
+      "n_evaluable": 49,
+      "n_exceeding": 21,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 134.1640786499874,
+      "median_noise_p95_m": 120.0,
+      "bins": "76-138"
+     }
+    }
+   },
+   "shape_offsets": {
+    "north": {
+     "offset_m": 0.38,
+     "loeo_m": {
+      "E1": 0.38,
+      "E2": 0.35,
+      "E3": 0.49
+     }
+    },
+    "south": {
+     "offset_m": 0.13,
+     "loeo_m": {
+      "E1": 0.13,
+      "E2": 0.13,
+      "E3": 0.2
+     }
+    }
+   },
+   "in_basin_shape": false,
+   "in_basin_total": false,
+   "control_result": "pass",
+   "verdict_with_this_control": {
+    "verdict": "recurs",
+    "n_mispredict": 5,
+    "n_evaluable": 5,
+    "n_global": 5,
+    "positive_control": "pass"
+   },
+   "verdict_total_variant_with_this_control": {
+    "verdict": "recurs",
+    "n_mispredict": 5,
+    "n_evaluable": 5,
+    "n_global": 5,
+    "positive_control": "pass"
+   }
+  },
+  "sounded": {
+   "arms": {
+    "north": {
+     "shape": {
+      "mispredicts": true,
+      "n_observed_levels": 16,
+      "n_evaluable": 16,
+      "n_exceeding": 9,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 189.7366596101028,
+      "median_noise_p95_m": 193.01935200630538,
+      "bins": "76-91"
+     },
+     "total": {
+      "mispredicts": false,
+      "n_observed_levels": 16,
+      "n_evaluable": 16,
+      "n_exceeding": 7,
+      "mispredicts_pooled_floor": false,
+      "median_displacement_m": 184.86832980505142,
+      "median_noise_p95_m": 193.01935200630538,
+      "bins": "76-91"
+     }
+    },
+    "south": {
+     "shape": {
+      "mispredicts": true,
+      "n_observed_levels": 14,
+      "n_evaluable": 14,
+      "n_exceeding": 11,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 151.9348530673794,
+      "median_noise_p95_m": 60.0,
+      "bins": "76-89"
+     },
+     "total": {
+      "mispredicts": true,
+      "n_observed_levels": 14,
+      "n_evaluable": 14,
+      "n_exceeding": 10,
+      "mispredicts_pooled_floor": true,
+      "median_displacement_m": 254.1640786499874,
+      "median_noise_p95_m": 60.0,
+      "bins": "76-89"
+     }
+    }
+   },
+   "shape_offsets": {
+    "north": {
+     "offset_m": 0.41,
+     "loeo_m": {
+      "E2": 0.41,
+      "E3": 0.72
+     }
+    },
+    "south": {
+     "offset_m": 0.55,
+     "loeo_m": {}
+    }
+   },
+   "in_basin_shape": true,
+   "in_basin_total": false,
+   "control_result": "fail (mispredicts in the basin)",
+   "verdict_with_this_control": {
+    "verdict": "partial",
+    "n_mispredict": 5,
+    "n_evaluable": 5,
+    "n_global": 5,
+    "positive_control": "fail"
+   },
+   "verdict_total_variant_with_this_control": {
+    "verdict": "recurs",
+    "n_mispredict": 5,
+    "n_evaluable": 5,
+    "n_global": 5,
+    "positive_control": "pass"
+   }
+  }
+ },
+ "registered": {
+  "verdict": {
+   "verdict": "recurs",
+   "n_mispredict": 5,
+   "n_evaluable": 5,
+   "n_global": 5,
+   "positive_control": "pass"
+  },
+  "positive_control": {
+   "product": "dep3",
+   "mispredicts_in_basin": false
+  },
+  "control_arms": {
+   "north": {
+    "mispredicts": false,
+    "n_evaluable": 49,
+    "n_exceeding": 1,
+    "median_displacement_m": 84.8528137423857,
+    "median_noise_p95_m": 323.10988842807024
+   },
+   "south": {
+    "mispredicts": false,
+    "n_evaluable": 38,
+    "n_exceeding": 0,
+    "median_displacement_m": 60.0,
+    "median_noise_p95_m": 120.0
+   }
+  }
+ },
+ "grids_at_sounded_levels": {
+  "etopo1": {
+   "shape": {
+    "arms_mispredicted": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 16,
+      "n_evaluable": 16,
+      "median_displacement_m": "inf"
+     },
+     "south": {
+      "n_exceeding": 13,
+      "n_evaluable": 14,
+      "median_displacement_m": 1641.3037692918933
+     }
+    }
+   },
+   "total": {
+    "arms_mispredicted": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 16,
+      "n_evaluable": 16,
+      "median_displacement_m": "inf"
+     },
+     "south": {
+      "n_exceeding": 14,
+      "n_evaluable": 14,
+      "median_displacement_m": "inf"
+     }
+    }
+   }
+  },
+  "etopo_2022": {
+   "shape": {
+    "arms_mispredicted": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 16,
+      "n_evaluable": 16,
+      "median_displacement_m": 1883.0279881943602
+     },
+     "south": {
+      "n_exceeding": 12,
+      "n_evaluable": 14,
+      "median_displacement_m": 877.0824548965398
+     }
+    }
+   },
+   "total": {
+    "arms_mispredicted": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 16,
+      "n_evaluable": 16,
+      "median_displacement_m": 1909.4900378822808
+     },
+     "south": {
+      "n_exceeding": 14,
+      "n_evaluable": 14,
+      "median_displacement_m": "inf"
+     }
+    }
+   }
+  },
+  "gebco_2022": {
+   "shape": {
+    "arms_mispredicted": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 16,
+      "n_evaluable": 16,
+      "median_displacement_m": 26644.991106716647
+     },
+     "south": {
+      "n_exceeding": 14,
+      "n_evaluable": 14,
+      "median_displacement_m": 2163.7467104514826
+     }
+    }
+   },
+   "total": {
+    "arms_mispredicted": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 16,
+      "n_evaluable": 16,
+      "median_displacement_m": "inf"
+     },
+     "south": {
+      "n_exceeding": 14,
+      "n_evaluable": 14,
+      "median_displacement_m": "inf"
+     }
+    }
+   }
+  },
+  "gebco_2026": {
+   "shape": {
+    "arms_mispredicted": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 16,
+      "n_evaluable": 16,
+      "median_displacement_m": "inf"
+     },
+     "south": {
+      "n_exceeding": 13,
+      "n_evaluable": 14,
+      "median_displacement_m": 693.1936248513301
+     }
+    }
+   },
+   "total": {
+    "arms_mispredicted": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 16,
+      "n_evaluable": 16,
+      "median_displacement_m": "inf"
+     },
+     "south": {
+      "n_exceeding": 14,
+      "n_evaluable": 14,
+      "median_displacement_m": "inf"
+     }
+    }
+   }
+  },
+  "srtm15p_v2.7": {
+   "shape": {
+    "arms_mispredicted": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 16,
+      "n_evaluable": 16,
+      "median_displacement_m": 24688.519927010864
+     },
+     "south": {
+      "n_exceeding": 13,
+      "n_evaluable": 14,
+      "median_displacement_m": 2143.249807237884
+     }
+    }
+   },
+   "total": {
+    "arms_mispredicted": 2,
+    "in_basin": true,
+    "arms": {
+     "north": {
+      "n_exceeding": 16,
+      "n_evaluable": 16,
+      "median_displacement_m": "inf"
+     },
+     "south": {
+      "n_exceeding": 14,
+      "n_evaluable": 14,
+      "median_displacement_m": "inf"
+     }
+    }
+   }
+  }
+ },
+ "grids_at_sounded_levels_verdict": {
+  "verdict": "partial",
+  "n_mispredict": 5,
+  "n_evaluable": 5,
+  "n_global": 5,
+  "positive_control": "fail"
+ },
+ "per_level_ratio_to_lakebed": {
+  "dep3": {
+   "north": {
+    "median_ratio_to_lakebed": 0.71,
+    "n_levels": 49,
+    "share_levels_ref_larger": 0.02
+   },
+   "south": {
+    "median_ratio_to_lakebed": 0.5,
+    "n_levels": 38,
+    "share_levels_ref_larger": 0.0
+   }
+  },
+  "gebco_2026": {
+   "north": {
+    "median_ratio_to_lakebed": 7.36,
+    "n_levels": 40,
+    "share_levels_ref_larger": 1.0
+   },
+   "south": {
+    "median_ratio_to_lakebed": 9.93,
+    "n_levels": 49,
+    "share_levels_ref_larger": 1.0
+   }
+  },
+  "gebco_2022": {
+   "north": {
+    "median_ratio_to_lakebed": 10.44,
+    "n_levels": 45,
+    "share_levels_ref_larger": 1.0
+   },
+   "south": {
+    "median_ratio_to_lakebed": 17.03,
+    "n_levels": 49,
+    "share_levels_ref_larger": 1.0
+   }
+  },
+  "etopo_2022": {
+   "north": {
+    "median_ratio_to_lakebed": 2.83,
+    "n_levels": 50,
+    "share_levels_ref_larger": 0.96
+   },
+   "south": {
+    "median_ratio_to_lakebed": 6.0,
+    "n_levels": 49,
+    "share_levels_ref_larger": 1.0
+   }
+  },
+  "etopo1": {
+   "north": {
+    "median_ratio_to_lakebed": 10.12,
+    "n_levels": 36,
+    "share_levels_ref_larger": 1.0
+   },
+   "south": {
+    "median_ratio_to_lakebed": 14.5,
+    "n_levels": 47,
+    "share_levels_ref_larger": 1.0
+   }
+  },
+  "srtm15p_v2.7": {
+   "north": {
+    "median_ratio_to_lakebed": 10.2,
+    "n_levels": 45,
+    "share_levels_ref_larger": 1.0
+   },
+   "south": {
+    "median_ratio_to_lakebed": 17.44,
+    "n_levels": 49,
+    "share_levels_ref_larger": 1.0
+   }
+  }
+ },
+ "coverage_by_source_class": {
+  "north": {
+   "map_contours": {
+    "bins": "93-109",
+    "n_bins": 17,
+    "levels_navd88_m": [
+     1279.35,
+     1280.95
+    ],
+    "n_under_water_in_survey": 5,
+    "n_within_sounding_depth": 0,
+    "n_first_reached_after_survey": 0
+   },
+   "mixed": {
+    "bins": "92-110",
+    "n_bins": 2,
+    "levels_navd88_m": [
+     1279.25,
+     1281.05
+    ],
+    "n_under_water_in_survey": 1,
+    "n_within_sounding_depth": 0,
+    "n_first_reached_after_survey": 0
+   },
+   "ned": {
+    "bins": "111-144",
+    "n_bins": 33,
+    "levels_navd88_m": [
+     1281.15,
+     1284.45
+    ],
+    "n_under_water_in_survey": 0,
+    "n_within_sounding_depth": 0,
+    "n_first_reached_after_survey": 0
+   },
+   "sounded": {
+    "bins": "76-91",
+    "n_bins": 16,
+    "levels_navd88_m": [
+     1277.65,
+     1279.15
+    ],
+    "n_under_water_in_survey": 16,
+    "n_within_sounding_depth": 12,
+    "n_first_reached_after_survey": 15
+   }
+  },
+  "south": {
+   "map_contours": {
+    "bins": "91-110",
+    "n_bins": 20,
+    "levels_navd88_m": [
+     1279.15,
+     1281.05
+    ],
+    "n_under_water_in_survey": 5,
+    "n_within_sounding_depth": 0,
+    "n_first_reached_after_survey": 5
+   },
+   "mixed": {
+    "bins": "90-111",
+    "n_bins": 2,
+    "levels_navd88_m": [
+     1279.05,
+     1281.15
+    ],
+    "n_under_water_in_survey": 1,
+    "n_within_sounding_depth": 0,
+    "n_first_reached_after_survey": 1
+   },
+   "ned": {
+    "bins": "112-146",
+    "n_bins": 34,
+    "levels_navd88_m": [
+     1281.25,
+     1284.65
+    ],
+    "n_under_water_in_survey": 0,
+    "n_within_sounding_depth": 0,
+    "n_first_reached_after_survey": 0
+   },
+   "sounded": {
+    "bins": "76-89",
+    "n_bins": 14,
+    "levels_navd88_m": [
+     1277.65,
+     1278.95
+    ],
+    "n_under_water_in_survey": 14,
+    "n_within_sounding_depth": 10,
+    "n_first_reached_after_survey": 14
+   }
+  }
+ }
+}

@@ -1,21 +1,13 @@
 cff-version: 1.2.0
 message: "If you use this code or these data, please cite the paper and the repository."
-title: "North Caspian seabed emergence: code, data products and audit trail"
+title: "North Caspian seabed emergence: code and data"
 type: software
 authors:
   - family-names: Ahmed
     given-names: Rezwan
     orcid: "https://orcid.org/0009-0002-8003-099X"
     affiliation: "Department of Geography and Environment, University of Dhaka"
-  - family-names: Jarin
-    given-names: Nusrat Zahan
-    orcid: "https://orcid.org/0000-0003-2657-8559"
-    affiliation: "Department of Geography, University of California, Santa Barbara"
-    email: njarin@umail.ucsb.edu
-  - family-names: Rahman
-    given-names: Obaidur
-    orcid: "https://orcid.org/0009-0004-1781-5887"
-    affiliation: "Department of Geography, Oklahoma State University"
+    email: rezwan490@gmail.com
 repository-code: "https://github.com/rezw4n/north-caspian-emergence"
 license: MIT
 keywords:
@@ -27,13 +19,9 @@ keywords:
   - altimetry
 preferred-citation:
   type: article
-  title: "Four decades of retreating shorelines audit projected seabed emergence in the North Caspian Sea"
+  title: "Global bathymetry grids misplace the retreating North Caspian shoreline by kilometres"
   authors:
     - family-names: Ahmed
       given-names: Rezwan
-    - family-names: Jarin
-      given-names: Nusrat Zahan
-    - family-names: Rahman
-      given-names: Obaidur
-  journal: "Environmental Research Letters"
+  journal: "Remote Sensing of Environment"
   status: in-preparation

@@ -1,0 +1,85 @@
+{
+ "stage2": "main",
+ "products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7",
+  "gebco_2022",
+  "etopo1"
+ ],
+ "bins": [
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43
+ ],
+ "c_area_m": {
+  "gebco_2026": -1.48,
+  "etopo_2022": -1.49,
+  "srtm15p_v2.7": -1.28,
+  "gebco_2022": -1.45,
+  "etopo1": -1.38
+ },
+ "c_ref_m": {
+  "total_cref": 0.7098306999999977,
+  "total_cref06": 0.7229551000000001,
+  "total_swot": 0.8345
+ },
+ "c_nogeoid_m": {
+  "gebco_2026": -1.14,
+  "gebco_2022": -1.14,
+  "srtm15p_v2.7": -0.85,
+  "etopo1": -0.97
+ },
+ "nogeoid_registered": [
+  "gebco_2026",
+  "gebco_2022",
+  "srtm15p_v2.7"
+ ],
+ "configs": [
+  "nogeoid",
+  "shape",
+  "shape_i",
+  "shape_ii",
+  "total0",
+  "total_cref",
+  "total_cref06",
+  "total_swot"
+ ],
+ "floors": [
+  "registered",
+  "matched_i",
+  "matched_ii"
+ ],
+ "near_unknown_radius_cells": 2,
+ "envelope_cells": 11051231,
+ "seconds": 1623.7
+}

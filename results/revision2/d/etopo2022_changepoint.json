@@ -1,0 +1,62 @@
+{
+ "rule": "A19 item 12 (D-149): ETOPO 2022, shape variant, evaluable levels of results/hindcast/main/h1_mispredicts_detail.csv (D = median, Q = p95_noise), y = ln(D/Q), sectors pooled; one mean shift at a bin edge (midpoints of consecutive levels) minimising the residual sum of squares; at least 3 levels each side; ties to the lowest edge. Descriptive.",
+ "n_rows_dropped_nonpositive_or_nonfinite": 1,
+ "all_sectors": {
+  "label": "all_sectors",
+  "edge_m": -28.1,
+  "equivalent_edges_m": [
+   -28.1
+  ],
+  "rss": 315.6320268443171,
+  "rss_no_break": 476.0388629168168,
+  "r2": 0.33696164025273967,
+  "n": 177,
+  "n_below": 37,
+  "n_above": 140,
+  "n_levels_below": 6,
+  "n_levels_above": 21,
+  "mean_ln_DQ_below": 1.1794630560612878,
+  "mean_ln_DQ_above": -1.1617082338393276,
+  "DQ_geomean_below": 3.252627255435523,
+  "DQ_geomean_above": 0.31295113030611954,
+  "DQ_median_below": 3.9564727309294376,
+  "DQ_median_above": 0.30718508150840496,
+  "share_D_gt_Q_below": 0.8378378378378378,
+  "share_D_gt_Q_above": 0.22857142857142856,
+  "min_levels_each_side": 3,
+  "rss_at_m27p7": 364.2506107199401,
+  "level_range_m": [
+   -28.65,
+   -25.85
+  ]
+ },
+ "validated_sectors": {
+  "label": "validated_sectors",
+  "edge_m": -28.1,
+  "equivalent_edges_m": [
+   -28.1
+  ],
+  "rss": 148.73877876509582,
+  "rss_no_break": 241.8323377887023,
+  "r2": 0.384950829466594,
+  "n": 102,
+  "n_below": 21,
+  "n_above": 81,
+  "n_levels_below": 6,
+  "n_levels_above": 21,
+  "mean_ln_DQ_below": 1.1895938592618294,
+  "mean_ln_DQ_above": -1.1731015967785894,
+  "DQ_geomean_below": 3.285746460860941,
+  "DQ_geomean_above": 0.3094057994679343,
+  "DQ_median_below": 3.9564727309294376,
+  "DQ_median_above": 0.3885143449429056,
+  "share_D_gt_Q_below": 0.8571428571428571,
+  "share_D_gt_Q_above": 0.18518518518518517,
+  "min_levels_each_side": 3,
+  "rss_at_m27p7": 177.50860710185154,
+  "level_range_m": [
+   -28.65,
+   -25.85
+  ]
+ }
+}

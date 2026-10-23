@@ -1,0 +1,37 @@
+{
+ "rule": "A19 item 10 (D-149): DEM (main) - (H_EGM2008 + c) on the H2 point set over all 50 km blocks; block bootstrap B = 2000, seed 20261023, 95% percentile intervals; descriptive",
+ "sources": {
+  "ATL08": {
+   "n_prepared": 1266343,
+   "n_bare_population": 470645,
+   "n_outside_block_table": 11086,
+   "n_not_paired": 0,
+   "n_used": 459559,
+   "datum_constant_m": 0.7098306999999977,
+   "products": [
+    "prod:gebco_2026",
+    "prod:etopo_2022",
+    "prod:srtm15p_v2.7",
+    "prod:gebco_2022",
+    "prod:etopo1"
+   ],
+   "test_block_check_max_abs_dev_m": 2.220446049250313e-16
+  },
+  "ATL06": {
+   "n_prepared": 13702061,
+   "n_bare_population": 4948820,
+   "n_outside_block_table": 115448,
+   "n_not_paired": 0,
+   "n_used": 4833372,
+   "datum_constant_m": 0.7229551000000001,
+   "products": [
+    "prod:gebco_2026",
+    "prod:etopo_2022",
+    "prod:srtm15p_v2.7",
+    "prod:gebco_2022",
+    "prod:etopo1"
+   ],
+   "test_block_check_max_abs_dev_m": 4.440892098500626e-16
+  }
+ }
+}

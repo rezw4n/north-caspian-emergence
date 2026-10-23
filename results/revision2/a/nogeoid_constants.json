@@ -1,0 +1,83 @@
+{
+ "rule": "D-070 on the as-distributed flood-level maps (D-147): 0.01 m grid over +-5 m, 43 units, known cells of the domain in training blocks, ties to the smallest |c| then the smaller c",
+ "fit_region_cells": 35432933,
+ "registered_products": [
+  "gebco_2026",
+  "gebco_2022",
+  "srtm15p_v2.7"
+ ],
+ "extra_products": [
+  "etopo1"
+ ],
+ "products": {
+  "gebco_2026": {
+   "registered": true,
+   "c_area_primary_m": -1.48,
+   "objective_primary_km2": 127258.1892,
+   "primary_reproduced": true,
+   "c_nogeoid_m": -1.14,
+   "objective_nogeoid_km2": 135318.5316,
+   "n_tied_minima": 1,
+   "c_change_m": 0.34,
+   "field_mean_over_fit_cells_m": -0.4023251914515947,
+   "field_range_over_fit_cells_m": [
+    -0.5886600613594055,
+    -0.24525853991508484
+   ],
+   "finite_cells_equal": true,
+   "seconds": 52.6
+  },
+  "gebco_2022": {
+   "registered": true,
+   "c_area_primary_m": -1.45,
+   "objective_primary_km2": 123312.7224,
+   "primary_reproduced": true,
+   "c_nogeoid_m": -1.14,
+   "objective_nogeoid_km2": 129801.852,
+   "n_tied_minima": 1,
+   "c_change_m": 0.31,
+   "field_mean_over_fit_cells_m": -0.4023251914515947,
+   "field_range_over_fit_cells_m": [
+    -0.5886600613594055,
+    -0.24525853991508484
+   ],
+   "finite_cells_equal": true,
+   "seconds": 45.0
+  },
+  "srtm15p_v2.7": {
+   "registered": true,
+   "c_area_primary_m": -1.28,
+   "objective_primary_km2": 168030.3276,
+   "primary_reproduced": true,
+   "c_nogeoid_m": -0.85,
+   "objective_nogeoid_km2": 176600.5164,
+   "n_tied_minima": 1,
+   "c_change_m": 0.43,
+   "field_mean_over_fit_cells_m": -0.4023251914515947,
+   "field_range_over_fit_cells_m": [
+    -0.5886600613594055,
+    -0.24525853991508484
+   ],
+   "finite_cells_equal": true,
+   "seconds": 41.5
+  },
+  "etopo1": {
+   "registered": false,
+   "c_area_primary_m": -1.38,
+   "objective_primary_km2": 132959.9736,
+   "primary_reproduced": true,
+   "c_nogeoid_m": -0.97,
+   "objective_nogeoid_km2": 142330.374,
+   "n_tied_minima": 1,
+   "c_change_m": 0.41,
+   "field_mean_over_fit_cells_m": -0.4023251914515947,
+   "field_range_over_fit_cells_m": [
+    -0.5886600613594055,
+    -0.24525853991508484
+   ],
+   "finite_cells_equal": true,
+   "seconds": 40.5
+  }
+ },
+ "seconds": 203.7
+}

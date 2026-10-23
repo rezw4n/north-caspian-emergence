@@ -1,0 +1,6 @@
+lineage,product,n_mispredict_all7,n_mispredict_validated4,n_mispredict_six,mispredicts_west,mispredicts_interfluve,mispredicts_northeast,mispredicts_open_shelf,block_test_p,block_test_significant,gsl_arms_mispredict,gsl_arms_evaluable
+gebco,gebco_2026,7,4,6,True,True,True,True,0.006299370062993701,True,2,2
+gebco,gebco_2022,7,4,6,True,True,True,True,0.009799020097990201,True,2,2
+gebco,etopo_2022,1,0,1,False,False,False,False,1.0,False,2,2
+srtm15p,srtm15p_v2.7,6,4,6,True,True,True,True,0.13978602139786023,False,2,2
+etopo1,etopo1,7,4,6,True,True,True,True,0.016698330166983303,True,2,2

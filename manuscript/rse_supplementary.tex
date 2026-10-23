@@ -1,0 +1,150 @@
+% Supplementary Material of the Remote Sensing of Environment article (rse_main.tex), copied from
+% supplementary_erl.tex in phase 2 (D-153 phase 2 addendum). Every number comes from
+% results/metrics.json through \metric{...}. Built after rse_main.tex (with --keep-intermediates),
+% whose .aux it reads through xr-hyper for the article's labels (prefixed M-). The ERL-era section
+% files si_erl_*.tex are input unchanged; where they cite an ERL label that has an RSE counterpart,
+% an alias below points to it. The section files still say "the Letter" for the main article
+% (see the note on the title page).
+% Template: IOP Publishing's iopjournal.cls at 12 pt, kept from the ERL build (RSE accepts
+% supplementary material in any format).
+\PassOptionsToPackage{table}{xcolor}
+\RequirePackage{xr-hyper}
+\documentclass[12pt]{iopjournal}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{siunitx}  % numbers.tex rounding macros, also used in rse_main.aux
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{microtype}
+\usepackage{xurl}
+\usepackage[font=small,labelfont=bf]{caption}  % legends smaller than the body text
+\input{numbers.tex}
+
+\newcommand{\kmsq}{km\textsuperscript{2}}
+\newcommand{\todo}[1]{\textbf{[TODO: #1]}}
+\setlength{\emergencystretch}{3em}
+\input{sections/erl_si_numbers}
+
+% A figure file that has not been built yet prints a placeholder instead of stopping the build.
+\let\erlincludegraphics\includegraphics
+\renewcommand{\includegraphics}[2][]{\IfFileExists{#2}{\erlincludegraphics[#1,height=0.6\textheight,keepaspectratio]{#2}}%
+  {\fbox{\parbox[c][4cm][c]{0.9\linewidth}{\centering Figure file not built yet:\\\texttt{\detokenize{#2}}}}}}
+
+% Supplementary numbering: figure S1, table S1, ...
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theequation}{S\arabic{equation}}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\renewcommand{\bibnumfmt}[1]{[S#1]}
+\renewcommand{\citenumfont}[1]{S#1}
+
+% Each supplementary section is numbered by the shared macros, e.g. \SIsection{\SIdem}{...}.
+\newcommand{\SIsection}[2]{\clearpage\section*{#1\quad #2}\addcontentsline{toc}{section}{#1\quad #2}}
+
+\input{sections/si_erl_figures}
+% The Letter's labels, read last so that every macro its captions use is defined.
+\externaldocument[M-]{rse_main}
+% Aliases for labels of the ERL Letter that the unchanged section files cite.
+\makeatletter
+\newcommand{\rsealias}[2]{\@ifundefined{r@#2}{}{\expandafter\let\csname r@#1\expandafter\endcsname\csname r@#2\endcsname}}
+\rsealias{M-fig:erl_gsl}{M-fig:rse_gsl}
+\rsealias{M-fig:erl_agreement}{M-fig:rse_nearterm}
+\rsealias{M-fig:erl_timeline}{M-fig:rse_nearterm}
+\rsealias{M-fig:erl_shorelines}{M-fig:rse_shorelines}
+\rsealias{M-eq:emerged}{M-eq:emerged_grid}
+\makeatother
+
+% Running head (the class prints placeholders for the journal's own).
+\setlength{\headheight}{15pt}
+\fancyhead[L]{{\small\sffamily Supplementary material}}
+\fancyhead[R]{Ahmed}
+
+\input{justify}
+\begin{document}
+\title{Supplementary material}
+
+\author{Rezwan Ahmed\orcid{0009-0002-8003-099X}}
+\begin{center}
+\begin{minipage}{0.85\linewidth}
+\noindent\textbf{Description.} Full methods, accuracy of the waterline elevation model, robustness checks, adversarial tests, Great Salt Lake methods, near-term emergence sensitivities, deviations from the pre-registration, and the additional analyses of pre-registration Amendments 18 and 19.
+
+\medskip
+\noindent Supplementary material for: \emph{Global bathymetry grids misplace the retreating North Caspian shoreline by kilometres} (Remote Sensing of Environment, submitted). The sections below were first written for an earlier, shorter version of the article; where they say ``the Letter'' they mean the main article. Figure, equation and section numbers of the main article are given by number.
+\end{minipage}
+\end{center}
+\tableofcontents
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SImethods}{Full methods}
+\input{sections/si_erl_methods_data}
+\SIfigstudyarea
+\SIfiglevels
+\input{sections/si_erl_methods_water}
+\input{sections/si_erl_methods_frequency}
+\input{sections/si_erl_methods_surge}
+\SIfigsetup
+\input{sections/si_erl_methods_dem}
+\SIfigmethod
+\SIfigemergence
+\input{sections/si_erl_methods_datums}
+\input{sections/si_erl_methods_validation}
+\input{sections/si_erl_methods_hindcast}
+\input{sections/si_erl_methods_h3}
+% si_erl_methods_display.tex describes the ERL display items, which the article no longer uses.
+\input{sections/si_erl_methods_stats}
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIdem}{Accuracy of the waterline elevation model and conformal coverage}
+\input{sections/si_erl_dem}
+\input{sections/tables_draft}
+\SIfigdem
+\SIfigedhexbins
+\SIfigedblocksize
+\SIfigedvegetation
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIaudit}{The hindcast audit in detail}
+\input{sections/si_erl_audit}
+\input{sections/ed_tables_draft}
+\SIfigedhoneshape
+\SIfigedhonetotal
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIrobust}{Robustness checks}
+\input{sections/si_erl_robustness}
+\SIfigedscreening
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIredteam}{Adversarial tests}
+\input{sections/si_erl_redteam}
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIgsl}{Generality: Great Salt Lake}
+\input{sections/si_erl_generality}
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SInearterm}{Near-term emergence: the registered correction and its sensitivity forms}
+\input{sections/si_erl_nearterm}
+\input{sections/ed_tables_h3_draft}
+\SIfignextmetres
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIdeviations}{Deviations from the pre-registration}
+\input{sections/si_erl_deviations}
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{\SIrevision}{Additional analyses (pre-registration Amendment 18)}
+\input{sections/si_erl_revision}
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{S10}{Additional analyses (pre-registration Amendment 19)}
+\input{sections/rse_si_a19}
+
+\clearpage
+\bibliographystyle{unsrtnat}
+\bibliography{../refs/references}
+\end{document}

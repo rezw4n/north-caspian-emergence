@@ -1,0 +1,562 @@
+{
+ "replica_exact": true,
+ "validated_sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "open_shelf"
+ ],
+ "validated_verdicts": {
+  "etopo1": {
+   "west": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "interfluve": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "northeast": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "open_shelf": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   }
+  },
+  "etopo_2022": {
+   "west": {
+    "primary_shape": false,
+    "primary_total": true,
+    "7_total_cref": false,
+    "7_total_cref06": false,
+    "7_total_swot": false,
+    "8_shape_i__floor_registered": false,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": false,
+    "8_shape_ii__floor_matched": false,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": false,
+    "11_rR_awei__reference_footprint": false,
+    "11_rR_fixed0": false,
+    "11_rR_fixed0__reference_footprint": false
+   },
+   "interfluve": {
+    "primary_shape": false,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": false,
+    "8_shape_ii__floor_matched": false,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": false,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": false,
+    "11_rR_fixed0": false,
+    "11_rR_fixed0__reference_footprint": false
+   },
+   "northeast": {
+    "primary_shape": false,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "8_shape_i__floor_registered": false,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": false,
+    "8_shape_ii__floor_matched": false,
+    "11_veg_as_dry": false,
+    "11_veg_as_water": false,
+    "11_rR_awei": false,
+    "11_rR_awei__reference_footprint": false,
+    "11_rR_fixed0": false,
+    "11_rR_fixed0__reference_footprint": false
+   },
+   "open_shelf": {
+    "primary_shape": false,
+    "primary_total": true,
+    "7_total_cref": false,
+    "7_total_cref06": false,
+    "7_total_swot": false,
+    "8_shape_i__floor_registered": false,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": false,
+    "8_shape_ii__floor_matched": false,
+    "11_veg_as_dry": false,
+    "11_veg_as_water": false,
+    "11_rR_awei": false,
+    "11_rR_awei__reference_footprint": false,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": false
+   }
+  },
+  "gebco_2022": {
+   "west": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "interfluve": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "northeast": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "open_shelf": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   }
+  },
+  "gebco_2026": {
+   "west": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "interfluve": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "northeast": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "open_shelf": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   }
+  },
+  "srtm15p_v2.7": {
+   "west": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "interfluve": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "northeast": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   },
+   "open_shelf": {
+    "primary_shape": true,
+    "primary_total": true,
+    "7_total_cref": true,
+    "7_total_cref06": true,
+    "7_total_swot": true,
+    "7_nogeoid": true,
+    "8_shape_i__floor_registered": true,
+    "8_shape_i__floor_matched": false,
+    "8_shape_ii__floor_registered": true,
+    "8_shape_ii__floor_matched": true,
+    "11_veg_as_dry": true,
+    "11_veg_as_water": true,
+    "11_rR_awei": true,
+    "11_rR_awei__reference_footprint": true,
+    "11_rR_fixed0": true,
+    "11_rR_fixed0__reference_footprint": true
+   }
+  }
+ },
+ "validated_survival": {
+  "etopo1": {
+   "west": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "interfluve": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "northeast": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "open_shelf": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   }
+  },
+  "etopo_2022": {
+   "west": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "11_rR_awei",
+     "11_rR_fixed0",
+     "7_total_cref",
+     "7_total_cref06",
+     "7_total_swot",
+     "8_shape_i__floor_matched",
+     "8_shape_i__floor_registered",
+     "8_shape_ii__floor_matched",
+     "8_shape_ii__floor_registered",
+     "primary_shape"
+    ]
+   },
+   "interfluve": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "11_rR_fixed0",
+     "11_veg_as_water",
+     "8_shape_i__floor_matched",
+     "8_shape_ii__floor_matched",
+     "8_shape_ii__floor_registered",
+     "primary_shape"
+    ]
+   },
+   "northeast": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "11_rR_awei",
+     "11_rR_fixed0",
+     "11_veg_as_dry",
+     "11_veg_as_water",
+     "8_shape_i__floor_matched",
+     "8_shape_i__floor_registered",
+     "8_shape_ii__floor_matched",
+     "8_shape_ii__floor_registered",
+     "primary_shape"
+    ]
+   },
+   "open_shelf": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "11_rR_awei",
+     "11_veg_as_dry",
+     "11_veg_as_water",
+     "7_total_cref",
+     "7_total_cref06",
+     "7_total_swot",
+     "8_shape_i__floor_matched",
+     "8_shape_i__floor_registered",
+     "8_shape_ii__floor_matched",
+     "8_shape_ii__floor_registered",
+     "primary_shape"
+    ]
+   }
+  },
+  "gebco_2022": {
+   "west": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "interfluve": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "northeast": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "open_shelf": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   }
+  },
+  "gebco_2026": {
+   "west": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "interfluve": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "northeast": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "open_shelf": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   }
+  },
+  "srtm15p_v2.7": {
+   "west": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "interfluve": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "northeast": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   },
+   "open_shelf": {
+    "mispredicted_in_every_run": false,
+    "mispredicted_in_every_shape_based_run": false,
+    "not_mispredicted_or_na_in": [
+     "8_shape_i__floor_matched"
+    ]
+   }
+  }
+ },
+ "note": "shape-based runs: the deciding variant and its recomputations (items 7b, 8, 11); the total-variant runs (registered total, item 7a) are included only in mispredicted_in_every_run; the R-block variants are judged on their 14 tiles only"
+}

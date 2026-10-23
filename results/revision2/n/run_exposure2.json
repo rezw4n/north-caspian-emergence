@@ -1,0 +1,37 @@
+{
+ "script": "scripts/rev2_n_exposure.py",
+ "decision": "D-146 (D-126 rules)",
+ "amendment": "PREREG Amendment 19 item 1 (exposure)",
+ "level_2026_m": -28.6194,
+ "thresholds_T_m": {
+  "gebco_2026": -29.3494,
+  "etopo_2022": -29.4594,
+  "srtm15p_v2.7": -29.3094,
+  "gebco_2022": -29.3494,
+  "etopo1": -29.3494
+ },
+ "deltas_m": [
+  0.5,
+  1.0,
+  2.0,
+  3.0
+ ],
+ "polygon_cells_within_S_obs": {
+  "wdpa_protected_areas": 14330303,
+  "wdpa_protected_areas_noksrz": 925244,
+  "wdpa_ramsar": 864017,
+  "osm_wetlands": 0
+ },
+ "n_samples": {
+  "osm_platforms": 70,
+  "osm_pipelines": 185934,
+  "osm_channels": 120520,
+  "osm_ports": 1245,
+  "osm_settlements": 521
+ },
+ "checks": {
+  "E_vs_reref_curves_max_abs_diff_km2": 7.275957614183426e-12
+ },
+ "misfit_rule": "misfit cells (S_obs, F >= T) land in both states; variant observed_reref_misfit_sea (ports and settlements only) holds them as sea in both states",
+ "seconds": 219.7
+}

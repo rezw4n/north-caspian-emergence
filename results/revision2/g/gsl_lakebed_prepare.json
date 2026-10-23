@@ -1,0 +1,98 @@
+{
+ "rule": "D-150: area-weighted mean of the native cells in each 60 m cell (GDAL average via rasterio.warp.reproject; no-data excluded); NAD83 taken as WGS84",
+ "source_file": "data/raw/revision2/gsl_biowest/GSLDEM.tif",
+ "source": {
+  "crs": "EPSG:26912",
+  "epsg": 26912,
+  "native_res_m": [
+   9.327483738569265,
+   9.327483738569256
+  ],
+  "size": [
+   21879,
+   18506
+  ],
+  "nodata": -3.4028234663852886e+38,
+  "dtype": "float32",
+  "units_tag": null,
+  "resample_seconds": 3003.9
+ },
+ "rasterio_gdal": "3.12.3",
+ "grid": {
+  "transform": [
+   60.0,
+   0.0,
+   -56760.0,
+   0.0,
+   -60.0,
+   66900.0
+  ],
+  "shape": [
+   2300,
+   1906
+  ],
+  "crs": "+proj=laea +lat_0=41.2 +lon_0=-112.5 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +type=crs"
+ },
+ "output": "data/interim/revision2/g/lakebed_60m_ngvd29.npy",
+ "finite_cells": 3530236,
+ "gauge_delta_m": {
+  "south": 0.977,
+  "north": 0.93
+ },
+ "boundaries": {
+  "south": {
+   "sounded_top_navd88_m": 1279.0034,
+   "contours_top_navd88_m": 1281.137
+  },
+  "north": {
+   "sounded_top_navd88_m": 1279.2612,
+   "contours_top_navd88_m": 1281.09
+  }
+ },
+ "vertcon_lattice": {
+  "n_points": 64,
+  "step_deg": 0.2,
+  "versions": [
+   "3.0"
+  ],
+  "min_m": 0.898,
+  "max_m": 1.404
+ },
+ "arms": {
+  "north": {
+   "domain_cells": 997381,
+   "cells_with_height": 960971,
+   "share_with_height": 0.96349,
+   "min_ngvd29_m": 1270.102,
+   "min_ft": 4167.0,
+   "p01_ngvd29_m": 1270.408,
+   "median_ngvd29_m": 1281.404,
+   "max_ngvd29_m": 2195.152,
+   "vertcon_cell_minus_gauge_m": {
+    "min": -0.0189,
+    "max": 0.1283,
+    "median": 0.0579,
+    "max_abs": 0.1283
+   },
+   "vertcon_rerun_required": true
+  },
+  "south": {
+   "domain_cells": 2139029,
+   "cells_with_height": 1651880,
+   "share_with_height": 0.77226,
+   "min_ngvd29_m": 1270.102,
+   "min_ft": 4167.0,
+   "p01_ngvd29_m": 1270.707,
+   "median_ngvd29_m": 1283.996,
+   "max_ngvd29_m": 2795.306,
+   "vertcon_cell_minus_gauge_m": {
+    "min": -0.0769,
+    "max": 0.2397,
+    "median": -0.0041,
+    "max_abs": 0.2397
+   },
+   "vertcon_rerun_required": true
+  }
+ },
+ "unit_check": "metres: the documented deepest points are 'just below 4,167 feet (1,270 meters)' (Baskin 2005, 2006); 4,167 ft = 1,270.10 m"
+}

@@ -1,0 +1,130 @@
+{
+ "resource": "582060f00f6b443bb26e896426d9f62a",
+ "requests": [
+  {
+   "what": "files_listing.json",
+   "url": "https://www.hydroshare.org/hsapi/resource/582060f00f6b443bb26e896426d9f62a/files/",
+   "requested_utc": "2026-10-23T07:27:41+00:00",
+   "http_status": 200,
+   "bytes": 1539,
+   "md5": "ccafd1c882125e47b2bca2d4333fafcf",
+   "sha256": "b1a26550dc523223ef04df70c373d51ed0f8d317e66b12a47c71c2c482bb451e",
+   "content_type": "application/json"
+  },
+  {
+   "what": "sysmeta.json",
+   "url": "https://www.hydroshare.org/hsapi/resource/582060f00f6b443bb26e896426d9f62a/sysmeta/",
+   "requested_utc": "2026-10-23T07:27:41+00:00",
+   "http_status": 200,
+   "bytes": 1337,
+   "md5": "e08950cd02ecd86264feec7be3f81623",
+   "sha256": "a68cbcc4075c02c18ddf37b5721048ccdd085baf6e404b8acb303fff983eb5f1",
+   "content_type": "application/json"
+  },
+  {
+   "what": "scimeta.xml",
+   "url": "https://www.hydroshare.org/hsapi/resource/582060f00f6b443bb26e896426d9f62a/scimeta/",
+   "requested_utc": "2026-10-23T07:27:42+00:00",
+   "http_status": 200,
+   "bytes": 5757,
+   "md5": "00f55e74134a1d65266ca23e5d9362e0",
+   "sha256": "040cc7e0ab11d4ff3a187e7e0b393f6b8422569a5747b96c2f2aa3875f9ea1e1",
+   "content_type": "binary/octet-stream"
+  },
+  {
+   "what": "landing_page.html",
+   "url": "https://www.hydroshare.org/resource/582060f00f6b443bb26e896426d9f62a/",
+   "requested_utc": "2026-10-23T07:27:44+00:00",
+   "http_status": 200,
+   "bytes": 146160,
+   "md5": "ec2d398ee42d65842bb12bc11db21f55",
+   "sha256": "a625701030e8a47bd7cfc3f8d834e65605c5ea53a19dd6874d9bc97f193deb43",
+   "content_type": "text/html; charset=utf-8"
+  },
+  {
+   "what": "GSLDEM.vrt",
+   "url": "https://www.hydroshare.org/resource/582060f00f6b443bb26e896426d9f62a/data/contents/GSLDEM/GSLDEM.vrt",
+   "requested_utc": "2026-10-23T07:27:47+00:00",
+   "finished_utc": "2026-10-23T07:27:50+00:00",
+   "http_status": 200,
+   "bytes": 1804,
+   "listed_bytes": 1804,
+   "md5": "a5cc27d0d8ac41912eb3c7119737dc73",
+   "listed_md5": "a5cc27d0d8ac41912eb3c7119737dc73",
+   "md5_matches_listing": true,
+   "size_matches_listing": true,
+   "sha256": "c3ffde3e72b1abba9ad4b269d3498898d6c984b1a7e0ad656d604b53c9df6e8f",
+   "listed_modified_time": "2017-10-28T00:16:25"
+  },
+  {
+   "what": "README.txt",
+   "url": "https://www.hydroshare.org/resource/582060f00f6b443bb26e896426d9f62a/data/contents/README.txt",
+   "requested_utc": "2026-10-23T07:27:50+00:00",
+   "finished_utc": "2026-10-23T07:27:53+00:00",
+   "http_status": 200,
+   "bytes": 2661,
+   "listed_bytes": 2661,
+   "md5": "2190fef5e3b06e62c816f8680c5939b8",
+   "listed_md5": "2190fef5e3b06e62c816f8680c5939b8",
+   "md5_matches_listing": true,
+   "size_matches_listing": true,
+   "sha256": "ef833709c69b35a50efb678eb5e19729561d387f6904d65c836e1f1d678ef4a0",
+   "listed_modified_time": "2024-06-05T19:01:30"
+  },
+  {
+   "what": "docs/ofr20051327_pubs_record.json",
+   "url": "https://pubs.usgs.gov/pubs-services/publication/?q=ofr20051327",
+   "requested_utc": "2026-10-23T07:28:38+00:00",
+   "http_status": 200,
+   "bytes": 4448,
+   "md5": "4273456e75fdd8022034c54566d00b15",
+   "sha256": "5dd9aa3cc26c2e98c8575cb3f5786c6b7323ea26cd9062347a5e9735d3e45058",
+   "content_type": "application/json;charset=UTF-8"
+  },
+  {
+   "what": "docs/ofr20051327_OFR2005-1327.pdf",
+   "url": "https://pubs.usgs.gov/of/2005/1327/PDF/OFR2005-1327.pdf",
+   "requested_utc": "2026-10-23T07:28:38+00:00",
+   "http_status": 200,
+   "bytes": 6277698,
+   "md5": "43b95dd2a302df46596356f1cbcb13ca",
+   "sha256": "142c9b3f735f951048d7a47fddf2321b54aabedb4f833ff6f476a2edbe675116",
+   "content_type": "application/pdf"
+  },
+  {
+   "what": "docs/ofr20061359_pubs_record.json",
+   "url": "https://pubs.usgs.gov/pubs-services/publication/?q=ofr20061359",
+   "requested_utc": "2026-10-23T07:28:41+00:00",
+   "http_status": 200,
+   "bytes": 4918,
+   "md5": "2c59daa9fa661b745a7b579405e0c08f",
+   "sha256": "a540f826780247609cb4bba8ee0ade7163845aa46a1a651b7d749757bc8873be",
+   "content_type": "application/json;charset=UTF-8"
+  },
+  {
+   "what": "docs/ofr20061359_ofr2006-1359.pdf",
+   "url": "https://pubs.usgs.gov/of/2006/1359/PDF/ofr2006-1359.pdf",
+   "requested_utc": "2026-10-23T07:28:42+00:00",
+   "http_status": 200,
+   "bytes": 4618752,
+   "md5": "50830b46c8315ba197b6f355c5347635",
+   "sha256": "657100d00d74aa4aa4b8a8d3e1bf2a3d7aad50292b8e8de82e5844ea1bcef04b",
+   "content_type": "application/pdf"
+  },
+  {
+   "what": "GSLDEM.tif",
+   "url": "https://www.hydroshare.org/resource/582060f00f6b443bb26e896426d9f62a/data/contents/GSLDEM/GSLDEM.tif",
+   "requested_utc": "2026-10-23T07:28:13+00:00",
+   "finished_utc": "2026-10-23T07:28:53+00:00",
+   "http_status": 200,
+   "bytes": 509085908,
+   "listed_bytes": 509085908,
+   "md5": "e79e8d9f098e315ab0ea1a200ff04667",
+   "listed_md5": "e79e8d9f098e315ab0ea1a200ff04667",
+   "md5_matches_listing": true,
+   "size_matches_listing": true,
+   "sha256": "bed36f6ca39ede272062b072f2ceaa9b51735d3bf534275c612695df73f6b48a",
+   "listed_modified_time": "2017-10-28T00:16:26"
+  }
+ ]
+}

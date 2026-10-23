@@ -1,0 +1,43 @@
+{
+ "script": "scripts/rev2_n_simulate.py",
+ "decision": "D-146 (D-125 settings, first addendum)",
+ "amendment": "PREREG Amendment 19 item 3",
+ "seed": 20261022,
+ "n_fields": 50,
+ "range_m": 150000.0,
+ "grf_dx_m": 2000.0,
+ "flood_grid_m": 480,
+ "group_size": 5,
+ "sill_m2": {
+  "gebco_2026": 1.03811873534753,
+  "etopo_2022": 0.7621830176226058,
+  "srtm15p_v2.7": 1.2372344705740492,
+  "gebco_2022": 1.1297547451165675,
+  "etopo1": 0.7302591777368025
+ },
+ "c26_target_cells": 20351892.0,
+ "level_2026_m": -28.6194,
+ "shape_constants_m": {
+  "gebco_2026": -1.48,
+  "etopo_2022": -1.49,
+  "srtm15p_v2.7": -1.28,
+  "gebco_2022": -1.45,
+  "etopo1": -1.38
+ },
+ "flood_grid_shape": [
+  837,
+  1406
+ ],
+ "checks": {
+  "groups_rows_compared": 200,
+  "groups_max_abs_diff": 9.80118763926896e-17,
+  "realisations_rows_compared": 250,
+  "realisations_max_abs_diff_km2": 7.275957614183426e-12,
+  "observed_agreement_max_abs_diff": 6.418476861114186e-17,
+  "crop": {
+   "S_obs_domain_cells_60m": 20351892,
+   "S_obs_domain_cells_in_blocks": 20351892
+  }
+ },
+ "seconds": 253.7
+}

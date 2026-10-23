@@ -1,0 +1,32 @@
+% RSE: Section 5, Discussion (review P6: themed; quantitative comparison; limitations open with
+% why the main result rests on the checked sectors). Every number is a \metric{} macro.
+
+\subsection{Why global grids fail on shallow shelves}
+\label{sec:dis_why}
+The grids misplace the North Caspian shoreline because they hold little measured depth there. In GEBCO\_2026 no cell of the emerged band is coded as a direct measurement. Over half is coded as depth predicted from satellite gravity, and most of the rest as a pre-generated grid of mixed sources \citep{gebco2026}. The pre-generated grid was compiled from charts shifted by a constant \citep{gebco2014_doc}, and the other grids share these sources, so their errors are correlated.
+
+The errors have a structure that one offset cannot remove. The offset each grid needs changes by about \metricdp{rev2.d.const.gebco2026.band_slope}{1}~m for each metre of level, so across the emerged band the grids hold much less relief than the levelled waterlines show. Storage and resolution alone would miss by much less, and removing the part of the offset that belongs to DAHITI's reference changes no verdict of the four failing grids.
+
+Whether the grids were wrong when compiled or the seabed has changed since, they do not represent today's seabed. Lake beds change between surveys \citep{feng2011}, and delta fronts respond to level change by shifting and prograding \citep{kroonenberg1997,overeem2003}. Exposed lake margins can also subside after emergence \citep{closson2026,atzori2015}. Unloading raises the land as well, but only by millimetres per year \citep{nof2012}, far less than the metres of vertical error found here.
+
+\subsection{Implications for emergence and exposure assessments}
+\label{sec:dis_impl}
+The problem mirrors one known on land, where the vertical error of global elevation models changes coastal flood exposure several-fold \citep{kulp2019,hooijer2021}. A grid can map a change in water level with confidence only if the change is at least twice the grid's 95\% vertical error \citep{gesch2018}. Here the four failing grids miss by \metricdp{rev2.d.vert.westinterfluve.four_Dg_min_m}{1}--\metricdp{rev2.d.vert.westinterfluve.four_Dg_max_m}{1}~m in height on the checked coasts. None of them can say with confidence where the first metre of further fall will emerge.
+
+Assessments that used these grids inherit that limit. \citet{court2025} took exposure from GEBCO\_2022, and \citet{duan2025} took the sea's topography from GEBCO. Our results do not test their totals, but a total can be right while the shoreline is kilometres wrong, and totals of protected area or habitat lost depend on where the band lies. Read as distributed, the grids also place \metric{rev.w.n.dry.unc1_pct_min}--\metric{rev.w.n.dry.unc1_pct_max}\% of their next metre on seabed that is already dry.
+
+We recommend four practical steps. First, measure future emergence from the latest observed shoreline, not from a grid's own shoreline. Second, before using a grid, estimate its vertical offset, and how that offset changes with level, against dated satellite shorelines. Third, do not treat agreement between grids that share sources as evidence of accuracy. Fourth, compilers should document the vertical reference of inland seas and any capped or outline-filled lake surfaces, such as ETOPO~2022's.
+
+\subsection{Levelled waterlines as an audit tool}
+\label{sec:dis_tool}
+Levelled waterlines have long been used to build topography \citep{mason1995,feng2011,sagar2017}, and Landsat extents paired with altimetry now give bathymetry for many reservoirs and lakes \citep{getirana2018,li2020,huang2025}. These reconstructions describe only the levels already observed \citep{li2020,huang2025}. We used the same kind of observation in a different role, as an independent test of products compiled from soundings. Earlier tests of global elevation models on shrinking lakes compared aggregate storage or area \citep{huang2026,bocharov2026}. Our results show why that is not enough: an area-fitted offset matched the median area of every grid while their shorelines stayed kilometres away.
+
+The levelled shorelines form a benchmark that grows as the sea falls. Each new level adds a contour on which the next grid release can be tested, coast by coast. The same audit could be run on other shrinking lakes with altimetry and a long Landsat record, such as Lake Urmia, whose bathymetry was unknown when its hypsometry was derived from satellites \citep{sima2013}. It resolves differences of a few hundred metres (Section~\ref{sec:res_gsl}).
+
+\subsection{Limitations}
+\label{sec:dis_limits}
+Our main result rests on the checked sectors because elsewhere the observations themselves are biased. In the Volga delta and Komsomolets Bay the waterline model departs from ICESat-2 by about a metre, and the Ural delta has too few blocks to judge. We set the checked-sector criterion after seeing the per-sector results. The all-block ICESat-2 comparison now supports it, but only for bias on bare seabed.
+
+The observations share errors that the noise floor does not measure. Wind surges change the Caspian's level by metres within days \citep{lahijani2023} and move the North Caspian shoreline by kilometres \citep{pavlova2020,yeltay2026}. Our setup screening removed no scene, so surges enter the observations as noise, and our emergence estimates assume a flat water surface. The deep-water rule, adopted after the water frequencies were inspected, lowers the floor where it acts; without it the open-shelf verdicts change (Supplementary Material). The level-error budget and its Monte Carlo bound these effects on the checked coasts, but not the three checks we could not run.
+
+Several planned tests failed or could not be done, and we list them once. H2 failed. The second half of H1 cannot be tested with seven sectors. The pre-specified H3 correction failed its transfer test and produced an artefact. No ATL24 granule covers the Caspian. Lake Urmia, the second planned basin, was not run, so whether the error recurs in other shrinking seas is untested. On the open shelf the decision rule flags even small, resolution-scale errors, so the open-shelf verdicts add little evidence.

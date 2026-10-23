@@ -1,0 +1,109 @@
+{
+ "rule": "A19 items 2 and 14 (D-149): existing verdicts only (results/hindcast/main/h1_mispredicts.csv shape variant; h1_decision.json block test; results/generality/great_salt_lake/h1_decision.json); lineages GEBCO (GEBCO_2026, GEBCO_2022, ETOPO 2022), ETOPO1, SRTM15+",
+ "products": [
+  {
+   "lineage": "gebco",
+   "product": "gebco_2026",
+   "n_mispredict_all7": 7,
+   "n_mispredict_validated4": 4,
+   "n_mispredict_six": 6,
+   "mispredicts_west": true,
+   "mispredicts_interfluve": true,
+   "mispredicts_northeast": true,
+   "mispredicts_open_shelf": true,
+   "block_test_p": 0.006299370062993701,
+   "block_test_significant": true,
+   "gsl_arms_mispredict": 2,
+   "gsl_arms_evaluable": 2
+  },
+  {
+   "lineage": "gebco",
+   "product": "gebco_2022",
+   "n_mispredict_all7": 7,
+   "n_mispredict_validated4": 4,
+   "n_mispredict_six": 6,
+   "mispredicts_west": true,
+   "mispredicts_interfluve": true,
+   "mispredicts_northeast": true,
+   "mispredicts_open_shelf": true,
+   "block_test_p": 0.009799020097990201,
+   "block_test_significant": true,
+   "gsl_arms_mispredict": 2,
+   "gsl_arms_evaluable": 2
+  },
+  {
+   "lineage": "gebco",
+   "product": "etopo_2022",
+   "n_mispredict_all7": 1,
+   "n_mispredict_validated4": 0,
+   "n_mispredict_six": 1,
+   "mispredicts_west": false,
+   "mispredicts_interfluve": false,
+   "mispredicts_northeast": false,
+   "mispredicts_open_shelf": false,
+   "block_test_p": 1.0,
+   "block_test_significant": false,
+   "gsl_arms_mispredict": 2,
+   "gsl_arms_evaluable": 2
+  },
+  {
+   "lineage": "srtm15p",
+   "product": "srtm15p_v2.7",
+   "n_mispredict_all7": 6,
+   "n_mispredict_validated4": 4,
+   "n_mispredict_six": 6,
+   "mispredicts_west": true,
+   "mispredicts_interfluve": true,
+   "mispredicts_northeast": true,
+   "mispredicts_open_shelf": true,
+   "block_test_p": 0.13978602139786023,
+   "block_test_significant": false,
+   "gsl_arms_mispredict": 2,
+   "gsl_arms_evaluable": 2
+  },
+  {
+   "lineage": "etopo1",
+   "product": "etopo1",
+   "n_mispredict_all7": 7,
+   "n_mispredict_validated4": 4,
+   "n_mispredict_six": 6,
+   "mispredicts_west": true,
+   "mispredicts_interfluve": true,
+   "mispredicts_northeast": true,
+   "mispredicts_open_shelf": true,
+   "block_test_p": 0.016698330166983303,
+   "block_test_significant": true,
+   "gsl_arms_mispredict": 2,
+   "gsl_arms_evaluable": 2
+  }
+ ],
+ "lineages": [
+  {
+   "lineage": "gebco",
+   "products": "gebco_2026,gebco_2022,etopo_2022",
+   "n_products": 3,
+   "validated_sectors_all_members_mispredict": 0,
+   "validated_sectors_any_member_mispredicts": 4,
+   "members_block_test_significant": 2,
+   "members_mispredicting_in_all_validated": 2
+  },
+  {
+   "lineage": "srtm15p",
+   "products": "srtm15p_v2.7",
+   "n_products": 1,
+   "validated_sectors_all_members_mispredict": 4,
+   "validated_sectors_any_member_mispredicts": 4,
+   "members_block_test_significant": 0,
+   "members_mispredicting_in_all_validated": 1
+  },
+  {
+   "lineage": "etopo1",
+   "products": "etopo1",
+   "n_products": 1,
+   "validated_sectors_all_members_mispredict": 4,
+   "validated_sectors_any_member_mispredicts": 4,
+   "members_block_test_significant": 1,
+   "members_mispredicting_in_all_validated": 1
+  }
+ ]
+}

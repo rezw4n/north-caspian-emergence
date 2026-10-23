@@ -1,0 +1,59 @@
+{
+ "dataset": {
+  "key": "tarboton_gsl_bathymetry",
+  "type": "dataset",
+  "title": "Great Salt Lake Bathymetry",
+  "creators": [
+   {
+    "name": "David Tarboton",
+    "organization": "Utah State University"
+   },
+   {
+    "name": "Merck, Madeline",
+    "organization": "Utah State University"
+   }
+  ],
+  "contributors": [
+   {
+    "name": "Glen Busch",
+    "organization": "BIO-WEST"
+   }
+  ],
+  "year": 2026,
+  "year_note": "the year of HydroShare's suggested citation (last modified 2026-03-13); created 2017-10-28; GSLDEM.tif dated 2017-10-28 in the file listing",
+  "publisher": "HydroShare",
+  "doi": null,
+  "published_with_doi": false,
+  "resource_id": "582060f00f6b443bb26e896426d9f62a",
+  "url": "http://www.hydroshare.org/resource/582060f00f6b443bb26e896426d9f62a",
+  "licence": "CC BY 4.0",
+  "licence_url": "http://creativecommons.org/licenses/by/4.0/",
+  "file_used": "GSLDEM/GSLDEM.tif",
+  "hydroshare_suggested_citation": "Tarboton, D., M. Merck (2026). Great Salt Lake Bathymetry, HydroShare, http://www.hydroshare.org/resource/582060f00f6b443bb26e896426d9f62a",
+  "accessed": "2026-10-23",
+  "bibtex": "@misc{tarboton_gsl_bathymetry,\n  author = {Tarboton, David and Merck, Madeline},\n  title = {Great Salt Lake Bathymetry},\n  year = {2026},\n  publisher = {HydroShare},\n  howpublished = {HydroShare resource 582060f00f6b443bb26e896426d9f62a},\n  url = {http://www.hydroshare.org/resource/582060f00f6b443bb26e896426d9f62a},\n  note = {Dataset (GSLDEM.tif); licence CC BY 4.0; no DOI; accessed 2026-10-23}\n}",
+  "tier": "data citation of the provider's own record (CLAUDE.md Tier A: 'official data or product documentation from ... the data providers'); not peer reviewed and without a DOI, so listed for the PI's check before it enters refs/"
+ },
+ "survey_reports": [
+  {
+   "doi": "10.3133/ofr20051327",
+   "pubs_title": "Calculation of area and volume for the south part of Great Salt Lake, Utah",
+   "crossref_status": 200,
+   "crossref_title": "Calculation of area and volume for the south part of Great Salt Lake, Utah",
+   "title_matches": true,
+   "bibtex_status": 200,
+   "bibtex": "@book{Baskin_2005, title={Calculation of area and volume for the south part of Great Salt Lake, Utah}, ISSN={2331-1258}, url={http://dx.doi.org/10.3133/ofr20051327}, DOI={10.3133/ofr20051327}, journal={Open-File Report}, institution={US Geological Survey}, author={Baskin, Robert L.}, year={2005} }",
+   "why": "survey source of the lake-bed model (README.txt); dates, depth limit and map-contour range"
+  },
+  {
+   "doi": "10.3133/ofr20061359",
+   "pubs_title": "Calculation of area and volume for the north part of Great Salt Lake, Utah",
+   "crossref_status": 200,
+   "crossref_title": "Calculation of area and volume for the north part of Great Salt Lake, Utah",
+   "title_matches": true,
+   "bibtex_status": 200,
+   "bibtex": "@book{Baskin_2006, title={Calculation of area and volume for the north part of Great Salt Lake, Utah}, ISSN={2331-1258}, url={http://dx.doi.org/10.3133/ofr20061359}, DOI={10.3133/ofr20061359}, journal={Open-File Report}, institution={US Geological Survey}, author={Baskin, Robert L.}, year={2006} }",
+   "why": "survey source of the lake-bed model (README.txt); dates, depth limit and map-contour range"
+  }
+ ]
+}

@@ -1206,6 +1206,42 @@ $(REV_R_DIAG) &: scripts/rev_r_diagnostics.py scripts/rev_r_tables.py $(STAGE2_P
 METRIC_INPUTS += $(REV_R_CTRL) $(REV_R_TABLES) $(REV_R_BUDGET) $(REV_R_DIAG)
 REVISION_RESULTS += $(REV_R_CTRL_HC) $(REV_R_CTRL) $(REV_R_AUDIT) $(REV_R_TABLES) $(REV_R_BUDGET) $(REV_R_DIAG)
 
+# --- Second review round (PREREG Amendment 19; D-146 to D-152): each step writes its tables
+# under results/revision2/<x>/ and a stamp file; tools/metrics_rev_*2.py and metrics_rev_oc.py
+# read them.
+REV2 := results/revision2
+$(REV2)/n/.done: scripts/rev2_n_reref.py scripts/rev2_n_exposure.py scripts/rev2_n_pathways.py scripts/rev2_n_simulate.py src/caspian/rev2_n.py | $(VERIFIED)
+	$(PYTHON) scripts/rev2_n_reref.py
+	$(PYTHON) scripts/rev2_n_exposure.py
+	$(PYTHON) scripts/rev2_n_pathways.py
+	$(PYTHON) scripts/rev2_n_simulate.py
+	touch $@
+$(REV2)/a/.done: scripts/rev2_a_audit.py scripts/rev2_a_variants.py scripts/rev2_a_tables.py src/caspian/rev2_a.py | $(VERIFIED)
+	$(PYTHON) scripts/rev2_a_audit.py flood
+	$(PYTHON) scripts/rev2_a_audit.py fit
+	$(PYTHON) scripts/rev2_a_audit.py pass
+	$(foreach v,veg_as_dry veg_as_water rR_awei rR_fixed0,$(PYTHON) scripts/rev2_a_variants.py $(v) &&) true
+	$(PYTHON) scripts/rev2_a_tables.py all
+	touch $@
+$(REV2)/oc/.done: scripts/rev2_oc_run.py scripts/rev2_oc_common.py scripts/rev2_oc_item5.py scripts/rev2_oc_item9.py src/caspian/rev2_oc.py | $(VERIFIED)
+	$(PYTHON) scripts/rev2_oc_run.py
+	touch $@
+$(REV2)/d/.done: scripts/rev2_d_constants.py scripts/rev2_d_obsbias.py scripts/rev2_d_sources.py scripts/rev2_d_tables.py src/caspian/rev2_d.py | $(VERIFIED)
+	$(PYTHON) scripts/rev2_d_constants.py all
+	$(PYTHON) scripts/rev2_d_obsbias.py
+	$(PYTHON) scripts/rev2_d_sources.py
+	$(PYTHON) scripts/rev2_d_tables.py all
+	touch $@
+$(REV2)/g/.done: scripts/rev2_g_lakebed_data.py scripts/rev2_g_lakebed.py src/caspian/lakebed.py | $(VERIFIED)
+	$(PYTHON) scripts/rev2_g_lakebed_data.py docs
+	$(PYTHON) scripts/rev2_g_lakebed_data.py file GSLDEM.tif
+	$(PYTHON) scripts/rev2_g_lakebed.py prepare
+	$(PYTHON) scripts/rev2_g_lakebed.py hindcast
+	touch $@
+REV2_DONE := $(addsuffix /.done,$(addprefix $(REV2)/,n a oc d g))
+METRIC_INPUTS += $(REV2_DONE)
+REVISION_RESULTS += $(REV2_DONE)
+
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
 
@@ -1252,7 +1288,7 @@ figures: $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex manuscri
 params: results/params.json
 metrics: results/metrics.json manuscript/numbers.tex
 macros: manuscript/numbers.tex
-manuscript: manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md
+manuscript: manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md $(RSE_PDFS)
 phase-a: $(PHASE_A_RESULTS)
 # Every input `make all` reads that an acquisition step writes, one per line (stage 1 and 2b).
 inputs:
@@ -1265,6 +1301,23 @@ RESULTS_ALL := results/qc/dahiti_summary.json results/study_area/sector_areas.js
                results/levels/scene_levels_summary.json results/levels/dahiti_bhs_offset.json \
                results/params.json results/metrics.json
 
+# --- Remote Sensing of Environment article (D-145): figures, article, Supplementary, highlights.
+RSE_FIG_NAMES := study_area method emergence dem_accuracy shorelines dq area gsl nearterm
+RSE_FIGS := $(foreach f,$(RSE_FIG_NAMES),figures/out/rse_fig_$(f).pdf)
+results/display/rse_shorelines.json: scripts/f5_rse_display.py | $(VERIFIED)
+	$(PYTHON) scripts/f5_rse_display.py
+figures/out/rse_fig_%.pdf: figures/rse_fig_%.py figures/_rse.py results/metrics.json results/display/rse_shorelines.json
+	$(PYTHON) $<
+RSE_TEX := manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) manuscript/rse/figure_captions_rse_draft.tex refs/references.bib $(RSE_FIGS)
+manuscript/rse_main.pdf: manuscript/rse_main.tex $(RSE_TEX)
+	$(TECTONIC) -X compile --keep-intermediates manuscript/rse_main.tex
+manuscript/rse_supplementary.pdf: manuscript/rse_supplementary.tex manuscript/rse_main.pdf $(RSE_TEX)
+	$(TECTONIC) -X compile manuscript/rse_supplementary.tex
+manuscript/rse_highlights.pdf: manuscript/rse_highlights.tex manuscript/numbers.tex
+	$(TECTONIC) -X compile manuscript/rse_highlights.tex
+manuscript/cover_letter_rse.pdf: manuscript/cover_letter_rse.tex manuscript/numbers.tex
+	$(TECTONIC) -X compile manuscript/cover_letter_rse.tex
+RSE_PDFS := manuscript/rse_main.pdf manuscript/rse_supplementary.pdf manuscript/rse_highlights.pdf manuscript/cover_letter_rse.pdf
 all: $(VERIFIED) $(PHASE_A_RESULTS) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex \
      manuscript/sections/ed_tables_h3_draft.tex manuscript/numbers.tex \
      manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md

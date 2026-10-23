@@ -1,4 +1,4 @@
-% Supplementary Information of the ERL Letter: copy of methods_data.tex, adapted
+% Supplementary Information of the article: copy of methods_data.tex, adapted
 % (Landsat-only main run). Methods: study area, imagery, water levels, bathymetry products.
 % Every number comes from \metric{...}; every citation key is in refs/cite_list.csv.
 
@@ -24,7 +24,7 @@ We used every Landsat~5, 7, 8 and 9 Collection~2 Level-2 Tier~1 surface-reflecta
   \item \metric{inventory.n_scenes.OLI_L9} Operational Land Imager-2;
   \item \metric{inventory.n_scenes.MSI_S2} Sentinel-2 granules.
 \end{itemize}
-The scenes come from \metric{inventory.n_landsat_path_rows} Landsat path/rows and \metric{inventory.n_s2_tiles} Sentinel-2 tiles. Reflectance bands were harmonised to common names (blue, green, red, near-infrared, and the two shortwave-infrared bands) using the product scale factors. Sentinel-2 entered the per-scene stage only (thresholds and snow diagnostics) and one robustness variant: to stay within the Earth Engine budget, the level-binned counts behind every observed extent, waterline and hindcast of the Letter are Landsat only (section~\SIdeviations).
+The scenes come from \metric{inventory.n_landsat_path_rows} Landsat path/rows and \metric{inventory.n_s2_tiles} Sentinel-2 tiles. Reflectance bands were harmonised to common names (blue, green, red, near-infrared, and the two shortwave-infrared bands) using the product scale factors. Sentinel-2 entered the per-scene stage only (thresholds and snow diagnostics) and one robustness variant: to stay within the Earth Engine budget, the level-binned counts behind every observed extent, waterline and hindcast of the article are Landsat only (section~\SIdeviations).
 
 \emph{Landsat masking.} We masked pixels flagged in the quality band\citep{usgs_l45tm_c2l2,usgs_l7etm_c2l2,usgs_l89oli_c2l2} as any of: fill, cloud, dilated cloud, cloud shadow, or cirrus (OLI only). We also masked pixels saturated in any band used. Snow and ice are treated under Water classification.
 

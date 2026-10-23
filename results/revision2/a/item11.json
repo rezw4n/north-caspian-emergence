@@ -1,0 +1,1043 @@
+{
+ "runs": {
+  "veg_as_dry": {
+   "stage2": "main__veg_as_dry",
+   "hybrid": false,
+   "reference": "the primary (results/hindcast/main, shape variant)",
+   "seconds": 1168.3,
+   "footprint_cells": null,
+   "counts_reference": {
+    "etopo1": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "etopo_2022": {
+     "all7": 1,
+     "validated4": 0,
+     "six_without_komsomolets": 1,
+     "sectors": [
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2022": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2026": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "srtm15p_v2.7": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    }
+   },
+   "counts_variant": {
+    "etopo1": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "etopo_2022": {
+     "all7": 4,
+     "validated4": 2,
+     "six_without_komsomolets": 4,
+     "sectors": [
+      "west",
+      "interfluve",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2022": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2026": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "srtm15p_v2.7": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    }
+   },
+   "n_changed": 3,
+   "n_changed_validated": 2,
+   "changed": [
+    {
+     "product": "etopo_2022",
+     "sector": "west",
+     "validated": true,
+     "mispredicts_reference": false,
+     "mispredicts_new": true,
+     "n_exceeding_reference": 6,
+     "n_exceeding_new": 18,
+     "n_evaluable_new": 25
+    },
+    {
+     "product": "etopo_2022",
+     "sector": "interfluve",
+     "validated": true,
+     "mispredicts_reference": false,
+     "mispredicts_new": true,
+     "n_exceeding_reference": 13,
+     "n_exceeding_new": 23,
+     "n_evaluable_new": 27
+    },
+    {
+     "product": "etopo_2022",
+     "sector": "volga",
+     "validated": false,
+     "mispredicts_reference": false,
+     "mispredicts_new": true,
+     "n_exceeding_reference": 5,
+     "n_exceeding_new": 21,
+     "n_evaluable_new": 26
+    }
+   ],
+   "verdicts_variant": {
+    "etopo1": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "etopo_2022": {
+     "west": true,
+     "interfluve": true,
+     "northeast": false,
+     "open_shelf": false,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "gebco_2022": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "gebco_2026": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "srtm15p_v2.7": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    }
+   },
+   "verdicts_reference": {
+    "etopo1": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "etopo_2022": {
+     "west": false,
+     "interfluve": false,
+     "northeast": false,
+     "open_shelf": false,
+     "volga": false,
+     "ural": true,
+     "komsomolets": false
+    },
+    "gebco_2022": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "gebco_2026": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "srtm15p_v2.7": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    }
+   }
+  },
+  "veg_as_water": {
+   "stage2": "main__veg_as_water",
+   "hybrid": false,
+   "reference": "the primary (results/hindcast/main, shape variant)",
+   "seconds": 1431.5,
+   "footprint_cells": null,
+   "counts_reference": {
+    "etopo1": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "etopo_2022": {
+     "all7": 1,
+     "validated4": 0,
+     "six_without_komsomolets": 1,
+     "sectors": [
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2022": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2026": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "srtm15p_v2.7": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    }
+   },
+   "counts_variant": {
+    "etopo1": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "etopo_2022": {
+     "all7": 3,
+     "validated4": 1,
+     "six_without_komsomolets": 3,
+     "sectors": [
+      "west",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2022": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2026": {
+     "all7": 7,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural",
+      "komsomolets"
+     ],
+     "not_evaluable": []
+    },
+    "srtm15p_v2.7": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    }
+   },
+   "n_changed": 2,
+   "n_changed_validated": 1,
+   "changed": [
+    {
+     "product": "etopo_2022",
+     "sector": "west",
+     "validated": true,
+     "mispredicts_reference": false,
+     "mispredicts_new": true,
+     "n_exceeding_reference": 6,
+     "n_exceeding_new": 17,
+     "n_evaluable_new": 25
+    },
+    {
+     "product": "etopo_2022",
+     "sector": "volga",
+     "validated": false,
+     "mispredicts_reference": false,
+     "mispredicts_new": true,
+     "n_exceeding_reference": 5,
+     "n_exceeding_new": 21,
+     "n_evaluable_new": 27
+    }
+   ],
+   "verdicts_variant": {
+    "etopo1": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "etopo_2022": {
+     "west": true,
+     "interfluve": false,
+     "northeast": false,
+     "open_shelf": false,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "gebco_2022": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "gebco_2026": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "srtm15p_v2.7": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    }
+   },
+   "verdicts_reference": {
+    "etopo1": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "etopo_2022": {
+     "west": false,
+     "interfluve": false,
+     "northeast": false,
+     "open_shelf": false,
+     "volga": false,
+     "ural": true,
+     "komsomolets": false
+    },
+    "gebco_2022": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "gebco_2026": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": true
+    },
+    "srtm15p_v2.7": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    }
+   }
+  },
+  "rR_awei": {
+   "stage2": "rR_awei",
+   "hybrid": true,
+   "reference": "the primary on the same footprint (the 14 R-block tiles), same pass",
+   "seconds": 2595.6,
+   "footprint_cells": 2020698,
+   "counts_reference": {
+    "etopo1": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "etopo_2022": {
+     "all7": 0,
+     "validated4": 0,
+     "six_without_komsomolets": 0,
+     "sectors": [],
+     "not_evaluable": []
+    },
+    "gebco_2022": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2026": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "srtm15p_v2.7": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    }
+   },
+   "counts_variant": {
+    "etopo1": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "etopo_2022": {
+     "all7": 1,
+     "validated4": 1,
+     "six_without_komsomolets": 1,
+     "sectors": [
+      "interfluve"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2022": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2026": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "srtm15p_v2.7": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    }
+   },
+   "n_changed": 1,
+   "n_changed_validated": 1,
+   "changed": [
+    {
+     "product": "etopo_2022",
+     "sector": "interfluve",
+     "validated": true,
+     "mispredicts_reference": false,
+     "mispredicts_new": true,
+     "n_exceeding_reference": 12,
+     "n_exceeding_new": 13,
+     "n_evaluable_new": 24
+    }
+   ],
+   "verdicts_variant": {
+    "etopo1": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "etopo_2022": {
+     "west": false,
+     "interfluve": true,
+     "northeast": false,
+     "open_shelf": false,
+     "volga": false,
+     "ural": false,
+     "komsomolets": false
+    },
+    "gebco_2022": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "gebco_2026": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "srtm15p_v2.7": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    }
+   },
+   "verdicts_reference": {
+    "etopo1": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "etopo_2022": {
+     "west": false,
+     "interfluve": false,
+     "northeast": false,
+     "open_shelf": false,
+     "volga": false,
+     "ural": false,
+     "komsomolets": false
+    },
+    "gebco_2022": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "gebco_2026": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "srtm15p_v2.7": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    }
+   }
+  },
+  "rR_fixed0": {
+   "stage2": "rR_fixed0",
+   "hybrid": true,
+   "reference": "the primary on the same footprint (the 14 R-block tiles), same pass",
+   "seconds": 2488.3,
+   "footprint_cells": 2020698,
+   "counts_reference": {
+    "etopo1": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "etopo_2022": {
+     "all7": 0,
+     "validated4": 0,
+     "six_without_komsomolets": 0,
+     "sectors": [],
+     "not_evaluable": []
+    },
+    "gebco_2022": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2026": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "srtm15p_v2.7": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    }
+   },
+   "counts_variant": {
+    "etopo1": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "etopo_2022": {
+     "all7": 1,
+     "validated4": 1,
+     "six_without_komsomolets": 1,
+     "sectors": [
+      "open_shelf"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2022": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "gebco_2026": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    },
+    "srtm15p_v2.7": {
+     "all7": 6,
+     "validated4": 4,
+     "six_without_komsomolets": 6,
+     "sectors": [
+      "west",
+      "interfluve",
+      "northeast",
+      "open_shelf",
+      "volga",
+      "ural"
+     ],
+     "not_evaluable": []
+    }
+   },
+   "n_changed": 1,
+   "n_changed_validated": 1,
+   "changed": [
+    {
+     "product": "etopo_2022",
+     "sector": "open_shelf",
+     "validated": true,
+     "mispredicts_reference": false,
+     "mispredicts_new": true,
+     "n_exceeding_reference": 6,
+     "n_exceeding_new": 7,
+     "n_evaluable_new": 11
+    }
+   ],
+   "verdicts_variant": {
+    "etopo1": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "etopo_2022": {
+     "west": false,
+     "interfluve": false,
+     "northeast": false,
+     "open_shelf": true,
+     "volga": false,
+     "ural": false,
+     "komsomolets": false
+    },
+    "gebco_2022": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "gebco_2026": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "srtm15p_v2.7": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    }
+   },
+   "verdicts_reference": {
+    "etopo1": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "etopo_2022": {
+     "west": false,
+     "interfluve": false,
+     "northeast": false,
+     "open_shelf": false,
+     "volga": false,
+     "ural": false,
+     "komsomolets": false
+    },
+    "gebco_2022": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "gebco_2026": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    },
+    "srtm15p_v2.7": {
+     "west": true,
+     "interfluve": true,
+     "northeast": true,
+     "open_shelf": true,
+     "volga": true,
+     "ural": true,
+     "komsomolets": false
+    }
+   }
+  }
+ }
+}

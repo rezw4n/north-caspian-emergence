@@ -1,0 +1,66 @@
+{
+ "script": "scripts/rev2_n_pathways.py",
+ "decision": "D-146",
+ "amendment": "PREREG Amendment 19 item 2",
+ "years": [
+  2035.0,
+  2050.0
+ ],
+ "base_year": 2026.0,
+ "primary": [
+  "HOS25-01",
+  "HOS25-04",
+  "HOS25-07",
+  "HOS25-10",
+  "SAM23-07",
+  "SAM23-10",
+  "SAM23-14"
+ ],
+ "products": [
+  "gebco_2026",
+  "etopo_2022",
+  "srtm15p_v2.7",
+  "gebco_2022",
+  "etopo1"
+ ],
+ "lineages": {
+  "GEBCO": [
+   "gebco_2026",
+   "gebco_2022",
+   "etopo_2022"
+  ],
+  "ETOPO1": [
+   "etopo1"
+  ],
+  "SRTM15+": [
+   "srtm15p_v2.7"
+  ]
+ },
+ "lineage_value": "mean of the members' km2",
+ "lineage_sensitivity": {
+  "GEBCO": "gebco_2022"
+ },
+ "baselines": {
+  "as_distributed": [
+   "results\\revision\\n\\curves_fine.csv.gz",
+   "uncorrected"
+  ],
+  "shifted": [
+   "results\\revision\\n\\curves_fine.csv.gz",
+   "shifted"
+  ],
+  "observed_reref": [
+   "results\\revision2\\n\\reref_curves_fine.csv.gz",
+   "observed_reref"
+  ],
+  "observed_a18_superseded": [
+   "results\\revision\\n\\curves_fine_composite.csv.gz",
+   "common_location"
+  ]
+ },
+ "checks": {
+  "a18_products_shares_max_abs_diff": 1.1102230246251565e-16,
+  "n_rows_compared": 24
+ },
+ "seconds": 0.5
+}

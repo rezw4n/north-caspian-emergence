@@ -1,0 +1,125 @@
+{
+ "rule": "A19 item 4 (D-149): medians over evaluable levels of D*g and Q*g (A18 item 7, shape variant, epochs pooled; g = sector median |grad z| of the waterline DEM in the band); reporting only",
+ "source": "results/revision/r/budget/vertical_equivalents.csv (checked against levels.csv)",
+ "by_sector": {
+  "west": {
+   "validated": true,
+   "Q_g_median_m": 0.457793762443884,
+   "D_g_median_m": {
+    "gebco_2026": 1.3705196089783225,
+    "gebco_2022": 1.371504020690918,
+    "etopo_2022": 0.1095277222028275,
+    "srtm15p_v2.7": 3.277972781086313,
+    "etopo1": 2.2747109491305983
+   },
+   "mispredicting_four_min_m": 1.3705196089783225,
+   "mispredicting_four_max_m": 3.277972781086313,
+   "ratio_D_to_Q_four_min": 2.993748979151545,
+   "ratio_D_to_Q_four_max": 7.160370127341183
+  },
+  "interfluve": {
+   "validated": true,
+   "Q_g_median_m": 0.335493429601589,
+   "D_g_median_m": {
+    "gebco_2026": 1.6051461758133416,
+    "gebco_2022": 1.6852148056146,
+    "etopo_2022": 0.2205156807175936,
+    "srtm15p_v2.7": 3.0649807989763933,
+    "etopo1": 2.278248138899011
+   },
+   "mispredicting_four_min_m": 1.6051461758133416,
+   "mispredicting_four_max_m": 3.0649807989763933,
+   "ratio_D_to_Q_four_min": 4.784434013266706,
+   "ratio_D_to_Q_four_max": 9.135740162232603
+  },
+  "northeast": {
+   "validated": true,
+   "Q_g_median_m": 0.955118645012632,
+   "D_g_median_m": {
+    "gebco_2026": 2.120913505554199,
+    "gebco_2022": 2.035939197228363,
+    "etopo_2022": 0.6065499924687809,
+    "srtm15p_v2.7": 1.5998781204237449,
+    "etopo1": 1.979070117012632
+   },
+   "mispredicting_four_min_m": 1.5998781204237449,
+   "mispredicting_four_max_m": 2.120913505554199,
+   "ratio_D_to_Q_four_min": 1.6750569458337665,
+   "ratio_D_to_Q_four_max": 2.2205759636554356
+  },
+  "open_shelf": {
+   "validated": true,
+   "Q_g_median_m": 0.0997064916211925,
+   "D_g_median_m": {
+    "gebco_2026": 0.120911881327629,
+    "gebco_2022": 0.1196966556979054,
+    "etopo_2022": 0.0512985667276737,
+    "srtm15p_v2.7": 0.3289158776066933,
+    "etopo1": 0.4118110286718476
+   },
+   "mispredicting_four_min_m": 0.1196966556979054,
+   "mispredicting_four_max_m": 0.4118110286718476,
+   "ratio_D_to_Q_four_min": 1.200490095997561,
+   "ratio_D_to_Q_four_max": 4.130232866245167
+  },
+  "volga": {
+   "validated": false,
+   "Q_g_median_m": 2.755909820972157,
+   "D_g_median_m": {
+    "gebco_2026": 10.77772791931148,
+    "gebco_2022": 10.869821132623612,
+    "etopo_2022": 0.3246068000793456,
+    "srtm15p_v2.7": 13.878146062259622,
+    "etopo1": 8.849569631831134
+   },
+   "mispredicting_four_min_m": 8.849569631831134,
+   "mispredicting_four_max_m": 13.878146062259622,
+   "ratio_D_to_Q_four_min": 3.2111245311754857,
+   "ratio_D_to_Q_four_max": 5.035776554315575
+  },
+  "ural": {
+   "validated": false,
+   "Q_g_median_m": 0.4317294482657253,
+   "D_g_median_m": {
+    "gebco_2026": 2.128353956385713,
+    "gebco_2022": 1.84916862772037,
+    "etopo_2022": 0.4638008842148386,
+    "srtm15p_v2.7": 2.658832176559057,
+    "etopo1": 2.376785396913265
+   },
+   "mispredicting_four_min_m": 1.84916862772037,
+   "mispredicting_four_max_m": 2.658832176559057,
+   "ratio_D_to_Q_four_min": 4.283165383201344,
+   "ratio_D_to_Q_four_max": 6.158561078563656
+  },
+  "komsomolets": {
+   "validated": false,
+   "Q_g_median_m": 1.1435556936297342,
+   "D_g_median_m": {
+    "gebco_2026": 4.027253708195724,
+    "gebco_2022": 3.949616302837736,
+    "etopo_2022": 0.681028665304184,
+    "srtm15p_v2.7": 0.8568268702995835,
+    "etopo1": 3.5939215624832057
+   },
+   "mispredicting_four_min_m": 0.8568268702995835,
+   "mispredicting_four_max_m": 4.027253708195724,
+   "ratio_D_to_Q_four_min": 0.7492655364951651,
+   "ratio_D_to_Q_four_max": 3.521694422606484
+  }
+ },
+ "west_interfluve": {
+  "mispredicting_four_D_g_min_m": 1.3705196089783225,
+  "mispredicting_four_D_g_max_m": 3.277972781086313,
+  "Q_g_min_m": 0.335493429601589,
+  "Q_g_max_m": 0.457793762443884,
+  "etopo2022_D_g_min_m": 0.1095277222028275,
+  "etopo2022_D_g_max_m": 0.2205156807175936
+ },
+ "validated_four_sectors": {
+  "mispredicting_four_D_g_min_m": 0.1196966556979054,
+  "mispredicting_four_D_g_max_m": 3.277972781086313,
+  "Q_g_min_m": 0.0997064916211925,
+  "Q_g_max_m": 0.955118645012632
+ }
+}
