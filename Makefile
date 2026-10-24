@@ -854,6 +854,10 @@ METRIC_INPUTS += results/generality/great_salt_lake/lineage.json results/hindcas
 ## Revision analyses (PREREG Amendment 18) -------------------------------------------------
 # Each revision analysis adds its metrics through tools/metrics_rev_<ws>.py (build_metrics.revision_metrics).
 METRIC_INPUTS += $(wildcard tools/metrics_rev_*.py)
+# Design constants of the RSE text (tools/metrics_rev_params2.py, D-154), read from the code and
+# records that apply them; the result files it reads are prerequisites through REV_S and REV2_DONE.
+METRIC_INPUTS += scripts/rev2_d_obsbias.py docs/PREREG.md figures/rse_fig_dq.py figures/rse_fig_area.py \
+                 figures/rse_fig_method.py scripts/rev2_g_lakebed.py src/caspian/lakebed.py
 
 # Revision analysis S, H1 statistics. HEAVY (about 4,600 s): the raster part reads
 # the cached flood maps and stage-2 tiles and reproduces the registered tables first.
@@ -1288,7 +1292,7 @@ figures: $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex manuscri
 params: results/params.json
 metrics: results/metrics.json manuscript/numbers.tex
 macros: manuscript/numbers.tex
-manuscript: manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md $(RSE_PDFS)
+manuscript: manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md manuscript/rse_main.pdf manuscript/rse_supplementary.pdf manuscript/rse_highlights.pdf manuscript/cover_letter_rse.pdf
 phase-a: $(PHASE_A_RESULTS)
 # Every input `make all` reads that an acquisition step writes, one per line (stage 1 and 2b).
 inputs:
@@ -1308,7 +1312,7 @@ results/display/rse_shorelines.json: scripts/f5_rse_display.py | $(VERIFIED)
 	$(PYTHON) scripts/f5_rse_display.py
 figures/out/rse_fig_%.pdf: figures/rse_fig_%.py figures/_rse.py results/metrics.json results/display/rse_shorelines.json
 	$(PYTHON) $<
-RSE_TEX := manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) manuscript/rse/figure_captions_rse_draft.tex refs/references.bib $(RSE_FIGS)
+RSE_TEX := manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) $(wildcard manuscript/rse/fig_*.tex) refs/references.bib $(RSE_FIGS)
 manuscript/rse_main.pdf: manuscript/rse_main.tex $(RSE_TEX)
 	$(TECTONIC) -X compile --keep-intermediates manuscript/rse_main.tex
 manuscript/rse_supplementary.pdf: manuscript/rse_supplementary.tex manuscript/rse_main.pdf $(RSE_TEX)
@@ -1317,7 +1321,7 @@ manuscript/rse_highlights.pdf: manuscript/rse_highlights.tex manuscript/numbers.
 	$(TECTONIC) -X compile manuscript/rse_highlights.tex
 manuscript/cover_letter_rse.pdf: manuscript/cover_letter_rse.tex manuscript/numbers.tex
 	$(TECTONIC) -X compile manuscript/cover_letter_rse.tex
-RSE_PDFS := manuscript/rse_main.pdf manuscript/rse_supplementary.pdf manuscript/rse_highlights.pdf manuscript/cover_letter_rse.pdf
+RSE_PDFS := manuscript/rse_main.pdf manuscript/rse_supplementary.pdf manuscript/rse_highlights.pdf manuscript/cover_letter_rse.pdf results/display/rse_shorelines.json
 all: $(VERIFIED) $(PHASE_A_RESULTS) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex \
      manuscript/sections/ed_tables_h3_draft.tex manuscript/numbers.tex \
-     manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md
+     manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md $(RSE_PDFS)

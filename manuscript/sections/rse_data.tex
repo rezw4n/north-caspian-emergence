@@ -7,6 +7,8 @@
 \label{sec:nc}
 The study domain is the North Caspian Sea north of the line from Chechen Island to Cape Tyub-Karagan, \metricsf{study_area.domain_km2}{3}~\kmsq{} including land (Fig.~\ref{fig:rse_study_area}). Before any evaluation we divided it into seven sectors, drawing the coastal ones on the Global Surface Water transitions layer \citep{pekel2016}. From west to east they are the Kizlyar--Dagestan coast (Kizlyar Bay to the Kalmyk coast), the Volga delta, the Volga--Ural interfluve coast, the Ural delta, the northeastern coast (Tengiz--Kashagan), and Komsomolets Bay with the Kaidak flats; the open shelf is the remainder. The two deltas are deltaic, and the deltas and the Kizlyar--Dagestan coast are vegetated (Section~\ref{sec:water}); reed beds there hide the water's edge from optical sensors. Severe storm surges change the Caspian's level by metres within days \citep{lahijani2023} and move the North Caspian shoreline by kilometres \citep{pavlova2020,yeltay2026}. The median seabed gradient in the emerged band ranges from \metricdp{rev.w.r.gmedian_min}{2}~m per km on the open shelf to \metricdp{rev.w.r.gmedian_max}{2}~m per km in the Volga delta.
 
+\input{rse/fig_study_area}
+
 \subsection{Great Salt Lake as a positive control of the method}
 \label{sec:gsl}
 At Great Salt Lake, Utah, surfaces with real lake-bed heights exist, so we can ask whether the audit passes them. Its north and south arms, separated by a railway causeway, were audited as two sectors, with levels from the USGS gauges near Saline and at Saltair \citep{usgs_nwis} converted to NAVD~88 with VERTCON~3.0 \citep{noaa_ncat}. The planned control, the USGS topobathymetric model \citep{root2023_gsl_tbdem}, could not be downloaded by script, because its repository answers scripted requests with a browser challenge. We used the pre-specified alternative, the 3DEP 1/3 arc-second elevation model \citep{usgs_3dep10m}, which over the lake bed is mostly lidar flown in autumn 2016 \citep{quantumspatial2017_gsl,usgs_3dep13_tiles}; it is hydro-flattened \citep{archuleta2017}, so we used it only above its flattened surfaces. As an additional control we audited a lake-bed elevation model \citep{tarboton_gsl_bathymetry} that rests, below its upper sounding limit, on USGS sonar surveys of 2002--2004 (south arm) and 2006 (north arm), and above it on map contours \citep{baskin2005,baskin2006}; we converted it from NGVD~29 with each arm's gauge constant. Lake Urmia, the second planned basin, was not run within the available Earth Engine budget.
@@ -32,10 +34,10 @@ All heights were compared on the working datum, the reference of the DAHITI seri
 Source & Documented reference & Conversion to the working datum & Constant \\
 \midrule
 DAHITI level (working datum) & Normal heights; EIGEN-6C4 quasi-geoid \citep{schwatke2015,dahiti_wl} & None & -- \\
-Hydroweb level & Above the GGM02C geoid \citep{hydrowebwl} & Moving-median shift to DAHITI & Median common 1$\sigma$ \metric{levels.gapfill.offset_sigma_p50_m}~m \\
-CASPCOM gauge posts & Baltic Height System \citep{caspcom2026} & Offset $\delta$ added to levels for reporting only & $\delta$ = \metric{datum.bhs.delta_m}~m (1$\sigma$ \metric{datum.bhs.sigma_posts_years_m}~m) \\
-Global grids & EGM2008 (ETOPO~2022); ``sea level'' (GEBCO, ETOPO1); none for soundings (SRTM15+) & $+\,N_{\mathrm{EGM2008}} - N_{\mathrm{EIGEN\text{-}6C4}}$ per cell, \metric{datum.dN_min_m} to \metric{datum.dN_max_m}~m, plus the realisation constant & \metric{datum.nga_offset_m}~m; then $c = 0$ (as distributed) or the area-fitted $c$ \\
-ICESat-2 ATL06, ATL08 (Release~007) & WGS84 ellipsoid, ITRF2020, tide-free \citep{is2_compguide_r007} & $-\,N_{\mathrm{EIGEN\text{-}6C4}}$, then a training-block constant & ATL06 \metric{h2.atl06.datum_constant_m}~m; ATL08 \metric{h2.atl08.datum_constant_m}~m \\
+Hydroweb level & Above the GGM02C geoid \citep{hydrowebwl} & Moving-median shift to DAHITI & Median SD of the shift \metric{levels.gapfill.offset_sigma_p50_m}~m \\
+CASPCOM gauge posts & Baltic Height System \citep{caspcom2026} & Offset $\delta$ added to levels for reporting only & $\delta$ = \metric{datum.bhs.delta_m}~m (SD \metric{datum.bhs.sigma_posts_years_m}~m) \\
+Global grids & EGM2008 (ETOPO~2022); ``sea level'' (GEBCO, ETOPO1); none for soundings (SRTM15+) & Add the EGM2008 minus EIGEN-6C4 geoid difference per cell, \metric{datum.dN_min_m} to \metric{datum.dN_max_m}~m, plus the realisation constant & \metric{datum.nga_offset_m}~m; then no offset (as distributed) or the area-fitted $c$ \\
+ICESat-2 ATL06, ATL08 (Release~007) & WGS84 ellipsoid, ITRF2020, tide-free \citep{is2_compguide_r007} & Subtract the EIGEN-6C4 geoid height, then a training-block constant & ATL06\metric{h2.atl06.datum_constant_m}~m; ATL08 \metric{h2.atl08.datum_constant_m}~m \\
 GEDI L2A & WGS84 ellipsoid \citep{gedi_l2a_v2} & As ICESat-2, own constant & Fitted \\
 Copernicus GLO-30 & EGM2008 \citep{copdem_handbook_i5} & As the grids, own constant & Fitted \\
 SWOT raster & EGM2008 geoid, mean tide; realisation not stated \citep{swot_pdd_raster} & Not converted; departures within blocks & Common departure \metric{rev.w.dep.common_m}~m \\
@@ -54,18 +56,18 @@ The grids are not independent. ETOPO~2022 takes GEBCO\_2022 as its base for seas
 \begin{table}[!htbp]
 \centering
 \renewcommand{\baselinestretch}{1}\scriptsize
-\renewcommand{\arraystretch}{1.1}
+\renewcommand{\arraystretch}{1.1}\setlength{\tabcolsep}{3pt}
 \caption{The five global grids audited. Cell: native grid spacing. Whole-metre share: the fraction of native cells stored as whole metres in the band of recent and near-term emergence (band definition in the Supplementary Material). n.c.: not computed. Sources: Section~\ref{sec:grids}.}
 \label{tab:grids}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.75cm}>{\raggedright\arraybackslash}p{0.7cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{2.45cm}}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.95cm}>{\raggedright\arraybackslash}p{1.35cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{2.5cm}}
 \toprule
 Grid & Cell & North Caspian depth source, as documented & Stated vertical reference & Whole-metre share & Lineage and notes \\
 \midrule
-GEBCO\_2026 & 15$''$ & Coded as predicted from satellite gravity or as a pre-generated grid of mixed sources; no direct measurement in the emerged band \citep{gebco2026} & Mean sea level; other datums in some shallow areas & \metric{rev.n.shared.gebco2026.band34_26.share_product_integer} & GEBCO; equals GEBCO\_2022 in a fraction \metric{rev.n.shared.gebco2026.all.share_equal} of domain cells \\
-GEBCO\_2022 & 15$''$ & As GEBCO\_2026; from 2010 until at least the 2014 release, a compilation of Russian hydrographic charts shifted by a constant, with no chart datum named \citep{gebco2014_doc} & As GEBCO\_2026 & \metric{rev.n.shared.gebco2026.band34_26.share_reference_integer} & GEBCO; used by \citet{court2025} \\
-ETOPO~2022 & 15$''$ & GEBCO\_2022 depths capped at \metric{rev.w.g.etopo.cap_m}~m inside the February 2000 lake outline; FABDEM land heights outside it \citep{macferrin2025} & EGM2008 & \metric{rev.n.shared.etopo2022.band34_26.share_product_integer} & GEBCO; the cap is not stated in its documentation \\
-SRTM15+ V2.7 & 15$''$ & Not documented \citep{tozer2019} & Onshore heights orthometric; none stated for soundings & \metric{rev.n.shared.srtm15p.band34_26.share_product_integer} & SRTM15+; equals GEBCO\_2022 in a fraction \metric{rev.n.shared.srtm15p.all.share_equal} of domain cells \\
-ETOPO1 (bedrock) & 1$'$ & Contours of a 1987 navigation map, referenced to the local sea level and shifted uniformly \citep{amante2009} & Sea level & n.c. & ETOPO1; used by \citet{akbari2020} \\
+GEBCO\_2026 & 15 arc-second & Coded as predicted from satellite gravity or as a pre-generated grid of mixed sources; no direct measurement in the emerged band \citep{gebco2026} & Mean sea level; other datums in some shallow areas & \metric{rev.n.shared.gebco2026.band34_26.share_product_integer} & GEBCO; equals GEBCO\_2022 in a fraction \metric{rev.n.shared.gebco2026.all.share_equal} of domain cells \\
+GEBCO\_2022 & 15 arc-second & As GEBCO\_2026; from 2010 until at least the 2014 release, a compilation of Russian hydrographic charts shifted by a constant, with no chart datum named \citep{gebco2014_doc} & As GEBCO\_2026 & \metric{rev.n.shared.gebco2026.band34_26.share_reference_integer} & GEBCO; used by \citet{court2025} \\
+ETOPO~2022 & 15 arc-second & GEBCO\_2022 depths capped at \metric{rev.w.g.etopo.cap_m}~m inside the February 2000 lake outline; FABDEM land heights outside it \citep{macferrin2025} & EGM2008 & \metric{rev.n.shared.etopo2022.band34_26.share_product_integer} & GEBCO; the cap is not stated in its documentation \\
+SRTM15+ V2.7 & 15 arc-second & Not documented \citep{tozer2019} & Onshore heights orthometric; none stated for soundings & \metric{rev.n.shared.srtm15p.band34_26.share_product_integer} & SRTM15+; equals GEBCO\_2022 in a fraction \metric{rev.n.shared.srtm15p.all.share_equal} of domain cells \\
+ETOPO1 (bedrock) & 1 arc-minute & Contours of a 1987 navigation map, referenced to the local sea level and shifted uniformly \citep{amante2009} & Sea level & n.c. & ETOPO1; used by \citet{akbari2020} \\
 \bottomrule
 \end{tabularx}
 \end{table}

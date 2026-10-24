@@ -37579,6 +37579,18 @@
   "source": "doi:10.1371/journal.pone.0325546 (PDF p. 14 (Discussion))",
   "decimals": 0
  },
+ "lit.gesch2018.increment_factor": {
+  "value": 2,
+  "unit": "times the vertical accuracy (minimum increment)",
+  "source": "doi:10.3389/feart.2018.00230 (PDF p. 5)",
+  "decimals": 0
+ },
+ "lit.gesch2018.vertical_error_conf_pct": {
+  "value": 95,
+  "unit": "% (confidence level of the vertical error, LE95)",
+  "source": "doi:10.3389/feart.2018.00230 (PDF p. 5)",
+  "decimals": 0
+ },
  "lit.ginzburg2025.altimetry_offset_m": {
   "value": 0.5,
   "unit": "m (altimetry above instrumental levels)",
@@ -37775,6 +37787,13 @@
   "value": 2000,
   "unit": "resamples",
   "source": "caspian.design.BOOTSTRAP_N"
+ },
+ "params.checked_tol_m": {
+  "value": 0.5,
+  "unit": "m",
+  "source": "scripts/rev2_d_obsbias.py LIMIT_M = docs/PREREG.md Amendment 18 item 1",
+  "note": "a sector is checked when the waterline model's mean and median errors against ATL08 and ATL06 lie within +- this value in its test blocks (half the whole-metre step of the grids)",
+  "decimals": 1
  },
  "params.ci_pct": {
   "value": 95,
@@ -38004,6 +38023,18 @@
   "unit": "month",
   "source": "scripts/a3_thresholds.ICE_MONTHS"
  },
+ "params.iqr_hi_pct": {
+  "value": 75,
+  "unit": "percentile",
+  "source": "figures/rse_fig_dq.py and figures/rse_fig_area.py (np.percentile(..., [lo, 50, hi]): boxes and bars)",
+  "note": "upper edge of the boxes (rse_fig_dq) and bars (rse_fig_area)"
+ },
+ "params.iqr_lo_pct": {
+  "value": 25,
+  "unit": "percentile",
+  "source": "figures/rse_fig_dq.py and figures/rse_fig_area.py (np.percentile(..., [lo, 50, hi]): boxes and bars)",
+  "note": "lower edge of the boxes (rse_fig_dq) and bars (rse_fig_area)"
+ },
  "params.laea_lat0_deg": {
   "value": 45.5,
   "unit": "degrees N",
@@ -38121,6 +38152,11 @@
   "unit": "MNDWI",
   "source": "scripts/r18_rblock_export.build_plan (fixed_mndwi0 threshold)",
   "decimals": 0
+ },
+ "params.rse_fig_method_scale_km": {
+  "value": 10,
+  "unit": "km",
+  "source": "figures/rse_fig_method.py (every scale_bar call: length_m and label)"
  },
  "params.s2_cloudscore_threshold": {
   "value": 0.6,
@@ -74285,6 +74321,12 @@
   "note": "DEM contour points flagged static (E2 + E3, D-075)",
   "decimals": 1
  },
+ "rev.s.checked.n_sectors": {
+  "value": 4,
+  "unit": "sectors",
+  "source": "results/revision/s/summary.json (validated_sectors)",
+  "note": "sectors that pass the checked-sector criterion of PREREG Amendment 18 item 1: west, interfluve, northeast, open_shelf"
+ },
  "rev.s.headline.interfluve.d_km_max": {
   "value": 7.8,
   "unit": "km",
@@ -96857,6 +96899,104 @@
   "source": "results/revision2/d/constants/summary.json",
   "note": "max - min over the five grids"
  },
+ "rev2.d.const.band.m26p0_m25p5.hi_m": {
+  "value": -25.5,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-26.0, -25.5] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m26p0_m25p5.lo_m": {
+  "value": -26.0,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-26.0, -25.5] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m26p5_m26p0.hi_m": {
+  "value": -26.0,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-26.5, -26.0] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m26p5_m26p0.lo_m": {
+  "value": -26.5,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-26.5, -26.0] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m27p0_m26p5.hi_m": {
+  "value": -26.5,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-27.0, -26.5] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m27p0_m26p5.lo_m": {
+  "value": -27.0,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-27.0, -26.5] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m27p5_m27p0.hi_m": {
+  "value": -27.0,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-27.5, -27.0] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m27p5_m27p0.lo_m": {
+  "value": -27.5,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-27.5, -27.0] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m28p0_m27p5.hi_m": {
+  "value": -27.5,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-28.0, -27.5] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m28p0_m27p5.lo_m": {
+  "value": -28.0,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-28.0, -27.5] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m28p5_m28p0.hi_m": {
+  "value": -28.0,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-28.5, -28.0] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m28p5_m28p0.lo_m": {
+  "value": -28.5,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-28.5, -28.0] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m29p0_m28p5.hi_m": {
+  "value": -28.5,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-29.0, -28.5] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
+ "rev2.d.const.band.m29p0_m28p5.lo_m": {
+  "value": -29.0,
+  "unit": "m",
+  "source": "results/revision2/d/constants/constants.csv",
+  "note": "A19 item 6a: half-metre level band (-29.0, -28.5] on the working datum (lower edge open, upper closed)",
+  "decimals": 1
+ },
  "rev2.d.const.etopo1.E1_bins34to41_m": {
   "value": -2.17,
   "unit": "m",
@@ -100548,196 +100688,196 @@
   "value": 48.8736,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 40 predicted_altimetry share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 40 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: depth predicted from satellite-derived gravity (GEBCO grid documentation, Table 2; label in the TID file: predicted_altimetry)",
   "decimals": 1
  },
  "rev2.d.tid.band.interfluve.pregenerated_pct": {
   "value": 40.649,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 70 pre-generated_grid share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 70 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: pre-generated grid of mixed sources (GEBCO grid documentation, Table 2; label in the TID file: pre-generated_grid)",
   "decimals": 1
  },
- "rev2.d.tid.band.interfluve.sounding_pct": {
+ "rev2.d.tid.band.interfluve.tid44_pct": {
   "value": 10.477400000000001,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 44 bathymetric_sounding share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 44 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: gridded depths from multiple measured and derived sources, interpolated with satellite-gravity guidance (GEBCO grid documentation, Table 2; label in the TID file: bathymetric_sounding)",
   "decimals": 1
  },
  "rev2.d.tid.band.komsomolets.land_pct": {
   "value": 0.016,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 0 Land share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 0 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: land (GEBCO grid documentation, Table 2; label in the TID file: Land)",
   "decimals": 1
  },
  "rev2.d.tid.band.komsomolets.predicted_pct": {
   "value": 86.4128,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 40 predicted_altimetry share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 40 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: depth predicted from satellite-derived gravity (GEBCO grid documentation, Table 2; label in the TID file: predicted_altimetry)",
   "decimals": 1
  },
  "rev2.d.tid.band.komsomolets.pregenerated_pct": {
   "value": 13.0754,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 70 pre-generated_grid share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 70 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: pre-generated grid of mixed sources (GEBCO grid documentation, Table 2; label in the TID file: pre-generated_grid)",
   "decimals": 1
  },
- "rev2.d.tid.band.komsomolets.sounding_pct": {
+ "rev2.d.tid.band.komsomolets.tid44_pct": {
   "value": 0.4957,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 44 bathymetric_sounding share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 44 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: gridded depths from multiple measured and derived sources, interpolated with satellite-gravity guidance (GEBCO grid documentation, Table 2; label in the TID file: bathymetric_sounding)",
   "decimals": 1
  },
  "rev2.d.tid.band.land_pct": {
   "value": 0.0194,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 0 Land share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 0 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: land (GEBCO grid documentation, Table 2; label in the TID file: Land)",
   "decimals": 1
  },
  "rev2.d.tid.band.northeast.land_pct": {
   "value": 0.0194,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 0 Land share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 0 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: land (GEBCO grid documentation, Table 2; label in the TID file: Land)",
   "decimals": 1
  },
  "rev2.d.tid.band.northeast.predicted_pct": {
   "value": 50.5619,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 40 predicted_altimetry share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 40 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: depth predicted from satellite-derived gravity (GEBCO grid documentation, Table 2; label in the TID file: predicted_altimetry)",
   "decimals": 1
  },
  "rev2.d.tid.band.northeast.pregenerated_pct": {
   "value": 45.8236,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 70 pre-generated_grid share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 70 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: pre-generated grid of mixed sources (GEBCO grid documentation, Table 2; label in the TID file: pre-generated_grid)",
   "decimals": 1
  },
- "rev2.d.tid.band.northeast.sounding_pct": {
+ "rev2.d.tid.band.northeast.tid44_pct": {
   "value": 3.5950999999999995,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 44 bathymetric_sounding share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 44 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: gridded depths from multiple measured and derived sources, interpolated with satellite-gravity guidance (GEBCO grid documentation, Table 2; label in the TID file: bathymetric_sounding)",
   "decimals": 1
  },
  "rev2.d.tid.band.openshelf.land_pct": {
   "value": 0.07110000000000001,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 0 Land share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 0 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: land (GEBCO grid documentation, Table 2; label in the TID file: Land)",
   "decimals": 1
  },
  "rev2.d.tid.band.openshelf.predicted_pct": {
   "value": 26.904600000000002,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 40 predicted_altimetry share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 40 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: depth predicted from satellite-derived gravity (GEBCO grid documentation, Table 2; label in the TID file: predicted_altimetry)",
   "decimals": 1
  },
  "rev2.d.tid.band.openshelf.pregenerated_pct": {
   "value": 71.962,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 70 pre-generated_grid share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 70 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: pre-generated grid of mixed sources (GEBCO grid documentation, Table 2; label in the TID file: pre-generated_grid)",
   "decimals": 1
  },
- "rev2.d.tid.band.openshelf.sounding_pct": {
+ "rev2.d.tid.band.openshelf.tid44_pct": {
   "value": 1.0624,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 44 bathymetric_sounding share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 44 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: gridded depths from multiple measured and derived sources, interpolated with satellite-gravity guidance (GEBCO grid documentation, Table 2; label in the TID file: bathymetric_sounding)",
   "decimals": 1
  },
  "rev2.d.tid.band.predicted_pct": {
   "value": 54.770300000000006,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 40 predicted_altimetry share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 40 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: depth predicted from satellite-derived gravity (GEBCO grid documentation, Table 2; label in the TID file: predicted_altimetry)",
   "decimals": 1
  },
  "rev2.d.tid.band.pregenerated_pct": {
   "value": 42.0997,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 70 pre-generated_grid share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 70 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: pre-generated grid of mixed sources (GEBCO grid documentation, Table 2; label in the TID file: pre-generated_grid)",
   "decimals": 1
  },
- "rev2.d.tid.band.sounding_pct": {
+ "rev2.d.tid.band.tid44_pct": {
   "value": 3.1106000000000003,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 44 bathymetric_sounding share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 44 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: gridded depths from multiple measured and derived sources, interpolated with satellite-gravity guidance (GEBCO grid documentation, Table 2; label in the TID file: bathymetric_sounding)",
   "decimals": 1
  },
  "rev2.d.tid.band.ural.predicted_pct": {
   "value": 49.1084,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 40 predicted_altimetry share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 40 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: depth predicted from satellite-derived gravity (GEBCO grid documentation, Table 2; label in the TID file: predicted_altimetry)",
   "decimals": 1
  },
  "rev2.d.tid.band.ural.pregenerated_pct": {
   "value": 46.3444,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 70 pre-generated_grid share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 70 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: pre-generated grid of mixed sources (GEBCO grid documentation, Table 2; label in the TID file: pre-generated_grid)",
   "decimals": 1
  },
- "rev2.d.tid.band.ural.sounding_pct": {
+ "rev2.d.tid.band.ural.tid44_pct": {
   "value": 4.5472,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 44 bathymetric_sounding share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 44 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: gridded depths from multiple measured and derived sources, interpolated with satellite-gravity guidance (GEBCO grid documentation, Table 2; label in the TID file: bathymetric_sounding)",
   "decimals": 1
  },
  "rev2.d.tid.band.volga.predicted_pct": {
   "value": 54.7015,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 40 predicted_altimetry share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 40 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: depth predicted from satellite-derived gravity (GEBCO grid documentation, Table 2; label in the TID file: predicted_altimetry)",
   "decimals": 1
  },
  "rev2.d.tid.band.volga.pregenerated_pct": {
   "value": 42.3193,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 70 pre-generated_grid share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 70 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: pre-generated grid of mixed sources (GEBCO grid documentation, Table 2; label in the TID file: pre-generated_grid)",
   "decimals": 1
  },
- "rev2.d.tid.band.volga.sounding_pct": {
+ "rev2.d.tid.band.volga.tid44_pct": {
   "value": 2.9792,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 44 bathymetric_sounding share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 44 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: gridded depths from multiple measured and derived sources, interpolated with satellite-gravity guidance (GEBCO grid documentation, Table 2; label in the TID file: bathymetric_sounding)",
   "decimals": 1
  },
  "rev2.d.tid.band.west.predicted_pct": {
   "value": 31.654300000000003,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 40 predicted_altimetry share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 40 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: depth predicted from satellite-derived gravity (GEBCO grid documentation, Table 2; label in the TID file: predicted_altimetry)",
   "decimals": 1
  },
  "rev2.d.tid.band.west.pregenerated_pct": {
   "value": 59.6689,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 70 pre-generated_grid share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 70 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: pre-generated grid of mixed sources (GEBCO grid documentation, Table 2; label in the TID file: pre-generated_grid)",
   "decimals": 1
  },
- "rev2.d.tid.band.west.sounding_pct": {
+ "rev2.d.tid.band.west.tid44_pct": {
   "value": 8.6767,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 44 bathymetric_sounding share (250 m equal-area cells (nearest 15 arc-second cell))",
+  "note": "A19 item 14: GEBCO_2026 TID 44 share (250 m equal-area cells (nearest 15 arc-second cell)); documented meaning: gridded depths from multiple measured and derived sources, interpolated with satellite-gravity guidance (GEBCO grid documentation, Table 2; label in the TID file: bathymetric_sounding)",
   "decimals": 1
  },
  "rev2.d.tid.band_cells": {
@@ -100749,28 +100889,28 @@
   "value": 6.6075,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 0 Land share (15 arc-second cells)",
+  "note": "A19 item 14: GEBCO_2026 TID 0 share (15 arc-second cells); documented meaning: land (GEBCO grid documentation, Table 2; label in the TID file: Land)",
   "decimals": 1
  },
  "rev2.d.tid.domain.predicted_pct": {
   "value": 51.9674,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 40 predicted_altimetry share (15 arc-second cells)",
+  "note": "A19 item 14: GEBCO_2026 TID 40 share (15 arc-second cells); documented meaning: depth predicted from satellite-derived gravity (GEBCO grid documentation, Table 2; label in the TID file: predicted_altimetry)",
   "decimals": 1
  },
  "rev2.d.tid.domain.pregenerated_pct": {
   "value": 40.391,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 70 pre-generated_grid share (15 arc-second cells)",
+  "note": "A19 item 14: GEBCO_2026 TID 70 share (15 arc-second cells); documented meaning: pre-generated grid of mixed sources (GEBCO grid documentation, Table 2; label in the TID file: pre-generated_grid)",
   "decimals": 1
  },
- "rev2.d.tid.domain.sounding_pct": {
+ "rev2.d.tid.domain.tid44_pct": {
   "value": 1.0341,
   "unit": "%",
   "source": "results/revision2/d/sources/tid_shares.csv",
-  "note": "A19 item 14: GEBCO_2026 TID 44 bathymetric_sounding share (15 arc-second cells)",
+  "note": "A19 item 14: GEBCO_2026 TID 44 share (15 arc-second cells); documented meaning: gridded depths from multiple measured and derived sources, interpolated with satellite-gravity guidance (GEBCO grid documentation, Table 2; label in the TID file: bathymetric_sounding)",
   "decimals": 1
  },
  "rev2.d.tid.domain_cells": {
@@ -102825,6 +102965,13 @@
   "unit": "m",
   "source": "results/revision2/g/gsl_lakebed.json"
  },
+ "rev2.g.lakebed.survey.north.sounded_top_ngvd29_m": {
+  "value": 1278.3312,
+  "unit": "m (NGVD 29)",
+  "source": "results/revision2/g/gsl_lakebed.json (sounded_top_navd88_m - gauge_delta_m)",
+  "note": "top of the USGS sonar soundings in the lake-bed model, 4,194 ft NGVD 29 (scripts/rev2_g_lakebed.SOUNDED_TOP_FT; Baskin 2005, 2006)",
+  "decimals": 1
+ },
  "rev2.g.lakebed.survey.north.start": {
   "value": "2006-03-01",
   "unit": "date",
@@ -102846,6 +102993,13 @@
   "value": 1279.62,
   "unit": "m",
   "source": "results/revision2/g/gsl_lakebed.json"
+ },
+ "rev2.g.lakebed.survey.south.sounded_top_ngvd29_m": {
+  "value": 1278.0264,
+  "unit": "m (NGVD 29)",
+  "source": "results/revision2/g/gsl_lakebed.json (sounded_top_navd88_m - gauge_delta_m)",
+  "note": "top of the USGS sonar soundings in the lake-bed model, 4,193 ft NGVD 29 (scripts/rev2_g_lakebed.SOUNDED_TOP_FT; Baskin 2005, 2006)",
+  "decimals": 1
  },
  "rev2.g.lakebed.survey.south.start": {
   "value": "2002-09-01",

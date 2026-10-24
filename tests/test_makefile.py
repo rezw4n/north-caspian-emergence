@@ -180,7 +180,7 @@ NOT_REBUILT = {
     "results/generality/great_salt_lake/status.json": "hand-written status record",
     "results/generality/lake_urmia/status.json": "hand-written status record: not run",
     "results/hindcast/main/d089_rerun_comparison.json": "one-off comparison with the superseded first run",
-    "results/levels/projection_pathways.csv": "values transcribed from the literature",
+    "results/levels/projection_pathways.csv": "values transcribed from the literature (scripts/a8_check_pathways.py)",
     "results/levels/swot_block_levels.csv": "SWOT reduction during download (scripts/a5_swot_sector_levels.py)",
     "results/levels/setup_model.json": "design step before the stage-2 export (scripts/a5_setup_model.py)",
     "results/levels/screening_sensitivity.json": "design step before the stage-2 export (scripts/a6_screening.py)",
@@ -213,6 +213,10 @@ NOT_REBUILT = {
 SIDE_OUTPUTS = {
     "results/study_area/sectors.geojson": "results/study_area/sector_areas.json",
     "results/robustness/r06_datums/": "results/robustness/r06_datums_validation/summary.json",
+    # second review round (PREREG Amendment 19): each step writes its folder and a stamp
+    **{f"results/revision2/{x}/": f"results/revision2/{x}/.done" for x in ("n", "a", "oc", "d", "g")},
+    # display table of the RSE shoreline figure, a prerequisite of the article's figures
+    "results/display/rse_shorelines.json": "manuscript/rse_main.pdf",
 }
 
 
