@@ -42,8 +42,10 @@ where $d$ is the interpolation distance, $\kappa$ the density of contour points 
 % src/caspian/conformal.py: conformal_quantile (k = ceil((n + 1)(1 - alpha)); inf if k > n), intervals;
 % src/caspian/validation.py: calibrate, coverage_on_test
 \begin{equation}
-  \hat{q} = r_{(k)} , \quad k = \left\lceil (n+1)(1-\alpha) \right\rceil \quad (\hat{q} = \infty \text{ if } k > n) , \qquad
+  \begin{gathered}
+  \hat{q} = r_{(k)} , \quad k = \left\lceil (n+1)(1-\alpha) \right\rceil \quad (\hat{q} = \infty \text{ if } k > n) , \\
   C(x) = \left[ \hat{y} - \hat{q}\,s(x) ,\; \hat{y} + \hat{q}\,s(x) \right] .
+  \end{gathered}
   \label{eq:si_conformal}
 \end{equation}
 Coverage holds if calibration and test points are exchangeable; we assume exchangeability between blocks, which the disjoint calibration blocks are meant to make plausible. To check conditional coverage, $\hat{q}$ was computed per sector (Mondrian calibration)\citep{vovk2013,vovk2022,angelopoulos2023}: with $n_g$ the usable calibration points of sector $g$,

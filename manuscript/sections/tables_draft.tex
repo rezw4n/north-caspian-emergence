@@ -7,10 +7,10 @@
 \begin{table}[!htbp]
 \centering
 \scriptsize
-\caption{\textbf{Data sources.} Products, the version used, their role, their vertical reference as documented in the sources cited, and the references.}
+\caption{\textbf{Data sources.} Products, the version used, their role, their vertical reference as documented in the sources cited, and the references. Continued in the second part of the table.}
 \label{tab:data}
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{p{2.3cm}p{2.4cm}p{2.6cm}p{3.1cm}p{4.4cm}}
+\begin{tabular}{p{2.3cm}p{2.4cm}p{2.6cm}p{2.9cm}p{3.9cm}}
 \hline
 Dataset & Version or product & Use & Vertical reference & References \\
 \hline
@@ -28,6 +28,19 @@ ICESat-2 ATL06 and ATL08 & Release 007 & Independent heights (H2) & WGS84 ellips
 GEDI & L2A Version 2 & Independent ground heights & WGS84 ellipsoid; converted as ICESat-2 & \citet{gedi_l2a_v2} \\
 Copernicus DEM & GLO-30 & Independent heights; FABDEM base & EGM2008 & \citet{copdem,copdem_handbook_i5} \\
 EIGEN-6C4 and EGM2008 & Spherical-harmonic models, tide-free (ICGEM calculation service) & Datum chain & -- & \citet{forste2014,pavlis2012,ince2019} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\textbf{Table~\ref{tab:data} (continued).}\par\medskip
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{2.3cm}p{2.4cm}p{2.6cm}p{2.9cm}p{3.9cm}}
+\hline
+Dataset & Version or product & Use & Vertical reference & References \\
+\hline
 GEBCO\_2026 Grid & 15 arc-second & Audited grid & Mean sea level as stated; other datums in some shallow areas & \citet{gebco2026} \\
 GEBCO\_2022 Grid & 15 arc-second & Audited grid & As GEBCO\_2026 & \citet{gebco2022} \\
 ETOPO 2022 & 15 arc-second & Audited grid & EGM2008 & \citet{etopo2022,macferrin2025} \\

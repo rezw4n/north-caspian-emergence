@@ -1,6 +1,6 @@
 # Global bathymetry grids misplace the retreating North Caspian shoreline by kilometres
 
-Rezwan Ahmed, Department of Geography and Environment, University of Dhaka (ORCID 0009-0002-8003-099X; rezwan490@gmail.com).
+Rezwan Ahmed (ORCID 0009-0002-8003-099X; corresponding author, rezwan490@gmail.com) and Al Sakib (ORCID 0009-0007-6064-4827), Department of Geography and Environment, University of Dhaka.
 
 This repository holds the code, derived data and manuscript sources for the paper submitted to Remote Sensing of Environment. It contains the analysis package, the pipeline scripts, the figure and table scripts, the derived tables behind every figure and number in the paper, the pre-registration with its dated amendments, and the LaTeX sources of the article and its Supplementary material. The numbers in the manuscript are not typed by hand: they are read from `results/metrics.json` and inserted as LaTeX macros (`manuscript/numbers.tex`).
 

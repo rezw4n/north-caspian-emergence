@@ -225,7 +225,7 @@ def main() -> int:
     y = TOP + map_h + G1
     for r_, (sid, letter, box) in enumerate(ZOOMS):
         q = float(nf.loc[sid, "p95_m"]) / 1000.0
-        head = (f"{R.NAME[sid]} (validated): noise floor Q = {q:.2f} km at this level")
+        head = (f"{R.NAME[sid]} (checked): noise floor Q = {q:.2f} km at this level")
         fig.text((L + 4.0) / W, 1 - (y + HEAD - 1.2) / H, head, ha="left", va="bottom", fontsize=R.FS, color=R.INK)
         R.fig_label(fig, W, H, letter, 1.0, y + 0.2)
         yt = y + HEAD

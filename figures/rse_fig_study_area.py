@@ -194,12 +194,12 @@ def main() -> int:
     ax_k.set_xlim(0, 45)
     ax_k.set_ylim(0, 26)
     ax_k.axis("off")
-    ax_k.text(1.0, 21.5, "Validated", ha="left", va="center", fontsize=R.FS, fontweight="bold", color=R.INK,
+    ax_k.text(1.0, 21.5, "Checked", ha="left", va="center", fontsize=R.FS, fontweight="bold", color=R.INK,
               bbox={"boxstyle": "round,pad=0.25,rounding_size=0.15", "fc": "white", "ec": R.INK, "lw": 0.8})
     ax_k.text(17.0, 21.5, "waterline DEM within ±0.5 m\nof ICESat-2 (mean and median)", ha="left", va="center",
               fontsize=R.FS_SMALL, color=R.INK, linespacing=1.1)
     ax_k.add_patch(Rectangle((0.5, 6.5), 13.5, 6.0, fc="white", ec=HATCH, hatch="////", lw=0.5))
-    ax_k.text(7.25, 9.5, "Not validated", ha="center", va="center", fontsize=R.FS, style="italic", color=R.INK,
+    ax_k.text(7.25, 9.5, "Biased or untested", ha="center", va="center", fontsize=R.FS, style="italic", color=R.INK,
               bbox={"boxstyle": "round,pad=0.25,rounding_size=0.15", "fc": "white", "ec": HATCH, "lw": 0.5})
     ax_k.text(17.0, 9.5, "mean or median error beyond ±0.5 m,\nor no ICESat-2 test block (hatched)", ha="left", va="center",
               fontsize=R.FS_SMALL, color=R.INK, linespacing=1.1)

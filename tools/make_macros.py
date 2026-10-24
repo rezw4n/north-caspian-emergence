@@ -21,6 +21,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 # Decimal places per key pattern (first match wins).
 FORMATS = [
+    # Great Salt Lake displacements and floors are whole metres (60 m audit grid); the
+    # correlation range of the simulated error fields is a whole number of km (D-155 addendum)
+    (r"^rev2\.g\.lakebed\..*median_(displacement|floor_p95)_m$", 0),
+    (r"^generality\.great_salt_lake\.control\.[a-z]+\.median_(displacement|noise_p95)_m$", 0),
+    (r"^rev2\.g\.lakebed\.ratio\.", 1),
+    (r"^rev2\.oc\.i5\.range_km$", 0),
     (r"_km2(\.|$)", 0),  # domain_km2 and sector_km2.<name>
     (r"_days$", 0),
     (r"sigma_formal_max_m$", 3),

@@ -227,7 +227,7 @@ def main() -> int:
                Line2D([], [], ls="none", marker="o", ms=3.6, mfc="white", mec=R.INK, label="DEM, ATL08 median"),
                Line2D([], [], ls="none", marker="s", ms=3.6, mfc="#6b6b6b", mec="#6b6b6b", label="DEM, ATL06 mean"),
                Line2D([], [], ls="none", marker="s", ms=3.6, mfc="white", mec="#6b6b6b", label="DEM, ATL06 median"),
-               Patch(fc=CRIT, ec="none", label="±0.5 m (validated-sector rule)")]
+               Patch(fc=CRIT, ec="none", label="±0.5 m (checked-sector rule)")]
     handles += [Line2D([], [], ls="none", marker=R.MARKERS[p], ms=3.0, mfc=R.COLOURS[p], mec="none",
                        label=f"{R.NAMES[p]}, ATL08") for p in R.PRODUCTS]
     fig.legend(handles=handles, loc="upper left", bbox_to_anchor=((L + 0.5) / W, 1 - (y2 - 10.5) / H), ncol=5,

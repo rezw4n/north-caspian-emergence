@@ -478,11 +478,13 @@ _RANGE = r"(?:\s*(?:,|and|or|to|--|\u2013|-)\s*" + _REF_NUM + r")*"
 
 WHITELIST: list[tuple[str, re.Pattern]] = [
     # cross-references written out: Figure 2b, Figs 2--4, Supplementary Table S1,
-    # Section 2.3, Supplementary Note 4, Eq. (1), section 10 of the pre-registration, and
-    # the numbered robustness checks ("checks 1, 2 and 9")
-    ("figure/table/section/equation/check number", re.compile(
+    # Section 2.3, Supplementary Note 4, Eq. (1), section 10 of the pre-registration, the
+    # numbered robustness checks ("checks 1, 2 and 9") and the numbered items of a
+    # pre-registration amendment ("item 6a", "items 7, 8 and 11"; record labels, D-154)
+    ("figure/table/section/equation/check/item number", re.compile(
         r"(?i)\b(?:Supplementary\s+|Suppl\.\s*)?(?:Figures?|Figs?\.?|Tables?|Sections?|Sects?\.?|Notes?|"
-        r"Equations?|Eqs?\.?|(?:robustness\s+)?checks?)\s*" + _REF_NUM + _RANGE + r"|\u00a7\s*" + _REF_NUM + _RANGE)),
+        r"Equations?|Eqs?\.?|(?:robustness\s+)?checks?|items?)\s*" + _REF_NUM + _RANGE
+        + r"|\u00a7\s*" + _REF_NUM + _RANGE)),
     # project record numbers: D-numbers, PREREG Amendments 12 and 17
     ("D-/Amendment number", re.compile(r"\bD-\d+\b|(?i:\bAmendments?)\s+\d+(?:\s*(?:,|and|--|\u2013)\s*\d+)*")),
     # calendar: 1 January, January 1st, the 21st century, 1985--2026, the 1990s (a

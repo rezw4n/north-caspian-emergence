@@ -22,7 +22,18 @@ PK = {"gebco_2026": "gebco2026", "gebco_2022": "gebco2022", "etopo_2022": "etopo
       "srtm15p_v2.7": "srtm15p", "etopo1": "etopo1"}
 SK = {"west": "west", "volga": "volga", "interfluve": "interfluve", "ural": "ural", "northeast": "northeast",
       "komsomolets": "komsomolets", "open_shelf": "openshelf", "overall": "overall", "all": "all"}
-TID = {"0": "land", "40": "predicted", "44": "sounding", "70": "pregenerated"}
+# Key names of the GEBCO_2026 type identifiers. TID 44 is not soundings: the grid documentation
+# (Table 2, PDF p. 16) defines it as depth "based on bathymetric depths from multiple sources including
+# measured and derived data and included within a gridded data set where interpolation between sounding
+# points is guided by satellite-derived gravity data"; the TID file's own label for it,
+# "bathymetric_sounding", is not that definition, so the key carries the code (D-154; was "sounding").
+TID = {"0": "land", "40": "predicted", "44": "tid44", "70": "pregenerated"}
+TID_MEANING = {
+    "0": "land",
+    "40": "depth predicted from satellite-derived gravity",
+    "44": "gridded depths from multiple measured and derived sources, interpolated with satellite-gravity guidance",
+    "70": "pre-generated grid of mixed sources",
+}
 
 
 def _put(m, key, value, unit, source, note=None, decimals=None):
@@ -246,7 +257,9 @@ def sources(m):
         if sec is None:
             continue
         key = f"tid.{reg}.{TID[code]}_pct" if sec == "all" else f"tid.{reg}.{sec}.{TID[code]}_pct"
-        _put(m, key, 100 * float(r["share"]), "%", src, f"A19 item 14: GEBCO_2026 TID {r['tid']} share ({r['unit']})",
+        _put(m, key, 100 * float(r["share"]), "%", src,
+             f"A19 item 14: GEBCO_2026 TID {code} share ({r['unit']}); documented meaning: {TID_MEANING[code]} "
+             f"(GEBCO grid documentation, Table 2; label in the TID file: {r['tid'].split(maxsplit=1)[-1]})",
              decimals=1)
     d = _json(D / "sources" / "identical_cells.json")
     if d:

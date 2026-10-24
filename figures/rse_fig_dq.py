@@ -80,8 +80,8 @@ def main() -> int:
     fig = plt.figure(figsize=(W * C.MM, H * C.MM))
     rng = np.random.default_rng(SEED)
     width = W - L - RGT
-    groups = (("a", R.VALIDATED, "Validated sectors (waterline DEM mean and median error within ±0.5 m of ICESat-2)"),
-              ("b", R.NOT_VALIDATED, "Sectors whose observations are not validated"))
+    groups = (("a", R.VALIDATED, "Checked sectors (waterline DEM mean and median error within ±0.5 m of ICESat-2)"),
+              ("b", R.NOT_VALIDATED, "Other sectors (observations biased against ICESat-2, or no test block)"))
     # the second row uses the same group width as the first, left-aligned
     gw = width / len(R.VALIDATED)
     offs = np.linspace(-0.36, 0.36, len(R.PRODUCTS))
