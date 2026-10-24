@@ -1312,7 +1312,7 @@ results/display/rse_shorelines.json: scripts/f5_rse_display.py | $(VERIFIED)
 	$(PYTHON) scripts/f5_rse_display.py
 figures/out/rse_fig_%.pdf: figures/rse_fig_%.py figures/_rse.py results/metrics.json results/display/rse_shorelines.json
 	$(PYTHON) $<
-RSE_TEX := manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) $(wildcard manuscript/rse/fig_*.tex) refs/references.bib $(RSE_FIGS)
+RSE_TEX := figures/out/erl_fig_then_now.pdf manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) $(wildcard manuscript/rse/fig_*.tex) refs/references.bib $(RSE_FIGS)
 manuscript/rse_main.pdf: manuscript/rse_main.tex $(RSE_TEX)
 	$(TECTONIC) -X compile --keep-intermediates manuscript/rse_main.tex
 manuscript/rse_supplementary.pdf: manuscript/rse_supplementary.tex manuscript/rse_main.pdf $(RSE_TEX)
