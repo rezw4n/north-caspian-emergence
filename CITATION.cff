@@ -16,6 +16,9 @@ authors:
     given-names: Tanveer Hossain
     orcid: "https://orcid.org/0009-0000-2295-9325"
     affiliation: "Regional Integrated Multi-Hazard Early Warning System (RIMES), Dhaka"
+  - family-names: Suhi
+    given-names: Kazi Farha Farzana
+    affiliation: "Department of Geography, University of Florida"
 repository-code: "https://github.com/rezw4n/north-caspian-emergence"
 license: MIT
 keywords:
@@ -35,5 +38,7 @@ preferred-citation:
       given-names: Al
     - family-names: Munim
       given-names: Tanveer Hossain
+    - family-names: Suhi
+      given-names: Kazi Farha Farzana
   journal: "Remote Sensing Applications: Society and Environment"
   status: in-preparation
