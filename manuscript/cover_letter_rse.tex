@@ -1,12 +1,21 @@
 % Cover letter for the Remote Sensing Applications: Society and Environment submission (transferred from RSE; D-158). Numbers come from
 % results/metrics.json through numbers.tex.
-\documentclass[11pt]{letter}
+\documentclass[10pt]{letter}
 \usepackage{fontspec}
 \usepackage{siunitx}
-\usepackage[margin=25mm]{geometry}
+\usepackage[margin=20mm,top=18mm]{geometry}
 \usepackage{xurl}
 \input{numbers.tex}
-\signature{Rezwan Ahmed\\Department of Geography and Environment, University of Dhaka\\Dhaka 1000, Bangladesh\\rezwan490@gmail.com \quad ORCID 0009-0002-8003-099X}
+\usepackage{graphicx}
+% One page: closing and signature block flush left and full width.
+\setlength{\longindentation}{0pt}
+\AtBeginDocument{\setlength{\indentedwidth}{\textwidth}}  % the class sets it before the margins
+\setlength{\parskip}{0.55em}
+% The author's signature (a transparent PNG kept outside git in data/private/, never committed);
+% without it the letter builds unsigned.
+\newcommand{\authorsignature}{\IfFileExists{../data/private/signature_cropped.png}%
+  {\includegraphics[height=12mm]{../data/private/signature_cropped.png}\\}{}}
+\signature{\authorsignature Rezwan Ahmed\\Department of Geography and Environment, University of Dhaka\\Dhaka 1000, Bangladesh\\rezwan490@gmail.com \quad ORCID 0009-0002-8003-099X}
 \address{}
 \begin{document}
 \begin{letter}{The Editors\\Remote Sensing Applications: Society and Environment}

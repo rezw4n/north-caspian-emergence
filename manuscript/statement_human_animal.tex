@@ -2,6 +2,7 @@
 \documentclass[11pt]{article}
 \usepackage{fontspec}
 \usepackage[margin=25mm]{geometry}
+\usepackage{graphicx}
 \pagestyle{empty}
 \begin{document}
 \noindent{\large\textbf{Statement for studies in humans and animals}}
@@ -17,7 +18,9 @@
 \noindent This study did not involve human participants, human data or human tissue, and it did not involve animals. It uses only satellite imagery, satellite altimetry, gauge records and published geospatial data sets. Ethical approval and informed consent were therefore not required.
 
 \bigskip
-\noindent Rezwan Ahmed (corresponding author)\\
+% Signature: transparent PNG kept outside git in data/private/; without it the page builds unsigned.
+\noindent\IfFileExists{../data/private/signature_cropped.png}{\includegraphics[height=14mm]{../data/private/signature_cropped.png}\\}{}
+Rezwan Ahmed (corresponding author)\\
 Department of Geography and Environment, University of Dhaka, Dhaka 1000, Bangladesh\\
 rezwan490@gmail.com
 \end{document}
