@@ -1,0 +1,34 @@
+{
+ "script": "scripts/rev3_nearterm.py",
+ "decision": "D-161",
+ "amendment": "PREREG Amendment 20 item 1d",
+ "level_2026_m": -28.6194,
+ "deltaic_sectors": [
+  "volga",
+  "ural"
+ ],
+ "marine_sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "komsomolets",
+  "open_shelf"
+ ],
+ "S_obs_km2": {
+  "domain": 73266.8112,
+  "marine": 66846.7836,
+  "deltaic": 6420.027599999999
+ },
+ "checks": {
+  "registered_c26_reproduced": true,
+  "registered_E_domain_max_abs_diff_km2": 7.275957614183426e-12
+ },
+ "deltas_m": [
+  0.5,
+  1.0,
+  2.0,
+  3.0
+ ],
+ "cell_km2": 0.0036,
+ "seconds": 16.0
+}

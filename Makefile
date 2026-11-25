@@ -96,7 +96,13 @@ test:
 
 ## stage 1a: raw inputs over the network (credentials; never run by `make all`) ----
 fetch: dahiti-download hydroweb-download swot-download bathymetry-download osm-download caspcom-download \
-       wdpa-download
+       wdpa-download hydrolakes-download
+
+# HydroLAKES v1.0 polygons (data.hydrosheds.org, 782 MB, CC BY 4.0): the Caspian's February 2000
+# shoreline of the display rule (first revision, D-163). Writes $(HYDROLAKES) with a .meta.json, and
+# results/provenance/hydrolakes_polys.json.
+hydrolakes-download:
+	$(PYTHON) scripts/rev3_outline.py fetch
 
 # CASPCOM post levels (public HTTP). Writes $(CASPCOM), results/provenance/caspcom_catalogue.json.
 caspcom-download:
@@ -269,6 +275,8 @@ GEDI_DIR    ?= data/interim/gedi
 OSM_DIR     ?= data/raw/osm
 HABITAT_DIR ?= data/raw/habitat
 WDPA_DIR    ?= data/raw/wdpa
+# HydroLAKES v1.0 lake polygons (hydrolakes-download; results/provenance/hydrolakes_polys.json)
+HYDROLAKES  ?= data/raw/hydrolakes/HydroLAKES_polys_v10_shp.zip
 # Great Salt Lake: downloads (scripts/g1_data.py levels, osm, vdatum, products;
 # results/provenance/generality_great_salt_lake_*.json) and Earth Engine outputs
 # (scripts/g1_ee.py extents, scenes, stage1, dep3, stage2; results/generality/great_salt_lake/
@@ -279,7 +287,7 @@ GSL_NET     := $(GSL_RAW)/levels/gsl_daily_levels.csv $(GSL_RAW)/osm_gsl.json \
                $(GSL_RAW)/vdatum_navd88_minus_egm2008.npz $(GSL_RAW)/bathymetry
 GSL_EE      := $(addprefix $(GSL_INT)/,extents_250m.npz scenes.csv stage1.csv dep3_60m.npy stage2_main)
 ACQ_INPUTS  := $(STAGE2_EE) $(STAGE2_PLAN) $(ICESAT2)/ATL06 $(ICESAT2)/ATL08 $(GLO30_DIR) $(GEDI_DIR) $(OSM_DIR) \
-               $(HABITAT_DIR) $(WDPA_DIR) $(GSL_NET) $(GSL_EE)
+               $(HABITAT_DIR) $(WDPA_DIR) $(HYDROLAKES) $(GSL_NET) $(GSL_EE)
 
 $(STAGE2_EE):
 	$(call need_acq,$@,scripts/a6_stage2_export.py or scripts/r18_rblock_export.py (Earth Engine))
@@ -297,6 +305,8 @@ $(HABITAT_DIR):
 	$(call need_acq,$@,the retrieval recorded in results/provenance/habitat_rasters.json (no script))
 $(WDPA_DIR):
 	$(call need_acq,$@,`make wdpa-download` (Protected Planet))
+$(HYDROLAKES):
+	$(call need_acq,$@,`make hydrolakes-download` (data.hydrosheds.org; 782 MB))
 $(GSL_NET):
 	$(call need_acq,$@,scripts/g1_data.py levels|osm|vdatum|products great_salt_lake (network))
 $(GSL_EE):
@@ -1246,6 +1256,32 @@ REV2_DONE := $(addsuffix /.done,$(addprefix $(REV2)/,n a oc d g))
 METRIC_INPUTS += $(REV2_DONE)
 REVISION_RESULTS += $(REV2_DONE)
 
+# --- Journal review, first revision (PREREG Amendment 20; D-161): the analyses made in answer to
+# the reviewers of RSASE-D-26-03629. They read results already on disk (no Earth Engine job and no
+# download) and write under results/revision3/; tools/metrics_rev_x3.py reads their tables. The
+# pass of rev3_marine.py takes about 45 minutes.
+REV3 := results/revision3
+# The Caspian's February 2000 shoreline on the 250 m study-area grid, from the HydroLAKES polygon
+# (D-163). Its raw archive comes from `make hydrolakes-download`, a network step outside `all`; the
+# step checks the archive against results/provenance/hydrolakes_polys.json. The GLWD v2 class raster
+# (the registered form of the outline, reported beside the polygon) is one of the habitat rasters.
+OUTLINE := results/study_area/caspian_feb2000_250m.npz results/study_area/caspian_feb2000.json
+$(OUTLINE) &: scripts/rev3_outline.py src/caspian/rev3.py results/study_area/extents_v6_250m.npz $(HYDROLAKES) \
+        results/provenance/hydrolakes_polys.json $(HABITAT_DIR) | $(VERIFIED)
+	$(PYTHON) scripts/rev3_outline.py mask
+METRIC_INPUTS += $(OUTLINE)
+$(REV3)/.done: scripts/rev3_marine.py scripts/rev3_nearterm.py scripts/rev3_lidar.py scripts/rev3_tables.py \
+        src/caspian/rev3.py $(OUTLINE) $(REV2_DONE) | $(VERIFIED)
+	$(PYTHON) scripts/rev3_marine.py fit
+	$(PYTHON) scripts/rev3_marine.py pass
+	$(PYTHON) scripts/rev3_marine.py decide
+	$(PYTHON) scripts/rev3_nearterm.py
+	$(PYTHON) scripts/rev3_lidar.py
+	$(PYTHON) scripts/rev3_tables.py all
+	touch $@
+METRIC_INPUTS += $(REV3)/.done
+REVISION_RESULTS += $(REV3)/.done
+
 results/metrics.json: tools/build_metrics.py $(METRIC_INPUTS) | $(VERIFIED)
 	$(PYTHON) tools/build_metrics.py
 
@@ -1312,16 +1348,32 @@ results/display/rse_shorelines.json: scripts/f5_rse_display.py | $(VERIFIED)
 	$(PYTHON) scripts/f5_rse_display.py
 figures/out/rse_fig_%.pdf: figures/rse_fig_%.py figures/_rse.py results/metrics.json results/display/rse_shorelines.json
 	$(PYTHON) $<
+# Supplementary map of the ICESat-2 blocks (first revision, Amendment 20 item 7; D-162).
+figures/out/rse_si_fig_lidar_blocks.pdf: figures/rse_si_fig_lidar_blocks.py figures/_rse.py results/metrics.json
+	$(PYTHON) $<
+RSE_FIGS += figures/out/rse_si_fig_lidar_blocks.pdf
 RSE_TEX := figures/out/erl_fig_then_now.pdf manuscript/numbers.tex $(wildcard manuscript/sections/*.tex) $(wildcard manuscript/rse/fig_*.tex) refs/references.bib $(RSE_FIGS)
 manuscript/rse_main.pdf: manuscript/rse_main.tex $(RSE_TEX)
 	$(TECTONIC) -X compile --keep-intermediates manuscript/rse_main.tex
 manuscript/rse_supplementary.pdf: manuscript/rse_supplementary.tex manuscript/rse_main.pdf $(RSE_TEX)
-	$(TECTONIC) -X compile manuscript/rse_supplementary.tex
+	$(TECTONIC) -X compile --keep-intermediates manuscript/rse_supplementary.tex
+# First revision (D-161). The article with the changes in blue, and the flat LaTeX source that
+# the journal's production needs: one .tex with every \input inlined
+# and every number written out, the figures as Figure_<n>.pdf, references.bib and the .bbl, in
+# one folder without subfolders. The flat source is rebuilt and compared with the article.
+manuscript/rse_main_marked.pdf: manuscript/rse_main_marked.tex manuscript/rse_main.tex $(RSE_TEX)
+	$(TECTONIC) -X compile manuscript/rse_main_marked.tex
+.PHONY: rse-source rse-wordcount
+rse-source: manuscript/rse_main.pdf
+	$(PYTHON) tools/flatten_rse.py release/rse_source --build --reference manuscript/rse_main.pdf
+rse-wordcount:
+	$(PYTHON) tools/word_count_rse.py
 manuscript/rse_highlights.pdf: manuscript/rse_highlights.tex manuscript/numbers.tex
 	$(TECTONIC) -X compile manuscript/rse_highlights.tex
 manuscript/cover_letter_rse.pdf: manuscript/cover_letter_rse.tex manuscript/numbers.tex
 	$(TECTONIC) -X compile manuscript/cover_letter_rse.tex
-RSE_PDFS := manuscript/rse_main.pdf manuscript/rse_supplementary.pdf manuscript/rse_highlights.pdf manuscript/cover_letter_rse.pdf results/display/rse_shorelines.json
+RSE_PDFS := manuscript/rse_main.pdf manuscript/rse_supplementary.pdf manuscript/rse_highlights.pdf manuscript/cover_letter_rse.pdf results/display/rse_shorelines.json \
+            manuscript/rse_main_marked.pdf
 all: $(VERIFIED) $(PHASE_A_RESULTS) $(RESULTS_ALL) $(QC_FIGS) $(FIGS) $(RESULT_FIGS) manuscript/sections/ed_tables_draft.tex \
      manuscript/sections/ed_tables_h3_draft.tex manuscript/numbers.tex \
      manuscript/main_erl.pdf manuscript/supplementary_erl.pdf manuscript/supplementary_prereg.md $(RSE_PDFS)

@@ -1,0 +1,66 @@
+{
+ "amendment": "PREREG Amendment 20 items 1e and 1f",
+ "deltaic_sectors": [
+  "volga",
+  "ural"
+ ],
+ "outline": "the HydroLAKES polygon of the Caspian Sea (lake 1; SRTM Water Body Data, February 2000), cell centre inside the polygon (results/study_area/caspian_feb2000_250m.npz; D-163)",
+ "outline_as_registered": "GLWD v2 main class 2 (saline lake) at the cell centre: the same polygon as rasterised at 15 arc-seconds, with every other saline lake of the class",
+ "band_km2_not_drawn_as_seabed_glwd_raster": 6458.375,
+ "share_of_domain_band_not_drawn_as_seabed_glwd_raster": 0.17464950605494664,
+ "deltaic_band_cells_lake_in_raster_not_in_polygon_km2": 273.1875,
+ "deltaic_band_cells_lake_in_polygon_not_in_raster_km2": 105.5,
+ "glwd_file": "GLWD_v2_0_main_class.tif",
+ "extents": "results/study_area/extents_v6_250m.npz (250 m)",
+ "band_definition": "water in the 1995-96 extent (high == 1) and not water in the 2025-26 extent (low == 0), inside the study domain: the band the figures draw",
+ "band_km2_domain": 36979.0625,
+ "band_km2_deltaic": 9522.0,
+ "band_km2_deltaic_landward": 6626.0625,
+ "band_km2_not_drawn_as_seabed": 6626.0625,
+ "share_of_domain_band_not_drawn_as_seabed": 0.17918416671596257,
+ "swot_departure_rel_all_m": {
+  "west": -0.0669,
+  "volga": 0.179,
+  "interfluve": 0.005,
+  "ural": -0.0275,
+  "northeast": -0.0129,
+  "komsomolets": null,
+  "open_shelf": 0.0045
+ },
+ "swot_n_passes": {
+  "west": 64,
+  "volga": 77,
+  "interfluve": 181,
+  "ural": 132,
+  "northeast": 145,
+  "komsomolets": 0,
+  "open_shelf": 320
+ },
+ "volga_minus_all_by_month_m": {
+  "4": 0.3209,
+  "5": 0.2508,
+  "6": 0.1256,
+  "7": 0.0445,
+  "8": 0.2859,
+  "9": 0.3375,
+  "10": 0.2753
+ },
+ "volga_passes_by_month": {
+  "4": 14,
+  "5": 10,
+  "6": 8,
+  "7": 11,
+  "8": 10,
+  "9": 12,
+  "10": 12
+ },
+ "static_share_E3": {
+  "interfluve": 0.0064380764451327,
+  "komsomolets": 0.0121429880843263,
+  "northeast": 0.0166831461039158,
+  "open_shelf": 0.0988843956504735,
+  "ural": 0.1262670751946891,
+  "volga": 0.4105657985746105,
+  "west": 0.1972395241451731
+ }
+}

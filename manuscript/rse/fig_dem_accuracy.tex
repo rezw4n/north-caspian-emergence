@@ -5,7 +5,7 @@
   \centering
   \includegraphics[width=\textwidth]{../figures/out/rse_fig_dem_accuracy.pdf}
   \caption{\textbf{Accuracy of the waterline elevation model against ICESat-2.}
-  (a)~The waterline elevation model (height on the DAHITI reference) on the emerged seabed, with the \metric{h2.atl08.n_test_blocks} test blocks of \metric{h2.block_size_km}~km that hold ICESat-2 points (vermilion squares); checked sectors are named in bold.
+  (a)~The waterline elevation model (height on the DAHITI reference) on the emerged seabed, with the \metric{h2.atl08.n_test_blocks} test blocks of \metric{h2.block_size_km}~km that hold ICESat-2 points (vermilion squares); checked sectors are named in bold\rev{; grey, ground of the two deltaic sectors landward of the Caspian's February 2000 shoreline, not interpreted (Fig.~\ref{fig:rse_study_area})}.
   (b)~Model height against ICESat-2 ATL08 height for the $n = \metric{h2.atl08.n_test_points}$ test-block points on bare emerged seabed; dashed line, one to one.
   Mean error \metric{h2.atl08.dem.bias_m}~m, normalised median absolute deviation (NMAD) \metric{h2.atl08.dem.nmad_m}~m, root-mean-square error \metric{h2.atl08.dem.rmse_m}~m.
   (c)~Error (model minus ICESat-2) per sector and over all test blocks.
@@ -13,6 +13,7 @@
   Shaded, $\pm\metric{params.checked_tol_m}$~m: a sector is checked when all four statistics of the elevation model lie within it.
   Off-axis values are drawn on the edge and labelled.
   (d)~NMAD of the elevation model (black) and of each grid against ATL08 (logarithmic axis).
-  Right: ATL08 points and test blocks per row.}
+  Right: ATL08 points and test blocks per row.
+  \rev{Map lines delineate study areas and do not necessarily depict accepted national boundaries.}}
   \label{fig:rse_dem_accuracy}
 \end{figure}

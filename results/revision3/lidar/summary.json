@@ -1,0 +1,67 @@
+{
+ "amendment": "PREREG Amendment 20 items 4, 5 and 7",
+ "decision": "D-161",
+ "rule": "model - (lidar + registered constant) on the paired points of the emerged band, 50 km blocks; block bootstrap B = 2000, seed 20261125, 95% percentile intervals from a 1 mm histogram; descriptive",
+ "registered_bare_population_veg_share_below": 0.5,
+ "surface_edges": [
+  0.1,
+  0.5
+ ],
+ "lowest_audited_level_m": -28.75,
+ "height_band_step_m": 0.5,
+ "n_height_bands": 6,
+ "buffers_km": [
+  10.0,
+  25.0
+ ],
+ "near_km": 10.0,
+ "checked_sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "open_shelf"
+ ],
+ "gradients_m_per_km": {
+  "west": 0.4081857204437256,
+  "volga": 1.0820226669311523,
+  "interfluve": 0.3929420709609985,
+  "ural": 0.5012218356132507,
+  "northeast": 0.4233360290527344,
+  "komsomolets": 0.3067696690559387,
+  "open_shelf": 0.2015198022127151
+ },
+ "sources": {
+  "ATL08": {
+   "n_prepared": 1266343,
+   "n_in_band": 605261,
+   "n_outside_block_table": 13568,
+   "n_not_paired": 379,
+   "n_used": 591314,
+   "datum_constant_m": 0.7098306999999977,
+   "grids": [
+    "gebco_2026",
+    "etopo_2022",
+    "srtm15p_v2.7",
+    "gebco_2022",
+    "etopo1"
+   ],
+   "test_block_check_max_abs_dev_m": 4.440892098500626e-16
+  },
+  "ATL06": {
+   "n_prepared": 13702061,
+   "n_in_band": 6486104,
+   "n_outside_block_table": 140117,
+   "n_not_paired": 3840,
+   "n_used": 6342147,
+   "datum_constant_m": 0.7229551000000001,
+   "grids": [
+    "gebco_2026",
+    "etopo_2022",
+    "srtm15p_v2.7",
+    "gebco_2022",
+    "etopo1"
+   ],
+   "test_block_check_max_abs_dev_m": 4.440892098500626e-16
+  }
+ }
+}

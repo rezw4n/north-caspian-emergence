@@ -45,6 +45,9 @@
 \newcommand{\SIsection}[2]{\clearpage\section*{#1\quad #2}\addcontentsline{toc}{section}{#1\quad #2}}
 
 \input{sections/si_erl_figures}
+% The article marks its revised text with \rev{...} (first revision, D-161), and its .aux, read
+% below, carries that macro inside the captions; here it prints its argument unchanged.
+\providecommand{\rev}[1]{#1}
 % The Letter's labels, read last so that every macro its captions use is defined.
 \externaldocument[M-]{rse_main}
 % Aliases for labels of the ERL Letter that the unchanged section files cite.
@@ -69,7 +72,7 @@
 \author{Rezwan Ahmed\orcid{0009-0002-8003-099X}, Al Sakib\orcid{0009-0007-6064-4827}, Tanveer Hossain Munim\orcid{0009-0000-2295-9325} and Kazi Farha Farzana Suhi}
 \begin{center}
 \begin{minipage}{0.85\linewidth}
-\noindent\textbf{Description.} Full methods, accuracy of the waterline elevation model, robustness checks, adversarial tests, Great Salt Lake methods, near-term emergence sensitivities, deviations from the pre-registration, and the additional analyses of pre-registration Amendments 18 and 19.
+\noindent\textbf{Description.} Full methods, accuracy of the waterline elevation model, robustness checks, adversarial tests, Great Salt Lake methods, near-term emergence sensitivities, deviations from the pre-registration, and the additional analyses of pre-registration Amendments 18, 19 and 20.
 
 \medskip
 \noindent Supplementary material for: \emph{Global bathymetry grids misplace the retreating North Caspian shoreline by kilometres} (Remote Sensing Applications: Society and Environment, submitted). Figure, equation and section numbers of the main article are given by number.
@@ -88,7 +91,9 @@
 \SIfigsetup
 \input{sections/si_erl_methods_dem}
 \SIfigmethod
-\SIfigemergence
+% \SIfigemergence (the ERL-era map of emergence dates) is no longer shown: it repeats Fig. 4 of
+% the article, and unlike that figure it coloured the river-fed ground of the deltaic sectors as
+% emerged seabed (Reviewer 1 of RSASE-D-26-03629; D-161).
 \input{sections/si_erl_methods_datums}
 \input{sections/si_erl_methods_validation}
 \input{sections/si_erl_methods_hindcast}
@@ -143,6 +148,10 @@
 % ---------------------------------------------------------------------------------------------
 \SIsection{S10}{Additional analyses (pre-registration Amendment 19)}
 \input{sections/rse_si_a19}
+
+% ---------------------------------------------------------------------------------------------
+\SIsection{S11}{Additional analyses made in review (pre-registration Amendment 20)}
+\input{sections/rse_si_a20}
 
 \clearpage
 \bibliographystyle{unsrtnat}

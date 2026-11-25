@@ -2,7 +2,9 @@
 
 a, The waterline DEM (data/processed/dem/main/dem_*.tif band 1, height on the DAHITI
    reference; 30 m, averaged to a 150 m display grid) inside the emerged band (water in
-   the 1995-96 and not water in the 2025-26 zone-v6 extent), the 50 km test blocks that hold
+   the 1995-96 and not water in the 2025-26 zone-v6 extent; in the two deltaic sectors only
+   inside the Caspian's February 2000 outline, the river-fed ground landward of it in grey:
+   PREREG Amendment 20 item 1e, figures/_data.not_seabed), the 50 km test blocks that hold
    ICESat-2 points of the H2 population (results/validation/main/ATL08_accuracy_blocks.csv),
    sector outlines and names.
 b, DEM height against the ICESat-2 ATL08 reference height (orthometric height plus the
@@ -63,7 +65,8 @@ def main() -> int:
     extent = C.map_extent(domain)
     dem = D.mosaic("dem", float(C.MAP_RES_M))
     band = D.emerged_band(dem["extent"], dem["z"].shape)
-    z = np.where(band, dem["z"], np.nan)
+    river = D.not_seabed(dem["extent"], dem["z"].shape)        # PREREG Amendment 20 item 1e
+    z = np.where(band & ~river, dem["z"], np.nan)
     sea, sea_ext = C.sea_mask()
     pts = D.icesat2_test("ATL08")
     e = pts["dem_h"].to_numpy(float) - pts["y_ref"].to_numpy(float)
@@ -89,6 +92,8 @@ def main() -> int:
     ax.imshow(np.where(sea, 1.0, np.nan), extent=sea_ext, origin="upper", transform=proj,
               cmap=ListedColormap([R.SEA]), interpolation="nearest", zorder=1, rasterized=True)
     ex = dem["extent"]
+    ax.imshow(np.where(river, 1.0, np.nan), extent=[ex[0], ex[1], ex[2], ex[3]], origin="upper", transform=proj,
+              cmap=ListedColormap([R.NOTSEA]), interpolation="nearest", zorder=2, rasterized=True)
     im = ax.imshow(np.ma.masked_invalid(z), extent=[ex[0], ex[1], ex[2], ex[3]], origin="upper", transform=proj,
                    cmap=cmocean.cm.deep_r, norm=Normalize(*LEVEL_RANGE), interpolation="nearest", zorder=2,
                    rasterized=True)
@@ -116,6 +121,9 @@ def main() -> int:
     cb.ax.xaxis.set_label_position("top")
     cb.ax.tick_params(labelsize=R.FS_SMALL, length=2, width=0.4, pad=1.2)
     cb.outline.set_linewidth(0.4)
+    fig.legend(handles=[Patch(fc=R.NOTSEA, ec="none", label=R.NOTSEA_LABEL3)], loc="lower left",
+               bbox_to_anchor=(xb0 / W, (H - TOP - map_h + 9.5) / H), frameon=False, fontsize=R.FS_SMALL,
+               handlelength=1.4, handletextpad=0.6, borderaxespad=0)
 
     # b, hexbin -------------------------------------------------------------------------------------
     HB = 36.0

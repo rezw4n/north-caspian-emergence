@@ -40,6 +40,16 @@ PRODUCTS = ("gebco_2026", "gebco_2022", "etopo_2022", "srtm15p_v2.7", "etopo1")
 OBS = "#000000"
 SEA = "#d7e6f2"
 LAND = "#ececec"
+# Band of the deltaic sectors landward of the Caspian's February 2000 outline (PREREG
+# Amendment 20 item 1e): delta plain, floodplain and delta-front ground whose flooding also
+# depends on river discharge. Drawn in a neutral mid-grey, never with a seabed colour.
+NOTSEA = "#b3b3b3"
+# The labels say why the ground is not interpreted and make no claim about what it is: part of
+# it may be seabed that emerged between 1995-96 and 2000 (Supplementary Section S11).
+NOTSEA_LABEL = ("Delta sectors, landward of the February 2000 shoreline:\n"
+                "water there also follows river discharge; not interpreted")
+NOTSEA_LABEL3 = "Delta sectors, landward of the\nFebruary 2000 shoreline: water also\nfollows river discharge; not interpreted"
+NOTSEA_LABEL1 = "a: deltas, landward of the 2000 shoreline: not interpreted"
 VALIDATED = ("west", "interfluve", "northeast", "open_shelf")      # PREREG Amendment 18 item 1
 NOT_VALIDATED = ("volga", "ural", "komsomolets")
 SECTORS = VALIDATED + NOT_VALIDATED
@@ -129,12 +139,93 @@ def check_text(fig, min_size: float = MIN_FS) -> None:
         raise SystemExit(f"text below {min_size} pt: {small[:10]}")
 
 
+def text_box_mm(fig, t) -> tuple[float, float, float, float]:
+    """(x0, y0, x1, y1) in millimetres from the figure's bottom-left corner of a text as
+    drawn, with its box patch when it has one."""
+    fig.canvas.draw()
+    r = fig.canvas.get_renderer()
+    bb = t.get_window_extent(r)
+    patch = t.get_bbox_patch()
+    if patch is not None:
+        pb = patch.get_window_extent(r)
+        bb = bb.union([bb, pb])
+    s = 25.4 / fig.dpi
+    return bb.x0 * s, bb.y0 * s, bb.x1 * s, bb.y1 * s
+
+
+def _ancestors(artist):
+    """The axes and figure that hold an artist (those that can hide it)."""
+    out = []
+    ax = getattr(artist, "axes", None)
+    if ax is not None:
+        out.append(ax)
+    return out
+
+
+def overlapping_texts(fig, pad_mm: float = 0.15) -> list[tuple[str, str]]:
+    """Pairs of visible texts of the figure whose drawn boxes (with their box patches)
+    intersect by more than ``pad_mm`` in both directions. Texts hidden by an axes' clip
+    box are left out. Used to stop a figure from being saved with labels printed over
+    each other."""
+    from matplotlib.text import Text
+
+    fig.canvas.draw()
+    r = fig.canvas.get_renderer()
+    s = 25.4 / fig.dpi
+    # labels of ticks that lie outside the view interval exist as Text objects but are never drawn
+    undrawn = set()
+    for ax in fig.axes:
+        for axis in (ax.xaxis, ax.yaxis):
+            lo, hi = sorted(axis.get_view_interval())
+            tol = 1e-9 * max(abs(lo), abs(hi), 1.0)
+            for tick in axis.get_major_ticks() + axis.get_minor_ticks():
+                if not (lo - tol <= tick.get_loc() <= hi + tol):
+                    undrawn.update((id(tick.label1), id(tick.label2)))
+    items = []
+    for t in fig.findobj(Text):
+        if not (t.get_visible() and t.get_text().strip()) or id(t) in undrawn:
+            continue
+        if not all(a.get_visible() for a in _ancestors(t)):
+            continue                        # inside a hidden axes or legend
+        bb = t.get_window_extent(r)
+        patch = t.get_bbox_patch()
+        if patch is not None:
+            bb = bb.union([bb, patch.get_window_extent(r)])
+        if bb.width <= 0 or bb.height <= 0:
+            continue
+        ax = getattr(t, "axes", None)
+        if ax is not None and t.get_clip_on():
+            ab = ax.get_window_extent(r)
+            if bb.x1 < ab.x0 or bb.x0 > ab.x1 or bb.y1 < ab.y0 or bb.y0 > ab.y1:
+                continue                    # clipped away entirely
+        items.append((t.get_text().replace("\n", " ")[:40], bb.x0 * s, bb.y0 * s, bb.x1 * s, bb.y1 * s))
+    out = []
+    for i in range(len(items)):
+        a = items[i]
+        for j in range(i + 1, len(items)):
+            b = items[j]
+            if (min(a[3], b[3]) - max(a[1], b[1]) > pad_mm) and (min(a[4], b[4]) - max(a[2], b[2]) > pad_mm):
+                out.append((a[0], b[0]))
+    return out
+
+
+def check_overlap(fig, allow=()) -> None:
+    """Stop if two texts of the figure are printed over each other. ``allow`` lists pairs
+    of text beginnings that are meant to overlap (none by default)."""
+    bad = [p for p in overlapping_texts(fig)
+           if not any(p[0].startswith(a) and p[1].startswith(b) or p[0].startswith(b) and p[1].startswith(a)
+                      for a, b in allow)]
+    if bad:
+        raise SystemExit(f"overlapping texts: {bad[:12]}")
+
+
 def check_size(W: float, H: float) -> None:
     if H > MAX_H_MM + 1e-6:
         raise SystemExit(f"figure height {H:.1f} mm exceeds {MAX_H_MM} mm")
 
 
-def save(fig, name: str, W: float, H: float):
+def save(fig, name: str, W: float, H: float, allow_overlap=()):
     check_text(fig)
     check_size(W, H)
+    check_overlap(fig, allow_overlap)
     return C.save(fig, name)

@@ -1,0 +1,15 @@
+{
+ "amendment": "PREREG Amendment 20 item 1d (split of existing tables)",
+ "deltaic_sectors": [
+  "volga",
+  "ural"
+ ],
+ "marine_sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "komsomolets",
+  "open_shelf"
+ ],
+ "source": "results/revision2/n/exposure2_{features,polygons}.csv (registered constants)"
+}

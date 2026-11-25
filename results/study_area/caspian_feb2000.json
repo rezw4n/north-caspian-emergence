@@ -1,0 +1,45 @@
+{
+ "decision": "D-163",
+ "amendment": "PREREG Amendment 20 item 1e (the display rule), polygon form",
+ "source": {
+  "file": "data/raw/hydrolakes/HydroLAKES_polys_v10_shp.zip",
+  "url": "https://data.hydrosheds.org/file/hydrolakes/HydroLAKES_polys_v10_shp.zip",
+  "retrieved_utc": "2026-11-25T08:36:15Z",
+  "bytes": 820295132,
+  "sha256": "9ef63498569dd7ccd0b8d8852da026e009a75f42d293f00e483f3b9fcfe8e1f9",
+  "licence": "CC BY 4.0 (HydroLAKES v1.0; Messager et al. 2016)",
+  "layer": "HydroLAKES_polys_v10_shp/HydroLAKES_polys_v10.shp"
+ },
+ "lake": {
+  "Hylak_id": 1,
+  "Lake_name": "Caspian Sea",
+  "Poly_src": "SWBD",
+  "Lake_area_km2": 377001.91,
+  "Elevation_m": -29.0
+ },
+ "shoreline_date": "February 2000 (SRTM Water Body Data; HydroLAKES Technical Documentation v1.0)",
+ "polygon": {
+  "n_vertices_whole_lake": 75415,
+  "n_vertices_in_window": 59498,
+  "n_interior_rings_in_window": 1141
+ },
+ "grid": {
+  "file": "results/study_area/extents_v6_250m.npz",
+  "cell_m": 250.0,
+  "shape": [
+   1519,
+   2632
+  ],
+  "rule": "cell centre inside the polygon (rasterize, all_touched = False), equal-area projection"
+ },
+ "lake_cells": 1565288,
+ "lake_km2_in_grid": 97830.5,
+ "glwd_raster": {
+  "file": "GLWD_v2_0_main_class.tif",
+  "cell_arcsec": 15.0,
+  "lake_km2_in_grid": 104056.0625,
+  "cells_lake_in_both": 1561217,
+  "cells_lake_in_polygon_only": 4071,
+  "cells_lake_in_raster_only": 103680
+ }
+}

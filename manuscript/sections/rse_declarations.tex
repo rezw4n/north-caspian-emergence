@@ -1,7 +1,11 @@
-% RSE: declarations, in the order requested by the author (D-153), placed after the main text and
-% before the references. The generative-AI declaration is last, immediately before the
-% references, with the section title Elsevier requires (docs/journal_specs.md). Data availability
-% adapted from erl_statements.tex (same repository, inputs, licences and restrictions).
+% RSE: declarations, placed after the main text and before the references. Order (first revision,
+% D-161): the Guide for Authors of Remote Sensing Applications: Society and Environment asks for
+% the acknowledgements "in a separate section that appears directly before the reference list",
+% for the generative-AI declaration in a new section before the reference list, and for a caption
+% of each supplementary file (docs/journal_specs.md). The other statements keep the order
+% requested by the author (D-153). Data availability adapted from erl_statements.tex (same
+% repository, inputs, licences and restrictions).
+% The wording of the generative-AI declaration is the authors' own statement and is unchanged.
 
 \section*{CRediT authorship contribution statement}
 \textbf{Rezwan Ahmed:} Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing -- original draft, Writing -- review \& editing, Visualization.
@@ -18,8 +22,11 @@ This research did not receive any specific grant from funding agencies in the pu
 \section*{Data availability}
 The code (MIT licence), the derived data behind every figure, table and number, and the pre-registration with its dated amendments are openly available at \url{https://github.com/rezw4n/north-caspian-emergence}; one command (\texttt{make all}) rebuilds every result from the raw inputs. The input data are openly available from the providers cited in Section~\ref{sec:data}. CASPCOM gauge levels, whose catalogue states no licence, were used only to estimate the offset to the Baltic Height System; we report derived statistics and do not redistribute the levels \citep{caspcom2026}. Protected-area polygons are not redistributed, in line with the database's terms. Results derived from the Copernicus DEM were produced using Copernicus WorldDEM-30 \textcopyright{} DLR e.V. 2010--2014 and \textcopyright{} Airbus Defence and Space GmbH 2014--2018 provided under COPERNICUS by the European Union and ESA; all rights reserved.
 
-\section*{Acknowledgements}
-We thank the providers of open data: DGFI-TUM (DAHITI); CNES and Theia (Hydroweb and hydroweb.next); NASA and USGS (Landsat, the Great Salt Lake gauges and 3DEP); ESA and Copernicus (Sentinel-2, the Copernicus DEM and ERA5 through ECMWF); NSIDC (ICESat-2); LP DAAC (GEDI); NASA PO.DAAC and CNES (SWOT); GEBCO; NOAA NCEI (ETOPO); Scripps Institution of Oceanography (SRTM15+); CASPCOM; UNEP-WCMC and IUCN (WDPA); ESA WorldCover; OpenStreetMap contributors; and Google Earth Engine.
+\section*{Appendix A. Supplementary material}
+\rev{Two supplementary files accompany this article. \emph{Supplementary material} (PDF): full methods (Section~S1); accuracy of the waterline elevation model and conformal coverage (S2); the hindcast audit in detail (S3); robustness checks (S4); adversarial tests (S5); Great Salt Lake methods (S6); near-term emergence sensitivities (S7); deviations from the pre-registration (S8); and the additional analyses of pre-registration Amendments~18, 19 and 20 (S9 to S11), of which Section~S11 holds the analyses made in review. \emph{Pre-registration record} (PDF): the hypotheses, data, sectors, spatial blocks, metrics and decision rules registered before any test metric was computed, with every dated amendment.}
 
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
 During the preparation of this work the authors used Claude Code (Anthropic) minimally and under the authors' direction, in order to write the analysis code and review the draft. After using this tool, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication.
+
+\section*{Acknowledgements}
+We thank the providers of open data: DGFI-TUM (DAHITI); CNES and Theia (Hydroweb and hydroweb.next); NASA and USGS (Landsat, the Great Salt Lake gauges and 3DEP); ESA and Copernicus (Sentinel-2, the Copernicus DEM and ERA5 through ECMWF); NSIDC (ICESat-2); LP DAAC (GEDI); NASA PO.DAAC and CNES (SWOT); GEBCO; NOAA NCEI (ETOPO); Scripps Institution of Oceanography (SRTM15+); CASPCOM; UNEP-WCMC and IUCN (WDPA); ESA WorldCover; OpenStreetMap contributors; and Google Earth Engine. \rev{We thank the two anonymous reviewers, whose comments led to the analyses of Supplementary Section~S11.}

@@ -157,6 +157,29 @@ Pipeline entry points, grouped by pipeline step (the file-name prefix). `make al
 | `f2_erl_landsat.py` | Landsat "then and now" composites for the ERL satellite figure: true-colour |
 | `f3_erl_waterlines.py` | Observed level-binned waterlines for the ERL "Then and now" figure (figure 1, panel b). |
 | `f4_erl_nearterm_map.py` | Display rasters for the revised ERL figure 5 (where the first metre emerges). |
+| `f5_rse_display.py` | Display preparations for the RSE figures rse_fig_shorelines.py and rse_fig_method.py: |
+| `rev2_a_audit.py` | Second-round revision analysis A: PREREG Amendment 19 items 7 and 8 (D-147). |
+| `rev2_a_tables.py` | Second-round revision analysis A: H1 verdicts for PREREG Amendment 19 items 7, 8 and 11 |
+| `rev2_a_variants.py` | Second-round revision analysis A: PREREG Amendment 19 item 11, observation variants |
+| `rev2_d_constants.py` | Second-review analysis D, area constants by subset (PREREG Amendment 19 item 6a). |
+| `rev2_d_obsbias.py` | Second-review analysis D, observation bias from all ICESat-2 blocks (PREREG Amendment 19 |
+| `rev2_d_sources.py` | Second-review analysis D, depth sources (PREREG Amendment 19 item 14). Exploratory, |
+| `rev2_d_tables.py` | Second-review analyses D, table stages (PREREG Amendment 19 items 4, 6b, 12 and the |
+| `rev2_g_lakebed.py` | Revision 2, workstream G (PREREG Amendment 19 item 13; D-150): the sounding-based |
+| `rev2_g_lakebed_data.py` | Revision 2, workstream G (PREREG Amendment 19 item 13): the Great Salt Lake lake-bed |
+| `rev2_n_exposure.py` | A19 item 1, exposure (D-146): the D-126 exposure counts recomputed on the increment |
+| `rev2_n_pathways.py` | A19 item 2 (D-146): the pathway × grid partition of emerged area at 2035 and 2050 for |
+| `rev2_n_reref.py` | A19 item 1 (D-146): near-term emergence from the observed 2026 shoreline, re-referenced at |
+| `rev2_n_simulate.py` | A19 item 3 (D-146): the five-grid agreement on the first metre and its reference from |
+| `rev2_oc_common.py` | Shared set-up of the Amendment 19 item 5 and item 9 scripts (D-148). Not an entry point. |
+| `rev2_oc_item5.py` | Amendment 19 item 5: operating characteristic of the H1 decision rule (D-148). Exploratory. |
+| `rev2_oc_item9.py` | Amendment 19 item 9: systematic-budget Monte Carlo (D-148). Exploratory. |
+| `rev2_oc_run.py` | Driver of the Amendment 19 item 5 and item 9 runs (D-148), meant to run inside one heavy slot |
+| `rev3_lidar.py` | Journal revision, PREREG Amendment 20 items 4, 5 and 7 (D-161): what the ICESat-2 points |
+| `rev3_marine.py` | Journal revision, PREREG Amendment 20 items 1 (a-c) and 2 (b) (D-161): the audit on the |
+| `rev3_nearterm.py` | Journal revision, PREREG Amendment 20 item 1d (D-161): near-term emergence from the |
+| `rev3_outline.py` | Journal revision (D-163): the Caspian's February 2000 shoreline as a vector polygon, for the |
+| `rev3_tables.py` | Journal revision, PREREG Amendment 20 items 1 (d: exposure split, e: band areas, f), 3, 6 |
 | `rev_g_3dep_provenance.py` | Provenance of the USGS 3DEP 1/3 arc-second seamless DEM over Great Salt Lake (revision G, task A). |
 | `rev_g_etopo.py` | Revision analysis G (PREREG Amendment 18 item 11, ETOPO 2022). Exploratory, post-review |
 | `rev_g_etopo_docs.py` | ETOPO 2022 and HydroLAKES documentation on lakes (revision G, task B). |

@@ -1,0 +1,3 @@
+source,near_km,n_near,n_far,n_blocks_with_near,n_blocks_with_far,mean_abs_near_m,mean_abs_far_m,difference_m,difference_lo_m,difference_hi_m,n_boot_undefined,max_distance_km,median_distance_km
+ATL08,10,50247,54493,14,12,0.592315,0.673686,-0.081371,-0.631329,0.19892,0,24.9997,10.6212
+ATL06,10,545515,558212,14,13,0.60073,0.669536,-0.0688059,-0.602543,0.179755,0,25,10.1798

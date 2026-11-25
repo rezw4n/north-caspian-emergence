@@ -199,6 +199,48 @@ def waterlines_in_box(x0: float, y0: float, x1: float, y1: float) -> pd.DataFram
     return pd.DataFrame(z)
 
 
+GLWD = DATA / "raw" / "habitat" / "glwd_v2" / "GLWD_v2_0_main_class.tif"
+EXTENTS = RESULTS / "study_area" / "extents_v6_250m.npz"
+OUTLINE = RESULTS / "study_area" / "caspian_feb2000_250m.npz"      # scripts/rev3_outline.py mask (D-163)
+SECTOR_LABELS = RESULTS / "levels" / "sector_labels.csv"
+
+
+def band_parts() -> dict:
+    """The display rule of PREREG Amendment 20 item 1e on the 250 m extents grid
+    (caspian.rev3.band_display_parts): ``band``, ``not_seabed`` (band cells of the deltaic
+    sectors landward of the Caspian's February 2000 shoreline, the HydroLAKES polygon; not
+    drawn as emerged seabed), ``sector`` and ``transform``. Cached."""
+    from caspian import rev3
+    from caspian.geography import SECTOR_ORDER, sectors
+
+    def build():
+        lab = pd.read_csv(SECTOR_LABELS).set_index("sector")
+        delt = [s for s in SECTOR_ORDER if bool(lab.loc[s, "deltaic"])]
+        p = rev3.band_display_parts(EXTENTS, GLWD, {k: g for k, (_, g) in sectors().items()}, delt,
+                                    outline_npz=OUTLINE)
+        return {k: p[k] for k in ("band", "not_seabed", "sector", "transform")}
+
+    return _cached("band_parts_polygon_250m", [EXTENTS, GLWD, OUTLINE, SECTOR_LABELS], build)
+
+
+def not_seabed(extent, shape) -> np.ndarray:
+    """``band_parts()["not_seabed"]`` by nearest 250 m cell on a grid of ``shape`` covering
+    ``extent`` = [x0, x1, y0, y1] (north up), as ``emerged_band`` samples the band."""
+    p = band_parts()
+    a, _, c0, _, e, f0 = p["transform"]
+    ny, nx = shape
+    xs = extent[0] + (np.arange(nx) + 0.5) * (extent[1] - extent[0]) / nx
+    ys = extent[3] - (np.arange(ny) + 0.5) * (extent[3] - extent[2]) / ny
+    ci = np.floor((xs - c0) / a).astype(int)
+    ri = np.floor((ys - f0) / e).astype(int)
+    m = p["not_seabed"]
+    okc = (ci >= 0) & (ci < m.shape[1])
+    okr = (ri >= 0) & (ri < m.shape[0])
+    out = np.zeros(shape, bool)
+    out[np.ix_(okr, okc)] = m[np.ix_(ri[okr], ci[okc])]
+    return out
+
+
 def emerged_band(extent, shape) -> np.ndarray:
     """The emerged band (water in the 1995-96 and not water in the 2025-26 zone-v6
     extent; results/study_area/extents_v6_250m.npz), by nearest 250 m cell, on a grid of

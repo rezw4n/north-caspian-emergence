@@ -142,8 +142,12 @@ def main() -> int:
             axb.plot(i + dx, q2, R.MARKERS[p], ms=4.5, mfc=R.COLOURS[p] if filled else "white", mec=R.COLOURS[p],
                      mew=0.9, zorder=3)
     axb.axhline(0, color=R.MUTED, lw=0.6, zorder=1)
-    axb.set_xticks(xs, [R.NAMES[p] for p in R.PRODUCTS], rotation=30, ha="right", rotation_mode="anchor")
+    # upright names in two staggered rows: five names do not fit one row at this width, and
+    # slanted labels crowd the axis corner
+    axb.set_xticks(xs, [R.NAMES[p] for p in R.PRODUCTS])
     axb.tick_params(axis="x", length=0)
+    for k, tick in enumerate(axb.xaxis.get_major_ticks()):
+        tick.set_pad(2.0 + (R.FS + 1.5) * (k % 2))
     axb.set_xlim(-0.6, len(R.PRODUCTS) - 0.4)
     axb.set_ylim(-40, 15)
     axb.set_ylabel("Late-fall area bias,\ncalibration and test blocks (%)")
@@ -172,7 +176,7 @@ def main() -> int:
             a_.plot(xo, yy, color=R.COLOURS[p], lw=1.0, marker=R.MARKERS[p], ms=4.0, mec="white", mew=0.4, zorder=3)
     for a_, lab in ((axo, "Summed |area error|,\ntraining blocks (10³ km²)"),
                     (axd, "Median shoreline\ndisplacement (km)")):
-        a_.set_xticks(range(len(DESIGNS)), [t for _, t in DESIGNS], rotation=30, ha="right", rotation_mode="anchor")
+        a_.set_xticks(range(len(DESIGNS)), [t.replace(" ", "\n") for _, t in DESIGNS])      # upright, two lines
         a_.tick_params(axis="x", length=0)
         a_.set_xlim(-0.35, len(DESIGNS) - 0.65)
         a_.set_ylim(0, None)

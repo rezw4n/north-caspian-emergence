@@ -41,6 +41,10 @@ GAMMA = 0.85
 LEVEL_COLOUR = (0.08, 0.36, 0.62, 0.86)   # positions on Crameri batlow, high level to low
 BLOCK = 4                          # display block: 4 x 60 m cells, whose water share is contoured at 0.5
 MIN_LEN_KM = 6                     # contour pieces shorter than this are not drawn
+# Shoreline strokes (points). The four levels lie only a few kilometres apart, about a
+# millimetre at the printed scale, so the lines are thin with a hairline white casing:
+# at 1.3 pt with a 2.6 pt casing (the first version) neighbouring levels merged.
+SHORE_LW, SHORE_CASING_LW, SHORE_KEY_LW = 0.6, 1.2, 1.4
 WATERLINES = C.ROOT / "results" / "display" / "erl_waterlines.json"
 WATERLINE_FIELDS = C.ROOT / "data" / "interim" / "figures" / "erl" / "waterlines_main.npz"
 
@@ -120,8 +124,9 @@ def main() -> int:
             for b in bins:
                 f = wz[f"obs_b{b:03d}"].astype(np.float32)
                 for seg in iso_lines(f, wext, 0.5):
-                    ax.plot(seg[:, 0], seg[:, 1], color=bcol[b], lw=1.3, zorder=6, solid_capstyle="round",
-                            path_effects=[patheffects.withStroke(linewidth=2.6, foreground="white")])
+                    ax.plot(seg[:, 0], seg[:, 1], color=bcol[b], lw=SHORE_LW, zorder=6, solid_capstyle="round",
+                            solid_joinstyle="round",
+                            path_effects=[patheffects.withStroke(linewidth=SHORE_CASING_LW, foreground="white")])
         E.map_axes_clean(ax)
         ax.set_xlim(EXTENT[0], EXTENT[1])
         ax.set_ylim(EXTENT[2], EXTENT[3])
@@ -134,7 +139,7 @@ def main() -> int:
                 bbox={"boxstyle": "square,pad=0.25", "fc": "white", "ec": "none", "alpha": 0.9})
     # shoreline key (level and years of the acquisitions), under the maps
     yk = TOP + 2 * mh + GAP + 7.5
-    handles = [Line2D([], [], color=bcol[b], lw=2.4, label=blab[b]) for b in bins]
+    handles = [Line2D([], [], color=bcol[b], lw=SHORE_KEY_LW, label=blab[b]) for b in bins]
     fig.text(L / W, 1 - (yk - 2.4) / H, "Observed shoreline at the level\n(years of the acquisitions; b, c):",
              ha="left", va="top", fontsize=E.FS, color=E.INK, linespacing=1.1)
     fig.legend(handles=handles, loc="upper left", bbox_to_anchor=((L + 49.0) / W, 1 - (yk - 3.2) / H), ncol=2,

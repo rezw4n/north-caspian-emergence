@@ -1,0 +1,108 @@
+{
+ "rule": "D-070 (0.01 m grid over +-5 m, the 43 units, ties to the smallest |c| then the smaller c) on the known training-block cells of the marine domain: the domain less the deltaic sectors",
+ "deltaic_sectors": [
+  "volga",
+  "ural"
+ ],
+ "marine_sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "komsomolets",
+  "open_shelf"
+ ],
+ "fit_region_cells": 35432933,
+ "fit_region_cells_marine": 25944769,
+ "fit_region_cells_by_sector": {
+  "west": 3041242,
+  "volga": 8598943,
+  "interfluve": 1863905,
+  "ural": 889221,
+  "northeast": 5641034,
+  "komsomolets": 4095988,
+  "open_shelf": 11302600
+ },
+ "products": {
+  "gebco_2026": {
+   "c_area_primary_m": -1.48,
+   "objective_primary_km2": 127258.1892,
+   "primary_reproduced": true,
+   "c_marine_m": -1.48,
+   "objective_marine_km2": 79760.4768,
+   "objective_marine_at_c_area_km2": 79760.4768,
+   "n_tied_minima": 1,
+   "c_change_m": 0.0,
+   "leave_one_epoch_out_m": {
+    "E1": -1.48,
+    "E2": -1.48,
+    "E3": -1.83
+   },
+   "seconds": 28.4
+  },
+  "etopo_2022": {
+   "c_area_primary_m": -1.49,
+   "objective_primary_km2": 78181.5744,
+   "primary_reproduced": true,
+   "c_marine_m": -1.69,
+   "objective_marine_km2": 61206.7068,
+   "objective_marine_at_c_area_km2": 63281.5092,
+   "n_tied_minima": 1,
+   "c_change_m": -0.2,
+   "leave_one_epoch_out_m": {
+    "E1": -1.69,
+    "E2": -1.49,
+    "E3": -1.96
+   },
+   "seconds": 27.7
+  },
+  "srtm15p_v2.7": {
+   "c_area_primary_m": -1.28,
+   "objective_primary_km2": 168030.3276,
+   "primary_reproduced": true,
+   "c_marine_m": -1.18,
+   "objective_marine_km2": 111062.124,
+   "objective_marine_at_c_area_km2": 111455.8488,
+   "n_tied_minima": 1,
+   "c_change_m": 0.1,
+   "leave_one_epoch_out_m": {
+    "E1": -0.98,
+    "E2": -0.8,
+    "E3": -1.78
+   },
+   "seconds": 30.8
+  },
+  "gebco_2022": {
+   "c_area_primary_m": -1.45,
+   "objective_primary_km2": 123312.7224,
+   "primary_reproduced": true,
+   "c_marine_m": -1.38,
+   "objective_marine_km2": 76124.5884,
+   "objective_marine_at_c_area_km2": 77210.8416,
+   "n_tied_minima": 1,
+   "c_change_m": 0.07,
+   "leave_one_epoch_out_m": {
+    "E1": -1.28,
+    "E2": -1.28,
+    "E3": -1.83
+   },
+   "seconds": 32.5
+  },
+  "etopo1": {
+   "c_area_primary_m": -1.38,
+   "objective_primary_km2": 132959.9736,
+   "primary_reproduced": true,
+   "c_marine_m": -1.38,
+   "objective_marine_km2": 92294.4672,
+   "objective_marine_at_c_area_km2": 92294.4672,
+   "n_tied_minima": 1,
+   "c_change_m": 0.0,
+   "leave_one_epoch_out_m": {
+    "E1": -1.28,
+    "E2": -1.18,
+    "E3": -1.93
+   },
+   "seconds": 31.5
+  }
+ },
+ "seconds": 170.5
+}

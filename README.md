@@ -57,6 +57,7 @@ The input data come from their providers under their own terms; the Supplementar
 - Bathymetry and relief: GEBCO_2026, GEBCO_2022, ETOPO 2022, ETOPO1 (NOAA NCEI), SRTM15+ (Scripps).
 - Heights for validation: ICESat-2 (NSIDC), GEDI (LP DAAC), Copernicus DEM GLO-30, USGS 3DEP.
 - ERA5 winds (Copernicus, ECMWF); ESA WorldCover; OpenStreetMap (Open Database License).
+- HydroLAKES v1.0 lake polygons (HydroSHEDS; CC BY 4.0): the Caspian's shoreline of February 2000 that the maps use. The repository holds a 250 m mask derived from it (`results/study_area/caspian_feb2000_250m.npz`).
 - Gauge levels of the Coordinating Committee on Hydrometeorology of the Caspian Sea (CASPCOM). The catalogue states no licence, so the gauge values are not redistributed; the repository holds only derived offset statistics and the script that recomputes them from the catalogue.
 - World Database on Protected Areas (UNEP-WCMC and IUCN). Its terms forbid redistribution, so only derived counts and areas are included, for non-commercial use.
 

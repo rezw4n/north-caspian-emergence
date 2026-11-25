@@ -1,0 +1,22 @@
+{
+ "dataset": "HydroLAKES v1.0, lake polygons (shapefile archive)",
+ "reference": "refs/references.bib: messager2016 (doi:10.1038/ncomms13603); documentation: hydrolakes_doc",
+ "licence": "CC BY 4.0 (HydroLAKES v1.0; Messager et al. 2016)",
+ "url": "https://data.hydrosheds.org/file/hydrolakes/HydroLAKES_polys_v10_shp.zip",
+ "final_url": "https://data.hydrosheds.org/file/hydrolakes/HydroLAKES_polys_v10_shp.zip",
+ "file": "data/raw/hydrolakes/HydroLAKES_polys_v10_shp.zip",
+ "retrieved_utc": "2026-11-25T08:36:15Z",
+ "http_status": 200,
+ "bytes": 820295132,
+ "sha256": "9ef63498569dd7ccd0b8d8852da026e009a75f42d293f00e483f3b9fcfe8e1f9",
+ "members": [
+  "HydroLAKES_polys_v10_shp/",
+  "HydroLAKES_polys_v10_shp/HydroLAKES_polys_v10.dbf",
+  "HydroLAKES_polys_v10_shp/HydroLAKES_polys_v10.prj",
+  "HydroLAKES_polys_v10_shp/HydroLAKES_polys_v10.sbn",
+  "HydroLAKES_polys_v10_shp/HydroLAKES_polys_v10.sbx",
+  "HydroLAKES_polys_v10_shp/HydroLAKES_polys_v10.shp",
+  "HydroLAKES_polys_v10_shp/HydroLAKES_polys_v10.shx",
+  "HydroLAKES_TechDoc_v10.pdf"
+ ]
+}

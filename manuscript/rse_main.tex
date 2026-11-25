@@ -32,8 +32,27 @@
 \usepackage{placeins}  % \FloatBarrier: a figure never drifts into the next section
 \usepackage{hyperref}  % loaded without options: elsarticle or orcidlink loads it first
 \hypersetup{hidelinks}
+% >>> revision marking
+% First revision, RSASE-D-26-03629 (D-161). \rev{...} wraps text that is new or changed; the
+% revblock environment wraps a new table or paragraph group. This file builds the clean
+% manuscript, in which both print as ordinary text. rse_main_marked.tex defines \MARKED and reads
+% this file: there they print in blue (the "changes marked" PDF for the reviewers). The flat
+% source for production (tools/flatten_rse.py) removes this block and the wrappers.
+\usepackage{xcolor}
+\ifdefined\MARKED
+  \newcommand{\rev}[1]{{\color{blue}#1}}
+  \newenvironment{revblock}{\color{blue}}{}
+\else
+  \newcommand{\rev}[1]{#1}
+  \newenvironment{revblock}{}{}
+\fi
+% <<< revision marking
 \input{numbers.tex}
 \sisetup{group-digits=integer}  % group thousands only; never split decimals (e.g. 0.0063)
+% Rounded numbers (\metricsf, \metricdp) are set in the text font, like every other number, so
+% that the flat source for the publisher (tools/flatten_rse.py), which writes each number out as
+% plain text, breaks its lines exactly as this file does (D-161).
+\sisetup{mode=text}
 
 \journal{Remote Sensing Applications: Society and Environment}
 

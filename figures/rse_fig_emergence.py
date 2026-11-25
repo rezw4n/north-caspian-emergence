@@ -7,7 +7,10 @@ a, year in which each pixel of the emerged band became permanently dry
    first day after the last day on which the basin level was at or above the pixel's
    waterline-DEM height), on a 150 m display grid (nearest 30 m pixel), shown only inside
    the emerged band (water in the 1995-96 and not water in the 2025-26 zone-v6 extent;
-   results/study_area/extents_v6_250m.npz); open sea of the 2025-26 low stand; sector
+   results/study_area/extents_v6_250m.npz) and, in the two deltaic sectors, only inside the
+   Caspian's February 2000 outline (PREREG Amendment 20 item 1e, figures/_data.not_seabed:
+   landward of it the band is river-fed ground and is drawn in grey, without a date);
+   open sea of the 2025-26 low stand; sector
    outlines and names (results/study_area/sectors.geojson); OpenStreetMap ports, piers and
    ferry terminals and oil and gas platforms and wells (data/raw/osm/); two cities.
 b, the daily basin level used to date emergence (data/processed/dem/main/emergence/
@@ -72,7 +75,10 @@ def main() -> int:
     extent = C.map_extent(domain)
     em = D.mosaic("emergence", float(C.MAP_RES_M))
     band = D.emerged_band(em["extent"], em["z"].shape)
-    yr = np.where(band, _years(em["z"]), np.nan)
+    # PREREG Amendment 20 item 1e: in the deltaic sectors, no date landward of the Caspian's
+    # February 2000 outline (river-fed ground: delta plain, ilmens, Volga-Akhtuba floodplain)
+    river = D.not_seabed(em["extent"], em["z"].shape)
+    yr = np.where(band & ~river, _years(em["z"]), np.nan)
     sea, sea_ext = C.sea_mask()
     ports = gpd.read_file(RAW / "osm" / "osm_ports.gpkg")
     plats = gpd.read_file(RAW / "osm" / "osm_platforms.gpkg")
@@ -111,6 +117,8 @@ def main() -> int:
     norm = Normalize(YEAR0, YEAR1)
     cmap = cmc.batlow
     e = em["extent"]
+    ax.imshow(np.where(river, 1.0, np.nan), extent=[e[0], e[1], e[2], e[3]], origin="upper", transform=proj,
+              cmap=ListedColormap([R.NOTSEA]), interpolation="nearest", zorder=2, rasterized=True)
     ax.imshow(np.ma.masked_invalid(yr), extent=[e[0], e[1], e[2], e[3]], origin="upper", transform=proj,
               cmap=cmap, norm=norm, interpolation="nearest", zorder=2, rasterized=True)
     gl = C.graticule(ax, size=R.FS_SMALL)
@@ -137,6 +145,7 @@ def main() -> int:
     R.label(ax, "a", inside=True)
     handles = [Patch(facecolor=R.SEA, edgecolor="none", label="Open sea, 2025–26"),
                Patch(facecolor=R.LAND, edgecolor=R.MUTED, lw=0.3, label="Land, or band seabed without a date"),
+               Patch(facecolor=R.NOTSEA, edgecolor="none", label=R.NOTSEA_LABEL),
                Line2D([], [], ls="none", marker="o", ms=2.8, mfc="none", mec=R.INK, mew=0.5,
                       label="Port, pier or ferry terminal (OSM)"),
                Line2D([], [], ls="none", marker="^", ms=3.2, mfc="white", mec=R.INK, mew=0.5,

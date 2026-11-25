@@ -28,6 +28,7 @@ import sys
 
 import _common as C
 import _data as D
+import _rse as R
 import numpy as np
 import pandas as pd
 
@@ -58,7 +59,10 @@ def main() -> int:
     extent = C.map_extent(domain)
     dem = D.mosaic("dem", float(C.MAP_RES_M))
     band = D.emerged_band(dem["extent"], dem["z"].shape)
-    z = np.where(band, dem["z"], np.nan)
+    # PREREG Amendment 20 item 1e (D-161): in the two deltaic sectors the band landward of the
+    # Caspian's February 2000 outline is drawn in grey and carries no height, as in the article
+    river = D.not_seabed(dem["extent"], dem["z"].shape)
+    z = np.where(band & ~river, dem["z"], np.nan)
     sea, sea_ext = C.sea_mask()
     blocks50 = pd.read_csv(RESULTS / "study_area" / "blocks_50km.csv")
     pts = D.icesat2_test("ATL06")
@@ -94,6 +98,8 @@ def main() -> int:
                 cmap=plt.matplotlib.colors.ListedColormap([C.SEA]), interpolation="nearest", zorder=1, rasterized=True)
     cmap = cmocean.cm.deep_r
     ex = dem["extent"]
+    ax_a.imshow(np.where(river, 1.0, np.nan), extent=[ex[0], ex[1], ex[2], ex[3]], origin="upper", transform=proj,
+                cmap=plt.matplotlib.colors.ListedColormap([R.NOTSEA]), interpolation="nearest", zorder=2, rasterized=True)
     im = ax_a.imshow(np.ma.masked_invalid(z), extent=[ex[0], ex[1], ex[2], ex[3]], origin="upper", transform=proj,
                      cmap=cmap, norm=Normalize(*LEVEL_RANGE), interpolation="nearest", zorder=2, rasterized=True)
     C.graticule(ax_a)
@@ -111,8 +117,9 @@ def main() -> int:
     cb.ax.tick_params(labelsize=5.5, length=2, width=0.4, pad=1.2)
     cb.outline.set_linewidth(0.4)
     fig.legend(handles=[Patch(fc="none", ec="#D55E00", lw=0.8, label=f"a: test block ({size / 1000:.0f} km) with ICESat-2"),
-                        Patch(fc=C.SEA, ec="none", label="a: open sea, 2025–26")],
-               loc="lower left", bbox_to_anchor=((XB - 4.0) / W, y1 - 0.5 / H), fontsize=5.5, handlelength=1.2,
+                        Patch(fc=C.SEA, ec="none", label="a: open sea, 2025–26"),
+                        Patch(fc=R.NOTSEA, ec="none", label=R.NOTSEA_LABEL1)],
+               loc="lower left", bbox_to_anchor=((XB - 4.0) / W, y1 - 2.5 / H), fontsize=5.5, handlelength=1.2,
                frameon=False, ncol=1)
     plotting.panel_label(ax_a, "a", x=-0.06, y=0.985)
 

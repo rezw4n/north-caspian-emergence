@@ -215,6 +215,8 @@ SIDE_OUTPUTS = {
     "results/robustness/r06_datums/": "results/robustness/r06_datums_validation/summary.json",
     # second review round (PREREG Amendment 19): each step writes its folder and a stamp
     **{f"results/revision2/{x}/": f"results/revision2/{x}/.done" for x in ("n", "a", "oc", "d", "g")},
+    # journal review, first revision (PREREG Amendment 20): the steps write one folder and a stamp
+    "results/revision3/": "results/revision3/.done",
     # display table of the RSE shoreline figure, a prerequisite of the article's figures
     "results/display/rse_shorelines.json": "manuscript/rse_main.pdf",
 }

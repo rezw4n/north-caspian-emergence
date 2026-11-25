@@ -1,19 +1,28 @@
 """RSE figure: the North Caspian study area (double column, 190 mm).
 
-a, the study domain and its seven reporting sectors, each named on the map
-   (results/study_area/sectors.geojson); the three sectors whose observations are not
-   validated hatched (the validated-sector rule of PREREG Amendment 18 item 1: the
-   waterline DEM's mean and median errors within +-0.5 m of ICESat-2 ATL08 and ATL06 in
-   the sector's test blocks; results/validation/main/ATL0{6,8}_accuracy.csv, checked
-   here); the 50 km test blocks that hold the ICESat-2 points of the H2 population
-   (results/validation/main/ATL08_accuracy_blocks.csv); the seabed that emerged between the
-   1995-96 high stand and the 2025-26 low stand (water in the 1995-96 and not water in the
-   2025-26 zone-v6 extent, results/study_area/extents_v6_250m.npz); the open sea of the
-   2025-26 low stand (results/study_area/sea_mask_1km.npz); two cities
-   (data/raw/osm/osm_settlements.gpkg); international boundaries (Natural Earth 1:50 m,
-   cartopy); graticule and scale bar.
-b, locator: the Caspian Sea and its neighbours (Natural Earth 1:50 m land, lakes and
-   boundaries), with the study domain.
+One map: the study domain and its seven reporting sectors, each named on the map
+(results/study_area/sectors.geojson); the three sectors whose observations are not
+validated hatched (the validated-sector rule of PREREG Amendment 18 item 1: the waterline
+DEM's mean and median errors within +-0.5 m of ICESat-2 ATL08 and ATL06 in the sector's
+test blocks; results/validation/main/ATL0{6,8}_accuracy.csv, checked here); the 50 km test
+blocks that hold the ICESat-2 points of the H2 population
+(results/validation/main/ATL08_accuracy_blocks.csv); the seabed that emerged between the
+1995-96 high stand and the 2025-26 low stand (water in the 1995-96 and not water in the
+2025-26 zone-v6 extent, results/study_area/extents_v6_250m.npz); the open sea of the
+2025-26 low stand (results/study_area/sea_mask_1km.npz); two cities
+(data/raw/osm/osm_settlements.gpkg); international boundaries (Natural Earth 1:50 m,
+cartopy); graticule and scale bar.
+
+Journal revision (PREREG Amendment 20 item 1e; D-161):
+- In the two deltaic sectors the band is drawn as emerged seabed only inside the Caspian's
+  February 2000 outline (figures/_data.band_parts); landward of it the band is river-fed
+  ground (delta plain, the western ilmens, the Volga-Akhtuba floodplain) and is drawn in
+  grey, not interpreted as seabed.
+- The regional locator of the first version is gone: the journal's guide for authors does
+  not allow a location map wider than the study area's bounding box. The graticule locates
+  the map.
+- The key is laid out from the measured widths of its labels, so no label can run into
+  the text beside it.
 
 Drawn in the analysis projection (Lambert azimuthal equal area centred at 45.5 N, 50 E,
 caspian.config.CRS_EQUAL_AREA); the scale bar is exact at the centre (scale error below
@@ -29,6 +38,7 @@ from __future__ import annotations
 import sys
 
 import _common as C
+import _data as D
 import _rse as R
 import numpy as np
 import pandas as pd
@@ -49,6 +59,8 @@ NAMES_MAP = {"west": "Kizlyar–Dagestan\ncoast", "volga": "Volga delta", "inter
              "komsomolets": "Komsomolets\nBay", "open_shelf": "Open shelf"}
 CITIES = {"Astrakhan": (4, -1, "left", "center"), "Atyrau": (4, 0, "left", "center")}
 COUNTRIES = {"RUSSIA": (47.0, 47.17), "KAZAKHSTAN": (54.05, 47.12)}
+KEY_GAP_MM = 3.0          # between a sector-class label and its explanation
+KEY_PAD_MM = 1.6          # hatched margin around the "Biased or untested" label
 
 
 def validated_sectors() -> list[str]:
@@ -63,7 +75,6 @@ def validated_sectors() -> list[str]:
 
 
 def main() -> int:
-    import cartopy.crs as ccrs
     import cartopy.feature as cfeature
     import geopandas as gpd
     import matplotlib.pyplot as plt
@@ -83,6 +94,11 @@ def main() -> int:
     ex = np.load(RESULTS / "study_area" / "extents_v6_250m.npz")
     a, _, c0, _, e, f0 = ex["transform"]
     band = (ex["high"] == 1) & (ex["low"] == 0)
+    parts = D.band_parts()
+    if not np.array_equal(parts["band"], band):
+        raise SystemExit("figures/_data.band_parts: another band than this figure's")
+    river = parts["not_seabed"]
+    seabed = band & ~river
     band_ext = [c0, c0 + a * band.shape[1], f0 + e * band.shape[0], f0]
     blocks = pd.read_csv(VAL / "ATL08_accuracy_blocks.csv")
     blocks = blocks[blocks["model"] == "dem"]
@@ -97,14 +113,15 @@ def main() -> int:
     L, RGT, TOP = 8.5, 1.5, 2.0
     map_w = W - L - RGT
     map_h = map_w * (extent[3] - extent[2]) / (extent[1] - extent[0])
-    G1, ROW2, BOT = 7.0, 44.0, 1.5
+    G1, ROW2, BOT = 7.0, 31.0, 1.5
     H = TOP + map_h + G1 + ROW2 + BOT
     fig = plt.figure(figsize=(W * C.MM, H * C.MM))
     ax = fig.add_axes([L / W, (H - TOP - map_h) / H, map_w / W, map_h / H], projection=proj)
     ax.set_extent(extent, crs=proj)
     ax.set_facecolor(R.LAND)
-    ax.imshow(np.where(band, 1.0, np.nan), extent=band_ext, origin="upper", transform=proj,
-              cmap=ListedColormap([BAND]), interpolation="nearest", zorder=1, rasterized=True)
+    for mask, colour in ((seabed, BAND), (river, R.NOTSEA)):
+        ax.imshow(np.where(mask, 1.0, np.nan), extent=band_ext, origin="upper", transform=proj,
+                  cmap=ListedColormap([colour]), interpolation="nearest", zorder=1, rasterized=True)
     ax.imshow(np.where(sea, 1.0, np.nan), extent=sea_ext, origin="upper", transform=proj,
               cmap=ListedColormap([R.SEA]), interpolation="nearest", zorder=2, rasterized=True)
     bnd = cfeature.NaturalEarthFeature("cultural", "admin_0_boundary_lines_land", "50m")
@@ -144,68 +161,51 @@ def main() -> int:
             color="#2f5d80", zorder=10)
     R.scale_bar(ax, extent[0] + 18_000, extent[2] + 15_000, C.SCALE_KM * 1000.0,
                 R.num(m, "params.fig_scale_bar_km", "km"), transform=proj, size=R.FS_SMALL)
-    R.label(ax, "a", inside=True)
 
-    # b, locator ----------------------------------------------------------------------------------
-    LW_, LH_ = 50.0, 40.0
+    # key: map symbols on the left, the two sector classes on the right ---------------------------
     y_row = TOP + map_h + G1
-    loc_proj = ccrs.LambertAzimuthalEqualArea(central_longitude=50.0, central_latitude=42.0)
-    axl = fig.add_axes([L / W, (H - y_row - LH_) / H, LW_ / W, LH_ / H], projection=loc_proj)
-    axl.set_extent([38.5, 62.0, 34.5, 49.5], crs=ccrs.PlateCarree())
-    axl.set_facecolor(R.SEA)
-    axl.add_feature(cfeature.NaturalEarthFeature("physical", "land", "50m"), facecolor=R.LAND, edgecolor="none",
-                    zorder=1)
-    axl.add_feature(cfeature.NaturalEarthFeature("physical", "lakes", "50m"), facecolor=R.SEA, edgecolor="none",
-                    zorder=2)
-    axl.add_feature(cfeature.NaturalEarthFeature("physical", "coastline", "50m"), facecolor="none",
-                    edgecolor="#8a8a8a", lw=0.3, zorder=3)
-    axl.add_feature(bnd, facecolor="none", edgecolor="#9a9a9a", lw=0.35, zorder=3)
-    axl.add_geometries([domain], crs=proj, facecolor="none", edgecolor=TESTC, lw=1.1, zorder=5)
-    lg = axl.gridlines(crs=ccrs.PlateCarree(), draw_labels=False, xlocs=np.arange(30, 70, 10),
-                       ylocs=np.arange(30, 55, 5), color="#c8c8c8", lw=0.3, zorder=4)
-    for txt, (lon, lat), kw in (("Caspian\nSea", (51.3, 41.4), {"style": "italic", "color": "#2f5d80"}),
-                                ("Black Sea", (41.6, 43.4), {"style": "italic", "color": "#2f5d80"}),
-                                ("Aral\nSea", (59.2, 45.4), {"style": "italic", "color": "#2f5d80"})):
-        axl.text(lon, lat, txt, transform=ccrs.PlateCarree(), ha="center", va="center", fontsize=R.FS_SMALL,
-                 linespacing=1.0, zorder=6, **kw)
-    for s in axl.spines.values():
-        s.set_edgecolor(R.MUTED)
-        s.set_linewidth(0.5)
-    # 500 km bar near the projection centre (50 E, 42 N), where the locator's scale is exact
-    x0b, y0b = loc_proj.transform_point(53.2, 36.3, ccrs.PlateCarree())
-    R.scale_bar(axl, x0b, y0b, 500_000.0, "500 km")
-    R.label(axl, "b", inside=True)
-    del lg
-
-    # key -----------------------------------------------------------------------------------------
     handles = [Patch(fc=R.SEA, ec="none", label="Open sea, 2025–26 low stand (Landsat)"),
                Patch(fc=BAND, ec="none", label="Seabed emerged between 1995–96 and 2025–26"),
+               Patch(fc=R.NOTSEA, ec="none", label=R.NOTSEA_LABEL),
+               Patch(fc="white", ec=TESTC, lw=1.0, label=f"ICESat-2 test block, 50 km ({n_blocks} with points)"),
                Line2D([], [], color=R.INK, lw=1.0, label="Study domain"),
                Line2D([], [], color=R.INK, lw=0.5, label="Sector boundary"),
-               Patch(fc="white", ec=TESTC, lw=1.0, label=f"ICESat-2 test block, 50 km ({n_blocks} with points)"),
                Line2D([], [], color="#7a7a7a", lw=0.6, ls=(0, (4, 1.5, 1, 1.5)), label="International boundary"),
                Line2D([], [], ls="none", marker="s", ms=3.0, mfc=R.INK, mec="white", label="City")]
     kw = {"frameon": False, "borderaxespad": 0, "handlelength": 1.6, "handletextpad": 0.6, "labelspacing": 0.45,
           "fontsize": R.FS, "alignment": "left"}
-    fig.legend(handles=handles, loc="upper left", bbox_to_anchor=((L + LW_ + 6.0) / W, 1 - (y_row + 0.5) / H), **kw)
-    sx = L + LW_ + 72.0
-    fig.text(sx / W, 1 - (y_row + 0.5) / H, "Sector names", ha="left", va="top", fontsize=R.FS, color=R.INK)
-    ax_k = fig.add_axes([sx / W, (H - y_row - 30.0) / H, 45.0 / W, 26.0 / H])
-    ax_k.set_xlim(0, 45)
-    ax_k.set_ylim(0, 26)
-    ax_k.axis("off")
-    ax_k.text(1.0, 21.5, "Checked", ha="left", va="center", fontsize=R.FS, fontweight="bold", color=R.INK,
-              bbox={"boxstyle": "round,pad=0.25,rounding_size=0.15", "fc": "white", "ec": R.INK, "lw": 0.8})
-    ax_k.text(17.0, 21.5, "waterline DEM within ±0.5 m\nof ICESat-2 (mean and median)", ha="left", va="center",
-              fontsize=R.FS_SMALL, color=R.INK, linespacing=1.1)
-    ax_k.add_patch(Rectangle((0.5, 6.5), 13.5, 6.0, fc="white", ec=HATCH, hatch="////", lw=0.5))
-    ax_k.text(7.25, 9.5, "Biased or untested", ha="center", va="center", fontsize=R.FS, style="italic", color=R.INK,
-              bbox={"boxstyle": "round,pad=0.25,rounding_size=0.15", "fc": "white", "ec": HATCH, "lw": 0.5})
-    ax_k.text(17.0, 9.5, "mean or median error beyond ±0.5 m,\nor no ICESat-2 test block (hatched)", ha="left", va="center",
-              fontsize=R.FS_SMALL, color=R.INK, linespacing=1.1)
+    leg1 = fig.legend(handles=handles[:4], loc="upper left", bbox_to_anchor=(L / W, 1 - (y_row + 0.5) / H), **kw)
+    fig.canvas.draw()
+    rr = fig.canvas.get_renderer()
+    s = 25.4 / fig.dpi
+    x_col2 = leg1.get_window_extent(rr).x1 * s + 6.0
+    leg2 = fig.legend(handles=handles[4:], loc="upper left", bbox_to_anchor=(x_col2 / W, 1 - (y_row + 0.5) / H), **kw)
+    fig.canvas.draw()
+    sx = leg2.get_window_extent(rr).x1 * s + 9.0           # left edge of the sector-class key (mm)
+    y_top = H - (y_row + 0.5)                              # top of the key row, mm from the bottom
+    fig.text(sx / W, y_top / H, "Sector names", ha="left", va="top", fontsize=R.FS, color=R.INK)
+    box = {"boxstyle": "round,pad=0.25,rounding_size=0.15", "fc": "white"}
+    y1, y2 = y_top - 9.0, y_top - 20.5                     # centre lines of the two classes (mm)
+    t1 = fig.text((sx + 1.0) / W, y1 / H, "Checked", ha="left", va="center", fontsize=R.FS, fontweight="bold",
+                  color=R.INK, bbox={**box, "ec": R.INK, "lw": 0.8})
+    t2 = fig.text((sx + 1.0 + KEY_PAD_MM) / W, y2 / H, "Biased or untested", ha="left", va="center", fontsize=R.FS,
+                  style="italic", color=R.INK, zorder=5, bbox={**box, "ec": HATCH, "lw": 0.5})
+    b1, b2 = R.text_box_mm(fig, t1), R.text_box_mm(fig, t2)
+    # the hatched swatch frames the second label with an even margin; the explanations start
+    # at one x, right of the wider of the two labels: nothing overlaps whatever the font renders
+    fig.add_artist(Rectangle(((b2[0] - KEY_PAD_MM) / W, (b2[1] - KEY_PAD_MM) / H), (b2[2] - b2[0] + 2 * KEY_PAD_MM) / W,
+                             (b2[3] - b2[1] + 2 * KEY_PAD_MM) / H, transform=fig.transFigure, fc="white", ec=HATCH,
+                             hatch="////", lw=0.5, zorder=4))
+    x_exp = max(b1[2], b2[2] + KEY_PAD_MM) + KEY_GAP_MM
+    for yy, txt in ((y1, "waterline DEM within ±0.5 m\nof ICESat-2 (mean and median)"),
+                    (y2, "mean or median error beyond ±0.5 m,\nor no ICESat-2 test block (hatched)")):
+        te = fig.text(x_exp / W, yy / H, txt, ha="left", va="center", fontsize=R.FS_SMALL, color=R.INK, linespacing=1.1)
+        if R.text_box_mm(fig, te)[2] > W - 0.5:
+            raise SystemExit("the sector-class key runs past the right edge of the figure")
     R.save(fig, "rse_fig_study_area", W, H)
     plt.close(fig)
-    print("validated sectors:", val, "| test blocks with ICESat-2 points:", n_blocks)
+    print("validated sectors:", val, "| test blocks with ICESat-2 points:", n_blocks,
+          "| band not drawn as seabed (250 m cells):", int(river.sum()))
     return 0
 
 

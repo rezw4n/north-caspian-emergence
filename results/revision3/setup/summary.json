@@ -1,0 +1,37 @@
+{
+ "amendment": "PREREG Amendment 20 item 8",
+ "n_acquisitions": 4103,
+ "n_scenes": 10039,
+ "n_units": 43,
+ "acquisition_hours_utc": [
+  5,
+  6,
+  7,
+  8
+ ],
+ "first_acquisition": "1992-09-27 06:45:18.316000",
+ "last_acquisition": "2026-10-11 07:23:30.402000",
+ "komsomolets_residual": "the northeastern coast's (its model is the northeastern one with its own forcing)",
+ "checked": {
+  "abs_p95_m": [
+   0.12697999999999993,
+   0.4412599999999999
+  ],
+  "total_sd_m": [
+   0.15829408320336397,
+   0.28517835960509313
+  ],
+  "total_sd_over_floor": [
+   0.29857898921167175,
+   1.615112794613961
+  ],
+  "unit_mean_abs_max_m": [
+   0.06358571428571429,
+   0.2429
+  ]
+ },
+ "wind_median_ratio_same_hours": [
+  0.9770666343534588,
+  1.0225023475389243
+ ]
+}

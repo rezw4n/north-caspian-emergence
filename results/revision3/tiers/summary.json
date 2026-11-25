@@ -1,0 +1,43 @@
+{
+ "amendment": "PREREG Amendment 20 item 6",
+ "status": "post hoc overlay; decides nothing",
+ "control": "rounded degraded-DEM control, levels in the model's contour range (D-116)",
+ "height_m": 0.5,
+ "native_cell_m": {
+  "gebco_2026": 463.3128343063871,
+  "gebco_2022": 463.3128343063871,
+  "srtm15p_v2.7": 463.3128343063871,
+  "etopo_2022": 463.3128343063871,
+  "etopo1": 1853.2513372255485
+ },
+ "half_metre_distance_m": {
+  "west": 1224.932610225723,
+  "volga": 462.09752834301236,
+  "interfluve": 1272.4521932130488,
+  "ural": 997.5622857456802,
+  "northeast": 1181.094841180446,
+  "komsomolets": 1629.8873403577136,
+  "open_shelf": 2481.1457460256083
+ },
+ "n_boot": 2000,
+ "seed": 20261125,
+ "mbb_block_levels": 3,
+ "registered_counts_reproduced": true,
+ "checked_cases": 20,
+ "checked_by_class": {
+  "material": 12,
+  "resolution": 4,
+  "pass": 4
+ },
+ "four_failing_grids_checked_cases": 16,
+ "four_failing_grids_by_class": {
+  "material": 12,
+  "resolution": 4
+ },
+ "four_failing_grids_resolution": [
+  "etopo1|open_shelf",
+  "gebco_2022|open_shelf",
+  "gebco_2026|open_shelf",
+  "srtm15p_v2.7|open_shelf"
+ ]
+}

@@ -1,0 +1,11 @@
+layer,subset,kind,domain_min,domain_max,deltaic_min,deltaic_max,marine_min,marine_max
+osm_channels,all,feature,0.8085782404110649,19.676262324103877,0.0,0.8085782404110649,0.0,19.676262324103877
+osm_pipelines,all,feature,7.678320321937031,29.3935699824152,0.0,0.0,7.678320321937031,29.3935699824152
+osm_platforms,all,feature,0.0,0.0,0.0,0.0,0.0,0.0
+osm_ports,all,feature,1.0,3.0,0.0,1.0,1.0,2.0
+osm_ports,port_harbour_tags,feature,0.0,0.0,0.0,0.0,0.0,0.0
+osm_settlements,all,feature,0.0,3.0,0.0,0.0,0.0,3.0
+osm_wetlands,all,polygon,0.0,0.0,0.0,0.0,0.0,0.0
+wdpa_protected_areas,all,polygon,4305.816,8073.215999999999,514.0872,1789.0739999999998,3389.1552,7061.6304
+wdpa_protected_areas_noksrz,all,polygon,221.8356,1461.852,165.8844,1083.1428,55.9512,378.7092
+wdpa_ramsar,all,polygon,133.7256,1349.0748,77.7744,970.3656,55.9512,378.7092

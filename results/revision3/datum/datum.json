@@ -1,0 +1,57 @@
+{
+ "amendment": "PREREG Amendment 20 item 3",
+ "checked_sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "open_shelf"
+ ],
+ "sources": {
+  "ATL06": {
+   "mean_bias_m": {
+    "west": -0.00876424,
+    "interfluve": -0.0306394,
+    "northeast": -0.0897716,
+    "open_shelf": 0.106546
+   },
+   "mean_bias_min_m": -0.0897716,
+   "mean_bias_max_m": 0.106546,
+   "mean_bias_range_m": 0.19631759999999998,
+   "median_bias_range_m": 0.13569409999999998,
+   "largest_abs_mean_bias_m": 0.106546
+  },
+  "ATL08": {
+   "mean_bias_m": {
+    "west": 0.0251402,
+    "interfluve": -0.0228363,
+    "northeast": -0.0894303,
+    "open_shelf": 0.101728
+   },
+   "mean_bias_min_m": -0.0894303,
+   "mean_bias_max_m": 0.101728,
+   "mean_bias_range_m": 0.1911583,
+   "median_bias_range_m": 0.1392746,
+   "largest_abs_mean_bias_m": 0.101728
+  }
+ },
+ "swot": {
+  "between_sector_departure_m": {
+   "west": -0.0669,
+   "interfluve": 0.005,
+   "northeast": -0.0129,
+   "open_shelf": 0.0045
+  },
+  "largest_abs_checked_m": 0.0669,
+  "sector_of_largest": "west",
+  "all_sectors_rel_m": {
+   "west": -0.0669,
+   "volga": 0.179,
+   "interfluve": 0.005,
+   "ural": -0.0275,
+   "northeast": -0.0129,
+   "komsomolets": null,
+   "open_shelf": 0.0045
+  },
+  "common_departure_m": -0.8345
+ }
+}

@@ -1,0 +1,99 @@
+{
+ "amendment": "PREREG Amendment 20 items 1 (a-c) and 2 (b)",
+ "decision": "D-161",
+ "deltaic_sectors": [
+  "volga",
+  "ural"
+ ],
+ "marine_sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "komsomolets",
+  "open_shelf"
+ ],
+ "checked_sectors": [
+  "west",
+  "interfluve",
+  "northeast",
+  "open_shelf"
+ ],
+ "c_area_m": {
+  "gebco_2026": -1.48,
+  "etopo_2022": -1.49,
+  "srtm15p_v2.7": -1.28,
+  "gebco_2022": -1.45,
+  "etopo1": -1.38
+ },
+ "c_marine_m": {
+  "gebco_2026": -1.48,
+  "etopo_2022": -1.69,
+  "srtm15p_v2.7": -1.18,
+  "gebco_2022": -1.38,
+  "etopo1": -1.38
+ },
+ "c_change_m": {
+  "gebco_2026": 0.0,
+  "etopo_2022": -0.2,
+  "srtm15p_v2.7": 0.1,
+  "gebco_2022": 0.07,
+  "etopo1": 0.0
+ },
+ "bins": [
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43
+ ],
+ "all_bins": true,
+ "checks": {
+  "replica_levels": {
+   "rows": 1120,
+   "floor_rows": 224,
+   "tolerance_m": 1e-06,
+   "all_bins": true
+  },
+  "replica_verdicts": "identical to results/hindcast/main/h1_mispredicts.csv (35 cases)",
+  "replica_sector_medians": "identical to results/revision/s/item2_dq.csv",
+  "replica_domain_area_bias_max_abs_dev": 4.440892098500626e-16,
+  "replica_block_medians": "identical to block_h1.csv (944 rows)"
+ },
+ "n_cases": 35,
+ "n_changed": 2,
+ "n_cases_checked": 20,
+ "n_changed_checked": 0,
+ "changed": [
+  "etopo_2022|ural: True -> False",
+  "srtm15p_v2.7|komsomolets: False -> True"
+ ],
+ "min_block_n": 20,
+ "block_m": 25000.0
+}
