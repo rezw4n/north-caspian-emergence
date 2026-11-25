@@ -16,7 +16,12 @@ numbers.tex (3 MB of macros), finds its figures in ../figures/out and its refere
   manuscript.bbl    the reference list as BibTeX built it (written by the build below)
 
 The preamble loads fontspec under XeTeX or LuaTeX and fontenc/inputenc under pdfTeX, so the
-file does not depend on the engine.
+file does not depend on the engine. Line 1 is the directive "%!TEX TS-program = xelatex":
+the publisher's submission system (Editorial Manager; TeX Live 2024) builds with LaTeX, then
+pdfLaTeX, unless that line asks for XeLaTeX (Aries Systems, "LaTeX Guide, FAQs, and Resources
+for EM/PM", updated March 2025, read 2026-11-25), and XeTeX is the engine this tool builds
+and checks the file with (tectonic). The pdfTeX branch is kept for readers who compile with
+pdfLaTeX; it has not been run.
 
 Checks (exit status 1 if one fails):
   - no \\input, \\metric, \\rev or path separator is left in manuscript.tex, and every
@@ -56,6 +61,12 @@ BEGIN_MARK, END_MARK = "% >>> revision marking", "% <<< revision marking"
 # do not: it is declared here as an ordinary hyphen.
 ENGINE_BLOCK = ("\\usepackage{iftex}\n\\ifPDFTeX\n  \\usepackage[T1]{fontenc}\n  \\usepackage[utf8]{inputenc}\n"
                 "  \\usepackage{lmodern}\n  \\DeclareUnicodeCharacter{2010}{-}\n\\else\n  \\usepackage{fontspec}\n\\fi")
+# Line 1 of the flat source: the engine directive that Editorial Manager and TeX editors read.
+# It must stay the first line of the file.
+ENGINE_DIRECTIVE = "%!TEX TS-program = xelatex"
+HEADER = (ENGINE_DIRECTIVE + "\n"
+          "% Built and checked with XeLaTeX; the line above selects that engine in Editorial Manager and\n"
+          "% in TeX editors. The preamble also carries a pdfLaTeX branch (\\ifPDFTeX).\n")
 # Characters of the reference list that pdfTeX reads through inputenc (T1) or the declaration above.
 BIB_ALLOWED = ALLOWED | set("\u2010\u00df\u00eb\u00ef\u0142\u00e3\u00ea\u00f4\u00e0\u00f9\u00ee\u00e2\u00fd\u010d\u0161\u017e\u0107\u0144\u015b\u017a\u017c")
 # Packages that only the working copy needs, each with the commands that would need it.
@@ -283,8 +294,20 @@ def flatten(out: Path) -> dict:
     doc = re.sub(r"[ \t]+\n", "\n", doc)
     doc = re.sub(r"\n{3,}", "\n\n", doc).lstrip("\n")
     n_refs = prune_bib(tc.cited_keys(doc), out)
-    (out / "manuscript.tex").write_text(doc, encoding="utf-8")
+    doc = HEADER + doc
+    (out / "manuscript.tex").write_text(doc, encoding="utf-8", newline="\n")
     probs = []
+    if read(out / "manuscript.tex").splitlines()[0] != ENGINE_DIRECTIVE:
+        probs.append("line 1 of manuscript.tex is not the engine directive")
+    # the submission system refuses a file name with more than one period or a special character,
+    # and two files with one base name (the .bbl of the .tex excepted, which LaTeX requires)
+    names = [p.name for p in out.iterdir()]
+    bad = [n for n in names if not re.fullmatch(r"[A-Za-z0-9_]+\.[A-Za-z0-9]+", n)]
+    if bad:
+        probs.append(f"file names the submission system may refuse: {bad}")
+    stems = [n.rsplit(".", 1)[0].lower() for n in names if not n.endswith(".bbl")]
+    if len(stems) != len(set(stems)):
+        probs.append("two files of the flat folder share a base name")
     for pat, what in ((r"\\input\b", "\\input"), (r"\\metric", "\\metric"), (r"\\rev\b", "\\rev"),
                       (r"revblock", "revblock"), (r"\.\./", "a parent path"), (r"sections/|rse/fig_", "a subfolder path"),
                       (r"\\todo\b", "\\todo")):
