@@ -44,7 +44,6 @@ micromamba run -n caspian make all
 - `results/`: derived tables, run records, provenance records and `metrics.json`.
 - `outputs/`: quality-control figures.
 - `manuscript/`: LaTeX sources of the article (`rse_main.tex`), its Supplementary material (`rse_supplementary.tex`), the highlights and the cover letter. `main_erl.tex` and `supplementary_erl.tex` are the earlier, shorter version of the paper; the Supplementary material reuses their section files.
-- `docs/`: the pre-registration (`PREREG.md`), the vertical datum chain (`DATUMS.md`) and the data release rules (`DATA_RELEASE.md`).
 - `refs/`: the bibliography and the list of verified references.
 - `tests/`: the pytest suite.
 
